@@ -1,0 +1,74 @@
+WARNING:tensorflow:From /network/rit/home/aa465948/venv/lib/python2.7/site-packages/tensorflow/python/ops/sparse_ops.py:1165: sparse_to_dense (from tensorflow.python.ops.sparse_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Create a `tf.sparse.SparseTensor` and use `tf.sparse.to_dense` instead.
+2018-12-17 16:51:15.065151: I tensorflow/core/platform/cpu_feature_guard.cc:141] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
+([], [], [])
+mse_belief= 0.44136 mse_uncertain== 0.29705 bf-mse_opinion== 0.51386
+mse_belief= 0.44063 mse_uncertain== 0.29302 bf-mse_opinion== 0.51215
+mse_belief= 0.43939 mse_uncertain== 0.28772 bf-mse_opinion== 0.50958
+mse_belief= 0.43748 mse_uncertain== 0.28097 bf-mse_opinion== 0.50597
+mse_belief= 0.43479 mse_uncertain== 0.27248 bf-mse_opinion== 0.50111
+mse_belief= 0.43117 mse_uncertain== 0.26199 bf-mse_opinion== 0.49477
+mse_belief= 0.42649 mse_uncertain== 0.24926 bf-mse_opinion== 0.48682
+mse_belief= 0.42067 mse_uncertain== 0.23413 bf-mse_opinion== 0.47723
+mse_belief= 0.41369 mse_uncertain== 0.21657 bf-mse_opinion== 0.46589
+mse_belief= 0.40560 mse_uncertain== 0.19675 bf-mse_opinion== 0.45288
+mse_belief= 0.39665 mse_uncertain== 0.17507 bf-mse_opinion== 0.43858
+mse_belief= 0.38752 mse_uncertain== 0.15227 bf-mse_opinion== 0.42384
+mse_belief= 0.37860 mse_uncertain== 0.12897 bf-mse_opinion== 0.40925
+mse_belief= 0.36986 mse_uncertain== 0.10554 bf-mse_opinion== 0.39488
+mse_belief= 0.36110 mse_uncertain== 0.08230 bf-mse_opinion== 0.38058
+mse_belief= 0.35226 mse_uncertain== 0.06072 bf-mse_opinion== 0.36640
+mse_belief= 0.34354 mse_uncertain== 0.04408 bf-mse_opinion== 0.35271
+mse_belief= 0.33530 mse_uncertain== 0.03464 bf-mse_opinion== 0.34028
+mse_belief= 0.32787 mse_uncertain== 0.03023 bf-mse_opinion== 0.32977
+mse_belief= 0.32133 mse_uncertain== 0.02786 bf-mse_opinion== 0.32124
+mse_belief= 0.31555 mse_uncertain== 0.02632 bf-mse_opinion== 0.31433
+mse_belief= 0.31035 mse_uncertain== 0.02531 bf-mse_opinion== 0.30859
+mse_belief= 0.30563 mse_uncertain== 0.02466 bf-mse_opinion== 0.30366
+mse_belief= 0.30120 mse_uncertain== 0.02438 bf-mse_opinion== 0.29915
+mse_belief= 0.29703 mse_uncertain== 0.02434 bf-mse_opinion== 0.29492
+mse_belief= 0.29307 mse_uncertain== 0.02430 bf-mse_opinion== 0.29095
+mse_belief= 0.28934 mse_uncertain== 0.02426 bf-mse_opinion== 0.28726
+mse_belief= 0.28577 mse_uncertain== 0.02419 bf-mse_opinion== 0.28374
+mse_belief= 0.28240 mse_uncertain== 0.02412 bf-mse_opinion== 0.28041
+mse_belief= 0.27918 mse_uncertain== 0.02407 bf-mse_opinion== 0.27721
+mse_belief= 0.27615 mse_uncertain== 0.02403 bf-mse_opinion== 0.27422
+mse_belief= 0.27330 mse_uncertain== 0.02396 bf-mse_opinion== 0.27141
+mse_belief= 0.27062 mse_uncertain== 0.02389 bf-mse_opinion== 0.26877
+mse_belief= 0.26811 mse_uncertain== 0.02382 bf-mse_opinion== 0.26630
+mse_belief= 0.26573 mse_uncertain== 0.02376 bf-mse_opinion== 0.26396
+mse_belief= 0.26349 mse_uncertain== 0.02373 bf-mse_opinion== 0.26173
+mse_belief= 0.26141 mse_uncertain== 0.02373 bf-mse_opinion== 0.25964
+mse_belief= 0.25946 mse_uncertain== 0.02366 bf-mse_opinion== 0.25774
+mse_belief= 0.25767 mse_uncertain== 0.02357 bf-mse_opinion== 0.25601
+mse_belief= 0.25598 mse_uncertain== 0.02356 bf-mse_opinion== 0.25433
+mse_belief= 0.25443 mse_uncertain== 0.02344 bf-mse_opinion== 0.25287
+mse_belief= 0.25297 mse_uncertain== 0.02333 bf-mse_opinion== 0.25148
+mse_belief= 0.25159 mse_uncertain== 0.02334 bf-mse_opinion== 0.25009
+mse_belief= 0.25030 mse_uncertain== 0.02325 bf-mse_opinion== 0.24885
+mse_belief= 0.24910 mse_uncertain== 0.02323 bf-mse_opinion== 0.24765
+mse_belief= 0.24800 mse_uncertain== 0.02314 bf-mse_opinion== 0.24662
+mse_belief= 0.24698 mse_uncertain== 0.02309 bf-mse_opinion== 0.24563
+mse_belief= 0.24604 mse_uncertain== 0.02306 bf-mse_opinion== 0.24473
+mse_belief= 0.24514 mse_uncertain== 0.02298 bf-mse_opinion== 0.24392
+mse_belief= 0.24428 mse_uncertain== 0.02295 bf-mse_opinion== 0.24304
+Optimization Finished!
+alpha_0: 3.1141257536606375 beta_0: 6.8858742463393625
+best epoch: 500 bset_belief: 0.24427542 bset_uncertain: 0.022948125 bset_opinion: 0.2430359
+run time =  124.181142092
+belief: 0.24427542 uncertain: 0.022948125 time window =  8 test_rio =  0.2
+Traceback (most recent call last):
+  File "train_epinion_5000.py", line 78, in <module>
+    flags.DEFINE_integer('T', TT[i], 'time winidow.')
+  File "/network/rit/home/aa465948/venv/lib/python2.7/site-packages/tensorflow/python/platform/flags.py", line 58, in wrapper
+    return original_function(*args, **kwargs)
+  File "/network/rit/home/aa465948/venv/lib/python2.7/site-packages/absl/flags/_defines.py", line 315, in DEFINE_integer
+    DEFINE(parser, name, default, help, flag_values, serializer, **args)
+  File "/network/rit/home/aa465948/venv/lib/python2.7/site-packages/absl/flags/_defines.py", line 82, in DEFINE
+    flag_values, module_name)
+  File "/network/rit/home/aa465948/venv/lib/python2.7/site-packages/absl/flags/_defines.py", line 104, in DEFINE_flag
+    fv[flag.name] = flag
+  File "/network/rit/home/aa465948/venv/lib/python2.7/site-packages/absl/flags/_flagvalues.py", line 427, in __setitem__
+    raise _exceptions.DuplicateFlagError.from_flag(name, self)
+absl.flags._exceptions.DuplicateFlagError: The flag 'T' is defined twice. First from train_epinion_5000.py, Second from train_epinion_5000.py.  Description from first occurrence: time winidow.

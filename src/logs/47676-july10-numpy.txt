@@ -1,0 +1,25 @@
+
+
+--------------------------------------------------
+--------------------------------------------------
+
+-------------------Tue, 10 Jul 2018 12:18:34 PM EDT---------------------
+
+0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+method: csl-3-rules-conflict-evidence, T, 8, real_i: 0, ratio: 0.6, test_ratio: 0.1, swaprate: 0.0, graph_size: 47676
+/network/rit/lab/ceashpc/adil/data/csl-data/May23/47676/nodes-47676-T-8-rate-0.6-testratio-0.1-swaprate-0.0-confictratio-0.0-realization-0-data-X.pkl
+#Rules: 10724535 Gen rule time:21.3243851662
+0 Creating 8 consumers
+Process Consumer-1:
+Traceback (most recent call last):
+  File "/usr/lib64/python2.7/multiprocessing/process.py", line 258, in _bootstrap
+    self.run()
+  File "/network/rit/home/aa465948/git/csl-confilict/src/multi_core_csl_inference_conflicting_evidence_new_numpy.py", line 102, in run
+    answer = next_task()
+  File "/network/rit/home/aa465948/git/csl-confilict/src/multi_core_csl_inference_conflicting_evidence_new_numpy.py", line 126, in __call__
+    p_t, b_t= admm(self.omega,self.b,self.X_b, self.y_t, self.Y, self.X, self.edge_up_nns,self. edge_down_nns, self.omega_0, self.R, self.dict_paths, self.psl, self.approx, self.report_stat)
+  File "/network/rit/home/aa465948/git/csl-confilict/src/multi_core_csl_inference_conflicting_evidence_new_numpy.py", line 905, in admm
+    print "Rule process",t_2-t_1
+NameError: global name 't_1' is not defined
+cal int time 114.143121004
+Rule process

@@ -1,0 +1,5 @@
+10: Adjacent(E1,E2) & Conjested(E2) -> Conjested(E1) ^2
+
+10: Adjacent(E1,E2) & Nonconjested(E1) -> Nonconjested(E2) ^2
+
+100: Nonconjested(E1) -> !Conjested(E1) ^2

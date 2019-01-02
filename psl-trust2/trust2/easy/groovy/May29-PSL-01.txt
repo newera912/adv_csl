@@ -1,0 +1,161 @@
+[INFO] Scanning for projects...
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building easylp 1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ easylp ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 2 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ easylp ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Using Groovy-Eclipse compiler to compile both Java and Groovy files
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 2.269 s
+[INFO] Finished at: 2018-05-29T11:20:12-04:00
+[INFO] Final Memory: 23M/1450M
+[INFO] ------------------------------------------------------------------------
+[INFO] Scanning for projects...
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building easylp 1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.8:build-classpath (default-cli) @ easylp ---
+[INFO] Wrote classpath file '/network/rit/home/aa465948/git/csl-confilict/psl-trust/trust/easy/groovy/classpath.out'.
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 1.835 s
+[INFO] Finished at: 2018-05-29T11:20:15-04:00
+[INFO] Final Memory: 29M/1963M
+[INFO] ------------------------------------------------------------------------
+0    [main] INFO  org.linqs.psl.config.ConfigManager  - Configuration file loaded: file:/network/rit/home/aa465948/git/csl-confilict/psl-trust/trust/easy/groovy/target/classes/psl.properties
+52   [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option trust.experiment.name. Returning default of default.
+58   [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option trust.experiment.dbpath. Returning default of /network/rit/lab/ceashpc/adil/psl_tmp.
+58   [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option trust.experiment.data.path. Returning default of ../data.
+70   [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option trust.experiment.output.outputdir. Returning default of output/default.
+78   [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option trust.model.weights.adjacent. Returning default of 100.
+79   [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option trust.model.weights.t. Returning default of 100.
+79   [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option trust.model.weights.prior. Returning default of 50.
+221  [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option trust.rdbmsdatastore.valuecolumn. Returning default of truth.
+221  [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option trust.rdbmsdatastore.confidencecolumn. Returning default of confidence.
+221  [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option trust.rdbmsdatastore.partitioncolumn. Returning default of partition.
+248  [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option trust.rdbmsdatastore.usestringids. Returning default of true.
+255  [main] DEBUG org.linqs.psl.database.rdbms.RDBMSDataStore  - Registered 0 pre-existing predicates from RDBMS.
+344  [main] INFO  org.linqs.psl.example.trust.Trust  - Running experiment default
+348  [main] WARN  org.linqs.psl.database.rdbms.RDBMSDataStoreMetadata  - Determining max partition, no partitions found null
+398  [main] INFO  org.linqs.psl.example.trust.Trust  - Defining model rules
+450  [main] DEBUG org.linqs.psl.example.trust.Trust  - model: Model:
+100.0: ADJACENT(P1, P2) >> ADJACENT(P2, P1) ^2
+100.0: ( ( ( ( T(P1, P2) & T(P2, P3) ) & (P1 != P3) ) & (P1 != P2) ) & (P2 != P3) ) >> T(P1, P3) ^2
+450  [main] INFO  org.linqs.psl.example.trust.Trust  - Loading data into database
+23049 [main] INFO  org.linqs.psl.example.trust.Trust  - Starting inference
+23077 [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option trust.lazympeinference.maxrounds. Returning default of 100.
+23078 [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option trust.lazympeinference.reasoner. Returning default of org.linqs.psl.reasoner.admm.ADMMReasonerFactory@55c53a33.
+23082 [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option trust.admmreasoner.maxiterations. ReturningException in thread "main" java.lang.RuntimeException: Error querying DB for atom.
+	at org.linqs.psl.database.rdbms.RDBMSDatabase.queryDBForAtom(RDBMSDatabase.java:331)
+	at org.linqs.psl.database.rdbms.RDBMSDatabase.getAtom(RDBMSDatabase.java:514)
+	at org.linqs.psl.database.rdbms.RDBMSDatabase.getAtom(RDBMSDatabase.java:358)
+	at org.linqs.psl.model.atom.AtomEventFramework.getAtom(AtomEventFramework.java:119)
+	at org.linqs.psl.model.rule.logical.AbstractLogicalRule.groundAtom(AbstractLogicalRule.java:171)
+	at org.linqs.psl.model.rule.logical.AbstractLogicalRule.groundFormula(AbstractLogicalRule.java:116)
+	at org.linqs.psl.model.rule.logical.AbstractLogicalRule.groundAll(AbstractLogicalRule.java:99)
+	at org.linqs.psl.application.util.Grounding.groundAll(Grounding.java:60)
+	at org.linqs.psl.application.util.Grounding.groundAll(Grounding.java:44)
+	at org.linqs.psl.application.inference.LazyMPEInference.mpeInference(LazyMPEInference.java:124)
+	at org.linqs.psl.application.inference.LazyMPEInference$mpeInference.call(Unknown Source)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCall(CallSiteArray.java:45)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:110)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:114)
+	at org.linqs.psl.example.trust.Trust.runInference(Trust.groovy:180)
+	at org.linqs.psl.example.trust.Trust.this$2$runInference(Trust.groovy)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.codehaus.groovy.runtime.callsite.PogoMetaMethodSite$PogoCachedMethodSiteNoUnwrapNoCoerce.invoke(PogoMetaMethodSiException in thread "main" java.lang.RuntimeException: Error querying DB for atom.
+	at org.linqs.psl.database.rdbms.RDBMSDatabase.queryDBForAtom(RDBMSDatabase.java:331)
+	at org.linqs.psl.database.rdbms.RDBMSDatabase.getAtom(RDBMSDatabase.java:514)
+	at org.linqs.psl.database.rdbms.RDBMSDatabase.getAtom(RDBMSDatabase.java:358)
+	at org.linqs.psl.model.atom.AtomEventFramework.getAtom(AtomEventFramework.java:119)
+	at org.linqs.psl.model.rule.logical.AbstractLogicalRule.groundAtom(AbstractLogicalRule.java:171)
+	at org.linqs.psl.model.rule.logical.AbstractLogicalRule.groundFormula(AbstractLogicalRule.java:125)
+	at org.linqs.psl.model.rule.logical.AbstractLogicalRule.notifyAtomEvent(AbstractLogicalRule.java:184)
+	at org.linqs.psl.model.rule.AbstractRule.notifyAtomEvent(AbstractRule.java:48)
+	at org.linqs.psl.model.atom.AtomEventFramework.notifyListeners(AtomEventFramework.java:267)
+	at org.linqs.psl.model.atom.AtomEventFramework.workOffJobQueue(AtomEventFramework.java:244)
+	at org.linqs.psl.application.inference.LazyMPEInference.mpeInference(LazyMPEInference.java:138)
+	at org.linqs.psl.application.inference.LazyMPEInference$mpeInference.call(Unknown Source)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCall(CallSiteArray.java:45)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:110)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:114)
+	at org.linqs.psl.example.trust.Trust.runInference(Trust.groovy:180)
+	at org.linqs.psl.example.trust.Trust.this$2$runInference(Trust.groovy)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.codehaus.groovy.runtime.callsite.PogoMetaMethodSite$PogoCachedMethodSiteNoUnwrapNoCoerce.invoke(PogoMetaMethodSite.java:207)
+	at org.codehaus.groovy.runtime.callsite.PogoMetaMethodSite.callCurrent(PogoMetaMethodSite.java:56)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCallCurrent(CallSiteArray.java:49)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:151)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:171)
+	at org.linqs.psl.example.trust.Trust.run(Trust.groovy:242)
+	at org.linqs.psl.example.trust.Trust$run.call(Unknown Source)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCall(CallSiteArray.java:45)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:110)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:114)
+	at org.linqs.psl.example.trust.Trust.main(Trust.groovy:271)
+Caused by: org.h2.jdbc.JdbcSQLException: Out of memory.; SQL statement:
+SELECT * FROM T_predicate WHERE ((partition IN (1,2) ) AND (UniqueID_0 = ?) AND (UniqueID_1 = ?)) [90108-192]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:168)
+	at org.h2.message.DbException.convert(DbException.java:289)
+	at org.h2.command.Command.executeQuery(Command.java:211)
+	at org.h2.jdbc.JdbcPreparedStatement.executeQuery(JdbcPreparedStatement.java:110)
+	at org.linqs.psl.database.rdbms.RDBMSDatabase.queryDBForAtom(RDBMSDatabase.java:329)
+	... 31 more
+Caused by: java.lang.OutOfMemoryError: GC overhead limit exceeded
+	at org.h2.mvstore.cache.CacheLongKeyLIRS$Segment.put(CacheLongKeyLIRS.java:804)
+	at org.h2.mvstore.cache.CacheLongKeyLIRS.put(CacheLongKeyLIRS.java:151)
+	at org.h2.mvstore.cache.FilePathCache$FileCache.read(FilePathCache.java:98)
+	at org.h2.mvstore.DataUtils.readFully(DataUtils.java:429)
+	at org.h2.mvstore.FileStore.readFully(FileStore.java:98)
+	at org.h2.mvstore.Page.read(Page.java:190)
+	at org.h2.mvstore.MVStore.readPage(MVStore.java:1944)
+	at org.h2.mvstore.MVMap.readPage(MVMap.java:736)
+	at org.h2.mvstore.Page.getChildPage(Page.java:217)
+	at org.h2.mvstore.MVMap.binarySearch(MVMap.java:468)
+	at org.h2.mvstore.MVMap.binarySearch(MVMap.java:469)
+	at org.h2.mvstore.MVMap.binarySearch(MVMap.java:469)
+	at org.h2.mvstore.MVMap.get(MVMap.java:450)
+	at org.h2.mvstore.db.TransactionStore$TransactionMap.getValue(TransactionStore.java:1203)
+	at org.h2.mvstore.db.TransactionStore$TransactionMap.get(TransactionStore.java:1180)
+	at org.h2.mvstore.db.TransactionStore$TransactionMap.get(TransactionStore.java:1148)
+	at org.h2.mvstore.db.MVPrimaryIndex.getRow(MVPrimaryIndex.java:211)
+	at org.h2.mvstore.db.MVTable.getRow(MVTable.java:463)
+	at org.h2.mvstore.db.MVSecondaryIndex$MVStoreCursor.get(MVSecondaryIndex.java:489)
+	at org.h2.index.IndexCursor.get(IndexCursor.java:288)
+	at org.h2.table.TableFilter.getValue(TableFilter.java:1068)
+	at org.h2.expression.ExpressionColumn.getValue(ExpressionColumn.java:186)
+	at org.h2.expression.Comparison.getValue(Comparison.java:228)
+	at org.h2.expression.ConditionAndOr.getValue(ConditionAndOr.java:86)
+	at org.h2.expression.Expression.getBooleanValue(Expression.java:178)
+	at org.h2.command.dml.Select.queryFlat(Select.java:543)
+	at org.h2.command.dml.Select.queryWithoutCache(Select.java:654)
+	at org.h2.command.dml.Query.query(Query.java:341)
+	at org.h2.command.dml.Query.query(Query.java:309)
+	at org.h2.command.dml.Query.query(Query.java:36)
+	at org.h2.command.CommandContainer.query(CommandContainer.java:110)
+	at org.h2.command.Command.executeQuery(Command.java:201)
+[2018-05-30T03:28:53-0400]: Failed to run
+cp: cannot stat ‘output/default/trust_infer.txt’: No such file or directory
+0 -th  47676 0.1 0 10 0.1 0.1
+/network/rit/lab/ceashpc/adil/data/csl-data/May11/47676/nodes-47676-T-10-rate-0.1-testratio-0.1-swaprate-0.0-confictratio-0.1-realization-0-data-X.pkl
+len(E_X) 34184
+sliding window: 9 to 9
+Time : 9 will be inferred

@@ -1,0 +1,15 @@
+predicates:
+  Conjested/1: open
+  Nonconjested/1: closed
+  Adjacent/2: closed
+
+observations:
+  Adjacent : ../data/adjacent_obs.txt
+  Conjested : ../data/conjested_obs.txt
+  Nonconjested : ../data/nonconjested_obs.txt
+
+targets:
+  Conjested : ../data/conjested_targets.txt
+
+truth:
+  Conjested : ../data/conjested_truth.txt

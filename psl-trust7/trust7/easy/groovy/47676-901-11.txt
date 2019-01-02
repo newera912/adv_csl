@@ -1,0 +1,85 @@
+[INFO] Scanning for projects...
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building easylp 1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ easylp ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 2 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ easylp ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Using Groovy-Eclipse compiler to compile both Java and Groovy files
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 2.844 s
+[INFO] Finished at: 2018-09-01T14:52:48-04:00
+[INFO] Final Memory: 23M/1624M
+[INFO] ------------------------------------------------------------------------
+[INFO] Scanning for projects...
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building easylp 1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.8:build-classpath (default-cli) @ easylp ---
+[INFO] Wrote classpath file '/network/rit/home/aa465948/git/csl-confilict/psl-trust7/trust7/easy/groovy/classpath.out'.
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 1.734 s
+[INFO] Finished at: 2018-09-01T14:52:50-04:00
+[INFO] Final Memory: 29M/1963M
+[INFO] ------------------------------------------------------------------------
+0    [main] INFO  org.linqs.psl.config.ConfigManager  - Configuration file loaded: file:/network/rit/home/aa465948/git/csl-confilict/psl-trust7/trust7/easy/groovy/target/classes/psl.properties
+60   [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option Trust7.experiment.name. Returning default of default.
+66   [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option Trust7.experiment.dbpath. Returning default of /network/rit/lab/ceashpc/adil/psl_tmp7.
+66   [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option Trust7.experiment.data.path. Returning default of ../data.
+77   [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option Trust7.experiment.output.outputdir. Returning default of output/default.
+85   [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option Trust7.model.weights.adjacent. Returning default of 100.
+86   [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option Trust7.model.weights.t. Returning default of 100.
+86   [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option Trust7.model.weights.prior. Returning default of 50.
+271  [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option Trust7.rdbmsdatastore.valuecolumn. Returning default of truth.
+272  [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option Trust7.rdbmsdatastore.confidencecolumn. Returning default of confidence.
+272  [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option Trust7.rdbmsdatastore.partitioncolumn. Returning default of partition.
+315  [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option Trust7.rdbmsdatastore.usestringids. Returning default of true.
+320  [main] DEBUG org.linqs.psl.database.rdbms.RDBMSDataStore  - Registered 0 pre-existing predicates from RDBMS.
+422  [main] INFO  org.linqs.psl.example.trust7.Trust7  - Running experiment default
+427  [main] WARN  org.linqs.psl.database.rdbms.RDBMSDataStoreMetadata  - Determining max partition, no partitions found null
+506  [main] INFO  org.linqs.psl.example.trust7.Trust7  - Defining model rules
+564  [main] DEBUG org.linqs.psl.example.trust7.Trust7  - model: Model:
+100.0: ( ( ( ( ( ( ( ADJACENT(P1, P2) & T(P1, P2) ) & ADJACENT(P2, P3) ) & T(P2, P3) ) & ADJACENT(P1, P2) ) & (P1 != P3) ) & (P1 != P2) ) & (P2 != P3) ) >> T(P1, P3)
+50.0: ~( T(P1, P2) )
+564  [main] INFO  org.linqs.psl.example.trust7.Trust7  - Loading data into database
+58926 [main] INFO  org.linqs.psl.example.trust7.Trust7  - Starting inference
+58966 [main] INFO  org.linqs.psl.config.ConfigManager  - Found value 50 for option Trust7.lazympeinference.maxrounds.
+58967 [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option Trust7.lazympeinference.reasoner. Returning default of org.linqs.psl.reasoner.admm.ADMMReasonerFactory@44a59da3.
+58973 [main] INFO  org.linqs.psl.config.ConfigManager  - Found value 100 for option Trust7.admmreasoner.maxiterations.
+58973 [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option Trust7.admmreasoner.stepsize. Returning default of 1.0.
+58973 [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option Trust7.admmreasoner.epsilonabs. Returning default of 1.0E-5.
+58973 [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option Trust7.admmreasoner.epsilonrel. Returning default of 0.001.
+58973 [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option Trust7.admmreasoner.stopcheck. Returning default of 1.
+58975 [main] INFO  org.linqs.psl.config.ConfigManager  - Found value 40 for option Trust7.admmreasoner.numthreads.
+58975 [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option Trust7.atomeventframework.activation. Returning default of 0.01.
+5629145 [main] DEBUG org.linqs.psl.model.rule.logical.AbstractLogicalRule  - Grounded 14481589 instances of rule 100.0: ( ( ( ( ( ( ( ADJACENT(P1, P2) & T(P1, P2) ) & ADJACENT(P2, P3) ) & T(P2, P3) ) & ADJACENT(P1, P2) ) & (P1 != P3) ) & (P1 != P2) ) & (P2 != P3) ) >> T(P1, P3)
+5631562 [main] DEBUG org.linqs.psl.model.rule.logical.AbstractLogicalRule  - Grounded 34190 instances of rule 50.0: ~( T(P1, P2) )
+5954860 [main] DEBUG org.linqs.psl.application.inference.LazyMPEInference  - Starting round 1 of inference.
+5954860 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - (Re)building reasoner data structures
+5955026 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - Initializing objective terms for 14515779 ground kernels
+6148331 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - Performing optimization with 9278442 variables and 14515779 terms.
+6320692 [main] INFO  org.linqs.psl.reasoner.admm.ADMMReasoner  - Optimization completed in  100 iterations. Primal res.: 25.80591269278089, Dual res.: 8.800076625406499
+./run.sh: line 50: 95549 Killed                  java -Xms60000m -cp ./target/classes:$(cat ${CLASSPATH_FILE}) ${TARGET_CLASS}
+[2018-09-03T01:37:05-0400]: Failed to run
+/network/rit/lab/ceashpc/adil/data/csl-data/May23/47676/nodes-47676-T-8-rate-0.6-testratio-0.1-swaprate-0.0-confictratio-0.0-realization-0-data-X.pkl
+>>>> 0 -th  47676 0.6 0 8 0 0.1 0.0
+len(E_X) 34190
+sliding window: -1 to -1
+Time : -1 will be inferred
+Traceback (most recent call last):
+  File "pipeline1.py", line 176, in <module>
+    pipeline()
+  File "pipeline1.py", line 127, in pipeline
+    outfile.write(json.dumps(r_dict) + '\n')
+NameError: global name 'outfile' is not defined

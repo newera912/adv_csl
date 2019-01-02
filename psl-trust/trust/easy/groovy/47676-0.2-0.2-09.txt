@@ -1,0 +1,119 @@
+[INFO] Scanning for projects...
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building easylp 1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ easylp ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 2 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ easylp ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Using Groovy-Eclipse compiler to compile both Java and Groovy files
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 2.312 s
+[INFO] Finished at: 2018-09-19T01:42:17-04:00
+[INFO] Final Memory: 23M/1461M
+[INFO] ------------------------------------------------------------------------
+Classpath found cached, skipping classpath build.
+0    [main] INFO  org.linqs.psl.config.ConfigManager  - Configuration file loaded: file:/network/rit/home/aa465948/git/csl-confilict/psl-trust/trust/easy/groovy/target/classes/psl.properties
+61   [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option trust.experiment.name. Returning default of default.
+67   [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option trust.experiment.dbpath. Returning default of /network/rit/lab/ceashpc/adil/psl_tmp.
+67   [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option trust.experiment.data.path. Returning default of ../data.
+79   [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option trust.experiment.output.outputdir. Returning default of output/default.
+88   [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option trust.model.weights.adjacent. Returning default of 100.
+91   [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option trust.model.weights.t. Returning default of 100.
+91   [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option trust.model.weights.prior. Returning default of 50.
+333  [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option trust.rdbmsdatastore.valuecolumn. Returning default of truth.
+333  [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option trust.rdbmsdatastore.confidencecolumn. Returning default of confidence.
+333  [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option trust.rdbmsdatastore.partitioncolumn. Returning default of partition.
+365  [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option trust.rdbmsdatastore.usestringids. Returning default of true.
+369  [main] DEBUG org.linqs.psl.database.rdbms.RDBMSDataStore  - Registered 0 pre-existing predicates from RDBMS.
+459  [main] INFO  org.linqs.psl.example.trust.Trust  - Running experiment default
+463  [main] WARN  org.linqs.psl.database.rdbms.RDBMSDataStoreMetadata  - Determining max partition, no partitions found null
+548  [main] INFO  org.linqs.psl.example.trust.Trust  - Defining model rules
+607  [main] DEBUG org.linqs.psl.example.trust.Trust  - model: Model:
+100.0: ( ( ( ( ( ( ( ADJACENT(P1, P2) & T(P1, P2) ) & ADJACENT(P2, P3) ) & T(P2, P3) ) & ADJACENT(P1, P2) ) & (P1 != P3) ) & (P1 != P2) ) & (P2 != P3) ) >> T(P1, P3) ^2
+50.0: ~( T(P1, P2) ) ^2
+607  [main] INFO  org.linqs.psl.example.trust.Trust  - Loading data into database
+54025 [main] INFO  org.linqs.psl.example.trust.Trust  - Starting inference
+54060 [main] INFO  org.linqs.psl.config.ConfigManager  - Found value 50 for option trust.lazympeinference.maxrounds.
+54061 [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option trust.lazympeinference.reasoner. Returning default of org.linqs.psl.reasoner.admm.ADMMReasonerFactory@5a37d3ed.
+54065 [main] INFO  org.linqs.psl.config.ConfigManager  - Found value 100 for option trust.admmreasoner.maxiterations.
+54066 [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option trust.admmreasoner.stepsize. Returning default of 1.0.
+54066 [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option trust.admmreasoner.epsilonabs. Returning default of 1.0E-5.
+54066 [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option trust.admmreasoner.epsilonrel. Returning default of 0.001.
+54066 [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option trust.admmreasoner.stopcheck. Returning default of 1.
+54067 [main] INFO  org.linqs.psl.config.ConfigManager  - Found value 40 for option trust.admmreasoner.numthreads.
+54068 [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option trust.atomeventframework.activation. Returning default of 0.01.
+1799624 [main] DEBUG org.linqs.psl.model.rule.logical.AbstractLogicalRule  - Grounded 4299700 instances of rule 100.0: ( ( ( ( ( ( ( ADJACENT(P1, P2) & T(P1, P2) ) & ADJACENT(P2, P3) ) & T(P2, P3) ) & ADJACENT(P1, P2) ) & (P1 != P3) ) & (P1 != P2) ) & (P2 != P3) ) >> T(P1, P3) ^2
+1800647 [main] DEBUG org.linqs.psl.model.rule.logical.AbstractLogicalRule  - Grounded 68561 instances of rule 50.0: ~( T(P1, P2) ) ^2
+2192228 [main] DEBUG org.linqs.psl.application.inference.LazyMPEInference  - Starting round 1 of inference.
+2192229 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - (Re)building reasoner data structures
+2192278 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - Initializing objective terms for 4368261 ground kernels
+2212807 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - Performing optimization with 3312727 variables and 4368261 terms.
+2285686 [main] INFO  org.linqs.psl.reasoner.admm.ADMMReasoner  - Optimization completed in  100 iterations. Primal res.: 45.773808483100034, Dual res.: 5.870896983407412
+32097918 [main] DEBUG org.linqs.psl.application.inference.LazyMPEInference  - Completed round 1 and activated 3244166 atoms.
+32097922 [main] DEBUG org.linqs.psl.application.inference.LazyMPEInference  - Starting round 2 of inference.
+32097922 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - (Re)building reasoner data structures
+32098112 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - Initializing objective terms for 22049165 ground kernels
+32295904 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - Performing optimization with 7693268 variables and 22049165 terms.
+32940350 [main] INFO  org.linqs.psl.reasoner.admm.ADMMReasoner  - Optimization completed in  100 iterations. Primal res.: 350.5852232205908, Dual res.: 15.374904378709621
+153421255 [main] DEBUG org.linqs.psl.application.inference.LazyMPEInference  - Completed round 2 and activated 3206542 atoms.
+153421256 [main] DEBUG org.linqs.psl.application.inference.LazyMPEInference  - Starting round 3 of inference.
+153421256 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - (Re)building reasoner data structures
+153421626 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - Initializing objective terms for 31045153 ground kernels
+153719284 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - Performing optimization with 9615811 variables and 31045153 terms.
+154466522 [main] INFO  org.linqs.psl.reasoner.admm.ADMMReasoner  - Optimization completed in  100 iterations. Primal res.: 355.2843913342066, Dual res.: 5.357368121728407
+234496193 [main] DEBUG org.linqs.psl.application.inference.LazyMPEInference  - Completed round 3 and activated 830668 atoms.
+234496193 [main] DEBUG org.linqs.psl.application.inference.LazyMPEInference  - Starting round 4 of inference.
+234496193 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - (Re)building reasoner data structures
+234496595 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - Initializing objective terms for 32447754 ground kernels
+234932204 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - Performing optimization with 9865357 variables and 32447754 terms.
+235881101 [main] INFO  org.linqs.psl.reasoner.admm.ADMMReasoner  - Optimization completed in  100 iterations. Primal res.: 355.3303723775899, Dual res.: 1.7368656800495132
+247302461 [main] DEBUG org.linqs.psl.application.inference.LazyMPEInference  - Completed round 4 and activated 80054 atoms.
+247302461 [main] DEBUG org.linqs.psl.application.inference.LazyMPEInference  - Starting round 5 of inference.
+247302461 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - (Re)building reasoner data structures
+247383099 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - Initializing objective terms for 32586633 ground kernels
+248060858 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - Performing optimization with 9893076 variables and 32586633 terms.
+249287237 [main] INFO  org.linqs.psl.reasoner.admm.ADMMReasoner  - Optimization completed in  100 iterations. Primal res.: 355.3293529470289, Dual res.: 1.6970410639392035
+250786719 [main] DEBUG org.linqs.psl.application.inference.LazyMPEInference  - Completed round 5 and activated 9006 atoms.
+250786719 [main] DEBUG org.linqs.psl.application.inference.LazyMPEInference  - Starting round 6 of inference.
+250786719 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - (Re)building reasoner data structures
+250787029 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - Initializing objective terms for 32602184 ground kernels
+251744223 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - Performing optimization with 9896341 variables and 32602184 terms.
+252995207 [main] INFO  org.linqs.psl.reasoner.admm.ADMMReasoner  - Optimization completed in  100 iterations. Primal res.: 355.3289209372747, Dual res.: 1.6846354301358681
+253661719 [main] DEBUG org.linqs.psl.application.inference.LazyMPEInference  - Completed round 6 and activated 1038 atoms.
+253661719 [main] DEBUG org.linqs.psl.application.inference.LazyMPEInference  - Starting round 7 of inference.
+253661719 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - (Re)building reasoner data structures
+253662038 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - Initializing objective terms for 32604651 ground kernels
+254399478 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - Performing optimization with 9896885 variables and 32604651 terms.
+255028306 [main] INFO  org.linqs.psl.reasoner.admm.ADMMReasoner  - Optimization completed in  100 iterations. Primal res.: 355.3289462687097, Dual res.: 1.686199416253921
+255048022 [main] DEBUG org.linqs.psl.application.inference.LazyMPEInference  - Completed round 7 and activated 198 atoms.
+255048022 [main] DEBUG org.linqs.psl.application.inference.LazyMPEInference  - Starting round 8 of inference.
+255048022 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - (Re)building reasoner data structures
+255127907 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - Initializing objective terms for 32605071 ground kernels
+256081850 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - Performing optimization with 9896961 variables and 32605071 terms.
+256988448 [main] INFO  org.linqs.psl.reasoner.admm.ADMMReasoner  - Optimization completed in  100 iterations. Primal res.: 355.32893555548367, Dual res.: 1.6859538767787436
+257022503 [main] DEBUG org.linqs.psl.application.inference.LazyMPEInference  - Completed round 8 and activated 28 atoms.
+257022503 [main] DEBUG org.linqs.psl.application.inference.LazyMPEInference  - Starting round 9 of inference.
+257022503 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - (Re)building reasoner data structures
+257022843 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - Initializing objective terms for 32605099 ground kernels
+257916727 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - Performing optimization with 9896961 variables and 32605099 terms.
+258535136 [main] INFO  org.linqs.psl.reasoner.admm.ADMMReasoner  - Optimization completed in  100 iterations. Primal res.: 355.3289366229832, Dual res.: 1.6859858295111967
+258546566 [main] DEBUG org.linqs.psl.application.inference.LazyMPEInference  - Completed round 9 and activated 0 atoms.
+642279921 [main] INFO  org.linqs.psl.example.trust.Trust  - Finished inference in 7 days, 10 hours, 23 minutes, 45.879 seconds
+Output Generated.
+913867801 [main] INFO  org.linqs.psl.example.trust.Trust  - MSE: 0.03461965895883183
+913867805 [main] INFO  org.linqs.psl.example.trust.Trust  - Accuracy 0.9068658550842021, Error 921745.0
+913867807 [main] INFO  org.linqs.psl.example.trust.Trust  - Positive Class: precision 2.4228167667730505E-5, recall 0.0015994183933115231
+913867808 [main] INFO  org.linqs.psl.example.trust.Trust  - Negative Class Stats: precision 0.9984722314465342, recall 0.9081257640486295
+It is running now
+/network/rit/lab/ceashpc/adil/data/csl-data/May23-3/47676/nodes-47676-T-10-rate-0.2-testratio-0.2-swaprate-0.0-confictratio-0.2-realization-0-data-X.pkl
+>>>> 0 -th  47676 0.2 0 10 0 0.2 0.2
+len(E_X) 68561
+sliding window: -1 to -1
+Time : -1 will be inferred

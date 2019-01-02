@@ -1,0 +1,30 @@
+WARNING:tensorflow:From /network/rit/home/aa465948/venv/lib/python2.7/site-packages/tensorflow/python/ops/sparse_ops.py:1165: sparse_to_dense (from tensorflow.python.ops.sparse_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Create a `tf.sparse.SparseTensor` and use `tf.sparse.to_dense` instead.
+2018-12-19 01:21:15.962468: I tensorflow/core/platform/cpu_feature_guard.cc:141] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
+2018-12-19 01:27:44.168452: W tensorflow/core/framework/allocator.cc:122] Allocation of 108025283584 exceeds 10% of system memory.
+2018-12-19 01:27:44.465384: W tensorflow/core/framework/allocator.cc:122] Allocation of 108025283584 exceeds 10% of system memory.
+2018-12-19 01:29:21.783048: W tensorflow/core/framework/allocator.cc:122] Allocation of 108025283584 exceeds 10% of system memory.
+2018-12-19 01:29:22.100422: W tensorflow/core/framework/allocator.cc:122] Allocation of 108025283584 exceeds 10% of system memory.
+2018-12-19 01:30:54.420934: W tensorflow/core/framework/allocator.cc:122] Allocation of 108025283584 exceeds 10% of system memory.
+/network/rit/lab/ceashpc/adil/data/csl-data/slashdot/slashdot-attackedges-10000-T-10-testratio-0.2-swap_ratio-0.01-conflictratio-0.3-realization-0-data-X.pkl
+|V|:164336 Adj:164336 
+|b|:164336 |u|:164336 |test_index|:32868 
+([], [], [])
+|V|:164336 Adj:164336 
+|b|:164336 |u|:164336 |test_index|:32868 
+mse_belief= 0.39111 mse_uncertain== 0.31168 bf-mse_opinion== 0.39757
+mse_belief= 0.37140 mse_uncertain== 0.24660 bf-mse_opinion== 0.37538
+mse_belief= 0.33865 mse_uncertain== 0.14726 bf-mse_opinion== 0.33941
+mse_belief= 0.28710 mse_uncertain== 0.08210 bf-mse_opinion== 0.28690
+mse_belief= 0.22802 mse_uncertain== 0.07079 bf-mse_opinion== 0.22689
+mse_belief= 0.19768 mse_uncertain== 0.06907 bf-mse_opinion== 0.19380
+mse_belief= 0.19613 mse_uncertain== 0.07140 bf-mse_opinion== 0.19133
+mse_belief= 0.21487 mse_uncertain== 0.07122 bf-mse_opinion== 0.21174
+mse_belief= 0.22848 mse_uncertain== 0.07289 bf-mse_opinion== 0.22600
+mse_belief= 0.23302 mse_uncertain== 0.07379 bf-mse_opinion== 0.23041
+Optimization Finished!
+alpha_0: 5.9940670333949955 beta_0: 6.0059329666050045
+best epoch: 70 bset_belief: 0.19613434 bset_uncertain: 0.071398094 bset_opinion: 0.1913256
+run time =  9221.92879701
+belief: 0.19613434 uncertain: 0.06906809 time window =  10 test_rio =  0.2

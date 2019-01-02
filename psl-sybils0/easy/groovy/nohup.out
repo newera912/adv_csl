@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "pipeline.py", line 234, in <module>
+    pipeline()
+  File "pipeline.py", line 192, in pipeline
+    for method in methods[:]:
+NameError: global name 'methods' is not defined

@@ -1,0 +1,18 @@
+
+
+--------------------------------------------------
+--------------------------------------------------
+
+-------------------Wed, 18 Jul 2018 03:24:47 PM EDT---------------------
+
+0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+method: csl-3-rules, T, 11, real_i: 0, ratio: 0.0, test_ratio: 0.1, swaprate: 0.0, graph_size: 47676
+/network/rit/lab/ceashpc/adil/data/csl-data/May23/47676/nodes-47676-T-11-rate-0.0-testratio-0.1-swaprate-0.0-confictratio-0.0-realization-0-data-X.pkl
+Traceback (most recent call last):
+  File "csl_experiment_pipepline1.py", line 344, in <module>
+    main()
+  File "csl_experiment_pipepline1.py", line 64, in main
+    experiment_proc_server()
+  File "csl_experiment_pipepline1.py", line 102, in experiment_proc_server
+    pkl_file = open(f, 'rb')
+IOError: [Errno 2] No such file or directory: '/network/rit/lab/ceashpc/adil/data/csl-data/May23/47676/nodes-47676-T-11-rate-0.0-testratio-0.1-swaprate-0.0-confictratio-0.0-realization-0-data-X.pkl'

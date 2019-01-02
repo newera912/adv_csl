@@ -1,0 +1,20 @@
+WARNING:tensorflow:From /network/rit/home/aa465948/venv/lib/python2.7/site-packages/tensorflow/python/ops/sparse_ops.py:1165: sparse_to_dense (from tensorflow.python.ops.sparse_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Create a `tf.sparse.SparseTensor` and use `tf.sparse.to_dense` instead.
+|V|:67392 Adj:67392 
+|b|:67392 |u|:67392 |test_index|:13478 
+/network/rit/lab/ceashpc/adil/data/csl-data/enron/enron-attackedges-10000-T-10-testratio-0.2-swap_ratio-0.01-conflictratio-0.3-realization-0-data-X.pkl
+Traceback (most recent call last):
+  File "train_opinion_sybils.py", line 132, in <module>
+    mask=placeholders['labels_mask'], omega_t=placeholders['omega_t'],)
+  File "/network/rit/home/aa465948/git/csl-confilict/src/gae/optimizer.py", line 48, in __init__
+    self.opt_op1 = self.optimizer.minimize(self.cost1)
+  File "/network/rit/home/aa465948/venv/lib/python2.7/site-packages/tensorflow/python/training/optimizer.py", line 400, in minimize
+    grad_loss=grad_loss)
+  File "/network/rit/home/aa465948/venv/lib/python2.7/site-packages/tensorflow/python/training/optimizer.py", line 519, in compute_gradients
+    colocate_gradients_with_ops=colocate_gradients_with_ops)
+  File "/network/rit/home/aa465948/venv/lib/python2.7/site-packages/tensorflow/python/ops/gradients_impl.py", line 630, in gradients
+    gate_gradients, aggregation_method, stop_gradients)
+  File "/network/rit/home/aa465948/venv/lib/python2.7/site-packages/tensorflow/python/ops/gradients_impl.py", line 848, in _GradientsHelper
+    (op.name, i, t_in.shape, in_grad.shape))
+ValueError: Incompatible shapes between op input and calculated input gradient.  Forward operation: optimizer/Mean_5.  Input index: 0. Original input shape: (4541681664,).  Calculated input gradient shape: (246714368,)

@@ -1,0 +1,232 @@
+WARNING:tensorflow:From /network/rit/home/aa465948/venv/lib/python2.7/site-packages/tensorflow/python/ops/sparse_ops.py:1165: sparse_to_dense (from tensorflow.python.ops.sparse_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Create a `tf.sparse.SparseTensor` and use `tf.sparse.to_dense` instead.
+2018-12-17 19:30:16.641959: I tensorflow/core/platform/cpu_feature_guard.cc:141] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
+T=8 /network/rit/lab/ceashpc/adil/data/csl-data/May23-3/5000/nodes-5000-T-8-rate-0.2-testratio-0.4-swaprate-0.0-confictratio-0.2-realization-0-data-X.pkl
+([], [], [])
+mse_belief= 0.44136 mse_uncertain== 0.29705 bf-mse_opinion== 0.51386
+mse_belief= 0.44063 mse_uncertain== 0.29302 bf-mse_opinion== 0.51215
+mse_belief= 0.43939 mse_uncertain== 0.28772 bf-mse_opinion== 0.50958
+mse_belief= 0.43748 mse_uncertain== 0.28097 bf-mse_opinion== 0.50597
+mse_belief= 0.43479 mse_uncertain== 0.27248 bf-mse_opinion== 0.50111
+mse_belief= 0.43117 mse_uncertain== 0.26199 bf-mse_opinion== 0.49477
+mse_belief= 0.42649 mse_uncertain== 0.24926 bf-mse_opinion== 0.48682
+mse_belief= 0.42067 mse_uncertain== 0.23413 bf-mse_opinion== 0.47723
+mse_belief= 0.41369 mse_uncertain== 0.21657 bf-mse_opinion== 0.46589
+mse_belief= 0.40560 mse_uncertain== 0.19675 bf-mse_opinion== 0.45288
+mse_belief= 0.39665 mse_uncertain== 0.17507 bf-mse_opinion== 0.43858
+mse_belief= 0.38752 mse_uncertain== 0.15227 bf-mse_opinion== 0.42384
+mse_belief= 0.37860 mse_uncertain== 0.12897 bf-mse_opinion== 0.40925
+mse_belief= 0.36986 mse_uncertain== 0.10554 bf-mse_opinion== 0.39488
+mse_belief= 0.36110 mse_uncertain== 0.08230 bf-mse_opinion== 0.38058
+mse_belief= 0.35226 mse_uncertain== 0.06072 bf-mse_opinion== 0.36640
+mse_belief= 0.34354 mse_uncertain== 0.04408 bf-mse_opinion== 0.35271
+mse_belief= 0.33530 mse_uncertain== 0.03464 bf-mse_opinion== 0.34028
+mse_belief= 0.32787 mse_uncertain== 0.03023 bf-mse_opinion== 0.32977
+mse_belief= 0.32133 mse_uncertain== 0.02786 bf-mse_opinion== 0.32124
+mse_belief= 0.31555 mse_uncertain== 0.02632 bf-mse_opinion== 0.31433
+mse_belief= 0.31035 mse_uncertain== 0.02531 bf-mse_opinion== 0.30859
+mse_belief= 0.30563 mse_uncertain== 0.02466 bf-mse_opinion== 0.30366
+mse_belief= 0.30120 mse_uncertain== 0.02438 bf-mse_opinion== 0.29915
+mse_belief= 0.29703 mse_uncertain== 0.02434 bf-mse_opinion== 0.29492
+mse_belief= 0.29307 mse_uncertain== 0.02430 bf-mse_opinion== 0.29095
+mse_belief= 0.28934 mse_uncertain== 0.02426 bf-mse_opinion== 0.28726
+mse_belief= 0.28577 mse_uncertain== 0.02419 bf-mse_opinion== 0.28374
+mse_belief= 0.28240 mse_uncertain== 0.02412 bf-mse_opinion== 0.28041
+mse_belief= 0.27918 mse_uncertain== 0.02407 bf-mse_opinion== 0.27721
+mse_belief= 0.27615 mse_uncertain== 0.02403 bf-mse_opinion== 0.27422
+mse_belief= 0.27330 mse_uncertain== 0.02396 bf-mse_opinion== 0.27141
+mse_belief= 0.27062 mse_uncertain== 0.02389 bf-mse_opinion== 0.26877
+mse_belief= 0.26811 mse_uncertain== 0.02382 bf-mse_opinion== 0.26630
+mse_belief= 0.26573 mse_uncertain== 0.02376 bf-mse_opinion== 0.26396
+mse_belief= 0.26349 mse_uncertain== 0.02373 bf-mse_opinion== 0.26173
+mse_belief= 0.26141 mse_uncertain== 0.02373 bf-mse_opinion== 0.25964
+mse_belief= 0.25946 mse_uncertain== 0.02366 bf-mse_opinion== 0.25774
+mse_belief= 0.25767 mse_uncertain== 0.02357 bf-mse_opinion== 0.25601
+mse_belief= 0.25598 mse_uncertain== 0.02356 bf-mse_opinion== 0.25433
+mse_belief= 0.25443 mse_uncertain== 0.02344 bf-mse_opinion== 0.25287
+mse_belief= 0.25297 mse_uncertain== 0.02333 bf-mse_opinion== 0.25148
+mse_belief= 0.25159 mse_uncertain== 0.02334 bf-mse_opinion== 0.25009
+mse_belief= 0.25030 mse_uncertain== 0.02325 bf-mse_opinion== 0.24885
+mse_belief= 0.24910 mse_uncertain== 0.02323 bf-mse_opinion== 0.24765
+mse_belief= 0.24800 mse_uncertain== 0.02314 bf-mse_opinion== 0.24662
+mse_belief= 0.24698 mse_uncertain== 0.02309 bf-mse_opinion== 0.24563
+mse_belief= 0.24604 mse_uncertain== 0.02306 bf-mse_opinion== 0.24473
+mse_belief= 0.24514 mse_uncertain== 0.02298 bf-mse_opinion== 0.24392
+mse_belief= 0.24428 mse_uncertain== 0.02295 bf-mse_opinion== 0.24304
+Optimization Finished!
+alpha_0: 3.1141257536606375 beta_0: 6.8858742463393625
+best epoch: 500 bset_belief: 0.24427542 bset_uncertain: 0.022948125 bset_opinion: 0.2430359
+run time =  149.37736392
+belief: 0.24427542 uncertain: 0.022948125 time window =  10 test_rio =  0.2
+T=9 /network/rit/lab/ceashpc/adil/data/csl-data/May23-3/5000/nodes-5000-T-9-rate-0.2-testratio-0.4-swaprate-0.0-confictratio-0.2-realization-0-data-X.pkl
+([], [], [])
+mse_belief= 0.44676 mse_uncertain== 0.31558 bf-mse_opinion== 0.53072
+mse_belief= 0.44517 mse_uncertain== 0.31200 bf-mse_opinion== 0.52815
+mse_belief= 0.44294 mse_uncertain== 0.30719 bf-mse_opinion== 0.52460
+mse_belief= 0.44000 mse_uncertain== 0.30087 bf-mse_opinion== 0.51993
+mse_belief= 0.43620 mse_uncertain== 0.29280 bf-mse_opinion== 0.51396
+mse_belief= 0.43144 mse_uncertain== 0.28270 bf-mse_opinion== 0.50647
+mse_belief= 0.42576 mse_uncertain== 0.27041 bf-mse_opinion== 0.49740
+mse_belief= 0.41936 mse_uncertain== 0.25593 bf-mse_opinion== 0.48696
+mse_belief= 0.41215 mse_uncertain== 0.23929 bf-mse_opinion== 0.47515
+mse_belief= 0.40404 mse_uncertain== 0.22064 bf-mse_opinion== 0.46191
+mse_belief= 0.39507 mse_uncertain== 0.20023 bf-mse_opinion== 0.44743
+mse_belief= 0.38535 mse_uncertain== 0.17836 bf-mse_opinion== 0.43185
+mse_belief= 0.37500 mse_uncertain== 0.15539 bf-mse_opinion== 0.41545
+mse_belief= 0.36416 mse_uncertain== 0.13169 bf-mse_opinion== 0.39842
+mse_belief= 0.35302 mse_uncertain== 0.10768 bf-mse_opinion== 0.38109
+mse_belief= 0.34186 mse_uncertain== 0.08410 bf-mse_opinion== 0.36380
+mse_belief= 0.33091 mse_uncertain== 0.06267 bf-mse_opinion== 0.34700
+mse_belief= 0.32044 mse_uncertain== 0.04566 bf-mse_opinion== 0.33121
+mse_belief= 0.31079 mse_uncertain== 0.03430 bf-mse_opinion== 0.31708
+mse_belief= 0.30224 mse_uncertain== 0.02848 bf-mse_opinion== 0.30508
+mse_belief= 0.29491 mse_uncertain== 0.02603 bf-mse_opinion== 0.29537
+mse_belief= 0.28872 mse_uncertain== 0.02524 bf-mse_opinion== 0.28781
+mse_belief= 0.28346 mse_uncertain== 0.02478 bf-mse_opinion== 0.28190
+mse_belief= 0.27887 mse_uncertain== 0.02437 bf-mse_opinion== 0.27708
+mse_belief= 0.27472 mse_uncertain== 0.02407 bf-mse_opinion== 0.27288
+mse_belief= 0.27090 mse_uncertain== 0.02395 bf-mse_opinion== 0.26901
+mse_belief= 0.26735 mse_uncertain== 0.02391 bf-mse_opinion== 0.26540
+mse_belief= 0.26409 mse_uncertain== 0.02382 bf-mse_opinion== 0.26214
+mse_belief= 0.26109 mse_uncertain== 0.02372 bf-mse_opinion== 0.25916
+mse_belief= 0.25832 mse_uncertain== 0.02361 bf-mse_opinion== 0.25641
+mse_belief= 0.25574 mse_uncertain== 0.02351 bf-mse_opinion== 0.25385
+mse_belief= 0.25334 mse_uncertain== 0.02344 bf-mse_opinion== 0.25145
+mse_belief= 0.25114 mse_uncertain== 0.02333 bf-mse_opinion== 0.24929
+mse_belief= 0.24911 mse_uncertain== 0.02325 bf-mse_opinion== 0.24729
+mse_belief= 0.24724 mse_uncertain== 0.02322 bf-mse_opinion== 0.24541
+mse_belief= 0.24552 mse_uncertain== 0.02316 bf-mse_opinion== 0.24373
+mse_belief= 0.24394 mse_uncertain== 0.02308 bf-mse_opinion== 0.24221
+mse_belief= 0.24248 mse_uncertain== 0.02304 bf-mse_opinion== 0.24077
+mse_belief= 0.24113 mse_uncertain== 0.02301 bf-mse_opinion== 0.23944
+mse_belief= 0.23992 mse_uncertain== 0.02296 bf-mse_opinion== 0.23826
+mse_belief= 0.23882 mse_uncertain== 0.02285 bf-mse_opinion== 0.23724
+mse_belief= 0.23779 mse_uncertain== 0.02274 bf-mse_opinion== 0.23628
+mse_belief= 0.23681 mse_uncertain== 0.02270 bf-mse_opinion== 0.23531
+mse_belief= 0.23592 mse_uncertain== 0.02265 bf-mse_opinion== 0.23447
+mse_belief= 0.23511 mse_uncertain== 0.02258 bf-mse_opinion== 0.23370
+mse_belief= 0.23438 mse_uncertain== 0.02258 bf-mse_opinion== 0.23299
+mse_belief= 0.23369 mse_uncertain== 0.02253 bf-mse_opinion== 0.23237
+mse_belief= 0.23305 mse_uncertain== 0.02247 bf-mse_opinion== 0.23180
+mse_belief= 0.23247 mse_uncertain== 0.02245 bf-mse_opinion== 0.23126
+mse_belief= 0.23193 mse_uncertain== 0.02247 bf-mse_opinion== 0.23075
+Optimization Finished!
+alpha_0: 3.4368001722652886 beta_0: 7.563199827734712
+best epoch: 500 bset_belief: 0.23193239 bset_uncertain: 0.02246684 bset_opinion: 0.23074648
+run time =  143.835428953
+belief: 0.23193239 uncertain: 0.022448977 time window =  10 test_rio =  0.2
+T=10 /network/rit/lab/ceashpc/adil/data/csl-data/May23-3/5000/nodes-5000-T-10-rate-0.2-testratio-0.4-swaprate-0.0-confictratio-0.2-realization-0-data-X.pkl
+([], [], [])
+mse_belief= 0.45180 mse_uncertain== 0.33095 bf-mse_opinion== 0.53815
+mse_belief= 0.44933 mse_uncertain== 0.32760 bf-mse_opinion== 0.53472
+mse_belief= 0.44619 mse_uncertain== 0.32308 bf-mse_opinion== 0.53028
+mse_belief= 0.44232 mse_uncertain== 0.31728 bf-mse_opinion== 0.52474
+mse_belief= 0.43763 mse_uncertain== 0.31005 bf-mse_opinion== 0.51799
+mse_belief= 0.43208 mse_uncertain== 0.30119 bf-mse_opinion== 0.50994
+mse_belief= 0.42562 mse_uncertain== 0.29055 bf-mse_opinion== 0.50052
+mse_belief= 0.41834 mse_uncertain== 0.27815 bf-mse_opinion== 0.48985
+mse_belief= 0.41057 mse_uncertain== 0.26432 bf-mse_opinion== 0.47831
+mse_belief= 0.40246 mse_uncertain== 0.24924 bf-mse_opinion== 0.46619
+mse_belief= 0.39389 mse_uncertain== 0.23288 bf-mse_opinion== 0.45332
+mse_belief= 0.38478 mse_uncertain== 0.21522 bf-mse_opinion== 0.43964
+mse_belief= 0.37533 mse_uncertain== 0.19640 bf-mse_opinion== 0.42535
+mse_belief= 0.36566 mse_uncertain== 0.17665 bf-mse_opinion== 0.41066
+mse_belief= 0.35582 mse_uncertain== 0.15619 bf-mse_opinion== 0.39561
+mse_belief= 0.34584 mse_uncertain== 0.13529 bf-mse_opinion== 0.38033
+mse_belief= 0.33586 mse_uncertain== 0.11423 bf-mse_opinion== 0.36500
+mse_belief= 0.32603 mse_uncertain== 0.09341 bf-mse_opinion== 0.34984
+mse_belief= 0.31647 mse_uncertain== 0.07384 bf-mse_opinion== 0.33510
+mse_belief= 0.30730 mse_uncertain== 0.05720 bf-mse_opinion== 0.32106
+mse_belief= 0.29868 mse_uncertain== 0.04505 bf-mse_opinion== 0.30803
+mse_belief= 0.29087 mse_uncertain== 0.03684 bf-mse_opinion== 0.29650
+mse_belief= 0.28405 mse_uncertain== 0.03171 bf-mse_opinion== 0.28684
+mse_belief= 0.27819 mse_uncertain== 0.02824 bf-mse_opinion== 0.27899
+mse_belief= 0.27321 mse_uncertain== 0.02586 bf-mse_opinion== 0.27275
+mse_belief= 0.26899 mse_uncertain== 0.02443 bf-mse_opinion== 0.26783
+mse_belief= 0.26537 mse_uncertain== 0.02353 bf-mse_opinion== 0.26388
+mse_belief= 0.26222 mse_uncertain== 0.02297 bf-mse_opinion== 0.26058
+mse_belief= 0.25940 mse_uncertain== 0.02277 bf-mse_opinion== 0.25766
+mse_belief= 0.25689 mse_uncertain== 0.02271 bf-mse_opinion== 0.25507
+mse_belief= 0.25460 mse_uncertain== 0.02270 bf-mse_opinion== 0.25272
+mse_belief= 0.25255 mse_uncertain== 0.02262 bf-mse_opinion== 0.25071
+mse_belief= 0.25070 mse_uncertain== 0.02256 bf-mse_opinion== 0.24889
+mse_belief= 0.24899 mse_uncertain== 0.02253 bf-mse_opinion== 0.24722
+mse_belief= 0.24745 mse_uncertain== 0.02246 bf-mse_opinion== 0.24574
+mse_belief= 0.24599 mse_uncertain== 0.02239 bf-mse_opinion== 0.24432
+mse_belief= 0.24464 mse_uncertain== 0.02233 bf-mse_opinion== 0.24296
+mse_belief= 0.24342 mse_uncertain== 0.02225 bf-mse_opinion== 0.24178
+mse_belief= 0.24230 mse_uncertain== 0.02221 bf-mse_opinion== 0.24068
+mse_belief= 0.24128 mse_uncertain== 0.02211 bf-mse_opinion== 0.23972
+mse_belief= 0.24032 mse_uncertain== 0.02210 bf-mse_opinion== 0.23878
+mse_belief= 0.23944 mse_uncertain== 0.02213 bf-mse_opinion== 0.23790
+mse_belief= 0.23869 mse_uncertain== 0.02210 bf-mse_opinion== 0.23722
+mse_belief= 0.23800 mse_uncertain== 0.02208 bf-mse_opinion== 0.23656
+mse_belief= 0.23734 mse_uncertain== 0.02209 bf-mse_opinion== 0.23590
+mse_belief= 0.23678 mse_uncertain== 0.02209 bf-mse_opinion== 0.23540
+mse_belief= 0.23624 mse_uncertain== 0.02209 bf-mse_opinion== 0.23490
+mse_belief= 0.23577 mse_uncertain== 0.02211 bf-mse_opinion== 0.23446
+mse_belief= 0.23536 mse_uncertain== 0.02213 bf-mse_opinion== 0.23408
+mse_belief= 0.23496 mse_uncertain== 0.02209 bf-mse_opinion== 0.23374
+Optimization Finished!
+alpha_0: 3.6097114556416883 beta_0: 8.390288544358311
+best epoch: 500 bset_belief: 0.23495723 bset_uncertain: 0.022085574 bset_opinion: 0.23374057
+run time =  146.221877098
+belief: 0.23495723 uncertain: 0.02208074 time window =  10 test_rio =  0.2
+T=11 /network/rit/lab/ceashpc/adil/data/csl-data/May23-3/5000/nodes-5000-T-11-rate-0.2-testratio-0.4-swaprate-0.0-confictratio-0.2-realization-0-data-X.pkl
+([], [], [])
+mse_belief= 0.44796 mse_uncertain== 0.34180 bf-mse_opinion== 0.52648
+mse_belief= 0.44696 mse_uncertain== 0.33591 bf-mse_opinion== 0.52408
+mse_belief= 0.44538 mse_uncertain== 0.32797 bf-mse_opinion== 0.52059
+mse_belief= 0.44304 mse_uncertain== 0.31772 bf-mse_opinion== 0.51577
+mse_belief= 0.43976 mse_uncertain== 0.30487 bf-mse_opinion== 0.50938
+mse_belief= 0.43537 mse_uncertain== 0.28922 bf-mse_opinion== 0.50120
+mse_belief= 0.42982 mse_uncertain== 0.27064 bf-mse_opinion== 0.49118
+mse_belief= 0.42306 mse_uncertain== 0.24917 bf-mse_opinion== 0.47924
+mse_belief= 0.41510 mse_uncertain== 0.22501 bf-mse_opinion== 0.46546
+mse_belief= 0.40604 mse_uncertain== 0.19856 bf-mse_opinion== 0.45018
+mse_belief= 0.39622 mse_uncertain== 0.17070 bf-mse_opinion== 0.43391
+mse_belief= 0.38614 mse_uncertain== 0.14235 bf-mse_opinion== 0.41735
+mse_belief= 0.37610 mse_uncertain== 0.11432 bf-mse_opinion== 0.40105
+mse_belief= 0.36615 mse_uncertain== 0.08722 bf-mse_opinion== 0.38507
+mse_belief= 0.35612 mse_uncertain== 0.06172 bf-mse_opinion== 0.36931
+mse_belief= 0.34615 mse_uncertain== 0.04017 bf-mse_opinion== 0.35407
+mse_belief= 0.33664 mse_uncertain== 0.02645 bf-mse_opinion== 0.34013
+mse_belief= 0.32805 mse_uncertain== 0.02208 bf-mse_opinion== 0.32831
+mse_belief= 0.32070 mse_uncertain== 0.02252 bf-mse_opinion== 0.31908
+mse_belief= 0.31453 mse_uncertain== 0.02322 bf-mse_opinion== 0.31212
+mse_belief= 0.30928 mse_uncertain== 0.02321 bf-mse_opinion== 0.30672
+mse_belief= 0.30458 mse_uncertain== 0.02305 bf-mse_opinion== 0.30205
+mse_belief= 0.30025 mse_uncertain== 0.02293 bf-mse_opinion== 0.29776
+mse_belief= 0.29623 mse_uncertain== 0.02290 bf-mse_opinion== 0.29376
+mse_belief= 0.29247 mse_uncertain== 0.02292 bf-mse_opinion== 0.28997
+mse_belief= 0.28899 mse_uncertain== 0.02292 bf-mse_opinion== 0.28647
+mse_belief= 0.28581 mse_uncertain== 0.02289 bf-mse_opinion== 0.28331
+mse_belief= 0.28291 mse_uncertain== 0.02291 bf-mse_opinion== 0.28039
+mse_belief= 0.28028 mse_uncertain== 0.02290 bf-mse_opinion== 0.27778
+mse_belief= 0.27789 mse_uncertain== 0.02286 bf-mse_opinion== 0.27541
+mse_belief= 0.27571 mse_uncertain== 0.02282 bf-mse_opinion== 0.27326
+mse_belief= 0.27374 mse_uncertain== 0.02278 bf-mse_opinion== 0.27132
+mse_belief= 0.27195 mse_uncertain== 0.02272 bf-mse_opinion== 0.26955
+mse_belief= 0.27035 mse_uncertain== 0.02269 bf-mse_opinion== 0.26798
+mse_belief= 0.26889 mse_uncertain== 0.02268 bf-mse_opinion== 0.26654
+mse_belief= 0.26758 mse_uncertain== 0.02264 bf-mse_opinion== 0.26526
+mse_belief= 0.26640 mse_uncertain== 0.02258 bf-mse_opinion== 0.26413
+mse_belief= 0.26531 mse_uncertain== 0.02255 bf-mse_opinion== 0.26305
+mse_belief= 0.26434 mse_uncertain== 0.02249 bf-mse_opinion== 0.26212
+mse_belief= 0.26347 mse_uncertain== 0.02251 bf-mse_opinion== 0.26126
+mse_belief= 0.26270 mse_uncertain== 0.02244 bf-mse_opinion== 0.26055
+mse_belief= 0.26199 mse_uncertain== 0.02237 bf-mse_opinion== 0.25986
+mse_belief= 0.26134 mse_uncertain== 0.02234 bf-mse_opinion== 0.25923
+mse_belief= 0.26076 mse_uncertain== 0.02232 bf-mse_opinion== 0.25868
+mse_belief= 0.26025 mse_uncertain== 0.02232 bf-mse_opinion== 0.25820
+mse_belief= 0.25981 mse_uncertain== 0.02224 bf-mse_opinion== 0.25781
+mse_belief= 0.25942 mse_uncertain== 0.02221 bf-mse_opinion== 0.25747
+mse_belief= 0.25906 mse_uncertain== 0.02217 bf-mse_opinion== 0.25714
+mse_belief= 0.25874 mse_uncertain== 0.02214 bf-mse_opinion== 0.25685
+mse_belief= 0.25846 mse_uncertain== 0.02213 bf-mse_opinion== 0.25660
+Optimization Finished!
+alpha_0: 3.885981912144703 beta_0: 9.114018087855298
+best epoch: 500 bset_belief: 0.25846007 bset_uncertain: 0.022132684 bset_opinion: 0.25659662
+run time =  147.043128014
+belief: 0.25846007 uncertain: 0.022081245 time window =  10 test_rio =  0.2

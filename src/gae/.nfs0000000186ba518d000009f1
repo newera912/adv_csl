@@ -1,0 +1,61 @@
+WARNING:tensorflow:From /network/rit/home/aa465948/venv/lib/python2.7/site-packages/tensorflow/python/ops/sparse_ops.py:1165: sparse_to_dense (from tensorflow.python.ops.sparse_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Create a `tf.sparse.SparseTensor` and use `tf.sparse.to_dense` instead.
+2018-12-19 15:32:24.029780: I tensorflow/core/platform/cpu_feature_guard.cc:141] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
+T=10 /network/rit/lab/ceashpc/adil/data/csl-data/May23-3/5000/nodes-5000-T-10-rate-0.2-testratio-0.1-swaprate-0.0-confictratio-0.2-realization-0-data-X.pkl
+([], [], [])
+mse_belief= 0.43898 mse_uncertain== 0.33029 bf-mse_opinion== 0.50944
+mse_belief= 0.43841 mse_uncertain== 0.32613 bf-mse_opinion== 0.50796
+mse_belief= 0.43740 mse_uncertain== 0.32070 bf-mse_opinion== 0.50574
+mse_belief= 0.43580 mse_uncertain== 0.31380 bf-mse_opinion== 0.50257
+mse_belief= 0.43346 mse_uncertain== 0.30520 bf-mse_opinion== 0.49826
+mse_belief= 0.43028 mse_uncertain== 0.29462 bf-mse_opinion== 0.49263
+mse_belief= 0.42615 mse_uncertain== 0.28179 bf-mse_opinion== 0.48551
+mse_belief= 0.42097 mse_uncertain== 0.26655 bf-mse_opinion== 0.47676
+mse_belief= 0.41474 mse_uncertain== 0.24891 bf-mse_opinion== 0.46648
+mse_belief= 0.40759 mse_uncertain== 0.22909 bf-mse_opinion== 0.45492
+mse_belief= 0.40003 mse_uncertain== 0.20771 bf-mse_opinion== 0.44263
+mse_belief= 0.39260 mse_uncertain== 0.18536 bf-mse_opinion== 0.43028
+mse_belief= 0.38525 mse_uncertain== 0.16243 bf-mse_opinion== 0.41787
+mse_belief= 0.37784 mse_uncertain== 0.13917 bf-mse_opinion== 0.40525
+mse_belief= 0.37029 mse_uncertain== 0.11589 bf-mse_opinion== 0.39250
+mse_belief= 0.36257 mse_uncertain== 0.09295 bf-mse_opinion== 0.37989
+mse_belief= 0.35477 mse_uncertain== 0.07118 bf-mse_opinion== 0.36757
+mse_belief= 0.34706 mse_uncertain== 0.05262 bf-mse_opinion== 0.35581
+mse_belief= 0.33973 mse_uncertain== 0.03962 bf-mse_opinion== 0.34497
+mse_belief= 0.33304 mse_uncertain== 0.03225 bf-mse_opinion== 0.33546
+mse_belief= 0.32709 mse_uncertain== 0.02849 bf-mse_opinion== 0.32746
+mse_belief= 0.32187 mse_uncertain== 0.02648 bf-mse_opinion== 0.32088
+mse_belief= 0.31728 mse_uncertain== 0.02519 bf-mse_opinion== 0.31546
+mse_belief= 0.31319 mse_uncertain== 0.02452 bf-mse_opinion== 0.31091
+mse_belief= 0.30949 mse_uncertain== 0.02409 bf-mse_opinion== 0.30695
+mse_belief= 0.30610 mse_uncertain== 0.02381 bf-mse_opinion== 0.30340
+mse_belief= 0.30300 mse_uncertain== 0.02364 bf-mse_opinion== 0.30023
+mse_belief= 0.30016 mse_uncertain== 0.02347 bf-mse_opinion== 0.29739
+mse_belief= 0.29754 mse_uncertain== 0.02329 bf-mse_opinion== 0.29478
+mse_belief= 0.29508 mse_uncertain== 0.02317 bf-mse_opinion== 0.29231
+mse_belief= 0.29282 mse_uncertain== 0.02307 bf-mse_opinion== 0.29008
+mse_belief= 0.29071 mse_uncertain== 0.02299 bf-mse_opinion== 0.28798
+mse_belief= 0.28871 mse_uncertain== 0.02292 bf-mse_opinion== 0.28598
+mse_belief= 0.28688 mse_uncertain== 0.02287 bf-mse_opinion== 0.28416
+mse_belief= 0.28516 mse_uncertain== 0.02281 bf-mse_opinion== 0.28246
+mse_belief= 0.28357 mse_uncertain== 0.02278 bf-mse_opinion== 0.28085
+mse_belief= 0.28216 mse_uncertain== 0.02278 bf-mse_opinion== 0.27946
+mse_belief= 0.28085 mse_uncertain== 0.02276 bf-mse_opinion== 0.27819
+mse_belief= 0.27961 mse_uncertain== 0.02270 bf-mse_opinion== 0.27698
+mse_belief= 0.27845 mse_uncertain== 0.02269 bf-mse_opinion== 0.27582
+mse_belief= 0.27742 mse_uncertain== 0.02260 bf-mse_opinion== 0.27483
+mse_belief= 0.27643 mse_uncertain== 0.02250 bf-mse_opinion== 0.27388
+mse_belief= 0.27550 mse_uncertain== 0.02249 bf-mse_opinion== 0.27292
+mse_belief= 0.27466 mse_uncertain== 0.02242 bf-mse_opinion== 0.27211
+mse_belief= 0.27388 mse_uncertain== 0.02236 bf-mse_opinion== 0.27134
+mse_belief= 0.27316 mse_uncertain== 0.02227 bf-mse_opinion== 0.27066
+mse_belief= 0.27250 mse_uncertain== 0.02222 bf-mse_opinion== 0.27002
+mse_belief= 0.27190 mse_uncertain== 0.02216 bf-mse_opinion== 0.26944
+mse_belief= 0.27137 mse_uncertain== 0.02209 bf-mse_opinion== 0.26898
+mse_belief= 0.27084 mse_uncertain== 0.02210 bf-mse_opinion== 0.26844
+Optimization Finished!
+alpha_0: 3.6646210163652024 beta_0: 8.335378983634797
+best epoch: 500 bset_belief: 0.27083522 bset_uncertain: 0.022099828 bset_opinion: 0.26843774
+run time =  123.781651974
+belief: 0.27083522 uncertain: 0.022090912 time window =  10 test_rio =  0.2
