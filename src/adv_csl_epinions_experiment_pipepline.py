@@ -13,7 +13,7 @@ from network_funs import *
 import baseline
 from feng_SL_inference_multiCore import *
 
-from multi_core_csl_inference_conflicting_evidence_new_numpy import inference_apdm_format as inference_apdm_format_conflict_evidence
+from multi_core_csl_inference_adversarial_epinions import inference_apdm_format as inference_apdm_format_conflict_evidence
 
 #from SL_inference import *
 from random import shuffle
@@ -196,12 +196,6 @@ def evaluate(V, E, Obs, Omega, E_X, X_b, logging, method = 'csl', psl = False, a
         X_b = {e: 0 for e in E if not E_X.has_key(e)}
         psl = False
         pred_omega_x, _ = inference_apdm_format_conflict_evidence(V, E, Obs, Omega, b, X_b, E_X, logging, psl)
-    elif method == 'base1':
-        pred_omega_x = baseline.base1(V, E, Obs, Omega, E_X)
-    elif method == 'base2':
-        pred_omega_x = baseline.base2(V, E, Obs, Omega, E_X)
-    elif method == 'base3':
-        pred_omega_x = baseline.base3(V, E, Obs, Omega, E_X)
     else:
         raise Exception("Method Error")
     # print "pred_omega_x", len(pred_omega_x),len(E_X)
