@@ -1,5 +1,5 @@
 __author__ = 'Adil Alim'
-from multi_core_trust_inference import inference_apdm_format, list_sum, list_dot_scalar, calculate_measures
+from multi_core_trust_inference_csl import inference_apdm_format, list_sum, list_dot_scalar, calculate_measures
 from log import Log
 import os
 import time
@@ -10,7 +10,7 @@ import json,itertools
 #from SL_prediction import findPaths, SL_prediction
 from basic_funs import *
 from network_funs import *
-import baseline
+# import baseline
 from feng_SL_inference_multiCore import *
 
 from multi_core_csl_inference_adversarial_epinions import inference_apdm_format as inference_apdm_format_conflict_evidence
@@ -89,7 +89,7 @@ def experiment_proc_server():
                                     for method in methods[:]:
                                         f = out_folder + "nodes-{}-T-{}-rate-{}-testratio-{}-swaprate-{}-gamma-{}-realization-{}-data-X.pkl".format(
                                             graph_size, T, ratio, test_ratio, swap_ratio, gamma, real_i)
-                                        outf = '../output/test/{}_results-server-{}-0.2-tr-test.json'.format(method,graph_size)
+                                        outf = '../output/epinions/{}_results-server-{}-Jan3-test.json'.format(method,graph_size)
 
                                         logging.write("method: {}, T, {}, real_i: {}, ratio: {}, test_ratio: {}, swaprate: {},gamma:{}, graph_size: {}".format(method, T, real_i, ratio, test_ratio, swap_ratio,gamma, graph_size))
                                         logging.write(f)
