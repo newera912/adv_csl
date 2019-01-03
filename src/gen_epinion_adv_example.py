@@ -303,7 +303,7 @@ def inference_apdm_format(V, E, Obs, Omega, b, X_b, E_X, logging, psl=False, app
     for sign_grad_py_t in sign_grad_py_ids:
         temp_dic={}
         for id,sign in sign_grad_py_t.items():
-            temp_dic[id_2_edge(id)]=sign
+            temp_dic[id_2_edge[id]]=sign
         sign_grad_py.append(temp_dic)
 
 
@@ -615,17 +615,22 @@ def get_sign_grad_py(p_t,b_t,y_t,Y, R_p, R_p_hat, R_lambda_, copies, omega, cnt_
         """
         grad_i= - y_t[e]/p_y[e] +(1-y_t[e])/(1-p_y[e]) + rho*\sum_{copies p[e]}(p_t[e]-\hat p[e] -\lambda[e]*1/rho )
         """
-        if not copies.has_key(e): continue
+        if not copies.has_key(e):
+            py_grad_sign[e]=0.0  #the edges  are not involved any rules
+            continue
 
         nc = len(copies[e])
         #\alpha_0==\alpha_e
         C1= y_t[e]
         C2= 1-y_t[e]
+        z_lambda_sum = np.sum([p_t[e]-R_p_hat[k][j] - kappa * R_lambda_[k][j] for k, j in copies[e]])
+        # if z_lambda_sum!=0:
+        #     print ">>>>>>>>",p_t[e],z_lambda_sum
 
-        z_lambda_sum = sum([p_t[e]-R_p_hat[k][j] - kappa * R_lambda_[k][j] for k, j in copies[e]])
-        grad=-C1/(p_t[e])+C2/(1-p_t[e]) +(1/kappa)* z_lambda_sum
+        grad=-C1/(p_t[e]+0.000001)+C2/(1-p_t[e]+0.000001) +(1/kappa)* z_lambda_sum
         if grad>=0: py_grad_sign[e]=1.0
         else: py_grad_sign[e]=-1.0
+        # time.sleep(100)
     return py_grad_sign
 
 """
@@ -1188,6 +1193,9 @@ def admm(omega, b_init, X_b, y_t, Y, X, edge_up_nns, edge_down_nns, omega_0, R, 
     cnt_E = len(X) + len(Y)
     K = len(R)
     t0=time.time()
+    sign_grad_py_t={}
+
+
     p_init, b_init = calc_initial_p4(dict_paths,x_on_body, y_t, edge_down_nns, X_b, X, Y, cnt_E, 0.5, b_init)
     if report_stat: print p_init
     if report_stat: print b_init
@@ -1277,7 +1285,9 @@ def admm(omega, b_init, X_b, y_t, Y, X, edge_up_nns, edge_down_nns, omega_0, R, 
         if error < epsilon:
             sign_grad_py_t=get_sign_grad_py(p_t,b_t,y_t,Y, R_p, R_p_hat, R_lambda, copies, omega, cnt_E, kappa, approx)
             break
-    sign_grad_py_t = get_sign_grad_py(p_t, b_t, y_t, Y, R_p, R_p_hat, R_lambda, copies, omega, cnt_E, kappa, approx)
+    #                                 p_t, b_t, y_t, Y, R_p, R_p_hat, R_lambda_, copies, omega, cnt_E, kappa, approx
+
+    if len(sign_grad_py_t)==0: sign_grad_py_t = get_sign_grad_py(p_t, b_t, y_t, Y, R_p, R_p_hat, R_lambda, copies, omega, cnt_E, kappa, approx)
     #     sys.stdout.write("Iter-" + str(iter) + ": " + str(round(time.time() - t3, 2)) + "| ")
     # sys.stdout.write("\n")
     return p_t, b_t,sign_grad_py_t

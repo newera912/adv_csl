@@ -13,7 +13,7 @@ import os
 import multiprocessing
 from random import shuffle
 from gen_epinion_adv_example import inference_apdm_format as inference_apdm_format_conflict_evidence
-
+from log import Log
 """
 INPUT
 a: base with default 0.5
@@ -236,22 +236,22 @@ class Task_generate_PGD(object):
 
         """Step 2: Add noise to observations on the edges """
         E_Y = [e for e in self.E if not E_X.has_key(e)]
+        # print E_Y
         # rand_seq_E_Y = copy.deepcopy(E_Y)
         # shuffle(rand_seq_E_Y)
         # cnt = int(np.round(len(E_Y) * self.gamma))
         # X_b = rand_seq_E_Y[:cnt]
         X_b=[]
         """ |p_y+alpha*sign(nabla_py L)| <= gamma"""
-        if gamma>0.0:
-            sign_grad_py = gen_adv_exmaple(self.V, self.E, self.Obs, X_b, E_X)
+        if self.gamma>0.0:
+            sign_grad_py = gen_adv_exmaple(self.V, self.E, Obs, X_b, E_X)
 
             T = len(Obs[self.E[0]])
-            for i,e in enumerate(E_Y):
-                for t in range(0, T):
-                    Obs[e][t] = clip01(Obs[e][t]+gamma*sign_grad_py[t][e])   #clip between [0,1]
-
-
-
+            for e in E_Y:
+                # print type(sign_grad_py[0])
+                if e not in sign_grad_py[0].keys(): print "Eroorrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr!"
+                for t in range(0, self.T):
+                    Obs[e][t] = clip01(Obs[e][t]+self.gamma*sign_grad_py[t][e])   #clip between [0,1]
 
         """   V, E, Obs, Omega, b, X_b, E_X, logging, psl   """
 
@@ -275,7 +275,7 @@ def simulation_data_generator_rf():
     realizations = 10
     graph_sizes = [1000,5000, 10000,47676]
     # graph_sizes = [2500, 7500]
-    ratios = [0.2, 0.3,0.6]
+    ratios = [0.2]
 
     tasks = multiprocessing.Queue()
     results = multiprocessing.Queue()
@@ -298,7 +298,7 @@ def simulation_data_generator_rf():
         for T in [8,9,10,11][:]:
             for swap_ratio in [0.00, 0.01, 0.05][:1]:
                 for test_ratio in [0.1, 0.2, 0.3, 0.4,0.5][:]:
-                    for ratio in ratios[:]:  #the percentage of edges set the observations to 1
+                    for ratio in ratios[:1]:  #the percentage of edges set the observations to 1
                         for real_i in range(realizations)[:]:
                             Obs = graph_process(V,E, T, ratio,swap_ratio)
                             for gamma in [0.0, 0.01, 0.02, 0.03, 0.04, 0.05, 0.06, 0.07][:]: #8
@@ -325,7 +325,7 @@ def simulation_data_generator_rn():
     realizations = 10
     graph_sizes = [1000,5000, 10000,47676]
     # graph_sizes = [2500, 7500]
-    ratios = [0.2, 0.3,0.6]
+    ratios = [0.2]
 
     tasks = multiprocessing.Queue()
     results = multiprocessing.Queue()
@@ -371,11 +371,11 @@ def simulation_data_generator_PGD():
     realizations = 10
     graph_sizes = [1000,5000, 10000,47676]
     # graph_sizes = [2500, 7500]
-    ratios = [0.2, 0.3,0.6]
+    ratios = [0.2]
 
     tasks = multiprocessing.Queue()
     results = multiprocessing.Queue()
-    num_consumers = 50  # We only use 5 cores.
+    num_consumers = 1  # We only use 5 cores.
     # print 'Creating %d consumers' % num_consumers
     consumers = [Consumer(tasks, results)
                  for i in range(num_consumers)]
@@ -391,7 +391,7 @@ def simulation_data_generator_PGD():
         out_folder = data_root + str(graph_size) + "/"
         if not os.path.exists(out_folder):
             os.makedirs(out_folder)
-        for T in [8,9,10,11][:]:
+        for T in [8,9,10,11][2:]:
             for swap_ratio in [0.00, 0.01, 0.05][:1]:
                 for test_ratio in [0.1, 0.2, 0.3, 0.4,0.5][:]:
                     for ratio in ratios[:]:  #the percentage of edges set the observations to 1
@@ -488,11 +488,11 @@ def graph_process(V, E, n_features, ratio, swap_ratio):
         #print "{} # edges: {} # positives: {}".format(feat_i, n_E, np.sum([item[0] for item in feat_data.values()]))
     return feat_data
 
-
+                    #self.V, self.E, Obs, X_b, E_X
 def gen_adv_exmaple(V, E, Obs, X_b,E_X):
     logging = Log()
     b={}
-    Omega = calc_Omega_from_Obs2(Obs, E)
+    Omega = calc_Omega_from_Obs2(Obs, E)                #V, E, Obs, Omega, b, X_b, E_X, logging, psl=False, approx=True, init_alpha_beta=(1, 1),report_stat=False
     sign_grad_py=inference_apdm_format_conflict_evidence(V, E, Obs, Omega, b, X_b, E_X, logging, psl=False)
 
 
@@ -529,8 +529,8 @@ def main():
     # [V, E] = pickle.load(pkl_file)
     # print len(V), len(E)
     # simulation_data_generator2()
-    simulation_data_generator_rf()
-    simulation_data_generator_rn()
+    # simulation_data_generator_rf()
+    # simulation_data_generator_rn()
     simulation_data_generator_PGD()
 if __name__=='__main__':
     main()
