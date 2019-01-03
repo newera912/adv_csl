@@ -1,4 +1,4 @@
-__author__ = 'Feng Chen'
+__author__ = 'Adil Alim'
 from multi_core_trust_inference import inference_apdm_format, list_sum, list_dot_scalar, calculate_measures
 from log import Log
 import os

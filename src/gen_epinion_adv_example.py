@@ -134,9 +134,9 @@ class Task_inference(object):
         # this is the place to do your work
         # time.sleep(0.1) # pretend to take some time to do our work
         # admm(omega, b, X_b, y_t, Y, X, edge_up_nns,edge_down_nns, omega_0, R, dict_paths, psl, approx, report_stat)
-        p_t, b_t = admm(self.omega, self.b, self.X_b, self.y_t, self.Y, self.X, self.edge_up_nns, self.edge_down_nns,
+        p_t, b_t,sign_grad_py_t = admm(self.omega, self.b, self.X_b, self.y_t, self.Y, self.X, self.edge_up_nns, self.edge_down_nns,
                         self.omega_0, self.R, self.dict_paths, self.x_on_body, self.psl, self.approx, self.report_stat)
-        return p_t, b_t
+        return p_t, b_t,sign_grad_py_t
 
     def __str__(self):
         return '%s' % (self.p0)
@@ -169,6 +169,7 @@ def inference(omega_y, omega_0, y, X_b, X, Y, T, edge_up_nns, edge_down_nns, R, 
     for iter in range(5):
         ps = []
         bs = []
+        sign_grad_py=[]
         tasks = multiprocessing.Queue()
         results = multiprocessing.Queue()
         # Start consumers
@@ -190,9 +191,10 @@ def inference(omega_y, omega_0, y, X_b, X, Y, T, edge_up_nns, edge_down_nns, R, 
             tasks.put(None)
 
         while num_jobs:
-            p_t, b_t = results.get()
+            p_t, b_t ,sign_grad_py_t = results.get()
             ps.append(p_t)
             bs.append(b_t)
+            sign_grad_py.append(sign_grad_py_t)
             num_jobs -= 1
         error = 0.0
         omega_prev = copy.deepcopy(omega)
@@ -213,7 +215,7 @@ def inference(omega_y, omega_0, y, X_b, X, Y, T, edge_up_nns, edge_down_nns, R, 
         #         print e, omega_prev[e],omega_x[e]
         if error < 0.01:
             break
-    return omega, b_y
+    return omega, b_y,sign_grad_py
 
 
 """
@@ -296,10 +298,16 @@ def inference_apdm_format(V, E, Obs, Omega, b, X_b, E_X, logging, psl=False, app
     # time.sleep(1000)
     # print [(id_2_edge[a], id_2_edge[b], id_2_edge[c]) for (a,b,c) in R]
     # print "dict_paths", dict_paths
-    pred_omega_x, pred_b_y = inference(omega_y, omega_0, y, X_b, X, Y, T, {}, edge_down_nns, R, dict_paths,x_on_body, logging, psl, approx, init_alpha_beta, report_stat)
-    pred_omega_x = {id_2_edge[e]: alpha_beta for e, alpha_beta in pred_omega_x.items()}
-    pred_b_y = {id_2_edge[e]: val for e, val in pred_b_y.items()}
-    return pred_omega_x, pred_b_y
+    _, _ ,sign_grad_py_ids= inference(omega_y, omega_0, y, X_b, X, Y, T, {}, edge_down_nns, R, dict_paths,x_on_body, logging, psl, approx, init_alpha_beta, report_stat)
+    sign_grad_py=[]
+    for sign_grad_py_t in sign_grad_py_ids:
+        temp_dic={}
+        for id,sign in sign_grad_py_t.items():
+            temp_dic[id_2_edge(id)]=sign
+        sign_grad_py.append(temp_dic)
+
+
+    return sign_grad_py
 
 
 """
@@ -600,6 +608,25 @@ def update_px(X, R_p, R_p_hat, R_lambda_, copies, omega, cnt_E, kappa, approx):
             R_p[k][j] = min_prob
     return R_p
 
+def get_sign_grad_py(p_t,b_t,y_t,Y, R_p, R_p_hat, R_lambda_, copies, omega, cnt_E, kappa, approx):
+    py_grad_sign={}
+    for e in Y.keys():
+        grad=0
+        """
+        grad_i= - y_t[e]/p_y[e] +(1-y_t[e])/(1-p_y[e]) + rho*\sum_{copies p[e]}(p_t[e]-\hat p[e] -\lambda[e]*1/rho )
+        """
+        if not copies.has_key(e): continue
+
+        nc = len(copies[e])
+        #\alpha_0==\alpha_e
+        C1= y_t[e]
+        C2= 1-y_t[e]
+
+        z_lambda_sum = sum([p_t[e]-R_p_hat[k][j] - kappa * R_lambda_[k][j] for k, j in copies[e]])
+        grad=-C1/(p_t[e])+C2/(1-p_t[e]) +(1/kappa)* z_lambda_sum
+        if grad>=0: py_grad_sign[e]=1.0
+        else: py_grad_sign[e]=-1.0
+    return py_grad_sign
 
 """
 INPUT
@@ -1248,10 +1275,12 @@ def admm(omega, b_init, X_b, y_t, Y, X, edge_up_nns, edge_down_nns, omega_0, R, 
 
         error = np.sqrt(np.sum([np.power(p_t_old[e] - p_t[e], 2) for e in range(cnt_E)]))
         if error < epsilon:
+            sign_grad_py_t=get_sign_grad_py(p_t,b_t,y_t,Y, R_p, R_p_hat, R_lambda, copies, omega, cnt_E, kappa, approx)
             break
+    sign_grad_py_t = get_sign_grad_py(p_t, b_t, y_t, Y, R_p, R_p_hat, R_lambda, copies, omega, cnt_E, kappa, approx)
     #     sys.stdout.write("Iter-" + str(iter) + ": " + str(round(time.time() - t3, 2)) + "| ")
     # sys.stdout.write("\n")
-    return p_t, b_t
+    return p_t, b_t,sign_grad_py_t
 
 
 """
@@ -1638,652 +1667,6 @@ def reformat(V, E, Obs, Omega):
     return V, edge_up_nns, edge_down_nns, id_2_edge, edge_2_id, omega, feat
 
 
-def testcase_0_1():
-    logging = Log('logg.txt')
-    print inspect.stack()[0][3]
-    V = [0, 1, 2]
-    E = [(0, 1), (1, 2), (0, 2)]
-    X = [(1, 2)]
-    Y = [e for e in E if e not in X]
-    T = 10
-    zeros = np.zeros(T)
-    ones = np.ones(T)
-    Obs = {e: zeros for e in E}
-    Obs[(0, 1)] = ones
-    Obs[(0, 2)] = ones
-    Obs[(1, 2)] = ones
-    true_conflict = []
-
-    Omega = estimate_omega_x([{e: Obs[e][t] for e in Obs} for t in range(T)], E)
-
-    b = {e: 1 if e in true_conflict else 0 for e in E}
-    X_b = Y
-    prob_mse, u_mse, prob_relative_mse, u_relative_mse, accuracy, recall_congested, recall_uncongested, b_f_measure = \
-        evaluate(V, E, Obs, Omega, X, Y, X_b, b, logging, psl = False, approx = True, init_alpha_beta = (1, 1), report_stat =False)
-
-
-def testcase_1_2():
-    logging = Log('testcase_1_2.txt')
-    print inspect.stack()[0][3]
-    V = [0, 1, 2, 3]
-    E = [(3, 1), (3, 2), (3, 0), (1, 0), (2, 3), (2, 1)]
-    X = [(3, 0)]
-    Y = [e for e in E if e not in X]
-    T = 10
-    zeros = np.zeros(T)
-    ones = np.ones(T)
-    Obs = {e: zeros for e in E}
-    Obs[(3, 1)] = ones
-    Obs[(3, 2)] = ones
-    Obs[(2, 3)] = ones
-    Obs[(1, 0)] = ones
-    Obs[(3, 0)] = ones
-    true_conflict = [(2, 1)]
-    Omega = estimate_omega_x([{e: Obs[e][t] for e in Obs} for t in range(T)], E)
-    b = {e: 1 if e in true_conflict else 0 for e in E}
-    X_b = Y
-    prob_mse, u_mse, prob_relative_mse, u_relative_mse, accuracy, recall_congested, recall_uncongested, b_f_measure = \
-        evaluate(V, E, Obs, Omega, X, Y, X_b, b, logging, psl=False, approx=True, init_alpha_beta=(1, 1), report_stat =False)
-
-
-def testcase_2_2():
-    logging = Log('testcase_2_2.txt')
-    print inspect.stack()[0][3]
-    V = [0, 1, 2, 3, 4, 5, 6]
-    E = [(1, 0), (1, 2), (1, 3), (1, 4), (1, 5), (1, 6), (2, 0), (3, 0), (4, 0), (5, 0), (6, 0)]
-    X = [(1, 0)]
-    Y = [e for e in E if e not in X]
-    T = 10
-    zeros = np.zeros(T)
-    ones = np.ones(T)
-    Obs = {e: ones for e in E}
-    Obs[(1, 0)] = zeros
-    Obs[(3, 0)] = zeros
-    Obs[(4, 0)] = zeros
-    Obs[(5, 0)] = zeros
-    Obs[(6, 0)] = zeros
-
-    true_conflict = [(1, 2), (2, 0)]
-    Omega = estimate_omega_x([{e: Obs[e][t] for e in Obs} for t in range(T)], E)
-    b = {e: 1 if e in true_conflict else 0 for e in E}
-    X_b = Y
-    prob_mse, u_mse, prob_relative_mse, u_relative_mse, accuracy, recall_congested, recall_uncongested, b_f_measure = \
-        evaluate(V, E, Obs, Omega, X, Y, X_b, b, logging, psl = False, approx = True, init_alpha_beta = (1, 1), report_stat =False)
-
-
-def testcase_2_3():
-    logging = Log('testcase_2_3.txt')
-    print inspect.stack()[0][3]
-    V = [0, 1, 2, 3, 4, 5, 6]
-    E = [(1, 0), (1, 2), (1, 3), (1, 4), (1, 5), (1, 6), (2, 0), (3, 0), (4, 0), (5, 0), (6, 0)]
-    X = [(1, 0)]
-    Y = [e for e in E if e not in X]
-    T = 10
-    zeros = np.zeros(T)
-    ones = np.ones(T)
-    Obs = {e: ones for e in E}
-    Obs[(1, 0)] = zeros
-    Obs[(4, 0)] = zeros
-    Obs[(5, 0)] = zeros
-    Obs[(6, 0)] = zeros
-
-    true_conflict = [(1, 2), (2, 0), (1, 3), (3, 0)]
-    Omega = estimate_omega_x([{e: Obs[e][t] for e in Obs} for t in range(T)], E)
-    b = {e: 1 if e in true_conflict else 0 for e in E}
-    X_b = Y
-    prob_mse, u_mse, prob_relative_mse, u_relative_mse, accuracy, recall_congested, recall_uncongested, b_f_measure = \
-        evaluate(V, E, Obs, Omega, X, Y, X_b, b, logging, psl = False, approx = True, init_alpha_beta = (1, 1), report_stat =False)
-
-def testcase_2_4():
-    logging = Log('testcase_2_4.txt')
-    print inspect.stack()[0][3]
-    V = [0, 1, 2, 3, 4, 5, 6]
-    E = [(1, 0), (1, 2), (1, 3), (1, 4), (1, 5), (1, 6), (2, 0), (3, 0), (4, 0), (5, 0), (6, 0)]
-    X = [(1, 0)]
-    Y = [e for e in E if e not in X]
-    T = 1
-    zeros = np.zeros(T)
-    ones = np.ones(T)
-    Obs = {e: ones for e in E}
-    Obs[(5, 0)] = zeros
-    Obs[(6, 0)] = zeros
-
-    true_conflict = [(1, 5), (5, 0), (1, 6), (6, 0)]
-    Omega = estimate_omega_x([{e: Obs[e][t] for e in Obs} for t in range(T)], E)
-    b = {e: 1 if e in true_conflict else 0 for e in E}
-    X_b = Y
-    prob_mse, u_mse, prob_relative_mse, u_relative_mse, accuracy, recall_congested, recall_uncongested, b_f_measure = \
-        evaluate(V, E, Obs, Omega, X, Y, X_b, b, logging, psl = False, approx = True, init_alpha_beta = (1, 1), report_stat =False)
-
-
-def testcase_2_5():
-    logging = Log('testcase_2_5.txt')
-    print inspect.stack()[0][3]
-    V = [0, 1, 2, 3, 4, 5, 6]
-    E = [(1, 0), (1, 2), (1, 3), (1, 4), (1, 5), (1, 6), (2, 0), (3, 0), (4, 0), (5, 0), (6, 0)]
-    X = [(1, 0)]
-    Y = [e for e in E if e not in X]
-    T = 10
-    zeros = np.zeros(T)
-    ones = np.ones(T)
-    Obs = {e: ones for e in E}
-    Obs[(6, 0)] = zeros
-
-    true_conflict = [(1, 6), (6, 0)]
-    Omega = estimate_omega_x([{e: Obs[e][t] for e in Obs} for t in range(T)], E)
-    b = {e: 1 if e in true_conflict else 0 for e in E}
-    X_b = Y
-    prob_mse, u_mse, prob_relative_mse, u_relative_mse, accuracy, recall_congested, recall_uncongested, b_f_measure = \
-        evaluate(V, E, Obs, Omega, X, Y, X_b, b, logging, psl = False, approx = True, init_alpha_beta = (1, 1), report_stat =False)
-
-def testcase_2_6():
-    logging = Log('testcase_2_6.txt')
-    print inspect.stack()[0][3]
-    V = [0, 1, 2, 3, 4, 5, 6]
-    E = [(1, 0), (1, 2), (1, 3), (1, 4), (1, 5), (1, 6), (2, 0), (3, 0), (4, 0), (5, 0), (6, 0)]
-    X = [(1, 0)]
-    Y = [e for e in E if e not in X]
-    T = 10
-    zeros = np.zeros(T)
-    ones = np.ones(T)
-    Obs = {e: ones for e in E}
-    Obs[(1, 0)] = zeros
-    Obs[(2, 0)] = zeros
-    Obs[(3, 0)] = zeros
-    Obs[(4, 0)] = zeros
-    Obs[(5, 0)] = zeros
-    Obs[(6, 0)] = zeros
-
-    true_conflict = []
-    Omega = estimate_omega_x([{e: Obs[e][t] for e in Obs} for t in range(T)], E)
-    b = {e: 1 if e in true_conflict else 0 for e in E}
-    X_b = Y
-    prob_mse, u_mse, prob_relative_mse, u_relative_mse, accuracy, recall_congested, recall_uncongested, b_f_measure = \
-        evaluate(V, E, Obs, Omega, X, Y, X_b, b, logging, psl = False, approx = True, init_alpha_beta = (1, 1), report_stat =False)
-
-
-def testcase_2_1():
-    logging = Log('testcase_2_1.txt')
-    print inspect.stack()[0][3]
-    V = [0, 1, 2, 3, 4, 5, 6]
-    E = [(1, 0), (1, 2), (1, 3), (1, 4), (1, 5), (1, 6), (2, 0), (3, 0), (4, 0), (5, 0), (6, 0)]
-    X = [(1, 0)]
-    Y = [e for e in E if e not in X]
-    T = 10
-    zeros = np.zeros(T)
-    ones = np.ones(T)
-    Obs = {e: ones for e in E}
-
-    true_conflict = []
-    Omega = estimate_omega_x([{e: Obs[e][t] for e in Obs} for t in range(T)], E)
-    b = {e: 1 if e in true_conflict else 0 for e in E}
-    X_b = Y
-    prob_mse, u_mse, prob_relative_mse, u_relative_mse, accuracy, recall_congested, recall_uncongested, b_f_measure = \
-        evaluate(V, E, Obs, Omega, X, Y, X_b, b, logging, psl = False, approx = True, init_alpha_beta = (1, 1), report_stat =False)
-
-
-def testcase_11_1():
-    logging = Log('testcase_11_1.txt')
-    print inspect.stack()[0][3]
-    V = [0, 1, 2, 3, 4]
-    E = [(0, 1), (0, 2), (0, 3), (0, 4), (2, 1), (2, 3), (1, 3), (3, 4)]
-    X = [(0, 1), (0, 4)]
-    Y = [e for e in E if e not in X]
-    T = 10
-    zeros = np.zeros(T)
-    ones = np.ones(T)
-    Obs = {e: ones for e in E}
-    Obs[(2, 3)] = zeros
-
-    true_conflict = []
-    Omega = estimate_omega_x([{e: Obs[e][t] for e in Obs} for t in range(T)], E)
-    b = {e: 1 if e in true_conflict else 0 for e in E}
-    X_b = Y
-    prob_mse, u_mse, prob_relative_mse, u_relative_mse, accuracy, recall_congested, recall_uncongested, b_f_measure = \
-        evaluate(V, E, Obs, Omega, X, Y, X_b, b, logging, psl = False, approx = True, init_alpha_beta = (1, 1), report_stat =False)
-
-def testcase_11_2():
-    logging = Log('testcase_11_2.txt')
-    print inspect.stack()[0][3]
-    V = [0, 1, 2, 3, 4]
-    E = [(0, 1), (0, 2), (0, 3), (0, 4), (2, 1), (2, 3), (1, 3), (3, 4)]
-    X = [(0, 1), (0, 4)]
-    Y = [e for e in E if e not in X]
-    T = 10
-    zeros = np.zeros(T)
-    ones = np.ones(T)
-    Obs = {e: ones for e in E}
-    Obs[(2, 3)] = zeros
-    Obs[(0, 3)] = zeros
-    Obs[(0, 4)] = zeros
-
-    true_conflict = [(1, 3)]
-    Omega = estimate_omega_x([{e: Obs[e][t] for e in Obs} for t in range(T)], E)
-    b = {e: 1 if e in true_conflict else 0 for e in E}
-    X_b = Y
-    prob_mse, u_mse, prob_relative_mse, u_relative_mse, accuracy, recall_congested, recall_uncongested, b_f_measure = \
-        evaluate(V, E, Obs, Omega, X, Y, X_b, b, logging, psl = False, approx = True, init_alpha_beta = (1, 1), report_stat =False)
-
-def testcase_11_3():
-    logging = Log('testcase_11_3.txt')
-    print inspect.stack()[0][3]
-    V = [0, 1, 2, 3, 4, 5]
-    E = [(0, 1), (0, 2), (0, 3), (0, 4), (2, 1), (2, 3), (1, 3), (3, 4), (2, 5), (5, 3)]
-    X = [(0, 1), (0, 4)]
-    Y = [e for e in E if e not in X]
-    T = 10
-    zeros = np.zeros(T)
-    ones = np.ones(T)
-    Obs = {e: ones for e in E}
-    Obs[(2, 3)] = zeros
-    Obs[(0, 3)] = zeros
-    Obs[(0, 4)] = zeros
-
-    true_conflict = [(1, 3), (2, 5), (5, 3)]
-    Omega = estimate_omega_x([{e: Obs[e][t] for e in Obs} for t in range(T)], E)
-    b = {e: 1 if e in true_conflict else 0 for e in E}
-    X_b = Y
-    prob_mse, u_mse, prob_relative_mse, u_relative_mse, accuracy, recall_congested, recall_uncongested, b_f_measure = \
-        evaluate(V, E, Obs, Omega, X, Y, X_b, b, logging, psl = False, approx = True, init_alpha_beta = (1, 1), report_stat =False)
-
-def testcase_11_4():
-    logging = Log('testcase_11_4.txt')
-    print inspect.stack()[0][3]
-    V = [0, 1, 2, 3, 4, 5, 6]
-    E = [(0, 1), (0, 2), (0, 3), (0, 4), (2, 1), (2, 3), (1, 3), (3, 4), (2, 5), (5, 3), (2, 6), (6, 3)]
-    X = [(0, 1), (0, 4)]
-    Y = [e for e in E if e not in X]
-    T = 10
-    zeros = np.zeros(T)
-    ones = np.ones(T)
-    Obs = {e: ones for e in E}
-    Obs[(2, 3)] = zeros
-    # Obs[(2,3)] = zeros
-    # Obs[(0,3)] = zeros
-
-    true_conflict = []
-    Omega = estimate_omega_x([{e: Obs[e][t] for e in Obs} for t in range(T)], E)
-    b = {e: 1 if e in true_conflict else 0 for e in E}
-    X_b = Y
-    prob_mse, u_mse, prob_relative_mse, u_relative_mse, accuracy, recall_congested, recall_uncongested, b_f_measure = \
-        evaluate(V, E, Obs, Omega, X, Y, X_b, b, logging, psl = False, approx = True, init_alpha_beta = (1, 1), report_stat =False)
-
-
-def testcase_12_4():
-    logging = Log('testcase_12_4.txt')
-    print inspect.stack()[0][3]
-    V = [0, 1, 2, 3, 4, 5]
-    E = [(0, 2), (1, 0), (1, 2), (1, 3), (1, 4), (3, 2), (4, 2), (1, 5), (5, 2)]
-    X = [(5, 2)]
-    Y = [e for e in E if e not in X]
-    T = 10
-    zeros = np.zeros(T)
-    ones = np.ones(T)
-    Obs = {e: ones for e in E}
-    # Obs[(1,2)] = zeros
-    Obs[(0, 2)] = zeros
-    Obs[(3, 2)] = zeros
-    Obs[(4, 2)] = zeros
-    Obs[(5, 2)] = zeros
-    # Obs[(2,3)] = zeros
-    # Obs[(0,3)] = zeros
-
-    true_conflict = [(1, 2)]
-    Omega = estimate_omega_x([{e: Obs[e][t] for e in Obs} for t in range(T)], E)
-    b = {e: 1 if e in true_conflict else 0 for e in E}
-    X_b = Y
-    prob_mse, u_mse, prob_relative_mse, u_relative_mse, accuracy, recall_congested, recall_uncongested, b_f_measure = \
-        evaluate(V, E, Obs, Omega, X, Y, X_b, b, logging, psl = False, approx = True, init_alpha_beta = (1, 1), report_stat =False)
-
-def testcase_13_1():
-    logging = Log('testcase_12_4.txt')
-    print inspect.stack()[0][3]
-    V = [0, 1, 2, 3, 5, 6]
-    E = [(0, 1), (0, 5), (0, 6), (2, 0), (2, 1), (3, 0), (3, 1), (5, 1), (6, 1)]
-    X = [(0, 1)]  # [(5,2)]
-    Y = [e for e in E if e not in X]
-    T = 10
-    zeros = np.zeros(T)
-    ones = np.ones(T)
-    Obs = {e: ones for e in E}
-    # Obs[(0,1)] = zeros
-    # Obs[(0,2)] = zeros
-    # Obs[(3,2)] = zeros
-    # Obs[(4,2)] = zeros
-    # Obs[(5,2)] = zeros
-    # Obs[(2,3)] = zeros
-    # Obs[(0,3)] = zeros
-
-    true_conflict = [(0, 1)]
-    Omega = estimate_omega_x([{e: Obs[e][t] for e in Obs} for t in range(T)], E)
-    b = {e: 1 if e in true_conflict else 0 for e in E}
-    X_b = Y
-    prob_mse, u_mse, prob_relative_mse, u_relative_mse, accuracy, recall_congested, recall_uncongested, b_f_measure = \
-        evaluate(V, E, Obs, Omega, X, Y, X_b, b, logging, psl = False, approx = True, init_alpha_beta = (1, 1), report_stat =False)
-
-def testcase_13_2():
-    logging = Log('testcase_12_4.txt')
-    print inspect.stack()[0][3]
-    V = [0, 1, 2, 3, 5, 6]
-    E = [(0, 1), (0, 5), (0, 6), (2, 0), (2, 1), (3, 0), (3, 1), (5, 1), (6, 1)]
-    X = [(0, 1)]  # [(5,2)]
-    Y = [e for e in E if e not in X]
-    T = 10
-    zeros = np.zeros(T)
-    ones = np.ones(T)
-    Obs = {e: ones for e in E}
-    Obs[(2, 0)] = zeros
-    Obs[(3, 0)] = zeros
-    # Obs[(3,2)] = zeros
-    # Obs[(4,2)] = zeros
-    # Obs[(5,2)] = zeros
-    # Obs[(2,3)] = zeros
-    # Obs[(0,3)] = zeros
-
-    true_conflict = []
-    Omega = estimate_omega_x([{e: Obs[e][t] for e in Obs} for t in range(T)], E)
-    b = {e: 1 if e in true_conflict else 0 for e in E}
-    X_b = Y
-    prob_mse, u_mse, prob_relative_mse, u_relative_mse, accuracy, recall_congested, recall_uncongested, b_f_measure = \
-        evaluate(V, E, Obs, Omega, X, Y, X_b, b, logging, psl = False, approx = True, init_alpha_beta = (1, 1), report_stat =False)
-
-def testcase_13_3():
-    logging = Log('testcase_12_4.txt')
-    print inspect.stack()[0][3]
-    V = [0, 1, 2, 3, 4, 5, 6]
-    E = [(0, 1), (0, 5), (0, 6), (2, 0), (2, 1), (3, 0), (4, 0), (3, 1), (4, 1), (5, 1), (6, 1)]
-    X = [(2, 1)]  # [(5,2)]
-    Y = [e for e in E if e not in X]
-    T = 10
-    zeros = np.zeros(T)
-    ones = np.ones(T)
-    Obs = {e: ones for e in E}
-    Obs[(0, 1)] = zeros
-    Obs[(2, 1)] = zeros
-    # Obs[(0,2)] = zeros
-    # Obs[(3,2)] = zeros
-    # Obs[(4,2)] = zeros
-    # Obs[(5,2)] = zeros
-    # Obs[(2,3)] = zeros
-    # Obs[(0,3)] = zeros
-
-    true_conflict = [(0, 1)]
-    Omega = estimate_omega_x([{e: Obs[e][t] for e in Obs} for t in range(T)], E)
-    b = {e: 1 if e in true_conflict else 0 for e in E}
-    X_b = Y
-    prob_mse, u_mse, prob_relative_mse, u_relative_mse, accuracy, recall_congested, recall_uncongested, b_f_measure = \
-        evaluate(V, E, Obs, Omega, X, Y, X_b, b, logging, psl = False, approx = True, init_alpha_beta = (1, 1), report_stat =False)
-
-def testcase_13_4():
-    logging = Log('testcase_12_4.txt')
-    print inspect.stack()[0][3]
-    V = [0, 1, 2, 3, 4, 5, 6]
-    E = [(0, 1), (0, 5), (0, 6), (2, 0), (2, 1), (3, 0), (4, 0), (3, 1), (4, 1), (5, 1), (6, 1)]
-    X = [(0, 1)]  # [(5,2)]
-    Y = [e for e in E if e not in X]
-    T = 10
-    zeros = np.zeros(T)
-    ones = np.ones(T)
-    Obs = {e: ones for e in E}
-    Obs[(2, 0)] = zeros
-    Obs[(3, 0)] = zeros
-    Obs[(4, 0)] = zeros
-
-    true_conflict = []
-    Omega = estimate_omega_x([{e: Obs[e][t] for e in Obs} for t in range(T)], E)
-    b = {e: 1 if e in true_conflict else 0 for e in E}
-    X_b = Y
-    prob_mse, u_mse, prob_relative_mse, u_relative_mse, accuracy, recall_congested, recall_uncongested, b_f_measure = \
-        evaluate(V, E, Obs, Omega, X, Y, X_b, b, logging, psl = False, approx = True, init_alpha_beta = (1, 1), report_stat =False)
-
-def testcase_10_2():
-    logging = Log('testcase_10_2.txt')
-    print inspect.stack()[0][3]
-    V = [0, 1, 2, 3, 4, 5, 6, 7]
-    E = [(0, 1), (0, 2), (0, 3), (0, 4), (0, 5), (0, 6), (0, 7), \
-         (2, 1), (3, 1), (4, 1), (1, 6), (5, 6), (6, 7)]
-    X = [(0, 1), (0, 6), (0, 7)]
-    Y = [e for e in E if e not in X]
-    T = 10
-    zeros = np.zeros(T)
-    ones = np.ones(T)
-    Obs = {e: zeros for e in E}
-    # Obs[(0, 1)] = ones
-    Obs[(0, 2)] = ones
-    Obs[(0, 4)] = ones
-    Obs[(2, 1)] = ones
-    Obs[(3, 1)] = ones
-    Obs[(6, 7)] = ones
-
-    true_conflict = [(0, 2), (2, 1)]
-    Omega = estimate_omega_x([{e: Obs[e][t] for e in Obs} for t in range(T)], E)
-    b = {e: 1 if e in true_conflict else 0 for e in E}
-    X_b = Y
-    prob_mse, u_mse, prob_relative_mse, u_relative_mse, accuracy, recall_congested, recall_uncongested, b_f_measure = \
-        evaluate(V, E, Obs, Omega, X, Y, X_b, b, logging, psl = False, approx = True, init_alpha_beta = (1, 1), report_stat =False)
-
-
-def testcase_10_1():
-    logging = Log('testcase_10_1.txt')
-    V = [0, 1, 2, 3, 4, 5, 6, 7]
-    E = [(0, 1), (0, 2), (0, 3), (0, 4), (0, 5), (0, 6), (0, 7), \
-         (2, 1), (3, 1), (4, 1), (1, 6), (5, 6), (6, 7)]
-    X = [(0, 1), (0, 6), (0, 7)]
-    Y = [e for e in E if e not in X]
-    T = 10
-    zeros = np.zeros(T)
-    ones = np.ones(T)
-    Obs = {e: zeros for e in E}
-    # Obs[(0, 1)] = ones
-    # Obs[(0, 6)] = ones
-    # Obs[(0, 7)] = ones
-    Obs[(0, 2)] = ones
-    Obs[(0, 4)] = ones
-    Obs[(2, 1)] = ones
-    Obs[(3, 1)] = ones
-    Obs[(1, 6)] = ones
-    Obs[(6, 7)] = ones
-
-    true_conflict = [(0, 2), (2, 1)]
-    Omega = estimate_omega_x([{e: Obs[e][t] for e in Obs} for t in range(T)], E)
-    b = {e: 1 if e in true_conflict else 0 for e in E}
-    X_b = Y
-    prob_mse, u_mse, prob_relative_mse, u_relative_mse, accuracy, recall_congested, recall_uncongested, b_f_measure = \
-        evaluate(V, E, Obs, Omega, X, Y, X_b, b, logging, psl = False, approx = True, init_alpha_beta = (1, 1), report_stat =False)
-
-def testcase_9_2():
-    logging = Log('testcase_9_2.txt')
-    print inspect.stack()[0][3]
-    V = [0, 1, 2, 3, 4]
-    E = [(0, 1), (0, 2), (0, 3), (0, 4), (2, 1), (1, 3), (3, 4)]
-    X = [(0, 1), (0, 3), (0, 4)]
-    Y = [e for e in E if e not in X]
-    T = 10
-    zeros = np.zeros(T)
-    ones = np.ones(T)
-    Obs = {e: zeros for e in E}
-    Obs[(0, 1)] = ones
-    Obs[(0, 2)] = ones
-    Obs[(2, 1)] = ones
-    Obs[(3, 4)] = ones
-
-    true_conflict = []
-    Omega = estimate_omega_x([{e: Obs[e][t] for e in Obs} for t in range(T)], E)
-    b = {e: 1 if e in true_conflict else 0 for e in E}
-    X_b = Y
-    prob_mse, u_mse, prob_relative_mse, u_relative_mse, accuracy, recall_congested, recall_uncongested, b_f_measure = \
-        evaluate(V, E, Obs, Omega, X, Y, X_b, b, logging, psl = False, approx = True, init_alpha_beta = (1, 1), report_stat =False)
-
-
-def testcase_9_1():
-    logging = Log('testcase_9_1.txt')
-    print inspect.stack()[0][3]
-    V = [0, 1, 2, 3, 4]
-    E = [(0, 1), (0, 2), (0, 3), (0, 4), (2, 1), (1, 3), (3, 4)]
-    X = [(0, 1), (0, 3), (0, 4)]
-    Y = [e for e in E if e not in X]
-    T = 10
-    zeros = np.zeros(T)
-    ones = np.ones(T)
-    Obs = {e: ones for e in E}
-
-    true_conflict = []
-    Omega = estimate_omega_x([{e: Obs[e][t] for e in Obs} for t in range(T)], E)
-    b = {e: 1 if e in true_conflict else 0 for e in E}
-    X_b = Y
-    prob_mse, u_mse, prob_relative_mse, u_relative_mse, accuracy, recall_congested, recall_uncongested, b_f_measure = \
-        evaluate(V, E, Obs, Omega, X, Y, X_b, b, logging, psl = False, approx = True, init_alpha_beta = (1, 1), report_stat =False)
-
-def testcase_8_2():
-    logging = Log('testcase_8_2.txt')
-    print inspect.stack()[0][3]
-    V = [0, 1, 2, 3, 4, 5, 6]
-    E = [(0, 1), (0, 2), (0, 3), (0, 4), (0, 5), (0, 6), (2, 1), (3, 1), (4, 1), \
-         (1, 6), (5, 6)]
-    X = [(0, 1), (0, 6)]
-    Y = [e for e in E if e not in X]
-    T = 10
-    zeros = np.zeros(T)
-    ones = np.ones(T)
-    Obs = {e: zeros for e in E}
-
-    # Obs[(0, 1)] = zeros
-    Obs[(0, 2)] = ones
-    Obs[(0, 4)] = ones
-    Obs[(2, 1)] = ones
-    Obs[(3, 1)] = ones
-
-    true_conflict = [(0, 2), (2, 1)]
-    Omega = estimate_omega_x([{e: Obs[e][t] for e in Obs} for t in range(T)], E)
-    b = {e: 1 if e in true_conflict else 0 for e in E}
-    X_b = Y
-    prob_mse, u_mse, prob_relative_mse, u_relative_mse, accuracy, recall_congested, recall_uncongested, b_f_measure = \
-        evaluate(V, E, Obs, Omega, X, Y, X_b, b, logging, psl = False, approx = True, init_alpha_beta = (1, 1), report_stat =False)
-
-
-def testcase_8_1():
-    logging = Log('testcase_8_1.txt')
-    print inspect.stack()[0][3]
-    V = [0, 1, 2, 3, 4, 5, 6]
-    E = [(0, 1), (0, 2), (0, 3), (0, 4), (0, 5), (0, 6), (2, 1), (3, 1), (4, 1), \
-         (1, 6), (5, 6)]
-    X = [(0, 1), (0, 6)]
-    Y = [e for e in E if e not in X]
-    T = 10
-    zeros = np.zeros(T)
-    ones = np.ones(T)
-    Obs = {e: zeros for e in E}
-
-    Obs[(0, 2)] = ones
-    # Obs[(0, 1)] = zeros
-    # Obs[(0, 6)] = zeros
-    Obs[(0, 4)] = ones
-    Obs[(2, 1)] = ones
-    Obs[(3, 1)] = ones
-    Obs[(1, 6)] = ones
-
-    true_conflict = [(0, 2), (2, 1)]
-    Omega = estimate_omega_x([{e: Obs[e][t] for e in Obs} for t in range(T)], E)
-    b = {e: 1 if e in true_conflict else 0 for e in E}
-    X_b = Y
-    prob_mse, u_mse, prob_relative_mse, u_relative_mse, accuracy, recall_congested, recall_uncongested, b_f_measure = \
-        evaluate(V, E, Obs, Omega, X, Y, X_b, b, logging, psl = False, approx = True, init_alpha_beta = (1, 1), report_stat =False)
-
-def testcase_7_1():
-    logging = Log('testcase_7_1.txt')
-    print inspect.stack()[0][3]
-    V = [0, 1, 2, 3]
-    E = [(0, 1), (0, 2), (0, 3), (2, 1), (1, 3)]
-    X = [(0, 1), (0, 3)]
-    Y = [e for e in E if e not in X]
-    T = 10
-    zeros = np.zeros(T)
-    ones = np.ones(T)
-    Obs = {e: ones for e in E}
-
-    true_conflict = []
-    Omega = estimate_omega_x([{e: Obs[e][t] for e in Obs} for t in range(T)], E)
-    b = {e: 1 if e in true_conflict else 0 for e in E}
-    X_b = Y
-    prob_mse, u_mse, prob_relative_mse, u_relative_mse, accuracy, recall_congested, recall_uncongested, b_f_measure = \
-        evaluate(V, E, Obs, Omega, X, Y, X_b, b, logging, psl = False, approx = True, init_alpha_beta = (1, 1), report_stat =False)
-
-def testcase_5_1():
-    logging = Log('testcase_5_1.txt')
-    print inspect.stack()[0][3]
-    V = [0, 1, 2, 3, 4, 5, 6, 7]
-    E = [(0, 7), (1, 0), (1, 7), (1, 2), (1, 3), (1, 4), (1, 5), (1, 6), (2, 0), (3, 0), (4, 0), (5, 0), (6, 0)]
-    X = [(1, 7)]
-    Y = [e for e in E if e not in X]
-    T = 10
-    zeros = np.zeros(T)
-    ones = np.ones(T)
-    Obs = {e: zeros for e in E}
-
-    Obs[(1, 2)] = ones
-    Obs[(1, 3)] = ones
-    Obs[(1, 4)] = ones
-    Obs[(1, 5)] = ones
-    Obs[(1, 6)] = ones
-    Obs[(0, 7)] = ones
-
-    true_conflict = []
-    Omega = estimate_omega_x([{e: Obs[e][t] for e in Obs} for t in range(T)], E)
-    b = {e: 1 if e in true_conflict else 0 for e in E}
-    X_b = Y
-    prob_mse, u_mse, prob_relative_mse, u_relative_mse, accuracy, recall_congested, recall_uncongested, b_f_measure = \
-        evaluate(V, E, Obs, Omega, X, Y, X_b, b, logging, psl = False, approx = True, init_alpha_beta = (1, 1), report_stat =False)
-
-def testcase_5_2():
-    logging = Log('testcase_5_2.txt')
-    V = [0, 1, 2, 3, 4, 5, 6, 7]
-    E = [(0, 7), (1, 0), (1, 7), (1, 2), (1, 3), (1, 4), (1, 5), (1, 6), (2, 0), (3, 0), (4, 0), (5, 0), (6, 0)]
-    X = [(1, 7)]
-    Y = [e for e in E if e not in X]
-    T = 10
-    zeros = np.zeros(T)
-    ones = np.ones(T)
-    Obs = {e: zeros for e in E}
-
-    Obs[(1, 0)] = ones
-    Obs[(1, 7)] = ones
-    Obs[(1, 2)] = ones
-    Obs[(1, 3)] = ones
-    Obs[(1, 4)] = ones
-    Obs[(1, 5)] = ones
-    Obs[(1, 6)] = ones
-    Obs[(0, 7)] = ones
-
-    true_conflict = [(1, 0)]
-    Omega = estimate_omega_x([{e: Obs[e][t] for e in Obs} for t in range(T)], E)
-    b = {e: 1 if e in true_conflict else 0 for e in E}
-    X_b = Y
-    prob_mse, u_mse, prob_relative_mse, u_relative_mse, accuracy, recall_congested, recall_uncongested, b_f_measure = \
-        evaluate(V, E, Obs, Omega, X, Y, X_b, b, logging, psl = False, approx = True, init_alpha_beta = (1, 1), report_stat =False)
-
-def testcase_4_1():
-    logging = Log('testcase_4_1.txt')
-    V = [0, 1, 2, 3, 4, 5, 6]
-    E = [(1, 0), (1, 2), (1, 3), (1, 4), (1, 5), (1, 6), (2, 0), (3, 0), (4, 0), (5, 0), (6, 0)]
-    X = [(1, 0)]
-    Y = [e for e in E if e not in X]
-    T = 10
-    zeros = np.zeros(T)
-    ones = np.ones(T)
-    Obs = {e: zeros for e in E}
-    Obs[(2, 0)] = ones
-    Obs[(1, 3)] = ones
-    Obs[(1, 5)] = ones
-    Obs[(4, 0)] = ones
-    Obs[(6, 0)] = ones
-
-    true_conflict = []
-    Omega = estimate_omega_x([{e: Obs[e][t] for e in Obs} for t in range(T)], E)
-    b = {e: 1 if e in true_conflict else 0 for e in E}
-    X_b = Y
-    prob_mse, u_mse, prob_relative_mse, u_relative_mse, accuracy, recall_congested, recall_uncongested, b_f_measure = \
-        evaluate(V, E, Obs, Omega, X, Y, X_b, b, logging, psl = False, approx = True, init_alpha_beta = (1, 1), report_stat =False)
-
 
 """
 INPUT:
@@ -2483,193 +1866,10 @@ def generate_a_random_opinion(a=0.5, W=1):
     return (alpha, beta)
 
 
-"""
-INPUT
-V: a list of vertex ids
-E: a list of ordered pairs of vertex ids
-T: The number of observations. 100 by default.
-
-OUTPUT
-datasets: key is rate and the value is [[V, E, Omega, Obs, X], ...], where rate refers to the rate of edges that are randomly selected as target edges
-
-"""
-
-
-def simulation_data_generator(V, E, rates=[0.05, 0.1, 0.15, 0.25, 0.3, 0.4, 0.5], realizations=10, T=50):
-    datasets = {}
-    len_E = len(E)
-    Omega = {}
-    for e in E:
-        Omega[e] = generate_a_random_opinion()
-    for rate in rates:
-        rate_datasets = []
-        for real_i in range(realizations):
-            len_X = int(round(len_E * rate))
-            ratX = [E[i] for i in np.random.permutation(len_X)[:len_X]]
-            rate_omega_X = SL_prediction(V, E, Omega, rate_X)
-            rate_omega = copy.deepcopy(Omega)
-            for e, alpha_beta in rate_omega_X.items():
-                Omega[e] = alpha_beta
-            rate_Obs = {}
-            for e in E:
-                e_alpha, e_beta = Omega[e]
-                rate_Obs[e] = beta.rvs(e_alpha, e_beta, 0, 1, T)
-            datasets[(rate, real_i)] = [V, E, rate_omega, rate_Obs, rate_X]
-    return datasets
-
-
-"""
-Generate simulation datasts with different graph sizes and rates
-"""
-
-
-def simulation_data_generator1():
-    graph_sizes = [500, 1000, 5000, 10000, 47676]
-    rates = [0.05, 0.1, 0.15, 0.25, 0.3, 0.4, 0.5]
-    T = 10
-    for graph_size in graph_sizes[4:5]:
-        filename = "data/trust-analysis/nodes-{0}.pkl".format(graph_size)
-        print "--------- reading {0}".format(filename)
-        pkl_file = open("data/trust-analysis/nodes-{0}.pkl".format(graph_size), 'rb')
-        [V, E] = pickle.load(pkl_file)
-        print len(V), len(E)
-        pkl_file.close()
-        print "--------- generating simulation data"
-        datasets = simulation_data_generator(V, E, rates[:1], T)
-        for (rate, real_i), dataset in datasets.items():
-            print "---------------------graph size: {0}, rate: {1}, realization: {2}".format(graph_size, rate, real_i)
-            pkl_file = open(
-                "data/trust-analysis/nodes-{0}-rate-{1}-realization-{2}-data.pkl".format(graph_size, rate, real_i),
-                'wb')
-            pickle.dump(dataset, pkl_file)
-            pkl_file.close()
-
-
-"""
-Using breadfirst search with the start vertex id 0, this function generates sampled networks of
-size 500, 1000, 5000, 10000, and 47676, where 47676 is the size of the largest connected component
-that includes vertex 0
-"""
-
-
-def sampple_epinion_network(sample_sizes=[500, 1000, 5000, 10000, 47676]):
-    filename = "data/trust-analysis/Epinions.txt"
-    # print open(filename).readlines()[:4]
-    dict_V = {}
-    E = []
-    for line in open(filename).readlines()[4:]:
-        (str_start_v, str_end_v) = line.split()
-        start_v = int(str_start_v)
-        end_v = int(str_end_v)
-        if not dict_V.has_key(start_v):
-            dict_V[start_v] = 1
-        if not dict_V.has_key(end_v):
-            dict_V[end_v] = 1
-        E.append((start_v, end_v))
-    V = dict_V.keys()
-    vertex_nns = {}
-    for v_start, v_end in E:
-        if vertex_nns.has_key(v_start):
-            if v_end not in vertex_nns[v_start]:
-                vertex_nns[v_start].append(v_end)
-        else:
-            vertex_nns[v_start] = [v_end]
-
-    sample_networks = []
-    for sample_size in sample_sizes:
-        sample_V, sample_E = breadth_first_search(vertex_nns, sample_size)
-        print "sample network: #nodes: {0}, #edges: {1}".format(len(sample_V), len(sample_E))
-        # print walk_V
-        # print walk_E
-        sample_networks.append([sample_V, sample_E])
-        pkl_file = open("data/trust-analysis/nodes-{0}.pkl".format(len(sample_V)), 'wb')
-        pickle.dump([sample_V, sample_E], pkl_file)
-        pkl_file.close()
-
-
-"""
-INPUT
-vertex_nns: key is vertex id, and the value is a list of neighboring vertex ids
-sample_size: the size of the sampled subgraph using breadth first search
-
-We need to re-label the vertex ids of the sampled subgraph such that the ids are continuous starting from 0.
-
-OUTPUT
-V: a list of vertex ids
-E: a list of pairs of vertex ids
-"""
-
-
-def breadth_first_search(vertex_nns, sample_size):
-    sample_V = {}
-    sample_E = []
-    start_v = 0
-    queue = [start_v]
-    n = 0
-    while len(queue) > 0:
-        v = queue.pop()
-        sample_V[v] = 1
-        n = n + 1
-        if vertex_nns.has_key(v):
-            for v_n in vertex_nns[v]:
-                if not sample_V.has_key(v_n) and v_n not in queue:
-                    queue.append(v_n)
-        if n >= sample_size:
-            break
-    for v, v_nns in vertex_nns.items():
-        for v_n in v_nns:
-            if sample_V.has_key(v) and sample_V.has_key(v_n):
-                sample_E.append((v, v_n))
-    old_id_2_new_id = {}
-    for new_id, v in enumerate(sample_V.keys()):
-        old_id_2_new_id[v] = new_id
-    sample_V = range(len(sample_V))
-    sample_E = [(old_id_2_new_id[v1], old_id_2_new_id[v2]) for (v1, v2) in sample_E]
-    return sample_V, sample_E
-
-
-def num_rule():
-    graph_sizes = [500, 1000, 5000, 10000, 47676]
-    for graph_size in graph_sizes[:]:
-        filename = "/home/apdm02/workspace/git/data/cls_conflict/trust-analysis/nodes-{0}.pkl".format(graph_size)
-        pkl_file = open("/home/apdm02/workspace/git/data/cls_conflict/trust-analysis/nodes-{}.pkl".format(graph_size),
-                        'rb')
-        [V, E] = pickle.load(pkl_file)
-        V, edge_up_nns, edge_down_nns, id_2_edge, edge_2_id, omega, feat = reformat(V, E, {}, {})
-
-        R, dict_paths = generate_eopinion_PSL_rules_from_edge_cnns(edge_down_nns, id_2_edge, edge_2_id)
-        print len(V), len(R) / 3.0
-
 
 def main():
-    # num_rule()
-    # testcase_0_1()
-    # testcase_1_2()
-    # testcase_2_1()
-    # testcase_2_2()
-    # testcase_2_3()
-    # testcase_2_4()
-    # testcase_2_5()
-    # testcase_2_6()
-    # testcase_4_1()
-    # testcase_5_1()
-    # testcase_5_2()
-    # testcase_7_1()
-    # testcase_8_1()
-    # testcase_8_2()
-    # testcase_9_1()
-    # testcase_9_2()
-    # testcase_10_1()
-    # testcase_10_2()
-    testcase_11_1()
-    testcase_11_2()
-    testcase_11_3()
-    testcase_11_4()
-    testcase_12_4()
-    testcase_13_1()
-    testcase_13_2()
-    testcase_13_3()
-    testcase_13_4()
+
+    return
     # more_testcases()
 
 
