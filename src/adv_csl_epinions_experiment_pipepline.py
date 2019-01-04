@@ -74,9 +74,9 @@ def experiment_proc_server():
     ratios = [0.1, 0.2, 0.3,0.4,0.5,0.6,0.7,0.8]
     realizations = 10
     case_count=0
-    for adv_type in ["random_flip","random_noise","random_pgd2"][2:]:
+    for adv_type in ["random_flip","random_noise","random_pgd"][:2]:
         for graph_size in graph_sizes[1:2]:
-            for T in [8, 9, 10, 11][:]:    #5,6,10,20,11,21,15
+            for T in [8, 9, 10, 11][2:]:    #5,6,10,20,11,21,15
                 for real_i in range(realizations)[:1]:
                     for ratio in [0.2][:]:#0.0,0.1,0.2,0.3,the percentage of edges set the observations to 1
                         for swap_ratio in [0.00, 0.01, 0.05][:1]:
