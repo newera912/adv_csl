@@ -320,7 +320,7 @@ def SL_prediction_multiCore(V, E, Obs, Omega, E_X):
     # print "Path len:",threshold
     global paths, path
     T=len(Obs[E[0]])
-    Threshold=2
+    Threshold=10
     #when alpha=3.0, beta=3.0, then the u=1/3,d=1/3,u=1/3
     alpha0=1.0
     beta0=1.0
@@ -339,7 +339,7 @@ def SL_prediction_multiCore(V, E, Obs, Omega, E_X):
     edges_start_at, edges_end_at, nns = get_v_edge_nns(V_checked.keys(), E_op.keys())
     tasks = multiprocessing.Queue()
     results = multiprocessing.Queue()
-    num_consumers = 1  # We only use 5 cores.
+    num_consumers = 10  # We only use 5 cores.
     # if len(E_X1)<45 : num_consumers=len(E_X1)
     print 'Creating %d consumers' % num_consumers
     consumers = [Consumer(tasks, results,i)
