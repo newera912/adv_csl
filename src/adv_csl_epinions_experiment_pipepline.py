@@ -68,28 +68,27 @@ def main():
 def experiment_proc_server():
     logging = Log()
     data_root = "/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/"  #May23 May23-3
-    methods = ["csl", "csl-3-rules", "csl-3-rules-conflict-evidence", "sl"][:]
+    methods = ["CSL", "Adv-CSL", "SL"][2:]
     # graph_sizes = [500, 1000, 5000, 10000, 47676]
     graph_sizes = [1000, 5000,10000,47676]
     ratios = [0.1, 0.2, 0.3,0.4,0.5,0.6,0.7,0.8]
     realizations = 10
     case_count=0
-    for adv_type in ["random_flip","random_noise","random_pgd"][:]:
+    for adv_type in ["random_flip","random_noise","random_pgd2"][2:]:
         for graph_size in graph_sizes[1:2]:
-            for T in [8, 9, 10, 11][:1]:    #5,6,10,20,11,21,15
+            for T in [8, 9, 10, 11][:]:    #5,6,10,20,11,21,15
                 for real_i in range(realizations)[:1]:
                     for ratio in [0.2][:]:#0.0,0.1,0.2,0.3,the percentage of edges set the observations to 1
                         for swap_ratio in [0.00, 0.01, 0.05][:1]:
-                            for test_ratio in [0.1, 0.2,0.3, 0.4, 0.5][:1]:                #percentage of edges to test (|E_x|/|E|)
-                                for gamma in [0.0, 0.01, 0.02, 0.03, 0.04, 0.05, 0.06, 0.07][1:2]:  # 8
+                            for test_ratio in [0.1, 0.2,0.3, 0.4, 0.5][:]:                #percentage of edges to test (|E_x|/|E|)
+                                for gamma in [0.0, 0.01, 0.02, 0.03, 0.04, 0.05, 0.06, 0.07][:]:  # 8
                                     out_folder = data_root +"/"+adv_type +"/"+ str(graph_size) + "/"
                                     logging.write(str(case_count)+" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
                                     case_count += 1.0
-
                                     for method in methods[:]:
                                         f = out_folder + "nodes-{}-T-{}-rate-{}-testratio-{}-swaprate-{}-gamma-{}-realization-{}-data-X.pkl".format(
                                             graph_size, T, ratio, test_ratio, swap_ratio, gamma, real_i)
-                                        outf = '../output/epinions/{}_results-server-{}-Jan3-test.json'.format(method,graph_size)
+                                        outf = '../output/epinions/{}_results-server-{}-Jan3-{}.json'.format(method,graph_size,adv_type)
 
                                         logging.write("method: {}, T, {}, real_i: {}, ratio: {}, test_ratio: {}, swaprate: {},gamma:{}, graph_size: {}".format(method, T, real_i, ratio, test_ratio, swap_ratio,gamma, graph_size))
                                         logging.write(f)
@@ -177,19 +176,19 @@ It will print out the following information:
 """"csl-3-rules", "csl-3-rules-conflict-evidence"
 def evaluate(V, E, Obs, Omega, E_X, X_b, logging, method = 'csl', psl = False, approx = False, init_alpha_beta = (1, 1), report_stat = False):
     running_starttime = time.time()
-    if method == 'sl':
+    if method == 'SL':
         pred_omega_x = SL_prediction_multiCore(V, E, Obs, Omega, copy.deepcopy(E_X))
         # print pred_omega_x
-    elif method == 'csl':
+    elif method == 'CSL':
         pred_omega_x = inference_apdm_format(V, E, Obs, Omega, E_X, logging)
-    elif method == 'csl-3-rules':
+    elif method == 'CI1':
         # b = {e: 0 for e in E}
         b={}
         # X_b = []
         X_b = {e: 0 for e in E if not E_X.has_key(e)}
         psl = True
         pred_omega_x, _ = inference_apdm_format_conflict_evidence(V, E, Obs, Omega, b, X_b, E_X, logging, psl)
-    elif method == 'csl-3-rules-conflict-evidence':
+    elif method == 'Adv-CSL':
         # b = {e: 0 for e in E}
         b={}
         # X_b = {e: 0 for e in E if e not in E_X}
