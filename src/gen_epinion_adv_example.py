@@ -608,15 +608,18 @@ def update_px(X, R_p, R_p_hat, R_lambda_, copies, omega, cnt_E, kappa, approx):
             R_p[k][j] = min_prob
     return R_p
 
-def get_sign_grad_py(p_t,b_t,y_t,Y, R_p, R_p_hat, R_lambda_, copies, omega, cnt_E, kappa, approx):
-    py_grad_sign={}
+def get_sign_grad_py(sign_grad_py_t,p_t,b_t,y_t,Y, R_p, R_p_hat, R_lambda_, copies, omega, cnt_E, kappa, approx):
+    # py_grad_sign={}
     for e in Y.keys():
         grad=0
         """
         grad_i= - y_t[e]/p_y[e] +(1-y_t[e])/(1-p_y[e]) + rho*\sum_{copies p[e]}(p_t[e]-\hat p[e] -\lambda[e]*1/rho )
         """
         if not copies.has_key(e):
-            py_grad_sign[e]=0.0  #the edges  are not involved any rules
+            if sign_grad_py_t.has_key(e):
+                sign_grad_py_t[e].append(0.0)  #the edges  are not involved any rules
+            else:
+                sign_grad_py_t[e]=[0.0]
             continue
 
         nc = len(copies[e])
@@ -628,10 +631,18 @@ def get_sign_grad_py(p_t,b_t,y_t,Y, R_p, R_p_hat, R_lambda_, copies, omega, cnt_
         #     print ">>>>>>>>",p_t[e],z_lambda_sum
 
         grad=-C1/(p_t[e]+0.000001)+C2/(1-p_t[e]+0.000001) +(1/kappa)* z_lambda_sum
-        if grad>=0: py_grad_sign[e]=1.0
-        else: py_grad_sign[e]=-1.0
+        if grad>=0:
+            if sign_grad_py_t.has_key(e):
+                sign_grad_py_t[e].append(1.0)
+            else:
+                sign_grad_py_t[e]=[1.0]
+        else:
+            if sign_grad_py_t.has_key(e):
+                sign_grad_py_t[e].append(-1.0)
+            else:
+                sign_grad_py_t[e]=[-1.0]
         # time.sleep(100)
-    return py_grad_sign
+    return sign_grad_py_t
 
 """
 INPUT
@@ -1281,13 +1292,14 @@ def admm(omega, b_init, X_b, y_t, Y, X, edge_up_nns, edge_down_nns, omega_0, R, 
 
         p_t, b_t = R_p_2_p(R_p, copies, cnt_E)
 
+        sign_grad_py_t = get_sign_grad_py(sign_grad_py_t, p_t, b_t, y_t, Y, R_p, R_p_hat, R_lambda, copies, omega,
+                                          cnt_E, kappa, approx)
         error = np.sqrt(np.sum([np.power(p_t_old[e] - p_t[e], 2) for e in range(cnt_E)]))
         if error < epsilon:
-            sign_grad_py_t=get_sign_grad_py(p_t,b_t,y_t,Y, R_p, R_p_hat, R_lambda, copies, omega, cnt_E, kappa, approx)
             break
     #                                 p_t, b_t, y_t, Y, R_p, R_p_hat, R_lambda_, copies, omega, cnt_E, kappa, approx
 
-    if len(sign_grad_py_t)==0: sign_grad_py_t = get_sign_grad_py(p_t, b_t, y_t, Y, R_p, R_p_hat, R_lambda, copies, omega, cnt_E, kappa, approx)
+    if len(sign_grad_py_t)==0: sign_grad_py_t = get_sign_grad_py(sign_grad_py_t, p_t, b_t, y_t, Y, R_p, R_p_hat, R_lambda, copies, omega, cnt_E, kappa, approx)
     #     sys.stdout.write("Iter-" + str(iter) + ": " + str(round(time.time() - t3, 2)) + "| ")
     # sys.stdout.write("\n")
     return p_t, b_t,sign_grad_py_t

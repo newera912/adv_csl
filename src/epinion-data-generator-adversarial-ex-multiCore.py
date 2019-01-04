@@ -204,7 +204,7 @@ class Task_generate_rn(object):
 
 
 class Task_generate_PGD(object):
-    def __init__(self, V, E,Obs, T, swap_ratio,test_ratio,ratio,gamma,fout):
+    def __init__(self, V, E,Obs, T, swap_ratio,test_ratio,ratio,gamma,alpha,fout):
         self.V = V
         self.E = E
         self.ObsO =Obs
@@ -213,6 +213,7 @@ class Task_generate_PGD(object):
         self.test_ratio = test_ratio
         self.ratio = ratio
         self.gamma = gamma
+        self.alpha=alpha
         self.fout = fout
     def __call__(self):
 
@@ -251,7 +252,12 @@ class Task_generate_PGD(object):
                 # print type(sign_grad_py[0])
                 if e not in sign_grad_py[0].keys(): print "Eroorrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr!"
                 for t in range(0, self.T):
-                    Obs[e][t] = clip01(Obs[e][t]+self.gamma*sign_grad_py[t][e])   #clip between [0,1]
+                    for i in range(len(sign_grad_py[t][e])):
+                        Obs[e][t] = clip01(Obs[e][t]+self.alpha*sign_grad_py[t][e][i])   #clip between [0,1]
+                    if np.abs(Obs[e][t]-self.ObsO[e][t]) >self.gamma:
+                        Obs[e][t]=clip01(self.ObsO[e][t]+np.sign(Obs[e][t]-self.ObsO[e][t])*self.gamma)  #clip |py_adv-py_orig|<gamma
+
+
 
         """   V, E, Obs, Omega, b, X_b, E_X, logging, psl   """
 
@@ -367,12 +373,12 @@ def simulation_data_generator_rn():
         print ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> remain: ",num_jobs
 
 def simulation_data_generator_PGD():
-    data_root="/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_pgd/"
+    data_root="/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_pgd2/"
     realizations = 10
     graph_sizes = [1000,5000, 10000,47676]
     # graph_sizes = [2500, 7500]
     ratios = [0.2]
-
+    alpha=0.005
     tasks = multiprocessing.Queue()
     results = multiprocessing.Queue()
     num_consumers = 1  # We only use 5 cores.
@@ -391,7 +397,7 @@ def simulation_data_generator_PGD():
         out_folder = data_root + str(graph_size) + "/"
         if not os.path.exists(out_folder):
             os.makedirs(out_folder)
-        for T in [8,9,10,11][2:]:
+        for T in [8,9,10,11][3:]:
             for swap_ratio in [0.00, 0.01, 0.05][:1]:
                 for test_ratio in [0.1, 0.2, 0.3, 0.4,0.5][:]:
                     for ratio in ratios[:]:  #the percentage of edges set the observations to 1
@@ -400,7 +406,7 @@ def simulation_data_generator_PGD():
                             for gamma in [0.0, 0.01, 0.02, 0.03, 0.04, 0.05, 0.06, 0.07][:]: #8
                                 fout= out_folder+"nodes-{}-T-{}-rate-{}-testratio-{}-swaprate-{}-gamma-{}-realization-{}-data-X.pkl".format(graph_size, T, ratio, test_ratio, swap_ratio, gamma, real_i)
                                 if not os.path.exists(fout):
-                                   tasks.put(Task_generate_PGD(V, E, Obs,T, swap_ratio,test_ratio,ratio,gamma,fout))
+                                   tasks.put(Task_generate_PGD(V, E, Obs,T, swap_ratio,test_ratio,ratio,gamma,alpha,fout))
                                    num_jobs+=1
         print "\n\nGraph size {} Done.....................\n\n".format(graph_size)
 
