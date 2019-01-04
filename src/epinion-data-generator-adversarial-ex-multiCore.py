@@ -307,7 +307,7 @@ def simulation_data_generator_rf():
                     for ratio in ratios[:1]:  #the percentage of edges set the observations to 1
                         for real_i in range(realizations)[:]:
                             Obs = graph_process(V,E, T, ratio,swap_ratio)
-                            for gamma in [0.0, 0.01, 0.02, 0.03, 0.04, 0.05, 0.06, 0.07][:]: #8
+                            for gamma in [0.0, 0.01, 0.02, 0.03, 0.04, 0.05, 0.06, 0.07,0.09,0.11,0.13,0.15][8:]: #8
                                 fout= out_folder+"nodes-{}-T-{}-rate-{}-testratio-{}-swaprate-{}-gamma-{}-realization-{}-data-X.pkl".format(graph_size, T, ratio, test_ratio, swap_ratio, gamma, real_i)
                                 if not os.path.exists(fout):
                                    tasks.put(Task_generate_rf(V, E, Obs,T, swap_ratio,test_ratio,ratio,gamma,fout))
@@ -355,9 +355,9 @@ def simulation_data_generator_rn():
             for swap_ratio in [0.00, 0.01, 0.05][:1]:
                 for test_ratio in [0.1, 0.2, 0.3, 0.4,0.5][:]:
                     for ratio in ratios[:]:  #the percentage of edges set the observations to 1
-                        for real_i in range(realizations)[:]:
+                        for real_i in range(realizations)[:1]:
                             Obs = graph_process(V,E, T, ratio,swap_ratio)
-                            for gamma in [0.0, 0.01, 0.02, 0.03, 0.04, 0.05, 0.06, 0.07][:]: #8
+                            for gamma in [0.0, 0.01, 0.02, 0.03, 0.04, 0.05, 0.06, 0.07,0.09,0.11,0.13,0.15][8:]: #8
                                 fout= out_folder+"nodes-{}-T-{}-rate-{}-testratio-{}-swaprate-{}-gamma-{}-realization-{}-data-X.pkl".format(graph_size, T, ratio, test_ratio, swap_ratio, gamma, real_i)
                                 if not os.path.exists(fout):
                                    tasks.put(Task_generate_rn(V, E, Obs,T, swap_ratio,test_ratio,ratio,gamma,fout))
@@ -373,7 +373,7 @@ def simulation_data_generator_rn():
         print ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> remain: ",num_jobs
 
 def simulation_data_generator_PGD():
-    data_root="/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_pgd2/"
+    data_root="/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_pgd/"
     realizations = 10
     graph_sizes = [1000,5000, 10000,47676]
     # graph_sizes = [2500, 7500]
@@ -403,7 +403,7 @@ def simulation_data_generator_PGD():
                     for ratio in ratios[:]:  #the percentage of edges set the observations to 1
                         for real_i in range(realizations)[:1]:
                             Obs = graph_process(V,E, T, ratio,swap_ratio)
-                            for gamma in [0.0, 0.01, 0.02, 0.03, 0.04, 0.05, 0.06, 0.07][:]: #8
+                            for gamma in [0.0, 0.01, 0.02, 0.03, 0.04, 0.05, 0.06, 0.07,0.09,0.11,0.13,0.15][8:]: #8
                                 fout= out_folder+"nodes-{}-T-{}-rate-{}-testratio-{}-swaprate-{}-gamma-{}-realization-{}-data-X.pkl".format(graph_size, T, ratio, test_ratio, swap_ratio, gamma, real_i)
                                 if not os.path.exists(fout):
                                    tasks.put(Task_generate_PGD(V, E, Obs,T, swap_ratio,test_ratio,ratio,gamma,alpha,fout))

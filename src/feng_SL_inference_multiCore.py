@@ -14,7 +14,7 @@ from random import shuffle
 # from DataWrapper import *
 from random import randint
 import multiprocessing
-threshold0=5
+threshold0=18
 # # global paths
 # paths = []
 # # global path
@@ -103,6 +103,7 @@ class Task_subSL(object):
         Omega_X={}
         max_iter=5
         x_size=0
+        un_omega=0
         for iter in range(max_iter):
             # print "#",int(multiprocessing.current_process().name),"  Iterate --- ",iter
             X = self.E_X1.keys()
@@ -114,6 +115,8 @@ class Task_subSL(object):
                 # print len(self.E_X1), "/", org_e_x
                 for e in self.E_X1:
                     Omega_X[e] = (self.alpha0, self.beta0)
+                    print("Omega0......................",un_omega)
+                    un_omega+=1
                 return Omega_X, self.E_X1, self.E_op, self.V_checked, self.edges_start_at, self.edges_end_at, self.nns
             else:
                 # print "Updated ..."
@@ -139,6 +142,8 @@ class Task_subSL(object):
                     multi_paths = []
                     if neighbor_path == []:
                         Omega_X[e] = (self.alpha0,self.beta0)
+                        print("Omega0......................", un_omega)
+                        un_omega += 1
                         # alpha_u=randint(1, T)
                         # beta_u=randint(1, T)
                         # Omega_X[e] = (alpha_u, beta_u)
@@ -165,6 +170,8 @@ class Task_subSL(object):
 
                     if neighbor_path == []:
                         Omega_X[e] = (self.alpha0,self.beta0)
+                        print("Omega0......................", un_omega)
+                        un_omega += 1
                         # alpha_u = randint(1, T)
                         # beta_u = randint(1, T)
                         # Omega_X[e] = (alpha_u, beta_u)
@@ -322,8 +329,8 @@ def SL_prediction_multiCore(V, E, Obs, Omega, E_X):
     T=len(Obs[E[0]])
     Threshold=10
     #when alpha=3.0, beta=3.0, then the u=1/3,d=1/3,u=1/3
-    alpha0=1.0
-    beta0=1.0
+    alpha0=2.0
+    beta0=2.0
     # E_X1 = copy.deepcopy(E_X)
     E_X1 = {e:1 for e in E_X}
     E_op = {}
@@ -334,12 +341,12 @@ def SL_prediction_multiCore(V, E, Obs, Omega, E_X):
             E_op[e] = beta_to_opinion2(alpha, beta)
             V_checked[e[0]] = 1
             V_checked[e[1]] = 1
-    # print V_checked.keys(), E_op.keys()
+    print len(V_checked.keys()), len(E_op.keys())
 
     edges_start_at, edges_end_at, nns = get_v_edge_nns(V_checked.keys(), E_op.keys())
     tasks = multiprocessing.Queue()
     results = multiprocessing.Queue()
-    num_consumers = 10  # We only use 5 cores.
+    num_consumers = 1  # We only use 5 cores.
     # if len(E_X1)<45 : num_consumers=len(E_X1)
     print 'Creating %d consumers' % num_consumers
     consumers = [Consumer(tasks, results,i)
