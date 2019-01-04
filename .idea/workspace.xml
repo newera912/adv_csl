@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5119d1fd-136d-470f-a08b-7d1fb6e8af81" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/epinions/Adv-CSL_results-server-5000-Jan3-random_pgd2.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/epinions/CSL_results-server-5000-Jan3-random_pgd2.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/epinions/SL_results-server-5000-Jan3-random_pgd2.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/epinions/Adv-CSL_results-server-5000-Jan3-random_pgd.json" beforeDir="false" afterPath="$PROJECT_DIR$/output/epinions/Adv-CSL_results-server-5000-Jan3-random_pgd.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/epinions/CSL_results-server-5000-Jan3-random_flip.json" beforeDir="false" afterPath="$PROJECT_DIR$/output/epinions/CSL_results-server-5000-Jan3-random_flip.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/epinions/SL_results-server-5000-Jan3-random_flip.json" beforeDir="false" afterPath="$PROJECT_DIR$/output/epinions/SL_results-server-5000-Jan3-random_flip.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/epinions/SL_results-server-5000-Jan3-random_pgd.json" beforeDir="false" afterPath="$PROJECT_DIR$/output/epinions/SL_results-server-5000-Jan3-random_pgd.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/plot_results.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/plot_results.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -15,6 +15,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/adv_csl$plot_results.coverage" NAME="plot_results Coverage Results" MODIFIED="1546577522819" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
     <SUITE FILE_PATH="coverage/adv_csl$epinion_data_generator_adversarial_ex_multiCore.coverage" NAME="epinion-data-generator-adversarial-ex-multiCore Coverage Results" MODIFIED="1546526908488" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$USER_HOME$/OneDrive/Documents/MobaXterm/slash/RemoteFiles/2429756_14_16" />
     <SUITE FILE_PATH="coverage/adv_csl$gen_epinion_adv_example.coverage" NAME="gen_epinion_adv_example Coverage Results" MODIFIED="1546528156388" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$USER_HOME$/OneDrive/Documents/MobaXterm/slash/RemoteFiles/2429756_14_18" />
   </component>
@@ -42,25 +43,25 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="py" value="28" />
+          <entry key="py" value="32" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Python" value="28" />
+          <entry key="Python" value="32" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="Python Console" value="140" />
           <entry key="dummy" value="137" />
-          <entry key="py" value="2916" />
+          <entry key="py" value="3309" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="137" />
-          <entry key="Python" value="3056" />
+          <entry key="Python" value="3449" />
         </counts>
       </usages-collector>
     </session>
@@ -68,43 +69,10 @@
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/OneDrive/Documents/MobaXterm/slash/RemoteFiles/2429756_19_42/adv_csl_epinions_experiment_pipepline.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
-              <caret line="76" column="63" lean-forward="true" selection-start-line="76" selection-start-column="20" selection-end-line="76" selection-end-column="63" />
-              <folding>
-                <element signature="e#25#136#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/OneDrive/Documents/MobaXterm/slash/RemoteFiles/2429756_19_44/feng_SL_inference_multiCore.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="178">
-              <caret line="322" column="16" lean-forward="true" selection-start-line="322" selection-start-column="16" selection-end-line="322" selection-end-column="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/OneDrive/Documents/MobaXterm/slash/RemoteFiles/2429756_14_16/epinion-data-generator-adversarial-ex-multiCore.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="580">
-              <caret line="405" column="28" selection-start-line="405" selection-start-column="28" selection-end-line="405" selection-end-column="95" />
-              <folding>
-                <marker date="1546548644607" expanded="true" signature="19237:19242" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/plot_results.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="155">
-              <caret line="1386" column="4" lean-forward="true" selection-start-line="1386" selection-start-column="4" selection-end-line="1386" selection-end-column="64" />
+            <state relative-caret-position="671">
+              <caret line="1360" column="50" lean-forward="true" selection-start-line="1360" selection-start-column="50" selection-end-line="1360" selection-end-column="50" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
               </folding>
@@ -113,10 +81,31 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/OneDrive/Documents/MobaXterm/slash/RemoteFiles/2429756_11_27/gen_epinion_adv_example.py">
+        <entry file="file://$USER_HOME$/OneDrive/Documents/MobaXterm/slash/RemoteFiles/2429756_11_69/adv_csl_epinions_experiment_pipepline.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2">
-              <caret line="610" column="4" selection-start-line="610" selection-start-column="4" selection-end-line="610" selection-end-column="4" />
+            <state relative-caret-position="529">
+              <caret line="82" column="74" selection-start-line="82" selection-start-column="74" selection-end-line="82" selection-end-column="74" />
+              <folding>
+                <element signature="e#25#136#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/network_funs.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="276" column="4" selection-start-line="276" selection-start-column="4" selection-end-line="276" selection-end-column="4" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$USER_HOME$/OneDrive/Documents/MobaXterm/slash/RemoteFiles/2429756_18_71/feng_SL_inference_multiCore.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2057">
+              <caret line="229" column="4" selection-start-line="229" selection-start-column="4" selection-end-line="229" selection-end-column="4" />
             </state>
           </provider>
         </entry>
@@ -157,8 +146,11 @@
         <option value="$USER_HOME$/OneDrive/Documents/MobaXterm/slash/RemoteFiles/2429756_11_22/adv_csl_epinions_experiment_pipepline.py" />
         <option value="$USER_HOME$/OneDrive/Documents/MobaXterm/slash/RemoteFiles/2429756_19_43/feng_SL_inference_multiCore.py" />
         <option value="$USER_HOME$/OneDrive/Documents/MobaXterm/slash/RemoteFiles/2429756_19_44/feng_SL_inference_multiCore.py" />
-        <option value="$USER_HOME$/OneDrive/Documents/MobaXterm/slash/RemoteFiles/2429756_19_42/adv_csl_epinions_experiment_pipepline.py" />
         <option value="$PROJECT_DIR$/src/plot_results.py" />
+        <option value="$USER_HOME$/OneDrive/Documents/MobaXterm/slash/RemoteFiles/2429756_19_52/epinion-data-generator-adversarial-ex-multiCore.py" />
+        <option value="$USER_HOME$/OneDrive/Documents/MobaXterm/slash/RemoteFiles/2429756_19_42/adv_csl_epinions_experiment_pipepline.py" />
+        <option value="$USER_HOME$/OneDrive/Documents/MobaXterm/slash/RemoteFiles/2429756_18_71/feng_SL_inference_multiCore.py" />
+        <option value="$USER_HOME$/OneDrive/Documents/MobaXterm/slash/RemoteFiles/2429756_11_69/adv_csl_epinions_experiment_pipepline.py" />
       </list>
     </option>
   </component>
@@ -169,10 +161,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
-    <option name="y" value="332" />
-    <option name="width" value="994" />
-    <option name="height" value="563" />
+    <option name="x" value="2679" />
+    <option name="y" value="-21" />
+    <option name="width" value="795" />
+    <option name="height" value="450" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -221,7 +213,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.gen_epinion_adv_example">
+  <component name="RunManager" selected="Python.plot_results">
     <configuration name="epinion-data-generator-adversarial-ex-multiCore" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="adv-csl" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -266,12 +258,36 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="plot_results" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="adv-csl" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/plot_results.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Python.epinion-data-generator-adversarial-ex-multiCore" />
       <item itemvalue="Python.gen_epinion_adv_example" />
+      <item itemvalue="Python.plot_results" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.plot_results" />
         <item itemvalue="Python.gen_epinion_adv_example" />
         <item itemvalue="Python.epinion-data-generator-adversarial-ex-multiCore" />
       </list>
@@ -291,20 +307,20 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="848" extended-state="6" />
+    <frame x="1912" y="-8" width="2064" height="1138" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.49900398" visible="true" weight="0.17651007" />
+      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.49900398" visible="true" weight="0.10528942" />
       <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" />
-      <window_info anchor="bottom" id="Python Console" visible="true" weight="0.25734267" />
+      <window_info anchor="bottom" id="Python Console" weight="0.25734267" />
       <window_info anchor="bottom" id="Terminal" />
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32968128" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.23406374" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -315,7 +331,7 @@
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="3" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="4" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="5" weight="0.25" />
-      <window_info active="true" anchor="right" id="Structure" order="6" sideWeight="0.500996" visible="true" weight="0.19060403" />
+      <window_info active="true" anchor="right" id="Structure" order="6" sideWeight="0.500996" visible="true" weight="0.14171657" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -497,13 +513,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/OneDrive/Documents/MobaXterm/slash/RemoteFiles/2429756_19_44/feng_SL_inference_multiCore.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="178">
-          <caret line="322" column="16" lean-forward="true" selection-start-line="322" selection-start-column="16" selection-end-line="322" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/OneDrive/Documents/MobaXterm/slash/RemoteFiles/2429756_14_16/epinion-data-generator-adversarial-ex-multiCore.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="580">
@@ -514,23 +523,65 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$USER_HOME$/OneDrive/Documents/MobaXterm/slash/RemoteFiles/2429756_19_44/feng_SL_inference_multiCore.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="178">
+          <caret line="322" column="16" selection-start-line="322" selection-start-column="16" selection-end-line="322" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$USER_HOME$/OneDrive/Documents/MobaXterm/slash/RemoteFiles/2429756_19_42/adv_csl_epinions_experiment_pipepline.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="76" column="63" lean-forward="true" selection-start-line="76" selection-start-column="20" selection-end-line="76" selection-end-column="63" />
+        <state relative-caret-position="36">
+          <caret line="70" column="42" selection-start-line="70" selection-start-column="42" selection-end-line="70" selection-end-column="42" />
           <folding>
             <element signature="e#25#136#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$USER_HOME$/OneDrive/Documents/MobaXterm/slash/RemoteFiles/2429756_19_52/epinion-data-generator-adversarial-ex-multiCore.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="11">
+          <caret line="399" column="33" lean-forward="true" selection-start-line="399" selection-start-column="33" selection-end-line="399" selection-end-column="33" />
+          <folding>
+            <marker date="1546579856181" expanded="true" signature="19300:19305" ph="..." />
+            <marker date="1546579856181" expanded="true" signature="19523:19560" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/network_funs.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="276" column="4" selection-start-line="276" selection-start-column="4" selection-end-line="276" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/plot_results.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="155">
-          <caret line="1386" column="4" lean-forward="true" selection-start-line="1386" selection-start-column="4" selection-end-line="1386" selection-end-column="64" />
+        <state relative-caret-position="671">
+          <caret line="1360" column="50" lean-forward="true" selection-start-line="1360" selection-start-column="50" selection-end-line="1360" selection-end-column="50" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/OneDrive/Documents/MobaXterm/slash/RemoteFiles/2429756_11_69/adv_csl_epinions_experiment_pipepline.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="529">
+          <caret line="82" column="74" selection-start-line="82" selection-start-column="74" selection-end-line="82" selection-end-column="74" />
+          <folding>
+            <element signature="e#25#136#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/OneDrive/Documents/MobaXterm/slash/RemoteFiles/2429756_18_71/feng_SL_inference_multiCore.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2057">
+          <caret line="229" column="4" selection-start-line="229" selection-start-column="4" selection-end-line="229" selection-end-column="4" />
         </state>
       </provider>
     </entry>
