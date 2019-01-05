@@ -166,7 +166,7 @@ def inference(omega_y, omega_0, y, X_b, X, Y, T, edge_up_nns, edge_down_nns, R, 
         e] = init_alpha_beta  # Beta pdf can be visualized via http://eurekastatistics.com/beta-distribution-pdf-grapher/
     error = -1
 
-    for iter in range(5):
+    for iter in range(1):
         ps = []
         bs = []
         sign_grad_py=[]
@@ -1225,7 +1225,7 @@ def admm(omega, b_init, X_b, y_t, Y, X, edge_up_nns, edge_down_nns, omega_0, R, 
     p_time =0.0
     p_num =0.0
     kappa = 1.0  # kappa = 1/rho
-    maxiter = 5
+    maxiter = 25
     for iter in range(maxiter):
         t3 = time.time()
         # print "admm iteration {}".format(iter)
