@@ -11,7 +11,7 @@ import json,itertools
 from basic_funs import *
 from network_funs import *
 # import baseline
-from feng_SL_inference_multiCore import *
+from SL_inference_multiCore import *
 
 from multi_core_csl_inference_adversarial_epinions import inference_apdm_format as inference_apdm_format_conflict_evidence
 from multi_core_csl_inference_no_adversarial_epinions import inference_apdm_format as inference_NoAdvTraining
@@ -69,7 +69,7 @@ def main():
 def experiment_proc_server():
     logging = Log()
     data_root = "/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/"  #May23 May23-3
-    methods = ["SL","CSL", "Adv-CSL","NAT-CSL"][2:3]
+    methods = ["SL","CSL", "Adv-CSL","NAT-CSL"][3:]
     # graph_sizes = [500, 1000, 5000, 10000, 47676]
     graph_sizes = [1000, 5000,10000,47676]
     ratios = [0.1, 0.2, 0.3,0.4,0.5,0.6,0.7,0.8]
@@ -78,10 +78,10 @@ def experiment_proc_server():
     for adv_type in ["random_flip","random_noise","random_pgd"][2:]:
         for graph_size in graph_sizes[1:2]:
             for T in [8, 9, 10, 11][2:3]:    #5,6,10,20,11,21,15
-                for real_i in range(realizations)[:1]:
+                for real_i in range(realizations)[:]:
                     for ratio in [0.2][:]:#0.0,0.1,0.2,0.3,the percentage of edges set the observations to 1
                         for swap_ratio in [0.00, 0.01, 0.05][:1]:
-                            for test_ratio in [0.1, 0.2,0.3, 0.4, 0.5][4:]:                #percentage of edges to test (|E_x|/|E|)
+                            for test_ratio in [0.1, 0.2,0.3, 0.4, 0.5][:3]:                #percentage of edges to test (|E_x|/|E|)
                                 for gamma in [0.0, 0.01, 0.03, 0.05, 0.07,0.09,0.11,0.13,0.15,0.20,0.25][:]:  # 8
                                     out_folder = data_root +"/"+adv_type +"/"+ str(graph_size) + "/"
                                     logging.write(str(case_count)+" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
@@ -89,7 +89,7 @@ def experiment_proc_server():
                                     for method in methods[:]:
                                         f = out_folder + "nodes-{}-T-{}-rate-{}-testratio-{}-swaprate-{}-gamma-{}-realization-{}-data-X.pkl".format(
                                             graph_size, T, ratio, test_ratio, swap_ratio, gamma, real_i)
-                                        outf = '../output/epinions/{}_results-server-{}-Jan3-{}-debug.json'.format(method,graph_size,adv_type)
+                                        outf = '../output/epinions/{}_results-server-{}-Jan5-{}.json'.format(method,graph_size,adv_type)
 
                                         logging.write("method: {}, T, {}, real_i: {}, ratio: {}, test_ratio: {}, swaprate: {},gamma:{}, graph_size: {}".format(method, T, real_i, ratio, test_ratio, swap_ratio,gamma, graph_size))
                                         logging.write(f)
@@ -140,7 +140,7 @@ def experiment_proc_server():
                                         mu_prob_mse = np.mean(prob_mses)
                                         sigma_prob_mse = np.std(prob_mses)
                                         running_time = np.mean(running_times)
-                                        logging.write("prob_mse: {}, running time: {}".format(mu_prob_mse, running_time))
+                                        logging.write("prob_mse: {}, running time: {} gamma:{} TR:{}".format(mu_prob_mse, running_time,gamma,test_ratio))
 
                                         # logging.write(info)
                                         result_ = {'network_size': graph_size,'adv_type':adv_type, 'positive_ratio': ratio, "realization": real_i, 'sample_size': ndays - T + 1, 'T': T,'gamma':gamma,
@@ -187,7 +187,7 @@ def evaluate(V, E, Obs, Omega, E_X, X_b, logging, method = 'csl', psl = False, a
         b = {}
         # X_b = {e: 0 for e in E if e not in E_X}
         X_b = {e: 0 for e in E if not E_X.has_key(e)}
-        psl = True
+        psl = False
         pred_omega_x, _ = inference_NoAdvTraining(V, E, Obs, Omega, b, X_b, E_X, logging, psl)
     elif method == 'Adv-CSL':
         # b = {e: 0 for e in E}

@@ -1,0 +1,11 @@
+Process Consumer-1:
+Traceback (most recent call last):
+  File "/usr/lib64/python2.7/multiprocessing/process.py", line 258, in _bootstrap
+    self.run()
+  File "epinion-data-generator-adversarial-ex-multiCore.py", line 96, in run
+    answer = next_task()
+  File "epinion-data-generator-adversarial-ex-multiCore.py", line 259, in __call__
+    print "Iteration Number",[len(sign_grad_py[i][sign_grad_py[i].keys()[0]]) for i in range(len(sign_grad_py)) ]
+UnboundLocalError: local variable 'sign_grad_py' referenced before assignment
+0.3 672 2238 0.300268096515
+Iteration Number

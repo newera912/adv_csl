@@ -256,7 +256,7 @@ class Task_generate_PGD(object):
                         Obs[e][t] = clip01(Obs[e][t]+self.alpha*sign_grad_py[t][e][i])   #clip between [0,1]
                     if np.abs(Obs[e][t]-self.ObsO[e][t]) >self.gamma:
                         Obs[e][t]=clip01(self.ObsO[e][t]+np.sign(Obs[e][t]-self.ObsO[e][t])*self.gamma)  #clip |py_adv-py_orig|<gamma
-        print "Iteration Number",[len(sign_grad_py[i][sign_grad_py[i].keys()[0]]) for i in range(len(sign_grad_py)) ]
+            print "Iteration Number",[len(sign_grad_py[i][sign_grad_py[i].keys()[0]]) for i in range(len(sign_grad_py)) ]
 
 
         """   V, E, Obs, Omega, b, X_b, E_X, logging, psl   """
@@ -373,12 +373,12 @@ def simulation_data_generator_rn():
         print ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> remain: ",num_jobs
 
 def simulation_data_generator_PGD():
-    data_root="/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_pg-ddebug/"
+    data_root="/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_pgd/"
     realizations = 10
     graph_sizes = [1000,5000, 10000,47676]
     # graph_sizes = [2500, 7500]
     ratios = [0.2]
-    alpha=0.005
+    alpha=0.01
     tasks = multiprocessing.Queue()
     results = multiprocessing.Queue()
     num_consumers = 1  # We only use 5 cores.
@@ -399,11 +399,11 @@ def simulation_data_generator_PGD():
             os.makedirs(out_folder)
         for T in [8,9,10,11][2:3]:
             for swap_ratio in [0.00, 0.01, 0.05][:1]:
-                for test_ratio in [0.1, 0.2, 0.3, 0.4,0.5][1:2]:
+                for test_ratio in [0.1, 0.2, 0.3, 0.4,0.5][4:]:
                     for ratio in ratios[:]:  #the percentage of edges set the observations to 1
-                        for real_i in range(realizations)[:1]:
+                        for real_i in range(realizations)[:]:
                             Obs = graph_process(V,E, T, ratio,swap_ratio)
-                            for gamma in [0.0, 0.01, 0.03, 0.05, 0.07,0.09,0.11,0.13,0.15,0.20,0.25][9:10]: #8
+                            for gamma in [0.0, 0.01, 0.03, 0.05, 0.07,0.09,0.11,0.13,0.15,0.20,0.25][:]: #11
                                 fout= out_folder+"nodes-{}-T-{}-rate-{}-testratio-{}-swaprate-{}-gamma-{}-realization-{}-data-X.pkl".format(graph_size, T, ratio, test_ratio, swap_ratio, gamma, real_i)
                                 if not os.path.exists(fout):
                                    tasks.put(Task_generate_PGD(V, E, Obs,T, swap_ratio,test_ratio,ratio,gamma,alpha,fout))

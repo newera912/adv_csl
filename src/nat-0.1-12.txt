@@ -3,85 +3,1096 @@
 --------------------------------------------------
 --------------------------------------------------
 
--------------------Sat, 05 Jan 2019 10:17:34 AM EST---------------------
+-------------------Sat, 05 Jan 2019 03:26:53 PM EST---------------------
 
 0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-method: NAT-CSL, T, 10, real_i: 0, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.0, graph_size: 5000
+method: Adv-CSL, T, 10, real_i: 0, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.0, graph_size: 5000
 /network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd/5000/nodes-5000-T-10-rate-0.2-testratio-0.1-swaprate-0.0-gamma-0.0-realization-0-data-X.pkl
-#Rules: 10734 Gen rule time:0.0347111225128
+#Rules: 10734 Gen rule time:0.0347280502319
 0 Creating 10 consumers
 1 Creating 10 consumers
-prob_mse: 0.196552877482, running time: 8.09489202499
+2 Creating 10 consumers
+prob_mse: 0.204839407407, running time: 14.2774791718 gamma:0.0 TR:0.1
 1.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-method: NAT-CSL, T, 10, real_i: 0, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.01, graph_size: 5000
+method: Adv-CSL, T, 10, real_i: 0, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.01, graph_size: 5000
 /network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd/5000/nodes-5000-T-10-rate-0.2-testratio-0.1-swaprate-0.0-gamma-0.01-realization-0-data-X.pkl
-#Rules: 10734 Gen rule time:0.0411229133606
+#Rules: 10734 Gen rule time:0.0214920043945
 0 Creating 10 consumers
 1 Creating 10 consumers
-prob_mse: 0.385277423537, running time: 27.9508619308
+2 Creating 10 consumers
+3 Creating 10 consumers
+4 Creating 10 consumers
+prob_mse: 0.351632740741, running time: 29.0260360241 gamma:0.01 TR:0.1
 2.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-method: NAT-CSL, T, 10, real_i: 0, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.03, graph_size: 5000
+method: Adv-CSL, T, 10, real_i: 0, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.03, graph_size: 5000
 /network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd/5000/nodes-5000-T-10-rate-0.2-testratio-0.1-swaprate-0.0-gamma-0.03-realization-0-data-X.pkl
-#Rules: 10734 Gen rule time:0.0237050056458
+#Rules: 10734 Gen rule time:0.0441808700562
 0 Creating 10 consumers
 1 Creating 10 consumers
-prob_mse: 0.381078275405, running time: 28.7092139721
+2 Creating 10 consumers
+3 Creating 10 consumers
+4 Creating 10 consumers
+prob_mse: 0.342973777778, running time: 25.7511541843 gamma:0.03 TR:0.1
 3.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-method: NAT-CSL, T, 10, real_i: 0, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.05, graph_size: 5000
+method: Adv-CSL, T, 10, real_i: 0, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.05, graph_size: 5000
 /network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd/5000/nodes-5000-T-10-rate-0.2-testratio-0.1-swaprate-0.0-gamma-0.05-realization-0-data-X.pkl
-#Rules: 10734 Gen rule time:0.0249218940735
+#Rules: 10734 Gen rule time:0.0247790813446
 0 Creating 10 consumers
 1 Creating 10 consumers
-prob_mse: 0.376918519549, running time: 25.364921093
+2 Creating 10 consumers
+3 Creating 10 consumers
+4 Creating 10 consumers
+prob_mse: 0.323467481481, running time: 29.3560979366 gamma:0.05 TR:0.1
 4.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-method: NAT-CSL, T, 10, real_i: 0, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.07, graph_size: 5000
+method: Adv-CSL, T, 10, real_i: 0, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.07, graph_size: 5000
 /network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd/5000/nodes-5000-T-10-rate-0.2-testratio-0.1-swaprate-0.0-gamma-0.07-realization-0-data-X.pkl
-#Rules: 10734 Gen rule time:0.0657138824463
+#Rules: 10734 Gen rule time:0.0529420375824
 0 Creating 10 consumers
 1 Creating 10 consumers
-prob_mse: 0.388258096917, running time: 25.7194709778
+2 Creating 10 consumers
+3 Creating 10 consumers
+4 Creating 10 consumers
+prob_mse: 0.362758666667, running time: 32.6961541176 gamma:0.07 TR:0.1
 5.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-method: NAT-CSL, T, 10, real_i: 0, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.09, graph_size: 5000
+method: Adv-CSL, T, 10, real_i: 0, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.09, graph_size: 5000
 /network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd/5000/nodes-5000-T-10-rate-0.2-testratio-0.1-swaprate-0.0-gamma-0.09-realization-0-data-X.pkl
-#Rules: 10734 Gen rule time:0.0697340965271
+#Rules: 10734 Gen rule time:0.0255410671234
 0 Creating 10 consumers
 1 Creating 10 consumers
-prob_mse: 0.36726526628, running time: 27.1902339458
+2 Creating 10 consumers
+3 Creating 10 consumers
+4 Creating 10 consumers
+prob_mse: 0.353813777778, running time: 30.9121479988 gamma:0.09 TR:0.1
 6.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-method: NAT-CSL, T, 10, real_i: 0, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.11, graph_size: 5000
+method: Adv-CSL, T, 10, real_i: 0, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.11, graph_size: 5000
 /network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd/5000/nodes-5000-T-10-rate-0.2-testratio-0.1-swaprate-0.0-gamma-0.11-realization-0-data-X.pkl
-#Rules: 10734 Gen rule time:0.05544090271
+#Rules: 10734 Gen rule time:0.0258798599243
 0 Creating 10 consumers
 1 Creating 10 consumers
-prob_mse: 0.38987992329, running time: 25.5224699974
+2 Creating 10 consumers
+3 Creating 10 consumers
+4 Creating 10 consumers
+prob_mse: 0.371008888889, running time: 33.1639680862 gamma:0.11 TR:0.1
 7.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-method: NAT-CSL, T, 10, real_i: 0, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.13, graph_size: 5000
+method: Adv-CSL, T, 10, real_i: 0, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.13, graph_size: 5000
 /network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd/5000/nodes-5000-T-10-rate-0.2-testratio-0.1-swaprate-0.0-gamma-0.13-realization-0-data-X.pkl
-#Rules: 10734 Gen rule time:0.0537941455841
+#Rules: 10734 Gen rule time:0.0240359306335
 0 Creating 10 consumers
 1 Creating 10 consumers
-prob_mse: 0.417428839194, running time: 29.9427950382
+2 Creating 10 consumers
+3 Creating 10 consumers
+4 Creating 10 consumers
+prob_mse: 0.29905037037, running time: 31.1978161335 gamma:0.13 TR:0.1
 8.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-method: NAT-CSL, T, 10, real_i: 0, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.15, graph_size: 5000
+method: Adv-CSL, T, 10, real_i: 0, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.15, graph_size: 5000
 /network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd/5000/nodes-5000-T-10-rate-0.2-testratio-0.1-swaprate-0.0-gamma-0.15-realization-0-data-X.pkl
-#Rules: 10734 Gen rule time:0.0579237937927
+#Rules: 10734 Gen rule time:0.0273408889771
 0 Creating 10 consumers
 1 Creating 10 consumers
-prob_mse: 0.396479331845, running time: 34.6243531704
+2 Creating 10 consumers
+3 Creating 10 consumers
+4 Creating 10 consumers
+prob_mse: 0.331605333333, running time: 33.574146986 gamma:0.15 TR:0.1
 9.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-method: NAT-CSL, T, 10, real_i: 0, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.2, graph_size: 5000
+method: Adv-CSL, T, 10, real_i: 0, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.2, graph_size: 5000
 /network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd/5000/nodes-5000-T-10-rate-0.2-testratio-0.1-swaprate-0.0-gamma-0.2-realization-0-data-X.pkl
-#Rules: 10734 Gen rule time:0.0550470352173
+#Rules: 10734 Gen rule time:0.0521581172943
 0 Creating 10 consumers
 1 Creating 10 consumers
-prob_mse: 0.418166503193, running time: 32.8252358437
+2 Creating 10 consumers
+3 Creating 10 consumers
+4 Creating 10 consumers
+prob_mse: 0.31175037037, running time: 30.9216971397 gamma:0.2 TR:0.1
 10.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-method: NAT-CSL, T, 10, real_i: 0, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.25, graph_size: 5000
+method: Adv-CSL, T, 10, real_i: 0, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.25, graph_size: 5000
 /network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd/5000/nodes-5000-T-10-rate-0.2-testratio-0.1-swaprate-0.0-gamma-0.25-realization-0-data-X.pkl
-#Rules: 10734 Gen rule time:0.0597150325775
+#Rules: 10734 Gen rule time:0.0490620136261
 0 Creating 10 consumers
 1 Creating 10 consumers
-prob_mse: 0.383960298127, running time: 29.9416520596
+2 Creating 10 consumers
+3 Creating 10 consumers
+4 Creating 10 consumers
+prob_mse: 0.317373333333, running time: 31.5256819725 gamma:0.25 TR:0.1
+11.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+method: Adv-CSL, T, 10, real_i: 1, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.0, graph_size: 5000
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd/5000/nodes-5000-T-10-rate-0.2-testratio-0.1-swaprate-0.0-gamma-0.0-realization-1-data-X.pkl
+#Rules: 10734 Gen rule time:0.0550198554993
+0 Creating 10 consumers
+1 Creating 10 consumers
+2 Creating 10 consumers
+3 Creating 10 consumers
+prob_mse: 0.190096296296, running time: 19.1805129051 gamma:0.0 TR:0.1
+12.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+method: Adv-CSL, T, 10, real_i: 1, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.01, graph_size: 5000
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd/5000/nodes-5000-T-10-rate-0.2-testratio-0.1-swaprate-0.0-gamma-0.01-realization-1-data-X.pkl
+#Rules: 10734 Gen rule time:0.0298290252686
+0 Creating 10 consumers
+1 Creating 10 consumers
+2 Creating 10 consumers
+3 Creating 10 consumers
+4 Creating 10 consumers
+prob_mse: 0.381309925926, running time: 30.8997988701 gamma:0.01 TR:0.1
+13.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+method: Adv-CSL, T, 10, real_i: 1, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.03, graph_size: 5000
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd/5000/nodes-5000-T-10-rate-0.2-testratio-0.1-swaprate-0.0-gamma-0.03-realization-1-data-X.pkl
+#Rules: 10734 Gen rule time:0.024915933609
+0 Creating 10 consumers
+1 Creating 10 consumers
+2 Creating 10 consumers
+3 Creating 10 consumers
+4 Creating 10 consumers
+prob_mse: 0.349748888889, running time: 33.7235498428 gamma:0.03 TR:0.1
+14.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+method: Adv-CSL, T, 10, real_i: 1, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.05, graph_size: 5000
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd/5000/nodes-5000-T-10-rate-0.2-testratio-0.1-swaprate-0.0-gamma-0.05-realization-1-data-X.pkl
+#Rules: 10734 Gen rule time:0.0535340309143
+0 Creating 10 consumers
+1 Creating 10 consumers
+2 Creating 10 consumers
+3 Creating 10 consumers
+4 Creating 10 consumers
+prob_mse: 0.36459037037, running time: 30.9301099777 gamma:0.05 TR:0.1
+15.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+method: Adv-CSL, T, 10, real_i: 1, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.07, graph_size: 5000
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd/5000/nodes-5000-T-10-rate-0.2-testratio-0.1-swaprate-0.0-gamma-0.07-realization-1-data-X.pkl
+#Rules: 10734 Gen rule time:0.0246338844299
+0 Creating 10 consumers
+1 Creating 10 consumers
+2 Creating 10 consumers
+3 Creating 10 consumers
+4 Creating 10 consumers
+prob_mse: 0.301439259259, running time: 32.3287539482 gamma:0.07 TR:0.1
+16.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+method: Adv-CSL, T, 10, real_i: 1, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.09, graph_size: 5000
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd/5000/nodes-5000-T-10-rate-0.2-testratio-0.1-swaprate-0.0-gamma-0.09-realization-1-data-X.pkl
+#Rules: 10734 Gen rule time:0.0263900756836
+0 Creating 10 consumers
+1 Creating 10 consumers
+2 Creating 10 consumers
+3 Creating 10 consumers
+4 Creating 10 consumers
+prob_mse: 0.327806518519, running time: 31.1040430069 gamma:0.09 TR:0.1
+17.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+method: Adv-CSL, T, 10, real_i: 1, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.11, graph_size: 5000
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd/5000/nodes-5000-T-10-rate-0.2-testratio-0.1-swaprate-0.0-gamma-0.11-realization-1-data-X.pkl
+#Rules: 10734 Gen rule time:0.0261590480804
+0 Creating 10 consumers
+1 Creating 10 consumers
+2 Creating 10 consumers
+3 Creating 10 consumers
+4 Creating 10 consumers
+prob_mse: 0.324440296296, running time: 29.2536160946 gamma:0.11 TR:0.1
+18.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+method: Adv-CSL, T, 10, real_i: 1, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.13, graph_size: 5000
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd/5000/nodes-5000-T-10-rate-0.2-testratio-0.1-swaprate-0.0-gamma-0.13-realization-1-data-X.pkl
+#Rules: 10734 Gen rule time:0.0307550430298
+0 Creating 10 consumers
+1 Creating 10 consumers
+2 Creating 10 consumers
+3 Creating 10 consumers
+4 Creating 10 consumers
+prob_mse: 0.355380888889, running time: 31.2903261185 gamma:0.13 TR:0.1
+19.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+method: Adv-CSL, T, 10, real_i: 1, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.15, graph_size: 5000
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd/5000/nodes-5000-T-10-rate-0.2-testratio-0.1-swaprate-0.0-gamma-0.15-realization-1-data-X.pkl
+#Rules: 10734 Gen rule time:0.0274000167847
+0 Creating 10 consumers
+1 Creating 10 consumers
+2 Creating 10 consumers
+3 Creating 10 consumers
+4 Creating 10 consumers
+prob_mse: 0.323134666667, running time: 34.0615370274 gamma:0.15 TR:0.1
+20.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+method: Adv-CSL, T, 10, real_i: 1, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.2, graph_size: 5000
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd/5000/nodes-5000-T-10-rate-0.2-testratio-0.1-swaprate-0.0-gamma-0.2-realization-1-data-X.pkl
+#Rules: 10734 Gen rule time:0.0607070922852
+0 Creating 10 consumers
+1 Creating 10 consumers
+2 Creating 10 consumers
+3 Creating 10 consumers
+4 Creating 10 consumers
+prob_mse: 0.274938814815, running time: 29.2247340679 gamma:0.2 TR:0.1
+21.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+method: Adv-CSL, T, 10, real_i: 1, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.25, graph_size: 5000
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd/5000/nodes-5000-T-10-rate-0.2-testratio-0.1-swaprate-0.0-gamma-0.25-realization-1-data-X.pkl
+#Rules: 10734 Gen rule time:0.0632138252258
+0 Creating 10 consumers
+1 Creating 10 consumers
+2 Creating 10 consumers
+3 Creating 10 consumers
+4 Creating 10 consumers
+prob_mse: 0.329863259259, running time: 33.4098148346 gamma:0.25 TR:0.1
+22.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+method: Adv-CSL, T, 10, real_i: 2, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.0, graph_size: 5000
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd/5000/nodes-5000-T-10-rate-0.2-testratio-0.1-swaprate-0.0-gamma-0.0-realization-2-data-X.pkl
+#Rules: 10734 Gen rule time:0.0331029891968
+0 Creating 10 consumers
+1 Creating 10 consumers
+2 Creating 10 consumers
+3 Creating 10 consumers
+prob_mse: 0.198773777778, running time: 21.8005199432 gamma:0.0 TR:0.1
+23.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+method: Adv-CSL, T, 10, real_i: 2, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.01, graph_size: 5000
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd/5000/nodes-5000-T-10-rate-0.2-testratio-0.1-swaprate-0.0-gamma-0.01-realization-2-data-X.pkl
+#Rules: 10734 Gen rule time:0.0717039108276
+0 Creating 10 consumers
+1 Creating 10 consumers
+2 Creating 10 consumers
+3 Creating 10 consumers
+4 Creating 10 consumers
+prob_mse: 0.379995259259, running time: 29.3113110065 gamma:0.01 TR:0.1
+24.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+method: Adv-CSL, T, 10, real_i: 2, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.03, graph_size: 5000
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd/5000/nodes-5000-T-10-rate-0.2-testratio-0.1-swaprate-0.0-gamma-0.03-realization-2-data-X.pkl
+#Rules: 10734 Gen rule time:0.0257470607758
+0 Creating 10 consumers
+1 Creating 10 consumers
+2 Creating 10 consumers
+3 Creating 10 consumers
+4 Creating 10 consumers
+prob_mse: 0.380176, running time: 32.2465789318 gamma:0.03 TR:0.1
+25.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+method: Adv-CSL, T, 10, real_i: 2, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.05, graph_size: 5000
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd/5000/nodes-5000-T-10-rate-0.2-testratio-0.1-swaprate-0.0-gamma-0.05-realization-2-data-X.pkl
+#Rules: 10734 Gen rule time:0.0288271903992
+0 Creating 10 consumers
+1 Creating 10 consumers
+2 Creating 10 consumers
+3 Creating 10 consumers
+4 Creating 10 consumers
+prob_mse: 0.327904296296, running time: 31.064040184 gamma:0.05 TR:0.1
+26.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+method: Adv-CSL, T, 10, real_i: 2, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.07, graph_size: 5000
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd/5000/nodes-5000-T-10-rate-0.2-testratio-0.1-swaprate-0.0-gamma-0.07-realization-2-data-X.pkl
+#Rules: 10734 Gen rule time:0.0498340129852
+0 Creating 10 consumers
+1 Creating 10 consumers
+2 Creating 10 consumers
+3 Creating 10 consumers
+4 Creating 10 consumers
+prob_mse: 0.340756296296, running time: 31.6877560616 gamma:0.07 TR:0.1
+27.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+method: Adv-CSL, T, 10, real_i: 2, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.09, graph_size: 5000
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd/5000/nodes-5000-T-10-rate-0.2-testratio-0.1-swaprate-0.0-gamma-0.09-realization-2-data-X.pkl
+#Rules: 10734 Gen rule time:0.0260400772095
+0 Creating 10 consumers
+1 Creating 10 consumers
+2 Creating 10 consumers
+3 Creating 10 consumers
+4 Creating 10 consumers
+prob_mse: 0.364403259259, running time: 32.7118740082 gamma:0.09 TR:0.1
+28.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+method: Adv-CSL, T, 10, real_i: 2, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.11, graph_size: 5000
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd/5000/nodes-5000-T-10-rate-0.2-testratio-0.1-swaprate-0.0-gamma-0.11-realization-2-data-X.pkl
+#Rules: 10734 Gen rule time:0.0275638103485
+0 Creating 10 consumers
+1 Creating 10 consumers
+2 Creating 10 consumers
+3 Creating 10 consumers
+4 Creating 10 consumers
+prob_mse: 0.375294074074, running time: 35.8135471344 gamma:0.11 TR:0.1
+29.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+method: Adv-CSL, T, 10, real_i: 2, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.13, graph_size: 5000
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd/5000/nodes-5000-T-10-rate-0.2-testratio-0.1-swaprate-0.0-gamma-0.13-realization-2-data-X.pkl
+#Rules: 10734 Gen rule time:0.0279099941254
+0 Creating 10 consumers
+1 Creating 10 consumers
+2 Creating 10 consumers
+3 Creating 10 consumers
+4 Creating 10 consumers
+prob_mse: 0.342922814815, running time: 30.8364109993 gamma:0.13 TR:0.1
+30.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+method: Adv-CSL, T, 10, real_i: 2, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.15, graph_size: 5000
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd/5000/nodes-5000-T-10-rate-0.2-testratio-0.1-swaprate-0.0-gamma-0.15-realization-2-data-X.pkl
+#Rules: 10734 Gen rule time:0.0538377761841
+0 Creating 10 consumers
+1 Creating 10 consumers
+2 Creating 10 consumers
+3 Creating 10 consumers
+4 Creating 10 consumers
+prob_mse: 0.37105437037, running time: 33.7086620331 gamma:0.15 TR:0.1
+31.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+method: Adv-CSL, T, 10, real_i: 2, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.2, graph_size: 5000
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd/5000/nodes-5000-T-10-rate-0.2-testratio-0.1-swaprate-0.0-gamma-0.2-realization-2-data-X.pkl
+#Rules: 10734 Gen rule time:0.0318920612335
+0 Creating 10 consumers
+1 Creating 10 consumers
+2 Creating 10 consumers
+3 Creating 10 consumers
+4 Creating 10 consumers
+prob_mse: 0.370168444444, running time: 34.4279229641 gamma:0.2 TR:0.1
+32.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+method: Adv-CSL, T, 10, real_i: 2, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.25, graph_size: 5000
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd/5000/nodes-5000-T-10-rate-0.2-testratio-0.1-swaprate-0.0-gamma-0.25-realization-2-data-X.pkl
+#Rules: 10734 Gen rule time:0.0683138370514
+0 Creating 10 consumers
+1 Creating 10 consumers
+2 Creating 10 consumers
+3 Creating 10 consumers
+4 Creating 10 consumers
+prob_mse: 0.37904237037, running time: 35.7092418671 gamma:0.25 TR:0.1
+33.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+method: Adv-CSL, T, 10, real_i: 3, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.0, graph_size: 5000
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd/5000/nodes-5000-T-10-rate-0.2-testratio-0.1-swaprate-0.0-gamma-0.0-realization-3-data-X.pkl
+#Rules: 10734 Gen rule time:0.0334281921387
+0 Creating 10 consumers
+1 Creating 10 consumers
+2 Creating 10 consumers
+prob_mse: 0.228375407407, running time: 14.844645977 gamma:0.0 TR:0.1
+34.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+method: Adv-CSL, T, 10, real_i: 3, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.01, graph_size: 5000
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd/5000/nodes-5000-T-10-rate-0.2-testratio-0.1-swaprate-0.0-gamma-0.01-realization-3-data-X.pkl
+#Rules: 10734 Gen rule time:0.0628290176392
+0 Creating 10 consumers
+1 Creating 10 consumers
+2 Creating 10 consumers
+3 Creating 10 consumers
+4 Creating 10 consumers
+prob_mse: 0.35353762963, running time: 29.9952919483 gamma:0.01 TR:0.1
+35.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+method: Adv-CSL, T, 10, real_i: 3, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.03, graph_size: 5000
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd/5000/nodes-5000-T-10-rate-0.2-testratio-0.1-swaprate-0.0-gamma-0.03-realization-3-data-X.pkl
+#Rules: 10734 Gen rule time:0.0313169956207
+0 Creating 10 consumers
+1 Creating 10 consumers
+2 Creating 10 consumers
+3 Creating 10 consumers
+4 Creating 10 consumers
+prob_mse: 0.311570074074, running time: 32.0886819363 gamma:0.03 TR:0.1
+36.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+method: Adv-CSL, T, 10, real_i: 3, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.05, graph_size: 5000
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd/5000/nodes-5000-T-10-rate-0.2-testratio-0.1-swaprate-0.0-gamma-0.05-realization-3-data-X.pkl
+#Rules: 10734 Gen rule time:0.0345630645752
+0 Creating 10 consumers
+1 Creating 10 consumers
+2 Creating 10 consumers
+3 Creating 10 consumers
+4 Creating 10 consumers
+prob_mse: 0.352526666667, running time: 29.8624119759 gamma:0.05 TR:0.1
+37.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+method: Adv-CSL, T, 10, real_i: 3, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.07, graph_size: 5000
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd/5000/nodes-5000-T-10-rate-0.2-testratio-0.1-swaprate-0.0-gamma-0.07-realization-3-data-X.pkl
+#Rules: 10734 Gen rule time:0.0612790584564
+0 Creating 10 consumers
+1 Creating 10 consumers
+2 Creating 10 consumers
+3 Creating 10 consumers
+4 Creating 10 consumers
+prob_mse: 0.36796, running time: 29.7522249222 gamma:0.07 TR:0.1
+38.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+method: Adv-CSL, T, 10, real_i: 3, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.09, graph_size: 5000
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd/5000/nodes-5000-T-10-rate-0.2-testratio-0.1-swaprate-0.0-gamma-0.09-realization-3-data-X.pkl
+#Rules: 10734 Gen rule time:0.0272068977356
+0 Creating 10 consumers
+1 Creating 10 consumers
+2 Creating 10 consumers
+3 Creating 10 consumers
+4 Creating 10 consumers
+prob_mse: 0.324916296296, running time: 32.6278100014 gamma:0.09 TR:0.1
+39.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+method: Adv-CSL, T, 10, real_i: 3, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.11, graph_size: 5000
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd/5000/nodes-5000-T-10-rate-0.2-testratio-0.1-swaprate-0.0-gamma-0.11-realization-3-data-X.pkl
+#Rules: 10734 Gen rule time:0.0559039115906
+0 Creating 10 consumers
+1 Creating 10 consumers
+2 Creating 10 consumers
+3 Creating 10 consumers
+4 Creating 10 consumers
+prob_mse: 0.349110518519, running time: 35.1793830395 gamma:0.11 TR:0.1
+40.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+method: Adv-CSL, T, 10, real_i: 3, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.13, graph_size: 5000
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd/5000/nodes-5000-T-10-rate-0.2-testratio-0.1-swaprate-0.0-gamma-0.13-realization-3-data-X.pkl
+#Rules: 10734 Gen rule time:0.0567259788513
+0 Creating 10 consumers
+1 Creating 10 consumers
+2 Creating 10 consumers
+3 Creating 10 consumers
+4 Creating 10 consumers
+prob_mse: 0.335692740741, running time: 35.7141559124 gamma:0.13 TR:0.1
+41.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+method: Adv-CSL, T, 10, real_i: 3, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.15, graph_size: 5000
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd/5000/nodes-5000-T-10-rate-0.2-testratio-0.1-swaprate-0.0-gamma-0.15-realization-3-data-X.pkl
+#Rules: 10734 Gen rule time:0.0285148620605
+0 Creating 10 consumers
+1 Creating 10 consumers
+2 Creating 10 consumers
+3 Creating 10 consumers
+4 Creating 10 consumers
+prob_mse: 0.318698222222, running time: 30.8462150097 gamma:0.15 TR:0.1
+42.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+method: Adv-CSL, T, 10, real_i: 3, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.2, graph_size: 5000
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd/5000/nodes-5000-T-10-rate-0.2-testratio-0.1-swaprate-0.0-gamma-0.2-realization-3-data-X.pkl
+#Rules: 10734 Gen rule time:0.0252029895782
+0 Creating 10 consumers
+1 Creating 10 consumers
+2 Creating 10 consumers
+3 Creating 10 consumers
+4 Creating 10 consumers
+prob_mse: 0.308518666667, running time: 33.385201931 gamma:0.2 TR:0.1
+43.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+method: Adv-CSL, T, 10, real_i: 3, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.25, graph_size: 5000
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd/5000/nodes-5000-T-10-rate-0.2-testratio-0.1-swaprate-0.0-gamma-0.25-realization-3-data-X.pkl
+#Rules: 10734 Gen rule time:0.0550949573517
+0 Creating 10 consumers
+1 Creating 10 consumers
+2 Creating 10 consumers
+3 Creating 10 consumers
+4 Creating 10 consumers
+prob_mse: 0.341173925926, running time: 29.7938640118 gamma:0.25 TR:0.1
+44.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+method: Adv-CSL, T, 10, real_i: 4, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.0, graph_size: 5000
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd/5000/nodes-5000-T-10-rate-0.2-testratio-0.1-swaprate-0.0-gamma-0.0-realization-4-data-X.pkl
+#Rules: 10734 Gen rule time:0.0269958972931
+0 Creating 10 consumers
+1 Creating 10 consumers
+2 Creating 10 consumers
+3 Creating 10 consumers
+prob_mse: 0.194799851852, running time: 20.174022913 gamma:0.0 TR:0.1
+45.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+method: Adv-CSL, T, 10, real_i: 4, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.01, graph_size: 5000
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd/5000/nodes-5000-T-10-rate-0.2-testratio-0.1-swaprate-0.0-gamma-0.01-realization-4-data-X.pkl
+#Rules: 10734 Gen rule time:0.0599551200867
+0 Creating 10 consumers
+1 Creating 10 consumers
+2 Creating 10 consumers
+3 Creating 10 consumers
+4 Creating 10 consumers
+prob_mse: 0.360274814815, running time: 33.2845230103 gamma:0.01 TR:0.1
+46.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+method: Adv-CSL, T, 10, real_i: 4, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.03, graph_size: 5000
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd/5000/nodes-5000-T-10-rate-0.2-testratio-0.1-swaprate-0.0-gamma-0.03-realization-4-data-X.pkl
+#Rules: 10734 Gen rule time:0.0650019645691
+0 Creating 10 consumers
+1 Creating 10 consumers
+2 Creating 10 consumers
+3 Creating 10 consumers
+4 Creating 10 consumers
+prob_mse: 0.367769037037, running time: 32.3718709946 gamma:0.03 TR:0.1
+47.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+method: Adv-CSL, T, 10, real_i: 4, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.05, graph_size: 5000
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd/5000/nodes-5000-T-10-rate-0.2-testratio-0.1-swaprate-0.0-gamma-0.05-realization-4-data-X.pkl
+#Rules: 10734 Gen rule time:0.0584568977356
+0 Creating 10 consumers
+1 Creating 10 consumers
+2 Creating 10 consumers
+3 Creating 10 consumers
+4 Creating 10 consumers
+prob_mse: 0.356268148148, running time: 28.0387980938 gamma:0.05 TR:0.1
+48.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+method: Adv-CSL, T, 10, real_i: 4, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.07, graph_size: 5000
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd/5000/nodes-5000-T-10-rate-0.2-testratio-0.1-swaprate-0.0-gamma-0.07-realization-4-data-X.pkl
+#Rules: 10734 Gen rule time:0.0684010982513
+0 Creating 10 consumers
+1 Creating 10 consumers
+2 Creating 10 consumers
+3 Creating 10 consumers
+4 Creating 10 consumers
+prob_mse: 0.355084148148, running time: 32.7727890015 gamma:0.07 TR:0.1
+49.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+method: Adv-CSL, T, 10, real_i: 4, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.09, graph_size: 5000
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd/5000/nodes-5000-T-10-rate-0.2-testratio-0.1-swaprate-0.0-gamma-0.09-realization-4-data-X.pkl
+#Rules: 10734 Gen rule time:0.0657179355621
+0 Creating 10 consumers
+1 Creating 10 consumers
+2 Creating 10 consumers
+3 Creating 10 consumers
+4 Creating 10 consumers
+prob_mse: 0.369890222222, running time: 27.1906030178 gamma:0.09 TR:0.1
+50.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+method: Adv-CSL, T, 10, real_i: 4, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.11, graph_size: 5000
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd/5000/nodes-5000-T-10-rate-0.2-testratio-0.1-swaprate-0.0-gamma-0.11-realization-4-data-X.pkl
+#Rules: 10734 Gen rule time:0.0268571376801
+0 Creating 10 consumers
+1 Creating 10 consumers
+2 Creating 10 consumers
+3 Creating 10 consumers
+4 Creating 10 consumers
+prob_mse: 0.350188074074, running time: 33.2708990574 gamma:0.11 TR:0.1
+51.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+method: Adv-CSL, T, 10, real_i: 4, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.13, graph_size: 5000
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd/5000/nodes-5000-T-10-rate-0.2-testratio-0.1-swaprate-0.0-gamma-0.13-realization-4-data-X.pkl
+#Rules: 10734 Gen rule time:0.0582618713379
+0 Creating 10 consumers
+1 Creating 10 consumers
+2 Creating 10 consumers
+3 Creating 10 consumers
+4 Creating 10 consumers
+prob_mse: 0.343522814815, running time: 34.9195618629 gamma:0.13 TR:0.1
+52.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+method: Adv-CSL, T, 10, real_i: 4, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.15, graph_size: 5000
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd/5000/nodes-5000-T-10-rate-0.2-testratio-0.1-swaprate-0.0-gamma-0.15-realization-4-data-X.pkl
+#Rules: 10734 Gen rule time:0.030975818634
+0 Creating 10 consumers
+1 Creating 10 consumers
+2 Creating 10 consumers
+3 Creating 10 consumers
+4 Creating 10 consumers
+prob_mse: 0.318942814815, running time: 31.3085319996 gamma:0.15 TR:0.1
+53.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+method: Adv-CSL, T, 10, real_i: 4, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.2, graph_size: 5000
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd/5000/nodes-5000-T-10-rate-0.2-testratio-0.1-swaprate-0.0-gamma-0.2-realization-4-data-X.pkl
+#Rules: 10734 Gen rule time:0.0621559619904
+0 Creating 10 consumers
+1 Creating 10 consumers
+2 Creating 10 consumers
+3 Creating 10 consumers
+4 Creating 10 consumers
+prob_mse: 0.380614518519, running time: 33.5853660107 gamma:0.2 TR:0.1
+54.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+method: Adv-CSL, T, 10, real_i: 4, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.25, graph_size: 5000
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd/5000/nodes-5000-T-10-rate-0.2-testratio-0.1-swaprate-0.0-gamma-0.25-realization-4-data-X.pkl
+#Rules: 10734 Gen rule time:0.0782248973846
+0 Creating 10 consumers
+1 Creating 10 consumers
+2 Creating 10 consumers
+3 Creating 10 consumers
+4 Creating 10 consumers
+prob_mse: 0.283187703704, running time: 33.3230030537 gamma:0.25 TR:0.1
+55.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+method: Adv-CSL, T, 10, real_i: 5, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.0, graph_size: 5000
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd/5000/nodes-5000-T-10-rate-0.2-testratio-0.1-swaprate-0.0-gamma-0.0-realization-5-data-X.pkl
+#Rules: 10734 Gen rule time:0.0720241069794
+0 Creating 10 consumers
+1 Creating 10 consumers
+2 Creating 10 consumers
+prob_mse: 0.184081333333, running time: 16.2841289043 gamma:0.0 TR:0.1
+56.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+method: Adv-CSL, T, 10, real_i: 5, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.01, graph_size: 5000
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd/5000/nodes-5000-T-10-rate-0.2-testratio-0.1-swaprate-0.0-gamma-0.01-realization-5-data-X.pkl
+#Rules: 10734 Gen rule time:0.0640790462494
+0 Creating 10 consumers
+1 Creating 10 consumers
+2 Creating 10 consumers
+3 Creating 10 consumers
+4 Creating 10 consumers
+prob_mse: 0.345675851852, running time: 29.3338561058 gamma:0.01 TR:0.1
+57.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+method: Adv-CSL, T, 10, real_i: 5, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.03, graph_size: 5000
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd/5000/nodes-5000-T-10-rate-0.2-testratio-0.1-swaprate-0.0-gamma-0.03-realization-5-data-X.pkl
+#Rules: 10734 Gen rule time:0.026967048645
+0 Creating 10 consumers
+1 Creating 10 consumers
+2 Creating 10 consumers
+3 Creating 10 consumers
+4 Creating 10 consumers
+prob_mse: 0.343832888889, running time: 28.6576740742 gamma:0.03 TR:0.1
+58.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+method: Adv-CSL, T, 10, real_i: 5, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.05, graph_size: 5000
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd/5000/nodes-5000-T-10-rate-0.2-testratio-0.1-swaprate-0.0-gamma-0.05-realization-5-data-X.pkl
+#Rules: 10734 Gen rule time:0.0264580249786
+0 Creating 10 consumers
+1 Creating 10 consumers
+2 Creating 10 consumers
+3 Creating 10 consumers
+4 Creating 10 consumers
+prob_mse: 0.363796148148, running time: 29.787760973 gamma:0.05 TR:0.1
+59.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+method: Adv-CSL, T, 10, real_i: 5, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.07, graph_size: 5000
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd/5000/nodes-5000-T-10-rate-0.2-testratio-0.1-swaprate-0.0-gamma-0.07-realization-5-data-X.pkl
+#Rules: 10734 Gen rule time:0.0301420688629
+0 Creating 10 consumers
+1 Creating 10 consumers
+2 Creating 10 consumers
+3 Creating 10 consumers
+4 Creating 10 consumers
+prob_mse: 0.345228740741, running time: 30.6843371391 gamma:0.07 TR:0.1
+60.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+method: Adv-CSL, T, 10, real_i: 5, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.09, graph_size: 5000
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd/5000/nodes-5000-T-10-rate-0.2-testratio-0.1-swaprate-0.0-gamma-0.09-realization-5-data-X.pkl
+#Rules: 10734 Gen rule time:0.0284490585327
+0 Creating 10 consumers
+1 Creating 10 consumers
+2 Creating 10 consumers
+3 Creating 10 consumers
+4 Creating 10 consumers
+prob_mse: 0.310659259259, running time: 28.9182491302 gamma:0.09 TR:0.1
+61.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+method: Adv-CSL, T, 10, real_i: 5, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.11, graph_size: 5000
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd/5000/nodes-5000-T-10-rate-0.2-testratio-0.1-swaprate-0.0-gamma-0.11-realization-5-data-X.pkl
+#Rules: 10734 Gen rule time:0.0323810577393
+0 Creating 10 consumers
+1 Creating 10 consumers
+2 Creating 10 consumers
+3 Creating 10 consumers
+4 Creating 10 consumers
+prob_mse: 0.355084444444, running time: 33.5530848503 gamma:0.11 TR:0.1
+62.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+method: Adv-CSL, T, 10, real_i: 5, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.13, graph_size: 5000
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd/5000/nodes-5000-T-10-rate-0.2-testratio-0.1-swaprate-0.0-gamma-0.13-realization-5-data-X.pkl
+#Rules: 10734 Gen rule time:0.0250639915466
+0 Creating 10 consumers
+1 Creating 10 consumers
+2 Creating 10 consumers
+3 Creating 10 consumers
+4 Creating 10 consumers
+prob_mse: 0.307166666667, running time: 32.436798811 gamma:0.13 TR:0.1
+63.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+method: Adv-CSL, T, 10, real_i: 5, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.15, graph_size: 5000
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd/5000/nodes-5000-T-10-rate-0.2-testratio-0.1-swaprate-0.0-gamma-0.15-realization-5-data-X.pkl
+#Rules: 10734 Gen rule time:0.0567932128906
+0 Creating 10 consumers
+1 Creating 10 consumers
+2 Creating 10 consumers
+3 Creating 10 consumers
+4 Creating 10 consumers
+prob_mse: 0.346961777778, running time: 29.8108420372 gamma:0.15 TR:0.1
+64.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+method: Adv-CSL, T, 10, real_i: 5, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.2, graph_size: 5000
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd/5000/nodes-5000-T-10-rate-0.2-testratio-0.1-swaprate-0.0-gamma-0.2-realization-5-data-X.pkl
+#Rules: 10734 Gen rule time:0.0305950641632
+0 Creating 10 consumers
+1 Creating 10 consumers
+2 Creating 10 consumers
+3 Creating 10 consumers
+4 Creating 10 consumers
+prob_mse: 0.342713185185, running time: 31.3748259544 gamma:0.2 TR:0.1
+65.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+method: Adv-CSL, T, 10, real_i: 5, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.25, graph_size: 5000
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd/5000/nodes-5000-T-10-rate-0.2-testratio-0.1-swaprate-0.0-gamma-0.25-realization-5-data-X.pkl
+#Rules: 10734 Gen rule time:0.0324640274048
+0 Creating 10 consumers
+1 Creating 10 consumers
+2 Creating 10 consumers
+3 Creating 10 consumers
+4 Creating 10 consumers
+prob_mse: 0.364023851852, running time: 33.3917629719 gamma:0.25 TR:0.1
+66.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+method: Adv-CSL, T, 10, real_i: 6, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.0, graph_size: 5000
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd/5000/nodes-5000-T-10-rate-0.2-testratio-0.1-swaprate-0.0-gamma-0.0-realization-6-data-X.pkl
+#Rules: 10734 Gen rule time:0.0266420841217
+0 Creating 10 consumers
+1 Creating 10 consumers
+2 Creating 10 consumers
+3 Creating 10 consumers
+prob_mse: 0.175218518519, running time: 21.0181109905 gamma:0.0 TR:0.1
+67.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+method: Adv-CSL, T, 10, real_i: 6, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.01, graph_size: 5000
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd/5000/nodes-5000-T-10-rate-0.2-testratio-0.1-swaprate-0.0-gamma-0.01-realization-6-data-X.pkl
+#Rules: 10734 Gen rule time:0.0585408210754
+0 Creating 10 consumers
+1 Creating 10 consumers
+2 Creating 10 consumers
+3 Creating 10 consumers
+4 Creating 10 consumers
+prob_mse: 0.344722074074, running time: 30.0587060452 gamma:0.01 TR:0.1
+68.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+method: Adv-CSL, T, 10, real_i: 6, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.03, graph_size: 5000
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd/5000/nodes-5000-T-10-rate-0.2-testratio-0.1-swaprate-0.0-gamma-0.03-realization-6-data-X.pkl
+#Rules: 10734 Gen rule time:0.0256960391998
+0 Creating 10 consumers
+1 Creating 10 consumers
+2 Creating 10 consumers
+3 Creating 10 consumers
+4 Creating 10 consumers
+prob_mse: 0.352996148148, running time: 30.5956389904 gamma:0.03 TR:0.1
+69.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+method: Adv-CSL, T, 10, real_i: 6, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.05, graph_size: 5000
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd/5000/nodes-5000-T-10-rate-0.2-testratio-0.1-swaprate-0.0-gamma-0.05-realization-6-data-X.pkl
+#Rules: 10734 Gen rule time:0.0307259559631
+0 Creating 10 consumers
+1 Creating 10 consumers
+2 Creating 10 consumers
+3 Creating 10 consumers
+4 Creating 10 consumers
+prob_mse: 0.371021333333, running time: 30.6909439564 gamma:0.05 TR:0.1
+70.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+method: Adv-CSL, T, 10, real_i: 6, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.07, graph_size: 5000
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd/5000/nodes-5000-T-10-rate-0.2-testratio-0.1-swaprate-0.0-gamma-0.07-realization-6-data-X.pkl
+#Rules: 10734 Gen rule time:0.0276961326599
+0 Creating 10 consumers
+1 Creating 10 consumers
+2 Creating 10 consumers
+3 Creating 10 consumers
+4 Creating 10 consumers
+prob_mse: 0.295611851852, running time: 31.9248261452 gamma:0.07 TR:0.1
+71.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+method: Adv-CSL, T, 10, real_i: 6, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.09, graph_size: 5000
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd/5000/nodes-5000-T-10-rate-0.2-testratio-0.1-swaprate-0.0-gamma-0.09-realization-6-data-X.pkl
+#Rules: 10734 Gen rule time:0.0257840156555
+0 Creating 10 consumers
+1 Creating 10 consumers
+2 Creating 10 consumers
+3 Creating 10 consumers
+4 Creating 10 consumers
+prob_mse: 0.361181333333, running time: 29.5023479462 gamma:0.09 TR:0.1
+72.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+method: Adv-CSL, T, 10, real_i: 6, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.11, graph_size: 5000
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd/5000/nodes-5000-T-10-rate-0.2-testratio-0.1-swaprate-0.0-gamma-0.11-realization-6-data-X.pkl
+#Rules: 10734 Gen rule time:0.0267879962921
+0 Creating 10 consumers
+1 Creating 10 consumers
+2 Creating 10 consumers
+3 Creating 10 consumers
+4 Creating 10 consumers
+prob_mse: 0.288890962963, running time: 27.5165660381 gamma:0.11 TR:0.1
+73.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+method: Adv-CSL, T, 10, real_i: 6, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.13, graph_size: 5000
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd/5000/nodes-5000-T-10-rate-0.2-testratio-0.1-swaprate-0.0-gamma-0.13-realization-6-data-X.pkl
+#Rules: 10734 Gen rule time:0.0267169475555
+0 Creating 10 consumers
+1 Creating 10 consumers
+2 Creating 10 consumers
+3 Creating 10 consumers
+4 Creating 10 consumers
+prob_mse: 0.301026074074, running time: 35.6695468426 gamma:0.13 TR:0.1
+74.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+method: Adv-CSL, T, 10, real_i: 6, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.15, graph_size: 5000
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd/5000/nodes-5000-T-10-rate-0.2-testratio-0.1-swaprate-0.0-gamma-0.15-realization-6-data-X.pkl
+#Rules: 10734 Gen rule time:0.0582180023193
+0 Creating 10 consumers
+1 Creating 10 consumers
+2 Creating 10 consumers
+3 Creating 10 consumers
+4 Creating 10 consumers
+prob_mse: 0.305148148148, running time: 32.8972289562 gamma:0.15 TR:0.1
+75.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+method: Adv-CSL, T, 10, real_i: 6, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.2, graph_size: 5000
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd/5000/nodes-5000-T-10-rate-0.2-testratio-0.1-swaprate-0.0-gamma-0.2-realization-6-data-X.pkl
+#Rules: 10734 Gen rule time:0.0272059440613
+0 Creating 10 consumers
+1 Creating 10 consumers
+2 Creating 10 consumers
+3 Creating 10 consumers
+4 Creating 10 consumers
+prob_mse: 0.341297777778, running time: 33.039798975 gamma:0.2 TR:0.1
+76.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+method: Adv-CSL, T, 10, real_i: 6, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.25, graph_size: 5000
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd/5000/nodes-5000-T-10-rate-0.2-testratio-0.1-swaprate-0.0-gamma-0.25-realization-6-data-X.pkl
+#Rules: 10734 Gen rule time:0.0657811164856
+0 Creating 10 consumers
+1 Creating 10 consumers
+2 Creating 10 consumers
+3 Creating 10 consumers
+4 Creating 10 consumers
+prob_mse: 0.335005481481, running time: 32.5544331074 gamma:0.25 TR:0.1
+77.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+method: Adv-CSL, T, 10, real_i: 7, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.0, graph_size: 5000
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd/5000/nodes-5000-T-10-rate-0.2-testratio-0.1-swaprate-0.0-gamma-0.0-realization-7-data-X.pkl
+#Rules: 10734 Gen rule time:0.0577340126038
+0 Creating 10 consumers
+1 Creating 10 consumers
+2 Creating 10 consumers
+3 Creating 10 consumers
+4 Creating 10 consumers
+prob_mse: 0.219332592593, running time: 27.0042970181 gamma:0.0 TR:0.1
+78.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+method: Adv-CSL, T, 10, real_i: 7, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.01, graph_size: 5000
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd/5000/nodes-5000-T-10-rate-0.2-testratio-0.1-swaprate-0.0-gamma-0.01-realization-7-data-X.pkl
+#Rules: 10734 Gen rule time:0.0482320785522
+0 Creating 10 consumers
+1 Creating 10 consumers
+2 Creating 10 consumers
+3 Creating 10 consumers
+4 Creating 10 consumers
+prob_mse: 0.365042074074, running time: 33.0196290016 gamma:0.01 TR:0.1
+79.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+method: Adv-CSL, T, 10, real_i: 7, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.03, graph_size: 5000
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd/5000/nodes-5000-T-10-rate-0.2-testratio-0.1-swaprate-0.0-gamma-0.03-realization-7-data-X.pkl
+#Rules: 10734 Gen rule time:0.0270121097565
+0 Creating 10 consumers
+1 Creating 10 consumers
+2 Creating 10 consumers
+3 Creating 10 consumers
+4 Creating 10 consumers
+prob_mse: 0.38938962963, running time: 29.9887461662 gamma:0.03 TR:0.1
+80.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+method: Adv-CSL, T, 10, real_i: 7, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.05, graph_size: 5000
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd/5000/nodes-5000-T-10-rate-0.2-testratio-0.1-swaprate-0.0-gamma-0.05-realization-7-data-X.pkl
+#Rules: 10734 Gen rule time:0.0316529273987
+0 Creating 10 consumers
+1 Creating 10 consumers
+2 Creating 10 consumers
+3 Creating 10 consumers
+4 Creating 10 consumers
+prob_mse: 0.350422814815, running time: 33.049077034 gamma:0.05 TR:0.1
+81.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+method: Adv-CSL, T, 10, real_i: 7, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.07, graph_size: 5000
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd/5000/nodes-5000-T-10-rate-0.2-testratio-0.1-swaprate-0.0-gamma-0.07-realization-7-data-X.pkl
+#Rules: 10734 Gen rule time:0.0244028568268
+0 Creating 10 consumers
+1 Creating 10 consumers
+2 Creating 10 consumers
+3 Creating 10 consumers
+4 Creating 10 consumers
+prob_mse: 0.389344740741, running time: 31.0005960464 gamma:0.07 TR:0.1
+82.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+method: Adv-CSL, T, 10, real_i: 7, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.09, graph_size: 5000
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd/5000/nodes-5000-T-10-rate-0.2-testratio-0.1-swaprate-0.0-gamma-0.09-realization-7-data-X.pkl
+#Rules: 10734 Gen rule time:0.0255930423737
+0 Creating 10 consumers
+1 Creating 10 consumers
+2 Creating 10 consumers
+3 Creating 10 consumers
+4 Creating 10 consumers
+prob_mse: 0.376597777778, running time: 31.8751158714 gamma:0.09 TR:0.1
+83.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+method: Adv-CSL, T, 10, real_i: 7, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.11, graph_size: 5000
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd/5000/nodes-5000-T-10-rate-0.2-testratio-0.1-swaprate-0.0-gamma-0.11-realization-7-data-X.pkl
+#Rules: 10734 Gen rule time:0.048467874527
+0 Creating 10 consumers
+1 Creating 10 consumers
+2 Creating 10 consumers
+3 Creating 10 consumers
+4 Creating 10 consumers
+prob_mse: 0.392931555556, running time: 34.3015499115 gamma:0.11 TR:0.1
+84.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+method: Adv-CSL, T, 10, real_i: 7, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.13, graph_size: 5000
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd/5000/nodes-5000-T-10-rate-0.2-testratio-0.1-swaprate-0.0-gamma-0.13-realization-7-data-X.pkl
+#Rules: 10734 Gen rule time:0.0346598625183
+0 Creating 10 consumers
+1 Creating 10 consumers
+2 Creating 10 consumers
+3 Creating 10 consumers
+4 Creating 10 consumers
+prob_mse: 0.396772296296, running time: 33.7137761116 gamma:0.13 TR:0.1
+85.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+method: Adv-CSL, T, 10, real_i: 7, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.15, graph_size: 5000
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd/5000/nodes-5000-T-10-rate-0.2-testratio-0.1-swaprate-0.0-gamma-0.15-realization-7-data-X.pkl
+#Rules: 10734 Gen rule time:0.0575938224792
+0 Creating 10 consumers
+1 Creating 10 consumers
+2 Creating 10 consumers
+3 Creating 10 consumers
+4 Creating 10 consumers
+prob_mse: 0.376758148148, running time: 31.3523211479 gamma:0.15 TR:0.1
+86.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+method: Adv-CSL, T, 10, real_i: 7, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.2, graph_size: 5000
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd/5000/nodes-5000-T-10-rate-0.2-testratio-0.1-swaprate-0.0-gamma-0.2-realization-7-data-X.pkl
+#Rules: 10734 Gen rule time:0.06516289711
+0 Creating 10 consumers
+1 Creating 10 consumers
+2 Creating 10 consumers
+3 Creating 10 consumers
+4 Creating 10 consumers
+prob_mse: 0.373925333333, running time: 31.3976361752 gamma:0.2 TR:0.1
+87.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+method: Adv-CSL, T, 10, real_i: 7, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.25, graph_size: 5000
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd/5000/nodes-5000-T-10-rate-0.2-testratio-0.1-swaprate-0.0-gamma-0.25-realization-7-data-X.pkl
+#Rules: 10734 Gen rule time:0.0249190330505
+0 Creating 10 consumers
+1 Creating 10 consumers
+2 Creating 10 consumers
+3 Creating 10 consumers
+4 Creating 10 consumers
+prob_mse: 0.335116296296, running time: 31.8531122208 gamma:0.25 TR:0.1
+88.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+method: Adv-CSL, T, 10, real_i: 8, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.0, graph_size: 5000
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd/5000/nodes-5000-T-10-rate-0.2-testratio-0.1-swaprate-0.0-gamma-0.0-realization-8-data-X.pkl
+#Rules: 10734 Gen rule time:0.0280199050903
+0 Creating 10 consumers
+1 Creating 10 consumers
+2 Creating 10 consumers
+3 Creating 10 consumers
+prob_mse: 0.20421362963, running time: 22.0497581959 gamma:0.0 TR:0.1
+89.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+method: Adv-CSL, T, 10, real_i: 8, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.01, graph_size: 5000
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd/5000/nodes-5000-T-10-rate-0.2-testratio-0.1-swaprate-0.0-gamma-0.01-realization-8-data-X.pkl
+#Rules: 10734 Gen rule time:0.0292952060699
+0 Creating 10 consumers
+1 Creating 10 consumers
+2 Creating 10 consumers
+3 Creating 10 consumers
+4 Creating 10 consumers
+prob_mse: 0.345292296296, running time: 29.9614100456 gamma:0.01 TR:0.1
+90.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+method: Adv-CSL, T, 10, real_i: 8, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.03, graph_size: 5000
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd/5000/nodes-5000-T-10-rate-0.2-testratio-0.1-swaprate-0.0-gamma-0.03-realization-8-data-X.pkl
+#Rules: 10734 Gen rule time:0.0643470287323
+0 Creating 10 consumers
+1 Creating 10 consumers
+2 Creating 10 consumers
+3 Creating 10 consumers
+4 Creating 10 consumers
+prob_mse: 0.310148740741, running time: 30.3573257923 gamma:0.03 TR:0.1
+91.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+method: Adv-CSL, T, 10, real_i: 8, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.05, graph_size: 5000
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd/5000/nodes-5000-T-10-rate-0.2-testratio-0.1-swaprate-0.0-gamma-0.05-realization-8-data-X.pkl
+#Rules: 10734 Gen rule time:0.0506799221039
+0 Creating 10 consumers
+1 Creating 10 consumers
+2 Creating 10 consumers
+3 Creating 10 consumers
+4 Creating 10 consumers
+prob_mse: 0.297116888889, running time: 30.1568980217 gamma:0.05 TR:0.1
+92.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+method: Adv-CSL, T, 10, real_i: 8, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.07, graph_size: 5000
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd/5000/nodes-5000-T-10-rate-0.2-testratio-0.1-swaprate-0.0-gamma-0.07-realization-8-data-X.pkl
+#Rules: 10734 Gen rule time:0.0542271137238
+0 Creating 10 consumers
+1 Creating 10 consumers
+2 Creating 10 consumers
+3 Creating 10 consumers
+4 Creating 10 consumers
+prob_mse: 0.356370074074, running time: 29.6657979488 gamma:0.07 TR:0.1
+93.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+method: Adv-CSL, T, 10, real_i: 8, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.09, graph_size: 5000
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd/5000/nodes-5000-T-10-rate-0.2-testratio-0.1-swaprate-0.0-gamma-0.09-realization-8-data-X.pkl
+#Rules: 10734 Gen rule time:0.0372478961945
+0 Creating 10 consumers
+1 Creating 10 consumers
+2 Creating 10 consumers
+3 Creating 10 consumers
+4 Creating 10 consumers
+prob_mse: 0.391767259259, running time: 31.9899361134 gamma:0.09 TR:0.1
+94.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+method: Adv-CSL, T, 10, real_i: 8, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.11, graph_size: 5000
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd/5000/nodes-5000-T-10-rate-0.2-testratio-0.1-swaprate-0.0-gamma-0.11-realization-8-data-X.pkl
+#Rules: 10734 Gen rule time:0.0258629322052
+0 Creating 10 consumers
+1 Creating 10 consumers
+2 Creating 10 consumers
+3 Creating 10 consumers
+4 Creating 10 consumers
+prob_mse: 0.396681925926, running time: 28.6859219074 gamma:0.11 TR:0.1
+95.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+method: Adv-CSL, T, 10, real_i: 8, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.13, graph_size: 5000
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd/5000/nodes-5000-T-10-rate-0.2-testratio-0.1-swaprate-0.0-gamma-0.13-realization-8-data-X.pkl
+#Rules: 10734 Gen rule time:0.0592739582062
+0 Creating 10 consumers
+1 Creating 10 consumers
+2 Creating 10 consumers
+3 Creating 10 consumers
+4 Creating 10 consumers
+prob_mse: 0.382407407407, running time: 32.687420845 gamma:0.13 TR:0.1
+96.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+method: Adv-CSL, T, 10, real_i: 8, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.15, graph_size: 5000
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd/5000/nodes-5000-T-10-rate-0.2-testratio-0.1-swaprate-0.0-gamma-0.15-realization-8-data-X.pkl
+#Rules: 10734 Gen rule time:0.052482843399
+0 Creating 10 consumers
+1 Creating 10 consumers
+2 Creating 10 consumers
+3 Creating 10 consumers
+4 Creating 10 consumers
+prob_mse: 0.346207259259, running time: 29.9864959717 gamma:0.15 TR:0.1
+97.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+method: Adv-CSL, T, 10, real_i: 8, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.2, graph_size: 5000
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd/5000/nodes-5000-T-10-rate-0.2-testratio-0.1-swaprate-0.0-gamma-0.2-realization-8-data-X.pkl
+#Rules: 10734 Gen rule time:0.0276589393616
+0 Creating 10 consumers
+1 Creating 10 consumers
+2 Creating 10 consumers
+3 Creating 10 consumers
+4 Creating 10 consumers
+prob_mse: 0.369497925926, running time: 30.8656179905 gamma:0.2 TR:0.1
+98.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+method: Adv-CSL, T, 10, real_i: 8, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.25, graph_size: 5000
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd/5000/nodes-5000-T-10-rate-0.2-testratio-0.1-swaprate-0.0-gamma-0.25-realization-8-data-X.pkl
+#Rules: 10734 Gen rule time:0.0310800075531
+0 Creating 10 consumers
+1 Creating 10 consumers
+2 Creating 10 consumers
+3 Creating 10 consumers
+4 Creating 10 consumers
+prob_mse: 0.366079185185, running time: 34.1091589928 gamma:0.25 TR:0.1
+99.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+method: Adv-CSL, T, 10, real_i: 9, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.0, graph_size: 5000
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd/5000/nodes-5000-T-10-rate-0.2-testratio-0.1-swaprate-0.0-gamma-0.0-realization-9-data-X.pkl
+#Rules: 10734 Gen rule time:0.0497999191284
+0 Creating 10 consumers
+1 Creating 10 consumers
+2 Creating 10 consumers
+3 Creating 10 consumers
+prob_mse: 0.188028592593, running time: 18.1198329926 gamma:0.0 TR:0.1
+100.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+method: Adv-CSL, T, 10, real_i: 9, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.01, graph_size: 5000
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd/5000/nodes-5000-T-10-rate-0.2-testratio-0.1-swaprate-0.0-gamma-0.01-realization-9-data-X.pkl
+#Rules: 10734 Gen rule time:0.0252461433411
+0 Creating 10 consumers
+1 Creating 10 consumers
+2 Creating 10 consumers
+3 Creating 10 consumers
+4 Creating 10 consumers
+prob_mse: 0.303246666667, running time: 29.8914320469 gamma:0.01 TR:0.1
+101.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+method: Adv-CSL, T, 10, real_i: 9, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.03, graph_size: 5000
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd/5000/nodes-5000-T-10-rate-0.2-testratio-0.1-swaprate-0.0-gamma-0.03-realization-9-data-X.pkl
+#Rules: 10734 Gen rule time:0.0512409210205
+0 Creating 10 consumers
+1 Creating 10 consumers
+2 Creating 10 consumers
+3 Creating 10 consumers
+4 Creating 10 consumers
+prob_mse: 0.333506518519, running time: 28.8919930458 gamma:0.03 TR:0.1
+102.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+method: Adv-CSL, T, 10, real_i: 9, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.05, graph_size: 5000
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd/5000/nodes-5000-T-10-rate-0.2-testratio-0.1-swaprate-0.0-gamma-0.05-realization-9-data-X.pkl
+#Rules: 10734 Gen rule time:0.0280721187592
+0 Creating 10 consumers
+1 Creating 10 consumers
+2 Creating 10 consumers
+3 Creating 10 consumers
+4 Creating 10 consumers
+prob_mse: 0.332065185185, running time: 32.7035439014 gamma:0.05 TR:0.1
+103.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+method: Adv-CSL, T, 10, real_i: 9, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.07, graph_size: 5000
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd/5000/nodes-5000-T-10-rate-0.2-testratio-0.1-swaprate-0.0-gamma-0.07-realization-9-data-X.pkl
+#Rules: 10734 Gen rule time:0.0356600284576
+0 Creating 10 consumers
+1 Creating 10 consumers
+2 Creating 10 consumers
+3 Creating 10 consumers
+4 Creating 10 consumers
+prob_mse: 0.350208296296, running time: 30.8970899582 gamma:0.07 TR:0.1
+104.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+method: Adv-CSL, T, 10, real_i: 9, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.09, graph_size: 5000
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd/5000/nodes-5000-T-10-rate-0.2-testratio-0.1-swaprate-0.0-gamma-0.09-realization-9-data-X.pkl
+#Rules: 10734 Gen rule time:0.0593481063843
+0 Creating 10 consumers
+1 Creating 10 consumers
+2 Creating 10 consumers
+3 Creating 10 consumers
+4 Creating 10 consumers
+prob_mse: 0.34028562963, running time: 31.4760658741 gamma:0.09 TR:0.1
+105.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+method: Adv-CSL, T, 10, real_i: 9, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.11, graph_size: 5000
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd/5000/nodes-5000-T-10-rate-0.2-testratio-0.1-swaprate-0.0-gamma-0.11-realization-9-data-X.pkl
+#Rules: 10734 Gen rule time:0.0602531433105
+0 Creating 10 consumers
+1 Creating 10 consumers
+2 Creating 10 consumers
+3 Creating 10 consumers
+4 Creating 10 consumers
+prob_mse: 0.301327851852, running time: 31.6773920059 gamma:0.11 TR:0.1
+106.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+method: Adv-CSL, T, 10, real_i: 9, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.13, graph_size: 5000
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd/5000/nodes-5000-T-10-rate-0.2-testratio-0.1-swaprate-0.0-gamma-0.13-realization-9-data-X.pkl
+#Rules: 10734 Gen rule time:0.0294919013977
+0 Creating 10 consumers
+1 Creating 10 consumers
+2 Creating 10 consumers
+3 Creating 10 consumers
+4 Creating 10 consumers
+prob_mse: 0.316274518519, running time: 29.2861399651 gamma:0.13 TR:0.1
+107.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+method: Adv-CSL, T, 10, real_i: 9, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.15, graph_size: 5000
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd/5000/nodes-5000-T-10-rate-0.2-testratio-0.1-swaprate-0.0-gamma-0.15-realization-9-data-X.pkl
+#Rules: 10734 Gen rule time:0.0510239601135
+0 Creating 10 consumers
+1 Creating 10 consumers
+2 Creating 10 consumers
+3 Creating 10 consumers
+4 Creating 10 consumers
+prob_mse: 0.332545481481, running time: 32.3205430508 gamma:0.15 TR:0.1
+108.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+method: Adv-CSL, T, 10, real_i: 9, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.2, graph_size: 5000
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd/5000/nodes-5000-T-10-rate-0.2-testratio-0.1-swaprate-0.0-gamma-0.2-realization-9-data-X.pkl
+#Rules: 10734 Gen rule time:0.0258719921112
+0 Creating 10 consumers
+1 Creating 10 consumers
+2 Creating 10 consumers
+3 Creating 10 consumers
+4 Creating 10 consumers
+prob_mse: 0.320690814815, running time: 29.6165649891 gamma:0.2 TR:0.1
+109.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+method: Adv-CSL, T, 10, real_i: 9, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.25, graph_size: 5000
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd/5000/nodes-5000-T-10-rate-0.2-testratio-0.1-swaprate-0.0-gamma-0.25-realization-9-data-X.pkl
+#Rules: 10734 Gen rule time:0.0572061538696
+0 Creating 10 consumers
+1 Creating 10 consumers
+2 Creating 10 consumers
+3 Creating 10 consumers
+4 Creating 10 consumers
+prob_mse: 0.326707259259, running time: 29.4180669785 gamma:0.25 TR:0.1
 
 
 T= 10 is done.......................................
