@@ -69,7 +69,7 @@ def main():
 def experiment_proc_server():
     logging = Log()
     data_root = "/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/"  #May23 May23-3
-    methods = ["CSL", "Adv-CSL", "SL","NAT-CSL"][1:2]
+    methods = ["SL","CSL", "Adv-CSL","NAT-CSL"][2:3]
     # graph_sizes = [500, 1000, 5000, 10000, 47676]
     graph_sizes = [1000, 5000,10000,47676]
     ratios = [0.1, 0.2, 0.3,0.4,0.5,0.6,0.7,0.8]
@@ -89,7 +89,7 @@ def experiment_proc_server():
                                     for method in methods[:]:
                                         f = out_folder + "nodes-{}-T-{}-rate-{}-testratio-{}-swaprate-{}-gamma-{}-realization-{}-data-X.pkl".format(
                                             graph_size, T, ratio, test_ratio, swap_ratio, gamma, real_i)
-                                        outf = '../output/epinions/{}_results-server-{}-Jan3-{}-2.json'.format(method,graph_size,adv_type)
+                                        outf = '../output/epinions/{}_results-server-{}-Jan3-{}-debug.json'.format(method,graph_size,adv_type)
 
                                         logging.write("method: {}, T, {}, real_i: {}, ratio: {}, test_ratio: {}, swaprate: {},gamma:{}, graph_size: {}".format(method, T, real_i, ratio, test_ratio, swap_ratio,gamma, graph_size))
                                         logging.write(f)
@@ -187,7 +187,7 @@ def evaluate(V, E, Obs, Omega, E_X, X_b, logging, method = 'csl', psl = False, a
         b = {}
         # X_b = {e: 0 for e in E if e not in E_X}
         X_b = {e: 0 for e in E if not E_X.has_key(e)}
-        psl = False
+        psl = True
         pred_omega_x, _ = inference_NoAdvTraining(V, E, Obs, Omega, b, X_b, E_X, logging, psl)
     elif method == 'Adv-CSL':
         # b = {e: 0 for e in E}
