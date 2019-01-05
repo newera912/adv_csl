@@ -1105,7 +1105,7 @@ def calc_initial_p5(dict_paths,x_on_body, y_t, edge_down_nns, X_b, X, Y, cnt_E, 
             # or 2. (1,1) count is less than (_,1),(1,_),(_,0) and (0,_) counts and p[e]>0   indicates conflict
             if (n_pos - n_neg > 0 and p[e] == 0) or (n_pos - n_neg < 0 and p[e] > 0):
                 """b_init[e] = 1.0"""
-                b_init[e] = 0.0
+                b_init[e] = 1.0
             else:
                 b_init[e] = 0.0
 
@@ -1239,7 +1239,7 @@ def admm(omega, b_init, X_b, y_t, Y, X, edge_up_nns, edge_down_nns, omega_0, R, 
     cnt_E = len(X) + len(Y)
     K = len(R)
     t0=time.time()
-    p_init, b_init = calc_initial_p5(dict_paths,x_on_body, y_t, edge_down_nns, X_b, X, Y, cnt_E, 0.5, b_init)
+    p_init, b_init = calc_initial_p4(dict_paths,x_on_body, y_t, edge_down_nns, X_b, X, Y, cnt_E, 0.5, b_init)
     if report_stat: print p_init
     if report_stat: print b_init
     t1=time.time()
@@ -1257,7 +1257,7 @@ def admm(omega, b_init, X_b, y_t, Y, X, edge_up_nns, edge_down_nns, omega_0, R, 
     p_time =0.0
     p_num =0.0
     kappa = 1.0  # kappa = 1/rho
-    maxiter = 5
+    maxiter = 10
     for iter in range(maxiter):
         t3 = time.time()
         # print "admm iteration {}".format(iter)
@@ -1293,7 +1293,7 @@ def admm(omega, b_init, X_b, y_t, Y, X, edge_up_nns, edge_down_nns, omega_0, R, 
                 # if report_stat: print ">>>", R_p_hat[k], y_edge[k], lk(k, X_b, R[k], R_p_hat[k], y_edge[k])
                 if lk(k, X_b, R[k], R_p_hat[k], y_edge[k]) < 0:
                     # print "projection before: ", lk(k, R_p_hat[k],y_edge[k]), R_p_hat[k] #k, X_b, R_k, x, rule, y_edge
-                    R_p_hat[k] = normalize(Proj_lk(k, X_b, R[k], R_p[k] - kappa * R_lambda[k], R_p_hat[k], y_edge[k]))
+                    R_p_hat[k] = normalize(Proj_lk2(k, X_b, R[k], R_p[k] - kappa * R_lambda[k], R_p_hat[k], y_edge[k]))
                     # R_p_hat[k] =normalize(R_p_hat[k])
                     # if report_stat: print "projection after: ", lk(k, X_b, R[k], R_p_hat[k], y_edge[k])
                 # if report_stat: print "R_p_hat[k] updated: ", R_p_hat[k]
@@ -1715,7 +1715,7 @@ def reformat(V, E, Obs, Omega):
     V = {v: 1 for v in V}
     return V, edge_up_nns, edge_down_nns, id_2_edge, edge_2_id, omega, feat
 
-
+""" #test cases
 def testcase_0_1():
     logging = Log('logg.txt')
     print inspect.stack()[0][3]
@@ -2362,7 +2362,7 @@ def testcase_4_1():
     prob_mse, u_mse, prob_relative_mse, u_relative_mse, accuracy, recall_congested, recall_uncongested, b_f_measure = \
         evaluate(V, E, Obs, Omega, X, Y, X_b, b, logging, psl = False, approx = True, init_alpha_beta = (1, 1), report_stat =False)
 
-
+"""
 """
 INPUT:
 true_omega_x: The true opinions of edges in X

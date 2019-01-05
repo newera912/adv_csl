@@ -1,0 +1,48 @@
+
+
+--------------------------------------------------
+--------------------------------------------------
+
+-------------------Sat, 05 Jan 2019 03:11:21 PM EST---------------------
+
+0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+method: Adv-CSL, T, 10, real_i: 0, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.15, graph_size: 5000
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd/5000/nodes-5000-T-10-rate-0.2-testratio-0.1-swaprate-0.0-gamma-0.15-realization-0-data-X.pkl
+#Rules: 10734 Gen rule time:0.0505390167236
+0 Creating 10 consumers
+1 Creating 10 consumers
+2 Creating 10 consumers
+3 Creating 10 consumers
+4 Creating 10 consumers
+prob_mse: 0.355796888889, running time: 27.3705060482 gamma:0.15 TR:0.1
+1.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+method: Adv-CSL, T, 10, real_i: 0, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.2, graph_size: 5000
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd/5000/nodes-5000-T-10-rate-0.2-testratio-0.1-swaprate-0.0-gamma-0.2-realization-0-data-X.pkl
+#Rules: 10734 Gen rule time:0.0266580581665
+0 Creating 10 consumers
+1 Creating 10 consumers
+2 Creating 10 consumers
+3 Creating 10 consumers
+4 Creating 10 consumers
+prob_mse: 0.36757837037, running time: 30.9851381779 gamma:0.2 TR:0.1
+2.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+method: Adv-CSL, T, 10, real_i: 0, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.25, graph_size: 5000
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd/5000/nodes-5000-T-10-rate-0.2-testratio-0.1-swaprate-0.0-gamma-0.25-realization-0-data-X.pkl
+#Rules: 10734 Gen rule time:0.0255491733551
+0 Creating 10 consumers
+1 Creating 10 consumers
+2 Creating 10 consumers
+3 Creating 10 consumers
+4 Creating 10 consumers
+prob_mse: 0.326562962963, running time: 29.8692779541 gamma:0.25 TR:0.1
+3.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+method: Adv-CSL, T, 10, real_i: 1, ratio: 0.2, test_ratio: 0.1, swaprate: 0.0,gamma:0.15, graph_size: 5000
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd/5000/nodes-5000-T-10-rate-0.2-testratio-0.1-swaprate-0.0-gamma-0.15-realization-1-data-X.pkl
+Traceback (most recent call last):
+  File "adv_csl_epinions_experiment_pipepline.py", line 213, in <module>
+    main()
+  File "adv_csl_epinions_experiment_pipepline.py", line 65, in main
+    experiment_proc_server()
+  File "adv_csl_epinions_experiment_pipepline.py", line 96, in experiment_proc_server
+    pkl_file = open(f, 'rb')
+IOError: [Errno 2] No such file or directory: '/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd/5000/nodes-5000-T-10-rate-0.2-testratio-0.1-swaprate-0.0-gamma-0.15-realization-1-data-X.pkl'

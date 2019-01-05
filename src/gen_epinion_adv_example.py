@@ -1225,7 +1225,7 @@ def admm(omega, b_init, X_b, y_t, Y, X, edge_up_nns, edge_down_nns, omega_0, R, 
     p_time =0.0
     p_num =0.0
     kappa = 1.0  # kappa = 1/rho
-    maxiter = 25
+    maxiter = 30
     for iter in range(maxiter):
         t3 = time.time()
         # print "admm iteration {}".format(iter)
@@ -1261,7 +1261,7 @@ def admm(omega, b_init, X_b, y_t, Y, X, edge_up_nns, edge_down_nns, omega_0, R, 
                 # if report_stat: print ">>>", R_p_hat[k], y_edge[k], lk(k, X_b, R[k], R_p_hat[k], y_edge[k])
                 if lk(k, X_b, R[k], R_p_hat[k], y_edge[k]) < 0:
                     # print "projection before: ", lk(k, R_p_hat[k],y_edge[k]), R_p_hat[k] #k, X_b, R_k, x, rule, y_edge
-                    R_p_hat[k] = normalize(Proj_lk(k, X_b, R[k], R_p[k] - kappa * R_lambda[k], R_p_hat[k], y_edge[k]))
+                    R_p_hat[k] = normalize(Proj_lk2(k, X_b, R[k], R_p[k] - kappa * R_lambda[k], R_p_hat[k], y_edge[k]))
                     # R_p_hat[k] =normalize(R_p_hat[k])
                     # if report_stat: print "projection after: ", lk(k, X_b, R[k], R_p_hat[k], y_edge[k])
                 # if report_stat: print "R_p_hat[k] updated: ", R_p_hat[k]
