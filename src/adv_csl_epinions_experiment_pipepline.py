@@ -69,19 +69,19 @@ def main():
 def experiment_proc_server():
     logging = Log()
     data_root = "/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/"  #May23 May23-3
-    methods = ["SL","CSL", "Adv-CSL","NAT-CSL"][3:]
+    methods = ["SL","CSL", "Adv-CSL","NAT-CSL"][2:3]
     # graph_sizes = [500, 1000, 5000, 10000, 47676]
     graph_sizes = [1000, 5000,10000,47676]
     ratios = [0.1, 0.2, 0.3,0.4,0.5,0.6,0.7,0.8]
     realizations = 10
     case_count=0
-    for adv_type in ["random_flip","random_noise","random_pgd"][2:]:
+    for adv_type in ["random_flip","random_noise","random_pgd"][1:2]:
         for graph_size in graph_sizes[1:2]:
             for T in [8, 9, 10, 11][2:3]:    #5,6,10,20,11,21,15
                 for real_i in range(realizations)[:]:
                     for ratio in [0.2][:]:#0.0,0.1,0.2,0.3,the percentage of edges set the observations to 1
                         for swap_ratio in [0.00, 0.01, 0.05][:1]:
-                            for test_ratio in [0.1, 0.2,0.3, 0.4, 0.5][:3]:                #percentage of edges to test (|E_x|/|E|)
+                            for test_ratio in [0.1, 0.2,0.3, 0.4, 0.5][4:]:                #percentage of edges to test (|E_x|/|E|)
                                 for gamma in [0.0, 0.01, 0.03, 0.05, 0.07,0.09,0.11,0.13,0.15,0.20,0.25][:]:  # 8
                                     out_folder = data_root +"/"+adv_type +"/"+ str(graph_size) + "/"
                                     logging.write(str(case_count)+" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~")

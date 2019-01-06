@@ -305,11 +305,11 @@ def simulation_data_generator_rf():
             for swap_ratio in [0.00, 0.01, 0.05][:1]:
                 for test_ratio in [0.1, 0.2, 0.3, 0.4,0.5][:]:
                     for ratio in ratios[:1]:  #the percentage of edges set the observations to 1
-                        for real_i in range(realizations)[:1]:
+                        for real_i in range(realizations)[:]:
                             Obs = graph_process(V,E, T, ratio,swap_ratio)
-                            for gamma in [0.0, 0.01, 0.03, 0.05, 0.07,0.09,0.11,0.13,0.15,0.20,0.25][9:]: #8
+                            for gamma in [0.0, 0.01, 0.03, 0.05, 0.07,0.09,0.11,0.13,0.15,0.20,0.25][:]: #8
                                 fout= out_folder+"nodes-{}-T-{}-rate-{}-testratio-{}-swaprate-{}-gamma-{}-realization-{}-data-X.pkl".format(graph_size, T, ratio, test_ratio, swap_ratio, gamma, real_i)
-                                if not os.path.exists(fout):
+                                if not os.path.exists(fout) or True:
                                    tasks.put(Task_generate_rf(V, E, Obs,T, swap_ratio,test_ratio,ratio,gamma,fout))
                                    num_jobs+=1
         print "\n\nGraph size {} Done.....................\n\n".format(graph_size)
@@ -355,11 +355,11 @@ def simulation_data_generator_rn():
             for swap_ratio in [0.00, 0.01, 0.05][:1]:
                 for test_ratio in [0.1, 0.2, 0.3, 0.4,0.5][:]:
                     for ratio in ratios[:]:  #the percentage of edges set the observations to 1
-                        for real_i in range(realizations)[:1]:
+                        for real_i in range(realizations)[:]:
                             Obs = graph_process(V,E, T, ratio,swap_ratio)
-                            for gamma in [0.0, 0.01, 0.03, 0.05, 0.07,0.09,0.11,0.13,0.15,0.20,0.25][9:]: #8
+                            for gamma in [0.0, 0.01, 0.03, 0.05, 0.07,0.09,0.11,0.13,0.15,0.20,0.25][:]: #8
                                 fout= out_folder+"nodes-{}-T-{}-rate-{}-testratio-{}-swaprate-{}-gamma-{}-realization-{}-data-X.pkl".format(graph_size, T, ratio, test_ratio, swap_ratio, gamma, real_i)
-                                if not os.path.exists(fout):
+                                if not os.path.exists(fout) or True:
                                    tasks.put(Task_generate_rn(V, E, Obs,T, swap_ratio,test_ratio,ratio,gamma,fout))
                                    num_jobs+=1
         print "\n\nGraph size {} Done.....................\n\n".format(graph_size)
@@ -536,8 +536,9 @@ def main():
     # print len(V), len(E)
     # simulation_data_generator2()
     # simulation_data_generator_rf()
-    # simulation_data_generator_rn()
-    simulation_data_generator_PGD()
+    simulation_data_generator_rn()
+    # simulation_data_generator_PGD()
+
 if __name__=='__main__':
     main()
 
