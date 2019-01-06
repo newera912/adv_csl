@@ -535,7 +535,7 @@ def main():
     # [V, E] = pickle.load(pkl_file)
     # print len(V), len(E)
     # simulation_data_generator2()
-    # simulation_data_generator_rf()
+    simulation_data_generator_rf()
     simulation_data_generator_rn()
     # simulation_data_generator_PGD()
 
