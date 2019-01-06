@@ -21,11 +21,10 @@ from scipy.stats import beta
 from log import Log
 import time
 time.time()
-import baseline
-from feng_SL_inference_multiCore import *
+from SL_inference_multiCore import *
 import json
 #from feng_SL_inference import *
-from multi_core_csl_inference_conflicting_evidence_traffic import inference_apdm_format as inference_apdm_format_conflict_evidence
+from multi_core_csl_inference_adversarial_traffic import inference_apdm_format as inference_apdm_format_conflict_evidence
 # import networkx as nx
 # import matplotlib.pyplot as plt
 
@@ -696,7 +695,7 @@ def real_traffic_data_testcase():
     count=0
     T = 43
 
-    methods = ["sl","csl","csl-conflict-2"][2:]
+    methods = ["SL","CSL","Adv-CSL"][2:]
     for dataset in datasets[1:]:
         dataroot = data_root + dataset + "/"
         for weekday in range(5)[3:]:
@@ -867,52 +866,6 @@ def real_traffic_data_testcase_debug():
                                     outfp = open(outf, 'a')
                                     outfp.write(json.dumps(result_) + '\n')
                                     outfp.close()
-
-"""
-This function evaluates the performances of the testing methods on a network whose topology is a single path.
-"""
-def simu_roadnetwork_testcase1():
-    logging = Log()
-    report_stat = False
-    realizations = 30
-    n = 100
-    T = 10
-    r = 0.05
-    test_ratio = 0.1
-    method = "base1"
-    # for test_ratio in [0.1, 0.2, 0.3, 0.4, 0.5]
-    # for r in [0.01, 0.11, 0.21, 0.31, 0.41]:
-    # for r in np.arange(0.0, 0.1, 0.01):
-    for test_ratio in np.arange(0.1, 0.8, 0.1)[:1]:
-        rands = np.random.permutation(n-1)[:int(np.round(test_ratio * (n-2)))]
-        E_X = [(i, i+1) for i in rands]
-
-        accuracys = []
-        prob_mses = []
-        running_times = []
-        nposi = 0
-        nnega = 0
-        for real_i in range(realizations)[:1]:
-            # print real_i
-            V, E, Obs = roadnetwork_simulato_one_path(n, T, r)
-            Omega = calc_Omega_from_Obs(Obs, E)
-            accuracy, prob_mse, running_time = evaluate(V, E, Obs, Omega, E_X, logging, method)
-            i_nposi, i_nnega = accuracy_2_posi_nega(accuracy)
-            nposi += i_nposi
-            nnega += i_nnega
-            accuracys.append(accuracy)
-            prob_mses.append(prob_mse)
-            running_times.append(running_time)
-
-        mu_accuracy = np.mean(accuracys)
-        sigma_accuracy = np.std(accuracys)
-        mu_prob_mse = np.mean(prob_mses)
-        sigma_prob_mse = np.std(prob_mses)
-        running_time = np.mean(running_times)
-
-        info = "realizations: {0}, network size: {1}, time stamps: {2}, noise ratio: {3}, test ratio: {4}, accuracy: ({5}, {6}), prob_mse: ({7}, {8}), running_time: {9}".format(realizations, n, T, r, test_ratio, "%.2f" % mu_accuracy, "%.2f" % sigma_accuracy, "%.2f" % mu_prob_mse, "%.2f" % sigma_prob_mse, running_time)
-        print info
-        logging.write(info)
 
 
 
