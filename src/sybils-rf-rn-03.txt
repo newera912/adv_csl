@@ -1,7 +1,0 @@
---------- reading ../data/Undirected_Facebook/facebook_sybils_attackedge1000.pkl
-Traceback (most recent call last):
-  File "sybil_data_generator-adversarial-ex-multiCore.py", line 386, in <module>
-    random_flip_sybils_data_generator()
-  File "sybil_data_generator-adversarial-ex-multiCore.py", line 306, in random_flip_sybils_data_generator
-    pkl_file = open(filename, 'rb')
-IOError: [Errno 2] No such file or directory: '../data/Undirected_Facebook/facebook_sybils_attackedge1000.pkl'
