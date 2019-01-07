@@ -400,7 +400,11 @@ def random_noise_sybils_data_generator():
     attack_edges = [1000,2000,3000,4000,5000]
     network_files=["../data/Undirected_Facebook/facebook_sybils_attackedge",
                    "../data/enron/enron_attackedge",
+<<<<<<< HEAD
                    "../data/slashdot/slashdot_sybils_attackedge"][1:]
+=======
+                   "../data/slashdot/slashdot_sybils_attackedge"][2:]
+>>>>>>> 31615ba2a39d77d6566d296e6ff6950a70e24422
     tasks = multiprocessing.Queue()
     results = multiprocessing.Queue()
     num_consumers = 30  # We only use 5 cores.
@@ -410,7 +414,11 @@ def random_noise_sybils_data_generator():
     for w in consumers:
         w.start()
     num_jobs=0
+<<<<<<< HEAD
     for i,dataset in enumerate(["facebook","enron","slashdot"][1:]):
+=======
+    for i,dataset in enumerate(["facebook","enron","slashdot"][2:]):
+>>>>>>> 31615ba2a39d77d6566d296e6ff6950a70e24422
         for attack_edge in [1000, 5000,10000,15000,20000][:]:
             filename = network_files[i]+"_{}.pkl".format(attack_edge)
             print "--------- reading {}".format(filename)
