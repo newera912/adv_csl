@@ -537,7 +537,7 @@ def main():
     # simulation_data_generator2()
     simulation_data_generator_rf()
     simulation_data_generator_rn()
-    # simulation_data_generator_PGD()
+    simulation_data_generator_PGD()
 
 if __name__=='__main__':
     main()

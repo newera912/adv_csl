@@ -384,7 +384,7 @@ def random_noise_sybils_data_generator():
     attack_edges = [1000,2000,3000,4000,5000]
     network_files=["../data/Undirected_Facebook/facebook_sybils_attackedge",
                    "../data/enron/enron_attackedge",
-                   "../data/slashdot/slashdot_sybils_attackedge"]
+                   "../data/slashdot/slashdot_sybils_attackedge"][2:]
     tasks = multiprocessing.Queue()
     results = multiprocessing.Queue()
     num_consumers = 50  # We only use 5 cores.
@@ -394,7 +394,7 @@ def random_noise_sybils_data_generator():
     for w in consumers:
         w.start()
     num_jobs=0
-    for i,dataset in enumerate(["facebook","enron","slashdot"][:]):
+    for i,dataset in enumerate(["facebook","enron","slashdot"][2:]):
         for attack_edge in [1000, 5000,10000,15000,20000][:]:
             filename = network_files[i]+"{}.pkl".format(attack_edge)
             print "--------- reading {}".format(filename)
@@ -478,7 +478,7 @@ if __name__=='__main__':
     # analyze_data_FB()
     # analyze_data()
 
-    random_flip_sybils_data_generator()
+    # random_flip_sybils_data_generator()
     random_noise_sybils_data_generator()
     # enron_simulation_data_generator()
     # slashdot_simulation_data_generator()
