@@ -350,9 +350,9 @@ It will print out the following information:
 """
 def  evaluate(V, E, Obs, Omega, E_X, logging, method = 'sl', psl = False, approx = False, init_alpha_beta = (1, 1), report_stat = False):
     running_starttime = time.time()
-    if method == 'sl':
+    if method == 'SL':
         pred_omega_x = SL_prediction_multiCore_node(V, E, Obs, Omega, copy.deepcopy(E_X))
-    elif method == 'csl':
+    elif method == 'CSL':
         pred_omega_x = inference_apdm_format(V, E, Obs, Omega, E_X, logging)
     elif method == 'csl-conflict-1':
         # obs_dict = {}
@@ -367,7 +367,7 @@ def  evaluate(V, E, Obs, Omega, E_X, logging, method = 'sl', psl = False, approx
         psl = True
         #V, E, Obs, Omega, b, X, logging, psl = False, approx = True, init_alpha_beta = (1, 1), report_stat = False
         pred_omega_x, _ = inference_apdm_format_conflict_evidence(V, E, Obs, Omega, b, E_X, logging, psl)
-    elif method == 'csl-conflict-2':
+    elif method == 'Adv-CSL':
         # b = {e: 0 for e in E}
         b = {}
         psl = False
@@ -568,6 +568,8 @@ def enron_sybils_dataset_test():
                                     outfp.write(json.dumps(result_) + '\n')
                                     outfp.close()
 
+
+
 def slashdot_sybils_dataset_test():
     logging = Log()
     dataroot = "/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/"
@@ -575,8 +577,8 @@ def slashdot_sybils_dataset_test():
     count=0
     realizations=10
     methods = ["SL","CSL", "Adv-CSL","NAT-CSL"][2:3]
-    for adv_type in ["random_flip", "random_noise", "random_pgd"][:]:
-        for attack_edge in [1000,5000,15000,20000][:]:
+    for adv_type in ["random_flip", "random_noise", "random_pgd"][1:2]:
+        for attack_edge in [1000,5000,10000,15000,20000][2:3]:
             for T in [10][:]:
                 for swap_ratio in [0.00, 0.01, 0.02, 0.05][1:2]:
                     for test_ratio in [0.1, 0.2,0.3,0.4, 0.5][2:3]:
@@ -648,9 +650,9 @@ def slashdot_sybils_dataset_test():
                                     outfp.close()
 
 def main():
-    facebook_sybils_dataset_test()
+    # facebook_sybils_dataset_test()
     # enron_sybils_dataset_test()
-    # slashdot_sybils_dataset_test()
+    slashdot_sybils_dataset_test()
 
 
 
