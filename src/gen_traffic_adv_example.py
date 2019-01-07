@@ -1007,7 +1007,7 @@ def admm(omega, b, y_t, Y, X, edge_up_nns, edge_down_nns, omega_0, R, psl=False,
     cnt_E = len(X) + len(Y)
     K = len(R)
     p_init, b_init = calc_initial_p1(y_t, edge_down_nns, X, Y, cnt_E, 0.5, b)
-
+    sign_grad_py_t={}
     # print "R", R
     # print "y_t", y_t
     # print "p_init", p_init
@@ -1066,7 +1066,7 @@ def admm(omega, b, y_t, Y, X, edge_up_nns, edge_down_nns, omega_0, R, psl=False,
         if error < epsilon:
             break
     # sys.exit()
-    return p_t, b_t
+    return p_t, b_t,sign_grad_py_t
 
 
 """
