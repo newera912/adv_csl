@@ -499,7 +499,7 @@ def gen_adv_exmaple(V, E, Obs, X_b,E_X):
     logging = Log()
     b={}
     Omega = calc_Omega_from_Obs2(Obs, E)                #V, E, Obs, Omega, b, X_b, E_X, logging, psl=False, approx=True, init_alpha_beta=(1, 1),report_stat=False
-    sign_grad_py=inference_apdm_format_conflict_evidence(V, E, Obs, Omega, b, X_b, E_X, logging, psl=False)
+    sign_grad_py=inference_apdm_format_conflict_evidence(V, E, Obs, Omega,  b, X_b, E_X, logging, psl=False)
 
 
     return sign_grad_py
