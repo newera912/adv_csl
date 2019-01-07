@@ -200,140 +200,96 @@ class Consumer(multiprocessing.Process):
             answer = next_task()
             self.result_queue.put(answer)
         return
-class Task_generate(object):
-    def __init__(self, V, E, T,test_ratio,swap_ratio,ratio_conflict,fout):
+class Task_generate_rf(object):
+    def __init__(self, V, E,Obs, T,test_ratio,swap_ratio,gamma,fout):
         self.V = V
         self.E = E
+        self.Obs =Obs
         self.T = T
         self.test_ratio = test_ratio
         self.swap_ratio=swap_ratio
-        self.ratio_conflict = ratio_conflict
+        self.gamma = gamma
         self.fout = fout
     def __call__(self):
 
-        """ Step 1: generate observation matrix """
-        Obs = graph_process(self.V, self.E, self.T,self.swap_ratio)
 
-
-        """ Step2: Sampling X edges with test ratio """
+        """Step2: Sampling X edges with test ratio """
         # nns, id_2_node, node_2_id, _, _ = reformat(self.V, self.E, Obs)
         nns=gen_nns(self.V,self.E)
         E_X = sample_X(self.test_ratio, self.V)  #test nodes
 
-        """Step 3: add conflict edges """
-        E_Y = [v for v in self.V.keys() if not E_X.has_key(v)]
+        """Step 3: flip observations on the edges """
+        E_Y = [e for e in self.E if not E_X.has_key(e)]
         rand_seq_E_Y = copy.deepcopy(E_Y)
         shuffle(rand_seq_E_Y)
-        cnt = int(np.round(len(E_Y) * self.ratio_conflict))
-        X_b = rand_seq_E_Y[:cnt] #conflcit nodes
-        T = len(Obs[self.E[self.E.keys()[1]]])
-        mid = int(np.round(T / 2.0))
-        for v in X_b:
-            for t in range(mid, T):
-                Obs[v][t] = 1 - Obs[v][t]
+        cnt = int(np.round(len(E_Y) * self.gamma))
+        X_b = rand_seq_E_Y[:cnt]
+        T = len(self.Obs[self.E[0]])
+        #mid = int(np.round(T / 2.0))
+        for e in X_b:
+            for t in range(0, T):
+                self.Obs[e][t] = 1 - self.Obs[e][t]
 
         pkl_file = open(self.fout, 'wb')
-        pickle.dump([self.V, self.E, Obs, E_X, X_b], pkl_file)
+        pickle.dump([self.V, self.E, self.Obs, E_X, X_b], pkl_file)
         pkl_file.close()
         return
 
     def __str__(self):
         return '%s' % (self.p0)
 
-def slashdot_simulation_data_generator():
-    data_root="/network/rit/lab/ceashpc/adil/data/csl-data/slashdot/"
-    # data_root = "./"
-    realizations = 1
+def clip01(x):
+    if x<0.0: return 0.0
+    elif x>1.0: return 1.0
+    else: return x
 
-    tasks = multiprocessing.Queue()
-    results = multiprocessing.Queue()
-    num_consumers = 50  # We only use 5 cores.
-    # print 'Creating %d consumers' % num_consumers
-    consumers = [Consumer(tasks, results)
-                 for i in range(num_consumers)]
-    for w in consumers:
-        w.start()
-    num_jobs=0
-    for attack_edge in [1000, 5000,10000,15000,20000][:]:
-        filename = "../data/slashdot/slashdot_sybils_attackedge_{}.pkl".format(attack_edge)
-        print "--------- reading {}".format(filename)
-        pkl_file = open(filename, 'rb')
-        [V, E] = pickle.load(pkl_file)
+class Task_generate_rn(object):
+    def __init__(self, V, E,Obs, T,test_ratio,swap_ratio,gamma,fout):
+        self.V = V
+        self.E = E
+        self.Obs = Obs
+        self.T = T
+        self.test_ratio = test_ratio
+        self.swap_ratio=swap_ratio
+        self.gamma = gamma
+        self.fout = fout
+    def __call__(self):
+        """Step1: Sampling X edges with test ratio """""
+        # nns, id_2_node, node_2_id, _, _ = reformat(self.V, self.E, Obs)
+        # nns=gen_nns(self.V,self.E)
+        E_X = sample_X(self.test_ratio, self.V)  #test nodes
+
+        """Step 2: Add noise to observations on the edges """
+        E_Y = [e for e in self.E if not E_X.has_key(e)]
+        X_b = []
+        """ |noise_vector_i| <= gamma"""
+        noise_vector = np.random.uniform(low=-self.gamma, high=self.gamma, size=(len(E_Y),))
+
+        T = len(self.Obs[self.E[0]])
+        for i,e in enumerate(E_Y):
+            for t in range(0, T):
+                self.Obs[e][t] = clip01(self.Obs[e][t]+noise_vector[i])   #clip between [0,1]
+
+        pkl_file = open(self.fout, 'wb')
+        pickle.dump([self.V, self.E, self.Obs, E_X, X_b], pkl_file)
         pkl_file.close()
-        out_folder = data_root
-        if not os.path.exists(out_folder):
-            os.makedirs(out_folder)
-        for T in [10][:]:
-            for swap_ratio in [0.00, 0.01, 0.02, 0.05][1:2]:
-                for test_ratio in [0.1, 0.2, 0.3, 0.4,0.5][1:2]:
-                    for ratio_conflict in [0.0,0.1, 0.2, 0.3, 0.4][3:4]:
-                        for real_i in range(realizations)[:]:
-                                             #enron-attackedges-1000-T-10-testratio-0.2-swaprate-0.02-conflictratio-0.3-realization-0-data-X.pkl
-                            fout= out_folder+"slashdot-attackedges-{}-T-{}-testratio-{}-swap_ratio-{}-conflictratio-{}-realization-{}-data-X.pkl".format(attack_edge, T, test_ratio,swap_ratio, ratio_conflict, real_i)
-                            if not os.path.exists(fout):
-                                print fout
-                                tasks.put(Task_generate(V, E, T,test_ratio,swap_ratio,ratio_conflict,fout))
-                                num_jobs+=1
-        print "\n\nAttack_edge size {} Done.....................\n\n".format(attack_edge)
+        return
 
-    for i in range(num_consumers):
-        tasks.put(None)
+    def __str__(self):
+        return '%s' % (self.p0)
 
-    while num_jobs:
-        results.get()
-        num_jobs -= 1
-        print ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> remain: ",num_jobs
 
-def enron_simulation_data_generator():
-    data_root="/network/rit/lab/ceashpc/adil/data/csl-data/enron/"
-    # data_root = "./"
-    realizations = 1
 
-    tasks = multiprocessing.Queue()
-    results = multiprocessing.Queue()
-    num_consumers = 50  # We only use 5 cores.
-    # print 'Creating %d consumers' % num_consumers
-    consumers = [Consumer(tasks, results)
-                 for i in range(num_consumers)]
-    for w in consumers:
-        w.start()
-    num_jobs=0
-    for attack_edge in [1000, 5000,10000,15000,20000][:]:
-        filename = "../data/enron/enron_attackedge_{}.pkl".format(attack_edge)
-        print "--------- reading {}".format(filename)
-        pkl_file = open(filename, 'rb')
-        [V, E] = pickle.load(pkl_file)
-        pkl_file.close()
-        out_folder = data_root
-        if not os.path.exists(out_folder):
-            os.makedirs(out_folder)
-        for T in [10][:]:
-            for swap_ratio in [0.00, 0.01, 0.02, 0.05][1:2]:
-                for test_ratio in [0.1, 0.2, 0.3, 0.4,0.5][:]:
-                    for ratio_conflict in [0.0,0.1, 0.2, 0.3, 0.4][:]:
-                        for real_i in range(realizations)[:]:
-                                             #enron-attackedges-1000-T-10-testratio-0.2-swaprate-0.02-conflictratio-0.3-realization-0-data-X.pkl
-                            fout= out_folder+"enron-attackedges-{}-T-{}-testratio-{}-swap_ratio-{}-conflictratio-{}-realization-{}-data-X.pkl".format(attack_edge, T, test_ratio,swap_ratio, ratio_conflict, real_i)
-                            if not os.path.exists(fout):
-                                print fout
-                                tasks.put(Task_generate(V, E, T,test_ratio,swap_ratio,ratio_conflict,fout))
-                                num_jobs+=1
-        print "\n\nAttack_edge size {} Done.....................\n\n".format(attack_edge)
 
-    for i in range(num_consumers):
-        tasks.put(None)
 
-    while num_jobs:
-        results.get()
-        num_jobs -= 1
-        print ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> remain: ",num_jobs
-
-def fb_sybils_simulation_data_generator():
-    data_root="/network/rit/lab/ceashpc/adil/data/csl-data/fb_sybils/"
+def random_flip_sybils_data_generator():
+    data_root = "/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_flip/"
     # data_root = "./"
     realizations = 1
     attack_edges = [1000,2000,3000,4000,5000]
-
+    network_files=["../data/Undirected_Facebook/facebook_sybils_attackedge",
+                   "../data/enron/enron_attackedge",
+                   "../data/slashdot/slashdot_sybils_attackedge"]
     tasks = multiprocessing.Queue()
     results = multiprocessing.Queue()
     num_consumers = 50  # We only use 5 cores.
@@ -343,38 +299,91 @@ def fb_sybils_simulation_data_generator():
     for w in consumers:
         w.start()
     num_jobs=0
-    for attack_edge in [1000, 5000,10000,15000,20000][:]:
-        filename = "../data/Undirected_Facebook/facebook_sybils_attackedge_{}.pkl".format(attack_edge)
-        print "--------- reading {}".format(filename)
-        pkl_file = open(filename, 'rb')
-        [V, E] = pickle.load(pkl_file)
-        pkl_file.close()
-        out_folder = data_root
-        if not os.path.exists(out_folder):
-            os.makedirs(out_folder)
-        for T in [10][:]:
-            for swap_ratio in [0.00, 0.01,0.02, 0.05][1:2]:
-                for test_ratio in [0.1, 0.2, 0.3, 0.4,0.5][:]:
-                    for ratio_conflict in [0.0,0.1, 0.2, 0.3, 0.4][:]:
-                        for real_i in range(realizations)[:]:
-                            fout= out_folder+"sybils-attackedges-{}-T-{}-testratio-{}-swap_ratio-{}-conflictratio-{}-realization-{}-data-X.pkl".format(attack_edge, T, test_ratio,swap_ratio, ratio_conflict, real_i)
-                            if not os.path.exists(fout):
-                               tasks.put(Task_generate(V, E, T,test_ratio,swap_ratio,ratio_conflict,fout))
-                               num_jobs+=1
-        print "\n\nTttack_edge size {} Done.....................\n\n".format(attack_edge)
+    for i,dataset in enumerate(["facebook","enron","slashdot"]):
+        for attack_edge in [1000, 5000,10000,15000,20000][:]:
+            filename = network_files[i]+"{}.pkl".format(attack_edge)
+            print "--------- reading {}".format(filename)
+            pkl_file = open(filename, 'rb')
+            [V, E] = pickle.load(pkl_file)
+            pkl_file.close()
+            out_folder = data_root+dataset+"/"
+            if not os.path.exists(out_folder):
+                os.makedirs(out_folder)
+            for T in [10][:]:
+                for swap_ratio in [0.00, 0.01,0.02, 0.05][1:2]:
+                    for test_ratio in [0.1, 0.2, 0.3, 0.4,0.5][:]:
+                        """ Step 1: generate observation matrix """
+                        Obs = graph_process(V, E, T, swap_ratio)
+                        for gamma in [0.0, 0.01, 0.03, 0.05, 0.07, 0.09, 0.11, 0.13, 0.15, 0.20, 0.25][:]:  # 11
+                            for real_i in range(realizations)[:]:
+                                fout= out_folder+"{}-attackedges-{}-T-{}-testratio-{}-swap_ratio-{}-gamma-{}-realization-{}-data-X.pkl".format(dataset,attack_edge, T, test_ratio,swap_ratio, gamma, real_i)
+                                if not os.path.exists(fout):
+                                   tasks.put(Task_generate_rf(V, E,Obs, T,test_ratio,swap_ratio,gamma,fout))
+                                   num_jobs+=1
+            print "\n\nTttack_edge size {} Done.....................\n\n".format(attack_edge)
 
-    for i in range(num_consumers):
-        tasks.put(None)
+        for i in range(num_consumers):
+            tasks.put(None)
 
-    while num_jobs:
-        results.get()
-        num_jobs -= 1
-        print ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> remain: ",num_jobs
+        while num_jobs:
+            results.get()
+            num_jobs -= 1
+            print ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> remain: ",num_jobs
+
+def random_noise_sybils_data_generator():
+    data_root = "/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_noise/"
+    # data_root = "./"
+    realizations = 1
+    attack_edges = [1000,2000,3000,4000,5000]
+    network_files=["../data/Undirected_Facebook/facebook_sybils_attackedge",
+                   "../data/enron/enron_attackedge",
+                   "../data/slashdot/slashdot_sybils_attackedge"]
+    tasks = multiprocessing.Queue()
+    results = multiprocessing.Queue()
+    num_consumers = 50  # We only use 5 cores.
+    # print 'Creating %d consumers' % num_consumers
+    consumers = [Consumer(tasks, results)
+                 for i in range(num_consumers)]
+    for w in consumers:
+        w.start()
+    num_jobs=0
+    for i,dataset in enumerate(["facebook","enron","slashdot"][:]):
+        for attack_edge in [1000, 5000,10000,15000,20000][:]:
+            filename = network_files[i]+"{}.pkl".format(attack_edge)
+            print "--------- reading {}".format(filename)
+            pkl_file = open(filename, 'rb')
+            [V, E] = pickle.load(pkl_file)
+            pkl_file.close()
+            out_folder = data_root+dataset+"/"
+            if not os.path.exists(out_folder):
+                os.makedirs(out_folder)
+            for T in [10][:]:
+                for swap_ratio in [0.00, 0.01,0.02, 0.05][1:2]:
+                    for test_ratio in [0.1, 0.2, 0.3, 0.4,0.5][:]:
+                        Obs = graph_process(V, E, T, swap_ratio)
+                        for gamma in [0.0, 0.01, 0.03, 0.05, 0.07, 0.09, 0.11, 0.13, 0.15, 0.20, 0.25][:]:  # 11
+                            for real_i in range(realizations)[:]:
+                                fout = out_folder + "{}-attackedges-{}-T-{}-testratio-{}-swap_ratio-{}-gamma-{}-realization-{}-data-X.pkl".format(
+                                    dataset, attack_edge, T, test_ratio, swap_ratio, gamma, real_i)
+                                if not os.path.exists(fout):
+                                    tasks.put(Task_generate_rn(V, E, Obs, T, test_ratio, swap_ratio, gamma, fout))
+                                    num_jobs += 1
+                    print "\n\nTttack_edge size {} Done.....................\n\n".format(attack_edge)
+
+        for i in range(num_consumers):
+            tasks.put(None)
+
+        while num_jobs:
+            results.get()
+            num_jobs -= 1
+            print ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> remain: ",num_jobs
 
 
 if __name__=='__main__':
     # analyze_data_FB()
-    analyze_data()
-    # fb_sybils_simulation_data_generator()
+    # analyze_data()
+
+    random_flip_sybils_data_generator()
+    random_noise_sybils_data_generator()
     # enron_simulation_data_generator()
-    slashdot_simulation_data_generator()
+    # slashdot_simulation_data_generator()
