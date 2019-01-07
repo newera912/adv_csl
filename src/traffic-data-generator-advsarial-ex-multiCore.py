@@ -16,6 +16,9 @@ import multiprocessing
 from random import shuffle
 from DataWrapper import *
 from gen_traffic_adv_example import inference_apdm_format as inference_apdm_format_conflict_evidence
+from log import Log
+
+
 """
 INPUT
 a: base with default 0.5
@@ -107,7 +110,7 @@ class Task_generate_rf(object):
         #s_data_root = "/network/rit/lab/ceashpc/adil/data/csl-data/Traffic/"+self.dataset
         # data_root = "/network/rit/lab/ceashpc/adil/data/csl-data/traffic"
         f = self.data_root + '/network_{}_weekday_{}_hour_{}_refspeed_{}-testratio-{}-gamma-{}-realization-{}.pkl'.format(
-            self.dataset, self.weekday, self.hour, self.ref_per, self.test_ratio, self.ratio_conflict,self.real_i)
+            self.dataset, self.weekday, self.hour, self.ref_per, self.test_ratio, self.gamma,self.real_i)
         print f
         dw = DataWrapper(dataset=self.dataset, directed=True)
         V, E, Obs, _ = dw.get_data_case(self.hour, self.weekday, self.ref_per)
@@ -125,19 +128,19 @@ class Task_generate_rf(object):
         E_X = sample_X2(self.test_ratio, V, E)
 
         """Step 3: flip observations on the edges """
-        E_Y = [e for e in self.E if not E_X.has_key(e)]
+        E_Y = [e for e in E if not E_X.has_key(e)]
         rand_seq_E_Y = copy.deepcopy(E_Y)
         shuffle(rand_seq_E_Y)
         cnt = int(np.round(len(E_Y) * self.gamma))
         X_b = rand_seq_E_Y[:cnt]
-        T = len(Obs[self.E[0]])
+        T = len(Obs[E[0]])
         # mid = int(np.round(T / 2.0))
         for e in X_b:
             for t in range(0, T):
                 Obs[e][t] = 1 - Obs[e][t]
 
-        pkl_file = open(self.fout, 'wb')
-        pickle.dump([self.V, self.E, Obs, E_X, X_b], pkl_file)
+        pkl_file = open(f, 'wb')
+        pickle.dump([V, E, Obs, E_X, X_b], pkl_file)
         pkl_file.close()
         # print f
 
@@ -164,7 +167,7 @@ class Task_generate_rn(object):
         #s_data_root = "/network/rit/lab/ceashpc/adil/data/csl-data/Traffic/"+self.dataset
         # data_root = "/network/rit/lab/ceashpc/adil/data/csl-data/traffic"
         f = self.data_root + '/network_{}_weekday_{}_hour_{}_refspeed_{}-testratio-{}-gamma-{}-realization-{}.pkl'.format(
-            self.dataset, self.weekday, self.hour, self.ref_per, self.test_ratio, self.ratio_conflict,self.real_i)
+            self.dataset, self.weekday, self.hour, self.ref_per, self.test_ratio, self.gamma,self.real_i)
         print f
         dw = DataWrapper(dataset=self.dataset, directed=True)
         V, E, Obs, _ = dw.get_data_case(self.hour, self.weekday, self.ref_per)
@@ -182,19 +185,19 @@ class Task_generate_rn(object):
         E_X = sample_X2(self.test_ratio, V, E)
 
         """Step 2: Add noise to observations on the edges """
-        E_Y = [e for e in self.E if not E_X.has_key(e)]
+        E_Y = [e for e in E if not E_X.has_key(e)]
 
         X_b = []
         """ |noise_vector_i| <= gamma"""
         noise_vector = np.random.uniform(low=-self.gamma, high=self.gamma, size=(len(E_Y),))
 
-        T = len(Obs[self.E[0]])
+        T = len(Obs[E[0]])
         for i,e in enumerate(E_Y):
             for t in range(0, T):
                 Obs[e][t] = clip01(Obs[e][t]+noise_vector[i])   #clip between [0,1]
 
-        pkl_file = open(self.fout, 'wb')
-        pickle.dump([self.V, self.E, Obs, E_X, X_b], pkl_file)
+        pkl_file = open(f, 'wb')
+        pickle.dump([V, E, Obs, E_X, X_b], pkl_file)
         pkl_file.close()
         # print f
 
@@ -217,10 +220,12 @@ class Task_generate_PGD(object):
         #s_data_root = "/network/rit/lab/ceashpc/adil/data/csl-data/Traffic/"+self.dataset
         # data_root = "/network/rit/lab/ceashpc/adil/data/csl-data/traffic"
         f = self.data_root + '/network_{}_weekday_{}_hour_{}_refspeed_{}-testratio-{}-gamma-{}-realization-{}.pkl'.format(
-            self.dataset, self.weekday, self.hour, self.ref_per, self.test_ratio, self.ratio_conflict,self.real_i)
-        print f
+            self.dataset, self.weekday, self.hour, self.ref_per, self.test_ratio, self.gamma,self.real_i)
+        print "File:",f
         dw = DataWrapper(dataset=self.dataset, directed=True)
         V, E, Obs, _ = dw.get_data_case(self.hour, self.weekday, self.ref_per)
+        ObsO=copy.deepcopy(Obs)
+        T = len(Obs[E[0]])
         # freq={}
         # for e,ob in Obs.items():
         #     pos=sum(ob)
@@ -235,30 +240,30 @@ class Task_generate_PGD(object):
         E_X = sample_X2(self.test_ratio, V, E)
 
         """Step 2: Add noise to observations on the edges """
-        E_Y = [e for e in self.E if not E_X.has_key(e)]
+        E_Y = [e for e in E if not E_X.has_key(e)]
 
         X_b = []
         """ |p_y+alpha*sign(nabla_py L)| <= gamma"""
         if self.gamma > 0.0:
-            sign_grad_py = gen_adv_exmaple(self.V, self.E, Obs, X_b, E_X)
+            sign_grad_py = gen_adv_exmaple(V, E, Obs, X_b, E_X)
 
-            T = len(Obs[self.E[0]])
+
             for e in E_Y:
                 # print type(sign_grad_py[0])
                 if e not in sign_grad_py[0].keys(): print "Eroorrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr!"
-                for t in range(0, self.T):
+                for t in range(0, T):
                     for i in range(len(sign_grad_py[t][e])):
                         Obs[e][t] = clip01(Obs[e][t] + self.alpha * sign_grad_py[t][e][i])  # clip between [0,1]
-                    if np.abs(Obs[e][t] - self.ObsO[e][t]) > self.gamma:
-                        Obs[e][t] = clip01(self.ObsO[e][t] + np.sign(
-                            Obs[e][t] - self.ObsO[e][t]) * self.gamma)  # clip |py_adv-py_orig|<gamma
+                    if np.abs(Obs[e][t] - ObsO[e][t]) > self.gamma:
+                        Obs[e][t] = clip01(ObsO[e][t] + np.sign(
+                            Obs[e][t] - ObsO[e][t]) * self.gamma)  # clip |py_adv-py_orig|<gamma
             print "Iteration Number", [len(sign_grad_py[i][sign_grad_py[i].keys()[0]]) for i in
                                        range(len(sign_grad_py))]
 
         """   V, E, Obs, Omega, b, X_b, E_X, logging, psl   """
 
-        pkl_file = open(self.fout, 'wb')
-        pickle.dump([self.V, self.E, Obs, E_X, X_b], pkl_file)
+        pkl_file = open(f, 'wb')
+        pickle.dump([V, E, Obs, E_X, X_b], pkl_file)
         pkl_file.close()
         # print f
 
@@ -347,7 +352,7 @@ def traffic_data_generator_PGD():
 
     tasks = multiprocessing.Queue()
     results = multiprocessing.Queue()
-    num_consumers = 50  # We only use 5 cores.
+    num_consumers = 1  # We only use 5 cores.
     # print 'Creating %d consumers' % num_consumers
     consumers = [Consumer(tasks, results)
                  for i in range(num_consumers)]
@@ -359,7 +364,7 @@ def traffic_data_generator_PGD():
     ref_pers = [0.6,0.7, 0.8]
     datasets = ['philly', 'dc']
     for ref_per in ref_pers[:1]:
-        for dataset in datasets[:]:
+        for dataset in datasets[1:]:
             dataroot=data_root+dataset+"/"
             if not os.path.exists(dataroot):
                 os.makedirs(dataroot)
@@ -458,8 +463,8 @@ def graph_process(V, E, n_features, ratio, swap_ratio):
 def gen_adv_exmaple(V, E, Obs, X_b,E_X):
     logging = Log()
     b={}
-    Omega = calc_Omega_from_Obs2(Obs, E)                #V, E, Obs, Omega, b, X_b, E_X, logging, psl=False, approx=True, init_alpha_beta=(1, 1),report_stat=False
-    sign_grad_py=inference_apdm_format_conflict_evidence(V, E, Obs, Omega, b, X_b, E_X, logging, psl=False)
+    Omega = calc_Omega_from_Obs2(Obs, E)                #V, E, Obs, Omega, b, X, logging, psl=False, approx=True, init_alpha_beta=(1, 1),report_stat=False
+    sign_grad_py=inference_apdm_format_conflict_evidence(V, E, Obs, Omega, b, E_X, logging, psl=False)
 
 
     return sign_grad_py
@@ -471,8 +476,11 @@ def main():
     # [V, E] = pickle.load(pkl_file)
     # print len(V), len(E)
     # simulation_data_generator2()
-    simulation_data_generator3()
+    # simulation_data_generator3()
 
+    # traffic_data_generator_rf()
+    # traffic_data_generator_rn()
+    traffic_data_generator_PGD()
 if __name__=='__main__':
     main()
 
