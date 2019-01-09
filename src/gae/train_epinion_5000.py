@@ -3,7 +3,7 @@ from __future__ import print_function
 
 import time
 import os
-
+import json
 # Train on CPU (hide GPU) due to memory constraints
 os.environ['CUDA_VISIBLE_DEVICES'] = ""
 
@@ -52,204 +52,174 @@ np.random.seed(seed)
 tf.set_random_seed(seed)
 # Load data
 # adj, features = load_data(dataset_str)
-root="/network/rit/lab/ceashpc/adil/data/csl-data/May23-3/5000/"  #May23-3
+data_root = "/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/"   #May23-3
 #real data
-fileName=root+"nodes-{}-T-{}-rate-{}-testratio-{}-swaprate-{}-confictratio-{}-realization-{}-data-X.pkl".format(5000, 10, 0.2, 0.2, 0.00, 0.3, 0)
+case_count=0
+for adv_type in ["random_flip","random_noise","random_pgd"][:1]:
+    for graph_size in [5000][1:2]:
+        for T in [8, 9, 10, 11][2:3]:    #5,6,10,20,11,21,15
+            for real_i in range(10)[:]:
+                for ratio in [0.2][:]:#0.0,0.1,0.2,0.3,the percentage of edges set the observations to 1
+                    for swap_ratio in [0.00, 0.01, 0.05][:1]:
+                        for test_ratio in [0.1, 0.2,0.3, 0.4, 0.5][4:]:                #percentage of edges to test (|E_x|/|E|)
+                            for gamma in [0.0, 0.01, 0.03, 0.05, 0.07,0.09,0.11,0.13,0.15,0.20,0.25][:]:  # 8
+                                out_folder = data_root +"/"+adv_type +"/"+ str(graph_size) + "/"
+                                print(str(case_count)+" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+                                case_count += 1.0
 
-files=["nodes-{}-T-{}-rate-{}-testratio-{}-swaprate-{}-confictratio-{}-realization-{}-data-X.pkl".format(5000, 8, 0.2, 0.4, 0.00, 0.2, 0),#vary uncertainty mass
-       "nodes-{}-T-{}-rate-{}-testratio-{}-swaprate-{}-confictratio-{}-realization-{}-data-X.pkl".format(5000, 9, 0.2, 0.4, 0.00, 0.2, 0),
-       "nodes-{}-T-{}-rate-{}-testratio-{}-swaprate-{}-confictratio-{}-realization-{}-data-X.pkl".format(5000, 10, 0.2, 0.4, 0.00, 0.2, 0),
-       "nodes-{}-T-{}-rate-{}-testratio-{}-swaprate-{}-confictratio-{}-realization-{}-data-X.pkl".format(5000, 11, 0.2, 0.4, 0.00, 0.2, 0),
-       "nodes-{}-T-{}-rate-{}-testratio-{}-swaprate-{}-confictratio-{}-realization-{}-data-X.pkl".format(5000, 9, 0.2, 0.1, 0.00, 0.2, 0),#vary TR 4
-       "nodes-{}-T-{}-rate-{}-testratio-{}-swaprate-{}-confictratio-{}-realization-{}-data-X.pkl".format(5000, 9, 0.2, 0.2, 0.00, 0.2, 0),
-       "nodes-{}-T-{}-rate-{}-testratio-{}-swaprate-{}-confictratio-{}-realization-{}-data-X.pkl".format(5000, 9, 0.2, 0.3, 0.00, 0.2, 0),
-       "nodes-{}-T-{}-rate-{}-testratio-{}-swaprate-{}-confictratio-{}-realization-{}-data-X.pkl".format(5000, 9, 0.2, 0.4, 0.00, 0.2, 0),
-       "nodes-{}-T-{}-rate-{}-testratio-{}-swaprate-{}-confictratio-{}-realization-{}-data-X.pkl".format(5000, 9, 0.2, 0.5, 0.00, 0.2, 0),
-        "nodes-{}-T-{}-rate-{}-testratio-{}-swaprate-{}-confictratio-{}-realization-{}-data-X.pkl".format(5000, 9, 0.2, 0.2, 0.00, 0.0, 0),  #varying CR  9
-        "nodes-{}-T-{}-rate-{}-testratio-{}-swaprate-{}-confictratio-{}-realization-{}-data-X.pkl".format(5000, 9, 0.2, 0.2, 0.00, 0.1, 0),
-        "nodes-{}-T-{}-rate-{}-testratio-{}-swaprate-{}-confictratio-{}-realization-{}-data-X.pkl".format(5000, 9, 0.2, 0.2, 0.00, 0.2, 0),
-        "nodes-{}-T-{}-rate-{}-testratio-{}-swaprate-{}-confictratio-{}-realization-{}-data-X.pkl".format(5000, 9, 0.2, 0.2, 0.00, 0.3, 0),
-        "nodes-{}-T-{}-rate-{}-testratio-{}-swaprate-{}-confictratio-{}-realization-{}-data-X.pkl".format(5000, 9, 0.2, 0.2, 0.00, 0.4, 0)
-       ]
-files=["nodes-{}-T-{}-rate-{}-testratio-{}-swaprate-{}-confictratio-{}-realization-{}-data-X.pkl".format(5000, 10, 0.2, 0.1, 0.00, 0.2, 0)]
+                                fileName=out_folder + "nodes-{}-T-{}-rate-{}-testratio-{}-swaprate-{}-gamma-{}-realization-{}-data-X.pkl".format(
+                                            graph_size, T, ratio, test_ratio, swap_ratio, gamma, real_i)
+                                outf = '../output/epinions/{}_results-server-{}-Jan5-{}.json'.format("GCN-VAE", graph_size,adv_type)
+                                adj,y_train_belief, y_test_belief, y_train_un, y_test_un, train_mask, test_mask, omega_test, alpha_0, beta_0 = mask_test_edge_epinion(fileName,T)
+                                # Store original adjacency matrix (without diagonal entries) for later
+                                adj_orig = adj
+                                adj_orig = adj_orig - sp.dia_matrix((adj_orig.diagonal()[np.newaxis, :], [0]), shape=adj_orig.shape)
+                                adj_orig.eliminate_zeros()
 
+                                # adj_train, train_edges, val_edges, val_edges_false, test_edges, test_edges_false = mask_test_edges(adj)
+                                # adj = adj_train
+                                adj_train = adj
+                                # y_train_belief, y_test_belief, y_train_un, y_test_un, train_mask, test_mask, omega_test, alpha_0, beta_0 = mask_test_edge_epinion(FLAGS.test_rat, T=FLAGS.T)
 
-TT=[8,9,10,11]
-TT=[10]
-for ii,file_name in enumerate(files[:]):
-    ii=0
-    fileName=root+file_name
-    print("T={} {}".format(TT[ii],fileName))
-    # adj, features = load_data_epinion(fileName)
-    adj,y_train_belief, y_test_belief, y_train_un, y_test_un, train_mask, test_mask, omega_test, alpha_0, beta_0 = mask_test_edge_epinion(fileName,T=TT[ii])
-    # Store original adjacency matrix (without diagonal entries) for later
-    adj_orig = adj
-    adj_orig = adj_orig - sp.dia_matrix((adj_orig.diagonal()[np.newaxis, :], [0]), shape=adj_orig.shape)
-    adj_orig.eliminate_zeros()
+                                if FLAGS.features == 0:
+                                    features = sp.identity(y_test_belief.shape[0])  # featureless
 
-    # adj_train, train_edges, val_edges, val_edges_false, test_edges, test_edges_false = mask_test_edges(adj)
-    # adj = adj_train
-    adj_train = adj
-    # y_train_belief, y_test_belief, y_train_un, y_test_un, train_mask, test_mask, omega_test, alpha_0, beta_0 = mask_test_edge_epinion(FLAGS.test_rat, T=FLAGS.T)
+                                # Some preprocessing
+                                adj_norm = preprocess_graph(adj)
 
-    if FLAGS.features == 0:
-        features = sp.identity(y_test_belief.shape[0])  # featureless
+                                # Define placeholders
+                                placeholders = {
+                                    'features': tf.sparse_placeholder(tf.float32),
+                                    'adj': tf.sparse_placeholder(tf.float32),
+                                    'adj_orig': tf.sparse_placeholder(tf.float32),
+                                    'dropout': tf.placeholder_with_default(0., shape=()),
+                                    'labels_b': tf.placeholder(tf.float32, shape=(None, y_train_belief.shape[1])),
+                                    'labels_un': tf.placeholder(tf.float32, shape=(None, y_train_un.shape[1])),
+                                    'omega_test': tf.placeholder(tf.float32, shape=(None, y_train_belief.shape[1])),
+                                    'labels_mask': tf.placeholder(tf.int32),
+                                    'omega_t': tf.placeholder(tf.float32, shape=(None, omega_test.shape[1])),
+                                    'alpha_0': tf.placeholder(tf.float32),
+                                    'beta_0': tf.placeholder(tf.float32)
+                                }
 
-    # Some preprocessing
-    adj_norm = preprocess_graph(adj)
+                                num_nodes = adj.shape[0]
 
-    # Define placeholders
-    placeholders = {
-        'features': tf.sparse_placeholder(tf.float32),
-        'adj': tf.sparse_placeholder(tf.float32),
-        'adj_orig': tf.sparse_placeholder(tf.float32),
-        'dropout': tf.placeholder_with_default(0., shape=()),
-        'labels_b': tf.placeholder(tf.float32, shape=(None, y_train_belief.shape[1])),
-        'labels_un': tf.placeholder(tf.float32, shape=(None, y_train_un.shape[1])),
-        'omega_test': tf.placeholder(tf.float32, shape=(None, y_train_belief.shape[1])),
-        'labels_mask': tf.placeholder(tf.int32),
-        'omega_t': tf.placeholder(tf.float32, shape=(None, omega_test.shape[1])),
-        'alpha_0': tf.placeholder(tf.float32),
-        'beta_0': tf.placeholder(tf.float32)
-    }
+                                features = sparse_to_tuple(features.tocoo())
+                                num_features = features[2][1]
+                                features_nonzero = features[1].shape[0]
 
-    num_nodes = adj.shape[0]
+                                # Create model
+                                model = None
+                                if model_str == 'gcn_ae':
+                                    model = GCNModelAE(placeholders, num_features, features_nonzero)
+                                elif model_str == 'gcn_vae':
+                                    model = GCNModelVAE(placeholders, num_features, num_nodes, features_nonzero)
 
-    features = sparse_to_tuple(features.tocoo())
-    num_features = features[2][1]
-    features_nonzero = features[1].shape[0]
+                                pos_weight = float(adj.shape[0] * adj.shape[0] - adj.sum()) / adj.sum()
+                                norm = adj.shape[0] * adj.shape[0] / float((adj.shape[0] * adj.shape[0] - adj.sum()) * 2)
 
-    # Create model
-    model = None
-    if model_str == 'gcn_ae':
-        model = GCNModelAE(placeholders, num_features, features_nonzero)
-    elif model_str == 'gcn_vae':
-        model = GCNModelVAE(placeholders, num_features, num_nodes, features_nonzero)
+                                # Optimizer
+                                with tf.name_scope('optimizer'):
+                                    if model_str == 'gcn_ae':
+                                        opt = OptimizerAE(preds=model.reconstructions,
+                                                          labels=tf.reshape(tf.sparse_tensor_to_dense(placeholders['adj_orig'],
+                                                                                                      validate_indices=False), [-1]),
+                                                          pos_weight=pos_weight,
+                                                          norm=norm)
+                                    elif model_str == 'gcn_vae':
+                                        opt = OptimizerVAE(preds=model.reconstructions,
+                                                           labels=tf.reshape(tf.sparse_tensor_to_dense(placeholders['adj_orig'],
+                                                                                                       validate_indices=False), [-1]),
+                                                           model=model, num_nodes=num_nodes, pos_weight=pos_weight, norm=norm,
+                                                           label_b=placeholders['labels_b'], label_un=placeholders['labels_un'],
+                                                           mask=placeholders['labels_mask'], omega_t=placeholders['omega_t'],)
 
-    pos_weight = float(adj.shape[0] * adj.shape[0] - adj.sum()) / adj.sum()
-    norm = adj.shape[0] * adj.shape[0] / float((adj.shape[0] * adj.shape[0] - adj.sum()) * 2)
-
-    # Optimizer
-    with tf.name_scope('optimizer'):
-        if model_str == 'gcn_ae':
-            opt = OptimizerAE(preds=model.reconstructions,
-                              labels=tf.reshape(tf.sparse_tensor_to_dense(placeholders['adj_orig'],
-                                                                          validate_indices=False), [-1]),
-                              pos_weight=pos_weight,
-                              norm=norm)
-        elif model_str == 'gcn_vae':
-            opt = OptimizerVAE(preds=model.reconstructions,
-                               labels=tf.reshape(tf.sparse_tensor_to_dense(placeholders['adj_orig'],
-                                                                           validate_indices=False), [-1]),
-                               model=model, num_nodes=num_nodes, pos_weight=pos_weight, norm=norm,
-                               label_b=placeholders['labels_b'], label_un=placeholders['labels_un'],
-                               mask=placeholders['labels_mask'], omega_t=placeholders['omega_t'],)
-
-    # Initialize session
-    sess = tf.Session()
-
-    def get_roc_score(edges_pos, edges_neg, emb=None):
-        if emb is None:
-            feed_dict.update({placeholders['dropout']: 0})
-            emb = sess.run(model.z_mean, feed_dict=feed_dict)
-
-        def sigmoid(x):
-            return 1 / (1 + np.exp(-x))
-
-        # Predict on test set of edges
-        adj_rec = np.dot(emb, emb.T)
-        preds = []
-        pos = []
-        for e in edges_pos:
-            preds.append(sigmoid(adj_rec[e[0], e[1]]))
-            pos.append(adj_orig[e[0], e[1]])
-
-        preds_neg = []
-        neg = []
-        for e in edges_neg:
-            preds_neg.append(sigmoid(adj_rec[e[0], e[1]]))
-            neg.append(adj_orig[e[0], e[1]])
-
-        preds_all = np.hstack([preds, preds_neg])
-        labels_all = np.hstack([np.ones(len(preds)), np.zeros(len(preds))])
-        roc_score = roc_auc_score(labels_all, preds_all)
-        ap_score = average_precision_score(labels_all, preds_all)
-
-        return roc_score, ap_score
+                                # Initialize session
+                                sess = tf.Session()
 
 
-    adj_label = adj_train + sp.eye(adj_train.shape[0])
-    # adj_label = adj_train
-    adj_label = sparse_to_tuple(adj_label)
+                                adj_label = adj_train + sp.eye(adj_train.shape[0])
+                                # adj_label = adj_train
+                                adj_label = sparse_to_tuple(adj_label)
 
 
-    bf_mse = []
-    b_mse = []
-    u_mse = []
-    for k in range(1):
-        # Train model
-        sess.run(tf.global_variables_initializer())
-        _,y_train_belief, y_test_belief, y_train_un, y_test_un, train_mask, test_mask, omega_test, alpha_0, beta_0 = mask_test_edge_epinion(fileName, T=TT[ii])
-        bf_mse_one = []
-        b_mse_one = []
-        u_mse_one = []
-        belief_one=[]
-        uncertain_one=[]
-        t1 = time.time()
-        for epoch in range(FLAGS.epochs):
-            t = time.time()
-            # Construct feed dictionary
-            feed_dict = construct_feed_dict(adj_norm, adj_label, features, placeholders, y_train_belief, y_train_un,
-                                            train_mask, omega_test, alpha_0, beta_0)
-            feed_dict.update({placeholders['dropout']: FLAGS.dropout})
-            # Run single weight update
-            if epoch < FLAGS.vae_epoch:
-                outs = sess.run([opt.opt_op, opt.cost, model.belief, model.uncertain], feed_dict=feed_dict)
-            else:
-                # ooooo = sess.run([model.r, model.s, model.alpha, model.beta, model.belief, model.uncertain, model.uni, model.z_n, model.z, model.reconstructions, opt.cost_decode], feed_dict=feed_dict)
-                outs = sess.run([opt.opt_op1, opt.cost1, opt.cost_belief, opt.cost_uncertain, opt.cost_decode_sparse,
-                                 opt.cost_decode_sparse], feed_dict=feed_dict)
-            # Compute average loss
-            avg_cost = outs[1]
-            # avg_accuracy = outs[2]
+                                bf_mse = []
+                                b_mse = []
+                                u_mse = []
+                                for k in range(1):
+                                    # Train model
+                                    sess.run(tf.global_variables_initializer())
+                                    _,y_train_belief, y_test_belief, y_train_un, y_test_un, train_mask, test_mask, omega_test, alpha_0, beta_0 = mask_test_edge_epinion(fileName, T)
+                                    bf_mse_one = []
+                                    b_mse_one = []
+                                    u_mse_one = []
+                                    belief_one=[]
+                                    uncertain_one=[]
+                                    t1 = time.time()
+                                    for epoch in range(FLAGS.epochs):
+                                        t = time.time()
+                                        # Construct feed dictionary
+                                        feed_dict = construct_feed_dict(adj_norm, adj_label, features, placeholders, y_train_belief, y_train_un,
+                                                                        train_mask, omega_test, alpha_0, beta_0)
+                                        feed_dict.update({placeholders['dropout']: FLAGS.dropout})
+                                        # Run single weight update
+                                        if epoch < FLAGS.vae_epoch:
+                                            outs = sess.run([opt.opt_op, opt.cost, model.belief, model.uncertain], feed_dict=feed_dict)
+                                        else:
+                                            # ooooo = sess.run([model.r, model.s, model.alpha, model.beta, model.belief, model.uncertain, model.uni, model.z_n, model.z, model.reconstructions, opt.cost_decode], feed_dict=feed_dict)
+                                            outs = sess.run([opt.opt_op1, opt.cost1, opt.cost_belief, opt.cost_uncertain, opt.cost_decode_sparse,
+                                                             opt.cost_decode_sparse], feed_dict=feed_dict)
+                                        # Compute average loss
+                                        avg_cost = outs[1]
+                                        # avg_accuracy = outs[2]
 
-            # roc_curr, ap_curr = get_roc_score(val_edges, val_edges_false)
-            # val_roc_score.append(roc_curr)
+                                        # roc_curr, ap_curr = get_roc_score(val_edges, val_edges_false)
+                                        # val_roc_score.append(roc_curr)
 
-            # print("Epoch:", '%04d' % (epoch + 1), "train_loss=", "{:.5f}".format(avg_cost),
-            #       "train_acc=", "{:.5f}".format(avg_accuracy), "val_roc=", "{:.5f}".format(val_roc_score[-1]),
-            #       "val_ap=", "{:.5f}".format(ap_curr),
-            #       "time=", "{:.5f}".format(time.time() - t))
-            # print("Epoch:", '%04d' % (epoch + 1), "train_loss=", "{:.5f}".format(avg_cost), "time=",
-            #       "{:.5f}".format(time.time() - t))
-            if np.mod(epoch + 1, 10) == 0:
-                feed_dict = construct_feed_dict(adj_norm, adj_label, features, placeholders, y_test_belief, y_test_un,
-                                                test_mask, omega_test, alpha_0, beta_0)
-                feed_dict.update({placeholders['dropout']: 0.0})
-                # Run single weight update
-                outs = sess.run([opt.cost, opt.cost_belief, opt.cost_uncertain, opt.omega_mse,opt.belief,opt.uncertain], feed_dict=feed_dict)
+                                        # print("Epoch:", '%04d' % (epoch + 1), "train_loss=", "{:.5f}".format(avg_cost),
+                                        #       "train_acc=", "{:.5f}".format(avg_accuracy), "val_roc=", "{:.5f}".format(val_roc_score[-1]),
+                                        #       "val_ap=", "{:.5f}".format(ap_curr),
+                                        #       "time=", "{:.5f}".format(time.time() - t))
+                                        # print("Epoch:", '%04d' % (epoch + 1), "train_loss=", "{:.5f}".format(avg_cost), "time=",
+                                        #       "{:.5f}".format(time.time() - t))
+                                        if np.mod(epoch + 1, 10) == 0:
+                                            feed_dict = construct_feed_dict(adj_norm, adj_label, features, placeholders, y_test_belief, y_test_un,
+                                                                            test_mask, omega_test, alpha_0, beta_0)
+                                            feed_dict.update({placeholders['dropout']: 0.0})
+                                            # Run single weight update
+                                            outs = sess.run([opt.cost, opt.cost_belief, opt.cost_uncertain, opt.omega_mse,opt.belief,opt.uncertain], feed_dict=feed_dict)
 
-                # Compute test loss
-                test_cost = outs[1]
-                print("mse_belief=", "{:.5f}".format(outs[1]), "mse_uncertain==", "{:.5f}".format(outs[2]),
-                      "bf-mse_opinion==", "{:.5f}".format(outs[3]))
-                b_mse_one.append(outs[1])
-                u_mse_one.append(outs[2])
-                bf_mse_one.append(outs[3])
-                belief_one.append(outs[4])
-                uncertain_one.append(outs[5])
-        print("Optimization Finished!")
-        best_epoch = np.argmin(bf_mse_one)
-        bf_mse.append(np.min(bf_mse_one))
-        b_mse.append(np.min(b_mse_one))
-        u_mse.append(np.min(u_mse_one))
-        print("alpha_0:", alpha_0, "beta_0:", beta_0)
-        print("best epoch:", (best_epoch + 1) * 10, "bset_belief:", b_mse_one[best_epoch], "bset_uncertain:",
-              u_mse_one[best_epoch], "bset_opinion:", bf_mse_one[best_epoch])
-        print("run time = ", time.time()-t1)
-        with open("opinion_points.pkl", 'wb') as pkl_file:
-            pickle.dump([belief_one[best_epoch],uncertain_one[best_epoch],test_mask], pkl_file)
+                                            # Compute test loss
+                                            test_cost = outs[1]
+                                            print("mse_belief=", "{:.5f}".format(outs[1]), "mse_uncertain==", "{:.5f}".format(outs[2]),
+                                                  "bf-mse_opinion==", "{:.5f}".format(outs[3]))
+                                            b_mse_one.append(outs[1])
+                                            u_mse_one.append(outs[2])
+                                            bf_mse_one.append(outs[3])
+                                            belief_one.append(outs[4])
+                                            uncertain_one.append(outs[5])
+                                    print("Optimization Finished!")
+                                    best_epoch = np.argmin(bf_mse_one)
+                                    bf_mse.append(np.min(bf_mse_one))
+                                    b_mse.append(np.min(b_mse_one))
+                                    u_mse.append(np.min(u_mse_one))
+                                    print("alpha_0:", alpha_0, "beta_0:", beta_0)
+                                    print("best epoch:", (best_epoch + 1) * 10, "bset_belief:", b_mse_one[best_epoch], "bset_uncertain:",
+                                          u_mse_one[best_epoch], "bset_opinion:", bf_mse_one[best_epoch])
+                                    print("run time = ", time.time()-t1)
+                                    result_ = {'network_size': graph_size, 'adv_type': adv_type,
+                                               'positive_ratio': ratio, "realization": real_i,
+                                               'sample_size': 1, 'T': T, 'gamma': gamma,
+                                               'test_ratio': test_ratio, 'acc': (mu_accuracy, sigma_accuracy),
+                                               'alpha_mse': (0.0, 0.0),
+                                               'beta_mse': (0.0, 0.0),
+                                               'u_mse': (1-uncertain_one[best_epoch]-belief_one[best_epoch],1-uncertain_one[best_epoch]-belief_one[best_epoch] ), 'b_mse': (belief_one[best_epoch], belief_one[best_epoch]),
+                                               'd_mse': (uncertain_one[best_epoch], uncertain_one[best_epoch]),
+                                               'prob_mse': (bf_mse_one[best_epoch], bf_mse_one[best_epoch]), 'runtime': time.time()-t1}
 
-    print("belief:", np.mean(b_mse), "uncertain:", np.mean(u_mse), "time window = ", FLAGS.T, "test_rio = ", FLAGS.test_rat)
-    sess.close()
+                                    with open(outf, 'wb') as outputF:
+                                        outputF.write(json.dumps(result_) + '\n')
+
+                                print("belief:", np.mean(b_mse), "uncertain:", np.mean(u_mse), "time window = ", FLAGS.T, "test_rio = ", FLAGS.test_rat)
+                                sess.close()
 

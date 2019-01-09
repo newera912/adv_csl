@@ -698,7 +698,7 @@ def real_traffic_data_testcase():
 
     methods = ["SL","CSL","Adv-CSL"][2:]
 
-    for adv_type in ["random_flip", "random_noise", "random_pgd"][2:]:
+    for adv_type in ["random_flip", "random_noise", "random_pgd"][:]:
         for dataset in datasets[1:]:
             dataroot = data_root  + adv_type + "/"+ dataset + "/"
             for real_i in range(realizations)[8:]:
