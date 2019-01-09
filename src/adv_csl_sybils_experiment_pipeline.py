@@ -415,7 +415,7 @@ def facebook_sybils_dataset_test():
     report_stat = False
     count=0
     realizations=1
-    methods = ["SL","CSL", "Adv-CSL","NAT-CSL"][2:3]
+    methods = ["SL","CSL", "Adv-CSL","NAT-CSL"][1:2]
     for adv_type in ["random_flip", "random_noise", "random_pgd"][:]:
         for attack_edge in [1000,5000,10000,15000,20000][2:3]:
             for T in [10][:]:
@@ -495,7 +495,7 @@ def enron_sybils_dataset_test():
     report_stat = False
     count=0
     realizations=1
-    methods = ["SL","CSL", "Adv-CSL","NAT-CSL"][2:3]
+    methods = ["SL","CSL", "Adv-CSL","NAT-CSL"][1:2]
     for adv_type in ["random_flip", "random_noise", "random_pgd"][:]:
         for attack_edge in [1000,5000,10000,15000,20000][2:3]:
             for T in [10][:]:
@@ -576,8 +576,8 @@ def slashdot_sybils_dataset_test():
     report_stat = False
     count=0
     realizations=10
-    methods = ["SL","CSL", "Adv-CSL","NAT-CSL"][2:3]
-    for adv_type in ["random_flip", "random_noise", "random_pgd"][1:2]:
+    methods = ["SL","CSL", "Adv-CSL","NAT-CSL"][1:2]
+    for adv_type in ["random_flip", "random_noise", "random_pgd"][2:]:
         for attack_edge in [1000,5000,10000,15000,20000][2:3]:
             for T in [10][:]:
                 for swap_ratio in [0.00, 0.01, 0.02, 0.05][1:2]:
