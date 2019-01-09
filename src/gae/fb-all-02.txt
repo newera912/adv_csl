@@ -1,0 +1,697 @@
+WARNING:tensorflow:From /network/rit/home/aa465948/venv/lib/python2.7/site-packages/tensorflow/python/ops/sparse_ops.py:1165: sparse_to_dense (from tensorflow.python.ops.sparse_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Create a `tf.sparse.SparseTensor` and use `tf.sparse.to_dense` instead.
+2019-01-09 16:26:55.499160: I tensorflow/core/platform/cpu_feature_guard.cc:141] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_flip/facebook/facebook-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-gamma-0.0-realization-0-data-X.pkl
+|V|:8078 Adj:8078 
+|b|:8078 |u|:8078 |test_index|:2424 
+([], [], [])
+|V|:8078 Adj:8078 
+|b|:8078 |u|:8078 |test_index|:2424 
+mse_belief= 0.38470 mse_uncertain== 0.27522 bf-mse_opinion== 0.39017
+mse_belief= 0.35822 mse_uncertain== 0.14864 bf-mse_opinion== 0.36173
+mse_belief= 0.30248 mse_uncertain== 0.05378 bf-mse_opinion== 0.30348
+mse_belief= 0.20828 mse_uncertain== 0.05637 bf-mse_opinion== 0.20504
+mse_belief= 0.14859 mse_uncertain== 0.05006 bf-mse_opinion== 0.13630
+mse_belief= 0.12645 mse_uncertain== 0.04568 bf-mse_opinion== 0.11947
+mse_belief= 0.12076 mse_uncertain== 0.04098 bf-mse_opinion== 0.11773
+mse_belief= 0.11911 mse_uncertain== 0.03958 bf-mse_opinion== 0.11706
+mse_belief= 0.11861 mse_uncertain== 0.03902 bf-mse_opinion== 0.11509
+mse_belief= 0.11768 mse_uncertain== 0.03832 bf-mse_opinion== 0.11474
+Optimization Finished!
+alpha_0: 6.02389205248824 beta_0: 5.97610794751176
+best epoch: 100 bset_belief: 0.11768495 bset_uncertain: 0.038323637 bset_opinion: 0.114737526
+run time =  33.8794820309
+belief: 0.1177 uncertain: 0.1177 time window =  10 test_rio =  0.2
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_flip/facebook/facebook-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-gamma-0.01-realization-0-data-X.pkl
+|V|:8078 Adj:8078 
+|b|:8078 |u|:8078 |test_index|:2424 
+([], [], [])
+|V|:8078 Adj:8078 
+|b|:8078 |u|:8078 |test_index|:2424 
+mse_belief= 0.38000 mse_uncertain== 0.27452 bf-mse_opinion== 0.38422
+mse_belief= 0.34727 mse_uncertain== 0.12872 bf-mse_opinion== 0.34714
+mse_belief= 0.28023 mse_uncertain== 0.05018 bf-mse_opinion== 0.27834
+mse_belief= 0.18860 mse_uncertain== 0.05702 bf-mse_opinion== 0.18285
+mse_belief= 0.14508 mse_uncertain== 0.05005 bf-mse_opinion== 0.13288
+mse_belief= 0.12781 mse_uncertain== 0.04641 bf-mse_opinion== 0.11959
+mse_belief= 0.12269 mse_uncertain== 0.04108 bf-mse_opinion== 0.11908
+mse_belief= 0.12066 mse_uncertain== 0.03962 bf-mse_opinion== 0.11845
+mse_belief= 0.11944 mse_uncertain== 0.03864 bf-mse_opinion== 0.11664
+mse_belief= 0.11848 mse_uncertain== 0.03796 bf-mse_opinion== 0.11580
+Optimization Finished!
+alpha_0: 6.016464471403813 beta_0: 5.983535528596187
+best epoch: 100 bset_belief: 0.11848295 bset_uncertain: 0.037955545 bset_opinion: 0.11580059
+run time =  33.5449211597
+belief: 0.1185 uncertain: 0.1185 time window =  10 test_rio =  0.2
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_flip/facebook/facebook-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-gamma-0.03-realization-0-data-X.pkl
+|V|:8078 Adj:8078 
+|b|:8078 |u|:8078 |test_index|:2424 
+([], [], [])
+|V|:8078 Adj:8078 
+|b|:8078 |u|:8078 |test_index|:2424 
+mse_belief= 0.38312 mse_uncertain== 0.27710 bf-mse_opinion== 0.38809
+mse_belief= 0.36139 mse_uncertain== 0.14855 bf-mse_opinion== 0.36251
+mse_belief= 0.32009 mse_uncertain== 0.05129 bf-mse_opinion== 0.31807
+mse_belief= 0.23932 mse_uncertain== 0.05336 bf-mse_opinion== 0.23326
+mse_belief= 0.16903 mse_uncertain== 0.05137 bf-mse_opinion== 0.15810
+mse_belief= 0.13703 mse_uncertain== 0.04699 bf-mse_opinion== 0.12823
+mse_belief= 0.12549 mse_uncertain== 0.04219 bf-mse_opinion== 0.12271
+mse_belief= 0.12215 mse_uncertain== 0.03966 bf-mse_opinion== 0.12062
+mse_belief= 0.12216 mse_uncertain== 0.03879 bf-mse_opinion== 0.11992
+mse_belief= 0.12179 mse_uncertain== 0.03825 bf-mse_opinion== 0.11924
+Optimization Finished!
+alpha_0: 5.995667244367418 beta_0: 6.004332755632582
+best epoch: 100 bset_belief: 0.12179068 bset_uncertain: 0.038247712 bset_opinion: 0.11924412
+run time =  33.5057139397
+belief: 0.1218 uncertain: 0.1218 time window =  10 test_rio =  0.2
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_flip/facebook/facebook-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-gamma-0.05-realization-0-data-X.pkl
+|V|:8078 Adj:8078 
+|b|:8078 |u|:8078 |test_index|:2424 
+([], [], [])
+|V|:8078 Adj:8078 
+|b|:8078 |u|:8078 |test_index|:2424 
+mse_belief= 0.37260 mse_uncertain== 0.27293 bf-mse_opinion== 0.37675
+mse_belief= 0.33287 mse_uncertain== 0.12998 bf-mse_opinion== 0.33179
+mse_belief= 0.26770 mse_uncertain== 0.05144 bf-mse_opinion== 0.26470
+mse_belief= 0.18989 mse_uncertain== 0.05784 bf-mse_opinion== 0.18261
+mse_belief= 0.14974 mse_uncertain== 0.05014 bf-mse_opinion== 0.14076
+mse_belief= 0.13264 mse_uncertain== 0.04523 bf-mse_opinion== 0.12572
+mse_belief= 0.12738 mse_uncertain== 0.04041 bf-mse_opinion== 0.12386
+mse_belief= 0.12500 mse_uncertain== 0.03926 bf-mse_opinion== 0.12293
+mse_belief= 0.12429 mse_uncertain== 0.03852 bf-mse_opinion== 0.12167
+mse_belief= 0.12398 mse_uncertain== 0.03791 bf-mse_opinion== 0.12138
+Optimization Finished!
+alpha_0: 6.063258232235702 beta_0: 5.936741767764298
+best epoch: 100 bset_belief: 0.123980395 bset_uncertain: 0.03790875 bset_opinion: 0.12137713
+run time =  33.3903899193
+belief: 0.124 uncertain: 0.124 time window =  10 test_rio =  0.2
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_flip/facebook/facebook-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-gamma-0.07-realization-0-data-X.pkl
+|V|:8078 Adj:8078 
+|b|:8078 |u|:8078 |test_index|:2424 
+([], [], [])
+|V|:8078 Adj:8078 
+|b|:8078 |u|:8078 |test_index|:2424 
+mse_belief= 0.38583 mse_uncertain== 0.26341 bf-mse_opinion== 0.38988
+mse_belief= 0.36493 mse_uncertain== 0.11728 bf-mse_opinion== 0.36577
+mse_belief= 0.31464 mse_uncertain== 0.05265 bf-mse_opinion== 0.31270
+mse_belief= 0.23170 mse_uncertain== 0.05489 bf-mse_opinion== 0.22462
+mse_belief= 0.16500 mse_uncertain== 0.05060 bf-mse_opinion== 0.15333
+mse_belief= 0.13677 mse_uncertain== 0.04525 bf-mse_opinion== 0.12899
+mse_belief= 0.12832 mse_uncertain== 0.04097 bf-mse_opinion== 0.12549
+mse_belief= 0.12715 mse_uncertain== 0.03938 bf-mse_opinion== 0.12403
+mse_belief= 0.12714 mse_uncertain== 0.03870 bf-mse_opinion== 0.12391
+mse_belief= 0.12601 mse_uncertain== 0.03805 bf-mse_opinion== 0.12295
+Optimization Finished!
+alpha_0: 6.046422381777668 beta_0: 5.953577618222332
+best epoch: 100 bset_belief: 0.12600979 bset_uncertain: 0.038054995 bset_opinion: 0.12294789
+run time =  33.4296579361
+belief: 0.126 uncertain: 0.126 time window =  10 test_rio =  0.2
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_flip/facebook/facebook-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-gamma-0.09-realization-0-data-X.pkl
+|V|:8078 Adj:8078 
+|b|:8078 |u|:8078 |test_index|:2424 
+([], [], [])
+|V|:8078 Adj:8078 
+|b|:8078 |u|:8078 |test_index|:2424 
+mse_belief= 0.38050 mse_uncertain== 0.28639 bf-mse_opinion== 0.38582
+mse_belief= 0.35010 mse_uncertain== 0.16628 bf-mse_opinion== 0.35100
+mse_belief= 0.30526 mse_uncertain== 0.05144 bf-mse_opinion== 0.30302
+mse_belief= 0.22521 mse_uncertain== 0.05881 bf-mse_opinion== 0.22141
+mse_belief= 0.16509 mse_uncertain== 0.05214 bf-mse_opinion== 0.15549
+mse_belief= 0.14015 mse_uncertain== 0.04744 bf-mse_opinion== 0.13241
+mse_belief= 0.13211 mse_uncertain== 0.04242 bf-mse_opinion== 0.12829
+mse_belief= 0.13073 mse_uncertain== 0.03995 bf-mse_opinion== 0.12906
+mse_belief= 0.13160 mse_uncertain== 0.03884 bf-mse_opinion== 0.12942
+mse_belief= 0.13182 mse_uncertain== 0.03833 bf-mse_opinion== 0.12910
+Optimization Finished!
+alpha_0: 5.97709829165635 beta_0: 6.02290170834365
+best epoch: 70 bset_belief: 0.13211215 bset_uncertain: 0.04242138 bset_opinion: 0.12828895
+run time =  33.5286459923
+belief: 0.1321 uncertain: 0.1321 time window =  10 test_rio =  0.2
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_flip/facebook/facebook-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-gamma-0.11-realization-0-data-X.pkl
+|V|:8078 Adj:8078 
+|b|:8078 |u|:8078 |test_index|:2424 
+([], [], [])
+|V|:8078 Adj:8078 
+|b|:8078 |u|:8078 |test_index|:2424 
+mse_belief= 0.38401 mse_uncertain== 0.28301 bf-mse_opinion== 0.38934
+mse_belief= 0.36029 mse_uncertain== 0.15804 bf-mse_opinion== 0.36212
+mse_belief= 0.31932 mse_uncertain== 0.05068 bf-mse_opinion== 0.31892
+mse_belief= 0.24429 mse_uncertain== 0.05791 bf-mse_opinion== 0.24124
+mse_belief= 0.18082 mse_uncertain== 0.05028 bf-mse_opinion== 0.17218
+mse_belief= 0.14705 mse_uncertain== 0.04690 bf-mse_opinion== 0.13912
+mse_belief= 0.13504 mse_uncertain== 0.04177 bf-mse_opinion== 0.13164
+mse_belief= 0.13252 mse_uncertain== 0.03985 bf-mse_opinion== 0.13088
+mse_belief= 0.13275 mse_uncertain== 0.03901 bf-mse_opinion== 0.13036
+mse_belief= 0.13287 mse_uncertain== 0.03846 bf-mse_opinion== 0.13019
+Optimization Finished!
+alpha_0: 6.030824461500371 beta_0: 5.969175538499629
+best epoch: 100 bset_belief: 0.13286597 bset_uncertain: 0.038459484 bset_opinion: 0.13019386
+run time =  33.8722789288
+belief: 0.1329 uncertain: 0.1329 time window =  10 test_rio =  0.2
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_flip/facebook/facebook-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-gamma-0.13-realization-0-data-X.pkl
+|V|:8078 Adj:8078 
+|b|:8078 |u|:8078 |test_index|:2424 
+([], [], [])
+|V|:8078 Adj:8078 
+|b|:8078 |u|:8078 |test_index|:2424 
+mse_belief= 0.38538 mse_uncertain== 0.29197 bf-mse_opinion== 0.39445
+mse_belief= 0.36053 mse_uncertain== 0.18244 bf-mse_opinion== 0.36637
+mse_belief= 0.31947 mse_uncertain== 0.05700 bf-mse_opinion== 0.32315
+mse_belief= 0.23958 mse_uncertain== 0.05788 bf-mse_opinion== 0.23963
+mse_belief= 0.16844 mse_uncertain== 0.05050 bf-mse_opinion== 0.16103
+mse_belief= 0.13988 mse_uncertain== 0.04688 bf-mse_opinion== 0.13275
+mse_belief= 0.13219 mse_uncertain== 0.04206 bf-mse_opinion== 0.12918
+mse_belief= 0.13020 mse_uncertain== 0.04011 bf-mse_opinion== 0.12812
+mse_belief= 0.13199 mse_uncertain== 0.03919 bf-mse_opinion== 0.12944
+mse_belief= 0.13190 mse_uncertain== 0.03852 bf-mse_opinion== 0.12937
+Optimization Finished!
+alpha_0: 5.96397623174053 beta_0: 6.03602376825947
+best epoch: 80 bset_belief: 0.1302048 bset_uncertain: 0.040105566 bset_opinion: 0.12811501
+run time =  33.5797250271
+belief: 0.1302 uncertain: 0.1302 time window =  10 test_rio =  0.2
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_flip/facebook/facebook-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-gamma-0.15-realization-0-data-X.pkl
+|V|:8078 Adj:8078 
+|b|:8078 |u|:8078 |test_index|:2424 
+([], [], [])
+|V|:8078 Adj:8078 
+|b|:8078 |u|:8078 |test_index|:2424 
+mse_belief= 0.38425 mse_uncertain== 0.29038 bf-mse_opinion== 0.38942
+mse_belief= 0.36324 mse_uncertain== 0.16766 bf-mse_opinion== 0.36638
+mse_belief= 0.31909 mse_uncertain== 0.05493 bf-mse_opinion== 0.32114
+mse_belief= 0.22148 mse_uncertain== 0.05465 bf-mse_opinion== 0.22141
+mse_belief= 0.15838 mse_uncertain== 0.04578 bf-mse_opinion== 0.15018
+mse_belief= 0.13913 mse_uncertain== 0.04450 bf-mse_opinion== 0.13341
+mse_belief= 0.13477 mse_uncertain== 0.04098 bf-mse_opinion== 0.13199
+mse_belief= 0.13579 mse_uncertain== 0.03956 bf-mse_opinion== 0.13408
+mse_belief= 0.13615 mse_uncertain== 0.03883 bf-mse_opinion== 0.13340
+mse_belief= 0.13596 mse_uncertain== 0.03821 bf-mse_opinion== 0.13356
+Optimization Finished!
+alpha_0: 6.001609309234959 beta_0: 5.998390690765041
+best epoch: 70 bset_belief: 0.13476837 bset_uncertain: 0.040981006 bset_opinion: 0.13198769
+run time =  33.7802138329
+belief: 0.1348 uncertain: 0.1348 time window =  10 test_rio =  0.2
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_flip/facebook/facebook-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-gamma-0.2-realization-0-data-X.pkl
+|V|:8078 Adj:8078 
+|b|:8078 |u|:8078 |test_index|:2424 
+([], [], [])
+|V|:8078 Adj:8078 
+|b|:8078 |u|:8078 |test_index|:2424 
+mse_belief= 0.38481 mse_uncertain== 0.26360 bf-mse_opinion== 0.38968
+mse_belief= 0.36321 mse_uncertain== 0.10692 bf-mse_opinion== 0.36521
+mse_belief= 0.31590 mse_uncertain== 0.05636 bf-mse_opinion== 0.31593
+mse_belief= 0.23688 mse_uncertain== 0.05537 bf-mse_opinion== 0.23274
+mse_belief= 0.17579 mse_uncertain== 0.04779 bf-mse_opinion== 0.16665
+mse_belief= 0.15004 mse_uncertain== 0.04269 bf-mse_opinion== 0.14493
+mse_belief= 0.14293 mse_uncertain== 0.04020 bf-mse_opinion== 0.14125
+mse_belief= 0.14450 mse_uncertain== 0.03914 bf-mse_opinion== 0.14273
+mse_belief= 0.14576 mse_uncertain== 0.03864 bf-mse_opinion== 0.14322
+mse_belief= 0.14565 mse_uncertain== 0.03814 bf-mse_opinion== 0.14323
+Optimization Finished!
+alpha_0: 6.025129982668977 beta_0: 5.974870017331023
+best epoch: 70 bset_belief: 0.1429302 bset_uncertain: 0.04019569 bset_opinion: 0.1412452
+run time =  33.7540030479
+belief: 0.1429 uncertain: 0.1429 time window =  10 test_rio =  0.2
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_flip/facebook/facebook-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-gamma-0.25-realization-0-data-X.pkl
+|V|:8078 Adj:8078 
+|b|:8078 |u|:8078 |test_index|:2424 
+([], [], [])
+|V|:8078 Adj:8078 
+|b|:8078 |u|:8078 |test_index|:2424 
+mse_belief= 0.38804 mse_uncertain== 0.28241 bf-mse_opinion== 0.39363
+mse_belief= 0.37384 mse_uncertain== 0.14883 bf-mse_opinion== 0.37730
+mse_belief= 0.34692 mse_uncertain== 0.05029 bf-mse_opinion== 0.34884
+mse_belief= 0.27255 mse_uncertain== 0.05715 bf-mse_opinion== 0.27259
+mse_belief= 0.19232 mse_uncertain== 0.04575 bf-mse_opinion== 0.18679
+mse_belief= 0.15417 mse_uncertain== 0.04366 bf-mse_opinion== 0.14915
+mse_belief= 0.14848 mse_uncertain== 0.04112 bf-mse_opinion== 0.14662
+mse_belief= 0.15407 mse_uncertain== 0.03963 bf-mse_opinion== 0.15222
+mse_belief= 0.15544 mse_uncertain== 0.03904 bf-mse_opinion== 0.15319
+mse_belief= 0.15490 mse_uncertain== 0.03835 bf-mse_opinion== 0.15246
+Optimization Finished!
+alpha_0: 6.051374102500619 beta_0: 5.948625897499381
+best epoch: 70 bset_belief: 0.14847504 bset_uncertain: 0.041124925 bset_opinion: 0.1466206
+run time =  34.6996018887
+belief: 0.1485 uncertain: 0.1485 time window =  10 test_rio =  0.2
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_noise/facebook/facebook-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-gamma-0.0-realization-0-data-X.pkl
+|V|:8078 Adj:8078 
+|b|:8078 |u|:8078 |test_index|:2424 
+([], [], [])
+|V|:8078 Adj:8078 
+|b|:8078 |u|:8078 |test_index|:2424 
+mse_belief= 0.37844 mse_uncertain== 0.28385 bf-mse_opinion== 0.38155
+mse_belief= 0.34503 mse_uncertain== 0.15877 bf-mse_opinion== 0.34234
+mse_belief= 0.28942 mse_uncertain== 0.05341 bf-mse_opinion== 0.28360
+mse_belief= 0.20349 mse_uncertain== 0.05969 bf-mse_opinion== 0.19650
+mse_belief= 0.15003 mse_uncertain== 0.05461 bf-mse_opinion== 0.13749
+mse_belief= 0.12987 mse_uncertain== 0.04896 bf-mse_opinion== 0.11956
+mse_belief= 0.12185 mse_uncertain== 0.04404 bf-mse_opinion== 0.11584
+mse_belief= 0.11870 mse_uncertain== 0.04158 bf-mse_opinion== 0.11489
+mse_belief= 0.11691 mse_uncertain== 0.04038 bf-mse_opinion== 0.11291
+mse_belief= 0.11580 mse_uncertain== 0.03956 bf-mse_opinion== 0.11114
+Optimization Finished!
+alpha_0: 6.014483783114632 beta_0: 5.985516216885368
+best epoch: 100 bset_belief: 0.115803204 bset_uncertain: 0.03955674 bset_opinion: 0.111140765
+run time =  33.8880269527
+belief: 0.1158 uncertain: 0.1158 time window =  10 test_rio =  0.2
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_noise/facebook/facebook-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-gamma-0.01-realization-0-data-X.pkl
+|V|:8078 Adj:8078 
+|b|:8078 |u|:8078 |test_index|:2424 
+([], [], [])
+|V|:8078 Adj:8078 
+|b|:8078 |u|:8078 |test_index|:2424 
+mse_belief= 0.39203 mse_uncertain== 0.28962 bf-mse_opinion== 0.39602
+mse_belief= 0.39168 mse_uncertain== 0.15708 bf-mse_opinion== 0.39451
+mse_belief= 0.39040 mse_uncertain== 0.07394 bf-mse_opinion== 0.38625
+mse_belief= 0.38378 mse_uncertain== 0.13719 bf-mse_opinion== 0.37066
+mse_belief= 0.37107 mse_uncertain== 0.21057 bf-mse_opinion== 0.36217
+mse_belief= 0.34481 mse_uncertain== 0.23664 bf-mse_opinion== 0.34768
+mse_belief= 0.31275 mse_uncertain== 0.27356 bf-mse_opinion== 0.32111
+mse_belief= 0.29038 mse_uncertain== 0.29574 bf-mse_opinion== 0.29966
+mse_belief= 0.28594 mse_uncertain== 0.31109 bf-mse_opinion== 0.29003
+mse_belief= 0.27965 mse_uncertain== 0.32718 bf-mse_opinion== 0.28394
+Optimization Finished!
+alpha_0: 4.283733597425106 beta_0: 4.300940826937361
+best epoch: 100 bset_belief: 0.27964842 bset_uncertain: 0.3271814 bset_opinion: 0.28393894
+run time =  34.1171531677
+belief: 0.2796 uncertain: 0.2796 time window =  10 test_rio =  0.2
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_noise/facebook/facebook-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-gamma-0.03-realization-0-data-X.pkl
+|V|:8078 Adj:8078 
+|b|:8078 |u|:8078 |test_index|:2424 
+([], [], [])
+|V|:8078 Adj:8078 
+|b|:8078 |u|:8078 |test_index|:2424 
+mse_belief= 0.39329 mse_uncertain== 0.29790 bf-mse_opinion== 0.39869
+mse_belief= 0.38941 mse_uncertain== 0.19440 bf-mse_opinion== 0.39146
+mse_belief= 0.39039 mse_uncertain== 0.09499 bf-mse_opinion== 0.38927
+mse_belief= 0.38827 mse_uncertain== 0.15390 bf-mse_opinion== 0.37936
+mse_belief= 0.38109 mse_uncertain== 0.25259 bf-mse_opinion== 0.37518
+mse_belief= 0.36240 mse_uncertain== 0.27976 bf-mse_opinion== 0.36476
+mse_belief= 0.33315 mse_uncertain== 0.30373 bf-mse_opinion== 0.33848
+mse_belief= 0.30891 mse_uncertain== 0.32550 bf-mse_opinion== 0.31851
+mse_belief= 0.29736 mse_uncertain== 0.34495 bf-mse_opinion== 0.30773
+mse_belief= 0.28731 mse_uncertain== 0.35589 bf-mse_opinion== 0.29919
+Optimization Finished!
+alpha_0: 4.246471898984897 beta_0: 4.261698440207972
+best epoch: 100 bset_belief: 0.2873123 bset_uncertain: 0.3558871 bset_opinion: 0.29919034
+run time =  34.2158081532
+belief: 0.2873 uncertain: 0.2873 time window =  10 test_rio =  0.2
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_noise/facebook/facebook-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-gamma-0.05-realization-0-data-X.pkl
+|V|:8078 Adj:8078 
+|b|:8078 |u|:8078 |test_index|:2424 
+([], [], [])
+|V|:8078 Adj:8078 
+|b|:8078 |u|:8078 |test_index|:2424 
+mse_belief= 0.39245 mse_uncertain== 0.26584 bf-mse_opinion== 0.39661
+mse_belief= 0.38921 mse_uncertain== 0.12060 bf-mse_opinion== 0.38815
+mse_belief= 0.38885 mse_uncertain== 0.09666 bf-mse_opinion== 0.38116
+mse_belief= 0.38675 mse_uncertain== 0.19249 bf-mse_opinion== 0.37423
+mse_belief= 0.37629 mse_uncertain== 0.26411 bf-mse_opinion== 0.37194
+mse_belief= 0.35173 mse_uncertain== 0.27457 bf-mse_opinion== 0.35519
+mse_belief= 0.32191 mse_uncertain== 0.30195 bf-mse_opinion== 0.32868
+mse_belief= 0.30415 mse_uncertain== 0.32475 bf-mse_opinion== 0.31331
+mse_belief= 0.29380 mse_uncertain== 0.34223 bf-mse_opinion== 0.30545
+mse_belief= 0.28652 mse_uncertain== 0.35823 bf-mse_opinion== 0.29771
+Optimization Finished!
+alpha_0: 4.246471898984897 beta_0: 4.261698440207972
+best epoch: 100 bset_belief: 0.2865194 bset_uncertain: 0.35823053 bset_opinion: 0.29770672
+run time =  34.2713630199
+belief: 0.2865 uncertain: 0.2865 time window =  10 test_rio =  0.2
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_noise/facebook/facebook-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-gamma-0.07-realization-0-data-X.pkl
+|V|:8078 Adj:8078 
+|b|:8078 |u|:8078 |test_index|:2424 
+([], [], [])
+|V|:8078 Adj:8078 
+|b|:8078 |u|:8078 |test_index|:2424 
+mse_belief= 0.39066 mse_uncertain== 0.30499 bf-mse_opinion== 0.39638
+mse_belief= 0.38668 mse_uncertain== 0.18869 bf-mse_opinion== 0.38671
+mse_belief= 0.39011 mse_uncertain== 0.09333 bf-mse_opinion== 0.38545
+mse_belief= 0.38811 mse_uncertain== 0.16600 bf-mse_opinion== 0.37800
+mse_belief= 0.37788 mse_uncertain== 0.27351 bf-mse_opinion== 0.37392
+mse_belief= 0.35563 mse_uncertain== 0.28589 bf-mse_opinion== 0.36081
+mse_belief= 0.32839 mse_uncertain== 0.29373 bf-mse_opinion== 0.33552
+mse_belief= 0.30930 mse_uncertain== 0.32493 bf-mse_opinion== 0.31891
+mse_belief= 0.29672 mse_uncertain== 0.34075 bf-mse_opinion== 0.30902
+mse_belief= 0.28773 mse_uncertain== 0.35535 bf-mse_opinion== 0.30079
+Optimization Finished!
+alpha_0: 4.246471898984897 beta_0: 4.261698440207972
+best epoch: 100 bset_belief: 0.28772694 bset_uncertain: 0.3553476 bset_opinion: 0.30079412
+run time =  34.5694608688
+belief: 0.2877 uncertain: 0.2877 time window =  10 test_rio =  0.2
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_noise/facebook/facebook-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-gamma-0.09-realization-0-data-X.pkl
+|V|:8078 Adj:8078 
+|b|:8078 |u|:8078 |test_index|:2424 
+([], [], [])
+|V|:8078 Adj:8078 
+|b|:8078 |u|:8078 |test_index|:2424 
+mse_belief= 0.39425 mse_uncertain== 0.29708 bf-mse_opinion== 0.39818
+mse_belief= 0.38850 mse_uncertain== 0.17988 bf-mse_opinion== 0.38753
+mse_belief= 0.38454 mse_uncertain== 0.09805 bf-mse_opinion== 0.37894
+mse_belief= 0.37957 mse_uncertain== 0.17593 bf-mse_opinion== 0.36666
+mse_belief= 0.36918 mse_uncertain== 0.29386 bf-mse_opinion== 0.36047
+mse_belief= 0.35038 mse_uncertain== 0.32187 bf-mse_opinion== 0.34660
+mse_belief= 0.32881 mse_uncertain== 0.33089 bf-mse_opinion== 0.32644
+mse_belief= 0.30916 mse_uncertain== 0.34706 bf-mse_opinion== 0.31282
+mse_belief= 0.29646 mse_uncertain== 0.35942 bf-mse_opinion== 0.30161
+mse_belief= 0.28478 mse_uncertain== 0.36625 bf-mse_opinion== 0.28978
+Optimization Finished!
+alpha_0: 4.2394156969546914 beta_0: 4.241891557316167
+best epoch: 100 bset_belief: 0.2847755 bset_uncertain: 0.3662494 bset_opinion: 0.2897794
+run time =  34.246393919
+belief: 0.2848 uncertain: 0.2848 time window =  10 test_rio =  0.2
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_noise/facebook/facebook-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-gamma-0.11-realization-0-data-X.pkl
+|V|:8078 Adj:8078 
+|b|:8078 |u|:8078 |test_index|:2424 
+([], [], [])
+|V|:8078 Adj:8078 
+|b|:8078 |u|:8078 |test_index|:2424 
+mse_belief= 0.39334 mse_uncertain== 0.30893 bf-mse_opinion== 0.39785
+mse_belief= 0.38594 mse_uncertain== 0.21581 bf-mse_opinion== 0.38634
+mse_belief= 0.38148 mse_uncertain== 0.12012 bf-mse_opinion== 0.37979
+mse_belief= 0.37489 mse_uncertain== 0.16508 bf-mse_opinion== 0.36919
+mse_belief= 0.35775 mse_uncertain== 0.27112 bf-mse_opinion== 0.35786
+mse_belief= 0.33497 mse_uncertain== 0.31542 bf-mse_opinion== 0.34348
+mse_belief= 0.31614 mse_uncertain== 0.31901 bf-mse_opinion== 0.32562
+mse_belief= 0.30104 mse_uncertain== 0.34381 bf-mse_opinion== 0.31259
+mse_belief= 0.28719 mse_uncertain== 0.36138 bf-mse_opinion== 0.29847
+mse_belief= 0.27915 mse_uncertain== 0.37372 bf-mse_opinion== 0.28856
+Optimization Finished!
+alpha_0: 4.2394156969546914 beta_0: 4.241891557316167
+best epoch: 100 bset_belief: 0.2791483 bset_uncertain: 0.37372062 bset_opinion: 0.28856212
+run time =  34.8386790752
+belief: 0.2791 uncertain: 0.2791 time window =  10 test_rio =  0.2
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_noise/facebook/facebook-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-gamma-0.13-realization-0-data-X.pkl
+|V|:8078 Adj:8078 
+|b|:8078 |u|:8078 |test_index|:2424 
+([], [], [])
+|V|:8078 Adj:8078 
+|b|:8078 |u|:8078 |test_index|:2424 
+mse_belief= 0.39221 mse_uncertain== 0.30298 bf-mse_opinion== 0.39638
+mse_belief= 0.38414 mse_uncertain== 0.19044 bf-mse_opinion== 0.38412
+mse_belief= 0.38115 mse_uncertain== 0.10493 bf-mse_opinion== 0.37863
+mse_belief= 0.37370 mse_uncertain== 0.17456 bf-mse_opinion== 0.36794
+mse_belief= 0.35576 mse_uncertain== 0.28338 bf-mse_opinion== 0.35949
+mse_belief= 0.33327 mse_uncertain== 0.31359 bf-mse_opinion== 0.34490
+mse_belief= 0.31544 mse_uncertain== 0.32059 bf-mse_opinion== 0.32636
+mse_belief= 0.30178 mse_uncertain== 0.34280 bf-mse_opinion== 0.31347
+mse_belief= 0.29001 mse_uncertain== 0.36171 bf-mse_opinion== 0.30253
+mse_belief= 0.28118 mse_uncertain== 0.37071 bf-mse_opinion== 0.29228
+Optimization Finished!
+alpha_0: 4.2394156969546914 beta_0: 4.241891557316167
+best epoch: 100 bset_belief: 0.28118405 bset_uncertain: 0.37071264 bset_opinion: 0.29227984
+run time =  35.2051661015
+belief: 0.2812 uncertain: 0.2812 time window =  10 test_rio =  0.2
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_noise/facebook/facebook-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-gamma-0.15-realization-0-data-X.pkl
+|V|:8078 Adj:8078 
+|b|:8078 |u|:8078 |test_index|:2424 
+([], [], [])
+|V|:8078 Adj:8078 
+|b|:8078 |u|:8078 |test_index|:2424 
+mse_belief= 0.39009 mse_uncertain== 0.30950 bf-mse_opinion== 0.39349
+mse_belief= 0.38594 mse_uncertain== 0.20580 bf-mse_opinion== 0.38440
+mse_belief= 0.38923 mse_uncertain== 0.10027 bf-mse_opinion== 0.38635
+mse_belief= 0.38660 mse_uncertain== 0.18566 bf-mse_opinion== 0.37838
+mse_belief= 0.37225 mse_uncertain== 0.29756 bf-mse_opinion== 0.37192
+mse_belief= 0.34516 mse_uncertain== 0.29495 bf-mse_opinion== 0.34771
+mse_belief= 0.32467 mse_uncertain== 0.32285 bf-mse_opinion== 0.32468
+mse_belief= 0.30586 mse_uncertain== 0.32840 bf-mse_opinion== 0.30725
+mse_belief= 0.29110 mse_uncertain== 0.33940 bf-mse_opinion== 0.29101
+mse_belief= 0.27689 mse_uncertain== 0.34680 bf-mse_opinion== 0.27648
+Optimization Finished!
+alpha_0: 4.261327061153751 beta_0: 4.244491210695717
+best epoch: 100 bset_belief: 0.27689424 bset_uncertain: 0.3468021 bset_opinion: 0.27647647
+run time =  35.4173030853
+belief: 0.2769 uncertain: 0.2769 time window =  10 test_rio =  0.2
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_noise/facebook/facebook-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-gamma-0.2-realization-0-data-X.pkl
+|V|:8078 Adj:8078 
+|b|:8078 |u|:8078 |test_index|:2424 
+([], [], [])
+|V|:8078 Adj:8078 
+|b|:8078 |u|:8078 |test_index|:2424 
+mse_belief= 0.39437 mse_uncertain== 0.30051 bf-mse_opinion== 0.39790
+mse_belief= 0.39010 mse_uncertain== 0.20076 bf-mse_opinion== 0.38905
+mse_belief= 0.39093 mse_uncertain== 0.14788 bf-mse_opinion== 0.38716
+mse_belief= 0.39296 mse_uncertain== 0.25347 bf-mse_opinion== 0.38596
+mse_belief= 0.38923 mse_uncertain== 0.37019 bf-mse_opinion== 0.38752
+mse_belief= 0.37606 mse_uncertain== 0.36431 bf-mse_opinion== 0.37085
+mse_belief= 0.35255 mse_uncertain== 0.38434 bf-mse_opinion== 0.34573
+mse_belief= 0.32542 mse_uncertain== 0.39287 bf-mse_opinion== 0.32253
+mse_belief= 0.31560 mse_uncertain== 0.39524 bf-mse_opinion== 0.31361
+mse_belief= 0.30523 mse_uncertain== 0.39850 bf-mse_opinion== 0.30789
+Optimization Finished!
+alpha_0: 4.199554345134934 beta_0: 4.205867789056697
+best epoch: 100 bset_belief: 0.30522686 bset_uncertain: 0.39849764 bset_opinion: 0.30788755
+run time =  35.209831953
+belief: 0.3052 uncertain: 0.3052 time window =  10 test_rio =  0.2
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_noise/facebook/facebook-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-gamma-0.25-realization-0-data-X.pkl
+|V|:8078 Adj:8078 
+|b|:8078 |u|:8078 |test_index|:2424 
+([], [], [])
+|V|:8078 Adj:8078 
+|b|:8078 |u|:8078 |test_index|:2424 
+mse_belief= 0.39143 mse_uncertain== 0.31494 bf-mse_opinion== 0.39609
+mse_belief= 0.38745 mse_uncertain== 0.23736 bf-mse_opinion== 0.38714
+mse_belief= 0.38751 mse_uncertain== 0.12719 bf-mse_opinion== 0.38581
+mse_belief= 0.38574 mse_uncertain== 0.15407 bf-mse_opinion== 0.38090
+mse_belief= 0.37239 mse_uncertain== 0.27984 bf-mse_opinion== 0.37367
+mse_belief= 0.34374 mse_uncertain== 0.30918 bf-mse_opinion== 0.35221
+mse_belief= 0.32276 mse_uncertain== 0.31866 bf-mse_opinion== 0.32484
+mse_belief= 0.30458 mse_uncertain== 0.32990 bf-mse_opinion== 0.30841
+mse_belief= 0.29420 mse_uncertain== 0.34533 bf-mse_opinion== 0.29334
+mse_belief= 0.27901 mse_uncertain== 0.35228 bf-mse_opinion== 0.27864
+Optimization Finished!
+alpha_0: 4.261327061153751 beta_0: 4.244491210695717
+best epoch: 100 bset_belief: 0.27901024 bset_uncertain: 0.35228404 bset_opinion: 0.27864352
+run time =  34.8032920361
+belief: 0.279 uncertain: 0.279 time window =  10 test_rio =  0.2
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_pgd/facebook/facebook-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-gamma-0.0-realization-0-data-X.pkl
+|V|:8078 Adj:8078 
+|b|:8078 |u|:8078 |test_index|:2424 
+([], [], [])
+|V|:8078 Adj:8078 
+|b|:8078 |u|:8078 |test_index|:2424 
+mse_belief= 0.37873 mse_uncertain== 0.26995 bf-mse_opinion== 0.38544
+mse_belief= 0.34255 mse_uncertain== 0.12532 bf-mse_opinion== 0.34584
+mse_belief= 0.27487 mse_uncertain== 0.05060 bf-mse_opinion== 0.27495
+mse_belief= 0.18647 mse_uncertain== 0.05723 bf-mse_opinion== 0.18081
+mse_belief= 0.14222 mse_uncertain== 0.04857 bf-mse_opinion== 0.12978
+mse_belief= 0.12451 mse_uncertain== 0.04499 bf-mse_opinion== 0.11596
+mse_belief= 0.11775 mse_uncertain== 0.04179 bf-mse_opinion== 0.11470
+mse_belief= 0.11512 mse_uncertain== 0.04082 bf-mse_opinion== 0.11256
+mse_belief= 0.11415 mse_uncertain== 0.03988 bf-mse_opinion== 0.11066
+mse_belief= 0.11356 mse_uncertain== 0.03944 bf-mse_opinion== 0.11062
+Optimization Finished!
+alpha_0: 6.016464471403813 beta_0: 5.983535528596187
+best epoch: 100 bset_belief: 0.11356419 bset_uncertain: 0.03943824 bset_opinion: 0.11062011
+run time =  35.0357189178
+belief: 0.1136 uncertain: 0.1136 time window =  10 test_rio =  0.2
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_pgd/facebook/facebook-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-gamma-0.01-realization-0-data-X.pkl
+|V|:8078 Adj:8078 
+|b|:8078 |u|:8078 |test_index|:2424 
+([], [], [])
+|V|:8078 Adj:8078 
+|b|:8078 |u|:8078 |test_index|:2424 
+mse_belief= 0.39795 mse_uncertain== 0.38949 bf-mse_opinion== 0.40381
+mse_belief= 0.39839 mse_uncertain== 0.53420 bf-mse_opinion== 0.40009
+mse_belief= 0.40527 mse_uncertain== 0.70394 bf-mse_opinion== 0.39825
+mse_belief= 0.41122 mse_uncertain== 0.78974 bf-mse_opinion== 0.39815
+mse_belief= 0.41331 mse_uncertain== 0.81577 bf-mse_opinion== 0.39817
+mse_belief= 0.41402 mse_uncertain== 0.82390 bf-mse_opinion== 0.39817
+mse_belief= 0.41433 mse_uncertain== 0.82724 bf-mse_opinion== 0.39818
+mse_belief= 0.41449 mse_uncertain== 0.82901 bf-mse_opinion== 0.39818
+mse_belief= 0.41459 mse_uncertain== 0.83009 bf-mse_opinion== 0.39819
+mse_belief= 0.41466 mse_uncertain== 0.83082 bf-mse_opinion== 0.39819
+Optimization Finished!
+alpha_0: 2.5143599900965588 beta_0: 2.526986877940084
+best epoch: 40 bset_belief: 0.4112247 bset_uncertain: 0.7897411 bset_opinion: 0.3981535
+run time =  35.219014883
+belief: 0.4112 uncertain: 0.4112 time window =  10 test_rio =  0.2
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_pgd/facebook/facebook-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-gamma-0.03-realization-0-data-X.pkl
+|V|:8078 Adj:8078 
+|b|:8078 |u|:8078 |test_index|:2424 
+([], [], [])
+|V|:8078 Adj:8078 
+|b|:8078 |u|:8078 |test_index|:2424 
+mse_belief= 0.39740 mse_uncertain== 0.41571 bf-mse_opinion== 0.39962
+mse_belief= 0.40218 mse_uncertain== 0.58033 bf-mse_opinion== 0.39762
+mse_belief= 0.41236 mse_uncertain== 0.73525 bf-mse_opinion== 0.39714
+mse_belief= 0.41894 mse_uncertain== 0.80029 bf-mse_opinion== 0.39765
+mse_belief= 0.42115 mse_uncertain== 0.81931 bf-mse_opinion== 0.39786
+mse_belief= 0.42197 mse_uncertain== 0.82573 bf-mse_opinion== 0.39795
+mse_belief= 0.42235 mse_uncertain== 0.82855 bf-mse_opinion== 0.39800
+mse_belief= 0.42256 mse_uncertain== 0.83003 bf-mse_opinion== 0.39803
+mse_belief= 0.42268 mse_uncertain== 0.83091 bf-mse_opinion== 0.39805
+mse_belief= 0.42276 mse_uncertain== 0.83147 bf-mse_opinion== 0.39806
+Optimization Finished!
+alpha_0: 2.5419658331270116 beta_0: 2.4964100024758604
+best epoch: 30 bset_belief: 0.4123571 bset_uncertain: 0.7352532 bset_opinion: 0.39714214
+run time =  35.3953609467
+belief: 0.4124 uncertain: 0.4124 time window =  10 test_rio =  0.2
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_pgd/facebook/facebook-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-gamma-0.05-realization-0-data-X.pkl
+|V|:8078 Adj:8078 
+|b|:8078 |u|:8078 |test_index|:2424 
+([], [], [])
+|V|:8078 Adj:8078 
+|b|:8078 |u|:8078 |test_index|:2424 
+mse_belief= 0.39731 mse_uncertain== 0.38170 bf-mse_opinion== 0.40129
+mse_belief= 0.39937 mse_uncertain== 0.50662 bf-mse_opinion== 0.39873
+mse_belief= 0.40745 mse_uncertain== 0.66698 bf-mse_opinion== 0.39737
+mse_belief= 0.41426 mse_uncertain== 0.76841 bf-mse_opinion== 0.39720
+mse_belief= 0.41702 mse_uncertain== 0.80607 bf-mse_opinion== 0.39726
+mse_belief= 0.41802 mse_uncertain== 0.81890 bf-mse_opinion== 0.39731
+mse_belief= 0.41849 mse_uncertain== 0.82426 bf-mse_opinion== 0.39735
+mse_belief= 0.41874 mse_uncertain== 0.82705 bf-mse_opinion== 0.39738
+mse_belief= 0.41890 mse_uncertain== 0.82873 bf-mse_opinion== 0.39740
+mse_belief= 0.41901 mse_uncertain== 0.82984 bf-mse_opinion== 0.39741
+Optimization Finished!
+alpha_0: 2.5162168853676654 beta_0: 2.4964100024758604
+best epoch: 40 bset_belief: 0.41426197 bset_uncertain: 0.7684054 bset_opinion: 0.3972013
+run time =  35.1895499229
+belief: 0.4143 uncertain: 0.4143 time window =  10 test_rio =  0.2
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_pgd/facebook/facebook-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-gamma-0.07-realization-0-data-X.pkl
+|V|:8078 Adj:8078 
+|b|:8078 |u|:8078 |test_index|:2424 
+([], [], [])
+|V|:8078 Adj:8078 
+|b|:8078 |u|:8078 |test_index|:2424 
+mse_belief= 0.39763 mse_uncertain== 0.38381 bf-mse_opinion== 0.40139
+mse_belief= 0.39992 mse_uncertain== 0.50232 bf-mse_opinion== 0.39941
+mse_belief= 0.40749 mse_uncertain== 0.65531 bf-mse_opinion== 0.39800
+mse_belief= 0.41481 mse_uncertain== 0.75910 bf-mse_opinion== 0.39770
+mse_belief= 0.41766 mse_uncertain== 0.80194 bf-mse_opinion== 0.39758
+mse_belief= 0.41859 mse_uncertain== 0.81724 bf-mse_opinion== 0.39753
+mse_belief= 0.41900 mse_uncertain== 0.82361 bf-mse_opinion== 0.39753
+mse_belief= 0.41921 mse_uncertain== 0.82676 bf-mse_opinion== 0.39753
+mse_belief= 0.41933 mse_uncertain== 0.82854 bf-mse_opinion== 0.39754
+mse_belief= 0.41942 mse_uncertain== 0.82966 bf-mse_opinion== 0.39755
+Optimization Finished!
+alpha_0: 2.5183213666749196 beta_0: 2.496038623421639
+best epoch: 70 bset_belief: 0.4189976 bset_uncertain: 0.8236143 bset_opinion: 0.39752707
+run time =  35.6851828098
+belief: 0.419 uncertain: 0.419 time window =  10 test_rio =  0.2
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_pgd/facebook/facebook-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-gamma-0.09-realization-0-data-X.pkl
+|V|:8078 Adj:8078 
+|b|:8078 |u|:8078 |test_index|:2424 
+([], [], [])
+|V|:8078 Adj:8078 
+|b|:8078 |u|:8078 |test_index|:2424 
+mse_belief= 0.39755 mse_uncertain== 0.40230 bf-mse_opinion== 0.40212
+mse_belief= 0.40053 mse_uncertain== 0.55460 bf-mse_opinion== 0.40009
+mse_belief= 0.40939 mse_uncertain== 0.71711 bf-mse_opinion== 0.39851
+mse_belief= 0.41589 mse_uncertain== 0.79354 bf-mse_opinion== 0.39788
+mse_belief= 0.41798 mse_uncertain== 0.81687 bf-mse_opinion== 0.39758
+mse_belief= 0.41853 mse_uncertain== 0.82450 bf-mse_opinion== 0.39743
+mse_belief= 0.41871 mse_uncertain== 0.82760 bf-mse_opinion== 0.39735
+mse_belief= 0.41878 mse_uncertain== 0.82917 bf-mse_opinion== 0.39731
+mse_belief= 0.41882 mse_uncertain== 0.83011 bf-mse_opinion== 0.39728
+mse_belief= 0.41884 mse_uncertain== 0.83074 bf-mse_opinion== 0.39726
+Optimization Finished!
+alpha_0: 2.5142361970784846 beta_0: 2.498885862837336
+best epoch: 100 bset_belief: 0.4188382 bset_uncertain: 0.8307377 bset_opinion: 0.39726287
+run time =  36.477214098
+belief: 0.4188 uncertain: 0.4188 time window =  10 test_rio =  0.2
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_pgd/facebook/facebook-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-gamma-0.11-realization-0-data-X.pkl
+|V|:8078 Adj:8078 
+|b|:8078 |u|:8078 |test_index|:2424 
+([], [], [])
+|V|:8078 Adj:8078 
+|b|:8078 |u|:8078 |test_index|:2424 
+mse_belief= 0.39733 mse_uncertain== 0.39052 bf-mse_opinion== 0.40135
+mse_belief= 0.39945 mse_uncertain== 0.52010 bf-mse_opinion== 0.39892
+mse_belief= 0.40750 mse_uncertain== 0.67916 bf-mse_opinion== 0.39743
+mse_belief= 0.41499 mse_uncertain== 0.77834 bf-mse_opinion== 0.39734
+mse_belief= 0.41780 mse_uncertain== 0.81260 bf-mse_opinion== 0.39739
+mse_belief= 0.41870 mse_uncertain== 0.82363 bf-mse_opinion== 0.39742
+mse_belief= 0.41905 mse_uncertain== 0.82789 bf-mse_opinion== 0.39743
+mse_belief= 0.41920 mse_uncertain== 0.82986 bf-mse_opinion== 0.39744
+mse_belief= 0.41929 mse_uncertain== 0.83093 bf-mse_opinion== 0.39744
+mse_belief= 0.41934 mse_uncertain== 0.83161 bf-mse_opinion== 0.39745
+Optimization Finished!
+alpha_0: 2.5295865313196337 beta_0: 2.5095320623916813
+best epoch: 40 bset_belief: 0.4149875 bset_uncertain: 0.77833605 bset_opinion: 0.39734465
+run time =  35.5157179832
+belief: 0.415 uncertain: 0.415 time window =  10 test_rio =  0.2
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_pgd/facebook/facebook-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-gamma-0.13-realization-0-data-X.pkl
+|V|:8078 Adj:8078 
+|b|:8078 |u|:8078 |test_index|:2424 
+([], [], [])
+|V|:8078 Adj:8078 
+|b|:8078 |u|:8078 |test_index|:2424 
+mse_belief= 0.39880 mse_uncertain== 0.37510 bf-mse_opinion== 0.39961
+mse_belief= 0.40286 mse_uncertain== 0.50539 bf-mse_opinion== 0.39807
+mse_belief= 0.41124 mse_uncertain== 0.67597 bf-mse_opinion== 0.39834
+mse_belief= 0.41683 mse_uncertain== 0.77603 bf-mse_opinion== 0.39870
+mse_belief= 0.41889 mse_uncertain== 0.81014 bf-mse_opinion== 0.39885
+mse_belief= 0.41964 mse_uncertain== 0.82142 bf-mse_opinion== 0.39892
+mse_belief= 0.41996 mse_uncertain== 0.82587 bf-mse_opinion== 0.39896
+mse_belief= 0.42013 mse_uncertain== 0.82803 bf-mse_opinion== 0.39899
+mse_belief= 0.42024 mse_uncertain== 0.82928 bf-mse_opinion== 0.39900
+mse_belief= 0.42031 mse_uncertain== 0.83009 bf-mse_opinion== 0.39901
+Optimization Finished!
+alpha_0: 2.5289675662292646 beta_0: 2.5
+best epoch: 20 bset_belief: 0.40285823 bset_uncertain: 0.5053922 bset_opinion: 0.39806506
+run time =  35.765390873
+belief: 0.4029 uncertain: 0.4029 time window =  10 test_rio =  0.2
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_pgd/facebook/facebook-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-gamma-0.15-realization-0-data-X.pkl
+|V|:8078 Adj:8078 
+|b|:8078 |u|:8078 |test_index|:2424 
+([], [], [])
+|V|:8078 Adj:8078 
+|b|:8078 |u|:8078 |test_index|:2424 
+mse_belief= 0.39944 mse_uncertain== 0.38587 bf-mse_opinion== 0.40434
+mse_belief= 0.39946 mse_uncertain== 0.50542 bf-mse_opinion== 0.40159
+mse_belief= 0.40408 mse_uncertain== 0.65759 bf-mse_opinion== 0.39960
+mse_belief= 0.41068 mse_uncertain== 0.76034 bf-mse_opinion== 0.39941
+mse_belief= 0.41412 mse_uncertain== 0.80203 bf-mse_opinion== 0.39952
+mse_belief= 0.41552 mse_uncertain== 0.81676 bf-mse_opinion== 0.39960
+mse_belief= 0.41613 mse_uncertain== 0.82265 bf-mse_opinion== 0.39965
+mse_belief= 0.41645 mse_uncertain== 0.82549 bf-mse_opinion== 0.39967
+mse_belief= 0.41663 mse_uncertain== 0.82712 bf-mse_opinion== 0.39969
+mse_belief= 0.41676 mse_uncertain== 0.82820 bf-mse_opinion== 0.39971
+Optimization Finished!
+alpha_0: 2.5240158455063133 beta_0: 2.519064124783362
+best epoch: 40 bset_belief: 0.4106826 bset_uncertain: 0.7603388 bset_opinion: 0.3994054
+run time =  35.6943669319
+belief: 0.4107 uncertain: 0.4107 time window =  10 test_rio =  0.2
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_pgd/facebook/facebook-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-gamma-0.2-realization-0-data-X.pkl
+|V|:8078 Adj:8078 
+|b|:8078 |u|:8078 |test_index|:2424 
+([], [], [])
+|V|:8078 Adj:8078 
+|b|:8078 |u|:8078 |test_index|:2424 
+mse_belief= 0.39893 mse_uncertain== 0.37547 bf-mse_opinion== 0.40267
+mse_belief= 0.40075 mse_uncertain== 0.48844 bf-mse_opinion== 0.40061
+mse_belief= 0.40706 mse_uncertain== 0.64151 bf-mse_opinion== 0.39935
+mse_belief= 0.41312 mse_uncertain== 0.75043 bf-mse_opinion== 0.39900
+mse_belief= 0.41597 mse_uncertain== 0.79682 bf-mse_opinion== 0.39894
+mse_belief= 0.41704 mse_uncertain== 0.81425 bf-mse_opinion== 0.39894
+mse_belief= 0.41752 mse_uncertain== 0.82175 bf-mse_opinion== 0.39894
+mse_belief= 0.41778 mse_uncertain== 0.82574 bf-mse_opinion== 0.39894
+mse_belief= 0.41796 mse_uncertain== 0.82822 bf-mse_opinion== 0.39896
+mse_belief= 0.41809 mse_uncertain== 0.82986 bf-mse_opinion== 0.39897
+Optimization Finished!
+alpha_0: 2.516835850458034 beta_0: 2.5044565486506563
+best epoch: 60 bset_belief: 0.41703722 bset_uncertain: 0.81425214 bset_opinion: 0.39893758
+run time =  35.9800817966
+belief: 0.417 uncertain: 0.417 time window =  10 test_rio =  0.2
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_pgd/facebook/facebook-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-gamma-0.25-realization-0-data-X.pkl
+|V|:8078 Adj:8078 
+|b|:8078 |u|:8078 |test_index|:2424 
+([], [], [])
+|V|:8078 Adj:8078 
+|b|:8078 |u|:8078 |test_index|:2424 
+mse_belief= 0.39817 mse_uncertain== 0.39528 bf-mse_opinion== 0.40413
+mse_belief= 0.39995 mse_uncertain== 0.54780 bf-mse_opinion== 0.40055
+mse_belief= 0.40697 mse_uncertain== 0.71166 bf-mse_opinion== 0.39843
+mse_belief= 0.41145 mse_uncertain== 0.79068 bf-mse_opinion== 0.39779
+mse_belief= 0.41287 mse_uncertain== 0.81508 bf-mse_opinion== 0.39763
+mse_belief= 0.41335 mse_uncertain== 0.82296 bf-mse_opinion== 0.39758
+mse_belief= 0.41355 mse_uncertain== 0.82614 bf-mse_opinion== 0.39757
+mse_belief= 0.41366 mse_uncertain== 0.82774 bf-mse_opinion== 0.39756
+mse_belief= 0.41373 mse_uncertain== 0.82871 bf-mse_opinion== 0.39756
+mse_belief= 0.41378 mse_uncertain== 0.82938 bf-mse_opinion== 0.39756
+Optimization Finished!
+alpha_0: 2.4975241396385246 beta_0: 2.5155979202772962
+best epoch: 100 bset_belief: 0.41378132 bset_uncertain: 0.8293758 bset_opinion: 0.3975597
+run time =  35.9434299469
+belief: 0.4138 uncertain: 0.4138 time window =  10 test_rio =  0.2
