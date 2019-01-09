@@ -172,63 +172,64 @@ def calculate_measures(true_omega_x, pred_omega_x, X):
 
 
 def pipeline():
-    # pipeline 1
-    data_root = "/network/rit/lab/ceashpc/adil/data/csl-data/Dec10/"   #Sep18 #June25/"
-    result_folder = "/network/rit/lab/ceashpc/adil/results-traffic/"
+    # pipeline1
+    data_root = "/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/"  # Sep18 #June25/"
+    result_folder = "/network/rit/lab/ceashpc/adil/result_adv_csl/traffic/"
     realizations = 1
     ref_pers = [0.6, 0.7, 0.8]
     datasets = ['philly', 'dc']
     count = 0
-    for dataset in datasets[1:]:
-        exfiles = {file: 1 for file in os.listdir(result_folder) if file.endswith(".txt")}
-        for ref_ratio in ref_pers[:]:
-            dataroot = data_root + dataset + "/"
-            # if not os.path.exists(dataroot):
-            #     os.makedirs(dataroot)
-            for weekday in range(5)[:]:
-                for hour in range(8, 22)[:]:
-                    for test_ratio in [0.1, 0.2, 0.3, 0.4, 0.5][1:2]:
-                        for ratio_conflict in [0.0, 0.1, 0.2, 0.3, 0.4][3:4]:
-                            for real_i in range(realizations)[:1]:
-                                f = dataroot + '/network_{}_weekday_{}_hour_{}_refspeed_{}-testratio-{}-confictratio-{}-realization-{}.pkl'.format(
-                                    dataset, weekday, hour, ref_ratio, test_ratio, ratio_conflict, real_i)
-                                pkl_file = open(f, 'rb')
-                                [_, E, Obs, E_X, _] = pickle.load(pkl_file)
-                                pkl_file.close()
-                                E_X = {e: 1 for e in E_X}
-                                T = len(Obs[E[0]])
-                                m_idx = int(round(T / 2.0))
-                                # for window in range(m_idx - 5, m_idx + 7):
-                                for window in range(T):
-                                    running_start_time = time.time()
-                                    t_Obs = {e: e_Obs[window:window + 1] for e, e_Obs in Obs.items()}
-                                    result_file = str(dataset) + '_' + str(weekday) + '_' + str(hour) + '_' + str(
-                                        ref_ratio) + '_' + str(
-                                        test_ratio) + '_' + str(ratio_conflict) + '_' + str(window) + '_' + str(
-                                        real_i) + '-T43-1210.txt'
-                                    if exfiles.has_key(result_file):
-                                        continue
+    for adv_type in ["random_flip", "random_noise", "random_pgd"][:]:
+        for dataset in datasets[:1]:
+            resultFolder = result_folder + adv_type + "/"
+            if not os.path.exists(resultFolder):
+                os.makedirs(resultFolder)
+            exfiles = {file: 1 for file in os.listdir(resultFolder) if file.endswith(".txt")}
+            for ref_ratio in ref_pers[:1]:
+                dataroot = data_root + "/traffic/" + adv_type + "/" + dataset + "/"
+                for weekday in range(5)[:1]:
+                    for hour in range(8, 22)[:1]:
+                        for test_ratio in [0.1, 0.2, 0.3, 0.4, 0.5][:]:
+                            for gamma in [0.0, 0.01, 0.03, 0.05, 0.07, 0.09, 0.11, 0.13, 0.15, 0.20, 0.25][:]:  # 11
+                                for real_i in range(realizations)[:1]:
+                                    f = dataroot + '/network_{}_weekday_{}_hour_{}_refspeed_{}-testratio-{}-gamma-{}-realization-{}.pkl'.format(
+                                        dataset, weekday, hour, ref_ratio, test_ratio, gamma, real_i)
+                                    pkl_file = open(f, 'rb')
+                                    [_, E, Obs, E_X, _] = pickle.load(pkl_file)
+                                    pkl_file.close()
+                                    E_X = {e: 1 for e in E_X}
+                                    T = len(Obs[E[0]])
+                                    m_idx = int(round(T / 2.0))
+                                    # for window in range(m_idx - 5,m_idx + 7):
+                                    for window in range(T):
+                                        running_start_time = time.time()
+                                        t_Obs = {e: e_Obs[window:window + 1] for e, e_Obs in Obs.items()}
+                                        result_file = str(dataset) + '_' + str(weekday) + '_' + str(hour) + '_' + str(
+                                            ref_ratio) + '_' + str(
+                                            test_ratio) + '_' + str(gamma) + '_' + str(window) + '_' + str(
+                                            real_i) + '.txt'
+                                        if exfiles.has_key(result_file):
+                                            continue
+                                        print ">>>>", count, "-th ", dataset, ref_ratio, weekday, hour, real_i, T, window, test_ratio, gamma
 
-                                    print ">>>>", count, "-th ", dataset, ref_ratio, weekday, hour, real_i, T, window, test_ratio, ratio_conflict
-
-                                    generate_data(t_Obs, E, E_X)
-                                    proc = subprocess.Popen(["./run.sh"])
-                                    proc.communicate()
-                                    proc.wait()
-                                    proc = subprocess.Popen(
-                                        ["cp", "output/default/conjested_infer.txt", result_folder + result_file])
-                                    proc.communicate()
-                                    proc.wait()
-                                    running_end_time = time.time()
-                                    running_time = running_end_time - running_start_time
-                                    key = str(dataset) + '_' + str(weekday) + '_' + str(hour) + '_' + str(
-                                        ref_ratio) + '_' + str(
-                                        test_ratio) + '_' + str(ratio_conflict) + '_' + str(window) + '_' + str(real_i)
-                                    r_dict = {}
-                                    r_dict[key] = running_time
-                                    with open(result_folder + '/running_time.json', 'a') as op:
-                                        op.write(json.dumps(r_dict) + '\n')
-                                    count += 1
+                                        generate_data(t_Obs, E, E_X)
+                                        proc = subprocess.Popen(["./run.sh"])
+                                        proc.communicate()
+                                        proc.wait()
+                                        proc = subprocess.Popen(
+                                            ["cp", "output/default/conjested_infer.txt", resultFolder + result_file])
+                                        proc.communicate()
+                                        proc.wait()
+                                        running_end_time = time.time()
+                                        running_time = running_end_time - running_start_time
+                                        key = str(dataset) + '_' + str(weekday) + '_' + str(hour) + '_' + str(
+                                            ref_ratio) + '_' + str(
+                                            test_ratio) + '_' + str(gamma) + '_' + str(window) + '_' + str(real_i)
+                                        r_dict = {}
+                                        r_dict[key] = running_time
+                                        with open(result_folder + '/running_time.json', 'a') as op:
+                                            op.write(json.dumps(r_dict) + '\n')
+                                        count += 1
 
 
 if __name__ == '__main__':

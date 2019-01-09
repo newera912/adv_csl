@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "pipeline.py", line 237, in <module>
+    pipeline()
+  File "pipeline.py", line 184, in pipeline
+    exfiles = {file: 1 for file in os.listdir(result_folder) if file.endswith(".txt")}
+OSError: [Errno 2] No such file or directory: '/network/rit/lab/ceashpc/adil/result_adv_csl/traffic/'
