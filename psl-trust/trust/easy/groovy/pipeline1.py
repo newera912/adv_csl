@@ -72,63 +72,63 @@ def pipeline():
     data_root="/network/rit/lab/ceashpc/adil/"
     count = 0
     # with open('results/running_time.json','a') as outfile:
-    for graph_size in [1000, 5000, 10000, 47676][3:]:
-        folder =data_root+"results-" + str(
-            graph_size) + "-tr/"
-        exfiles = {file: 1 for file in os.listdir(folder) if file.endswith(".txt")}
-        result_folder = data_root+"results-" + str(graph_size) + "-tr/"
-        # outfile = open(folder + '/running_time.json', 'a')
-        for T in [8, 9, 10, 11][2:3]:
-            for ratio in [0.2,0.3,0.6, 0.7, 0.8][:1]:
-                for swap_ratio in [0.0]:
-                    for percent in [0.1, 0.2, 0.3, 0.4, 0.5][1:2]:
-                        for ratio_conflict in [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6][2:3]:
-                            for real_i in range(1):
-                                '''
-                                    generate evidence data to feed the psl
+    for adv_type in ["random_flip", "random_noise", "random_pgd"][:]:
+        for graph_size in [5000][:]:
+            folder =data_root+"/result_adv_csl/" + str(graph_size) + "/"
+            exfiles = {file: 1 for file in os.listdir(folder) if file.endswith(".txt")}
+            result_folder = data_root+"/result_adv_csl/" + str(graph_size) + "/"
+            # outfile = open(folder + '/running_time.json', 'a')
+            for T in [8, 9, 10, 11][:]:
+                for ratio in [0.2,0.3][:1]:
+                    for swap_ratio in [0.0]:
+                        for percent in [0.1, 0.2, 0.3, 0.4, 0.5][:]:
+                            for gamma in [0.0, 0.01, 0.03, 0.05, 0.07, 0.09, 0.11, 0.13, 0.15, 0.20, 0.25][:]:  # 11
+                                for real_i in range(1):
                                     '''
-                                # nodes-47676-T-10-rate-0.1-testratio-0.1-swaprate-0.0-confictratio-0.0-realization-0-data-X.pkl
-                                f = "/network/rit/lab/ceashpc/adil/data/csl-data/May23-3/{}/nodes-{}-T-{}-rate-{}-testratio-{}-swaprate-{}-confictratio-{}-realization-{}-data-X.pkl".format(
-                                    graph_size, graph_size, T, ratio, percent, swap_ratio, ratio_conflict, real_i)
-                                # f = "/network/rit/lab/ceashpc/adil/data/csl-data/apr21/5000/nodes-{}-T-{}-rate-{}-testratio-{}-swaprate-{}-confictratio-{}-realization-{}-data-X.pkl".format(graph_size, window, ratio, percent, swaprate, ratio_conflict, real_i)
+                                        generate evidence data to feed the psl
+                                        '''
+                                    # nodes-47676-T-10-rate-0.1-testratio-0.1-swaprate-0.0-confictratio-0.0-realization-0-data-X.pkl
+                                    f = data_root+"/adv_csl/Jan2/{}/{}/nodes-{}-T-{}-rate-{}-testratio-{}-swaprate-{}-gamma-{}-realization-{}-data-X.pkl".format(
+                                        adv_type,graph_size, graph_size, T, ratio, percent, swap_ratio, gamma, real_i)
+                                    # f = "/network/rit/lab/ceashpc/adil/data/csl-data/apr21/5000/nodes-{}-T-{}-rate-{}-testratio-{}-swaprate-{}-confictratio-{}-realization-{}-data-X.pkl".format(graph_size, window, ratio, percent, swaprate, ratio_conflict, real_i)
 
-                                print f
-                                pkl_file = open(f, 'rb')
-                                [_, E, Obs, E_X, _] = pickle.load(pkl_file)  # V, E, Obs, E_X, X_b
-                                pkl_file.close()
-                                E_X = {e: 1 for e in E_X}
+                                    print f
+                                    pkl_file = open(f, 'rb')
+                                    [_, E, Obs, E_X, _] = pickle.load(pkl_file)  # V, E, Obs, E_X, X_b
+                                    pkl_file.close()
+                                    E_X = {e: 1 for e in E_X}
 
-                                for window in range(T)[:1]:
-                                    running_start_time = time.time()
-                                    result_file = str(graph_size) + '_' + str(ratio) + '_' + str(
-                                        swap_ratio) + '_' + str(
-                                        T) + '_' + str(
-                                        window) + '_' + str(percent) + '_' + str(ratio_conflict) + '_' + str(
-                                        real_i) + '.txt'
-                                    if exfiles.has_key(result_file):
-                                        print "Exists..."
-                                        continue
+                                    for window in range(T)[:1]:
+                                        running_start_time = time.time()
+                                        result_file = str(graph_size) + '_' + str(ratio) + '_' + str(
+                                            swap_ratio) + '_' + str(
+                                            T) + '_' + str(
+                                            window) + '_' + str(percent) + '_' + str(gamma) + '_' + str(
+                                            real_i) + '.txt'
+                                        if exfiles.has_key(result_file):
+                                            print "Exists..."
+                                            continue
 
-                                    print ">>>>", count, "-th ", graph_size, ratio, real_i, T, window, percent, ratio_conflict
+                                        print ">>>>", count, "-th ", graph_size, ratio, real_i, T, window, percent, gamma
 
-                                    generate_data(Obs, E, E_X, T, window)
-                                    proc = subprocess.Popen(["./run.sh"])
-                                    proc.communicate()
-                                    proc.wait()
-                                    proc = subprocess.Popen(
-                                        ["cp", "output/default/trust_infer.txt", result_folder + result_file])
-                                    proc.communicate()
-                                    proc.wait()
-                                    running_end_time = time.time()
-                                    running_time = running_end_time - running_start_time
-                                    key = str(graph_size) + '_' + str(ratio) + '_' + str(swap_ratio) + '_' + str(
-                                        T) + '_' + str(window) + '_' + str(percent) + '_' + str(
-                                        ratio_conflict) + '_' + str(real_i)
-                                    r_dict = {}
-                                    r_dict[key] = running_time
-                                    with open(folder + '/running_time.json', 'a') as op:
-                                        op.write(json.dumps(r_dict) + '\n')
-                                    count += 1
+                                        generate_data(Obs, E, E_X, T, window)
+                                        proc = subprocess.Popen(["./run.sh"])
+                                        proc.communicate()
+                                        proc.wait()
+                                        proc = subprocess.Popen(
+                                            ["cp", "output/default/trust_infer.txt", result_folder + result_file])
+                                        proc.communicate()
+                                        proc.wait()
+                                        running_end_time = time.time()
+                                        running_time = running_end_time - running_start_time
+                                        key = str(graph_size) + '_' + str(ratio) + '_' + str(swap_ratio) + '_' + str(
+                                            T) + '_' + str(window) + '_' + str(percent) + '_' + str(
+                                            gamma) + '_' + str(real_i)
+                                        r_dict = {}
+                                        r_dict[key] = running_time
+                                        with open(folder + '/running_time.json', 'a') as op:
+                                            op.write(json.dumps(r_dict) + '\n')
+                                        count += 1
 
 
 
