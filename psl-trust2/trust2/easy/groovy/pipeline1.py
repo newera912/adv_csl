@@ -72,13 +72,17 @@ def pipeline():
     data_root="/network/rit/lab/ceashpc/adil/"
     count = 0
     # with open('results/running_time.json','a') as outfile:
-    for adv_type in ["random_flip", "random_noise", "random_pgd"][:]:
+    for adv_type in ["random_flip", "random_noise", "random_pgd"][2:]:
         for graph_size in [5000][:]:
-            folder =data_root+"/result_adv_csl/" + str(graph_size) + "/"
+            folder =data_root+"/result_adv_csl/" + str(graph_size) + "/"+adv_type+"/"
+            if not os.path.exists(folder):
+                os.makedirs(folder)
             exfiles = {file: 1 for file in os.listdir(folder) if file.endswith(".txt")}
-            result_folder = data_root+"/result_adv_csl/" + str(graph_size) + "/"
+            result_folder = data_root+"/result_adv_csl/" + str(graph_size) + "/"+adv_type+"/"
+            if not os.path.exists(result_folder):
+                os.makedirs(result_folder)
             # outfile = open(folder + '/running_time.json', 'a')
-            for T in [8, 9, 10, 11][:]:
+            for T in [8, 9, 10, 11][2:3]:
                 for ratio in [0.2,0.3][:1]:
                     for swap_ratio in [0.0]:
                         for percent in [0.1, 0.2, 0.3, 0.4, 0.5][:]:
@@ -88,7 +92,7 @@ def pipeline():
                                         generate evidence data to feed the psl
                                         '''
                                     # nodes-47676-T-10-rate-0.1-testratio-0.1-swaprate-0.0-confictratio-0.0-realization-0-data-X.pkl
-                                    f = data_root+"/adv_csl/Jan2/{}/{}/nodes-{}-T-{}-rate-{}-testratio-{}-swaprate-{}-gamma-{}-realization-{}-data-X.pkl".format(
+                                    f = data_root+"/data/adv_csl/Jan2/{}/{}/nodes-{}-T-{}-rate-{}-testratio-{}-swaprate-{}-gamma-{}-realization-{}-data-X.pkl".format(
                                         adv_type,graph_size, graph_size, T, ratio, percent, swap_ratio, gamma, real_i)
                                     # f = "/network/rit/lab/ceashpc/adil/data/csl-data/apr21/5000/nodes-{}-T-{}-rate-{}-testratio-{}-swaprate-{}-confictratio-{}-realization-{}-data-X.pkl".format(graph_size, window, ratio, percent, swaprate, ratio_conflict, real_i)
 
@@ -129,6 +133,7 @@ def pipeline():
                                         with open(folder + '/running_time.json', 'a') as op:
                                             op.write(json.dumps(r_dict) + '\n')
                                         count += 1
+
 
 
 
