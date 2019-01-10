@@ -6048,3 +6048,70 @@ Classpath found cached, skipping classpath build.
 27211 [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option Sybils0.atomeventframework.activation. Returning default of 0.01.
 102224 [main] DEBUG org.linqs.psl.model.rule.logical.AbstractLogicalRule  - Grounded 58187 instances of rule 1.0: ( ADJACENT(E1, E2) & BENIGN(E1) ) >> BENIGN(E2) ^2
 168111 [main] DEBUG org.linqs.psl.model.rule.logical.AbstractLogicalRule  - Grounded 54321 instances of rule 1.0: ( ADJACENT(E1, E2) & ~( BENIGN(E1) ) ) >> ~( BENIGN(E2) ) ^2
+298223 [main] DEBUG org.linqs.psl.model.rule.logical.AbstractLogicalRule  - Grounded 127936 instances of rule 1.0: ( ADJACENT(E1, E2) & SYBILS(E1) ) >> SYBILS(E2) ^2
+301403 [main] DEBUG org.linqs.psl.model.rule.logical.AbstractLogicalRule  - Grounded 132236 instances of rule 1.0: ( ADJACENT(E1, E2) & ~( SYBILS(E1) ) ) >> ~( SYBILS(E2) ) ^2
+301484 [main] DEBUG org.linqs.psl.model.rule.logical.AbstractLogicalRule  - Grounded 0 instances of rule 1.0: BENIGN(E1) >> ~( SYBILS(E1) ) ^2
+308005 [main] DEBUG org.linqs.psl.application.inference.LazyMPEInference  - Starting round 1 of inference.
+308005 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - (Re)building reasoner data structures
+308009 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - Initializing objective terms for 372680 ground kernels
+308599 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - Performing optimization with 62793 variables and 372680 terms.
+310963 [main] INFO  org.linqs.psl.reasoner.admm.ADMMReasoner  - Optimization completed in  100 iterations. Primal res.: 0.006903122660753721, Dual res.: 0.022283648012655942
+324686 [main] DEBUG org.linqs.psl.application.inference.LazyMPEInference  - Completed round 1 and activated 42575 atoms.
+324686 [main] DEBUG org.linqs.psl.application.inference.LazyMPEInference  - Starting round 2 of inference.
+324686 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - (Re)building reasoner data structures
+324691 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - Initializing objective terms for 930664 ground kernels
+327167 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - Performing optimization with 86746 variables and 930664 terms.
+328661 [main] INFO  org.linqs.psl.reasoner.admm.ADMMReasoner  - Optimization completed in  33 iterations. Primal res.: 0.39415732631749656, Dual res.: 0.30076839067390426
+333312 [main] DEBUG org.linqs.psl.application.inference.LazyMPEInference  - Completed round 2 and activated 23953 atoms.
+333313 [main] DEBUG org.linqs.psl.application.inference.LazyMPEInference  - Starting round 3 of inference.
+333313 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - (Re)building reasoner data structures
+333319 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - Initializing objective terms for 1034238 ground kernels
+334801 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - Performing optimization with 87572 variables and 1034238 terms.
+336491 [main] INFO  org.linqs.psl.reasoner.admm.ADMMReasoner  - Optimization completed in  31 iterations. Primal res.: 0.3691288101594488, Dual res.: 0.3023656490374351
+336706 [main] DEBUG org.linqs.psl.application.inference.LazyMPEInference  - Completed round 3 and activated 826 atoms.
+336707 [main] DEBUG org.linqs.psl.application.inference.LazyMPEInference  - Starting round 4 of inference.
+336707 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - (Re)building reasoner data structures
+336716 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - Initializing objective terms for 1037232 ground kernels
+338375 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - Performing optimization with 87609 variables and 1037232 terms.
+340034 [main] INFO  org.linqs.psl.reasoner.admm.ADMMReasoner  - Optimization completed in  24 iterations. Primal res.: 0.24907389683663575, Dual res.: 0.3360907384093726
+340140 [main] DEBUG org.linqs.psl.application.inference.LazyMPEInference  - Completed round 4 and activated 37 atoms.
+340140 [main] DEBUG org.linqs.psl.application.inference.LazyMPEInference  - Starting round 5 of inference.
+340140 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - (Re)building reasoner data structures
+340146 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - Initializing objective terms for 1037340 ground kernels
+341638 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - Performing optimization with 87610 variables and 1037340 terms.
+342984 [main] INFO  org.linqs.psl.reasoner.admm.ADMMReasoner  - Optimization completed in  23 iterations. Primal res.: 0.2734927570346629, Dual res.: 0.37220284540456716
+343037 [main] DEBUG org.linqs.psl.application.inference.LazyMPEInference  - Completed round 5 and activated 1 atoms.
+343037 [main] DEBUG org.linqs.psl.application.inference.LazyMPEInference  - Starting round 6 of inference.
+343037 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - (Re)building reasoner data structures
+343043 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - Initializing objective terms for 1037342 ground kernels
+344626 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - Performing optimization with 87610 variables and 1037342 terms.
+345891 [main] INFO  org.linqs.psl.reasoner.admm.ADMMReasoner  - Optimization completed in  23 iterations. Primal res.: 0.2745255497293123, Dual res.: 0.37373512916813806
+345943 [main] DEBUG org.linqs.psl.application.inference.LazyMPEInference  - Completed round 6 and activated 0 atoms.
+350810 [main] INFO  org.linqs.psl.example.sybils0.Sybils0  - Finished inference in 5 minutes, 23.621 seconds
+Output Generated.
+352196 [main] INFO  org.linqs.psl.example.sybils0.Sybils0  - MSE: 0.20693849516133556
+352199 [main] INFO  org.linqs.psl.example.sybils0.Sybils0  - Accuracy 0.6283281060415283, Error 16235.0
+352200 [main] INFO  org.linqs.psl.example.sybils0.Sybils0  - Positive Class: precision 0.377559086238242, recall 0.9515888036657038
+352201 [main] INFO  org.linqs.psl.example.sybils0.Sybils0  - Negative Class Stats: precision 0.9735567767560803, recall 0.5318649307413352
+It is running now
+[INFO] Scanning for projects...
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building easylp 1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ easylp ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 2 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ easylp ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Using Groovy-Eclipse compiler to compile both Java and Groovy files
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 1.784 s
+[INFO] Finished at: 2019-01-10T15:38:11-05:00
+[INFO] Final Memory: 23M/1477M
+[INFO] ------------------------------------------------------------------------
+Classpath found cached, skipping classpath build.
