@@ -12,7 +12,10 @@ from network_funs import *
 import os
 import multiprocessing
 from random import shuffle
-from gen_epinion_adv_example import inference_apdm_format as inference_apdm_format_conflict_evidence
+from gen_epinion_adv_example import inference_apdm_format as inference_apdm_format_adv_csl
+
+from gen_epinion_adv_example_csl import inference_apdm_format as inference_apdm_format_csl
+
 from log import Log
 """
 INPUT
@@ -269,6 +272,62 @@ class Task_generate_PGD(object):
     def __str__(self):
         return '%s' % (self.p0)
 
+
+class Task_generate_PGD_CSL(object):
+    def __init__(self, V, E,Obs, T, swap_ratio,test_ratio,ratio,gamma,alpha,fout):
+        self.V = V
+        self.E = E
+        self.ObsO =Obs
+        self.T = T
+        self.swap_ratio = swap_ratio
+        self.test_ratio = test_ratio
+        self.ratio = ratio
+        self.gamma = gamma
+        self.alpha=alpha
+        self.fout = fout
+    def __call__(self):
+
+
+        Obs=copy.deepcopy(self.ObsO)
+        """ Step1: Sampling X edges with test ratio """
+        _, edge_down_nns, id_2_edge, edge_2_id, _, _ = reformat(self.V, self.E, Obs)
+        _, dict_paths = generate_eopinion_PSL_rules_from_edge_cnns(edge_down_nns, id_2_edge, edge_2_id)
+        E_X = sample_X2(self.test_ratio, self.V, [id_2_edge[item] for item in dict_paths.keys()])
+
+        """Step 2: Add noise to observations on the edges """
+        E_Y = [e for e in self.E if not E_X.has_key(e)]
+        # print E_Y
+        # rand_seq_E_Y = copy.deepcopy(E_Y)
+        # shuffle(rand_seq_E_Y)
+        # cnt = int(np.round(len(E_Y) * self.gamma))
+        # X_b = rand_seq_E_Y[:cnt]
+        X_b=[]
+        """ |p_y+alpha*sign(nabla_py L)| <= gamma"""
+        if self.gamma>0.0:
+            sign_grad_py = gen_adv_exmaple_csl(self.V, self.E, Obs, X_b, E_X)
+
+            T = len(Obs[self.E[0]])
+            for e in E_Y:
+                # print type(sign_grad_py[0])
+                if e not in sign_grad_py[0].keys(): print "Eroorrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr!"
+                for t in range(0, self.T):
+                    for i in range(len(sign_grad_py[t][e])):
+                        Obs[e][t] = clip01(Obs[e][t]+self.alpha*sign_grad_py[t][e][i])   #clip between [0,1]
+                    if np.abs(Obs[e][t]-self.ObsO[e][t]) >self.gamma:
+                        Obs[e][t]=clip01(self.ObsO[e][t]+np.sign(Obs[e][t]-self.ObsO[e][t])*self.gamma)  #clip |py_adv-py_orig|<gamma
+            print "Iteration Number",[len(sign_grad_py[i][sign_grad_py[i].keys()[0]]) for i in range(len(sign_grad_py)) ]
+
+
+        """   V, E, Obs, Omega, b, X_b, E_X, logging, psl   """
+
+        pkl_file = open(self.fout, 'wb')
+        pickle.dump([self.V, self.E, Obs, E_X, X_b], pkl_file)
+        pkl_file.close()
+        return
+
+    def __str__(self):
+        return '%s' % (self.p0)
+
 """
 Generate simulation datasets with different graph sizes and rates
 gamma =[0.0, 0.005, 0.01, 0.015, 0.02, 0.025, 0.03, 0.035, 0.04, 0.045, 0.05,
@@ -418,6 +477,58 @@ def simulation_data_generator_PGD():
         num_jobs -= 1
         print ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> remain: ",num_jobs
 
+def simulation_data_generator_PGD_CSL():
+    data_root="/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_pgd_csl/"
+    org_data_root="/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_pgd/"
+    realizations = 10
+    graph_sizes = [1000,5000, 10000,47676]
+    # graph_sizes = [2500, 7500]
+    ratios = [0.2]
+    alpha=0.01
+    tasks = multiprocessing.Queue()
+    results = multiprocessing.Queue()
+    num_consumers = 1  # We only use 5 cores.
+    # print 'Creating %d consumers' % num_consumers
+    consumers = [Consumer(tasks, results)
+                 for i in range(num_consumers)]
+    for w in consumers:
+        w.start()
+    num_jobs=0
+    for graph_size in graph_sizes[1:2]:
+        filename = "../data/graph_data/nodes-{0}.pkl".format(graph_size)
+        print "--------- reading {}".format(filename)
+        pkl_file = open(filename, 'rb')
+        [V, E] = pickle.load(pkl_file)
+        pkl_file.close()
+        out_folder = data_root + str(graph_size) + "/"
+        if not os.path.exists(out_folder):
+            os.makedirs(out_folder)
+        for T in [8,9,10,11][2:3]:
+            for swap_ratio in [0.00, 0.01, 0.05][:1]:
+                for test_ratio in [0.1, 0.2, 0.3, 0.4,0.5][:]:
+                    for ratio in ratios[:]:  #the percentage of edges set the observations to 1
+                        for real_i in range(realizations)[:]:
+                            org_file=org_data_root+"/{}/nodes-{}-T-{}-rate-{}-testratio-{}-swaprate-{}-gamma-{}-realization-{}-data-X.pkl".format(
+                                graph_size,graph_size, T, ratio, test_ratio, swap_ratio, 0.0, real_i)
+                            print("Origin-File: {}".format(org_file))
+                            with open(org_file,'rb') as pkl_file:
+                                [_, _, Obs,_,_] = pickle.load(pkl_file)
+                            # Obs = graph_process(V,E, T, ratio,swap_ratio)
+                            for gamma in [0.0, 0.01, 0.03, 0.05, 0.07,0.09,0.11,0.13,0.15,0.20,0.25][:]: #11
+                                fout= out_folder+"nodes-{}-T-{}-rate-{}-testratio-{}-swaprate-{}-gamma-{}-realization-{}-data-X.pkl".format(graph_size, T, ratio, test_ratio, swap_ratio, gamma, real_i)
+                                if not os.path.exists(fout):
+                                   tasks.put(Task_generate_PGD_CSL(V, E, Obs,T, swap_ratio,test_ratio,ratio,gamma,alpha,fout))
+                                   num_jobs+=1
+        print "\n\nGraph size {} Done.....................\n\n".format(graph_size)
+
+    for i in range(num_consumers):
+        tasks.put(None)
+
+    while num_jobs:
+        results.get()
+        num_jobs -= 1
+        print ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> remain: ",num_jobs
+
 def gen_nns(V, E):
     nns = {v: [] for v in V}
     for (v1,v2) in E:
@@ -494,16 +605,27 @@ def graph_process(V, E, n_features, ratio, swap_ratio):
         #print "{} # edges: {} # positives: {}".format(feat_i, n_E, np.sum([item[0] for item in feat_data.values()]))
     return feat_data
 
+
+""""Generate Adv_csl adversarial example"""
                     #self.V, self.E, Obs, X_b, E_X
 def gen_adv_exmaple(V, E, Obs, X_b,E_X):
     logging = Log()
     b={}
     Omega = calc_Omega_from_Obs2(Obs, E)                #V, E, Obs, Omega, b, X_b, E_X, logging, psl=False, approx=True, init_alpha_beta=(1, 1),report_stat=False
-    sign_grad_py=inference_apdm_format_conflict_evidence(V, E, Obs, Omega,  b, X_b, E_X, logging, psl=False)
+    sign_grad_py=inference_apdm_format_adv_csl(V, E, Obs, Omega,  b, X_b, E_X, logging, psl=False)
 
 
     return sign_grad_py
 
+""""Generate csl advesarial example"""
+def gen_adv_exmaple_csl(V, E, Obs, X_b,E_X):
+    logging = Log()
+    b={}
+    Omega = calc_Omega_from_Obs2(Obs, E)                #V, E, Obs, Omega, b, X_b, E_X, logging, psl=False, approx=True, init_alpha_beta=(1, 1),report_stat=False
+    sign_grad_py=inference_apdm_format_csl(V, E, Obs, Omega,  b, X_b, E_X, logging, psl=False)
+
+
+    return sign_grad_py
 # def draw_graph(V, E, Obs):
 #     G = nx.Graph()
 #     G.add_nodes_from(V)
@@ -535,9 +657,10 @@ def main():
     # [V, E] = pickle.load(pkl_file)
     # print len(V), len(E)
     # simulation_data_generator2()
-    simulation_data_generator_rf()
-    simulation_data_generator_rn()
-    simulation_data_generator_PGD()
+    # simulation_data_generator_rf()
+    # simulation_data_generator_rn()
+    # simulation_data_generator_PGD()
+    simulation_data_generator_PGD_CSL()
 
 if __name__=='__main__':
     main()

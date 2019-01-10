@@ -650,7 +650,7 @@ def slashdot_sybils_dataset_test():
                                     outfp.close()
 
 def main():
-    # facebook_sybils_dataset_test()
+    facebook_sybils_dataset_test()
     # enron_sybils_dataset_test()
     slashdot_sybils_dataset_test()
 

@@ -1,4 +1,5 @@
 import json
+import json
 import pickle
 import numpy as np
 import re,os,time
@@ -154,7 +155,7 @@ class Task_inference(object):
 
 
 class Task_inference2(object):
-    def __init__(self, dataset, weekday, hour, ref_ratio, test_ratio, ratio_conflict, real_i,running_time_dict,result_folder):
+    def __init__(self, dataset, weekday, hour, ref_ratio, test_ratio, ratio_conflict, real_i,running_time_dict,result_folder,adv_type):
         self.dataset = dataset
         self.weekday = weekday
         self.hour = hour
@@ -164,6 +165,7 @@ class Task_inference2(object):
         self.real_i = real_i
         self.running_time_dict=running_time_dict
         self.result_folder= result_folder
+        self.adv_type = adv_type
     def __call__(self):
         # this is the place to do your work
         # time.sleep(0.1) # pretend to take some time to do our work
@@ -174,8 +176,8 @@ class Task_inference2(object):
 
         # if result_file not in exfiles:
         #     continue
-        data_folder='/network/rit/lab/ceashpc/adil/data/csl-data/Sep18/'#June25/'
-        f = data_folder+'{}/network_{}_weekday_{}_hour_{}_refspeed_{}-testratio-{}-confictratio-{}-realization-{}.pkl'.format(self.dataset,self.dataset, self.weekday, self.hour, self.ref_ratio, self.test_ratio, self.ratio_conflict, self.real_i)
+        data_root="/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/"
+        f = data_root + "/traffic/"+ self.adv_type + "/{}/network_{}_weekday_{}_hour_{}_refspeed_{}-testratio-{}-gamma-{}-realization-{}.pkl".format(self.dataset,self.dataset, self.weekday, self.hour, self.ref_ratio, self.test_ratio, self.gamma, self.real_i)
 
         pkl_file = open(f, 'rb')
         [_, E, Obs, E_X, _] = pickle.load(pkl_file)  # V, E, Obs, E_X, X_b
@@ -191,10 +193,10 @@ class Task_inference2(object):
         for window in range(T):
 
             result_file = str(self.dataset) + '_' + str(self.weekday)+ '_' + str(self.hour)+ '_' + str(self.ref_ratio) + '_' + str(
-                self.test_ratio) + '_' + str(self.ratio_conflict) + '_'+ str(window) + '_' + str(self.real_i) + '-T43.txt'
+                self.test_ratio) + '_' + str(self.gamma) + '_'+ str(window) + '_' + str(self.real_i) + '-T43.txt'
 
             key = str(self.dataset) + '_' + str(self.weekday)+ '_' + str(self.hour)+ '_' + str(self.ref_ratio) + '_' + str(
-                self.test_ratio) + '_' + str(self.ratio_conflict) + '_'+ str(window) + '_' + str(self.real_i)
+                self.test_ratio) + '_' + str(self.gamma) + '_'+ str(window) + '_' + str(self.real_i)
             t_Obs = {e: e_Obs[window:window+1] for e, e_Obs in Obs.items()}
             try:
                 open(self.result_folder + result_file, 'r')
@@ -216,11 +218,11 @@ class Task_inference2(object):
         # alpha_mse, beta_mse, prob_mse, u_mse, b_mse, d_mse, prob_relative_mse, u_relative_mse, accuracy, recall_congested, recall_uncongested = result_analysis(E_X_dict, sw_Omega, weekday, hour, refspeed, window, percent)
         # save_results(dataset,weekday,hour,refspeed,window,percent,alpha_mse,beta_mse,prob_mse,u_mse,b_mse,d_mse,prob_relative_mse,u_relative_mse,accuracy,recall_congested,recall_uncongested,running_time)
 
-        result_ = {'dataset':self.dataset,'weekday':self.weekday,'hour':self.hour,'ref_ratio':self.ref_ratio,'network_size': len(Obs),
-                                               'sample_size': 1, 'T': T, 'ratio_conflict': self.ratio_conflict,
+        result_ = {'dataset':self.dataset,'adv_type':self.adv_type,'weekday':self.weekday,'hour':self.hour,'ref_ratio':self.ref_ratio,'network_size': len(Obs),
+                                               'sample_size': 1, 'T': T, 'gamma': self.gamma,
                                                'test_ratio': self.test_ratio, 'acc': (accuracy, accuracy),
                                                'prob_mse': (prob_mse, prob_mse),'alpha_mse': (alpha_mse, alpha_mse), 'beta_mse': (beta_mse, beta_mse), 'u_mse': (u_mse, u_mse), 'b_mse': (b_mse, b_mse), 'd_mse': (d_mse, d_mse),'realization':self.real_i, 'runtime': running_time}
-        output_file = open('../output/test/psl_results-server-traffic-T43-Sep26.json', 'a')
+        output_file = open('../output/traffic/PSL_results-server-traffic-Jan6-{}.json'.format(self.adv_type), 'a')
         output_file.write(json.dumps(result_) + '\n')
         output_file.close()
         return
@@ -590,11 +592,9 @@ def sliding_window_extract(Obs, start_t, window_size = 1):
     return sw_Omega, sw_Obs
 
 def traffic_resutls():
-
     count=0
-
-    data_root = "/network/rit/lab/ceashpc/adil/data/csl-data/Dec10/" #Sep18/#June25/"
-    result_folder = "/network/rit/lab/ceashpc/adil/results-traffic/"
+    data_root = "/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/" #Sep18/#June25/"
+    result_folder = "/network/rit/lab/ceashpc/adil/result_adv_csl/traffic/"
     tasks = multiprocessing.Queue()
     results = multiprocessing.Queue()
     # Start consumers
@@ -610,26 +610,27 @@ def traffic_resutls():
     datasets = ['philly', 'dc']
     count = 0
     num_job=0.0
-    for dataset in datasets[:]:
-        running_time_dict = read_running_time(result_folder + 'running_time.json')
-        for ref_ratio in ref_pers[:]:
-            dataroot = data_root + dataset + "/"
-
-            for weekday in range(5)[:]:
-                for hour in range(8, 22)[:]:
-                    for test_ratio in [0.1, 0.2, 0.3, 0.4, 0.5][1:2]:
-                        for ratio_conflict in [0.0, 0.1, 0.2, 0.3, 0.4][3:4]:
-                            for real_i in range(realizations)[:1]:
-                                tasks.put(Task_inference3(dataset, weekday, hour, ref_ratio, test_ratio, ratio_conflict, real_i,running_time_dict,result_folder))
-                                num_job+=1.0
-    for i in xrange(num_consumers):
-        tasks.put(None)
-    op_results = {}
-    while num_job:
-        True_Opinions, pred_opinions, test_ratio, ratio_conflict,dataset = results.get()
-        num_job -= 1.0
-        op_results["psl-" + str(test_ratio) + "-" + str(ratio_conflict) + "-" + dataset] = (True_Opinions, pred_opinions)
-        print num_job
+    for adv_type in ["random_flip", "random_noise", "random_pgd"][:]:
+        for dataset in datasets[:]:
+            running_time_dict = read_running_time(result_folder + 'running_time.json')
+            for ref_ratio in ref_pers[:1]:
+                dataroot = data_root + dataset + "/"
+                for weekday in range(5)[:1]:
+                    for hour in range(8, 22)[:1]:
+                        for test_ratio in [0.1, 0.2, 0.3, 0.4, 0.5][:]:
+                            for gamma in [0.0, 0.01, 0.03, 0.05, 0.07, 0.09, 0.11, 0.13, 0.15, 0.20, 0.25][:]:  # 11
+                                for real_i in range(realizations)[:1]:
+                                    tasks.put(Task_inference2(dataset, weekday, hour, ref_ratio, test_ratio, gamma, real_i,running_time_dict,result_folder,adv_type))
+                                    num_job+=1.0
+        for i in xrange(num_consumers):
+            tasks.put(None)
+        op_results = {}
+        while num_job:
+            # True_Opinions, pred_opinions, test_ratio, gamma,dataset = results.get()
+            results.get()
+            num_job -= 1.0
+            # op_results["psl-" + str(test_ratio) + "-" + str(gamma) + "-" + dataset] = (True_Opinions, pred_opinions)
+            print num_job
     # outfp = open("../output/test/psl_results-server-traffic-T43-Sep26-opinion2.pkl", 'a')
     # pickle.dump(op_results, outfp)
     # outfp.close()
