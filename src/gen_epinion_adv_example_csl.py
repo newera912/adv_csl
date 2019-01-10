@@ -569,10 +569,16 @@ d = 1 - omega[i][0]
 We obtain the following cubic euqation:
 a * p_i^3 + b * p_i^2 + c * p_i + d = 0
 """
-def get_sign_grad_py(sign_grad_py_t, p, Y, R_p, R_z, R_lambda_, copies, omega,rho):
+#                    sign_grad_py_t, p, Y, R_z, R_lambda_, copies, omega, rho
+def get_sign_grad_py(sign_grad_py_t, p, Y, R_z, R_lambda_, copies, omega,rho):
     for e in Y.keys():
-        if not copies.has_key(e): continue
-        nc = len(copies[e])
+        # if not copies.has_key(e): continue
+        if not copies.has_key(e):
+            if sign_grad_py_t.has_key(e):
+                sign_grad_py_t[e].append(0.0)  #the edges  are not involved any rules
+            else:
+                sign_grad_py_t[e]=[0.0]
+            continue
         z_lambda_sum = sum([p[e]-R_z[k][j] - R_lambda_[k][j] / rho for k, j in copies[e]])
         term1 =-(omega[e][0]-1)*(1-p[e]) +(omega[e][1]-1)*p[e]
         term2= rho*(1-p[e])*p[e]*z_lambda_sum
@@ -589,6 +595,7 @@ def get_sign_grad_py(sign_grad_py_t, p, Y, R_p, R_z, R_lambda_, copies, omega,rh
             else:
                 sign_grad_py_t[e] = [-1.0]
     return sign_grad_py_t
+
 
 """
 This function returns the solution to
@@ -1008,8 +1015,7 @@ def admm(omega, y_t, Y, X, edge_up_nns, edge_down_nns, p0, R, dict_paths, psl = 
         # rho = min(maxRho, rho * 1.1)
         p = R_p_2_p(R_p, copies, cnt_E)
 
-        sign_grad_py_t = get_sign_grad_py(sign_grad_py_t, p, Y, R_p, R_z, R_lambda_, copies, omega,
-                                          cnt_E, rho)
+        sign_grad_py_t = get_sign_grad_py(sign_grad_py_t, p, Y, R_z, R_lambda_, copies, omega, rho)
         error = sqrt(np.sum([pow(p_old[e] - p[e], 2) for e in range(cnt_E)]))
         # print ">>>>>>>>>>>> admm iteration.{0}: {1}".format(iter, error)
         if error < epsilon:

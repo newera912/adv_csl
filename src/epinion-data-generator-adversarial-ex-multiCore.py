@@ -498,21 +498,21 @@ def simulation_data_generator_PGD_CSL():
         filename = "../data/graph_data/nodes-{0}.pkl".format(graph_size)
         print "--------- reading {}".format(filename)
         pkl_file = open(filename, 'rb')
-        [V, E] = pickle.load(pkl_file)
+        # [V, E] = pickle.load(pkl_file)
         pkl_file.close()
         out_folder = data_root + str(graph_size) + "/"
         if not os.path.exists(out_folder):
             os.makedirs(out_folder)
         for T in [8,9,10,11][2:3]:
             for swap_ratio in [0.00, 0.01, 0.05][:1]:
-                for test_ratio in [0.1, 0.2, 0.3, 0.4,0.5][:]:
+                for test_ratio in [0.1, 0.2, 0.3, 0.4,0.5][2:]:
                     for ratio in ratios[:]:  #the percentage of edges set the observations to 1
                         for real_i in range(realizations)[:]:
                             org_file=org_data_root+"/{}/nodes-{}-T-{}-rate-{}-testratio-{}-swaprate-{}-gamma-{}-realization-{}-data-X.pkl".format(
                                 graph_size,graph_size, T, ratio, test_ratio, swap_ratio, 0.0, real_i)
                             print("Origin-File: {}".format(org_file))
                             with open(org_file,'rb') as pkl_file:
-                                [_, _, Obs,_,_] = pickle.load(pkl_file)
+                                [V, E, Obs,_,_] = pickle.load(pkl_file)
                             # Obs = graph_process(V,E, T, ratio,swap_ratio)
                             for gamma in [0.0, 0.01, 0.03, 0.05, 0.07,0.09,0.11,0.13,0.15,0.20,0.25][:]: #11
                                 fout= out_folder+"nodes-{}-T-{}-rate-{}-testratio-{}-swaprate-{}-gamma-{}-realization-{}-data-X.pkl".format(graph_size, T, ratio, test_ratio, swap_ratio, gamma, real_i)
@@ -621,8 +621,8 @@ def gen_adv_exmaple(V, E, Obs, X_b,E_X):
 def gen_adv_exmaple_csl(V, E, Obs, X_b,E_X):
     logging = Log()
     b={}
-    Omega = calc_Omega_from_Obs2(Obs, E)                #V, E, Obs, Omega, b, X_b, E_X, logging, psl=False, approx=True, init_alpha_beta=(1, 1),report_stat=False
-    sign_grad_py=inference_apdm_format_csl(V, E, Obs, Omega,  b, X_b, E_X, logging, psl=False)
+    Omega = calc_Omega_from_Obs2(Obs, E)  #V, E, Obs, Omega, E_X, logging, psl = False, approx = True,
+    sign_grad_py=inference_apdm_format_csl(V, E, Obs, Omega, E_X, logging, psl=False)
 
 
     return sign_grad_py
