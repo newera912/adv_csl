@@ -1397,3 +1397,4 @@ Classpath found cached, skipping classpath build.
 103339 [main] INFO  org.linqs.psl.config.ConfigManager  - Found value 25 for option Sybils0.admmreasoner.numthreads.
 103339 [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option Sybils0.atomeventframework.activation. Returning default of 0.01.
 554399 [main] DEBUG org.linqs.psl.model.rule.logical.AbstractLogicalRule  - Grounded 124846 instances of rule 1.0: ( ADJACENT(E1, E2) & BENIGN(E1) ) >> BENIGN(E2) ^2
+763849 [main] DEBUG org.linqs.psl.model.rule.logical.AbstractLogicalRule  - Grounded 120082 instances of rule 1.0: ( ADJACENT(E1, E2) & ~( BENIGN(E1) ) ) >> ~( BENIGN(E2) ) ^2
