@@ -24,7 +24,7 @@ def sliding_window_extract(Obs, start_t, window_size=5):
     return sw_Omega, sw_Obs
 
 
-def generate_data(Obs, E, E_X):
+def generate_data(Obs, E, E_X,gamma):
     adj_obs = open('../data/adjacent_obs.txt', 'w')
     edges = {}
     for e in E:
@@ -70,11 +70,10 @@ def generate_data(Obs, E, E_X):
                 # nonconj_truth.write(str(source)+'_'+str(target)+'\t'+'1'+'\n')
         else:
             benign = current_Obs[v]
-            if benign == 1:
+            if benign >= 1-gamma:
                 sybils_obs.write(str(v) + '\n')
-            elif benign == 0:
+            elif benign <= gamma:
                 benign_obs.write(str(v) + '\n')
-                ## shall we need to consider the ground rule of nonconjested
             else:
                 print benign
                 raise Exception('no obs error')
@@ -206,10 +205,10 @@ def pipeline():
                                         swap_ratio) + '_' + str(gamma) + '_' + str(window) + '_' + str(real_i) + '.txt'
                                     if exfiles.has_key(result_file):
                                         print "exists", result_file
-                                        # continue
+                                        continue
                                     print ">>>>", count, "-th ", attack_edge, real_i, T, window, test_ratio, gamma
 
-                                    generate_data(t_Obs, E, E_X)
+                                    generate_data(t_Obs, E, E_X,gamma)
                                     proc = subprocess.Popen(["./run.sh"])
                                     proc.communicate()
                                     proc.wait()

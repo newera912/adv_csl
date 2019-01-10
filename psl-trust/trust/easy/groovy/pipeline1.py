@@ -24,11 +24,10 @@ def sliding_window_extract(Obs, start_t, window_size=1):
     return sw_Omega, sw_Obs
 
 
-def generate_data(Obs, E, E_X, T, window):
+def generate_data(Obs, E, E_X, T, window,gamma):
     sizeE = len(E)
     #     E_X = random.sample(E,int(round(sizeE*percent)))
     # '''#this sampling is to avoid isolated testing edge
-
     print 'len(E_X)', len(E_X)
 
     adj_obs = open('../data/adjacent_obs.txt', 'w')
@@ -59,7 +58,7 @@ def generate_data(Obs, E, E_X, T, window):
         else:
             trust = current_Obs[e]
             source, target = e
-            if trust == 1:
+            if trust >= 1-gamma:
                 trust_obs.write(str(source) + '\t' + str(target) + '\n')
 
     trust_obs.close()
@@ -74,11 +73,10 @@ def pipeline():
     # with open('results/running_time.json','a') as outfile:
     for adv_type in ["random_flip", "random_noise", "random_pgd"][:2]:
         for graph_size in [5000][:]:
-            folder =data_root+"/result_adv_csl/" + str(graph_size) + "/"+adv_type+"/"
-            exfiles = {file: 1 for file in os.listdir(folder) if file.endswith(".txt")}
             result_folder = data_root+"/result_adv_csl/" + str(graph_size) + "/"+adv_type+"/"
             if not os.path.exists(result_folder):
                 os.makedirs(result_folder)
+            exfiles = {file: 1 for file in os.listdir(result_folder) if file.endswith(".txt")}
             # outfile = open(folder + '/running_time.json', 'a')
             for T in [8, 9, 10, 11][2:3]:
                 for ratio in [0.2,0.3][:1]:
@@ -113,7 +111,7 @@ def pipeline():
 
                                         print ">>>>", count, "-th ", graph_size, ratio, real_i, T, window, percent, gamma
 
-                                        generate_data(Obs, E, E_X, T, window)
+                                        generate_data(Obs, E, E_X, T, window,gamma)
                                         proc = subprocess.Popen(["./run.sh"])
                                         proc.communicate()
                                         proc.wait()
@@ -128,7 +126,7 @@ def pipeline():
                                             gamma) + '_' + str(real_i)
                                         r_dict = {}
                                         r_dict[key] = running_time
-                                        with open(folder + '/running_time.json', 'a') as op:
+                                        with open(result_folder + '/running_time.json', 'a') as op:
                                             op.write(json.dumps(r_dict) + '\n')
                                         count += 1
 

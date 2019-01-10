@@ -24,7 +24,7 @@ def sliding_window_extract(Obs, start_t, window_size = 5):
     return sw_Omega, sw_Obs
 
 
-def generate_data(Obs,E,E_X):
+def generate_data(Obs,E,E_X,gamma):
 
 
     sizeE = len(E)
@@ -75,9 +75,9 @@ def generate_data(Obs,E,E_X):
         else:
             conj = current_Obs[e][0]
             source,target = e
-            if conj == 1:
+            if conj >= 1-gamma:
                 conj_obs.write(str(source)+'_'+str(target)+'\n')
-            elif conj == 0:
+            elif conj <= gamma:
                 nonconj_obs.write(str(source)+'_'+str(target)+'\n')
                 ## shall we need to consider the ground rule of nonconjested
             else:
@@ -208,10 +208,11 @@ def pipeline():
                                         result_file = str(dataset) + '_' + str(weekday)+ '_' + str(hour)+ '_' + str(ref_ratio) + '_' + str(
                                             test_ratio) + '_' + str(gamma) + '_'+ str(window) + '_' + str(real_i) + '.txt'
                                         if exfiles.has_key(result_file):
+                                            print(result_file)
                                             continue
                                         print ">>>>", count, "-th ", dataset, ref_ratio,weekday,hour, real_i, T, window, test_ratio, gamma
 
-                                        generate_data(t_Obs, E, E_X)
+                                        generate_data(t_Obs, E, E_X,gamma)
                                         proc = subprocess.Popen(["./run.sh"])
                                         proc.communicate()
                                         proc.wait()

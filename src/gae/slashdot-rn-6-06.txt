@@ -7,3 +7,129 @@ Create a `tf.sparse.SparseTensor` and use `tf.sparse.to_dense` instead.
 2019-01-09 17:44:36.900137: W tensorflow/core/framework/allocator.cc:122] Allocation of 108025283584 exceeds 10% of system memory.
 2019-01-09 17:44:37.140269: W tensorflow/core/framework/allocator.cc:122] Allocation of 108025283584 exceeds 10% of system memory.
 2019-01-09 17:45:58.473430: W tensorflow/core/framework/allocator.cc:122] Allocation of 108025283584 exceeds 10% of system memory.
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_noise/slashdot/slashdot-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-gamma-0.0-realization-0-data-X.pkl
+|V|:164336 Adj:164336 
+|b|:164336 |u|:164336 |test_index|:49300 
+([], [], [])
+|V|:164336 Adj:164336 
+|b|:164336 |u|:164336 |test_index|:49300 
+mse_belief= 0.38847 mse_uncertain== 0.31185 bf-mse_opinion== 0.39541
+mse_belief= 0.35635 mse_uncertain== 0.24875 bf-mse_opinion== 0.36308
+mse_belief= 0.29434 mse_uncertain== 0.15331 bf-mse_opinion== 0.29972
+mse_belief= 0.21781 mse_uncertain== 0.08576 bf-mse_opinion== 0.21809
+mse_belief= 0.16873 mse_uncertain== 0.07084 bf-mse_opinion== 0.16168
+mse_belief= 0.15481 mse_uncertain== 0.06778 bf-mse_opinion== 0.14646
+mse_belief= 0.16092 mse_uncertain== 0.06819 bf-mse_opinion== 0.15304
+mse_belief= 0.17276 mse_uncertain== 0.06947 bf-mse_opinion== 0.16730
+mse_belief= 0.18659 mse_uncertain== 0.07084 bf-mse_opinion== 0.18264
+mse_belief= 0.19999 mse_uncertain== 0.07170 bf-mse_opinion== 0.19378
+Optimization Finished!
+alpha_0: 5.999281958913445 beta_0: 6.000718041086555
+best epoch: 60 bset_belief: 0.15481015 bset_uncertain: 0.06778107 bset_opinion: 0.14646092
+run time =  7944.7002871
+belief: 0.1548 uncertain: 0.1548 time window =  10 test_rio =  0.2
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_noise/slashdot/slashdot-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-gamma-0.01-realization-0-data-X.pkl
+|V|:164336 Adj:164336 
+|b|:164336 |u|:164336 |test_index|:49300 
+([], [], [])
+|V|:164336 Adj:164336 
+|b|:164336 |u|:164336 |test_index|:49300 
+mse_belief= 0.39130 mse_uncertain== 0.33034 bf-mse_opinion== 0.39790
+mse_belief= 0.37423 mse_uncertain== 0.31713 bf-mse_opinion== 0.38010
+mse_belief= 0.34848 mse_uncertain== 0.29107 bf-mse_opinion== 0.35410
+mse_belief= 0.32573 mse_uncertain== 0.26820 bf-mse_opinion== 0.33319
+mse_belief= 0.30827 mse_uncertain== 0.28913 bf-mse_opinion== 0.31767
+mse_belief= 0.28956 mse_uncertain== 0.33627 bf-mse_opinion== 0.29755
+mse_belief= 0.26986 mse_uncertain== 0.35655 bf-mse_opinion== 0.27458
+mse_belief= 0.26405 mse_uncertain== 0.37476 bf-mse_opinion== 0.26783
+mse_belief= 0.26941 mse_uncertain== 0.38621 bf-mse_opinion== 0.27366
+mse_belief= 0.27065 mse_uncertain== 0.39448 bf-mse_opinion== 0.27282
+Optimization Finished!
+alpha_0: 4.245849965923474 beta_0: 4.250066936033492
+best epoch: 80 bset_belief: 0.26404765 bset_uncertain: 0.37476066 bset_opinion: 0.26783153
+run time =  8407.83538389
+belief: 0.264 uncertain: 0.264 time window =  10 test_rio =  0.2
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_noise/slashdot/slashdot-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-gamma-0.03-realization-0-data-X.pkl
+|V|:164336 Adj:164336 
+|b|:164336 |u|:164336 |test_index|:49300 
+([], [], [])
+|V|:164336 Adj:164336 
+|b|:164336 |u|:164336 |test_index|:49300 
+mse_belief= 0.39042 mse_uncertain== 0.32627 bf-mse_opinion== 0.39502
+mse_belief= 0.37281 mse_uncertain== 0.30502 bf-mse_opinion== 0.37334
+mse_belief= 0.34980 mse_uncertain== 0.27819 bf-mse_opinion== 0.34787
+mse_belief= 0.33288 mse_uncertain== 0.27391 bf-mse_opinion== 0.33371
+mse_belief= 0.32228 mse_uncertain== 0.31127 bf-mse_opinion== 0.32795
+mse_belief= 0.30811 mse_uncertain== 0.34433 bf-mse_opinion== 0.31507
+mse_belief= 0.28541 mse_uncertain== 0.35165 bf-mse_opinion== 0.29130
+mse_belief= 0.26374 mse_uncertain== 0.36752 bf-mse_opinion== 0.26970
+mse_belief= 0.26095 mse_uncertain== 0.37689 bf-mse_opinion== 0.26562
+mse_belief= 0.26728 mse_uncertain== 0.38420 bf-mse_opinion== 0.27146
+Optimization Finished!
+alpha_0: 4.24859434329666 beta_0: 4.257989728361406
+best epoch: 90 bset_belief: 0.2609467 bset_uncertain: 0.37688828 bset_opinion: 0.26561677
+run time =  7887.89968181
+belief: 0.2609 uncertain: 0.2609 time window =  10 test_rio =  0.2
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_noise/slashdot/slashdot-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-gamma-0.05-realization-0-data-X.pkl
+|V|:164336 Adj:164336 
+|b|:164336 |u|:164336 |test_index|:49300 
+([], [], [])
+|V|:164336 Adj:164336 
+|b|:164336 |u|:164336 |test_index|:49300 
+mse_belief= 0.39201 mse_uncertain== 0.32446 bf-mse_opinion== 0.39781
+mse_belief= 0.37472 mse_uncertain== 0.29111 bf-mse_opinion== 0.37743
+mse_belief= 0.34719 mse_uncertain== 0.23241 bf-mse_opinion== 0.34593
+mse_belief= 0.32114 mse_uncertain== 0.19827 bf-mse_opinion== 0.31740
+mse_belief= 0.29912 mse_uncertain== 0.23045 bf-mse_opinion== 0.29438
+mse_belief= 0.27955 mse_uncertain== 0.29518 bf-mse_opinion== 0.27990
+mse_belief= 0.26976 mse_uncertain== 0.33905 bf-mse_opinion== 0.27222
+mse_belief= 0.27216 mse_uncertain== 0.36840 bf-mse_opinion== 0.27441
+mse_belief= 0.27444 mse_uncertain== 0.38517 bf-mse_opinion== 0.27758
+mse_belief= 0.27497 mse_uncertain== 0.39662 bf-mse_opinion== 0.27610
+Optimization Finished!
+alpha_0: 4.245849965923474 beta_0: 4.250066936033492
+best epoch: 70 bset_belief: 0.2697622 bset_uncertain: 0.33904868 bset_opinion: 0.27222157
+run time =  7835.45468998
+belief: 0.2698 uncertain: 0.2698 time window =  10 test_rio =  0.2
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_noise/slashdot/slashdot-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-gamma-0.07-realization-0-data-X.pkl
+|V|:164336 Adj:164336 
+|b|:164336 |u|:164336 |test_index|:49300 
+([], [], [])
+|V|:164336 Adj:164336 
+|b|:164336 |u|:164336 |test_index|:49300 
+mse_belief= 0.39187 mse_uncertain== 0.33385 bf-mse_opinion== 0.39882
+mse_belief= 0.37566 mse_uncertain== 0.32799 bf-mse_opinion== 0.38231
+mse_belief= 0.34908 mse_uncertain== 0.31250 bf-mse_opinion== 0.35673
+mse_belief= 0.32314 mse_uncertain== 0.29600 bf-mse_opinion== 0.33524
+mse_belief= 0.30405 mse_uncertain== 0.30622 bf-mse_opinion== 0.32019
+mse_belief= 0.28616 mse_uncertain== 0.34053 bf-mse_opinion== 0.29881
+mse_belief= 0.26927 mse_uncertain== 0.35847 bf-mse_opinion== 0.27464
+mse_belief= 0.26625 mse_uncertain== 0.37379 bf-mse_opinion== 0.26917
+mse_belief= 0.27077 mse_uncertain== 0.38600 bf-mse_opinion== 0.27451
+mse_belief= 0.27172 mse_uncertain== 0.39458 bf-mse_opinion== 0.27324
+Optimization Finished!
+alpha_0: 4.245849965923474 beta_0: 4.250066936033492
+best epoch: 80 bset_belief: 0.26624778 bset_uncertain: 0.37378782 bset_opinion: 0.2691731
+run time =  7817.03378892
+belief: 0.2662 uncertain: 0.2662 time window =  10 test_rio =  0.2
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_noise/slashdot/slashdot-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-gamma-0.09-realization-0-data-X.pkl
+|V|:164336 Adj:164336 
+|b|:164336 |u|:164336 |test_index|:49300 
+([], [], [])
+|V|:164336 Adj:164336 
+|b|:164336 |u|:164336 |test_index|:49300 
+mse_belief= 0.39191 mse_uncertain== 0.33163 bf-mse_opinion== 0.39806
+mse_belief= 0.37583 mse_uncertain== 0.32094 bf-mse_opinion== 0.38179
+mse_belief= 0.34903 mse_uncertain== 0.29612 bf-mse_opinion== 0.35620
+mse_belief= 0.32138 mse_uncertain== 0.27225 bf-mse_opinion== 0.33258
+mse_belief= 0.30197 mse_uncertain== 0.29060 bf-mse_opinion== 0.31674
+mse_belief= 0.28976 mse_uncertain== 0.34085 bf-mse_opinion== 0.30136
+mse_belief= 0.28153 mse_uncertain== 0.36459 bf-mse_opinion== 0.28358
+mse_belief= 0.27900 mse_uncertain== 0.37224 bf-mse_opinion== 0.27478
+mse_belief= 0.28011 mse_uncertain== 0.38724 bf-mse_opinion== 0.27595
+mse_belief= 0.28142 mse_uncertain== 0.39530 bf-mse_opinion== 0.27517
+Optimization Finished!
+alpha_0: 4.251862038749878 beta_0: 4.251107487099601
+best epoch: 80 bset_belief: 0.27900103 bset_uncertain: 0.37223798 bset_opinion: 0.27478477
+run time =  7777.19338393
+belief: 0.279 uncertain: 0.279 time window =  10 test_rio =  0.2

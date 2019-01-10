@@ -2,3 +2,465 @@ WARNING:tensorflow:From /network/rit/home/aa465948/venv/lib/python2.7/site-packa
 Instructions for updating:
 Create a `tf.sparse.SparseTensor` and use `tf.sparse.to_dense` instead.
 2019-01-09 16:42:28.737047: I tensorflow/core/platform/cpu_feature_guard.cc:141] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_flip/enron/enron-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-gamma-0.0-realization-0-data-X.pkl
+|V|:67392 Adj:67392 
+|b|:67392 |u|:67392 |test_index|:20218 
+([], [], [])
+|V|:67392 Adj:67392 
+|b|:67392 |u|:67392 |test_index|:20218 
+mse_belief= 0.38533 mse_uncertain== 0.30028 bf-mse_opinion== 0.39103
+mse_belief= 0.34851 mse_uncertain== 0.21342 bf-mse_opinion== 0.35344
+mse_belief= 0.28118 mse_uncertain== 0.09897 bf-mse_opinion== 0.28482
+mse_belief= 0.19584 mse_uncertain== 0.05938 bf-mse_opinion== 0.19476
+mse_belief= 0.14787 mse_uncertain== 0.05848 bf-mse_opinion== 0.13853
+mse_belief= 0.13710 mse_uncertain== 0.05297 bf-mse_opinion== 0.12860
+mse_belief= 0.14060 mse_uncertain== 0.04884 bf-mse_opinion== 0.13648
+mse_belief= 0.14543 mse_uncertain== 0.04812 bf-mse_opinion== 0.14427
+mse_belief= 0.14936 mse_uncertain== 0.04892 bf-mse_opinion== 0.14764
+mse_belief= 0.15437 mse_uncertain== 0.05039 bf-mse_opinion== 0.15329
+Optimization Finished!
+alpha_0: 5.997625830959164 beta_0: 6.002374169040836
+best epoch: 60 bset_belief: 0.13710229 bset_uncertain: 0.052968897 bset_opinion: 0.12860383
+run time =  1218.24131393
+belief: 0.1371 uncertain: 0.1371 time window =  10 test_rio =  0.2
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_flip/enron/enron-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-gamma-0.01-realization-0-data-X.pkl
+|V|:67392 Adj:67392 
+|b|:67392 |u|:67392 |test_index|:20218 
+([], [], [])
+|V|:67392 Adj:67392 
+|b|:67392 |u|:67392 |test_index|:20218 
+mse_belief= 0.38211 mse_uncertain== 0.30387 bf-mse_opinion== 0.38680
+mse_belief= 0.34109 mse_uncertain== 0.22053 bf-mse_opinion== 0.34498
+mse_belief= 0.27133 mse_uncertain== 0.10447 bf-mse_opinion== 0.27457
+mse_belief= 0.18833 mse_uncertain== 0.05977 bf-mse_opinion== 0.18737
+mse_belief= 0.14674 mse_uncertain== 0.05871 bf-mse_opinion== 0.13807
+mse_belief= 0.13949 mse_uncertain== 0.05241 bf-mse_opinion== 0.13200
+mse_belief= 0.14502 mse_uncertain== 0.04893 bf-mse_opinion== 0.14095
+mse_belief= 0.15063 mse_uncertain== 0.04806 bf-mse_opinion== 0.14949
+mse_belief= 0.15566 mse_uncertain== 0.04919 bf-mse_opinion== 0.15391
+mse_belief= 0.16102 mse_uncertain== 0.05005 bf-mse_opinion== 0.15950
+Optimization Finished!
+alpha_0: 5.998219373219373 beta_0: 6.001780626780627
+best epoch: 60 bset_belief: 0.13949452 bset_uncertain: 0.05241311 bset_opinion: 0.13200204
+run time =  1195.38137603
+belief: 0.1395 uncertain: 0.1395 time window =  10 test_rio =  0.2
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_flip/enron/enron-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-gamma-0.03-realization-0-data-X.pkl
+|V|:67392 Adj:67392 
+|b|:67392 |u|:67392 |test_index|:20218 
+([], [], [])
+|V|:67392 Adj:67392 
+|b|:67392 |u|:67392 |test_index|:20218 
+mse_belief= 0.38314 mse_uncertain== 0.30832 bf-mse_opinion== 0.38563
+mse_belief= 0.35127 mse_uncertain== 0.23363 bf-mse_opinion== 0.34857
+mse_belief= 0.30185 mse_uncertain== 0.12300 bf-mse_opinion== 0.29505
+mse_belief= 0.22997 mse_uncertain== 0.06590 bf-mse_opinion== 0.22227
+mse_belief= 0.16611 mse_uncertain== 0.06084 bf-mse_opinion== 0.15655
+mse_belief= 0.14530 mse_uncertain== 0.05496 bf-mse_opinion== 0.13431
+mse_belief= 0.14394 mse_uncertain== 0.05052 bf-mse_opinion== 0.13704
+mse_belief= 0.15014 mse_uncertain== 0.04863 bf-mse_opinion== 0.14672
+mse_belief= 0.15679 mse_uncertain== 0.04868 bf-mse_opinion== 0.15254
+mse_belief= 0.16527 mse_uncertain== 0.04961 bf-mse_opinion== 0.15966
+Optimization Finished!
+alpha_0: 5.997863247863248 beta_0: 6.002136752136752
+best epoch: 60 bset_belief: 0.14529891 bset_uncertain: 0.054955825 bset_opinion: 0.13430887
+run time =  1186.45137906
+belief: 0.1453 uncertain: 0.1453 time window =  10 test_rio =  0.2
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_flip/enron/enron-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-gamma-0.05-realization-0-data-X.pkl
+|V|:67392 Adj:67392 
+|b|:67392 |u|:67392 |test_index|:20218 
+([], [], [])
+|V|:67392 Adj:67392 
+|b|:67392 |u|:67392 |test_index|:20218 
+mse_belief= 0.38430 mse_uncertain== 0.28659 bf-mse_opinion== 0.38964
+mse_belief= 0.34895 mse_uncertain== 0.17343 bf-mse_opinion== 0.35271
+mse_belief= 0.28044 mse_uncertain== 0.06924 bf-mse_opinion== 0.28144
+mse_belief= 0.19060 mse_uncertain== 0.05951 bf-mse_opinion== 0.18664
+mse_belief= 0.14848 mse_uncertain== 0.05550 bf-mse_opinion== 0.13781
+mse_belief= 0.14198 mse_uncertain== 0.05091 bf-mse_opinion== 0.13490
+mse_belief= 0.14735 mse_uncertain== 0.04900 bf-mse_opinion== 0.14554
+mse_belief= 0.15180 mse_uncertain== 0.04932 bf-mse_opinion== 0.15034
+mse_belief= 0.15772 mse_uncertain== 0.05097 bf-mse_opinion== 0.15611
+mse_belief= 0.16499 mse_uncertain== 0.05250 bf-mse_opinion== 0.16468
+Optimization Finished!
+alpha_0: 5.989761396011396 beta_0: 6.010238603988604
+best epoch: 60 bset_belief: 0.14197528 bset_uncertain: 0.050906625 bset_opinion: 0.1348988
+run time =  1270.60759592
+belief: 0.142 uncertain: 0.142 time window =  10 test_rio =  0.2
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_flip/enron/enron-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-gamma-0.07-realization-0-data-X.pkl
+|V|:67392 Adj:67392 
+|b|:67392 |u|:67392 |test_index|:20218 
+([], [], [])
+|V|:67392 Adj:67392 
+|b|:67392 |u|:67392 |test_index|:20218 
+mse_belief= 0.38425 mse_uncertain== 0.31382 bf-mse_opinion== 0.39083
+mse_belief= 0.34684 mse_uncertain== 0.24178 bf-mse_opinion== 0.35327
+mse_belief= 0.28284 mse_uncertain== 0.12604 bf-mse_opinion== 0.28721
+mse_belief= 0.20108 mse_uncertain== 0.06426 bf-mse_opinion== 0.20117
+mse_belief= 0.15455 mse_uncertain== 0.05762 bf-mse_opinion== 0.14712
+mse_belief= 0.14708 mse_uncertain== 0.05130 bf-mse_opinion== 0.14058
+mse_belief= 0.15571 mse_uncertain== 0.04849 bf-mse_opinion== 0.15248
+mse_belief= 0.16617 mse_uncertain== 0.04736 bf-mse_opinion== 0.16407
+mse_belief= 0.17815 mse_uncertain== 0.04839 bf-mse_opinion== 0.17415
+mse_belief= 0.18474 mse_uncertain== 0.04854 bf-mse_opinion== 0.18089
+Optimization Finished!
+alpha_0: 6.0130876068376065 beta_0: 5.9869123931623935
+best epoch: 60 bset_belief: 0.14707983 bset_uncertain: 0.05129931 bset_opinion: 0.14057642
+run time =  1309.04031897
+belief: 0.1471 uncertain: 0.1471 time window =  10 test_rio =  0.2
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_flip/enron/enron-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-gamma-0.09-realization-0-data-X.pkl
+|V|:67392 Adj:67392 
+|b|:67392 |u|:67392 |test_index|:20218 
+([], [], [])
+|V|:67392 Adj:67392 
+|b|:67392 |u|:67392 |test_index|:20218 
+mse_belief= 0.38078 mse_uncertain== 0.31010 bf-mse_opinion== 0.38797
+mse_belief= 0.33837 mse_uncertain== 0.22964 bf-mse_opinion== 0.34638
+mse_belief= 0.27296 mse_uncertain== 0.10781 bf-mse_opinion== 0.28164
+mse_belief= 0.19982 mse_uncertain== 0.06222 bf-mse_opinion== 0.20236
+mse_belief= 0.16033 mse_uncertain== 0.05655 bf-mse_opinion== 0.15662
+mse_belief= 0.15411 mse_uncertain== 0.05038 bf-mse_opinion== 0.14871
+mse_belief= 0.15875 mse_uncertain== 0.04930 bf-mse_opinion== 0.15583
+mse_belief= 0.16908 mse_uncertain== 0.04851 bf-mse_opinion== 0.16925
+mse_belief= 0.17797 mse_uncertain== 0.05054 bf-mse_opinion== 0.17629
+mse_belief= 0.18976 mse_uncertain== 0.05074 bf-mse_opinion== 0.18790
+Optimization Finished!
+alpha_0: 5.9843008072174735 beta_0: 6.0156991927825265
+best epoch: 60 bset_belief: 0.1541127 bset_uncertain: 0.050381206 bset_opinion: 0.14870581
+run time =  1275.72080493
+belief: 0.1541 uncertain: 0.1541 time window =  10 test_rio =  0.2
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_flip/enron/enron-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-gamma-0.11-realization-0-data-X.pkl
+|V|:67392 Adj:67392 
+|b|:67392 |u|:67392 |test_index|:20218 
+([], [], [])
+|V|:67392 Adj:67392 
+|b|:67392 |u|:67392 |test_index|:20218 
+mse_belief= 0.38796 mse_uncertain== 0.29393 bf-mse_opinion== 0.39042
+mse_belief= 0.36731 mse_uncertain== 0.19719 bf-mse_opinion== 0.36273
+mse_belief= 0.33773 mse_uncertain== 0.08725 bf-mse_opinion== 0.32888
+mse_belief= 0.28135 mse_uncertain== 0.06313 bf-mse_opinion== 0.27258
+mse_belief= 0.20865 mse_uncertain== 0.06073 bf-mse_opinion== 0.19993
+mse_belief= 0.16652 mse_uncertain== 0.05338 bf-mse_opinion== 0.15876
+mse_belief= 0.15580 mse_uncertain== 0.04960 bf-mse_opinion== 0.15076
+mse_belief= 0.16060 mse_uncertain== 0.04925 bf-mse_opinion== 0.15548
+mse_belief= 0.17276 mse_uncertain== 0.04999 bf-mse_opinion== 0.16695
+mse_belief= 0.18428 mse_uncertain== 0.05115 bf-mse_opinion== 0.17829
+Optimization Finished!
+alpha_0: 5.9990800094966765 beta_0: 6.0009199905033235
+best epoch: 70 bset_belief: 0.1558011 bset_uncertain: 0.049596466 bset_opinion: 0.15076007
+run time =  1258.58992195
+belief: 0.1558 uncertain: 0.1558 time window =  10 test_rio =  0.2
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_flip/enron/enron-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-gamma-0.13-realization-0-data-X.pkl
+|V|:67392 Adj:67392 
+|b|:67392 |u|:67392 |test_index|:20218 
+([], [], [])
+|V|:67392 Adj:67392 
+|b|:67392 |u|:67392 |test_index|:20218 
+mse_belief= 0.38716 mse_uncertain== 0.30130 bf-mse_opinion== 0.38923
+mse_belief= 0.36462 mse_uncertain== 0.20896 bf-mse_opinion== 0.35839
+mse_belief= 0.33563 mse_uncertain== 0.09380 bf-mse_opinion== 0.32363
+mse_belief= 0.28433 mse_uncertain== 0.06620 bf-mse_opinion== 0.27333
+mse_belief= 0.21104 mse_uncertain== 0.06360 bf-mse_opinion== 0.20149
+mse_belief= 0.16689 mse_uncertain== 0.05453 bf-mse_opinion== 0.15859
+mse_belief= 0.15939 mse_uncertain== 0.05050 bf-mse_opinion== 0.15383
+mse_belief= 0.16963 mse_uncertain== 0.04953 bf-mse_opinion== 0.16409
+mse_belief= 0.18482 mse_uncertain== 0.04946 bf-mse_opinion== 0.17839
+mse_belief= 0.19577 mse_uncertain== 0.05033 bf-mse_opinion== 0.18973
+Optimization Finished!
+alpha_0: 5.997299382716049 beta_0: 6.002700617283951
+best epoch: 70 bset_belief: 0.15939331 bset_uncertain: 0.050502278 bset_opinion: 0.15383372
+run time =  1248.677351
+belief: 0.1594 uncertain: 0.1594 time window =  10 test_rio =  0.2
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_flip/enron/enron-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-gamma-0.15-realization-0-data-X.pkl
+|V|:67392 Adj:67392 
+|b|:67392 |u|:67392 |test_index|:20218 
+([], [], [])
+|V|:67392 Adj:67392 
+|b|:67392 |u|:67392 |test_index|:20218 
+mse_belief= 0.38762 mse_uncertain== 0.30092 bf-mse_opinion== 0.39242
+mse_belief= 0.36501 mse_uncertain== 0.21096 bf-mse_opinion== 0.36641
+mse_belief= 0.32532 mse_uncertain== 0.09629 bf-mse_opinion== 0.32378
+mse_belief= 0.25481 mse_uncertain== 0.05986 bf-mse_opinion== 0.25265
+mse_belief= 0.18812 mse_uncertain== 0.05500 bf-mse_opinion== 0.18363
+mse_belief= 0.16320 mse_uncertain== 0.04995 bf-mse_opinion== 0.15666
+mse_belief= 0.16286 mse_uncertain== 0.04938 bf-mse_opinion== 0.15907
+mse_belief= 0.17115 mse_uncertain== 0.04813 bf-mse_opinion== 0.16952
+mse_belief= 0.18156 mse_uncertain== 0.04970 bf-mse_opinion== 0.17963
+mse_belief= 0.19446 mse_uncertain== 0.05100 bf-mse_opinion== 0.19191
+Optimization Finished!
+alpha_0: 6.009526353276353 beta_0: 5.990473646723647
+best epoch: 60 bset_belief: 0.16319866 bset_uncertain: 0.049954243 bset_opinion: 0.15666017
+run time =  1244.22997594
+belief: 0.1632 uncertain: 0.1632 time window =  10 test_rio =  0.2
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_flip/enron/enron-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-gamma-0.2-realization-0-data-X.pkl
+|V|:67392 Adj:67392 
+|b|:67392 |u|:67392 |test_index|:20218 
+([], [], [])
+|V|:67392 Adj:67392 
+|b|:67392 |u|:67392 |test_index|:20218 
+mse_belief= 0.38848 mse_uncertain== 0.29533 bf-mse_opinion== 0.39177
+mse_belief= 0.36767 mse_uncertain== 0.19777 bf-mse_opinion== 0.36634
+mse_belief= 0.33571 mse_uncertain== 0.08568 bf-mse_opinion== 0.33246
+mse_belief= 0.27294 mse_uncertain== 0.06075 bf-mse_opinion== 0.26969
+mse_belief= 0.20549 mse_uncertain== 0.05713 bf-mse_opinion== 0.19795
+mse_belief= 0.17761 mse_uncertain== 0.05251 bf-mse_opinion== 0.16973
+mse_belief= 0.18022 mse_uncertain== 0.05033 bf-mse_opinion== 0.17646
+mse_belief= 0.19906 mse_uncertain== 0.05033 bf-mse_opinion== 0.19557
+mse_belief= 0.21794 mse_uncertain== 0.05105 bf-mse_opinion== 0.21338
+mse_belief= 0.22708 mse_uncertain== 0.05156 bf-mse_opinion== 0.22319
+Optimization Finished!
+alpha_0: 6.0120489078822414 beta_0: 5.9879510921177586
+best epoch: 60 bset_belief: 0.17760517 bset_uncertain: 0.0525109 bset_opinion: 0.16973008
+run time =  1221.02750802
+belief: 0.1776 uncertain: 0.1776 time window =  10 test_rio =  0.2
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_flip/enron/enron-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-gamma-0.25-realization-0-data-X.pkl
+|V|:67392 Adj:67392 
+|b|:67392 |u|:67392 |test_index|:20218 
+([], [], [])
+|V|:67392 Adj:67392 
+|b|:67392 |u|:67392 |test_index|:20218 
+mse_belief= 0.38961 mse_uncertain== 0.30536 bf-mse_opinion== 0.39303
+mse_belief= 0.37148 mse_uncertain== 0.22525 bf-mse_opinion== 0.37005
+mse_belief= 0.34966 mse_uncertain== 0.10752 bf-mse_opinion== 0.34514
+mse_belief= 0.30997 mse_uncertain== 0.05976 bf-mse_opinion== 0.30612
+mse_belief= 0.24116 mse_uncertain== 0.05781 bf-mse_opinion== 0.23667
+mse_belief= 0.19889 mse_uncertain== 0.05286 bf-mse_opinion== 0.19204
+mse_belief= 0.19264 mse_uncertain== 0.05034 bf-mse_opinion== 0.18868
+mse_belief= 0.20968 mse_uncertain== 0.04997 bf-mse_opinion== 0.20722
+mse_belief= 0.23134 mse_uncertain== 0.05051 bf-mse_opinion== 0.22772
+mse_belief= 0.24397 mse_uncertain== 0.05166 bf-mse_opinion== 0.24072
+Optimization Finished!
+alpha_0: 6.008843779677113 beta_0: 5.991156220322887
+best epoch: 70 bset_belief: 0.19263646 bset_uncertain: 0.05033745 bset_opinion: 0.1886778
+run time =  1202.67755318
+belief: 0.1926 uncertain: 0.1926 time window =  10 test_rio =  0.2
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_noise/enron/enron-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-gamma-0.0-realization-0-data-X.pkl
+|V|:67392 Adj:67392 
+|b|:67392 |u|:67392 |test_index|:20218 
+([], [], [])
+|V|:67392 Adj:67392 
+|b|:67392 |u|:67392 |test_index|:20218 
+mse_belief= 0.38222 mse_uncertain== 0.29266 bf-mse_opinion== 0.38446
+mse_belief= 0.34747 mse_uncertain== 0.18894 bf-mse_opinion== 0.34239
+mse_belief= 0.29151 mse_uncertain== 0.08054 bf-mse_opinion== 0.28193
+mse_belief= 0.21123 mse_uncertain== 0.06279 bf-mse_opinion== 0.20151
+mse_belief= 0.15758 mse_uncertain== 0.05924 bf-mse_opinion== 0.14582
+mse_belief= 0.14237 mse_uncertain== 0.05234 bf-mse_opinion== 0.13245
+mse_belief= 0.14038 mse_uncertain== 0.04876 bf-mse_opinion== 0.13610
+mse_belief= 0.14323 mse_uncertain== 0.04747 bf-mse_opinion== 0.14085
+mse_belief= 0.14695 mse_uncertain== 0.04803 bf-mse_opinion== 0.14420
+mse_belief= 0.15210 mse_uncertain== 0.04993 bf-mse_opinion== 0.14989
+Optimization Finished!
+alpha_0: 6.000133547008547 beta_0: 5.999866452991453
+best epoch: 60 bset_belief: 0.1423659 bset_uncertain: 0.052335583 bset_opinion: 0.13244933
+run time =  1190.667346
+belief: 0.1424 uncertain: 0.1424 time window =  10 test_rio =  0.2
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_noise/enron/enron-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-gamma-0.01-realization-0-data-X.pkl
+|V|:67392 Adj:67392 
+|b|:67392 |u|:67392 |test_index|:20218 
+([], [], [])
+|V|:67392 Adj:67392 
+|b|:67392 |u|:67392 |test_index|:20218 
+mse_belief= 0.38941 mse_uncertain== 0.32726 bf-mse_opinion== 0.39578
+mse_belief= 0.36919 mse_uncertain== 0.31011 bf-mse_opinion== 0.37480
+mse_belief= 0.34669 mse_uncertain== 0.29138 bf-mse_opinion== 0.35440
+mse_belief= 0.33520 mse_uncertain== 0.30196 bf-mse_opinion== 0.34613
+mse_belief= 0.32380 mse_uncertain== 0.34492 bf-mse_opinion== 0.33455
+mse_belief= 0.30090 mse_uncertain== 0.36129 bf-mse_opinion== 0.31066
+mse_belief= 0.27069 mse_uncertain== 0.36862 bf-mse_opinion== 0.28447
+mse_belief= 0.25082 mse_uncertain== 0.38209 bf-mse_opinion== 0.26939
+mse_belief= 0.24723 mse_uncertain== 0.39323 bf-mse_opinion== 0.26653
+mse_belief= 0.25077 mse_uncertain== 0.40112 bf-mse_opinion== 0.27019
+Optimization Finished!
+alpha_0: 4.255979938271605 beta_0: 4.2610547245963915
+best epoch: 90 bset_belief: 0.2472252 bset_uncertain: 0.39322686 bset_opinion: 0.26653084
+run time =  1192.16779017
+belief: 0.2472 uncertain: 0.2472 time window =  10 test_rio =  0.2
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_noise/enron/enron-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-gamma-0.03-realization-0-data-X.pkl
+|V|:67392 Adj:67392 
+|b|:67392 |u|:67392 |test_index|:20218 
+([], [], [])
+|V|:67392 Adj:67392 
+|b|:67392 |u|:67392 |test_index|:20218 
+mse_belief= 0.38680 mse_uncertain== 0.32000 bf-mse_opinion== 0.39078
+mse_belief= 0.36680 mse_uncertain== 0.27920 bf-mse_opinion== 0.36614
+mse_belief= 0.35000 mse_uncertain== 0.24167 bf-mse_opinion== 0.34647
+mse_belief= 0.34235 mse_uncertain== 0.27250 bf-mse_opinion== 0.34124
+mse_belief= 0.33137 mse_uncertain== 0.33664 bf-mse_opinion== 0.33768
+mse_belief= 0.30890 mse_uncertain== 0.35552 bf-mse_opinion== 0.31844
+mse_belief= 0.27922 mse_uncertain== 0.36417 bf-mse_opinion== 0.29091
+mse_belief= 0.25691 mse_uncertain== 0.37716 bf-mse_opinion== 0.27266
+mse_belief= 0.24889 mse_uncertain== 0.39034 bf-mse_opinion== 0.26659
+mse_belief= 0.24849 mse_uncertain== 0.39866 bf-mse_opinion== 0.26738
+Optimization Finished!
+alpha_0: 4.249910968660969 beta_0: 4.24437618708452
+best epoch: 90 bset_belief: 0.24888656 bset_uncertain: 0.39034295 bset_opinion: 0.26658994
+run time =  1191.48197985
+belief: 0.2489 uncertain: 0.2489 time window =  10 test_rio =  0.2
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_noise/enron/enron-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-gamma-0.05-realization-0-data-X.pkl
+|V|:67392 Adj:67392 
+|b|:67392 |u|:67392 |test_index|:20218 
+([], [], [])
+|V|:67392 Adj:67392 
+|b|:67392 |u|:67392 |test_index|:20218 
+mse_belief= 0.38764 mse_uncertain== 0.32327 bf-mse_opinion== 0.39306
+mse_belief= 0.36568 mse_uncertain== 0.28306 bf-mse_opinion== 0.36679
+mse_belief= 0.34426 mse_uncertain== 0.23762 bf-mse_opinion== 0.34324
+mse_belief= 0.33077 mse_uncertain== 0.25054 bf-mse_opinion== 0.33158
+mse_belief= 0.31184 mse_uncertain== 0.31313 bf-mse_opinion== 0.31727
+mse_belief= 0.28338 mse_uncertain== 0.34821 bf-mse_opinion== 0.29104
+mse_belief= 0.26074 mse_uncertain== 0.36759 bf-mse_opinion== 0.26918
+mse_belief= 0.25766 mse_uncertain== 0.38956 bf-mse_opinion== 0.26587
+mse_belief= 0.26090 mse_uncertain== 0.40191 bf-mse_opinion== 0.27024
+mse_belief= 0.26583 mse_uncertain== 0.41482 bf-mse_opinion== 0.27657
+Optimization Finished!
+alpha_0: 4.255979938271605 beta_0: 4.2610547245963915
+best epoch: 80 bset_belief: 0.2576625 bset_uncertain: 0.38955808 bset_opinion: 0.26586694
+run time =  1189.64653111
+belief: 0.2577 uncertain: 0.2577 time window =  10 test_rio =  0.2
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_noise/enron/enron-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-gamma-0.07-realization-0-data-X.pkl
+|V|:67392 Adj:67392 
+|b|:67392 |u|:67392 |test_index|:20218 
+([], [], [])
+|V|:67392 Adj:67392 
+|b|:67392 |u|:67392 |test_index|:20218 
+mse_belief= 0.38698 mse_uncertain== 0.32469 bf-mse_opinion== 0.39327
+mse_belief= 0.36548 mse_uncertain== 0.29888 bf-mse_opinion== 0.37079
+mse_belief= 0.33978 mse_uncertain== 0.26840 bf-mse_opinion== 0.34722
+mse_belief= 0.31802 mse_uncertain== 0.28072 bf-mse_opinion== 0.33258
+mse_belief= 0.29760 mse_uncertain== 0.33731 bf-mse_opinion== 0.31947
+mse_belief= 0.27941 mse_uncertain== 0.37091 bf-mse_opinion== 0.29737
+mse_belief= 0.27139 mse_uncertain== 0.38927 bf-mse_opinion== 0.27803
+mse_belief= 0.27414 mse_uncertain== 0.40557 bf-mse_opinion== 0.27602
+mse_belief= 0.27839 mse_uncertain== 0.41914 bf-mse_opinion== 0.28117
+mse_belief= 0.27985 mse_uncertain== 0.42904 bf-mse_opinion== 0.28303
+Optimization Finished!
+alpha_0: 4.255979938271605 beta_0: 4.2610547245963915
+best epoch: 80 bset_belief: 0.27414495 bset_uncertain: 0.40556934 bset_opinion: 0.2760175
+run time =  1192.17559004
+belief: 0.2741 uncertain: 0.2741 time window =  10 test_rio =  0.2
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_noise/enron/enron-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-gamma-0.09-realization-0-data-X.pkl
+|V|:67392 Adj:67392 
+|b|:67392 |u|:67392 |test_index|:20218 
+([], [], [])
+|V|:67392 Adj:67392 
+|b|:67392 |u|:67392 |test_index|:20218 
+mse_belief= 0.39138 mse_uncertain== 0.32538 bf-mse_opinion== 0.39813
+mse_belief= 0.37377 mse_uncertain== 0.29955 bf-mse_opinion== 0.38040
+mse_belief= 0.34634 mse_uncertain== 0.26331 bf-mse_opinion== 0.35488
+mse_belief= 0.32297 mse_uncertain== 0.26271 bf-mse_opinion== 0.33369
+mse_belief= 0.30478 mse_uncertain== 0.31880 bf-mse_opinion== 0.31523
+mse_belief= 0.28309 mse_uncertain== 0.36135 bf-mse_opinion== 0.29166
+mse_belief= 0.26656 mse_uncertain== 0.38330 bf-mse_opinion== 0.27225
+mse_belief= 0.26879 mse_uncertain== 0.40480 bf-mse_opinion== 0.27332
+mse_belief= 0.27540 mse_uncertain== 0.41756 bf-mse_opinion== 0.28072
+mse_belief= 0.27818 mse_uncertain== 0.42915 bf-mse_opinion== 0.28460
+Optimization Finished!
+alpha_0: 4.256425094966762 beta_0: 4.263859211775879
+best epoch: 70 bset_belief: 0.26655802 bset_uncertain: 0.38330328 bset_opinion: 0.2722461
+run time =  1196.97488499
+belief: 0.2666 uncertain: 0.2666 time window =  10 test_rio =  0.2
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_noise/enron/enron-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-gamma-0.11-realization-0-data-X.pkl
+|V|:67392 Adj:67392 
+|b|:67392 |u|:67392 |test_index|:20218 
+([], [], [])
+|V|:67392 Adj:67392 
+|b|:67392 |u|:67392 |test_index|:20218 
+mse_belief= 0.38727 mse_uncertain== 0.31974 bf-mse_opinion== 0.39263
+mse_belief= 0.36431 mse_uncertain== 0.27391 bf-mse_opinion== 0.36514
+mse_belief= 0.34131 mse_uncertain== 0.22470 bf-mse_opinion== 0.33968
+mse_belief= 0.32571 mse_uncertain== 0.24228 bf-mse_opinion== 0.32579
+mse_belief= 0.30611 mse_uncertain== 0.31297 bf-mse_opinion== 0.31240
+mse_belief= 0.27854 mse_uncertain== 0.34547 bf-mse_opinion== 0.28799
+mse_belief= 0.25799 mse_uncertain== 0.36497 bf-mse_opinion== 0.26760
+mse_belief= 0.25438 mse_uncertain== 0.38285 bf-mse_opinion== 0.26372
+mse_belief= 0.25754 mse_uncertain== 0.39924 bf-mse_opinion== 0.27008
+mse_belief= 0.26184 mse_uncertain== 0.41163 bf-mse_opinion== 0.27585
+Optimization Finished!
+alpha_0: 4.256425094966762 beta_0: 4.263859211775879
+best epoch: 80 bset_belief: 0.25437787 bset_uncertain: 0.3828463 bset_opinion: 0.26371935
+run time =  1199.47603083
+belief: 0.2544 uncertain: 0.2544 time window =  10 test_rio =  0.2
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_noise/enron/enron-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-gamma-0.13-realization-0-data-X.pkl
+|V|:67392 Adj:67392 
+|b|:67392 |u|:67392 |test_index|:20218 
+([], [], [])
+|V|:67392 Adj:67392 
+|b|:67392 |u|:67392 |test_index|:20218 
+mse_belief= 0.39000 mse_uncertain== 0.33235 bf-mse_opinion== 0.39699
+mse_belief= 0.37103 mse_uncertain== 0.32686 bf-mse_opinion== 0.38030
+mse_belief= 0.34384 mse_uncertain== 0.31961 bf-mse_opinion== 0.35921
+mse_belief= 0.32237 mse_uncertain== 0.32820 bf-mse_opinion== 0.34503
+mse_belief= 0.30861 mse_uncertain== 0.36680 bf-mse_opinion== 0.33095
+mse_belief= 0.29225 mse_uncertain== 0.39252 bf-mse_opinion== 0.30769
+mse_belief= 0.27743 mse_uncertain== 0.39984 bf-mse_opinion== 0.28470
+mse_belief= 0.27853 mse_uncertain== 0.41220 bf-mse_opinion== 0.28164
+mse_belief= 0.28305 mse_uncertain== 0.42349 bf-mse_opinion== 0.28757
+mse_belief= 0.28557 mse_uncertain== 0.43223 bf-mse_opinion== 0.28916
+Optimization Finished!
+alpha_0: 4.239256885090218 beta_0: 4.25031160968661
+best epoch: 80 bset_belief: 0.27853197 bset_uncertain: 0.41219786 bset_opinion: 0.2816415
+run time =  1189.6303072
+belief: 0.2785 uncertain: 0.2785 time window =  10 test_rio =  0.2
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_noise/enron/enron-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-gamma-0.15-realization-0-data-X.pkl
+|V|:67392 Adj:67392 
+|b|:67392 |u|:67392 |test_index|:20218 
+([], [], [])
+|V|:67392 Adj:67392 
+|b|:67392 |u|:67392 |test_index|:20218 
+mse_belief= 0.38786 mse_uncertain== 0.31689 bf-mse_opinion== 0.39237
+mse_belief= 0.36921 mse_uncertain== 0.26728 bf-mse_opinion== 0.36877
+mse_belief= 0.34869 mse_uncertain== 0.20997 bf-mse_opinion== 0.34435
+mse_belief= 0.33106 mse_uncertain== 0.20703 bf-mse_opinion== 0.32446
+mse_belief= 0.31101 mse_uncertain== 0.27160 bf-mse_opinion== 0.30502
+mse_belief= 0.28969 mse_uncertain== 0.33598 bf-mse_opinion== 0.28835
+mse_belief= 0.27835 mse_uncertain== 0.37329 bf-mse_opinion== 0.27780
+mse_belief= 0.28105 mse_uncertain== 0.40044 bf-mse_opinion== 0.27769
+mse_belief= 0.28492 mse_uncertain== 0.42104 bf-mse_opinion== 0.28300
+mse_belief= 0.28733 mse_uncertain== 0.43214 bf-mse_opinion== 0.28668
+Optimization Finished!
+alpha_0: 4.235547245963913 beta_0: 4.247477445394112
+best epoch: 80 bset_belief: 0.2810516 bset_uncertain: 0.40044436 bset_opinion: 0.277692
+run time =  1195.50302005
+belief: 0.2811 uncertain: 0.2811 time window =  10 test_rio =  0.2
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_noise/enron/enron-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-gamma-0.2-realization-0-data-X.pkl
+|V|:67392 Adj:67392 
+|b|:67392 |u|:67392 |test_index|:20218 
+([], [], [])
+|V|:67392 Adj:67392 
+|b|:67392 |u|:67392 |test_index|:20218 
+mse_belief= 0.38919 mse_uncertain== 0.32506 bf-mse_opinion== 0.39474
+mse_belief= 0.36950 mse_uncertain== 0.28867 bf-mse_opinion== 0.37197
+mse_belief= 0.34676 mse_uncertain== 0.23933 bf-mse_opinion== 0.34703
+mse_belief= 0.33061 mse_uncertain== 0.24284 bf-mse_opinion== 0.33164
+mse_belief= 0.31126 mse_uncertain== 0.30824 bf-mse_opinion== 0.31537
+mse_belief= 0.28452 mse_uncertain== 0.34953 bf-mse_opinion== 0.29029
+mse_belief= 0.26639 mse_uncertain== 0.37011 bf-mse_opinion== 0.27050
+mse_belief= 0.26660 mse_uncertain== 0.39243 bf-mse_opinion== 0.26988
+mse_belief= 0.27213 mse_uncertain== 0.41097 bf-mse_opinion== 0.27722
+mse_belief= 0.27443 mse_uncertain== 0.42043 bf-mse_opinion== 0.28037
+Optimization Finished!
+alpha_0: 4.2546147910731245 beta_0: 4.25167675688509
+best epoch: 80 bset_belief: 0.26660246 bset_uncertain: 0.39242557 bset_opinion: 0.2698771
+run time =  1195.53673792
+belief: 0.2666 uncertain: 0.2666 time window =  10 test_rio =  0.2
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_noise/enron/enron-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-gamma-0.25-realization-0-data-X.pkl
+|V|:67392 Adj:67392 
+|b|:67392 |u|:67392 |test_index|:20218 
+([], [], [])
+|V|:67392 Adj:67392 
+|b|:67392 |u|:67392 |test_index|:20218 
+mse_belief= 0.38918 mse_uncertain== 0.32763 bf-mse_opinion== 0.39553
+mse_belief= 0.36760 mse_uncertain== 0.31007 bf-mse_opinion== 0.37395
+mse_belief= 0.34329 mse_uncertain== 0.28663 bf-mse_opinion== 0.35143
+mse_belief= 0.32820 mse_uncertain== 0.29937 bf-mse_opinion== 0.34168
+mse_belief= 0.31184 mse_uncertain== 0.34653 bf-mse_opinion== 0.32837
+mse_belief= 0.28583 mse_uncertain== 0.37229 bf-mse_opinion== 0.29922
+mse_belief= 0.26379 mse_uncertain== 0.38838 bf-mse_opinion== 0.27372
+mse_belief= 0.26193 mse_uncertain== 0.40968 bf-mse_opinion== 0.27226
+mse_belief= 0.26907 mse_uncertain== 0.41914 bf-mse_opinion== 0.27881
+mse_belief= 0.27202 mse_uncertain== 0.42616 bf-mse_opinion== 0.28161
+Optimization Finished!
+alpha_0: 4.241912986704653 beta_0: 4.252700617283951
+best epoch: 80 bset_belief: 0.26193157 bset_uncertain: 0.40968305 bset_opinion: 0.27225858
+run time =  1189.543782
+belief: 0.2619 uncertain: 0.2619 time window =  10 test_rio =  0.2

@@ -24,7 +24,7 @@ def sliding_window_extract(Obs, start_t, window_size=1):
     return sw_Omega, sw_Obs
 
 
-def generate_data(Obs, E, E_X, T, window):
+def generate_data(Obs, E, E_X, T, window,gamma):
     sizeE = len(E)
     #     E_X = random.sample(E,int(round(sizeE*percent)))
     # '''#this sampling is to avoid isolated testing edge
@@ -59,7 +59,7 @@ def generate_data(Obs, E, E_X, T, window):
         else:
             trust = current_Obs[e]
             source, target = e
-            if trust == 1:
+            if trust >= 1-gamma:
                 trust_obs.write(str(source) + '\t' + str(target) + '\n')
 
     trust_obs.close()
@@ -86,7 +86,7 @@ def pipeline():
                 for ratio in [0.2,0.3][:1]:
                     for swap_ratio in [0.0]:
                         for percent in [0.1, 0.2, 0.3, 0.4, 0.5][:]:
-                            for gamma in [0.0, 0.01, 0.03, 0.05, 0.07, 0.09, 0.11, 0.13, 0.15, 0.20, 0.25][:]:  # 11
+                            for gamma in [0.0, 0.01, 0.03, 0.05, 0.07, 0.09, 0.11, 0.13, 0.15, 0.20, 0.25][1:]:  # 11
                                 for real_i in range(1):
                                     '''
                                         generate evidence data to feed the psl
@@ -111,11 +111,11 @@ def pipeline():
                                             real_i) + '.txt'
                                         if exfiles.has_key(result_file):
                                             print "Exists..."
-                                            continue
+                                            # continue
 
                                         print ">>>>", count, "-th ", graph_size, ratio, real_i, T, window, percent, gamma
 
-                                        generate_data(Obs, E, E_X, T, window)
+                                        generate_data(Obs, E, E_X, T, window,gamma)
                                         proc = subprocess.Popen(["./run.sh"])
                                         proc.communicate()
                                         proc.wait()
