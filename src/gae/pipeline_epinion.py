@@ -28,7 +28,7 @@ import pickle
 flags = tf.app.flags
 FLAGS = flags.FLAGS
 flags.DEFINE_float('learning_rate', 0.001, 'Initial learning rate.')
-flags.DEFINE_integer('epochs', 500, 'Number of epochs to train.')
+flags.DEFINE_integer('epochs', 250, 'Number of epochs to train.')
 flags.DEFINE_integer('hidden1', 32, 'Number of units in hidden layer 1.')
 flags.DEFINE_integer('hidden2', 4, 'Number of units in hidden layer 2, P in our paper.')
 flags.DEFINE_float('weight_decay', 0., 'Weight for L2 loss on embedding matrix.')
@@ -59,13 +59,13 @@ tf.set_random_seed(seed)
 data_root = "/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/"   #May23-3
 #real data
 case_count=0
-for adv_type in ["random_flip","random_noise","random_pgd"][2:]:
+for adv_type in ["random_flip","random_noise","random_pgd","random_pgd_csl"][3:]:
     for graph_size in [5000][:]:
         for T in [8, 9, 10, 11][2:3]:    #5,6,10,20,11,21,15
             for real_i in range(10)[:]:
                 for ratio in [0.2][:]:#0.0,0.1,0.2,0.3,the percentage of edges set the observations to 1
                     for swap_ratio in [0.00, 0.01, 0.05][:1]:
-                        for test_ratio in [0.1, 0.2,0.3, 0.4, 0.5][:]:                #percentage of edges to test (|E_x|/|E|)
+                        for test_ratio in [0.1, 0.2,0.3, 0.4, 0.5][:2]:                #percentage of edges to test (|E_x|/|E|)
                             for gamma in [0.0, 0.01, 0.03, 0.05, 0.07,0.09,0.11,0.13,0.15,0.20,0.25][:]:  # 8
                                 out_folder = data_root +"/"+adv_type +"/"+ str(graph_size) + "/"
                                 print(str(case_count)+" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
@@ -73,6 +73,7 @@ for adv_type in ["random_flip","random_noise","random_pgd"][2:]:
 
                                 fileName=out_folder + "nodes-{}-T-{}-rate-{}-testratio-{}-swaprate-{}-gamma-{}-realization-{}-data-X.pkl".format(
                                             graph_size, T, ratio, test_ratio, swap_ratio, gamma, real_i)
+                                print(fileName)
                                 outf = '../../output/epinions/{}_results-server-{}-Jan5-{}.json'.format("GCN-VAE", graph_size,adv_type)
                                 adj,y_train_belief, y_test_belief, y_train_un, y_test_un, train_mask, test_mask, omega_test, alpha_0, beta_0 = mask_test_edge_epinion(fileName,T)
                                 # Store original adjacency matrix (without diagonal entries) for later

@@ -175,7 +175,7 @@ def pipeline():
     count = 0
     realizations = 1
     # methods = ["sl", "csl", "csl-conflict-1", "csl-conflict-2", "base1", "base2", "base3"][:1]
-    for adv_type in ["random_flip", "random_noise", "random_pgd"][2:]:
+    for adv_type in ["random_flip", "random_noise", "random_pgd"][:1]:
         for attack_edge in [1000, 5000, 10000, 15000, 20000][2:3]:
             result_folder = data_root + "/result_adv_csl/slashdot/" + adv_type + "/"
             if not os.path.exists(result_folder):

@@ -24,7 +24,7 @@ def sliding_window_extract(Obs, start_t, window_size=5):
     return sw_Omega, sw_Obs
 
 
-def generate_data(Obs, E, E_X):
+def generate_data(Obs, E, E_X,gamma):
     adj_obs = open('../data/adjacent_obs.txt', 'w')
     edges = {}
     for e in E:
@@ -70,11 +70,10 @@ def generate_data(Obs, E, E_X):
                 # nonconj_truth.write(str(source)+'_'+str(target)+'\t'+'1'+'\n')
         else:
             benign = current_Obs[v]
-            if benign == 1:
+            if benign >= 1-gamma:
                 sybils_obs.write(str(v) + '\n')
-            elif benign == 0:
+            elif benign <= gamma:
                 benign_obs.write(str(v) + '\n')
-                ## shall we need to consider the ground rule of nonconjested
             else:
                 print benign
                 raise Exception('no obs error')
@@ -169,64 +168,65 @@ def calculate_measures(true_omega_x, pred_omega_x, X):
 
 
 def pipeline():
-    # slashdot 1
-    dataroot = "/network/rit/lab/ceashpc/adil/data/csl-data/slashdot/"
-    result_folder = "/network/rit/lab/ceashpc/adil/results-slashdot/"
-    if not os.path.exists(result_folder):
-        os.makedirs(result_folder)
-    exfiles = {file: 1 for file in os.listdir(result_folder) if file.endswith(".txt")}
+    #sybils 1
+    data_root = "/network/rit/lab/ceashpc/adil/"
+
     report_stat = False
     count = 0
     realizations = 1
     # methods = ["sl", "csl", "csl-conflict-1", "csl-conflict-2", "base1", "base2", "base3"][:1]
-    for attack_edge in [1000, 5000, 10000, 15000, 20000][3:]:
-        for T in [10][:]:
-            for swap_ratio in [0.00, 0.01, 0.02, 0.05][1:2]:
-                for test_ratio in [0.1, 0.2, 0.3, 0.4, 0.5][1:2]:
-                    for ratio_conflict in [0.0, 0.1, 0.2, 0.3, 0.4][3:4]:
-                        for real_i in range(realizations)[:1]:
-                            count += 1.0
-                            f = dataroot + "slashdot-attackedges-{}-T-{}-testratio-{}-swap_ratio-{}-conflictratio-{}-realization-{}-data-X.pkl".format(
-                                attack_edge, T, test_ratio, swap_ratio, ratio_conflict, real_i)
-                            pkl_file = open(f, 'rb')
-                            # V, E, Obs, E_X, X_b
-                            [_, E, Obs, E_X, _] = pickle.load(pkl_file)
-                            pkl_file.close()
-                            # E_X = {e: 1 for e in E_X}
-                            T = len(Obs.values()[0])
-                            m_idx = int(round(T / 2.0))
-                            # for window in range(m_idx - 5,m_idx + 7):
-                            for window in range(T)[:]:
-                                running_start_time = time.time()
-                                t_Obs = {v: v_Obs[window] for v, v_Obs in Obs.items()}
-                                result_file = str(attack_edge) + '_' + str(
-                                    test_ratio) + '_' + str(
-                                    swap_ratio) + '_' + str(ratio_conflict) + '_' + str(window) + '_' + str(
-                                    real_i) + '.txt'
-                                if exfiles.has_key(result_file):
-                                    print "exists", result_file
-                                    continue
-                                print ">>>>", count, "-th ", attack_edge, real_i, T, window, test_ratio, ratio_conflict
-                                print result_file
-                                generate_data(t_Obs, E, E_X)
-                                proc = subprocess.Popen(["./run.sh"])
-                                proc.communicate()
-                                proc.wait()
-                                proc = subprocess.Popen(
-                                    ["cp", "output/default/sybils_infer.txt", result_folder + result_file])
-                                proc.communicate()
-                                proc.wait()
-                                running_end_time = time.time()
-                                running_time = running_end_time - running_start_time
-                                key = str(attack_edge) + '_' + str(
-                                    test_ratio) + '_' + str(
-                                    swap_ratio) + '_' + str(ratio_conflict) + '_' + str(window) + '_' + str(
-                                    real_i)
-                                r_dict = {}
-                                r_dict[key] = running_time
-                                with open(result_folder + '/running_time.json', 'a') as op:
-                                    op.write(json.dumps(r_dict) + '\n')
-                                count += 1
+    for adv_type in ["random_flip", "random_noise", "random_pgd"][1:2]:
+        for attack_edge in [1000, 5000, 10000, 15000, 20000][2:3]:
+            result_folder = data_root + "/result_adv_csl/slashdot/" + adv_type + "/"
+            if not os.path.exists(result_folder):
+                os.makedirs(result_folder)
+            exfiles = {file: 1 for file in os.listdir(result_folder) if file.endswith(".txt")}
+            for T in [10][:]:
+                for swap_ratio in [0.00, 0.01, 0.02, 0.05][1:2]:
+                    for test_ratio in [0.1, 0.2, 0.3, 0.4, 0.5][2:3]:
+                        for gamma in [0.0, 0.01, 0.03, 0.05, 0.07, 0.09, 0.11, 0.13, 0.15, 0.20, 0.25][:6]:  # 11
+                            for real_i in range(realizations)[:1]:
+                                count += 1.0
+                                f = data_root + "data/adv_csl/Jan2/" + adv_type + "/slashdot/slashdot-attackedges-{}-T-{}-testratio-{}-swap_ratio-{}-gamma-{}-realization-{}-data-X.pkl".format(
+                                    attack_edge, T, test_ratio, swap_ratio, gamma, real_i)
+                                pkl_file = open(f, 'rb')
+                                # V, E, Obs, E_X, X_b
+                                [_, E, Obs, E_X, _] = pickle.load(pkl_file)
+                                pkl_file.close()
+                                # E_X = {e: 1 for e in E_X}
+                                T = len(Obs.values()[0])
+                                m_idx = int(round(T / 2.0))
+                                # for window in range(m_idx - 5,m_idx + 7):
+                                for window in range(T)[:]:
+                                    running_start_time = time.time()
+                                    t_Obs = {v: v_Obs[window] for v, v_Obs in Obs.items()}
+                                    result_file = str(attack_edge) + '_' + str(
+                                        test_ratio) + '_' + str(
+                                        swap_ratio) + '_' + str(gamma) + '_' + str(window) + '_' + str(real_i) + '.txt'
+                                    if exfiles.has_key(result_file):
+                                        print "exists", result_file
+                                        continue
+                                    print ">>>>", count, "-th ", attack_edge, real_i, T, window, test_ratio, gamma
+
+                                    generate_data(t_Obs, E, E_X,gamma)
+                                    proc = subprocess.Popen(["./run.sh"])
+                                    proc.communicate()
+                                    proc.wait()
+                                    proc = subprocess.Popen(
+                                        ["cp", "output/default/sybils_infer.txt", result_folder + result_file])
+                                    proc.communicate()
+                                    proc.wait()
+                                    running_end_time = time.time()
+                                    running_time = running_end_time - running_start_time
+                                    key = str(attack_edge) + '_' + str(
+                                        test_ratio) + '_' + str(
+                                        swap_ratio) + '_' + str(gamma) + '_' + str(window) + '_' + str(
+                                        real_i)
+                                    r_dict = {}
+                                    r_dict[key] = running_time
+                                    with open(result_folder + '/running_time.json', 'a') as op:
+                                        op.write(json.dumps(r_dict) + '\n')
+                                    count += 1
 
 
 if __name__ == '__main__':
