@@ -43,12 +43,12 @@ class OptimizerVAE(object):
         # self.cost -= self.kl
         self.cost = self.cost_belief + self.cost_uncertain
         print(self.cost_belief.get_shape().as_list(), self.cost_uncertain.get_shape().as_list(),self.cost_decode_sparse.get_shape().as_list())
-        # self.cost1 = self.cost_belief + self.cost_uncertain + self.cost_decode_sparse * FLAGS.p_encode + self.cost_kl * FLAGS.p_kl
-        self.cost1 = self.cost_belief + self.cost_uncertain  + self.cost_kl * FLAGS.p_kl
+        self.cost1 = self.cost_belief + self.cost_uncertain + self.cost_decode_sparse * FLAGS.p_encode + self.cost_kl * FLAGS.p_kl
+        # self.cost1 = self.cost_belief + self.cost_uncertain  + self.cost_kl * FLAGS.p_kl
 
         self.opt_op = self.optimizer.minimize(self.cost)
         self.opt_op1 = self.optimizer.minimize(self.cost1)
-        self.grads_vars = self.optimizer.compute_gradients(self.cost)
+        self.grads_vars = self.optimizer.compute_gradients(self.cost1,var_list=[model.belief])
 
         # self.correct_prediction = tf.equal(tf.cast(tf.greater_equal(tf.sigmoid(preds_sub), 0.5), tf.int32),
         #                                    tf.cast(labels_sub, tf.int32))
