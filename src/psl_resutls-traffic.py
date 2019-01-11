@@ -155,13 +155,13 @@ class Task_inference(object):
 
 
 class Task_inference2(object):
-    def __init__(self, dataset, weekday, hour, ref_ratio, test_ratio, ratio_conflict, real_i,running_time_dict,result_folder,adv_type):
+    def __init__(self, dataset, weekday, hour, ref_ratio, test_ratio, gamma, real_i,running_time_dict,result_folder,adv_type):
         self.dataset = dataset
         self.weekday = weekday
         self.hour = hour
         self.ref_ratio = ref_ratio
         self.test_ratio = test_ratio
-        self.ratio_conflict = ratio_conflict
+        self.gamma = gamma
         self.real_i = real_i
         self.running_time_dict=running_time_dict
         self.result_folder= result_folder
@@ -178,7 +178,7 @@ class Task_inference2(object):
         #     continue
         data_root="/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/"
         f = data_root + "/traffic/"+ self.adv_type + "/{}/network_{}_weekday_{}_hour_{}_refspeed_{}-testratio-{}-gamma-{}-realization-{}.pkl".format(self.dataset,self.dataset, self.weekday, self.hour, self.ref_ratio, self.test_ratio, self.gamma, self.real_i)
-
+        result_folder=self.result_folder+"/"+self.adv_type+"/"
         pkl_file = open(f, 'rb')
         [_, E, Obs, E_X, _] = pickle.load(pkl_file)  # V, E, Obs, E_X, X_b
         pkl_file.close()
@@ -191,26 +191,27 @@ class Task_inference2(object):
         m_idx = int(round(T / 2.0))
         # for window in range(m_idx - 5, m_idx + 7):
         for window in range(T):
-
             result_file = str(self.dataset) + '_' + str(self.weekday)+ '_' + str(self.hour)+ '_' + str(self.ref_ratio) + '_' + str(
-                self.test_ratio) + '_' + str(self.gamma) + '_'+ str(window) + '_' + str(self.real_i) + '-T43.txt'
-
+                self.test_ratio) + '_' + str(self.gamma) + '_'+ str(window) + '_' + str(self.real_i) + '.txt'
+            #philly_0_8_0.6_0.1_0.05_14_0
             key = str(self.dataset) + '_' + str(self.weekday)+ '_' + str(self.hour)+ '_' + str(self.ref_ratio) + '_' + str(
                 self.test_ratio) + '_' + str(self.gamma) + '_'+ str(window) + '_' + str(self.real_i)
-            t_Obs = {e: e_Obs[window:window+1] for e, e_Obs in Obs.items()}
+            # t_Obs = {e: e_Obs[window:window+1] for e, e_Obs in Obs.items()}
             try:
-                open(self.result_folder + result_file, 'r')
+                open( result_folder+ result_file, 'r')
             except:
                 continue
-            probs_t = result_analysis2(E_X, self.result_folder, result_file)
+            probs_t = result_analysis2(E_X, result_folder, result_file)
             for e,prob in probs_t.items():
                 if probs.has_key(e):
                     probs[e].append(prob)
             if self.running_time_dict.has_key(key):
                 running_times.append(self.running_time_dict[key])
             else:
+                print key
                 running_times.append(0.0)
         if len(running_times)==0:
+            print("running tiem dic empty......")
             return
         pred_Omega=estimate_omega_x2(probs, E_X)
         alpha_mse, beta_mse, prob_mse, u_mse, b_mse, d_mse, prob_relative_mse, u_relative_mse, accuracy, recall_congested, recall_uncongested = calculate_measures(Omega, pred_Omega, E_X)
@@ -286,8 +287,8 @@ class Task_inference3(object):
                 running_times.append(self.running_time_dict[key])
             else:
                 running_times.append(0.0)
-        if len(running_times)==0:
-            return
+        # if len(running_times)==0:
+        #     return
         pred_Omega=estimate_omega_x2(probs, E_X)
         pred_opinions = Omega_2_opinion(pred_Omega, E_X)
         alpha_mse, beta_mse, prob_mse, u_mse, b_mse, d_mse, prob_relative_mse, u_relative_mse, accuracy, recall_congested, recall_uncongested = calculate_measures(Omega, pred_Omega, E_X)
@@ -598,7 +599,7 @@ def traffic_resutls():
     tasks = multiprocessing.Queue()
     results = multiprocessing.Queue()
     # Start consumers
-    num_consumers = 50  # We only use 5 cores.
+    num_consumers = 30  # We only use 5 cores.
     print 'Creating %d consumers' % num_consumers
     consumers = [Consumer(tasks, results)
                  for i in range(num_consumers)]
@@ -610,11 +611,11 @@ def traffic_resutls():
     datasets = ['philly', 'dc']
     count = 0
     num_job=0.0
-    for adv_type in ["random_flip", "random_noise", "random_pgd"][:]:
+    running_time_dict = read_running_time(result_folder + 'running_time.json')
+    print(len(running_time_dict))
+    for adv_type in ["random_flip", "random_noise", "random_pgd","random_pgd_csl"][:3]:
         for dataset in datasets[:]:
-            running_time_dict = read_running_time(result_folder + 'running_time.json')
             for ref_ratio in ref_pers[:1]:
-                dataroot = data_root + dataset + "/"
                 for weekday in range(5)[:1]:
                     for hour in range(8, 22)[:1]:
                         for test_ratio in [0.1, 0.2, 0.3, 0.4, 0.5][:]:
@@ -622,15 +623,15 @@ def traffic_resutls():
                                 for real_i in range(realizations)[:1]:
                                     tasks.put(Task_inference2(dataset, weekday, hour, ref_ratio, test_ratio, gamma, real_i,running_time_dict,result_folder,adv_type))
                                     num_job+=1.0
-        for i in xrange(num_consumers):
-            tasks.put(None)
-        op_results = {}
-        while num_job:
-            # True_Opinions, pred_opinions, test_ratio, gamma,dataset = results.get()
-            results.get()
-            num_job -= 1.0
-            # op_results["psl-" + str(test_ratio) + "-" + str(gamma) + "-" + dataset] = (True_Opinions, pred_opinions)
-            print num_job
+    for i in xrange(num_consumers):
+        tasks.put(None)
+    op_results = {}
+    while num_job:
+        # True_Opinions, pred_opinions, test_ratio, gamma,dataset = results.get()
+        results.get()
+        num_job -= 1.0
+        # op_results["psl-" + str(test_ratio) + "-" + str(gamma) + "-" + dataset] = (True_Opinions, pred_opinions)
+        print num_job
     # outfp = open("../output/test/psl_results-server-traffic-T43-Sep26-opinion2.pkl", 'a')
     # pickle.dump(op_results, outfp)
     # outfp.close()
