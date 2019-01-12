@@ -49,6 +49,8 @@ def update_p(X, R_p, R_z, R_lambda_, copies, omega, cnt_E, rho, approx):
     return R_p
 
 
+
+
 """
 INPUT
 vertex_nns: key is vertex id, and the value is a list of neighboring vertex ids
