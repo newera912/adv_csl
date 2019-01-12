@@ -71,7 +71,7 @@ def pipeline():
     data_root="/network/rit/lab/ceashpc/adil/"
     count = 0
     # with open('results/running_time.json','a') as outfile:
-    for adv_type in ["random_flip", "random_noise", "random_pgd", "random_pgd_csl"][3:]:
+    for adv_type in ["random_flip", "random_noise", "random_pgd", "random_pgd_csl","random_pgd_gcn_vae"][4:]:
         for graph_size in [5000][:]:
             result_folder = data_root+"/result_adv_csl/" + str(graph_size) + "/"+adv_type+"/"
             if not os.path.exists(result_folder):

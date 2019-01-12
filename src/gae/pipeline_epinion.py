@@ -59,13 +59,13 @@ tf.set_random_seed(seed)
 data_root = "/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/"   #May23-3
 #real data
 case_count=0
-for adv_type in ["random_flip","random_noise","random_pgd","random_pgd_csl"][3:]:
+for adv_type in ["random_flip","random_noise","random_pgd","random_pgd_csl","random_pgd_gcn_vae"][4:]:
     for graph_size in [5000][:]:
         for T in [8, 9, 10, 11][2:3]:    #5,6,10,20,11,21,15
-            for real_i in range(10)[:]:
+            for real_i in range(10)[:1]:
                 for ratio in [0.2][:]:#0.0,0.1,0.2,0.3,the percentage of edges set the observations to 1
                     for swap_ratio in [0.00, 0.01, 0.05][:1]:
-                        for test_ratio in [0.1, 0.2,0.3, 0.4, 0.5][:2]:                #percentage of edges to test (|E_x|/|E|)
+                        for test_ratio in [0.1, 0.2,0.3, 0.4, 0.5][2:]:                #percentage of edges to test (|E_x|/|E|)
                             for gamma in [0.0, 0.01, 0.03, 0.05, 0.07,0.09,0.11,0.13,0.15,0.20,0.25][:]:  # 8
                                 out_folder = data_root +"/"+adv_type +"/"+ str(graph_size) + "/"
                                 print(str(case_count)+" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
