@@ -610,7 +610,7 @@ def sliding_window_extract(Obs, start_t, window_size = 1):
 def epinion_resutls():
     data_root = "/network/rit/lab/ceashpc/adil/"
     count=0
-    for adv_type in ["random_flip", "random_noise", "random_pgd","random_pgd_csl"][3:]:
+    for adv_type in ["random_flip", "random_noise", "random_pgd","random_pgd_csl","random_pgd_gcn_vae"][4:]:
         for graph_size in [5000,1000,10000,47676][:1]:
             result_folder = data_root + "/result_adv_csl/" + str(graph_size) + "/" + adv_type + "/"
             running_time_dict = read_running_time(result_folder+'running_time.json')
