@@ -24,7 +24,7 @@ def sliding_window_extract(Obs, start_t, window_size=5):
     return sw_Omega, sw_Obs
 
 
-def generate_data(Obs, E, E_X,gamma):
+def generate_data(Obs, E, E_X, gamma):
     sizeE = len(E)
 
     adj_obs = open('../data/adjacent_obs.txt', 'w')
@@ -73,10 +73,10 @@ def generate_data(Obs, E, E_X,gamma):
         else:
             conj = current_Obs[e][0]
             source, target = e
-            if conj >= 1-gamma:
-                conj_obs.write(str(source)+'_'+str(target)+'\n')
+            if conj >= 1 - gamma:
+                conj_obs.write(str(source) + '_' + str(target) + '\n')
             elif conj <= gamma:
-                nonconj_obs.write(str(source)+'_'+str(target)+'\n')
+                nonconj_obs.write(str(source) + '_' + str(target) + '\n')
                 ## shall we need to consider the ground rule of nonconjested
             else:
                 print conj
@@ -179,14 +179,15 @@ def pipeline():
     ref_pers = [0.6, 0.7, 0.8]
     datasets = ['philly', 'dc']
     count = 0
-    for adv_type in ["random_flip", "random_noise", "random_pgd"][:]:
-        for dataset in datasets[:1]:
+    for adv_type in ["random_flip", "random_noise", "random_pgd", "random_pgd_csl", "random_pgd_gcn_vae"][4:]:
+        for dataset in datasets[:]:
             resultFolder = result_folder + adv_type + "/"
             if not os.path.exists(resultFolder):
                 os.makedirs(resultFolder)
             exfiles = {file: 1 for file in os.listdir(resultFolder) if file.endswith(".txt")}
             for ref_ratio in ref_pers[:1]:
                 dataroot = data_root + "/traffic/" + adv_type + "/" + dataset + "/"
+
                 for weekday in range(5)[:1]:
                     for hour in range(8, 22)[:1]:
                         for test_ratio in [0.1, 0.2, 0.3, 0.4, 0.5][:]:
@@ -213,7 +214,7 @@ def pipeline():
                                             continue
                                         print ">>>>", count, "-th ", dataset, ref_ratio, weekday, hour, real_i, T, window, test_ratio, gamma
 
-                                        generate_data(t_Obs, E, E_X,gamma)
+                                        generate_data(t_Obs, E, E_X, gamma)
                                         proc = subprocess.Popen(["./run.sh"])
                                         proc.communicate()
                                         proc.wait()
@@ -228,7 +229,7 @@ def pipeline():
                                             test_ratio) + '_' + str(gamma) + '_' + str(window) + '_' + str(real_i)
                                         r_dict = {}
                                         r_dict[key] = running_time
-                                        with open(result_folder + '/running_time.json', 'a') as op:
+                                        with open(resultFolder + '/running_time.json', 'a') as op:
                                             op.write(json.dumps(r_dict) + '\n')
                                         count += 1
 

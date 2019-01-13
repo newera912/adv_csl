@@ -23,7 +23,7 @@ from preprocessing import preprocess_graph, construct_feed_dict, sparse_to_tuple
 flags = tf.app.flags
 FLAGS = flags.FLAGS
 flags.DEFINE_float('learning_rate', 0.001, 'Initial learning rate.')
-flags.DEFINE_integer('epochs', 500, 'Number of epochs to train.')
+flags.DEFINE_integer('epochs', 250, 'Number of epochs to train.')
 flags.DEFINE_integer('hidden1', 32, 'Number of units in hidden layer 1.')
 flags.DEFINE_integer('hidden2', 4, 'Number of units in hidden layer 2, P in our paper.')
 flags.DEFINE_float('weight_decay', 0., 'Weight for L2 loss on embedding matrix.')
@@ -57,10 +57,10 @@ realizations=10
 count=0
 T=43
 data_root = "/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/"  #Sep18
-for adv_type in ["random_flip", "random_noise", "random_pgd"][:]:
-    for dataset in datasets[:]:
-        dataroot = data_root + adv_type + "/" + dataset + "/"
-        for real_i in range(realizations)[:]:
+for adv_type in ["random_flip", "random_noise", "random_pgd","random_pgd_csl","random_pgd_gcn_vae"][3:]:
+    for real_i in range(realizations)[:1]:
+        for dataset in datasets[:1]:
+            dataroot = data_root + adv_type + "/" + dataset + "/"
             for weekday in range(5)[:1]:
                 for hour in range(8, 22)[:1]:  # old(7, 22)[1:2]
                     for ref_ratio in ref_ratios[:1]:  ##########################
@@ -203,15 +203,6 @@ for adv_type in ["random_flip", "random_noise", "random_pgd"][:]:
                                         avg_cost = outs[1]
                                         # avg_accuracy = outs[2]
 
-                                        # roc_curr, ap_curr = get_roc_score(val_edges, val_edges_false)
-                                        # val_roc_score.append(roc_curr)
-
-                                        # print("Epoch:", '%04d' % (epoch + 1), "train_loss=", "{:.5f}".format(avg_cost),
-                                        #       "train_acc=", "{:.5f}".format(avg_accuracy), "val_roc=", "{:.5f}".format(val_roc_score[-1]),
-                                        #       "val_ap=", "{:.5f}".format(ap_curr),
-                                        #       "time=", "{:.5f}".format(time.time() - t))
-                                        # print("Epoch:", '%04d' % (epoch + 1), "train_loss=", "{:.5f}".format(avg_cost), "time=",
-                                        #       "{:.5f}".format(time.time() - t))
                                         if np.mod(epoch + 1, 10) == 0:
                                             feed_dict = construct_feed_dict(adj_norm, adj_label, features, placeholders, y_test_belief, y_test_un,
                                                                             test_mask, omega_test, alpha_0, beta_0)
@@ -255,5 +246,4 @@ for adv_type in ["random_flip", "random_noise", "random_pgd"][:]:
 
 
                                 print("belief:", np.mean(b_mse), "uncertain:", np.mean(u_mse), "opinion:", np.mean(bf_mse))
-
 

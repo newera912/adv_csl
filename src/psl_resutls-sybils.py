@@ -379,12 +379,13 @@ class Task_inference4(object):
         return '%s' % (self.p0)
 
 class Task_inference5(object):
-    def __init__(self, attack_edge, test_ratio,T,swap_ratio, ratio_conflict, real_i,running_time_dict,result_folder,adv_type,dataset):
+                      #attack_edge, test_ratio,swap_ratio, gamma, real_i,running_time_dict,result_folder,adv_type,dataset
+    def __init__(self, attack_edge, test_ratio,T,swap_ratio, gamma, real_i,running_time_dict,result_folder,adv_type,dataset):
         self.attack_edge = attack_edge
         self.test_ratio = test_ratio
         self.T = T
         self.swap_ratio = swap_ratio
-        self.ratio_conflict = ratio_conflict
+        self.gamma = gamma
         self.real_i = real_i
         self.running_time_dict=running_time_dict
         self.result_folder= result_folder
@@ -450,7 +451,7 @@ class Task_inference5(object):
         output_file = open('../output/sybils/PSL_results-server-Jan7-{}.json'.format(self.adv_type), 'a')
         output_file.write(json.dumps(result_) + '\n')
         output_file.close()
-        return self.test_ratio, self.ratio_conflict
+        # return self.test_ratio, self.gamma
 
     def __str__(self):
         return '%s' % (self.p0)
@@ -765,7 +766,7 @@ def Sybils_resutls():
                         for test_ratio in [0.1, 0.2, 0.3, 0.4, 0.5][2:3]:
                             for gamma in [0.0, 0.01, 0.03, 0.05, 0.07, 0.09, 0.11, 0.13, 0.15, 0.20, 0.25][:]:  # 11
                                 for real_i in range(realizations)[:1]:
-                                    tasks.put(Task_inference2(attack_edge, test_ratio,swap_ratio, gamma, real_i,running_time_dict,result_folder,adv_type,dataset))
+                                    tasks.put(Task_inference5(attack_edge, test_ratio,T,swap_ratio, gamma, real_i,running_time_dict,result_folder,adv_type,dataset))
                                     num_job+=1.0
     for i in xrange(num_consumers):
         tasks.put(None)

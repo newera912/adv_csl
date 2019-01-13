@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "gen_adv_example_traffic.py", line 84, in <module>
+    adj,y_train_belief, y_test_belief, y_train_un, y_test_un, train_mask, test_mask, omega_test, alpha_0, beta_0 = mask_test_edge_epinion(fileName,T)
+NameError: name 'T' is not defined

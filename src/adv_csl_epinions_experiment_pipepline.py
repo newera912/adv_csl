@@ -75,7 +75,7 @@ def experiment_proc_server():
     ratios = [0.1, 0.2, 0.3,0.4,0.5,0.6,0.7,0.8]
     realizations = 10
     case_count=0
-    for adv_type in ["random_flip","random_noise","random_pgd","random_pgd_csl"][3:]:
+    for adv_type in ["random_flip","random_noise","random_pgd","random_pgd_csl","random_pgd_gcn_vae"][4:]:
         for graph_size in graph_sizes[1:2]:
             for T in [8, 9, 10, 11][2:3]:    #5,6,10,20,11,21,15
                 for real_i in range(realizations)[:]:

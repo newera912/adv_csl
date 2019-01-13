@@ -611,9 +611,11 @@ def traffic_resutls():
     datasets = ['philly', 'dc']
     count = 0
     num_job=0.0
-    running_time_dict = read_running_time(result_folder + 'running_time.json')
-    print(len(running_time_dict))
-    for adv_type in ["random_flip", "random_noise", "random_pgd","random_pgd_csl"][:3]:
+
+
+    for adv_type in ["random_flip", "random_noise", "random_pgd","random_pgd_csl","random_pgd_gcn_vae"][3:]:
+        running_time_dict = read_running_time(result_folder + adv_type + '/running_time.json')
+        print(len(running_time_dict))
         for dataset in datasets[:]:
             for ref_ratio in ref_pers[:1]:
                 for weekday in range(5)[:1]:

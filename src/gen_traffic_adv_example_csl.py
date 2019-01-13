@@ -103,7 +103,7 @@ class Task_inference(object):
         # time.sleep(0.1) # pretend to take some time to do our work
                       # omega, y_t, Y, X, edge_up_nns, edge_down_nns, p0, R, psl, approx, report_stat
         p_t,sign_grad_py_t = admm(self.omega, self.y_t, self.Y, self.X, self.edge_up_nns,self. edge_down_nns, self.p0, self.R, self.psl, self.approx, self.report_stat)
-        return p_t
+        return p_t,sign_grad_py_t
 
     def __str__(self):
         return '%s' % (self.p0)
@@ -149,13 +149,13 @@ def inference_apdm_format(V, E, Obs, Omega, E_X, logging, psl = False, approx = 
     maxiter = 1
     for iter in range(maxiter):
         p = []
-        sign_grad_py = []
+        sign_grad_py_ids = []
         tasks = multiprocessing.Queue()
         results = multiprocessing.Queue()
 
         # Start consumers
         num_consumers = T
-        # print iter, 'Creating %d consumers' % num_consumers
+        print iter, 'Creating %d consumers' % num_consumers
         consumers = [Consumer(tasks, results)
                      for i in xrange(num_consumers)]
         for w in consumers:
@@ -177,7 +177,7 @@ def inference_apdm_format(V, E, Obs, Omega, E_X, logging, psl = False, approx = 
         while num_jobs:
             p_t,sign_grad_py_t = results.get()
             p.append(p_t)
-            sign_grad_py.append(sign_grad_py_t)
+            sign_grad_py_ids.append(sign_grad_py_t)
             num_jobs -= 1
 
         error = 0.0
@@ -198,7 +198,13 @@ def inference_apdm_format(V, E, Obs, Omega, E_X, logging, psl = False, approx = 
             logging.write("************ edge vertex ids: {0}, ".format(e))
             logging.write("---- omega_x {0}: {1:.2f}, {2:.2f}".format(Omega[e], omega_x[e][0], omega_x[e][1]))
             logging.write("---- uncertainty ({0}): {1}".format(W/(Omega[e][0] + Omega[e][1]), W/(omega_x[e][0] + omega_x[e][1])))
-    return omega_x,sign_grad_py
+    sign_grad_py = []
+    for sign_grad_py_t in sign_grad_py_ids:
+        temp_dic = {}
+        for id, sign in sign_grad_py_t.items():
+            temp_dic[id_2_edge[id]] = sign
+        sign_grad_py.append(temp_dic)
+    return sign_grad_py
 
 
 
@@ -287,7 +293,7 @@ def admm(omega, y_t, Y, X, edge_up_nns, edge_down_nns, p0, R, psl = False, appro
         # print ">>>>>>>>>>>> admm iteration.{0}: {1}".format(iter, error)
         if error < epsilon:
             break
-    return p
+    return p,sign_grad_py_t
 
 
 

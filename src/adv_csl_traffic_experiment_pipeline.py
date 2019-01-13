@@ -695,16 +695,15 @@ def real_traffic_data_testcase():
     count=0
     T = 43
 
+    methods = ["SL","CSL","Adv-CSL"][1:2]
 
-    methods = ["SL","CSL","Adv-CSL"][2:]
-
-    for adv_type in ["random_flip", "random_noise", "random_pgd"][:]:
-        for dataset in datasets[1:]:
-            dataroot = data_root  + adv_type + "/"+ dataset + "/"
-            for real_i in range(realizations)[8:]:
-                for weekday in range(5)[:1]:
-                    for hour in range(8, 22)[:1]: #old(7, 22)[1:2]
-                        for ref_ratio in ref_ratios[:1]: ##########################
+    for adv_type in ["random_flip", "random_noise", "random_pgd","random_pgd_csl","random_pgd_gcn_vae"][4:]:
+        for real_i in range(realizations)[:]:
+            for ref_ratio in ref_ratios[:1]:  ##########################
+                for dataset in datasets[:1]:
+                    dataroot = data_root  + adv_type + "/"+ dataset + "/"
+                    for weekday in range(5)[:1]:
+                        for hour in range(8, 22)[:1]: #old(7, 22)[1:2]
                             for test_ratio in [0.1, 0.2, 0.3, 0.4, 0.5][:]:
                                 for gamma in [0.0, 0.01, 0.03, 0.05, 0.07, 0.09, 0.11, 0.13, 0.15, 0.20, 0.25][:]:  # 11
                                     logging.write(str(count)+" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`")
