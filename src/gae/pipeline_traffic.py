@@ -57,10 +57,10 @@ realizations=10
 count=0
 T=43
 data_root = "/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/"  #Sep18
-for adv_type in ["random_flip", "random_noise", "random_pgd"][2:]:
-    for dataset in datasets[1:]:
-        dataroot = data_root + adv_type + "/" + dataset + "/"
-        for real_i in range(realizations)[1:]:
+for adv_type in ["random_flip", "random_noise", "random_pgd","random_pgd_csl","random_pgd_gcn_vae"][3:]:
+    for real_i in range(realizations)[:1]:
+        for dataset in datasets[:1]:
+            dataroot = data_root + adv_type + "/" + dataset + "/"
             for weekday in range(5)[:1]:
                 for hour in range(8, 22)[:1]:  # old(7, 22)[1:2]
                     for ref_ratio in ref_ratios[:1]:  ##########################

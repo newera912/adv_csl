@@ -68,17 +68,18 @@ realizations=10
 alpha = 0.01
 ref_pers = [0.6,0.7, 0.8]
 datasets = ['philly', 'dc']
+T=43
 for adv_type in ["random_flip","random_noise","random_pgd","random_pgd_gcn_vae"][3:]:
-    for ref_per in ref_pers[:1]:
-        for dataset in datasets[1:]:
-            out_folder = data_root + dataset + "/"
-            if not os.path.exists(out_folder):
-                os.makedirs(out_folder)
-            for weekday in range(5)[:1]:
-                for hour in range(8, 22)[:1]:
-                    for test_ratio in [0.1, 0.2, 0.3, 0.4, 0.5][:]:
-                        for real_i in range(realizations)[:1]:
-                            fileName = org_data_root + '/network_{}_weekday_{}_hour_{}_refspeed_{}-testratio-{}-gamma-{}-realization-{}.pkl'.format(
+    for real_i in range(realizations)[:]:
+        for ref_per in ref_pers[:1]:
+            for dataset in datasets[1:]:
+                out_folder = data_root + dataset + "/"
+                if not os.path.exists(out_folder):
+                    os.makedirs(out_folder)
+                for weekday in range(5)[:1]:
+                    for hour in range(8, 22)[:1]:
+                        for test_ratio in [0.1, 0.2, 0.3, 0.4, 0.5][:]:
+                            fileName = org_data_root +dataset+ '/network_{}_weekday_{}_hour_{}_refspeed_{}-testratio-{}-gamma-{}-realization-{}.pkl'.format(
                                 dataset, weekday, hour, ref_per, test_ratio, 0.0, real_i)
 
                             adj,y_train_belief, y_test_belief, y_train_un, y_test_un, train_mask, test_mask, omega_test, alpha_0, beta_0 = mask_test_edge_epinion(fileName,T)
