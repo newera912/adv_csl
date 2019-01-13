@@ -179,8 +179,8 @@ def pipeline():
     ref_pers = [0.6, 0.7, 0.8]
     datasets = ['philly', 'dc']
     count=0
-    for adv_type in ["random_flip", "random_noise", "random_pgd"][:]:
-        for dataset in datasets[1:]:
+    for adv_type in ["random_flip", "random_noise", "random_pgd","random_pgd_csl","random_pgd_gcn_vae"][3:4]:
+        for dataset in datasets[:]:
             resultFolder = result_folder + adv_type + "/"
             if not os.path.exists(resultFolder):
                 os.makedirs(resultFolder)
@@ -226,7 +226,7 @@ def pipeline():
                                             test_ratio) + '_' + str(gamma) + '_'+ str(window) + '_' + str(real_i)
                                         r_dict = {}
                                         r_dict[key] = running_time
-                                        with open(result_folder + '/running_time.json', 'a') as op:
+                                        with open(resultFolder + '/running_time.json', 'a') as op:
                                             op.write(json.dumps(r_dict) + '\n')
                                         count += 1
 
