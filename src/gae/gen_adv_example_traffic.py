@@ -232,7 +232,7 @@ for adv_type in ["random_flip","random_noise","random_pgd","random_pgd_gcn_vae"]
                                             else:
                                                 sign_grad[edge_id]=[-1.0]
                             print(len(sign_grad))
-                            
+
 
                             for gamma in [0.0, 0.01, 0.03, 0.05, 0.07, 0.09, 0.11, 0.13, 0.15, 0.20, 0.25][:]:  # 8
 
