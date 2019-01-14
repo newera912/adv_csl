@@ -882,6 +882,7 @@ def calc_initial_node_p1(y_t, node_nns, X, Y, cnt_V, p0, b_init):
 def calc_initial_node_p2(y_t, node_nns, X, Y, cnt_V, p0, b_init):
     p = [1e-6 for i in range(cnt_V)]
     # print "Y:{} X:{} node_nns:{}".format(len(Y),len(X),len(node_nns))
+    threshold=0.5
     for v in Y:
         p[v] = y_t[v]  # observation indicates probability
         """ dict_paths[e] includes the rule bodies that indicates e """
@@ -891,7 +892,7 @@ def calc_initial_node_p2(y_t, node_nns, X, Y, cnt_V, p0, b_init):
 
         obs = [y_t[v_n] for v_n in node_nns[v] if Y.has_key(v_n)]
         for val in obs:
-            if val > 0:
+            if val >= threshold:
                 n_pos += 1.0
             else:
                 n_neg += 1.0
@@ -912,7 +913,7 @@ def calc_initial_node_p2(y_t, node_nns, X, Y, cnt_V, p0, b_init):
                 n_pos+=val
                 if b_init[v_o]==1:
                     val=1.0-val
-                if val > 0:
+                if val > threshold:
                     conf += 1.0
                 else:
                     conf -= 1.0

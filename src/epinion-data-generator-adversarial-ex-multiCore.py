@@ -305,16 +305,20 @@ class Task_generate_PGD_CSL(object):
         """ |p_y+alpha*sign(nabla_py L)| <= gamma"""
         if self.gamma>0.0:
             sign_grad_py = gen_adv_exmaple_csl(self.V, self.E, Obs, X_b, E_X)
-
-            T = len(Obs[self.E[0]])
             for e in E_Y:
                 # print type(sign_grad_py[0])
                 if e not in sign_grad_py[0].keys(): print "Eroorrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr!"
                 for t in range(0, self.T):
+                    # print len(sign_grad_py[t][e]),sign_grad_py[t][e]
                     for i in range(len(sign_grad_py[t][e])):
+                        # if sign_grad_py[t][e][i]<0.0: print sign_grad_py[t][e][i]
                         Obs[e][t] = clip01(Obs[e][t]+self.alpha*sign_grad_py[t][e][i])   #clip between [0,1]
+
+                    # if Obs[e][t] - self.ObsO[e][t]<0:
+                    #     print("{}: {}-{}={}".format(self.gamma, self.ObsO[e][t], Obs[e][t], Obs[e][t] - self.ObsO[e][t]))
                     if np.abs(Obs[e][t]-self.ObsO[e][t]) >self.gamma:
                         Obs[e][t]=clip01(self.ObsO[e][t]+np.sign(Obs[e][t]-self.ObsO[e][t])*self.gamma)  #clip |py_adv-py_orig|<gamma
+
             print "Iteration Number",[len(sign_grad_py[i][sign_grad_py[i].keys()[0]]) for i in range(len(sign_grad_py)) ]
 
 
@@ -325,8 +329,7 @@ class Task_generate_PGD_CSL(object):
         pkl_file.close()
         return
 
-    def __str__(self):
-        return '%s' % (self.p0)
+
 
 """
 Generate simulation datasets with different graph sizes and rates
@@ -478,7 +481,7 @@ def simulation_data_generator_PGD():
         print ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> remain: ",num_jobs
 
 def simulation_data_generator_PGD_CSL():
-    data_root="/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_pgd_csl/"
+    data_root="/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_pgd_csl-debug/"
     org_data_root="/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_pgd/"
     realizations = 10
     graph_sizes = [1000,5000, 10000,47676]
@@ -505,18 +508,18 @@ def simulation_data_generator_PGD_CSL():
             os.makedirs(out_folder)
         for T in [8,9,10,11][2:3]:
             for swap_ratio in [0.00, 0.01, 0.05][:1]:
-                for test_ratio in [0.1, 0.2, 0.3, 0.4,0.5][2:]:
+                for test_ratio in [0.1, 0.2, 0.3, 0.4,0.5][2:3]:
                     for ratio in ratios[:]:  #the percentage of edges set the observations to 1
-                        for real_i in range(realizations)[:]:
+                        for real_i in range(realizations)[:1]:
                             org_file=org_data_root+"/{}/nodes-{}-T-{}-rate-{}-testratio-{}-swaprate-{}-gamma-{}-realization-{}-data-X.pkl".format(
                                 graph_size,graph_size, T, ratio, test_ratio, swap_ratio, 0.0, real_i)
                             print("Origin-File: {}".format(org_file))
                             with open(org_file,'rb') as pkl_file:
                                 [V, E, Obs,_,_] = pickle.load(pkl_file)
                             # Obs = graph_process(V,E, T, ratio,swap_ratio)
-                            for gamma in [0.0, 0.01, 0.03, 0.05, 0.07,0.09,0.11,0.13,0.15,0.20,0.25][:]: #11
+                            for gamma in [0.0, 0.01, 0.03, 0.05, 0.07,0.09][5:]: #11
                                 fout= out_folder+"nodes-{}-T-{}-rate-{}-testratio-{}-swaprate-{}-gamma-{}-realization-{}-data-X.pkl".format(graph_size, T, ratio, test_ratio, swap_ratio, gamma, real_i)
-                                if not os.path.exists(fout):
+                                if not os.path.exists(fout) or True:
                                    tasks.put(Task_generate_PGD_CSL(V, E, Obs,T, swap_ratio,test_ratio,ratio,gamma,alpha,fout))
                                    num_jobs+=1
         print "\n\nGraph size {} Done.....................\n\n".format(graph_size)

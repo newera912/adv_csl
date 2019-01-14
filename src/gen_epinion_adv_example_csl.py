@@ -584,6 +584,7 @@ def get_sign_grad_py(sign_grad_py_t, p, Y, R_z, R_lambda_, copies, omega,rho):
         term2= rho*(1-p[e])*p[e]*z_lambda_sum
 
         grad = term1+term2
+        # if grad!=0.0: print grad
         if grad >= 0:
             if sign_grad_py_t.has_key(e):
                 sign_grad_py_t[e].append(1.0)

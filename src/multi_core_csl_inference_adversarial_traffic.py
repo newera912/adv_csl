@@ -828,16 +828,17 @@ def calc_initial_p1(y_t, edge_down_nns, X, Y, cnt_E, p0, b_init):
         p[e] = y_t[e]  # observation indicates probability
         """ dict_paths[e] includes the rule bodies that indicates e """
         # if dict_paths.has_key(e) and X_b.has_key(e):
+        threshold = 0.5
         n_pos = 0
         n_neg = 0
         for e, e_nns in edge_down_nns.items():
             obs = [y_t[e_n] for e_n in e_nns.keys() if Y.has_key(e_n)]
             for val in obs:
-                if val > 0:
+                if val > threshold:
                     n_pos += 1.0
                 else:
                     n_neg += 1.0
-            if (n_pos - n_neg > 0 and p[e] == 0) or (n_pos - n_neg < 0 and p[e] > 0):
+            if (n_pos - n_neg > 0 and p[e] <= threshold) or (n_pos - n_neg < 0 and p[e] >threshold):
                 b_init[e] = 1.0
             else:
                 b_init[e] = 0.0
@@ -852,7 +853,7 @@ def calc_initial_p1(y_t, edge_down_nns, X, Y, cnt_E, p0, b_init):
                 # if Y.has_key(e_o) and b_init[e_o]==1.0:
                 #     val=np.abs(1.0-val)
                 n_pos+=val
-                if val > 0:
+                if val >= threshold:
                     conf += 1.0
                 else:
                     conf -= 1.0
