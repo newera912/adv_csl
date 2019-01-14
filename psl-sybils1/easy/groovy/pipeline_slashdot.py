@@ -175,7 +175,7 @@ def pipeline():
     count = 0
     realizations = 1
     # methods = ["sl", "csl", "csl-conflict-1", "csl-conflict-2", "base1", "base2", "base3"][:1]
-    for adv_type in ["random_flip", "random_noise", "random_pgd"][1:2]:
+    for adv_type in ["random_flip", "random_noise", "random_pgd"][:1]:
         for attack_edge in [1000, 5000, 10000, 15000, 20000][2:3]:
             result_folder = data_root + "/result_adv_csl/slashdot/" + adv_type + "/"
             if not os.path.exists(result_folder):
@@ -184,7 +184,7 @@ def pipeline():
             for T in [10][:]:
                 for swap_ratio in [0.00, 0.01, 0.02, 0.05][1:2]:
                     for test_ratio in [0.1, 0.2, 0.3, 0.4, 0.5][2:3]:
-                        for gamma in [0.0, 0.01, 0.03, 0.05, 0.07, 0.09, 0.11, 0.13, 0.15, 0.20, 0.25][:6]:  # 11
+                        for gamma in [0.0, 0.01, 0.03, 0.05, 0.07, 0.09, 0.11, 0.13, 0.15, 0.20, 0.25][3:6]:  # 11
                             for real_i in range(realizations)[:1]:
                                 count += 1.0
                                 f = data_root + "data/adv_csl/Jan2/" + adv_type + "/slashdot/slashdot-attackedges-{}-T-{}-testratio-{}-swap_ratio-{}-gamma-{}-realization-{}-data-X.pkl".format(
