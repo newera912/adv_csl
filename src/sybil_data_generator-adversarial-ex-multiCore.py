@@ -7,7 +7,7 @@ import numpy as np
 from log import Log
 from network_funs import *
 from gen_sybils_adv_example import inference_apdm_format as inference_apdm_format_conflict_evidence
-
+from gen_sybils_adv_example_csl import inference_apdm_format as inference_apdm_format_csl
 
 def analyze_data_FB():
     for attack_edge in [1000,5000,10000,15000,20000][:]:
@@ -251,6 +251,14 @@ def gen_adv_exmaple(V, E, Obs, X_b,E_X):
 
     return sign_grad_py
 
+def gen_adv_exmaple_csl(V, E, Obs, X_b,E_X):
+    logging = Log()
+    b={}
+    Omega = calc_Omega_from_Obs2(Obs, V)                #V, E, Obs, Omega, b, X_b, E_X, logging, psl=False, approx=True, init_alpha_beta=(1, 1),report_stat=False
+    sign_grad_py=inference_apdm_format_csl(V, E, Obs, Omega, b, E_X, logging, psl=False)
+
+    return sign_grad_py
+
 def clip01(x):
     if x<0.0: return 0.0
     elif x>1.0: return 1.0
@@ -340,6 +348,63 @@ class Task_generate_pgd(object):
 
     def __str__(self):
         return '%s' % (self.p0)
+
+class Task_generate_pgd_csl(object):
+    def __init__(self, dataset,test_ratio, swap_ratio,attack_edge,T,real_i,alpha, out_folder,org_fileName):
+        self.dataset = dataset
+        self.test_ratio = test_ratio
+        self.swap_ratio=swap_ratio
+        self.attack_edge = attack_edge
+        self.T = T
+        self.real_i = real_i
+        self.alpha = alpha
+        self.out_folder = out_folder
+        self.org_fileName = org_fileName
+    def __call__(self):
+        """Step1: Sampling X edges with test ratio """""
+        # nns, id_2_node, node_2_id, _, _ = reformat(self.V, self.E, Obs)
+        # nns=gen_nns(self.V,self.E)
+        with open(self.org_fileName, 'rb') as pkl_file:
+            [V, E, ObsO, E_X, X_b] = pickle.load(pkl_file)
+
+
+
+        """Step 2: Add noise to observations on the edges """
+        E_Y = [v for v in V.keys() if not E_X.has_key(v)]
+        X_b = []
+        """ |p_y+alpha*sign(nabla_py L)| <= gamma"""
+        for gamma in [0.0, 0.01, 0.03, 0.05, 0.07, 0.09, 0.11, 0.13, 0.15, 0.20, 0.25][:]:
+            fout = self.out_folder + "{}-attackedges-{}-T-{}-testratio-{}-swap_ratio-{}-gamma-{}-realization-{}-data-X.pkl".format(
+                self.dataset, self.attack_edge, self.T, self.test_ratio, self.swap_ratio, gamma, self.real_i)
+            if self.gamma>0.0:
+                Obs = copy.deepcopy(ObsO)
+                sign_grad_py = gen_adv_exmaple_csl(V, E, ObsO, X_b, E_X)
+
+                # T = len(self.Obs[self.E.keys()[0]])
+                for e in E_Y:
+                    # print type(sign_grad_py[0])
+                    if e not in sign_grad_py[0].keys(): print "Eroorrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr!"
+                    for t in range(0, self.T):
+                        for i in range(len(sign_grad_py[t][e])):
+                            Obs[e][t] = clip01(Obs[e][t]+self.alpha*sign_grad_py[t][e][i])   #clip between [0,1]
+                        if np.abs(Obs[e][t]-ObsO[e][t]) >gamma:
+                            Obs[e][t]=clip01(ObsO[e][t]+np.sign(Obs[e][t]-ObsO[e][t])*gamma)  #clip |py_adv-py_orig|<gamma
+                print "Iteration Number",[len(sign_grad_py[i][sign_grad_py[i].keys()[0]]) for i in range(len(sign_grad_py)) ]
+
+                pkl_file = open(fout, 'wb')
+                pickle.dump([V, E, Obs, E_X, X_b], pkl_file)
+                pkl_file.close()
+            else:
+                pkl_file = open(fout, 'wb')
+                pickle.dump([V, E, ObsO, E_X, X_b], pkl_file)
+                pkl_file.close()
+
+
+        return
+
+    def __str__(self):
+        return '%s' % (self.p0)
+
 
 
 
@@ -494,11 +559,59 @@ def pgd_sybils_data_generator():
             num_jobs -= 1
             print ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> remain: ",num_jobs
 
+def pgd_csl_sybils_data_generator():
+    data_root = "/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_pgd_csl/"
+    org_data_root = "/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_pgd/"
+    # data_root = "./"
+    realizations = 1
+    attack_edges = [1000,2000,3000,4000,5000]
+    network_files=["../data/Undirected_Facebook/facebook_sybils_attackedge",
+                   "../data/enron/enron_attackedge",
+                   "../data/slashdot/slashdot_sybils_attackedge"]
+
+    alpha=0.01
+    tasks = multiprocessing.Queue()
+    results = multiprocessing.Queue()
+    num_consumers = 1  # We only use 5 cores.
+    # print 'Creating %d consumers' % num_consumers
+    consumers = [Consumer(tasks, results)
+                 for i in range(num_consumers)]
+    for w in consumers:
+        w.start()
+    num_jobs=0
+    for i,dataset in enumerate(["facebook","enron","slashdot"][:1]):
+        for attack_edge in [1000, 5000,10000,15000,20000][2:3]:
+            filename = network_files[2]+"_{}.pkl".format(attack_edge)
+            print "--------- reading {}".format(filename)
+            pkl_file = open(filename, 'rb')
+            [V, E] = pickle.load(pkl_file)
+            pkl_file.close()
+            out_folder = data_root+dataset+"/"
+            if not os.path.exists(out_folder):
+                os.makedirs(out_folder)
+            for T in [10][:]:
+                for swap_ratio in [0.00, 0.01,0.02, 0.05][1:2]:
+                    for test_ratio in [0.1, 0.2, 0.3, 0.4,0.5][2:3]:
+                        for real_i in range(realizations)[:]:
+                            org_fileName = org_data_root + dataset + "{}-attackedges-{}-T-{}-testratio-{}-swap_ratio-{}-gamma-{}-realization-{}-data-X.pkl".format(
+                                dataset, attack_edge, T, test_ratio, swap_ratio, 0.0, real_i)
+                            tasks.put(Task_generate_pgd_csl(dataset,test_ratio, swap_ratio,attack_edge,T,real_i,alpha, out_folder,org_fileName))
+                            num_jobs += 1
+                    print "\n\nTttack_edge size {} Done.....................\n\n".format(attack_edge)
+
+        for i in range(num_consumers):
+            tasks.put(None)
+
+        while num_jobs:
+            results.get()
+            num_jobs -= 1
+            print ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> remain: ",num_jobs
 
 if __name__=='__main__':
     # analyze_data_FB()
     # analyze_data()
 
     # random_flip_sybils_data_generator()
-    random_noise_sybils_data_generator()
+    # random_noise_sybils_data_generator()
     # pgd_sybils_data_generator()
+    pgd_csl_sybils_data_generator()

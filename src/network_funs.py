@@ -3,6 +3,10 @@ from basic_funs import *
 
 import numpy as np
 
+
+
+
+
 """
 INPUT
 R_p: R_p[k][j] refers to the probability variable of j-th edge in the k-th rule in R.
@@ -47,6 +51,7 @@ def update_p(X, R_p, R_z, R_lambda_, copies, omega, cnt_E, rho, approx):
         for k, j in copies[e]:
             R_p[k][j] = min_prob
     return R_p
+
 
 
 
