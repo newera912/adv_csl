@@ -896,7 +896,7 @@ def calc_initial_node_p2(y_t, node_nns, X, Y, cnt_V, p0, b_init):
                 n_pos += 1.0
             else:
                 n_neg += 1.0
-        if (n_pos - n_neg > 0 and p[v] == 0) or (n_pos - n_neg < 0 and p[v] > 0):
+        if (n_pos - n_neg > 0 and p[v] <=threshold) or (n_pos - n_neg < 0 and p[v] >threshold):
             b_init[v] = 1.0
         else:
             b_init[v] = 0.0
@@ -911,8 +911,8 @@ def calc_initial_node_p2(y_t, node_nns, X, Y, cnt_V, p0, b_init):
                 # if Y.has_key(e_o) and b_init[e_o]==1.0:
                 #     val=np.abs(1.0-val)
                 n_pos+=val
-                if b_init[v_o]==1:
-                    val=1.0-val
+                # if b_init[v_o]==1:
+                #     val=1.0-val
                 if val > threshold:
                     conf += 1.0
                 else:
