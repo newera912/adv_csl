@@ -110,8 +110,8 @@ def get_alphabeta(ome, W=2.0, a=0.5):
 
 def get_omega_obs(obs):
     W = 2.0
-    r = Counter(obs)[1]
-    s = Counter(obs)[0]
+    r = Counter(obs)[1]  #problem
+    s = Counter(obs)[0]  #problem
     u = W / (W + r + s)
     b = r / (W + r + s)
     d = s / (W + r + s)
