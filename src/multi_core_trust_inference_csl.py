@@ -753,19 +753,6 @@ def calc_initial_p2_2(dict_paths, y_t, edge_down_nns, X, Y, cnt_E, p0):
     p = [0 for i in range(cnt_E)]
     for e in Y:
         p[e] = y_t[e]
-    # print "dict", dict_paths
-    # for i in range(3):
-    #     for e in X:
-    #         conf = 0
-    #         n_post = 0
-    #         if e in dict_paths:
-    #             for (e1, e2) in dict_paths[e]:
-    #                 conf += p[e1] * p[e2]
-    #                 n_post += p[e1] + p[e2]
-    #             if conf > 0:
-    #                 p[e] = 1
-    #         else:
-    #             p[e] = 0
 
     for e in X:
         conf = 0
