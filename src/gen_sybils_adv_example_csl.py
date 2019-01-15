@@ -94,8 +94,8 @@ class Task_inference(object):
         # this is the place to do your work
         # time.sleep(0.1) # pretend to take some time to do our work
                       # omega, y_t, Y, X, edge_up_nns, edge_down_nns, p0, R, psl, approx, report_stat
-        p_t = admm(self.omega, self.y_t, self.Y, self.X, self.node_nns,self.p0, self.R, self.psl, self.approx, self.report_stat)
-        return p_t
+        p_t,sign_grad_py_t = admm(self.omega, self.y_t, self.Y, self.X, self.node_nns,self.p0, self.R, self.psl, self.approx, self.report_stat)
+        return p_t,sign_grad_py_t
 
     def __str__(self):
         return '%s' % (self.p0)
@@ -148,7 +148,7 @@ def inference_apdm_format(V, E, Obs, Omega, E_X, logging, psl = False, approx = 
 
         # Start consumers
         num_consumers = T
-        # print iter, 'Creating %d consumers' % num_consumers
+        print iter, 'Creating %d consumers' % num_consumers
         consumers = [Consumer(tasks, results)
                      for i in xrange(num_consumers)]
         for w in consumers:
@@ -286,10 +286,10 @@ def admm(omega, y_t, Y, X, node_nns, p0, R, psl = False, approx = False, report_
                                           #sign_grad_py_t,p_t,y_t,Y, R_p_hat, R_lambda_, copies, kappa
         sign_grad_py_t = get_sign_grad_py(sign_grad_py_t, p, y_t, Y, R_z, R_lambda_, copies, 1 / rho)
         error = sqrt(np.sum([pow(p_old[v] - p[v], 2) for v in range(cnt_V)]))
-        # print ">>>>>>>>>>>> admm iteration.{0}: {1}".format(iter, error)
+        print ">>>>>>>>>>>> admm iteration.{0}: {1}".format(iter, error)
         if error < epsilon:
             break
-    return p
+    return p,sign_grad_py_t
 
 
 
