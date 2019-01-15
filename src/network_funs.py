@@ -521,10 +521,7 @@ def calc_initial_p1(y_t, edge_down_nns, X, Y, cnt_E, p0):
             conf = 0
             n_pos=0.0
             for e_o,val in obs.items():
-                # if Y.has_key(e_o) and b_init[e_o]==1.0:
-                #     val=np.abs(1.0-val)
-                n_pos+=val
-                if val > 0:
+                if val > 0.5:
                     conf += 1.0
                 else:
                     conf -= 1.0
