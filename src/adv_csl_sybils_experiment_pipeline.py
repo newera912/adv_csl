@@ -416,7 +416,7 @@ def facebook_sybils_dataset_test():
     count=0
     realizations=1
     methods = ["SL","CSL", "Adv-CSL"][2:]
-    for adv_type in ["random_noise", "random_pgd"][1:]:
+    for adv_type in ["random_noise", "random_pgd"][:]:
         for attack_edge in [1000,5000,10000,15000,20000][2:3]:
             for T in [10][:]:
                 for swap_ratio in [0.00, 0.01, 0.02, 0.05][1:2]:
@@ -427,8 +427,8 @@ def facebook_sybils_dataset_test():
                                 count+=1.0
                                 for method in methods[:]:
                                     f=dataroot +adv_type+ "/facebook/facebook-attackedges-{}-T-{}-testratio-{}-swap_ratio-{}-gamma-{}-realization-{}-data-X.pkl".format(attack_edge, T, test_ratio,swap_ratio, gamma, real_i)
-                                    outf = '../output/sybils/{}_results-server-Jan14-{}.json'.format(method,adv_type)
-                                    logging.write("dataset: {} method: {}, #attack_edge:{},T:{},test_ratio: {},gamma:{}".format("FB Sybils",method,attack_edge,T,test_ratio,gamma))
+                                    outf = '../output/sybils/{}_results-server-Jan15-{}.json'.format(method,adv_type)
+                                    logging.write("dataset: {} method: {}, #attack_edge:{},T:{},test_ratio: {},gamma:{}".format("facebook",method,attack_edge,T,test_ratio,gamma))
                                     logging.write(f)
                                     pkl_file = open(f, 'rb')
                                     [V, E, Obs, E_X, X_b] = pickle.load(pkl_file)
@@ -496,7 +496,7 @@ def enron_sybils_dataset_test():
     count=0
     realizations=1
     methods = ["SL","CSL", "Adv-CSL"][2:]
-    for adv_type in ["random_noise", "random_pgd"][1:]:
+    for adv_type in ["random_noise", "random_pgd"][:1]:
         for attack_edge in [1000,5000,10000,15000,20000][2:3]:
             for T in [10][:]:
                 for swap_ratio in [0.00, 0.01, 0.02, 0.05][1:2]:
@@ -507,7 +507,7 @@ def enron_sybils_dataset_test():
                                 count+=1.0
                                 for method in methods[:]:
                                     f=dataroot +adv_type+ "/enron/enron-attackedges-{}-T-{}-testratio-{}-swap_ratio-{}-gamma-{}-realization-{}-data-X.pkl".format(attack_edge, T, test_ratio,swap_ratio, gamma, real_i)
-                                    outf = '../output/sybils/{}_results-server-Jan14-{}.json'.format(method,adv_type)
+                                    outf = '../output/sybils/{}_results-server-Jan15-{}.json'.format(method,adv_type)
                                     logging.write("dataset: {} method: {}, #attack_edge:{},T:{},test_ratio: {},gamma:{}".format("enron",method,attack_edge,T,test_ratio,gamma))
                                     logging.write(f)
                                     pkl_file = open(f, 'rb')
@@ -577,7 +577,7 @@ def slashdot_sybils_dataset_test():
     count=0
     realizations=10
     methods = ["SL","CSL", "Adv-CSL"][2:]
-    for adv_type in ["random_noise", "random_pgd"][:1]:
+    for adv_type in ["random_noise", "random_pgd"][1:]:
         for attack_edge in [1000,5000,10000,15000,20000][2:3]:
             for T in [10][:]:
                 for swap_ratio in [0.00, 0.01, 0.02, 0.05][1:2]:
