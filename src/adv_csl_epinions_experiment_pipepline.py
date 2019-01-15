@@ -69,7 +69,7 @@ def main():
 def experiment_proc_server():
     logging = Log()
     data_root = "/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/"  #May23 May23-3
-    methods = ["SL","CSL", "Adv-CSL"][2:]
+    methods = ["SL","CSL", "Adv-CSL"][1:2]
     # graph_sizes = [500, 1000, 5000, 10000, 47676]
     graph_sizes = [1000, 5000,10000,47676]
     ratios = [0.1, 0.2, 0.3,0.4,0.5,0.6,0.7,0.8]
