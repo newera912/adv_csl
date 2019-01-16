@@ -717,7 +717,7 @@ def real_traffic_data_testcase():
     T = 43
 
 
-    methods = ["SL","CSL","Adv-CSL"][2:]
+    methods = ["SL","CSL","Adv-CSL"][1:2]
     for real_i in range(realizations)[:]:
         for adv_type in ["random_noise", "random_pgd","random_pgd_csl","random_pgd_gcn_vae"][3:]:
             for ref_ratio in ref_ratios[:1]:  ##########################
@@ -795,100 +795,6 @@ def real_traffic_data_testcase():
 
 
 
-def real_traffic_data_testcase_debug():
-    logging = Log()
-    data_root = "/home/apdm05/workspace/data/csl-data/traffic/"
-    report_stat = False
-    ref_ratios = [ 0.6,0.7,0.8]
-    realizations = 10
-    datasets = ['philly', 'dc']
-    count = 0
-    T = 43
-    methods = ["csl", "csl-conflict-1", "csl-conflict-2","sl", "base1", "base2", "base3"][:4]
-
-    for dataset in datasets[:1]:
-        dataroot = data_root + dataset+"/"
-        for weekday in range(5)[:1]:
-            for hour in range(7, 22)[1:2]:
-                for ref_ratio in ref_ratios[:]:
-                    for test_ratio in [0.1, 0.2, 0.3, 0.4, 0.5][:1]:
-                        for ratio_conflict in [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6][:]:
-                            for real_i in range(realizations)[:1]:
-                                logging.write(
-                                    str(count) + " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`")
-                                count += 1.0
-                                for method in methods[:]:
-                                    f = dataroot + '/network_{}_weekday_{}_hour_{}_refspeed_{}-testratio-{}-confictratio-{}-realization-{}.pkl'.format(
-                                        dataset, weekday, hour, ref_ratio, test_ratio, ratio_conflict, real_i)
-                                    outf = '../output/test/{}_results-server-traffic-Sep1-debug.json'.format(
-                                        method)
-                                    logging.write(
-                                        "dataset: {} method: {}, weekday:{},hour:{},T, {},ref_ratio:{}, test_ratio: {},conflict_ratio:{},realization:{}".format(
-                                            dataset, method, weekday, hour, T, ref_ratio, test_ratio, ratio_conflict,real_i))
-                                    # logging.write(f)
-                                    pkl_file = open(f, 'rb')
-                                    [V, E, Obs, E_X, X_b] = pickle.load(pkl_file)
-                                    n = len(V)
-                                    n_E = len(E)
-                                    ndays = len(Obs[E[0]])
-                                    T = ndays
-                                    accuracys = []
-                                    prob_mses = []
-                                    u_mses = []
-                                    b_mses = []
-                                    d_mses = []
-                                    alpha_mses = []
-                                    beta_mses = []
-                                    running_times = []
-                                    nposi = 0
-                                    nnega = 0
-                                    m_idx = int(round(T / 2.0))
-                                    for start_t in range(ndays - T + 1)[:1]:
-                                        # print "start_t", start_t
-                                        t_Obs = {e: e_Obs[m_idx - 5:m_idx+6 ] for e, e_Obs in Obs.items()}
-                                        Omega = calc_Omega_from_Obs2(t_Obs, E)
-                                        alpha_mse, beta_mse, prob_mse, u_mse, b_mse, d_mse, prob_relative_mse, u_relative_mse, accuracy, recall_congested, recall_uncongested, running_time = evaluate(
-                                            V, E, t_Obs, Omega, E_X, logging, method)
-                                        i_nposi, i_nnega = accuracy_2_posi_nega(accuracy)
-                                        nposi += i_nposi
-                                        nnega += i_nnega
-                                        b_mses.append(b_mse)
-                                        d_mses.append(d_mse)
-                                        alpha_mses.append(alpha_mse)
-                                        beta_mses.append(beta_mse)
-                                        accuracys.append(accuracy)
-                                        prob_mses.append(prob_mse)
-                                        u_mses.append(u_mse)
-                                        running_times.append(running_time)
-                                    mu_alpha_mse = np.mean(alpha_mses)
-                                    sigma_alpha_mse = np.std(alpha_mses)
-                                    mu_beta_mse = np.mean(beta_mses)
-                                    sigma_beta_mse = np.std(beta_mses)
-                                    mu_u_mse = np.mean(u_mses)
-                                    sigma_u_mse = np.std(u_mses)
-                                    mu_b_mse = np.mean(b_mses)
-                                    sigma_b_mse = np.mean(b_mses)
-                                    mu_d_mse = np.mean(d_mses)
-                                    sigma_d_mse = np.mean(d_mses)
-                                    mu_accuracy = np.mean(accuracys)
-                                    sigma_accuracy = np.std(accuracys)
-                                    mu_prob_mse = np.mean(prob_mses)
-                                    sigma_prob_mse = np.std(prob_mses)
-                                    running_time = np.mean(running_times)
-                                    logging.write("prob_mse: {}, running time: {}".format(mu_prob_mse, running_time))
-                                    result_ = {'dataset': dataset, 'weekday': weekday, 'hour': hour,
-                                               'ref_ratio': ref_ratio, 'network_size': n,
-                                               'sample_size': ndays - T + 1, 'T': T, 'ratio_conflict': ratio_conflict,
-                                               'test_ratio': test_ratio, 'acc': (mu_accuracy, sigma_accuracy),
-                                               'prob_mse': (mu_prob_mse, sigma_prob_mse),
-                                               'alpha_mse': (mu_alpha_mse, sigma_alpha_mse),
-                                               'beta_mse': (mu_beta_mse, sigma_beta_mse),
-                                               'u_mse': (mu_u_mse, sigma_u_mse), 'b_mse': (mu_b_mse, sigma_b_mse),
-                                               'd_mse': (mu_d_mse, sigma_d_mse), 'realization': real_i,
-                                               'runtime': running_time}
-                                    outfp = open(outf, 'a')
-                                    outfp.write(json.dumps(result_) + '\n')
-                                    outfp.close()
 
 
 
