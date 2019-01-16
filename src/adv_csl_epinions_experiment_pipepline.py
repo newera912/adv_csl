@@ -82,7 +82,7 @@ def experiment_proc_server():
                     for ratio in [0.2][:]:#0.0,0.1,0.2,0.3,the percentage of edges set the observations to 1
                         for swap_ratio in [0.00, 0.01, 0.05][:1]:
                             for test_ratio in [0.1, 0.2, 0.4, 0.5][:]:                #percentage of edges to test (|E_x|/|E|)
-                                for gamma in [0.0, 0.01, 0.03, 0.05, 0.07,0.09][:]:  # 8
+                                for gamma in [0.0, 0.01, 0.03, 0.05, 0.07,0.09,0.2,0.3,0.4,0.5][:6]:  # 8
                                     out_folder = data_root +"/"+adv_type +"/"+ str(graph_size) + "/"
                                     logging.write(str(case_count)+" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
                                     case_count += 1.0
