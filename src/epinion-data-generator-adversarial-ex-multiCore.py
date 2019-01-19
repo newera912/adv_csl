@@ -174,16 +174,16 @@ class Task_generate_rn(object):
 
 
         """Step 2: Add noise to observations on the edges """
-        E_Y = [e for e in self.E if not E_X.has_key(e)]
+        E_Y = [e for e in E if not E_X.has_key(e)]
 
         X_b = []
         """ |noise_vector_i| <= gamma"""
         for gamma in [0.0, 0.01, 0.03, 0.05, 0.07, 0.09,0.2,0.3,0.4,0.5][6:]:  # 11
             Obs = copy.deepcopy(ObsO)
-            fout = self.data_root + "nodes-{}-T-{}-rate-{}-testratio-{}-swaprate-{}-gamma-{}-realization-{}-data-X.pkl".format(
-            self.graph_size, self.T, self.ratio, self.test_ratio, self.swap_ratio, gamma, self.real_i)
-            noise_vector = np.random.uniform(low=-self.gamma, high=self.gamma, size=(len(E_Y),))
-            T = len(Obs[self.E[0]])
+            fout = self.data_root + "/{}/nodes-{}-T-{}-rate-{}-testratio-{}-swaprate-{}-gamma-{}-realization-{}-data-X.pkl".format(
+                self.graph_size,self.graph_size, self.T, self.ratio, self.test_ratio, self.swap_ratio, gamma, self.real_i)
+            noise_vector = np.random.uniform(low=-gamma, high=gamma, size=(len(E_Y),))
+            T = len(Obs[E[0]])
             for i,e in enumerate(E_Y):
                 for t in range(0, T):
                     Obs[e][t] = clip01(Obs[e][t]+noise_vector[i])   #clip between [0,1]
@@ -226,10 +226,10 @@ class Task_generate_PGD(object):
 
         sign_grad_py = gen_adv_exmaple(V, E, ObsO, X_b, E_X)
         """ |p_y+alpha*sign(nabla_py L)| <= gamma"""
-        for gamma in [0.0, 0.01, 0.03, 0.05, 0.07, 0.09,0.2,0.3,0.4,0.5][6:]:  # 11
+        for gamma in [0.0, 0.01, 0.03, 0.05, 0.07, 0.09,0.2,0.3,0.4,0.5][:]:  # 11
             Obs = copy.deepcopy(ObsO)
-            fout = self.data_root + "nodes-{}-T-{}-rate-{}-testratio-{}-swaprate-{}-gamma-{}-realization-{}-data-X.pkl".format(
-            self.graph_size, self.T, self.ratio, self.test_ratio, self.swap_ratio, gamma, self.real_i)
+            fout = self.data_root + "/{}/nodes-{}-T-{}-rate-{}-testratio-{}-swaprate-{}-gamma-{}-realization-{}-data-X.pkl".format(
+                self.graph_size,self.graph_size, self.T, self.ratio, self.test_ratio, self.swap_ratio, gamma, self.real_i)
             if gamma>0.0:
                 # T = len(Obs[E[0]])
                 for e in E_Y:
@@ -283,10 +283,10 @@ class Task_generate_PGD_CSL(object):
         sign_grad_py = gen_adv_exmaple_csl(V, E, ObsO, X_b, E_X)
         """ |p_y+alpha*sign(nabla_py L)| <= gamma"""
         """ |p_y+alpha*sign(nabla_py L)| <= gamma"""
-        for gamma in [0.0, 0.01, 0.03, 0.05, 0.07, 0.09, 0.2, 0.3, 0.4, 0.5][6:]:  # 11
+        for gamma in [0.0, 0.01, 0.03, 0.05, 0.07, 0.09, 0.2, 0.3, 0.4, 0.5][:]:  # 11
             Obs = copy.deepcopy(ObsO)
-            fout = self.data_root + "nodes-{}-T-{}-rate-{}-testratio-{}-swaprate-{}-gamma-{}-realization-{}-data-X.pkl".format(
-                self.graph_size, self.T, self.ratio, self.test_ratio, self.swap_ratio, gamma, self.real_i)
+            fout = self.data_root + "/{}/nodes-{}-T-{}-rate-{}-testratio-{}-swaprate-{}-gamma-{}-realization-{}-data-X.pkl".format(
+                self.graph_size,self.graph_size, self.T, self.ratio, self.test_ratio, self.swap_ratio, gamma, self.real_i)
             if gamma > 0.0:
                 # T = len(Obs[E[0]])
                 for e in E_Y:
@@ -396,9 +396,9 @@ def simulation_data_generator_rn():
             os.makedirs(out_folder)
         for T in [8, 9, 10, 11][2:3]:
             for swap_ratio in [0.00, 0.01, 0.05][:1]:
-                for test_ratio in [0.1, 0.2, 0.3, 0.4, 0.5][2:3]:
+                for test_ratio in [0.1, 0.2, 0.3, 0.4, 0.5][:]:
                     for ratio in ratios[:]:  # the percentage of edges set the observations to 1
-                        for real_i in range(realizations)[:1]:
+                        for real_i in range(realizations)[:]:
                             org_file = org_data_root + "/{}/nodes-{}-T-{}-rate-{}-testratio-{}-swaprate-{}-gamma-{}-realization-{}-data-X.pkl".format(
                                 graph_size, graph_size, T, ratio, test_ratio, swap_ratio, 0.0, real_i)
                             print("Origin-File: {}".format(org_file))
@@ -445,9 +445,9 @@ def simulation_data_generator_PGD():
             os.makedirs(out_folder)
         for T in [8, 9, 10, 11][2:3]:
             for swap_ratio in [0.00, 0.01, 0.05][:1]:
-                for test_ratio in [0.1, 0.2, 0.3, 0.4, 0.5][2:3]:
+                for test_ratio in [0.1, 0.2, 0.3, 0.4, 0.5][:]:
                     for ratio in ratios[:]:  # the percentage of edges set the observations to 1
-                        for real_i in range(realizations)[:1]:
+                        for real_i in range(realizations)[:]:
                             org_file = org_data_root + "/{}/nodes-{}-T-{}-rate-{}-testratio-{}-swaprate-{}-gamma-{}-realization-{}-data-X.pkl".format(
                                 graph_size, graph_size, T, ratio, test_ratio, swap_ratio, 0.0, real_i)
                             print("Origin-File: {}".format(org_file))
@@ -492,9 +492,9 @@ def simulation_data_generator_PGD_CSL():
             os.makedirs(out_folder)
         for T in [8, 9, 10, 11][2:3]:
             for swap_ratio in [0.00, 0.01, 0.05][:1]:
-                for test_ratio in [0.1, 0.2, 0.3, 0.4, 0.5][2:3]:
+                for test_ratio in [0.1, 0.2, 0.3, 0.4, 0.5][:]:
                     for ratio in ratios[:]:  # the percentage of edges set the observations to 1
-                        for real_i in range(realizations)[:1]:
+                        for real_i in range(realizations)[:]:
                             org_file = org_data_root + "/{}/nodes-{}-T-{}-rate-{}-testratio-{}-swaprate-{}-gamma-{}-realization-{}-data-X.pkl".format(
                                 graph_size, graph_size, T, ratio, test_ratio, swap_ratio, 0.0, real_i)
                             print("Origin-File: {}".format(org_file))
@@ -643,8 +643,8 @@ def main():
     # print len(V), len(E)
     # simulation_data_generator2()
     # simulation_data_generator_rf()
-    simulation_data_generator_rn()
-    simulation_data_generator_PGD()
+    # simulation_data_generator_rn()
+    # simulation_data_generator_PGD()
     simulation_data_generator_PGD_CSL()
 
 if __name__=='__main__':

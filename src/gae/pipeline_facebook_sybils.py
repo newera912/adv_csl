@@ -22,8 +22,8 @@ from preprocessing import preprocess_graph, construct_feed_dict, sparse_to_tuple
 # Settings
 flags = tf.app.flags
 FLAGS = flags.FLAGS
-flags.DEFINE_float('learning_rate', 0.01, 'Initial learning rate.')
-flags.DEFINE_integer('epochs', 100, 'Number of epochs to train.')
+flags.DEFINE_float('learning_rate', 0.001, 'Initial learning rate.')
+flags.DEFINE_integer('epochs', 200, 'Number of epochs to train.')
 flags.DEFINE_integer('hidden1', 32, 'Number of units in hidden layer 1.')
 flags.DEFINE_integer('hidden2', 4, 'Number of units in hidden layer 2, P in our paper.')
 flags.DEFINE_float('weight_decay', 0., 'Weight for L2 loss on embedding matrix.')
@@ -55,16 +55,17 @@ dataroot = "/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/"
 report_stat = False
 count=0
 realizations=1
-for adv_type in ["random_flip", "random_noise", "random_pgd"][:]:
-    for attack_edge in [1000,5000,10000,15000,20000][2:3]:
-        for T in [10][:]:
-            for swap_ratio in [0.00, 0.01, 0.02, 0.05][1:2]:
-                for test_ratio in [0.1, 0.2,0.3,0.4, 0.5][2:3]:
-                    for gamma in [0.0, 0.01, 0.03, 0.05, 0.07, 0.09, 0.11, 0.13, 0.15, 0.20, 0.25][:]:  # 11
+
+for test_ratio in [0.3,0.1, 0.2, 0.4, 0.5][:]:
+    for adv_type in ["random_noise","random_pgd","random_pgd_csl","random_pgd_gcn_vae"][2:]:
+        for attack_edge in [1000,5000,10000,15000,20000][2:3]:
+            for T in [10][:]:
+                for swap_ratio in [0.00, 0.01, 0.02, 0.05][1:2]:
+                    for gamma in [0.0, 0.01, 0.03, 0.05, 0.07,0.09,0.2,0.3,0.4,0.5][:]:  # 11
                         for real_i in range(realizations)[:1]:
                             fileName = dataroot + adv_type + "/facebook/facebook-attackedges-{}-T-{}-testratio-{}-swap_ratio-{}-gamma-{}-realization-{}-data-X.pkl".format(
                                 attack_edge, T, test_ratio, swap_ratio, gamma, real_i)
-                            outf = '../../output/sybils/{}_results-server-Jan7-{}.json'.format("GCN-VAE", adv_type)
+                            outf = '../../output/sybils/{}_results-server-Jan17-{}.json'.format("GCN-VAE", adv_type)
                             print(fileName)
                             # adj, features = load_data_epinion(fileName)
                             adj,y_train_belief, y_test_belief, y_train_un, y_test_un, train_mask, test_mask, omega_test, alpha_0, beta_0 = mask_test_node_sybils(fileName,T)
@@ -85,21 +86,6 @@ for adv_type in ["random_flip", "random_noise", "random_pgd"][:]:
 
                             # Some preprocessing
                             adj_norm = preprocess_graph(adj)
-
-
-                            # placeholders = {
-                            #     'features': tf.sparse_placeholder(tf.float32),
-                            #     'adj': tf.sparse_placeholder(tf.float32),
-                            #     'adj_orig': tf.sparse_placeholder(tf.float32),
-                            #     'dropout': tf.placeholder_with_default(0., shape=()),
-                            #     'labels_b': tf.placeholder(tf.float32, shape=(None, y_train_belief.shape[1])),
-                            #     'labels_un': tf.placeholder(tf.float32, shape=(None, y_train_un.shape[1])),
-                            #     'omega_test': tf.placeholder(tf.float32, shape=(None, y_train_belief.shape[1])),
-                            #     'labels_mask': tf.placeholder(tf.int32),
-                            #     'omega_t': tf.placeholder(tf.float32, shape=(None, omega_test.shape[1])),
-                            #     'alpha_0': tf.placeholder(tf.float32),
-                            #     'beta_0': tf.placeholder(tf.float32)
-                            # }
 
                             # Define placeholders
                             placeholders = {
@@ -229,7 +215,6 @@ for adv_type in ["random_flip", "random_noise", "random_pgd"][:]:
                                     outputF.write(json.dumps(result_) + '\n')
 
 
-
+                            sess.close()
                             print("belief:", np.mean(b_mse), "uncertain:", np.mean(u_mse), "time window = ", FLAGS.T, "test_rio = ", FLAGS.test_rat)
-
 

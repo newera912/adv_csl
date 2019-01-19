@@ -49,16 +49,16 @@ def generate_data(Obs, E, E_X, T, window,gamma):
             trust_targets.write(str(source) + '\t' + str(target) + '\n')
 
             trust = current_Obs[e]
-            if trust == 1:
+            if trust >= 0.5:
                 trust_truth.write(str(source) + '\t' + str(target) + '\t' + '1' + '\n')
                 # nonconj_truth.write(str(source)+'_'+str(target)+'\t'+'0'+'\n')
-            elif trust == 0:
+            elif trust <= 0.5:
                 trust_truth.write(str(source) + '\t' + str(target) + '\t' + '0' + '\n')
                 # nonconj_truth.write(str(source)+'_'+str(target)+'\t'+'1'+'\n')
         else:
             trust = current_Obs[e]
             source, target = e
-            if trust >= 1-gamma:
+            if trust >= 0.5:
                 trust_obs.write(str(source) + '\t' + str(target) + '\n')
 
     trust_obs.close()
@@ -71,7 +71,7 @@ def pipeline():
     data_root="/network/rit/lab/ceashpc/adil/"
     count = 0
     # with open('results/running_time.json','a') as outfile:
-    for adv_type in ["random_flip", "random_noise", "random_pgd", "random_pgd_csl","random_pgd_gcn_vae"][4:]:
+    for adv_type in ["random_noise", "random_pgd", "random_pgd_csl","random_pgd_gcn_vae"][:]:
         for graph_size in [5000][:]:
             result_folder = data_root+"/result_adv_csl/" + str(graph_size) + "/"+adv_type+"/"
             if not os.path.exists(result_folder):
@@ -82,7 +82,7 @@ def pipeline():
                 for ratio in [0.2,0.3][:1]:
                     for swap_ratio in [0.0]:
                         for percent in [0.1, 0.2, 0.3, 0.4, 0.5][:]:
-                            for gamma in [0.0, 0.01, 0.03, 0.05, 0.07, 0.09, 0.11, 0.13, 0.15, 0.20, 0.25][:]:  # 11
+                            for gamma in [0.0, 0.01, 0.03, 0.05, 0.07,0.09,0.2,0.3,0.4,0.5][:]:  # 11
                                 for real_i in range(1):
                                     '''
                                         generate evidence data to feed the psl

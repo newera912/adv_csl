@@ -1,0 +1,1904 @@
+WARNING:tensorflow:From /network/rit/home/aa465948/venv/lib/python2.7/site-packages/tensorflow/python/ops/sparse_ops.py:1165: sparse_to_dense (from tensorflow.python.ops.sparse_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Create a `tf.sparse.SparseTensor` and use `tf.sparse.to_dense` instead.
+2019-01-16 10:52:19.719059: I tensorflow/core/platform/cpu_feature_guard.cc:141] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
+708 708 708 708
+Test nodes: 72
+([], [], [])
+mse_belief= 0.42068 mse_uncertain== 0.45354 bf-mse_opinion== 0.61023
+mse_belief= 0.41783 mse_uncertain== 0.45054 bf-mse_opinion== 0.60675
+mse_belief= 0.41458 mse_uncertain== 0.44669 bf-mse_opinion== 0.60202
+Optimization Finished!
+run time =  1.93638706207
+636
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.0-realization-0.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.01-realization-0.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.03-realization-0.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.05-realization-0.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.07-realization-0.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.09-realization-0.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.2-realization-0.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.3-realization-0.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.4-realization-0.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.5-realization-0.pkl
+708 708 708 708
+Test nodes: 143
+([], [], [])
+mse_belief= 0.43475 mse_uncertain== 0.45409 bf-mse_opinion== 0.65853
+mse_belief= 0.43086 mse_uncertain== 0.45145 bf-mse_opinion== 0.65365
+mse_belief= 0.42629 mse_uncertain== 0.44815 bf-mse_opinion== 0.64763
+Optimization Finished!
+run time =  2.10385417938
+565
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.0-realization-0.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.01-realization-0.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.03-realization-0.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.05-realization-0.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.07-realization-0.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.09-realization-0.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.2-realization-0.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.3-realization-0.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.4-realization-0.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.5-realization-0.pkl
+708 708 708 708
+Test nodes: 213
+([], [], [])
+mse_belief= 0.41851 mse_uncertain== 0.45685 bf-mse_opinion== 0.63028
+mse_belief= 0.41523 mse_uncertain== 0.45467 bf-mse_opinion== 0.62680
+mse_belief= 0.41150 mse_uncertain== 0.45202 bf-mse_opinion== 0.62206
+Optimization Finished!
+run time =  2.0918700695
+495
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.0-realization-0.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.01-realization-0.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.03-realization-0.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.05-realization-0.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.07-realization-0.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.09-realization-0.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.2-realization-0.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.3-realization-0.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.4-realization-0.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.5-realization-0.pkl
+708 708 708 708
+Test nodes: 284
+([], [], [])
+mse_belief= 0.41941 mse_uncertain== 0.45379 bf-mse_opinion== 0.62753
+mse_belief= 0.41650 mse_uncertain== 0.45155 bf-mse_opinion== 0.62427
+mse_belief= 0.41312 mse_uncertain== 0.44852 bf-mse_opinion== 0.61989
+Optimization Finished!
+run time =  2.18183803558
+424
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.0-realization-0.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.01-realization-0.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.03-realization-0.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.05-realization-0.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.07-realization-0.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.09-realization-0.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.2-realization-0.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.3-realization-0.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.4-realization-0.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.5-realization-0.pkl
+708 708 708 708
+Test nodes: 355
+([], [], [])
+mse_belief= 0.41468 mse_uncertain== 0.45113 bf-mse_opinion== 0.62741
+mse_belief= 0.41160 mse_uncertain== 0.44748 bf-mse_opinion== 0.62256
+mse_belief= 0.40757 mse_uncertain== 0.44252 bf-mse_opinion== 0.61598
+Optimization Finished!
+run time =  2.34583902359
+353
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.0-realization-0.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.01-realization-0.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.03-realization-0.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.05-realization-0.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.07-realization-0.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.09-realization-0.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.2-realization-0.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.3-realization-0.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.4-realization-0.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.5-realization-0.pkl
+1878 1878 1878 1878
+Test nodes: 189
+([], [], [])
+mse_belief= 0.46398 mse_uncertain== 0.45228 bf-mse_opinion== 0.68711
+mse_belief= 0.46014 mse_uncertain== 0.44918 bf-mse_opinion== 0.68178
+mse_belief= 0.45533 mse_uncertain== 0.44477 bf-mse_opinion== 0.67471
+Optimization Finished!
+run time =  2.98059391975
+1689
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.0-realization-0.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.01-realization-0.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.03-realization-0.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.05-realization-0.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.07-realization-0.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.09-realization-0.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.2-realization-0.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.3-realization-0.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.4-realization-0.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.5-realization-0.pkl
+1878 1878 1878 1878
+Test nodes: 377
+([], [], [])
+mse_belief= 0.44409 mse_uncertain== 0.45246 bf-mse_opinion== 0.65454
+mse_belief= 0.44087 mse_uncertain== 0.44911 bf-mse_opinion== 0.64964
+mse_belief= 0.43660 mse_uncertain== 0.44435 bf-mse_opinion== 0.64280
+Optimization Finished!
+run time =  3.10265278816
+1501
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.0-realization-0.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.01-realization-0.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.03-realization-0.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.05-realization-0.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.07-realization-0.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.09-realization-0.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.2-realization-0.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.3-realization-0.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.4-realization-0.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.5-realization-0.pkl
+1878 1878 1878 1878
+Test nodes: 564
+([], [], [])
+mse_belief= 0.45220 mse_uncertain== 0.45176 bf-mse_opinion== 0.66748
+mse_belief= 0.44924 mse_uncertain== 0.44757 bf-mse_opinion== 0.66251
+mse_belief= 0.44535 mse_uncertain== 0.44191 bf-mse_opinion== 0.65561
+Optimization Finished!
+run time =  3.11307692528
+1314
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.0-realization-0.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.01-realization-0.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.03-realization-0.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.05-realization-0.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.07-realization-0.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.09-realization-0.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.2-realization-0.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.3-realization-0.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.4-realization-0.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.5-realization-0.pkl
+1878 1878 1878 1878
+Test nodes: 752
+([], [], [])
+mse_belief= 0.45027 mse_uncertain== 0.44952 bf-mse_opinion== 0.66829
+mse_belief= 0.44642 mse_uncertain== 0.44402 bf-mse_opinion== 0.66164
+mse_belief= 0.44143 mse_uncertain== 0.43677 bf-mse_opinion== 0.65292
+Optimization Finished!
+run time =  3.21625113487
+1126
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.0-realization-0.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.01-realization-0.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.03-realization-0.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.05-realization-0.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.07-realization-0.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.09-realization-0.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.2-realization-0.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.3-realization-0.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.4-realization-0.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.5-realization-0.pkl
+1878 1878 1878 1878
+Test nodes: 940
+([], [], [])
+mse_belief= 0.45156 mse_uncertain== 0.45090 bf-mse_opinion== 0.66797
+mse_belief= 0.44760 mse_uncertain== 0.44632 bf-mse_opinion== 0.66171
+mse_belief= 0.44238 mse_uncertain== 0.44030 bf-mse_opinion== 0.65335
+Optimization Finished!
+run time =  3.42626690865
+938
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.0-realization-0.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.01-realization-0.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.03-realization-0.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.05-realization-0.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.07-realization-0.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.09-realization-0.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.2-realization-0.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.3-realization-0.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.4-realization-0.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.5-realization-0.pkl
+708 708 708 708
+Test nodes: 72
+([], [], [])
+mse_belief= 0.41690 mse_uncertain== 0.44892 bf-mse_opinion== 0.63272
+mse_belief= 0.41257 mse_uncertain== 0.44409 bf-mse_opinion== 0.62592
+mse_belief= 0.40698 mse_uncertain== 0.43792 bf-mse_opinion== 0.61706
+Optimization Finished!
+run time =  2.86680412292
+636
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.0-realization-1.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.01-realization-1.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.03-realization-1.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.05-realization-1.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.07-realization-1.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.09-realization-1.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.2-realization-1.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.3-realization-1.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.4-realization-1.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.5-realization-1.pkl
+708 708 708 708
+Test nodes: 143
+([], [], [])
+mse_belief= 0.40166 mse_uncertain== 0.45215 bf-mse_opinion== 0.61388
+mse_belief= 0.39730 mse_uncertain== 0.44818 bf-mse_opinion== 0.60788
+mse_belief= 0.39234 mse_uncertain== 0.44337 bf-mse_opinion== 0.60034
+Optimization Finished!
+run time =  3.070125103
+565
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.0-realization-1.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.01-realization-1.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.03-realization-1.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.05-realization-1.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.07-realization-1.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.09-realization-1.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.2-realization-1.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.3-realization-1.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.4-realization-1.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.5-realization-1.pkl
+708 708 708 708
+Test nodes: 213
+([], [], [])
+mse_belief= 0.41220 mse_uncertain== 0.45175 bf-mse_opinion== 0.62002
+mse_belief= 0.40846 mse_uncertain== 0.44801 bf-mse_opinion== 0.61452
+mse_belief= 0.40391 mse_uncertain== 0.44324 bf-mse_opinion== 0.60746
+Optimization Finished!
+run time =  3.23176503181
+495
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.0-realization-1.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.01-realization-1.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.03-realization-1.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.05-realization-1.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.07-realization-1.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.09-realization-1.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.2-realization-1.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.3-realization-1.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.4-realization-1.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.5-realization-1.pkl
+708 708 708 708
+Test nodes: 284
+([], [], [])
+mse_belief= 0.41755 mse_uncertain== 0.45470 bf-mse_opinion== 0.62725
+mse_belief= 0.41459 mse_uncertain== 0.45232 bf-mse_opinion== 0.62361
+mse_belief= 0.41120 mse_uncertain== 0.44942 bf-mse_opinion== 0.61879
+Optimization Finished!
+run time =  3.38102602959
+424
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.0-realization-1.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.01-realization-1.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.03-realization-1.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.05-realization-1.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.07-realization-1.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.09-realization-1.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.2-realization-1.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.3-realization-1.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.4-realization-1.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.5-realization-1.pkl
+708 708 708 708
+Test nodes: 355
+([], [], [])
+mse_belief= 0.42277 mse_uncertain== 0.45263 bf-mse_opinion== 0.62981
+mse_belief= 0.41864 mse_uncertain== 0.44926 bf-mse_opinion== 0.62427
+mse_belief= 0.41394 mse_uncertain== 0.44512 bf-mse_opinion== 0.61740
+Optimization Finished!
+run time =  3.45440506935
+353
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.0-realization-1.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.01-realization-1.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.03-realization-1.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.05-realization-1.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.07-realization-1.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.09-realization-1.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.2-realization-1.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.3-realization-1.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.4-realization-1.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.5-realization-1.pkl
+1878 1878 1878 1878
+Test nodes: 189
+([], [], [])
+mse_belief= 0.44718 mse_uncertain== 0.45342 bf-mse_opinion== 0.66863
+mse_belief= 0.44395 mse_uncertain== 0.45039 bf-mse_opinion== 0.66392
+mse_belief= 0.43972 mse_uncertain== 0.44628 bf-mse_opinion== 0.65764
+Optimization Finished!
+run time =  4.25230121613
+1689
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.0-realization-1.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.01-realization-1.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.03-realization-1.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.05-realization-1.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.07-realization-1.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.09-realization-1.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.2-realization-1.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.3-realization-1.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.4-realization-1.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.5-realization-1.pkl
+1878 1878 1878 1878
+Test nodes: 377
+([], [], [])
+mse_belief= 0.45138 mse_uncertain== 0.45388 bf-mse_opinion== 0.66677
+mse_belief= 0.44860 mse_uncertain== 0.45160 bf-mse_opinion== 0.66287
+mse_belief= 0.44469 mse_uncertain== 0.44796 bf-mse_opinion== 0.65720
+Optimization Finished!
+run time =  4.21072697639
+1501
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.0-realization-1.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.01-realization-1.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.03-realization-1.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.05-realization-1.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.07-realization-1.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.09-realization-1.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.2-realization-1.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.3-realization-1.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.4-realization-1.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.5-realization-1.pkl
+1878 1878 1878 1878
+Test nodes: 564
+([], [], [])
+mse_belief= 0.44560 mse_uncertain== 0.45189 bf-mse_opinion== 0.66050
+mse_belief= 0.44155 mse_uncertain== 0.44769 bf-mse_opinion== 0.65436
+mse_belief= 0.43635 mse_uncertain== 0.44227 bf-mse_opinion== 0.64627
+Optimization Finished!
+run time =  4.20713496208
+1314
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.0-realization-1.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.01-realization-1.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.03-realization-1.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.05-realization-1.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.07-realization-1.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.09-realization-1.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.2-realization-1.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.3-realization-1.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.4-realization-1.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.5-realization-1.pkl
+1878 1878 1878 1878
+Test nodes: 752
+([], [], [])
+mse_belief= 0.45511 mse_uncertain== 0.45217 bf-mse_opinion== 0.67452
+mse_belief= 0.45170 mse_uncertain== 0.44912 bf-mse_opinion== 0.66971
+mse_belief= 0.44756 mse_uncertain== 0.44467 bf-mse_opinion== 0.66335
+Optimization Finished!
+run time =  4.23580503464
+1126
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.0-realization-1.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.01-realization-1.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.03-realization-1.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.05-realization-1.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.07-realization-1.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.09-realization-1.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.2-realization-1.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.3-realization-1.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.4-realization-1.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.5-realization-1.pkl
+1878 1878 1878 1878
+Test nodes: 940
+([], [], [])
+mse_belief= 0.45049 mse_uncertain== 0.45055 bf-mse_opinion== 0.66534
+mse_belief= 0.44743 mse_uncertain== 0.44657 bf-mse_opinion== 0.66034
+mse_belief= 0.44366 mse_uncertain== 0.44103 bf-mse_opinion== 0.65373
+Optimization Finished!
+run time =  4.61125779152
+938
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.0-realization-1.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.01-realization-1.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.03-realization-1.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.05-realization-1.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.07-realization-1.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.09-realization-1.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.2-realization-1.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.3-realization-1.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.4-realization-1.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.5-realization-1.pkl
+708 708 708 708
+Test nodes: 72
+([], [], [])
+mse_belief= 0.39446 mse_uncertain== 0.45446 bf-mse_opinion== 0.60093
+mse_belief= 0.39117 mse_uncertain== 0.45240 bf-mse_opinion== 0.59691
+mse_belief= 0.38739 mse_uncertain== 0.44943 bf-mse_opinion== 0.59175
+Optimization Finished!
+run time =  3.94574904442
+636
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.0-realization-2.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.01-realization-2.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.03-realization-2.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.05-realization-2.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.07-realization-2.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.09-realization-2.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.2-realization-2.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.3-realization-2.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.4-realization-2.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.5-realization-2.pkl
+708 708 708 708
+Test nodes: 143
+([], [], [])
+mse_belief= 0.42135 mse_uncertain== 0.45440 bf-mse_opinion== 0.62854
+mse_belief= 0.41731 mse_uncertain== 0.45212 bf-mse_opinion== 0.62376
+mse_belief= 0.41309 mse_uncertain== 0.44915 bf-mse_opinion== 0.61810
+Optimization Finished!
+run time =  4.13199090958
+565
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.0-realization-2.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.01-realization-2.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.03-realization-2.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.05-realization-2.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.07-realization-2.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.09-realization-2.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.2-realization-2.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.3-realization-2.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.4-realization-2.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.5-realization-2.pkl
+708 708 708 708
+Test nodes: 213
+([], [], [])
+mse_belief= 0.42432 mse_uncertain== 0.45489 bf-mse_opinion== 0.63490
+mse_belief= 0.42070 mse_uncertain== 0.45405 bf-mse_opinion== 0.63081
+mse_belief= 0.41646 mse_uncertain== 0.45247 bf-mse_opinion== 0.62570
+Optimization Finished!
+run time =  4.41304898262
+495
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.0-realization-2.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.01-realization-2.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.03-realization-2.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.05-realization-2.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.07-realization-2.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.09-realization-2.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.2-realization-2.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.3-realization-2.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.4-realization-2.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.5-realization-2.pkl
+708 708 708 708
+Test nodes: 284
+([], [], [])
+mse_belief= 0.42792 mse_uncertain== 0.45401 bf-mse_opinion== 0.64221
+mse_belief= 0.42559 mse_uncertain== 0.45041 bf-mse_opinion== 0.63899
+mse_belief= 0.42292 mse_uncertain== 0.44599 bf-mse_opinion== 0.63449
+Optimization Finished!
+run time =  4.41218209267
+424
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.0-realization-2.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.01-realization-2.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.03-realization-2.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.05-realization-2.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.07-realization-2.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.09-realization-2.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.2-realization-2.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.3-realization-2.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.4-realization-2.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.5-realization-2.pkl
+708 708 708 708
+Test nodes: 355
+([], [], [])
+mse_belief= 0.41299 mse_uncertain== 0.45455 bf-mse_opinion== 0.62368
+mse_belief= 0.40867 mse_uncertain== 0.45144 bf-mse_opinion== 0.61763
+mse_belief= 0.40344 mse_uncertain== 0.44770 bf-mse_opinion== 0.61028
+Optimization Finished!
+run time =  4.6537361145
+353
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.0-realization-2.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.01-realization-2.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.03-realization-2.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.05-realization-2.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.07-realization-2.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.09-realization-2.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.2-realization-2.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.3-realization-2.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.4-realization-2.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.5-realization-2.pkl
+1878 1878 1878 1878
+Test nodes: 189
+([], [], [])
+mse_belief= 0.45595 mse_uncertain== 0.45264 bf-mse_opinion== 0.67402
+mse_belief= 0.45160 mse_uncertain== 0.44884 bf-mse_opinion== 0.66766
+mse_belief= 0.44594 mse_uncertain== 0.44377 bf-mse_opinion== 0.65924
+Optimization Finished!
+run time =  5.08397507668
+1689
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.0-realization-2.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.01-realization-2.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.03-realization-2.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.05-realization-2.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.07-realization-2.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.09-realization-2.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.2-realization-2.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.3-realization-2.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.4-realization-2.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.5-realization-2.pkl
+1878 1878 1878 1878
+Test nodes: 377
+([], [], [])
+mse_belief= 0.45072 mse_uncertain== 0.45028 bf-mse_opinion== 0.66639
+mse_belief= 0.44735 mse_uncertain== 0.44535 bf-mse_opinion== 0.66058
+mse_belief= 0.44289 mse_uncertain== 0.43879 bf-mse_opinion== 0.65277
+Optimization Finished!
+run time =  5.19631409645
+1501
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.0-realization-2.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.01-realization-2.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.03-realization-2.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.05-realization-2.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.07-realization-2.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.09-realization-2.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.2-realization-2.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.3-realization-2.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.4-realization-2.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.5-realization-2.pkl
+1878 1878 1878 1878
+Test nodes: 564
+([], [], [])
+mse_belief= 0.45219 mse_uncertain== 0.45216 bf-mse_opinion== 0.66905
+mse_belief= 0.44899 mse_uncertain== 0.44843 bf-mse_opinion== 0.66400
+mse_belief= 0.44452 mse_uncertain== 0.44309 bf-mse_opinion== 0.65693
+Optimization Finished!
+run time =  5.20926117897
+1314
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.0-realization-2.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.01-realization-2.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.03-realization-2.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.05-realization-2.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.07-realization-2.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.09-realization-2.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.2-realization-2.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.3-realization-2.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.4-realization-2.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.5-realization-2.pkl
+1878 1878 1878 1878
+Test nodes: 752
+([], [], [])
+mse_belief= 0.45175 mse_uncertain== 0.45501 bf-mse_opinion== 0.66946
+mse_belief= 0.44913 mse_uncertain== 0.45337 bf-mse_opinion== 0.66626
+mse_belief= 0.44591 mse_uncertain== 0.45105 bf-mse_opinion== 0.66201
+Optimization Finished!
+run time =  5.70866799355
+1126
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.0-realization-2.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.01-realization-2.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.03-realization-2.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.05-realization-2.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.07-realization-2.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.09-realization-2.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.2-realization-2.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.3-realization-2.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.4-realization-2.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.5-realization-2.pkl
+1878 1878 1878 1878
+Test nodes: 940
+([], [], [])
+mse_belief= 0.44209 mse_uncertain== 0.45314 bf-mse_opinion== 0.65859
+mse_belief= 0.43745 mse_uncertain== 0.45053 bf-mse_opinion== 0.65256
+mse_belief= 0.43139 mse_uncertain== 0.44638 bf-mse_opinion== 0.64421
+Optimization Finished!
+run time =  5.40039396286
+938
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.0-realization-2.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.01-realization-2.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.03-realization-2.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.05-realization-2.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.07-realization-2.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.09-realization-2.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.2-realization-2.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.3-realization-2.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.4-realization-2.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.5-realization-2.pkl
+708 708 708 708
+Test nodes: 72
+([], [], [])
+mse_belief= 0.39532 mse_uncertain== 0.44936 bf-mse_opinion== 0.60719
+mse_belief= 0.39101 mse_uncertain== 0.44486 bf-mse_opinion== 0.60020
+mse_belief= 0.38583 mse_uncertain== 0.43905 bf-mse_opinion== 0.59133
+Optimization Finished!
+run time =  5.08975601196
+636
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.0-realization-3.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.01-realization-3.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.03-realization-3.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.05-realization-3.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.07-realization-3.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.09-realization-3.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.2-realization-3.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.3-realization-3.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.4-realization-3.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.5-realization-3.pkl
+708 708 708 708
+Test nodes: 143
+([], [], [])
+mse_belief= 0.39516 mse_uncertain== 0.45044 bf-mse_opinion== 0.61442
+mse_belief= 0.39006 mse_uncertain== 0.44619 bf-mse_opinion== 0.60674
+mse_belief= 0.38377 mse_uncertain== 0.44080 bf-mse_opinion== 0.59711
+Optimization Finished!
+run time =  5.02386784554
+565
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.0-realization-3.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.01-realization-3.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.03-realization-3.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.05-realization-3.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.07-realization-3.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.09-realization-3.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.2-realization-3.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.3-realization-3.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.4-realization-3.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.5-realization-3.pkl
+708 708 708 708
+Test nodes: 213
+([], [], [])
+mse_belief= 0.41375 mse_uncertain== 0.45421 bf-mse_opinion== 0.62047
+mse_belief= 0.41081 mse_uncertain== 0.45101 bf-mse_opinion== 0.61638
+mse_belief= 0.40755 mse_uncertain== 0.44719 bf-mse_opinion== 0.61135
+Optimization Finished!
+run time =  5.56068086624
+495
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.0-realization-3.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.01-realization-3.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.03-realization-3.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.05-realization-3.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.07-realization-3.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.09-realization-3.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.2-realization-3.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.3-realization-3.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.4-realization-3.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.5-realization-3.pkl
+708 708 708 708
+Test nodes: 284
+([], [], [])
+mse_belief= 0.41515 mse_uncertain== 0.45564 bf-mse_opinion== 0.62809
+mse_belief= 0.41160 mse_uncertain== 0.45251 bf-mse_opinion== 0.62346
+mse_belief= 0.40747 mse_uncertain== 0.44900 bf-mse_opinion== 0.61753
+Optimization Finished!
+run time =  5.69775795937
+424
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.0-realization-3.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.01-realization-3.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.03-realization-3.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.05-realization-3.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.07-realization-3.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.09-realization-3.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.2-realization-3.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.3-realization-3.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.4-realization-3.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.5-realization-3.pkl
+708 708 708 708
+Test nodes: 355
+([], [], [])
+mse_belief= 0.42557 mse_uncertain== 0.45365 bf-mse_opinion== 0.63620
+mse_belief= 0.42181 mse_uncertain== 0.45040 bf-mse_opinion== 0.63125
+mse_belief= 0.41720 mse_uncertain== 0.44627 bf-mse_opinion== 0.62471
+Optimization Finished!
+run time =  5.31953787804
+353
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.0-realization-3.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.01-realization-3.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.03-realization-3.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.05-realization-3.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.07-realization-3.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.09-realization-3.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.2-realization-3.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.3-realization-3.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.4-realization-3.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.5-realization-3.pkl
+1878 1878 1878 1878
+Test nodes: 189
+([], [], [])
+mse_belief= 0.44989 mse_uncertain== 0.45165 bf-mse_opinion== 0.66804
+mse_belief= 0.44626 mse_uncertain== 0.44691 bf-mse_opinion== 0.66210
+mse_belief= 0.44139 mse_uncertain== 0.44082 bf-mse_opinion== 0.65413
+Optimization Finished!
+run time =  6.59087896347
+1689
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.0-realization-3.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.01-realization-3.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.03-realization-3.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.05-realization-3.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.07-realization-3.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.09-realization-3.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.2-realization-3.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.3-realization-3.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.4-realization-3.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.5-realization-3.pkl
+1878 1878 1878 1878
+Test nodes: 377
+([], [], [])
+mse_belief= 0.45140 mse_uncertain== 0.45468 bf-mse_opinion== 0.66953
+mse_belief= 0.44864 mse_uncertain== 0.45230 bf-mse_opinion== 0.66591
+mse_belief= 0.44557 mse_uncertain== 0.44930 bf-mse_opinion== 0.66133
+Optimization Finished!
+run time =  6.31753993034
+1501
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.0-realization-3.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.01-realization-3.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.03-realization-3.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.05-realization-3.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.07-realization-3.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.09-realization-3.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.2-realization-3.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.3-realization-3.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.4-realization-3.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.5-realization-3.pkl
+1878 1878 1878 1878
+Test nodes: 564
+([], [], [])
+mse_belief= 0.44596 mse_uncertain== 0.45404 bf-mse_opinion== 0.66520
+mse_belief= 0.44124 mse_uncertain== 0.45116 bf-mse_opinion== 0.65891
+mse_belief= 0.43519 mse_uncertain== 0.44712 bf-mse_opinion== 0.65052
+Optimization Finished!
+run time =  6.81563901901
+1314
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.0-realization-3.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.01-realization-3.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.03-realization-3.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.05-realization-3.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.07-realization-3.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.09-realization-3.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.2-realization-3.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.3-realization-3.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.4-realization-3.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.5-realization-3.pkl
+1878 1878 1878 1878
+Test nodes: 752
+([], [], [])
+mse_belief= 0.45121 mse_uncertain== 0.45454 bf-mse_opinion== 0.66904
+mse_belief= 0.44747 mse_uncertain== 0.45256 bf-mse_opinion== 0.66417
+mse_belief= 0.44259 mse_uncertain== 0.44941 bf-mse_opinion== 0.65769
+Optimization Finished!
+run time =  6.74014616013
+1126
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.0-realization-3.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.01-realization-3.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.03-realization-3.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.05-realization-3.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.07-realization-3.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.09-realization-3.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.2-realization-3.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.3-realization-3.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.4-realization-3.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.5-realization-3.pkl
+1878 1878 1878 1878
+Test nodes: 940
+([], [], [])
+mse_belief= 0.44732 mse_uncertain== 0.45530 bf-mse_opinion== 0.66319
+mse_belief= 0.44428 mse_uncertain== 0.45399 bf-mse_opinion== 0.65963
+mse_belief= 0.44049 mse_uncertain== 0.45188 bf-mse_opinion== 0.65485
+Optimization Finished!
+run time =  6.97033500671
+938
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.0-realization-3.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.01-realization-3.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.03-realization-3.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.05-realization-3.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.07-realization-3.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.09-realization-3.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.2-realization-3.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.3-realization-3.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.4-realization-3.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.5-realization-3.pkl
+708 708 708 708
+Test nodes: 72
+([], [], [])
+mse_belief= 0.40257 mse_uncertain== 0.45193 bf-mse_opinion== 0.60400
+mse_belief= 0.39963 mse_uncertain== 0.44816 bf-mse_opinion== 0.59911
+mse_belief= 0.39611 mse_uncertain== 0.44347 bf-mse_opinion== 0.59279
+Optimization Finished!
+run time =  6.55173301697
+636
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.0-realization-4.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.01-realization-4.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.03-realization-4.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.05-realization-4.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.07-realization-4.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.09-realization-4.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.2-realization-4.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.3-realization-4.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.4-realization-4.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.5-realization-4.pkl
+708 708 708 708
+Test nodes: 143
+([], [], [])
+mse_belief= 0.42660 mse_uncertain== 0.44949 bf-mse_opinion== 0.64302
+mse_belief= 0.42318 mse_uncertain== 0.44605 bf-mse_opinion== 0.63810
+mse_belief= 0.41910 mse_uncertain== 0.44121 bf-mse_opinion== 0.63181
+Optimization Finished!
+run time =  6.60282206535
+565
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.0-realization-4.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.01-realization-4.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.03-realization-4.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.05-realization-4.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.07-realization-4.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.09-realization-4.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.2-realization-4.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.3-realization-4.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.4-realization-4.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.5-realization-4.pkl
+708 708 708 708
+Test nodes: 213
+([], [], [])
+mse_belief= 0.42464 mse_uncertain== 0.45210 bf-mse_opinion== 0.63613
+mse_belief= 0.42054 mse_uncertain== 0.44795 bf-mse_opinion== 0.63011
+mse_belief= 0.41550 mse_uncertain== 0.44268 bf-mse_opinion== 0.62231
+Optimization Finished!
+run time =  6.79347014427
+495
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.0-realization-4.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.01-realization-4.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.03-realization-4.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.05-realization-4.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.07-realization-4.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.09-realization-4.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.2-realization-4.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.3-realization-4.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.4-realization-4.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.5-realization-4.pkl
+708 708 708 708
+Test nodes: 284
+([], [], [])
+mse_belief= 0.41721 mse_uncertain== 0.45608 bf-mse_opinion== 0.63056
+mse_belief= 0.41312 mse_uncertain== 0.45419 bf-mse_opinion== 0.62574
+mse_belief= 0.40800 mse_uncertain== 0.45168 bf-mse_opinion== 0.61952
+Optimization Finished!
+run time =  6.86655807495
+424
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.0-realization-4.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.01-realization-4.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.03-realization-4.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.05-realization-4.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.07-realization-4.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.09-realization-4.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.2-realization-4.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.3-realization-4.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.4-realization-4.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.5-realization-4.pkl
+708 708 708 708
+Test nodes: 355
+([], [], [])
+mse_belief= 0.42022 mse_uncertain== 0.45415 bf-mse_opinion== 0.62889
+mse_belief= 0.41652 mse_uncertain== 0.45214 bf-mse_opinion== 0.62452
+mse_belief= 0.41233 mse_uncertain== 0.44939 bf-mse_opinion== 0.61892
+Optimization Finished!
+run time =  6.93555212021
+353
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.0-realization-4.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.01-realization-4.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.03-realization-4.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.05-realization-4.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.07-realization-4.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.09-realization-4.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.2-realization-4.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.3-realization-4.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.4-realization-4.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.5-realization-4.pkl
+1878 1878 1878 1878
+Test nodes: 189
+([], [], [])
+mse_belief= 0.44084 mse_uncertain== 0.45145 bf-mse_opinion== 0.65867
+mse_belief= 0.43705 mse_uncertain== 0.44788 bf-mse_opinion== 0.65298
+mse_belief= 0.43219 mse_uncertain== 0.44263 bf-mse_opinion== 0.64521
+Optimization Finished!
+run time =  6.96540212631
+1689
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.0-realization-4.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.01-realization-4.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.03-realization-4.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.05-realization-4.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.07-realization-4.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.09-realization-4.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.2-realization-4.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.3-realization-4.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.4-realization-4.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.5-realization-4.pkl
+1878 1878 1878 1878
+Test nodes: 377
+([], [], [])
+mse_belief= 0.44732 mse_uncertain== 0.45381 bf-mse_opinion== 0.66529
+mse_belief= 0.44479 mse_uncertain== 0.45072 bf-mse_opinion== 0.66145
+mse_belief= 0.44148 mse_uncertain== 0.44659 bf-mse_opinion== 0.65612
+Optimization Finished!
+run time =  7.35763812065
+1501
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.0-realization-4.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.01-realization-4.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.03-realization-4.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.05-realization-4.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.07-realization-4.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.09-realization-4.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.2-realization-4.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.3-realization-4.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.4-realization-4.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.5-realization-4.pkl
+1878 1878 1878 1878
+Test nodes: 564
+([], [], [])
+mse_belief= 0.44928 mse_uncertain== 0.45206 bf-mse_opinion== 0.66410
+mse_belief= 0.44603 mse_uncertain== 0.44802 bf-mse_opinion== 0.65882
+mse_belief= 0.44188 mse_uncertain== 0.44282 bf-mse_opinion== 0.65190
+Optimization Finished!
+run time =  7.96251702309
+1314
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.0-realization-4.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.01-realization-4.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.03-realization-4.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.05-realization-4.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.07-realization-4.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.09-realization-4.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.2-realization-4.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.3-realization-4.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.4-realization-4.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.5-realization-4.pkl
+1878 1878 1878 1878
+Test nodes: 752
+([], [], [])
+mse_belief= 0.45289 mse_uncertain== 0.45237 bf-mse_opinion== 0.67146
+mse_belief= 0.44903 mse_uncertain== 0.44882 bf-mse_opinion== 0.66574
+mse_belief= 0.44383 mse_uncertain== 0.44401 bf-mse_opinion== 0.65787
+Optimization Finished!
+run time =  8.16589403152
+1126
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.0-realization-4.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.01-realization-4.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.03-realization-4.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.05-realization-4.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.07-realization-4.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.09-realization-4.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.2-realization-4.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.3-realization-4.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.4-realization-4.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.5-realization-4.pkl
+1878 1878 1878 1878
+Test nodes: 940
+([], [], [])
+mse_belief= 0.45184 mse_uncertain== 0.45338 bf-mse_opinion== 0.66989
+mse_belief= 0.44913 mse_uncertain== 0.45041 bf-mse_opinion== 0.66585
+mse_belief= 0.44554 mse_uncertain== 0.44622 bf-mse_opinion== 0.66021
+Optimization Finished!
+run time =  8.19409513474
+938
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.0-realization-4.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.01-realization-4.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.03-realization-4.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.05-realization-4.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.07-realization-4.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.09-realization-4.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.2-realization-4.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.3-realization-4.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.4-realization-4.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.5-realization-4.pkl
+708 708 708 708
+Test nodes: 72
+([], [], [])
+mse_belief= 0.43304 mse_uncertain== 0.45195 bf-mse_opinion== 0.65361
+mse_belief= 0.42957 mse_uncertain== 0.44893 bf-mse_opinion== 0.64908
+mse_belief= 0.42552 mse_uncertain== 0.44482 bf-mse_opinion== 0.64332
+Optimization Finished!
+run time =  7.61538505554
+636
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.0-realization-5.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.01-realization-5.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.03-realization-5.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.05-realization-5.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.07-realization-5.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.09-realization-5.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.2-realization-5.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.3-realization-5.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.4-realization-5.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.5-realization-5.pkl
+708 708 708 708
+Test nodes: 143
+([], [], [])
+mse_belief= 0.40284 mse_uncertain== 0.45313 bf-mse_opinion== 0.61876
+mse_belief= 0.39918 mse_uncertain== 0.44992 bf-mse_opinion== 0.61347
+mse_belief= 0.39453 mse_uncertain== 0.44579 bf-mse_opinion== 0.60661
+Optimization Finished!
+run time =  7.12502789497
+565
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.0-realization-5.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.01-realization-5.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.03-realization-5.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.05-realization-5.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.07-realization-5.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.09-realization-5.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.2-realization-5.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.3-realization-5.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.4-realization-5.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.5-realization-5.pkl
+708 708 708 708
+Test nodes: 213
+([], [], [])
+mse_belief= 0.41977 mse_uncertain== 0.45221 bf-mse_opinion== 0.63403
+mse_belief= 0.41589 mse_uncertain== 0.44831 bf-mse_opinion== 0.62853
+mse_belief= 0.41121 mse_uncertain== 0.44337 bf-mse_opinion== 0.62130
+Optimization Finished!
+run time =  7.84874391556
+495
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.0-realization-5.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.01-realization-5.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.03-realization-5.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.05-realization-5.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.07-realization-5.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.09-realization-5.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.2-realization-5.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.3-realization-5.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.4-realization-5.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.5-realization-5.pkl
+708 708 708 708
+Test nodes: 284
+([], [], [])
+mse_belief= 0.40883 mse_uncertain== 0.45286 bf-mse_opinion== 0.62041
+mse_belief= 0.40606 mse_uncertain== 0.44991 bf-mse_opinion== 0.61640
+mse_belief= 0.40252 mse_uncertain== 0.44599 bf-mse_opinion== 0.61108
+Optimization Finished!
+run time =  7.27818989754
+424
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.0-realization-5.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.01-realization-5.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.03-realization-5.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.05-realization-5.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.07-realization-5.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.09-realization-5.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.2-realization-5.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.3-realization-5.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.4-realization-5.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.5-realization-5.pkl
+708 708 708 708
+Test nodes: 355
+([], [], [])
+mse_belief= 0.41843 mse_uncertain== 0.45192 bf-mse_opinion== 0.62757
+mse_belief= 0.41385 mse_uncertain== 0.44900 bf-mse_opinion== 0.62160
+mse_belief= 0.40795 mse_uncertain== 0.44473 bf-mse_opinion== 0.61354
+Optimization Finished!
+run time =  8.05809903145
+353
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.0-realization-5.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.01-realization-5.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.03-realization-5.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.05-realization-5.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.07-realization-5.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.09-realization-5.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.2-realization-5.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.3-realization-5.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.4-realization-5.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.5-realization-5.pkl
+1878 1878 1878 1878
+Test nodes: 189
+([], [], [])
+mse_belief= 0.45637 mse_uncertain== 0.45272 bf-mse_opinion== 0.67645
+mse_belief= 0.45441 mse_uncertain== 0.44940 bf-mse_opinion== 0.67294
+mse_belief= 0.45188 mse_uncertain== 0.44517 bf-mse_opinion== 0.66825
+Optimization Finished!
+run time =  8.263890028
+1689
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.0-realization-5.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.01-realization-5.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.03-realization-5.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.05-realization-5.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.07-realization-5.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.09-realization-5.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.2-realization-5.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.3-realization-5.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.4-realization-5.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.5-realization-5.pkl
+1878 1878 1878 1878
+Test nodes: 377
+([], [], [])
+mse_belief= 0.45092 mse_uncertain== 0.45582 bf-mse_opinion== 0.66765
+mse_belief= 0.44764 mse_uncertain== 0.45467 bf-mse_opinion== 0.66356
+mse_belief= 0.44323 mse_uncertain== 0.45255 bf-mse_opinion== 0.65803
+Optimization Finished!
+run time =  8.16540908813
+1501
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.0-realization-5.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.01-realization-5.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.03-realization-5.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.05-realization-5.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.07-realization-5.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.09-realization-5.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.2-realization-5.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.3-realization-5.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.4-realization-5.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.5-realization-5.pkl
+1878 1878 1878 1878
+Test nodes: 564
+([], [], [])
+mse_belief= 0.45092 mse_uncertain== 0.45227 bf-mse_opinion== 0.67190
+mse_belief= 0.44798 mse_uncertain== 0.44878 bf-mse_opinion== 0.66723
+mse_belief= 0.44410 mse_uncertain== 0.44394 bf-mse_opinion== 0.66085
+Optimization Finished!
+run time =  9.05806803703
+1314
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.0-realization-5.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.01-realization-5.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.03-realization-5.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.05-realization-5.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.07-realization-5.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.09-realization-5.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.2-realization-5.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.3-realization-5.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.4-realization-5.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.5-realization-5.pkl
+1878 1878 1878 1878
+Test nodes: 752
+([], [], [])
+mse_belief= 0.44827 mse_uncertain== 0.45482 bf-mse_opinion== 0.66452
+mse_belief= 0.44442 mse_uncertain== 0.45232 bf-mse_opinion== 0.65935
+mse_belief= 0.43974 mse_uncertain== 0.44929 bf-mse_opinion== 0.65292
+Optimization Finished!
+run time =  8.19853901863
+1126
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.0-realization-5.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.01-realization-5.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.03-realization-5.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.05-realization-5.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.07-realization-5.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.09-realization-5.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.2-realization-5.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.3-realization-5.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.4-realization-5.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.5-realization-5.pkl
+1878 1878 1878 1878
+Test nodes: 940
+([], [], [])
+mse_belief= 0.44797 mse_uncertain== 0.45560 bf-mse_opinion== 0.66392
+mse_belief= 0.44544 mse_uncertain== 0.45430 bf-mse_opinion== 0.66095
+mse_belief= 0.44229 mse_uncertain== 0.45228 bf-mse_opinion== 0.65685
+Optimization Finished!
+run time =  8.32218599319
+938
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.0-realization-5.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.01-realization-5.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.03-realization-5.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.05-realization-5.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.07-realization-5.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.09-realization-5.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.2-realization-5.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.3-realization-5.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.4-realization-5.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.5-realization-5.pkl
+708 708 708 708
+Test nodes: 72
+([], [], [])
+mse_belief= 0.41607 mse_uncertain== 0.45149 bf-mse_opinion== 0.63759
+mse_belief= 0.41203 mse_uncertain== 0.44847 bf-mse_opinion== 0.63206
+mse_belief= 0.40707 mse_uncertain== 0.44431 bf-mse_opinion== 0.62485
+Optimization Finished!
+run time =  8.74289894104
+636
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.0-realization-6.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.01-realization-6.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.03-realization-6.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.05-realization-6.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.07-realization-6.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.09-realization-6.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.2-realization-6.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.3-realization-6.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.4-realization-6.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.5-realization-6.pkl
+708 708 708 708
+Test nodes: 143
+([], [], [])
+mse_belief= 0.43683 mse_uncertain== 0.45100 bf-mse_opinion== 0.64753
+mse_belief= 0.43330 mse_uncertain== 0.44733 bf-mse_opinion== 0.64264
+mse_belief= 0.42918 mse_uncertain== 0.44268 bf-mse_opinion== 0.63645
+Optimization Finished!
+run time =  9.18147110939
+565
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.0-realization-6.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.01-realization-6.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.03-realization-6.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.05-realization-6.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.07-realization-6.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.09-realization-6.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.2-realization-6.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.3-realization-6.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.4-realization-6.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.5-realization-6.pkl
+708 708 708 708
+Test nodes: 213
+([], [], [])
+mse_belief= 0.41173 mse_uncertain== 0.45320 bf-mse_opinion== 0.61881
+mse_belief= 0.40854 mse_uncertain== 0.44923 bf-mse_opinion== 0.61401
+mse_belief= 0.40462 mse_uncertain== 0.44465 bf-mse_opinion== 0.60801
+Optimization Finished!
+run time =  8.78357505798
+495
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.0-realization-6.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.01-realization-6.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.03-realization-6.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.05-realization-6.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.07-realization-6.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.09-realization-6.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.2-realization-6.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.3-realization-6.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.4-realization-6.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.5-realization-6.pkl
+708 708 708 708
+Test nodes: 284
+([], [], [])
+mse_belief= 0.41751 mse_uncertain== 0.44962 bf-mse_opinion== 0.63100
+mse_belief= 0.41338 mse_uncertain== 0.44565 bf-mse_opinion== 0.62487
+mse_belief= 0.40854 mse_uncertain== 0.44055 bf-mse_opinion== 0.61730
+Optimization Finished!
+run time =  9.48615288734
+424
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.0-realization-6.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.01-realization-6.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.03-realization-6.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.05-realization-6.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.07-realization-6.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.09-realization-6.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.2-realization-6.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.3-realization-6.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.4-realization-6.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.5-realization-6.pkl
+708 708 708 708
+Test nodes: 355
+([], [], [])
+mse_belief= 0.42262 mse_uncertain== 0.45395 bf-mse_opinion== 0.63361
+mse_belief= 0.41865 mse_uncertain== 0.45121 bf-mse_opinion== 0.62892
+mse_belief= 0.41391 mse_uncertain== 0.44762 bf-mse_opinion== 0.62267
+Optimization Finished!
+run time =  8.34985208511
+353
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.0-realization-6.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.01-realization-6.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.03-realization-6.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.05-realization-6.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.07-realization-6.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.09-realization-6.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.2-realization-6.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.3-realization-6.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.4-realization-6.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.5-realization-6.pkl
+1878 1878 1878 1878
+Test nodes: 189
+([], [], [])
+mse_belief= 0.45122 mse_uncertain== 0.45125 bf-mse_opinion== 0.66221
+mse_belief= 0.44683 mse_uncertain== 0.44686 bf-mse_opinion== 0.65542
+mse_belief= 0.44089 mse_uncertain== 0.44083 bf-mse_opinion== 0.64614
+Optimization Finished!
+run time =  10.1363210678
+1689
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.0-realization-6.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.01-realization-6.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.03-realization-6.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.05-realization-6.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.07-realization-6.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.09-realization-6.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.2-realization-6.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.3-realization-6.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.4-realization-6.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.5-realization-6.pkl
+1878 1878 1878 1878
+Test nodes: 377
+([], [], [])
+mse_belief= 0.44637 mse_uncertain== 0.45396 bf-mse_opinion== 0.66328
+mse_belief= 0.44266 mse_uncertain== 0.45154 bf-mse_opinion== 0.65834
+mse_belief= 0.43784 mse_uncertain== 0.44795 bf-mse_opinion== 0.65172
+Optimization Finished!
+run time =  9.08219599724
+1501
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.0-realization-6.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.01-realization-6.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.03-realization-6.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.05-realization-6.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.07-realization-6.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.09-realization-6.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.2-realization-6.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.3-realization-6.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.4-realization-6.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.5-realization-6.pkl
+1878 1878 1878 1878
+Test nodes: 564
+([], [], [])
+mse_belief= 0.44873 mse_uncertain== 0.45374 bf-mse_opinion== 0.66193
+mse_belief= 0.44377 mse_uncertain== 0.45123 bf-mse_opinion== 0.65553
+mse_belief= 0.43721 mse_uncertain== 0.44731 bf-mse_opinion== 0.64675
+Optimization Finished!
+run time =  9.1670498848
+1314
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.0-realization-6.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.01-realization-6.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.03-realization-6.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.05-realization-6.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.07-realization-6.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.09-realization-6.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.2-realization-6.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.3-realization-6.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.4-realization-6.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.5-realization-6.pkl
+1878 1878 1878 1878
+Test nodes: 752
+([], [], [])
+mse_belief= 0.45377 mse_uncertain== 0.45329 bf-mse_opinion== 0.67004
+mse_belief= 0.45073 mse_uncertain== 0.45016 bf-mse_opinion== 0.66549
+mse_belief= 0.44676 mse_uncertain== 0.44604 bf-mse_opinion== 0.65945
+Optimization Finished!
+run time =  9.12873411179
+1126
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.0-realization-6.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.01-realization-6.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.03-realization-6.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.05-realization-6.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.07-realization-6.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.09-realization-6.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.2-realization-6.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.3-realization-6.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.4-realization-6.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.5-realization-6.pkl
+1878 1878 1878 1878
+Test nodes: 940
+([], [], [])
+mse_belief= 0.45071 mse_uncertain== 0.45213 bf-mse_opinion== 0.66717
+mse_belief= 0.44566 mse_uncertain== 0.44855 bf-mse_opinion== 0.66011
+mse_belief= 0.43908 mse_uncertain== 0.44360 bf-mse_opinion== 0.65075
+Optimization Finished!
+run time =  10.3942980766
+938
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.0-realization-6.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.01-realization-6.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.03-realization-6.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.05-realization-6.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.07-realization-6.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.09-realization-6.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.2-realization-6.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.3-realization-6.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.4-realization-6.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.5-realization-6.pkl
+708 708 708 708
+Test nodes: 72
+([], [], [])
+mse_belief= 0.43035 mse_uncertain== 0.45060 bf-mse_opinion== 0.63782
+mse_belief= 0.42749 mse_uncertain== 0.44698 bf-mse_opinion== 0.63315
+mse_belief= 0.42378 mse_uncertain== 0.44192 bf-mse_opinion== 0.62693
+Optimization Finished!
+run time =  9.97282600403
+636
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.0-realization-7.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.01-realization-7.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.03-realization-7.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.05-realization-7.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.07-realization-7.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.09-realization-7.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.2-realization-7.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.3-realization-7.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.4-realization-7.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.5-realization-7.pkl
+708 708 708 708
+Test nodes: 143
+([], [], [])
+mse_belief= 0.40742 mse_uncertain== 0.45508 bf-mse_opinion== 0.62920
+mse_belief= 0.40391 mse_uncertain== 0.45267 bf-mse_opinion== 0.62475
+mse_belief= 0.39948 mse_uncertain== 0.44963 bf-mse_opinion== 0.61886
+Optimization Finished!
+run time =  9.11041903496
+565
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.0-realization-7.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.01-realization-7.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.03-realization-7.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.05-realization-7.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.07-realization-7.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.09-realization-7.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.2-realization-7.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.3-realization-7.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.4-realization-7.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.5-realization-7.pkl
+708 708 708 708
+Test nodes: 213
+([], [], [])
+mse_belief= 0.41897 mse_uncertain== 0.45358 bf-mse_opinion== 0.63524
+mse_belief= 0.41407 mse_uncertain== 0.45132 bf-mse_opinion== 0.62954
+mse_belief= 0.40834 mse_uncertain== 0.44815 bf-mse_opinion== 0.62224
+Optimization Finished!
+run time =  9.9917280674
+495
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.0-realization-7.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.01-realization-7.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.03-realization-7.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.05-realization-7.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.07-realization-7.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.09-realization-7.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.2-realization-7.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.3-realization-7.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.4-realization-7.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.5-realization-7.pkl
+708 708 708 708
+Test nodes: 284
+([], [], [])
+mse_belief= 0.41716 mse_uncertain== 0.45197 bf-mse_opinion== 0.62928
+mse_belief= 0.41316 mse_uncertain== 0.44876 bf-mse_opinion== 0.62389
+mse_belief= 0.40833 mse_uncertain== 0.44455 bf-mse_opinion== 0.61705
+Optimization Finished!
+run time =  9.5561580658
+424
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.0-realization-7.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.01-realization-7.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.03-realization-7.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.05-realization-7.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.07-realization-7.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.09-realization-7.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.2-realization-7.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.3-realization-7.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.4-realization-7.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.5-realization-7.pkl
+708 708 708 708
+Test nodes: 355
+([], [], [])
+mse_belief= 0.42529 mse_uncertain== 0.45314 bf-mse_opinion== 0.63720
+mse_belief= 0.42216 mse_uncertain== 0.44953 bf-mse_opinion== 0.63297
+mse_belief= 0.41867 mse_uncertain== 0.44530 bf-mse_opinion== 0.62757
+Optimization Finished!
+run time =  9.26474714279
+353
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.0-realization-7.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.01-realization-7.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.03-realization-7.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.05-realization-7.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.07-realization-7.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.09-realization-7.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.2-realization-7.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.3-realization-7.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.4-realization-7.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.5-realization-7.pkl
+1878 1878 1878 1878
+Test nodes: 189
+([], [], [])
+mse_belief= 0.47117 mse_uncertain== 0.45476 bf-mse_opinion== 0.69138
+mse_belief= 0.46818 mse_uncertain== 0.45218 bf-mse_opinion== 0.68732
+mse_belief= 0.46429 mse_uncertain== 0.44894 bf-mse_opinion== 0.68201
+Optimization Finished!
+run time =  9.91204690933
+1689
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.0-realization-7.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.01-realization-7.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.03-realization-7.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.05-realization-7.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.07-realization-7.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.09-realization-7.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.2-realization-7.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.3-realization-7.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.4-realization-7.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.5-realization-7.pkl
+1878 1878 1878 1878
+Test nodes: 377
+([], [], [])
+mse_belief= 0.45246 mse_uncertain== 0.45355 bf-mse_opinion== 0.67190
+mse_belief= 0.44835 mse_uncertain== 0.45103 bf-mse_opinion== 0.66671
+mse_belief= 0.44262 mse_uncertain== 0.44702 bf-mse_opinion== 0.65896
+Optimization Finished!
+run time =  9.87372612953
+1501
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.0-realization-7.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.01-realization-7.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.03-realization-7.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.05-realization-7.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.07-realization-7.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.09-realization-7.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.2-realization-7.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.3-realization-7.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.4-realization-7.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.5-realization-7.pkl
+1878 1878 1878 1878
+Test nodes: 564
+([], [], [])
+mse_belief= 0.44931 mse_uncertain== 0.45423 bf-mse_opinion== 0.66660
+mse_belief= 0.44555 mse_uncertain== 0.45194 bf-mse_opinion== 0.66157
+mse_belief= 0.44076 mse_uncertain== 0.44862 bf-mse_opinion== 0.65503
+Optimization Finished!
+run time =  10.1516039371
+1314
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.0-realization-7.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.01-realization-7.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.03-realization-7.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.05-realization-7.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.07-realization-7.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.09-realization-7.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.2-realization-7.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.3-realization-7.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.4-realization-7.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.5-realization-7.pkl
+1878 1878 1878 1878
+Test nodes: 752
+([], [], [])
+mse_belief= 0.44343 mse_uncertain== 0.45445 bf-mse_opinion== 0.65851
+mse_belief= 0.43930 mse_uncertain== 0.45177 bf-mse_opinion== 0.65293
+mse_belief= 0.43400 mse_uncertain== 0.44836 bf-mse_opinion== 0.64562
+Optimization Finished!
+run time =  11.5207529068
+1126
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.0-realization-7.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.01-realization-7.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.03-realization-7.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.05-realization-7.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.07-realization-7.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.09-realization-7.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.2-realization-7.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.3-realization-7.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.4-realization-7.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.5-realization-7.pkl
+1878 1878 1878 1878
+Test nodes: 940
+([], [], [])
+mse_belief= 0.44994 mse_uncertain== 0.45251 bf-mse_opinion== 0.66706
+mse_belief= 0.44624 mse_uncertain== 0.44889 bf-mse_opinion== 0.66158
+mse_belief= 0.44097 mse_uncertain== 0.44376 bf-mse_opinion== 0.65381
+Optimization Finished!
+run time =  11.5895011425
+938
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.0-realization-7.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.01-realization-7.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.03-realization-7.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.05-realization-7.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.07-realization-7.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.09-realization-7.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.2-realization-7.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.3-realization-7.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.4-realization-7.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.5-realization-7.pkl
+708 708 708 708
+Test nodes: 72
+([], [], [])
+mse_belief= 0.42777 mse_uncertain== 0.45001 bf-mse_opinion== 0.62114
+mse_belief= 0.42461 mse_uncertain== 0.44527 bf-mse_opinion== 0.61559
+mse_belief= 0.42082 mse_uncertain== 0.43967 bf-mse_opinion== 0.60895
+Optimization Finished!
+run time =  9.88585686684
+636
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.0-realization-8.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.01-realization-8.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.03-realization-8.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.05-realization-8.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.07-realization-8.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.09-realization-8.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.2-realization-8.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.3-realization-8.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.4-realization-8.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.5-realization-8.pkl
+708 708 708 708
+Test nodes: 143
+([], [], [])
+mse_belief= 0.41116 mse_uncertain== 0.45936 bf-mse_opinion== 0.62681
+mse_belief= 0.40737 mse_uncertain== 0.45763 bf-mse_opinion== 0.62257
+mse_belief= 0.40281 mse_uncertain== 0.45580 bf-mse_opinion== 0.61727
+Optimization Finished!
+run time =  11.0615239143
+565
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.0-realization-8.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.01-realization-8.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.03-realization-8.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.05-realization-8.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.07-realization-8.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.09-realization-8.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.2-realization-8.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.3-realization-8.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.4-realization-8.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.5-realization-8.pkl
+708 708 708 708
+Test nodes: 213
+([], [], [])
+mse_belief= 0.42820 mse_uncertain== 0.45520 bf-mse_opinion== 0.64486
+mse_belief= 0.42390 mse_uncertain== 0.45267 bf-mse_opinion== 0.63968
+mse_belief= 0.41857 mse_uncertain== 0.44947 bf-mse_opinion== 0.63284
+Optimization Finished!
+run time =  10.1598360538
+495
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.0-realization-8.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.01-realization-8.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.03-realization-8.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.05-realization-8.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.07-realization-8.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.09-realization-8.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.2-realization-8.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.3-realization-8.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.4-realization-8.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.5-realization-8.pkl
+708 708 708 708
+Test nodes: 284
+([], [], [])
+mse_belief= 0.41549 mse_uncertain== 0.45640 bf-mse_opinion== 0.62715
+mse_belief= 0.41243 mse_uncertain== 0.45338 bf-mse_opinion== 0.62303
+mse_belief= 0.40884 mse_uncertain== 0.45002 bf-mse_opinion== 0.61784
+Optimization Finished!
+run time =  10.1711070538
+424
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.0-realization-8.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.01-realization-8.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.03-realization-8.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.05-realization-8.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.07-realization-8.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.09-realization-8.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.2-realization-8.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.3-realization-8.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.4-realization-8.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.5-realization-8.pkl
+708 708 708 708
+Test nodes: 355
+([], [], [])
+mse_belief= 0.41686 mse_uncertain== 0.45337 bf-mse_opinion== 0.62879
+mse_belief= 0.41380 mse_uncertain== 0.45116 bf-mse_opinion== 0.62520
+mse_belief= 0.41027 mse_uncertain== 0.44819 bf-mse_opinion== 0.62045
+Optimization Finished!
+run time =  10.5120630264
+353
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.0-realization-8.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.01-realization-8.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.03-realization-8.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.05-realization-8.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.07-realization-8.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.09-realization-8.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.2-realization-8.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.3-realization-8.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.4-realization-8.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.5-realization-8.pkl
+1878 1878 1878 1878
+Test nodes: 189
+([], [], [])
+mse_belief= 0.45092 mse_uncertain== 0.45164 bf-mse_opinion== 0.67081
+mse_belief= 0.44748 mse_uncertain== 0.44716 bf-mse_opinion== 0.66496
+mse_belief= 0.44317 mse_uncertain== 0.44147 bf-mse_opinion== 0.65751
+Optimization Finished!
+run time =  11.0734648705
+1689
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.0-realization-8.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.01-realization-8.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.03-realization-8.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.05-realization-8.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.07-realization-8.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.09-realization-8.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.2-realization-8.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.3-realization-8.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.4-realization-8.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.5-realization-8.pkl
+1878 1878 1878 1878
+Test nodes: 377
+([], [], [])
+mse_belief= 0.44397 mse_uncertain== 0.45302 bf-mse_opinion== 0.65928
+mse_belief= 0.44021 mse_uncertain== 0.45045 bf-mse_opinion== 0.65410
+mse_belief= 0.43533 mse_uncertain== 0.44657 bf-mse_opinion== 0.64697
+Optimization Finished!
+run time =  10.9640760422
+1501
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.0-realization-8.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.01-realization-8.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.03-realization-8.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.05-realization-8.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.07-realization-8.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.09-realization-8.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.2-realization-8.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.3-realization-8.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.4-realization-8.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.5-realization-8.pkl
+1878 1878 1878 1878
+Test nodes: 564
+([], [], [])
+mse_belief= 0.44824 mse_uncertain== 0.45415 bf-mse_opinion== 0.66466
+mse_belief= 0.44385 mse_uncertain== 0.45196 bf-mse_opinion== 0.65921
+mse_belief= 0.43814 mse_uncertain== 0.44874 bf-mse_opinion== 0.65176
+Optimization Finished!
+run time =  12.3887078762
+1314
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.0-realization-8.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.01-realization-8.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.03-realization-8.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.05-realization-8.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.07-realization-8.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.09-realization-8.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.2-realization-8.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.3-realization-8.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.4-realization-8.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.5-realization-8.pkl
+1878 1878 1878 1878
+Test nodes: 752
+([], [], [])
+mse_belief= 0.44357 mse_uncertain== 0.45347 bf-mse_opinion== 0.65946
+mse_belief= 0.44010 mse_uncertain== 0.45065 bf-mse_opinion== 0.65458
+mse_belief= 0.43553 mse_uncertain== 0.44674 bf-mse_opinion== 0.64794
+Optimization Finished!
+run time =  11.4737679958
+1126
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.0-realization-8.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.01-realization-8.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.03-realization-8.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.05-realization-8.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.07-realization-8.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.09-realization-8.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.2-realization-8.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.3-realization-8.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.4-realization-8.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.5-realization-8.pkl
+1878 1878 1878 1878
+Test nodes: 940
+([], [], [])
+mse_belief= 0.44637 mse_uncertain== 0.45287 bf-mse_opinion== 0.66344
+mse_belief= 0.44207 mse_uncertain== 0.44977 bf-mse_opinion== 0.65748
+mse_belief= 0.43642 mse_uncertain== 0.44548 bf-mse_opinion== 0.64944
+Optimization Finished!
+run time =  13.1482450962
+938
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.0-realization-8.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.01-realization-8.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.03-realization-8.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.05-realization-8.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.07-realization-8.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.09-realization-8.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.2-realization-8.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.3-realization-8.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.4-realization-8.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.5-realization-8.pkl
+708 708 708 708
+Test nodes: 72
+([], [], [])
+mse_belief= 0.41567 mse_uncertain== 0.45129 bf-mse_opinion== 0.61039
+mse_belief= 0.41193 mse_uncertain== 0.44783 bf-mse_opinion== 0.60507
+mse_belief= 0.40717 mse_uncertain== 0.44295 bf-mse_opinion== 0.59780
+Optimization Finished!
+run time =  10.9511499405
+636
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.0-realization-9.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.01-realization-9.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.03-realization-9.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.05-realization-9.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.07-realization-9.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.09-realization-9.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.2-realization-9.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.3-realization-9.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.4-realization-9.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.5-realization-9.pkl
+708 708 708 708
+Test nodes: 143
+([], [], [])
+mse_belief= 0.41370 mse_uncertain== 0.45181 bf-mse_opinion== 0.63014
+mse_belief= 0.40897 mse_uncertain== 0.44910 bf-mse_opinion== 0.62418
+mse_belief= 0.40321 mse_uncertain== 0.44524 bf-mse_opinion== 0.61634
+Optimization Finished!
+run time =  12.6748020649
+565
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.0-realization-9.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.01-realization-9.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.03-realization-9.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.05-realization-9.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.07-realization-9.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.09-realization-9.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.2-realization-9.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.3-realization-9.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.4-realization-9.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.5-realization-9.pkl
+708 708 708 708
+Test nodes: 213
+([], [], [])
+mse_belief= 0.41582 mse_uncertain== 0.45156 bf-mse_opinion== 0.63025
+mse_belief= 0.41206 mse_uncertain== 0.44795 bf-mse_opinion== 0.62477
+mse_belief= 0.40743 mse_uncertain== 0.44323 bf-mse_opinion== 0.61768
+Optimization Finished!
+run time =  11.1099359989
+495
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.0-realization-9.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.01-realization-9.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.03-realization-9.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.05-realization-9.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.07-realization-9.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.09-realization-9.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.2-realization-9.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.3-realization-9.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.4-realization-9.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.5-realization-9.pkl
+708 708 708 708
+Test nodes: 284
+([], [], [])
+mse_belief= 0.42506 mse_uncertain== 0.45542 bf-mse_opinion== 0.64105
+mse_belief= 0.42122 mse_uncertain== 0.45237 bf-mse_opinion== 0.63647
+mse_belief= 0.41663 mse_uncertain== 0.44879 bf-mse_opinion== 0.63024
+Optimization Finished!
+run time =  11.113492012
+424
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.0-realization-9.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.01-realization-9.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.03-realization-9.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.05-realization-9.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.07-realization-9.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.09-realization-9.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.2-realization-9.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.3-realization-9.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.4-realization-9.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.5-realization-9.pkl
+708 708 708 708
+Test nodes: 355
+([], [], [])
+mse_belief= 0.41574 mse_uncertain== 0.45471 bf-mse_opinion== 0.63011
+mse_belief= 0.41271 mse_uncertain== 0.45293 bf-mse_opinion== 0.62663
+mse_belief= 0.40890 mse_uncertain== 0.45022 bf-mse_opinion== 0.62170
+Optimization Finished!
+run time =  12.298732996
+353
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.0-realization-9.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.01-realization-9.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.03-realization-9.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.05-realization-9.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.07-realization-9.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.09-realization-9.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.2-realization-9.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.3-realization-9.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.4-realization-9.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/philly//network_philly_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.5-realization-9.pkl
+1878 1878 1878 1878
+Test nodes: 189
+([], [], [])
+mse_belief= 0.44963 mse_uncertain== 0.45263 bf-mse_opinion== 0.66612
+mse_belief= 0.44589 mse_uncertain== 0.44893 bf-mse_opinion== 0.66048
+mse_belief= 0.44101 mse_uncertain== 0.44401 bf-mse_opinion== 0.65295
+Optimization Finished!
+run time =  13.8031749725
+1689
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.0-realization-9.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.01-realization-9.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.03-realization-9.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.05-realization-9.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.07-realization-9.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.09-realization-9.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.2-realization-9.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.3-realization-9.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.4-realization-9.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.1-gamma-0.5-realization-9.pkl
+1878 1878 1878 1878
+Test nodes: 377
+([], [], [])
+mse_belief= 0.45574 mse_uncertain== 0.45357 bf-mse_opinion== 0.67575
+mse_belief= 0.45276 mse_uncertain== 0.45083 bf-mse_opinion== 0.67147
+mse_belief= 0.44868 mse_uncertain== 0.44685 bf-mse_opinion== 0.66549
+Optimization Finished!
+run time =  13.5846610069
+1501
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.0-realization-9.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.01-realization-9.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.03-realization-9.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.05-realization-9.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.07-realization-9.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.09-realization-9.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.2-realization-9.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.3-realization-9.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.4-realization-9.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.2-gamma-0.5-realization-9.pkl
+1878 1878 1878 1878
+Test nodes: 564
+([], [], [])
+mse_belief= 0.45010 mse_uncertain== 0.45124 bf-mse_opinion== 0.66607
+mse_belief= 0.44576 mse_uncertain== 0.44667 bf-mse_opinion== 0.65944
+mse_belief= 0.43975 mse_uncertain== 0.44016 bf-mse_opinion== 0.65003
+Optimization Finished!
+run time =  13.6900179386
+1314
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.0-realization-9.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.01-realization-9.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.03-realization-9.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.05-realization-9.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.07-realization-9.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.09-realization-9.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.2-realization-9.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.3-realization-9.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.4-realization-9.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.3-gamma-0.5-realization-9.pkl
+1878 1878 1878 1878
+Test nodes: 752
+([], [], [])
+mse_belief= 0.44726 mse_uncertain== 0.45420 bf-mse_opinion== 0.66204
+mse_belief= 0.44333 mse_uncertain== 0.45157 bf-mse_opinion== 0.65680
+mse_belief= 0.43822 mse_uncertain== 0.44791 bf-mse_opinion== 0.64964
+Optimization Finished!
+run time =  14.3019809723
+1126
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.0-realization-9.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.01-realization-9.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.03-realization-9.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.05-realization-9.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.07-realization-9.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.09-realization-9.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.2-realization-9.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.3-realization-9.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.4-realization-9.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.4-gamma-0.5-realization-9.pkl
+1878 1878 1878 1878
+Test nodes: 940
+([], [], [])
+mse_belief= 0.44881 mse_uncertain== 0.45448 bf-mse_opinion== 0.66749
+mse_belief= 0.44508 mse_uncertain== 0.45216 bf-mse_opinion== 0.66262
+mse_belief= 0.44017 mse_uncertain== 0.44884 bf-mse_opinion== 0.65589
+Optimization Finished!
+run time =  12.5030670166
+938
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.0-realization-9.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.01-realization-9.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.03-realization-9.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.05-realization-9.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.07-realization-9.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.09-realization-9.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.2-realization-9.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.3-realization-9.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.4-realization-9.pkl
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_gcn_vae/dc//network_dc_weekday_0_hour_8_refspeed_0.6-testratio-0.5-gamma-0.5-realization-9.pkl

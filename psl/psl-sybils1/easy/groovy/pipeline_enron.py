@@ -175,16 +175,16 @@ def pipeline():
     count = 0
     realizations = 1
     # methods = ["sl", "csl", "csl-conflict-1", "csl-conflict-2", "base1", "base2", "base3"][:1]
-    for adv_type in ["random_flip", "random_noise", "random_pgd"][:]:
-        for attack_edge in [1000, 5000, 10000, 15000, 20000][2:3]:
-            result_folder = data_root + "/result_adv_csl/enron/" + adv_type + "/"
-            if not os.path.exists(result_folder):
-                os.makedirs(result_folder)
-            exfiles = {file: 1 for file in os.listdir(result_folder) if file.endswith(".txt")}
-            for T in [10][:]:
-                for swap_ratio in [0.00, 0.01, 0.02, 0.05][1:2]:
-                    for test_ratio in [0.1, 0.2, 0.3, 0.4, 0.5][2:3]:
-                        for gamma in [0.0, 0.01, 0.03, 0.05, 0.07, 0.09, 0.11, 0.13, 0.15, 0.20, 0.25][:]:  # 11
+    for test_ratio in [0.3,0.1, 0.2, 0.4, 0.5][:2]:
+        for adv_type in ["random_noise","random_pgd","random_pgd_csl","random_pgd_gcn_vae"][:]:
+            for attack_edge in [1000, 5000, 10000, 15000, 20000][2:3]:
+                result_folder = data_root + "/result_adv_csl/enron/" + adv_type + "/"
+                if not os.path.exists(result_folder):
+                    os.makedirs(result_folder)
+                exfiles = {file: 1 for file in os.listdir(result_folder) if file.endswith(".txt")}
+                for T in [10][:]:
+                    for swap_ratio in [0.00, 0.01, 0.02, 0.05][1:2]:
+                        for gamma in [0.0, 0.01, 0.03, 0.05, 0.07,0.09,0.2,0.3,0.4,0.5][:]:  # 11
                             for real_i in range(realizations)[:1]:
                                 count += 1.0
                                 f = data_root + "data/adv_csl/Jan2/" + adv_type + "/enron/enron-attackedges-{}-T-{}-testratio-{}-swap_ratio-{}-gamma-{}-realization-{}-data-X.pkl".format(
@@ -197,7 +197,7 @@ def pipeline():
                                 T = len(Obs.values()[0])
                                 m_idx = int(round(T / 2.0))
                                 # for window in range(m_idx - 5,m_idx + 7):
-                                for window in range(T)[:]:
+                                for window in range(T)[:3]:
                                     running_start_time = time.time()
                                     t_Obs = {v: v_Obs[window] for v, v_Obs in Obs.items()}
                                     result_file = str(attack_edge) + '_' + str(
@@ -227,7 +227,6 @@ def pipeline():
                                     with open(result_folder + '/running_time.json', 'a') as op:
                                         op.write(json.dumps(r_dict) + '\n')
                                     count += 1
-
 
 
 if __name__ == '__main__':

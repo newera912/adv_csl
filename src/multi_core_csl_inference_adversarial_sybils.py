@@ -319,29 +319,29 @@ omega_x: A dictionary of opinions (tuples of alpha and beta values): [edge1 id: 
 """
 
 
-def estimate_omega_x(p, omega, X):
-    for e in X:
-        data = [p_t[e] for p_t in p]
-        if np.std(data) < 0.01:
-            alpha1 = np.mean(data)
-            beta1 = 1 - alpha1
-        else:
-            data = [max([p_t[e] - random.random() * 0.01, 0]) for p_t in p]
-            try:
-                alpha1, beta1, loc, scale = beta.fit(data, floc=0., fscale=1.)
-                if alpha1 < 1:
-                    beta1 = 1.1 * beta1 / alpha1
-                    alpha1 = 1.1
-                if beta1 + alpha1 > 10:
-                    alpha1 = alpha1 / (alpha1 + beta1) * 10
-                    beta1 = 10 - alpha1
-            except:
-                alpha1 = 1
-                beta1 = 1
-            print alpha1, beta1
-            # print alpha1, beta1
-        omega[e] = (alpha1, beta1)
-    return omega
+# def estimate_omega_x(p, omega, X):
+#     for e in X:
+#         data = [p_t[e] for p_t in p]
+#         if np.std(data) < 0.01:
+#             alpha1 = np.mean(data)
+#             beta1 = 1 - alpha1
+#         else:
+#             data = [max([p_t[e] - random.random() * 0.01, 0]) for p_t in p]
+#             try:
+#                 alpha1, beta1, loc, scale = beta.fit(data, floc=0., fscale=1.)
+#                 if alpha1 < 1:
+#                     beta1 = 1.1 * beta1 / alpha1
+#                     alpha1 = 1.1
+#                 if beta1 + alpha1 > 10:
+#                     alpha1 = alpha1 / (alpha1 + beta1) * 10
+#                     beta1 = 10 - alpha1
+#             except:
+#                 alpha1 = 1
+#                 beta1 = 1
+#             print alpha1, beta1
+#             # print alpha1, beta1
+#         omega[e] = (alpha1, beta1)
+#     return omega
 
 
 def estimate_omega_x(ps, X):
@@ -366,11 +366,11 @@ def estimate_b(bs):
 
 
 def prob_2_binary(val):
-    return val
-    # if val > 0.45:
-    #     return 1
-    # else:
-    #     return 0
+    # return val
+    if val > 0.45:
+        return 1
+    else:
+        return 0
 
 def prob_2_binary2(val):
     # return val
@@ -896,7 +896,7 @@ def calc_initial_node_p2(y_t, node_nns, X, Y, cnt_V, p0, b_init):
                 n_pos += 1.0
             else:
                 n_neg += 1.0
-        if (n_pos - n_neg > 0 and p[v] <=threshold) or (n_pos - n_neg < 0 and p[v] >threshold):
+        if (n_pos - n_neg > 0 and p[v] <=threshold) or (n_pos - n_neg < 0 and p[v] >=threshold):
             b_init[v] = 1.0
         else:
             b_init[v] = 0.0
@@ -913,7 +913,7 @@ def calc_initial_node_p2(y_t, node_nns, X, Y, cnt_V, p0, b_init):
                 n_pos+=val
                 # if b_init[v_o]==1:
                 #     val=1.0-val
-                if val > threshold:
+                if val >=threshold:
                     conf += 1.0
                 else:
                     conf -= 1.0

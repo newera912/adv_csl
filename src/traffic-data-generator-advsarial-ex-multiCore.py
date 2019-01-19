@@ -180,12 +180,12 @@ class Task_generate_rn(object):
 
         for gamma in [0.0, 0.01, 0.03, 0.05, 0.07, 0.09, 0.2, 0.3, 0.4, 0.5][6:]:
             f = self.data_root + '/network_{}_weekday_{}_hour_{}_refspeed_{}-testratio-{}-gamma-{}-realization-{}.pkl'.format(
-                self.dataset, self.weekday, self.hour, self.ref_per, self.test_ratio, self.gamma, self.real_i)
+                self.dataset, self.weekday, self.hour, self.ref_per, self.test_ratio, gamma, self.real_i)
             print f
             Obs=copy.deepcopy(ObsO)
             if gamma>0:
                 """ |noise_vector_i| <= gamma"""
-                noise_vector = np.random.uniform(low=-self.gamma, high=self.gamma, size=(len(E_Y),))
+                noise_vector = np.random.uniform(low=-gamma, high=gamma, size=(len(E_Y),))
                 T = len(Obs[E[0]])
                 for i,e in enumerate(E_Y):
                     for t in range(0, T):
@@ -204,7 +204,7 @@ class Task_generate_rn(object):
         return '%s' % (self.p0)
 
 class Task_generate_PGD(object):
-    def __init__(self,data_root, dataset, hour, weekday, ref_per,test_ratio,gamma,real_i,org_data_root):
+    def __init__(self,data_root, dataset, hour, weekday, ref_per, test_ratio, real_i,org_data_root,alpha):
         self.data_root = data_root
         self.dataset = dataset
         self.hour = hour
@@ -214,6 +214,7 @@ class Task_generate_PGD(object):
         self.gamma =gamma
         self.real_i = real_i
         self.org_data_root= org_data_root
+        self.alpha=alpha
 
     def __call__(self):
         org_file=self.org_data_root+ '/{}/network_{}_weekday_{}_hour_{}_refspeed_{}-testratio-{}-gamma-{}-realization-{}.pkl'.format(
@@ -227,19 +228,20 @@ class Task_generate_PGD(object):
         E_Y = [e for e in E if not E_X.has_key(e)]
 
         X_b = []
+        T = len(ObsO[E[0]])
         sign_grad_py = gen_adv_exmaple(V, E, ObsO, X_b, E_X)
         """ |p_y+alpha*sign(nabla_py L)| <= gamma"""
-        for gamma in [0.0, 0.01, 0.03, 0.05, 0.07, 0.09, 0.2, 0.3, 0.4, 0.5][6:]:
+        for gamma in [0.0, 0.01, 0.03, 0.05, 0.07, 0.09, 0.2, 0.3, 0.4, 0.5][:]:
             fout = self.data_root + '/network_{}_weekday_{}_hour_{}_refspeed_{}-testratio-{}-gamma-{}-realization-{}.pkl'.format(
-                self.dataset, self.weekday, self.hour, self.ref_per, self.test_ratio, self.gamma, self.real_i)
+                self.dataset, self.weekday, self.hour, self.ref_per, self.test_ratio, gamma, self.real_i)
             print fout
             Obs=copy.deepcopy(ObsO)
             if gamma > 0.0:
-                # T = len(Obs[E[0]])
+
                 for e in E_Y:
                     # print type(sign_grad_py[0])
                     if e not in sign_grad_py[0].keys(): print "Eroorrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr!"
-                    for t in range(0, self.T):
+                    for t in range(0, T):
                         for i in range(len(sign_grad_py[t][e])):
                             Obs[e][t] = clip01(Obs[e][t] + self.alpha * sign_grad_py[t][e][i])  # clip between [0,1]
                         if np.abs(Obs[e][t] - ObsO[e][t]) > gamma:
@@ -261,7 +263,7 @@ class Task_generate_PGD(object):
 
     #                 V, E, Obs, E_X, X_b,dataroot,dataset, hour, weekday, ref_per,test_ratio,real_i,alpha,org_fileName
 class Task_generate_PGD_csl(object):
-    def __init__(self,data_root, dataset, hour, weekday, ref_per,test_ratio,gamma,real_i,org_data_root):
+    def __init__(self,data_root, dataset, hour, weekday, ref_per, test_ratio, real_i,org_data_root,alpha):
         self.data_root = data_root
         self.dataset = dataset
         self.hour = hour
@@ -271,6 +273,7 @@ class Task_generate_PGD_csl(object):
         self.gamma =gamma
         self.real_i = real_i
         self.org_data_root= org_data_root
+        self.alpha=alpha
 
     def __call__(self):
         org_file=self.org_data_root+ '/{}/network_{}_weekday_{}_hour_{}_refspeed_{}-testratio-{}-gamma-{}-realization-{}.pkl'.format(
@@ -284,11 +287,12 @@ class Task_generate_PGD_csl(object):
         E_Y = [e for e in E if not E_X.has_key(e)]
 
         X_b = []
-        sign_grad_py = gen_adv_exmaple_csl(V, E, ObsO, X_b, E_X)
+        T = len(ObsO[E[0]])
+        sign_grad_py = gen_adv_exmaple_csl(V, E, ObsO, E_X)
         """ |p_y+alpha*sign(nabla_py L)| <= gamma"""
-        for gamma in [0.0, 0.01, 0.03, 0.05, 0.07, 0.09, 0.2, 0.3, 0.4, 0.5][6:]:
+        for gamma in [0.0, 0.01, 0.03, 0.05, 0.07, 0.09, 0.2, 0.3, 0.4, 0.5][:]:
             fout = self.data_root + '/network_{}_weekday_{}_hour_{}_refspeed_{}-testratio-{}-gamma-{}-realization-{}.pkl'.format(
-                self.dataset, self.weekday, self.hour, self.ref_per, self.test_ratio, self.gamma, self.real_i)
+                self.dataset, self.weekday, self.hour, self.ref_per, self.test_ratio, gamma, self.real_i)
             print fout
             Obs=copy.deepcopy(ObsO)
             if gamma > 0.0:
@@ -296,7 +300,7 @@ class Task_generate_PGD_csl(object):
                 for e in E_Y:
                     # print type(sign_grad_py[0])
                     if e not in sign_grad_py[0].keys(): print "Eroorrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr!"
-                    for t in range(0, self.T):
+                    for t in range(0, T):
                         for i in range(len(sign_grad_py[t][e])):
                             Obs[e][t] = clip01(Obs[e][t] + self.alpha * sign_grad_py[t][e][i])  # clip between [0,1]
                         if np.abs(Obs[e][t] - ObsO[e][t]) > gamma:
@@ -401,9 +405,10 @@ def traffic_data_generator_PGD():
     data_root = "/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd/"
     org_data_root = "/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd/"
 
+    alpha=0.02
     tasks = multiprocessing.Queue()
     results = multiprocessing.Queue()
-    num_consumers = 50  # We only use 5 cores.
+    num_consumers = 1  # We only use 5 cores.
     # print 'Creating %d consumers' % num_consumers
     consumers = [Consumer(tasks, results)
                  for i in range(num_consumers)]
@@ -423,8 +428,8 @@ def traffic_data_generator_PGD():
                     for test_ratio in [0.1, 0.2, 0.3, 0.4, 0.5][:]:  # 8
                         for real_i in range(realizations)[:]:
                             tasks.put(
-                                Task_generate_PGD(dataroot, dataset, hour, weekday, ref_per, test_ratio, gamma, real_i,
-                                                 org_data_root))
+                                Task_generate_PGD(dataroot, dataset, hour, weekday, ref_per, test_ratio, real_i,
+                                                 org_data_root,alpha))
                             num_jobs += 1
     for i in range(num_consumers):
         tasks.put(None)
@@ -438,10 +443,11 @@ def traffic_data_generator_PGD():
 def traffic_data_generator_PGD_csl():
     data_root = "/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd_csl/"
     org_data_root = "/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/random_pgd/"
+    alpha = 0.02
 
     tasks = multiprocessing.Queue()
     results = multiprocessing.Queue()
-    num_consumers = 50  # We only use 5 cores.
+    num_consumers = 1  # We only use 5 cores.
     # print 'Creating %d consumers' % num_consumers
     consumers = [Consumer(tasks, results)
                  for i in range(num_consumers)]
@@ -461,8 +467,8 @@ def traffic_data_generator_PGD_csl():
                     for test_ratio in [0.1, 0.2, 0.3, 0.4, 0.5][:]:  # 8
                         for real_i in range(realizations)[:]:
                             tasks.put(
-                                Task_generate_PGD_csl(dataroot, dataset, hour, weekday, ref_per, test_ratio, gamma, real_i,
-                                                  org_data_root))
+                                Task_generate_PGD_csl(dataroot, dataset, hour, weekday, ref_per, test_ratio, real_i,
+                                                  org_data_root,alpha))
                             num_jobs += 1
     for i in range(num_consumers):
         tasks.put(None)
@@ -579,8 +585,8 @@ def main():
     # simulation_data_generator3()
 
     # traffic_data_generator_rf()
-    traffic_data_generator_rn()
-    traffic_data_generator_PGD()
+    # traffic_data_generator_rn()
+    # traffic_data_generator_PGD()
     traffic_data_generator_PGD_csl()
 if __name__=='__main__':
     main()

@@ -920,7 +920,6 @@ def calc_initial_node_p1(y_t, node_nns, X, Y, cnt_V, p0, b_init):
 
     return p, b_init
 
-#facebook, enron
 def calc_initial_node_p2(y_t, node_nns, X, Y, cnt_V, p0, b_init):
     p = [1e-6 for i in range(cnt_V)]
     # print "Y:{} X:{} node_nns:{}".format(len(Y),len(X),len(node_nns))

@@ -55,12 +55,12 @@ dataroot = "/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/"
 report_stat = False
 count=0
 realizations=1
-for adv_type in ["random_flip", "random_noise", "random_pgd"][1:2]:
+for adv_type in ["random_noise", "random_pgd","random_pgd_csl","random_pgd_gcn_vae"][2:3]:
     for attack_edge in [1000,5000,10000,15000,20000][2:3]:
         for T in [10][:]:
             for swap_ratio in [0.00, 0.01, 0.02, 0.05][1:2]:
                 for test_ratio in [0.1, 0.2,0.3,0.4, 0.5][2:3]:
-                    for gamma in [0.0, 0.01, 0.03, 0.05, 0.07, 0.09, 0.11, 0.13, 0.15, 0.20, 0.25][6:]:  # 11
+                    for gamma in [0.0, 0.01, 0.03, 0.05, 0.07,0.09,0.2,0.3,0.4,0.5][:]:  # 11
                         for real_i in range(realizations)[:1]:
                             fileName = dataroot + adv_type + "/slashdot/slashdot-attackedges-{}-T-{}-testratio-{}-swap_ratio-{}-gamma-{}-realization-{}-data-X.pkl".format(
                                 attack_edge, T, test_ratio, swap_ratio, gamma, real_i)
@@ -86,22 +86,6 @@ for adv_type in ["random_flip", "random_noise", "random_pgd"][1:2]:
                             # Some preprocessing
                             adj_norm = preprocess_graph(adj)
 
-
-                            # placeholders = {
-                            #     'features': tf.sparse_placeholder(tf.float32),
-                            #     'adj': tf.sparse_placeholder(tf.float32),
-                            #     'adj_orig': tf.sparse_placeholder(tf.float32),
-                            #     'dropout': tf.placeholder_with_default(0., shape=()),
-                            #     'labels_b': tf.placeholder(tf.float32, shape=(None, y_train_belief.shape[1])),
-                            #     'labels_un': tf.placeholder(tf.float32, shape=(None, y_train_un.shape[1])),
-                            #     'omega_test': tf.placeholder(tf.float32, shape=(None, y_train_belief.shape[1])),
-                            #     'labels_mask': tf.placeholder(tf.int32),
-                            #     'omega_t': tf.placeholder(tf.float32, shape=(None, omega_test.shape[1])),
-                            #     'alpha_0': tf.placeholder(tf.float32),
-                            #     'beta_0': tf.placeholder(tf.float32)
-                            # }
-
-                            # Define placeholders
                             placeholders = {
                                 'features': tf.sparse_placeholder(tf.float32),
                                 'adj': tf.sparse_placeholder(tf.float32),
@@ -227,5 +211,4 @@ for adv_type in ["random_flip", "random_noise", "random_pgd"][1:2]:
 
 
                             print("belief:", np.mean(b_mse), "uncertain:", np.mean(u_mse), "time window = ", FLAGS.T, "test_rio = ", FLAGS.test_rat)
-
-
+                            sess.close()

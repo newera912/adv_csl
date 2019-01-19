@@ -1,0 +1,3299 @@
+WARNING:tensorflow:From /network/rit/home/aa465948/venv/lib/python2.7/site-packages/tensorflow/python/ops/sparse_ops.py:1165: sparse_to_dense (from tensorflow.python.ops.sparse_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Create a `tf.sparse.SparseTensor` and use `tf.sparse.to_dense` instead.
+2019-01-16 16:53:37.834203: I tensorflow/core/platform/cpu_feature_guard.cc:141] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
+0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 5.252824858757062 beta_0: 39.74717514124294
+best epoch: 250 bset_belief: 0.13261901 bset_uncertain: 0.067568526 bset_opinion: 0.14034414
+run time =  0.757662057877
+belief: 0.1326 uncertain: 0.1326 opinion: 0.14034414
+1.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 5.565014124293786 beta_0: 39.43498587570622
+best epoch: 250 bset_belief: 0.13369505 bset_uncertain: 0.069931895 bset_opinion: 0.14430933
+run time =  0.792024850845
+belief: 0.1337 uncertain: 0.1337 opinion: 0.14430933
+2.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 6.174971751412429 beta_0: 38.82502824858757
+best epoch: 250 bset_belief: 0.14383037 bset_uncertain: 0.10241856 bset_opinion: 0.16066393
+run time =  0.899117946625
+belief: 0.1438 uncertain: 0.1438 opinion: 0.16066393
+3.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 6.770508474576272 beta_0: 38.22949152542373
+best epoch: 250 bset_belief: 0.14223185 bset_uncertain: 0.07983468 bset_opinion: 0.15536542
+run time =  1.01733517647
+belief: 0.1422 uncertain: 0.1422 opinion: 0.15536542
+4.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 7.366045197740113 beta_0: 37.633954802259886
+best epoch: 250 bset_belief: 0.13483566 bset_uncertain: 0.057251606 bset_opinion: 0.13887753
+run time =  1.09703493118
+belief: 0.1348 uncertain: 0.1348 opinion: 0.13887753
+5.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 7.867598870056497 beta_0: 37.1324011299435
+best epoch: 250 bset_belief: 0.13707435 bset_uncertain: 0.05570968 bset_opinion: 0.14385167
+run time =  1.17824006081
+belief: 0.1371 uncertain: 0.1371 opinion: 0.14385167
+6.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 9.463220338983053 beta_0: 35.53677966101694
+best epoch: 250 bset_belief: 0.16196366 bset_uncertain: 0.07184213 bset_opinion: 0.17273301
+run time =  1.26491498947
+belief: 0.162 uncertain: 0.162 opinion: 0.17273301
+7.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 9.926214689265535 beta_0: 35.07378531073446
+best epoch: 250 bset_belief: 0.16569296 bset_uncertain: 0.072899394 bset_opinion: 0.17795697
+run time =  1.34344387054
+belief: 0.1657 uncertain: 0.1657 opinion: 0.17795697
+8.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 9.926214689265535 beta_0: 35.07378531073446
+best epoch: 250 bset_belief: 0.16807723 bset_uncertain: 0.061587468 bset_opinion: 0.17659178
+run time =  1.58244085312
+belief: 0.1681 uncertain: 0.1681 opinion: 0.17659178
+9.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 5.252824858757062 beta_0: 39.74717514124294
+best epoch: 250 bset_belief: 0.13083865 bset_uncertain: 0.07009023 bset_opinion: 0.13796894
+run time =  1.71710705757
+belief: 0.1308 uncertain: 0.1308 opinion: 0.13796894
+10.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 5.252824858757062 beta_0: 39.74717514124294
+best epoch: 250 bset_belief: 0.07952756 bset_uncertain: 0.04113331 bset_opinion: 0.09223535
+run time =  1.77966380119
+belief: 0.0795 uncertain: 0.0795 opinion: 0.09223535
+11.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 5.522062146892655 beta_0: 39.47793785310734
+best epoch: 250 bset_belief: 0.095251635 bset_uncertain: 0.060213186 bset_opinion: 0.11628552
+run time =  1.81579208374
+belief: 0.0953 uncertain: 0.0953 opinion: 0.11628552
+12.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 6.04138418079096 beta_0: 38.958615819209044
+best epoch: 250 bset_belief: 0.08604951 bset_uncertain: 0.050484214 bset_opinion: 0.10266471
+run time =  1.89330887794
+belief: 0.086 uncertain: 0.086 opinion: 0.10266471
+13.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 6.541553672316384 beta_0: 38.45844632768362
+best epoch: 250 bset_belief: 0.10364571 bset_uncertain: 0.0694525 bset_opinion: 0.13055438
+run time =  2.24012899399
+belief: 0.1036 uncertain: 0.1036 opinion: 0.13055438
+14.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 7.041723163841808 beta_0: 37.95827683615819
+best epoch: 250 bset_belief: 0.09567853 bset_uncertain: 0.058507435 bset_opinion: 0.116507985
+run time =  2.28492307663
+belief: 0.0957 uncertain: 0.0957 opinion: 0.116507985
+15.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 7.521059322033897 beta_0: 37.47894067796611
+best epoch: 250 bset_belief: 0.09914989 bset_uncertain: 0.05646605 bset_opinion: 0.12012154
+run time =  2.52640485764
+belief: 0.0991 uncertain: 0.0991 opinion: 0.12012154
+16.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 8.859745762711864 beta_0: 36.14025423728814
+best epoch: 250 bset_belief: 0.124211706 bset_uncertain: 0.054724634 bset_opinion: 0.14564425
+run time =  2.58328819275
+belief: 0.1242 uncertain: 0.1242 opinion: 0.14564425
+17.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 8.859745762711864 beta_0: 36.14025423728814
+best epoch: 250 bset_belief: 0.1254275 bset_uncertain: 0.07681269 bset_opinion: 0.15762883
+run time =  2.67767715454
+belief: 0.1254 uncertain: 0.1254 opinion: 0.15762883
+18.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 8.859745762711864 beta_0: 36.14025423728814
+best epoch: 250 bset_belief: 0.12675442 bset_uncertain: 0.06074115 bset_opinion: 0.1528438
+run time =  2.76170992851
+belief: 0.1268 uncertain: 0.1268 opinion: 0.1528438
+19.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 5.252824858757062 beta_0: 39.74717514124294
+best epoch: 250 bset_belief: 0.1000412 bset_uncertain: 0.037806273 bset_opinion: 0.1144237
+run time =  2.8687620163
+belief: 0.1 uncertain: 0.1 opinion: 0.1144237
+20.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 5.252824858757062 beta_0: 39.74717514124294
+best epoch: 250 bset_belief: 0.12285411 bset_uncertain: 0.06800379 bset_opinion: 0.14327615
+run time =  2.8303668499
+belief: 0.1229 uncertain: 0.1229 opinion: 0.14327615
+21.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 5.493870056497175 beta_0: 39.50612994350283
+best epoch: 250 bset_belief: 0.12045174 bset_uncertain: 0.07952656 bset_opinion: 0.14499079
+run time =  2.90905618668
+belief: 0.1205 uncertain: 0.1205 opinion: 0.14499079
+22.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 5.964745762711864 beta_0: 39.035254237288136
+best epoch: 250 bset_belief: 0.100649916 bset_uncertain: 0.043805983 bset_opinion: 0.10985987
+run time =  3.1146299839
+belief: 0.1006 uncertain: 0.1006 opinion: 0.10985987
+23.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 6.424406779661018 beta_0: 38.57559322033899
+best epoch: 250 bset_belief: 0.13837692 bset_uncertain: 0.08192719 bset_opinion: 0.16465063
+run time =  3.13135099411
+belief: 0.1384 uncertain: 0.1384 opinion: 0.16465063
+24.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 6.884067796610168 beta_0: 38.11593220338983
+best epoch: 250 bset_belief: 0.10721101 bset_uncertain: 0.07309603 bset_opinion: 0.1245819
+run time =  3.08157300949
+belief: 0.1072 uncertain: 0.1072 opinion: 0.1245819
+25.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 7.337457627118644 beta_0: 37.66254237288135
+best epoch: 250 bset_belief: 0.11449217 bset_uncertain: 0.059284437 bset_opinion: 0.12883417
+run time =  3.34186911583
+belief: 0.1145 uncertain: 0.1145 opinion: 0.12883417
+26.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 9.057966101694914 beta_0: 35.942033898305084
+best epoch: 250 bset_belief: 0.15221278 bset_uncertain: 0.049701292 bset_opinion: 0.16671404
+run time =  3.27993011475
+belief: 0.1522 uncertain: 0.1522 opinion: 0.16671404
+27.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 9.46183615819209 beta_0: 35.53816384180791
+best epoch: 250 bset_belief: 0.16655666 bset_uncertain: 0.049522556 bset_opinion: 0.1818066
+run time =  3.93627405167
+belief: 0.1666 uncertain: 0.1666 opinion: 0.1818066
+28.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 9.515734463276837 beta_0: 35.484265536723164
+best epoch: 250 bset_belief: 0.16111308 bset_uncertain: 0.0840368 bset_opinion: 0.19057667
+run time =  3.67750501633
+belief: 0.1611 uncertain: 0.1611 opinion: 0.19057667
+29.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 5.252824858757062 beta_0: 39.74717514124294
+best epoch: 250 bset_belief: 0.09645278 bset_uncertain: 0.040557943 bset_opinion: 0.10342304
+run time =  3.70017385483
+belief: 0.0965 uncertain: 0.0965 opinion: 0.10342304
+30.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 5.252824858757062 beta_0: 39.74717514124294
+best epoch: 250 bset_belief: 0.09608157 bset_uncertain: 0.050086066 bset_opinion: 0.10503067
+run time =  3.84822297096
+belief: 0.0961 uncertain: 0.0961 opinion: 0.10503067
+31.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 5.46162429378531 beta_0: 39.53837570621469
+best epoch: 250 bset_belief: 0.09553821 bset_uncertain: 0.046004117 bset_opinion: 0.102680355
+run time =  4.0578019619
+belief: 0.0955 uncertain: 0.0955 opinion: 0.102680355
+32.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 5.879223163841807 beta_0: 39.12077683615819
+best epoch: 250 bset_belief: 0.13648495 bset_uncertain: 0.081852406 bset_opinion: 0.16169126
+run time =  4.13787198067
+belief: 0.1365 uncertain: 0.1365 opinion: 0.16169126
+33.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 6.296822033898304 beta_0: 38.70317796610169
+best epoch: 250 bset_belief: 0.12103605 bset_uncertain: 0.10447348 bset_opinion: 0.15137398
+run time =  4.20912599564
+belief: 0.121 uncertain: 0.121 opinion: 0.15137398
+34.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 6.709477401129943 beta_0: 38.29052259887005
+best epoch: 250 bset_belief: 0.10677087 bset_uncertain: 0.056286 bset_opinion: 0.11605253
+run time =  4.45072889328
+belief: 0.1068 uncertain: 0.1068 opinion: 0.11605253
+35.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 7.112471751412429 beta_0: 37.88752824858757
+best epoch: 250 bset_belief: 0.112511195 bset_uncertain: 0.05379859 bset_opinion: 0.122841485
+run time =  4.33426094055
+belief: 0.1125 uncertain: 0.1125 opinion: 0.122841485
+36.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 8.661610169491526 beta_0: 36.338389830508476
+best epoch: 250 bset_belief: 0.15393448 bset_uncertain: 0.10046265 bset_opinion: 0.18844393
+run time =  4.35160803795
+belief: 0.1539 uncertain: 0.1539 opinion: 0.18844393
+37.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 8.930790960451976 beta_0: 36.06920903954802
+best epoch: 250 bset_belief: 0.16102327 bset_uncertain: 0.082573816 bset_opinion: 0.18751228
+run time =  5.02163696289
+belief: 0.161 uncertain: 0.161 opinion: 0.18751228
+38.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 8.930790960451976 beta_0: 36.06920903954802
+best epoch: 250 bset_belief: 0.16301294 bset_uncertain: 0.07880365 bset_opinion: 0.19002683
+run time =  4.74784517288
+belief: 0.163 uncertain: 0.163 opinion: 0.19002683
+39.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 5.252824858757062 beta_0: 39.74717514124294
+best epoch: 250 bset_belief: 0.1047567 bset_uncertain: 0.066266164 bset_opinion: 0.119365625
+run time =  4.72750401497
+belief: 0.1048 uncertain: 0.1048 opinion: 0.119365625
+40.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 5.252824858757062 beta_0: 39.74717514124294
+best epoch: 250 bset_belief: 0.10653549 bset_uncertain: 0.048033908 bset_opinion: 0.11686496
+run time =  4.85640907288
+belief: 0.1065 uncertain: 0.1065 opinion: 0.11686496
+41.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 5.4251129943502825 beta_0: 39.57488700564972
+best epoch: 250 bset_belief: 0.11011191 bset_uncertain: 0.034845345 bset_opinion: 0.11644113
+run time =  5.05340313911
+belief: 0.1101 uncertain: 0.1101 opinion: 0.11644113
+42.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 5.765579096045197 beta_0: 39.234420903954806
+best epoch: 250 bset_belief: 0.1021744 bset_uncertain: 0.056445632 bset_opinion: 0.11492773
+run time =  5.27351403236
+belief: 0.1022 uncertain: 0.1022 opinion: 0.11492773
+43.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 6.101935028248588 beta_0: 38.89806497175141
+best epoch: 250 bset_belief: 0.10125504 bset_uncertain: 0.08037605 bset_opinion: 0.12338121
+run time =  5.89223885536
+belief: 0.1013 uncertain: 0.1013 opinion: 0.12338121
+44.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 6.438290960451978 beta_0: 38.56170903954803
+best epoch: 250 bset_belief: 0.10981722 bset_uncertain: 0.07112525 bset_opinion: 0.12961423
+run time =  6.11007809639
+belief: 0.1098 uncertain: 0.1098 opinion: 0.12961423
+45.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 6.774646892655365 beta_0: 38.225353107344624
+best epoch: 250 bset_belief: 0.11578898 bset_uncertain: 0.051909387 bset_opinion: 0.1281322
+run time =  5.57234477997
+belief: 0.1158 uncertain: 0.1158 opinion: 0.1281322
+46.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 8.55364406779661 beta_0: 36.44635593220339
+best epoch: 250 bset_belief: 0.17161293 bset_uncertain: 0.09603775 bset_opinion: 0.20593701
+run time =  6.09634494781
+belief: 0.1716 uncertain: 0.1716 opinion: 0.20593701
+47.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 9.657740112994349 beta_0: 35.342259887005646
+best epoch: 250 bset_belief: 0.21974385 bset_uncertain: 0.11543984 bset_opinion: 0.267714
+run time =  5.99716901779
+belief: 0.2197 uncertain: 0.2197 opinion: 0.267714
+48.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 10.3495197740113 beta_0: 34.6504802259887
+best epoch: 250 bset_belief: 0.2524511 bset_uncertain: 0.07838138 bset_opinion: 0.28514555
+run time =  5.61811590195
+belief: 0.2525 uncertain: 0.2525 opinion: 0.28514555
+49.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 5.252824858757062 beta_0: 39.74717514124294
+best epoch: 250 bset_belief: 0.11499996 bset_uncertain: 0.054960635 bset_opinion: 0.12686996
+run time =  6.58375597
+belief: 0.115 uncertain: 0.115 opinion: 0.12686996
+50.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 3.5889243876464323 beta_0: 41.41107561235357
+best epoch: 250 bset_belief: 0.09487361 bset_uncertain: 0.04253078 bset_opinion: 0.11094892
+run time =  6.38673090935
+belief: 0.0949 uncertain: 0.0949 opinion: 0.11094892
+51.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 3.926272630457934 beta_0: 41.07372736954206
+best epoch: 250 bset_belief: 0.08539405 bset_uncertain: 0.0415427 bset_opinion: 0.10197168
+run time =  6.97745990753
+belief: 0.0854 uncertain: 0.0854 opinion: 0.10197168
+52.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 4.576895633652822 beta_0: 40.423104366347175
+best epoch: 250 bset_belief: 0.09545368 bset_uncertain: 0.038344994 bset_opinion: 0.11071561
+run time =  6.66178202629
+belief: 0.0955 uncertain: 0.0955 opinion: 0.11071561
+53.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 5.2034451544195965 beta_0: 39.7965548455804
+best epoch: 250 bset_belief: 0.1064192 bset_uncertain: 0.05127676 bset_opinion: 0.12800074
+run time =  7.45303821564
+belief: 0.1064 uncertain: 0.1064 opinion: 0.12800074
+54.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 5.829994675186368 beta_0: 39.17000532481362
+best epoch: 250 bset_belief: 0.08056886 bset_uncertain: 0.034603667 bset_opinion: 0.09296627
+run time =  6.77885699272
+belief: 0.0806 uncertain: 0.0806 opinion: 0.09296627
+55.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 6.361474973375931 beta_0: 38.638525026624066
+best epoch: 250 bset_belief: 0.12160637 bset_uncertain: 0.044069268 bset_opinion: 0.14003433
+run time =  6.732172966
+belief: 0.1216 uncertain: 0.1216 opinion: 0.14003433
+56.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 7.446773162939297 beta_0: 37.5532268370607
+best epoch: 250 bset_belief: 0.11231696 bset_uncertain: 0.057820786 bset_opinion: 0.13718297
+run time =  6.94219303131
+belief: 0.1123 uncertain: 0.1123 opinion: 0.13718297
+57.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 7.446773162939297 beta_0: 37.5532268370607
+best epoch: 250 bset_belief: 0.121180214 bset_uncertain: 0.051299434 bset_opinion: 0.14345033
+run time =  7.11153101921
+belief: 0.1212 uncertain: 0.1212 opinion: 0.14345033
+58.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 7.446773162939297 beta_0: 37.5532268370607
+best epoch: 250 bset_belief: 0.12890884 bset_uncertain: 0.09941966 bset_opinion: 0.17302312
+run time =  7.47963809967
+belief: 0.1289 uncertain: 0.1289 opinion: 0.17302312
+59.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 3.5889243876464323 beta_0: 41.41107561235357
+best epoch: 250 bset_belief: 0.11807045 bset_uncertain: 0.06805435 bset_opinion: 0.1472586
+run time =  7.78763484955
+belief: 0.1181 uncertain: 0.1181 opinion: 0.1472586
+60.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 3.5889243876464323 beta_0: 41.41107561235357
+best epoch: 250 bset_belief: 0.10374873 bset_uncertain: 0.044388574 bset_opinion: 0.11752965
+run time =  7.57912707329
+belief: 0.1037 uncertain: 0.1037 opinion: 0.11752965
+61.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 3.892577209797657 beta_0: 41.10742279020234
+best epoch: 250 bset_belief: 0.1106044 bset_uncertain: 0.029604813 bset_opinion: 0.118705295
+run time =  8.14315605164
+belief: 0.1106 uncertain: 0.1106 opinion: 0.118705295
+62.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 4.499882854100106 beta_0: 40.50011714589989
+best epoch: 250 bset_belief: 0.1234317 bset_uncertain: 0.06625113 bset_opinion: 0.14713788
+run time =  8.08801603317
+belief: 0.1234 uncertain: 0.1234 opinion: 0.14713788
+63.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 5.1071884984025555 beta_0: 39.89281150159745
+best epoch: 250 bset_belief: 0.11325314 bset_uncertain: 0.049862668 bset_opinion: 0.13074318
+run time =  7.84666609764
+belief: 0.1133 uncertain: 0.1133 opinion: 0.13074318
+64.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 5.714494142705006 beta_0: 39.28550585729499
+best epoch: 250 bset_belief: 0.10948113 bset_uncertain: 0.05910432 bset_opinion: 0.12991624
+run time =  7.70936894417
+belief: 0.1095 uncertain: 0.1095 opinion: 0.12991624
+65.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 6.30741214057508 beta_0: 38.69258785942492
+best epoch: 250 bset_belief: 0.11046791 bset_uncertain: 0.037095074 bset_opinion: 0.12126467
+run time =  7.89330196381
+belief: 0.1105 uncertain: 0.1105 opinion: 0.12126467
+66.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 8.596400425985092 beta_0: 36.403599574014905
+best epoch: 250 bset_belief: 0.16030055 bset_uncertain: 0.07006152 bset_opinion: 0.18709108
+run time =  7.86506199837
+belief: 0.1603 uncertain: 0.1603 opinion: 0.18709108
+67.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 9.236261980830669 beta_0: 35.763738019169324
+best epoch: 250 bset_belief: 0.17901163 bset_uncertain: 0.06527582 bset_opinion: 0.20431587
+run time =  7.95661306381
+belief: 0.179 uncertain: 0.179 opinion: 0.20431587
+68.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 9.236261980830669 beta_0: 35.763738019169324
+best epoch: 250 bset_belief: 0.17711721 bset_uncertain: 0.07680797 bset_opinion: 0.20685858
+run time =  8.1047410965
+belief: 0.1771 uncertain: 0.1771 opinion: 0.20685858
+69.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 3.5889243876464323 beta_0: 41.41107561235357
+best epoch: 250 bset_belief: 0.09806235 bset_uncertain: 0.042246062 bset_opinion: 0.110050544
+run time =  8.15142393112
+belief: 0.0981 uncertain: 0.0981 opinion: 0.110050544
+70.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 3.5889243876464323 beta_0: 41.41107561235357
+best epoch: 250 bset_belief: 0.099308126 bset_uncertain: 0.03658242 bset_opinion: 0.111390315
+run time =  8.6951341629
+belief: 0.0993 uncertain: 0.0993 opinion: 0.111390315
+71.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 3.852454739084132 beta_0: 41.14754526091587
+best epoch: 250 bset_belief: 0.11009479 bset_uncertain: 0.073566034 bset_opinion: 0.13715144
+run time =  9.50618815422
+belief: 0.1101 uncertain: 0.1101 opinion: 0.13715144
+72.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 4.379515441959531 beta_0: 40.62048455804047
+best epoch: 250 bset_belief: 0.10045484 bset_uncertain: 0.07131328 bset_opinion: 0.12734897
+run time =  8.9347410202
+belief: 0.1005 uncertain: 0.1005 opinion: 0.12734897
+73.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 4.90657614483493 beta_0: 40.09342385516508
+best epoch: 250 bset_belief: 0.1020921 bset_uncertain: 0.04924237 bset_opinion: 0.1190358
+run time =  9.06779313087
+belief: 0.1021 uncertain: 0.1021 opinion: 0.1190358
+74.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 5.433636847710329 beta_0: 39.566363152289675
+best epoch: 250 bset_belief: 0.14236453 bset_uncertain: 0.08939265 bset_opinion: 0.17830592
+run time =  8.95962095261
+belief: 0.1424 uncertain: 0.1424 opinion: 0.17830592
+75.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 5.960697550585729 beta_0: 39.03930244941427
+best epoch: 250 bset_belief: 0.122221485 bset_uncertain: 0.07058378 bset_opinion: 0.14812914
+run time =  9.67462205887
+belief: 0.1222 uncertain: 0.1222 opinion: 0.14812914
+76.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 8.207550585729498 beta_0: 36.7924494142705
+best epoch: 250 bset_belief: 0.17218491 bset_uncertain: 0.058739293 bset_opinion: 0.19562389
+run time =  10.2539358139
+belief: 0.1722 uncertain: 0.1722 opinion: 0.19562389
+77.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 8.663588924387646 beta_0: 36.33641107561236
+best epoch: 250 bset_belief: 0.18384309 bset_uncertain: 0.08184282 bset_opinion: 0.21734382
+run time =  9.54693698883
+belief: 0.1838 uncertain: 0.1838 opinion: 0.21734382
+78.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 8.663588924387646 beta_0: 36.33641107561236
+best epoch: 250 bset_belief: 0.1839847 bset_uncertain: 0.103680894 bset_opinion: 0.22715557
+run time =  10.1911780834
+belief: 0.184 uncertain: 0.184 opinion: 0.22715557
+79.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 3.5889243876464323 beta_0: 41.41107561235357
+best epoch: 250 bset_belief: 0.08782574 bset_uncertain: 0.037138633 bset_opinion: 0.099174865
+run time =  10.6239800453
+belief: 0.0878 uncertain: 0.0878 opinion: 0.099174865
+80.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 3.5889243876464323 beta_0: 41.41107561235357
+best epoch: 250 bset_belief: 0.12864336 bset_uncertain: 0.06823665 bset_opinion: 0.15630554
+run time =  10.3402209282
+belief: 0.1286 uncertain: 0.1286 opinion: 0.15630554
+81.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 3.813402555910543 beta_0: 41.18659744408945
+best epoch: 250 bset_belief: 0.12791054 bset_uncertain: 0.13391726 bset_opinion: 0.18359599
+run time =  10.6881260872
+belief: 0.1279 uncertain: 0.1279 opinion: 0.18359599
+82.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 4.2623588924387645 beta_0: 40.73764110756124
+best epoch: 250 bset_belief: 0.095978305 bset_uncertain: 0.06748551 bset_opinion: 0.12188923
+run time =  9.9526321888
+belief: 0.096 uncertain: 0.096 opinion: 0.12188923
+83.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 4.711315228966986 beta_0: 40.28868477103302
+best epoch: 250 bset_belief: 0.13448134 bset_uncertain: 0.105219685 bset_opinion: 0.1787865
+run time =  10.8016629219
+belief: 0.1345 uncertain: 0.1345 opinion: 0.1787865
+84.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 5.160271565495208 beta_0: 39.8397284345048
+best epoch: 250 bset_belief: 0.10937102 bset_uncertain: 0.04908769 bset_opinion: 0.12884286
+run time =  10.3591871262
+belief: 0.1094 uncertain: 0.1094 opinion: 0.12884286
+85.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 5.609227902023429 beta_0: 39.39077209797657
+best epoch: 250 bset_belief: 0.12513588 bset_uncertain: 0.057271667 bset_opinion: 0.14865708
+run time =  10.0763328075
+belief: 0.1251 uncertain: 0.1251 opinion: 0.14865708
+86.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 8.078487752928647 beta_0: 36.921512247071355
+best epoch: 250 bset_belief: 0.18917307 bset_uncertain: 0.053075265 bset_opinion: 0.21242732
+run time =  11.7594320774
+belief: 0.1892 uncertain: 0.1892 opinion: 0.21242732
+87.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 10.105101171458998 beta_0: 34.894898828540995
+best epoch: 250 bset_belief: 0.2632763 bset_uncertain: 0.079614855 bset_opinion: 0.29955152
+run time =  11.4567849636
+belief: 0.2633 uncertain: 0.2633 opinion: 0.29955152
+88.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 11.81 beta_0: 33.19
+best epoch: 250 bset_belief: 0.32463953 bset_uncertain: 0.08318328 bset_opinion: 0.36313796
+run time =  10.4148709774
+belief: 0.3246 uncertain: 0.3246 opinion: 0.36313796
+89.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 3.5889243876464323 beta_0: 41.41107561235357
+best epoch: 250 bset_belief: 0.09340593 bset_uncertain: 0.041653704 bset_opinion: 0.10796569
+run time =  10.5445430279
+belief: 0.0934 uncertain: 0.0934 opinion: 0.10796569
+90.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 3.5889243876464323 beta_0: 41.41107561235357
+best epoch: 250 bset_belief: 0.09338544 bset_uncertain: 0.038713638 bset_opinion: 0.10573621
+run time =  11.7903318405
+belief: 0.0934 uncertain: 0.0934 opinion: 0.10573621
+91.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 3.775532481363152 beta_0: 41.22446751863685
+best epoch: 250 bset_belief: 0.09258378 bset_uncertain: 0.040849358 bset_opinion: 0.10587928
+run time =  10.8046379089
+belief: 0.0926 uncertain: 0.0926 opinion: 0.10587928
+92.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 4.148748668796592 beta_0: 40.85125133120341
+best epoch: 250 bset_belief: 0.09604072 bset_uncertain: 0.034350086 bset_opinion: 0.10680746
+run time =  11.9975860119
+belief: 0.096 uncertain: 0.096 opinion: 0.10680746
+93.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 4.521964856230032 beta_0: 40.478035143769965
+best epoch: 250 bset_belief: 0.11650906 bset_uncertain: 0.08115875 bset_opinion: 0.14763807
+run time =  12.3873429298
+belief: 0.1165 uncertain: 0.1165 opinion: 0.14763807
+94.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 4.895181043663472 beta_0: 40.10481895633653
+best epoch: 250 bset_belief: 0.10570212 bset_uncertain: 0.045313004 bset_opinion: 0.12202302
+run time =  11.0267548561
+belief: 0.1057 uncertain: 0.1057 opinion: 0.12202302
+95.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 5.268397231096912 beta_0: 39.731602768903095
+best epoch: 250 bset_belief: 0.114980176 bset_uncertain: 0.059008647 bset_opinion: 0.13695504
+run time =  10.9691050053
+belief: 0.115 uncertain: 0.115 opinion: 0.13695504
+96.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 7.2579552715654945 beta_0: 37.7420447284345
+best epoch: 250 bset_belief: 0.1874635 bset_uncertain: 0.070668496 bset_opinion: 0.21652648
+run time =  11.1382398605
+belief: 0.1875 uncertain: 0.1875 opinion: 0.21652648
+97.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 8.686155484558041 beta_0: 36.31384451544196
+best epoch: 250 bset_belief: 0.2498361 bset_uncertain: 0.05834593 bset_opinion: 0.2744678
+run time =  13.2470180988
+belief: 0.2498 uncertain: 0.2498 opinion: 0.2744678
+98.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 9.972683706070288 beta_0: 35.027316293929715
+best epoch: 250 bset_belief: 0.30712506 bset_uncertain: 0.09886234 bset_opinion: 0.35163417
+run time =  11.1643459797
+belief: 0.3071 uncertain: 0.3071 opinion: 0.35163417
+99.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 3.5889243876464323 beta_0: 41.41107561235357
+best epoch: 250 bset_belief: 0.11079508 bset_uncertain: 0.08071371 bset_opinion: 0.14197317
+run time =  11.5590641499
+belief: 0.1108 uncertain: 0.1108 opinion: 0.14197317
+100.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 5.252824858757062 beta_0: 39.74717514124294
+best epoch: 250 bset_belief: 0.09489572 bset_uncertain: 0.05109747 bset_opinion: 0.10753502
+run time =  10.9469730854
+belief: 0.0949 uncertain: 0.0949 opinion: 0.10753502
+101.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 5.561511299435028 beta_0: 39.43848870056497
+best epoch: 250 bset_belief: 0.104517266 bset_uncertain: 0.07807523 bset_opinion: 0.12633629
+run time =  11.4889991283
+belief: 0.1045 uncertain: 0.1045 opinion: 0.12633629
+102.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 6.164985875706214 beta_0: 38.835014124293785
+best epoch: 250 bset_belief: 0.09727208 bset_uncertain: 0.055151526 bset_opinion: 0.11117903
+run time =  11.6561069489
+belief: 0.0973 uncertain: 0.0973 opinion: 0.11117903
+103.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 6.754562146892656 beta_0: 38.24543785310735
+best epoch: 250 bset_belief: 0.09667291 bset_uncertain: 0.068807974 bset_opinion: 0.11432046
+run time =  11.3387131691
+belief: 0.0967 uncertain: 0.0967 opinion: 0.11432046
+104.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 7.344138418079096 beta_0: 37.65586158192091
+best epoch: 250 bset_belief: 0.10646499 bset_uncertain: 0.0641151 bset_opinion: 0.12576255
+run time =  12.7778658867
+belief: 0.1065 uncertain: 0.1065 opinion: 0.12576255
+105.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 7.711539548022598 beta_0: 37.2884604519774
+best epoch: 250 bset_belief: 0.101211555 bset_uncertain: 0.059505183 bset_opinion: 0.11795718
+run time =  12.4217031002
+belief: 0.1012 uncertain: 0.1012 opinion: 0.11795718
+106.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 7.897457627118643 beta_0: 37.10254237288136
+best epoch: 250 bset_belief: 0.10425767 bset_uncertain: 0.05258496 bset_opinion: 0.11796775
+run time =  11.7406420708
+belief: 0.1043 uncertain: 0.1043 opinion: 0.11796775
+107.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 7.897457627118643 beta_0: 37.10254237288136
+best epoch: 250 bset_belief: 0.11072833 bset_uncertain: 0.05041555 bset_opinion: 0.12576981
+run time =  12.7777180672
+belief: 0.1107 uncertain: 0.1107 opinion: 0.12576981
+108.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 7.897457627118643 beta_0: 37.10254237288136
+best epoch: 250 bset_belief: 0.10647988 bset_uncertain: 0.042576537 bset_opinion: 0.11761798
+run time =  12.4071669579
+belief: 0.1065 uncertain: 0.1065 opinion: 0.11761798
+109.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 5.252824858757062 beta_0: 39.74717514124294
+best epoch: 250 bset_belief: 0.092410125 bset_uncertain: 0.04317113 bset_opinion: 0.100644864
+run time =  12.0966029167
+belief: 0.0924 uncertain: 0.0924 opinion: 0.100644864
+110.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 5.252824858757062 beta_0: 39.74717514124294
+best epoch: 250 bset_belief: 0.11232538 bset_uncertain: 0.04327386 bset_opinion: 0.12188085
+run time =  11.9248788357
+belief: 0.1123 uncertain: 0.1123 opinion: 0.12188085
+111.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 5.530197740112994 beta_0: 39.46980225988701
+best epoch: 250 bset_belief: 0.10960193 bset_uncertain: 0.045812692 bset_opinion: 0.12089754
+run time =  13.210258007
+belief: 0.1096 uncertain: 0.1096 opinion: 0.12089754
+112.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 6.078361581920904 beta_0: 38.9216384180791
+best epoch: 250 bset_belief: 0.10164264 bset_uncertain: 0.046734277 bset_opinion: 0.11169516
+run time =  12.3021249771
+belief: 0.1016 uncertain: 0.1016 opinion: 0.11169516
+113.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 6.619943502824859 beta_0: 38.38005649717515
+best epoch: 250 bset_belief: 0.10740905 bset_uncertain: 0.10326311 bset_opinion: 0.13676871
+run time =  14.5594201088
+belief: 0.1074 uncertain: 0.1074 opinion: 0.13676871
+114.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 7.161525423728814 beta_0: 37.838474576271196
+best epoch: 250 bset_belief: 0.1147665 bset_uncertain: 0.08521935 bset_opinion: 0.13971552
+run time =  14.4610140324
+belief: 0.1148 uncertain: 0.1148 opinion: 0.13971552
+115.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 7.630197740112994 beta_0: 37.369802259887
+best epoch: 250 bset_belief: 0.105620414 bset_uncertain: 0.03472555 bset_opinion: 0.1113418
+run time =  12.7164721489
+belief: 0.1056 uncertain: 0.1056 opinion: 0.1113418
+116.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 8.45316384180791 beta_0: 36.54683615819209
+best epoch: 250 bset_belief: 0.119739436 bset_uncertain: 0.05770519 bset_opinion: 0.13363533
+run time =  12.4535801411
+belief: 0.1197 uncertain: 0.1197 opinion: 0.13363533
+117.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 8.502146892655366 beta_0: 36.49785310734463
+best epoch: 250 bset_belief: 0.11425971 bset_uncertain: 0.056384813 bset_opinion: 0.13023834
+run time =  12.8488299847
+belief: 0.1143 uncertain: 0.1143 opinion: 0.13023834
+118.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 8.502146892655366 beta_0: 36.49785310734463
+best epoch: 250 bset_belief: 0.1178325 bset_uncertain: 0.06613787 bset_opinion: 0.13513634
+run time =  13.0992000103
+belief: 0.1178 uncertain: 0.1178 opinion: 0.13513634
+119.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 5.252824858757062 beta_0: 39.74717514124294
+best epoch: 250 bset_belief: 0.103370346 bset_uncertain: 0.03436024 bset_opinion: 0.10982112
+run time =  13.1898620129
+belief: 0.1034 uncertain: 0.1034 opinion: 0.10982112
+120.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 5.252824858757062 beta_0: 39.74717514124294
+best epoch: 250 bset_belief: 0.11745875 bset_uncertain: 0.052954 bset_opinion: 0.12987244
+run time =  13.5049040318
+belief: 0.1175 uncertain: 0.1175 opinion: 0.12987244
+121.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 5.496214689265537 beta_0: 39.503785310734465
+best epoch: 250 bset_belief: 0.10582078 bset_uncertain: 0.039701093 bset_opinion: 0.11232608
+run time =  13.205532074
+belief: 0.1058 uncertain: 0.1058 opinion: 0.11232608
+122.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 5.97180790960452 beta_0: 39.028192090395486
+best epoch: 250 bset_belief: 0.11730526 bset_uncertain: 0.06940543 bset_opinion: 0.13636717
+run time =  15.3241209984
+belief: 0.1173 uncertain: 0.1173 opinion: 0.13636717
+123.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 6.436214689265537 beta_0: 38.56378531073447
+best epoch: 250 bset_belief: 0.15900578 bset_uncertain: 0.11827549 bset_opinion: 0.20059864
+run time =  13.211894989
+belief: 0.159 uncertain: 0.159 opinion: 0.20059864
+124.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 6.900621468926553 beta_0: 38.099378531073455
+best epoch: 250 bset_belief: 0.12421665 bset_uncertain: 0.083734535 bset_opinion: 0.14778225
+run time =  13.556992054
+belief: 0.1242 uncertain: 0.1242 opinion: 0.14778225
+125.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 7.3289548022598865 beta_0: 37.67104519774011
+best epoch: 250 bset_belief: 0.12441342 bset_uncertain: 0.07771036 bset_opinion: 0.1476595
+run time =  16.1981630325
+belief: 0.1244 uncertain: 0.1244 opinion: 0.1476595
+126.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 8.520564971751414 beta_0: 36.47943502824859
+best epoch: 250 bset_belief: 0.13806224 bset_uncertain: 0.055402562 bset_opinion: 0.15397972
+run time =  15.4379098415
+belief: 0.1381 uncertain: 0.1381 opinion: 0.15397972
+127.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 8.683531073446327 beta_0: 36.31646892655368
+best epoch: 250 bset_belief: 0.14291866 bset_uncertain: 0.06333902 bset_opinion: 0.16202292
+run time =  13.6295890808
+belief: 0.1429 uncertain: 0.1429 opinion: 0.16202292
+128.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 8.683531073446327 beta_0: 36.31646892655368
+best epoch: 250 bset_belief: 0.14076512 bset_uncertain: 0.069517806 bset_opinion: 0.16343689
+run time =  14.0523309708
+belief: 0.1408 uncertain: 0.1408 opinion: 0.16343689
+129.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 5.252824858757062 beta_0: 39.74717514124294
+best epoch: 250 bset_belief: 0.103271745 bset_uncertain: 0.046304837 bset_opinion: 0.11009788
+run time =  16.5603380203
+belief: 0.1033 uncertain: 0.1033 opinion: 0.11009788
+130.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 5.252824858757062 beta_0: 39.74717514124294
+best epoch: 250 bset_belief: 0.104749314 bset_uncertain: 0.04331848 bset_opinion: 0.11252801
+run time =  13.9986228943
+belief: 0.1047 uncertain: 0.1047 opinion: 0.11252801
+131.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 5.461031073446327 beta_0: 39.53896892655367
+best epoch: 250 bset_belief: 0.10125301 bset_uncertain: 0.06256207 bset_opinion: 0.113469034
+run time =  16.7466959953
+belief: 0.1013 uncertain: 0.1013 opinion: 0.113469034
+132.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 5.877443502824858 beta_0: 39.12255649717514
+best epoch: 250 bset_belief: 0.12029104 bset_uncertain: 0.042630192 bset_opinion: 0.13089368
+run time =  16.2787890434
+belief: 0.1203 uncertain: 0.1203 opinion: 0.13089368
+133.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 6.293855932203389 beta_0: 38.706144067796615
+best epoch: 250 bset_belief: 0.10922656 bset_uncertain: 0.06516671 bset_opinion: 0.12414783
+run time =  15.0461671352
+belief: 0.1092 uncertain: 0.1092 opinion: 0.12414783
+134.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 6.705225988700564 beta_0: 38.29477401129943
+best epoch: 250 bset_belief: 0.105721705 bset_uncertain: 0.08453929 bset_opinion: 0.12490987
+run time =  14.8283829689
+belief: 0.1057 uncertain: 0.1057 opinion: 0.12490987
+135.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 7.1068644067796605 beta_0: 37.893135593220336
+best epoch: 250 bset_belief: 0.115858264 bset_uncertain: 0.050001245 bset_opinion: 0.12678479
+run time =  14.7694518566
+belief: 0.1159 uncertain: 0.1159 opinion: 0.12678479
+136.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 8.488163841807909 beta_0: 36.51183615819209
+best epoch: 250 bset_belief: 0.151642 bset_uncertain: 0.0810796 bset_opinion: 0.17681944
+run time =  16.8848538399
+belief: 0.1516 uncertain: 0.1516 opinion: 0.17681944
+137.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 8.807909604519773 beta_0: 36.19209039548023
+best epoch: 250 bset_belief: 0.16279517 bset_uncertain: 0.07585572 bset_opinion: 0.18776573
+run time =  17.7509388924
+belief: 0.1628 uncertain: 0.1628 opinion: 0.18776573
+138.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 8.953898305084747 beta_0: 36.04610169491526
+best epoch: 250 bset_belief: 0.16742566 bset_uncertain: 0.10703217 bset_opinion: 0.20391087
+run time =  17.6153738499
+belief: 0.1674 uncertain: 0.1674 opinion: 0.20391087
+139.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 5.252824858757062 beta_0: 39.74717514124294
+best epoch: 250 bset_belief: 0.11870031 bset_uncertain: 0.09428227 bset_opinion: 0.14694773
+run time =  17.4418270588
+belief: 0.1187 uncertain: 0.1187 opinion: 0.14694773
+140.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 5.252824858757062 beta_0: 39.74717514124294
+best epoch: 250 bset_belief: 0.115655944 bset_uncertain: 0.052342776 bset_opinion: 0.12893417
+run time =  17.4465689659
+belief: 0.1157 uncertain: 0.1157 opinion: 0.12893417
+141.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 5.425367231638418 beta_0: 39.57463276836158
+best epoch: 250 bset_belief: 0.11975545 bset_uncertain: 0.06700927 bset_opinion: 0.1396592
+run time =  16.6397960186
+belief: 0.1198 uncertain: 0.1198 opinion: 0.1396592
+142.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 5.766341807909604 beta_0: 39.233658192090395
+best epoch: 250 bset_belief: 0.13124408 bset_uncertain: 0.0790043 bset_opinion: 0.15592557
+run time =  17.8631091118
+belief: 0.1312 uncertain: 0.1312 opinion: 0.15592557
+143.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 6.103206214689265 beta_0: 38.896793785310734
+best epoch: 250 bset_belief: 0.13657196 bset_uncertain: 0.078655116 bset_opinion: 0.16113836
+run time =  17.4558169842
+belief: 0.1366 uncertain: 0.1366 opinion: 0.16113836
+144.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 6.4400706214689265 beta_0: 38.55992937853107
+best epoch: 250 bset_belief: 0.121904515 bset_uncertain: 0.06850361 bset_opinion: 0.14326946
+run time =  17.1932599545
+belief: 0.1219 uncertain: 0.1219 opinion: 0.14326946
+145.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 6.776935028248587 beta_0: 38.22306497175141
+best epoch: 250 bset_belief: 0.1344687 bset_uncertain: 0.103835285 bset_opinion: 0.17002647
+run time =  15.8707950115
+belief: 0.1345 uncertain: 0.1345 opinion: 0.17002647
+146.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 8.401242937853105 beta_0: 36.59875706214689
+best epoch: 250 bset_belief: 0.19204772 bset_uncertain: 0.1088013 bset_opinion: 0.23306467
+run time =  18.6158850193
+belief: 0.192 uncertain: 0.192 opinion: 0.23306467
+147.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 9.158502824858758 beta_0: 35.84149717514124
+best epoch: 250 bset_belief: 0.21871422 bset_uncertain: 0.08178773 bset_opinion: 0.24987009
+run time =  18.2654969692
+belief: 0.2187 uncertain: 0.2187 opinion: 0.24987009
+148.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 9.563587570621468 beta_0: 35.43641242937853
+best epoch: 250 bset_belief: 0.23844981 bset_uncertain: 0.08467588 bset_opinion: 0.27013853
+run time =  18.203756094
+belief: 0.2384 uncertain: 0.2384 opinion: 0.27013853
+149.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 5.252824858757062 beta_0: 39.74717514124294
+best epoch: 250 bset_belief: 0.118124306 bset_uncertain: 0.070313826 bset_opinion: 0.13746692
+run time =  18.3402619362
+belief: 0.1181 uncertain: 0.1181 opinion: 0.13746692
+150.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 3.5889243876464323 beta_0: 41.41107561235357
+best epoch: 250 bset_belief: 0.09255413 bset_uncertain: 0.054152086 bset_opinion: 0.11311433
+run time =  18.9821350574
+belief: 0.0926 uncertain: 0.0926 opinion: 0.11311433
+151.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 3.928115015974441 beta_0: 41.07188498402556
+best epoch: 250 bset_belief: 0.100667365 bset_uncertain: 0.044936575 bset_opinion: 0.117197305
+run time =  19.5922119617
+belief: 0.1007 uncertain: 0.1007 opinion: 0.117197305
+152.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 4.566144834930778 beta_0: 40.433855165069225
+best epoch: 250 bset_belief: 0.10910184 bset_uncertain: 0.06876822 bset_opinion: 0.13625754
+run time =  17.6465468407
+belief: 0.1091 uncertain: 0.1091 opinion: 0.13625754
+153.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 5.163823216187433 beta_0: 39.83617678381256
+best epoch: 250 bset_belief: 0.11628209 bset_uncertain: 0.06008968 bset_opinion: 0.13864332
+run time =  19.1895039082
+belief: 0.1163 uncertain: 0.1163 opinion: 0.13864332
+154.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 5.76150159744409 beta_0: 39.23849840255591
+best epoch: 250 bset_belief: 0.1083988 bset_uncertain: 0.07065645 bset_opinion: 0.13633575
+run time =  19.1439669132
+belief: 0.1084 uncertain: 0.1084 opinion: 0.13633575
+155.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 6.295447284345047 beta_0: 38.704552715654955
+best epoch: 250 bset_belief: 0.106942534 bset_uncertain: 0.03857949 bset_opinion: 0.12074738
+run time =  19.3192560673
+belief: 0.1069 uncertain: 0.1069 opinion: 0.12074738
+156.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 6.732364217252397 beta_0: 38.267635782747604
+best epoch: 250 bset_belief: 0.11035912 bset_uncertain: 0.055021565 bset_opinion: 0.13037434
+run time =  18.1432130337
+belief: 0.1104 uncertain: 0.1104 opinion: 0.13037434
+157.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 6.732364217252397 beta_0: 38.267635782747604
+best epoch: 250 bset_belief: 0.11619279 bset_uncertain: 0.05872561 bset_opinion: 0.13774504
+run time =  18.2599151134
+belief: 0.1162 uncertain: 0.1162 opinion: 0.13774504
+158.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 6.732364217252397 beta_0: 38.267635782747604
+best epoch: 250 bset_belief: 0.106160395 bset_uncertain: 0.02791971 bset_opinion: 0.115011245
+run time =  18.6126570702
+belief: 0.1062 uncertain: 0.1062 opinion: 0.115011245
+159.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 3.5889243876464323 beta_0: 41.41107561235357
+best epoch: 250 bset_belief: 0.09985545 bset_uncertain: 0.039932944 bset_opinion: 0.11484094
+run time =  18.4420499802
+belief: 0.0999 uncertain: 0.0999 opinion: 0.11484094
+160.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 3.5889243876464323 beta_0: 41.41107561235357
+best epoch: 250 bset_belief: 0.14830373 bset_uncertain: 0.11366405 bset_opinion: 0.19403519
+run time =  18.6014509201
+belief: 0.1483 uncertain: 0.1483 opinion: 0.19403519
+161.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 3.890468583599574 beta_0: 41.10953141640043
+best epoch: 250 bset_belief: 0.10341732 bset_uncertain: 0.049657 bset_opinion: 0.11941022
+run time =  18.7334339619
+belief: 0.1034 uncertain: 0.1034 opinion: 0.11941022
+162.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 4.486373801916933 beta_0: 40.51362619808307
+best epoch: 250 bset_belief: 0.10802408 bset_uncertain: 0.050382286 bset_opinion: 0.12660974
+run time =  20.3159470558
+belief: 0.108 uncertain: 0.108 opinion: 0.12660974
+163.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 5.075095846645366 beta_0: 39.92490415335463
+best epoch: 250 bset_belief: 0.10821459 bset_uncertain: 0.05355358 bset_opinion: 0.12846555
+run time =  18.7600848675
+belief: 0.1082 uncertain: 0.1082 opinion: 0.12846555
+164.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 5.6638178913738 beta_0: 39.336182108626204
+best epoch: 250 bset_belief: 0.13906272 bset_uncertain: 0.07812991 bset_opinion: 0.16998987
+run time =  19.0152168274
+belief: 0.1391 uncertain: 0.1391 opinion: 0.16998987
+165.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 6.245346112886049 beta_0: 38.754653887113946
+best epoch: 250 bset_belief: 0.118573174 bset_uncertain: 0.03651273 bset_opinion: 0.131593
+run time =  20.6859629154
+belief: 0.1186 uncertain: 0.1186 opinion: 0.131593
+166.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 8.231522896698616 beta_0: 36.76847710330139
+best epoch: 250 bset_belief: 0.14862715 bset_uncertain: 0.05222796 bset_opinion: 0.16829626
+run time =  20.4936490059
+belief: 0.1486 uncertain: 0.1486 opinion: 0.16829626
+167.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 8.448434504792331 beta_0: 36.551565495207676
+best epoch: 250 bset_belief: 0.15352601 bset_uncertain: 0.06611465 bset_opinion: 0.17937535
+run time =  22.5831210613
+belief: 0.1535 uncertain: 0.1535 opinion: 0.17937535
+168.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 8.448434504792331 beta_0: 36.551565495207676
+best epoch: 250 bset_belief: 0.15424043 bset_uncertain: 0.062050287 bset_opinion: 0.17852594
+run time =  21.6530940533
+belief: 0.1542 uncertain: 0.1542 opinion: 0.17852594
+169.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 3.5889243876464323 beta_0: 41.41107561235357
+best epoch: 250 bset_belief: 0.12684315 bset_uncertain: 0.054551546 bset_opinion: 0.1474466
+run time =  22.192335844
+belief: 0.1268 uncertain: 0.1268 opinion: 0.1474466
+170.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 3.5889243876464323 beta_0: 41.41107561235357
+best epoch: 250 bset_belief: 0.10564785 bset_uncertain: 0.063413344 bset_opinion: 0.12722768
+run time =  22.3762559891
+belief: 0.1056 uncertain: 0.1056 opinion: 0.12722768
+171.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 3.8539882854100105 beta_0: 41.14601171458998
+best epoch: 250 bset_belief: 0.09227805 bset_uncertain: 0.044529717 bset_opinion: 0.10633961
+run time =  20.7734730244
+belief: 0.0923 uncertain: 0.0923 opinion: 0.10633961
+172.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 4.384116080937167 beta_0: 40.61588391906284
+best epoch: 250 bset_belief: 0.111350246 bset_uncertain: 0.04881728 bset_opinion: 0.12775767
+run time =  22.9815618992
+belief: 0.1114 uncertain: 0.1114 opinion: 0.12775767
+173.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 4.914243876464323 beta_0: 40.08575612353568
+best epoch: 250 bset_belief: 0.1095184 bset_uncertain: 0.037323233 bset_opinion: 0.12141761
+run time =  22.5323820114
+belief: 0.1095 uncertain: 0.1095 opinion: 0.12141761
+174.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 5.44437167199148 beta_0: 39.55562832800852
+best epoch: 250 bset_belief: 0.10845312 bset_uncertain: 0.049861502 bset_opinion: 0.12520841
+run time =  22.5937278271
+belief: 0.1085 uncertain: 0.1085 opinion: 0.12520841
+175.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 5.974499467518637 beta_0: 39.02550053248136
+best epoch: 250 bset_belief: 0.11633114 bset_uncertain: 0.058172144 bset_opinion: 0.13688138
+run time =  22.10572505
+belief: 0.1163 uncertain: 0.1163 opinion: 0.13688138
+176.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 8.424249201277954 beta_0: 36.57575079872204
+best epoch: 250 bset_belief: 0.17146826 bset_uncertain: 0.087772794 bset_opinion: 0.20735684
+run time =  23.169934988
+belief: 0.1715 uncertain: 0.1715 opinion: 0.20735684
+177.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 9.307518636847709 beta_0: 35.69248136315229
+best epoch: 250 bset_belief: 0.19954002 bset_uncertain: 0.09301984 bset_opinion: 0.23907562
+run time =  22.8564469814
+belief: 0.1995 uncertain: 0.1995 opinion: 0.23907562
+178.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 9.720617678381256 beta_0: 35.27938232161874
+best epoch: 250 bset_belief: 0.21103197 bset_uncertain: 0.11561528 bset_opinion: 0.26031888
+run time =  22.4902069569
+belief: 0.211 uncertain: 0.211 opinion: 0.26031888
+179.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 3.5889243876464323 beta_0: 41.41107561235357
+best epoch: 250 bset_belief: 0.112428285 bset_uncertain: 0.06833619 bset_opinion: 0.13778982
+run time =  23.3100509644
+belief: 0.1124 uncertain: 0.1124 opinion: 0.13778982
+180.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 3.5889243876464323 beta_0: 41.41107561235357
+best epoch: 250 bset_belief: 0.09280737 bset_uncertain: 0.04779579 bset_opinion: 0.1114569
+run time =  23.1746180058
+belief: 0.0928 uncertain: 0.0928 opinion: 0.1114569
+181.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 3.8118370607028758 beta_0: 41.18816293929712
+best epoch: 250 bset_belief: 0.11272491 bset_uncertain: 0.07164915 bset_opinion: 0.14275259
+run time =  23.5453109741
+belief: 0.1127 uncertain: 0.1127 opinion: 0.14275259
+182.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 4.257662406815761 beta_0: 40.74233759318424
+best epoch: 250 bset_belief: 0.118969336 bset_uncertain: 0.07489298 bset_opinion: 0.15146697
+run time =  23.6496529579
+belief: 0.119 uncertain: 0.119 opinion: 0.15146697
+183.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 4.703487752928647 beta_0: 40.296512247071355
+best epoch: 250 bset_belief: 0.10975205 bset_uncertain: 0.04912252 bset_opinion: 0.1295653
+run time =  23.6831269264
+belief: 0.1098 uncertain: 0.1098 opinion: 0.1295653
+184.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 5.1493130990415334 beta_0: 39.850686900958465
+best epoch: 250 bset_belief: 0.09614979 bset_uncertain: 0.05668563 bset_opinion: 0.11852531
+run time =  22.7461891174
+belief: 0.0961 uncertain: 0.0961 opinion: 0.11852531
+185.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 5.5951384451544195 beta_0: 39.40486155484558
+best epoch: 250 bset_belief: 0.109339304 bset_uncertain: 0.055698853 bset_opinion: 0.1312812
+run time =  24.1130750179
+belief: 0.1093 uncertain: 0.1093 opinion: 0.1312812
+186.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 8.026208732694354 beta_0: 36.97379126730564
+best epoch: 250 bset_belief: 0.18839292 bset_uncertain: 0.06662476 bset_opinion: 0.21763436
+run time =  22.8355360031
+belief: 0.1884 uncertain: 0.1884 opinion: 0.21763436
+187.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 9.759435569755059 beta_0: 35.24056443024494
+best epoch: 250 bset_belief: 0.25542924 bset_uncertain: 0.058593713 bset_opinion: 0.28157967
+run time =  24.4442539215
+belief: 0.2554 uncertain: 0.2554 opinion: 0.28157967
+188.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 10.745473908413208 beta_0: 34.2545260915868
+best epoch: 250 bset_belief: 0.29137176 bset_uncertain: 0.0802838 bset_opinion: 0.32805005
+run time =  24.1169090271
+belief: 0.2914 uncertain: 0.2914 opinion: 0.32805005
+189.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 3.5889243876464323 beta_0: 41.41107561235357
+best epoch: 250 bset_belief: 0.117018014 bset_uncertain: 0.06032716 bset_opinion: 0.14218338
+run time =  24.5136640072
+belief: 0.117 uncertain: 0.117 opinion: 0.14218338
+190.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 3.5889243876464323 beta_0: 41.41107561235357
+best epoch: 250 bset_belief: 0.096962295 bset_uncertain: 0.03208098 bset_opinion: 0.10591069
+run time =  24.4729149342
+belief: 0.097 uncertain: 0.097 opinion: 0.10591069
+191.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 3.7775985090521833 beta_0: 41.222401490947824
+best epoch: 250 bset_belief: 0.09794655 bset_uncertain: 0.061896075 bset_opinion: 0.11902385
+run time =  24.8287448883
+belief: 0.0979 uncertain: 0.0979 opinion: 0.11902385
+192.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 4.154946751863685 beta_0: 40.84505324813631
+best epoch: 250 bset_belief: 0.11746162 bset_uncertain: 0.075686194 bset_opinion: 0.1469202
+run time =  24.1054289341
+belief: 0.1175 uncertain: 0.1175 opinion: 0.1469202
+193.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 4.532294994675186 beta_0: 40.46770500532482
+best epoch: 250 bset_belief: 0.10267872 bset_uncertain: 0.04155097 bset_opinion: 0.11715867
+run time =  23.8532598019
+belief: 0.1027 uncertain: 0.1027 opinion: 0.11715867
+194.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 4.909643237486689 beta_0: 40.090356762513316
+best epoch: 250 bset_belief: 0.120313145 bset_uncertain: 0.04494825 bset_opinion: 0.13707238
+run time =  25.7540910244
+belief: 0.1203 uncertain: 0.1203 opinion: 0.13707238
+195.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 5.286991480298189 beta_0: 39.71300851970181
+best epoch: 250 bset_belief: 0.11703274 bset_uncertain: 0.066329636 bset_opinion: 0.14223808
+run time =  26.0083169937
+belief: 0.117 uncertain: 0.117 opinion: 0.14223808
+196.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 7.326112886048987 beta_0: 37.67388711395102
+best epoch: 250 bset_belief: 0.18979633 bset_uncertain: 0.071544155 bset_opinion: 0.21836774
+run time =  25.2519550323
+belief: 0.1898 uncertain: 0.1898 opinion: 0.21836774
+197.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 8.817486687965921 beta_0: 36.182513312034075
+best epoch: 250 bset_belief: 0.25409722 bset_uncertain: 0.04842301 bset_opinion: 0.27534148
+run time =  25.6323871613
+belief: 0.2541 uncertain: 0.2541 opinion: 0.27534148
+198.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 10.191778487752929 beta_0: 34.80822151224707
+best epoch: 250 bset_belief: 0.31235597 bset_uncertain: 0.101619445 bset_opinion: 0.3586231
+run time =  25.1388280392
+belief: 0.3124 uncertain: 0.3124 opinion: 0.3586231
+199.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 3.5889243876464323 beta_0: 41.41107561235357
+best epoch: 250 bset_belief: 0.10207485 bset_uncertain: 0.05863178 bset_opinion: 0.12276923
+run time =  25.9784018993
+belief: 0.1021 uncertain: 0.1021 opinion: 0.12276923
+200.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 5.252824858757062 beta_0: 39.74717514124294
+best epoch: 250 bset_belief: 0.1168003 bset_uncertain: 0.052428864 bset_opinion: 0.12955044
+run time =  26.2464940548
+belief: 0.1168 uncertain: 0.1168 opinion: 0.12955044
+201.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 5.56524011299435 beta_0: 39.434759887005654
+best epoch: 250 bset_belief: 0.10477319 bset_uncertain: 0.037651565 bset_opinion: 0.1082221
+run time =  25.9785530567
+belief: 0.1048 uncertain: 0.1048 opinion: 0.1082221
+202.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 6.175437853107344 beta_0: 38.82456214689266
+best epoch: 250 bset_belief: 0.121695764 bset_uncertain: 0.06611073 bset_opinion: 0.13907088
+run time =  25.891600132
+belief: 0.1217 uncertain: 0.1217 opinion: 0.13907088
+203.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 6.771002824858756 beta_0: 38.22899717514125
+best epoch: 250 bset_belief: 0.12139863 bset_uncertain: 0.062385924 bset_opinion: 0.13554382
+run time =  25.9449748993
+belief: 0.1214 uncertain: 0.1214 opinion: 0.13554382
+204.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 7.3589406779661015 beta_0: 37.641059322033904
+best epoch: 250 bset_belief: 0.13369216 bset_uncertain: 0.09388358 bset_opinion: 0.15929963
+run time =  25.8380849361
+belief: 0.1337 uncertain: 0.1337 opinion: 0.15929963
+205.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 7.810338983050847 beta_0: 37.18966101694915
+best epoch: 250 bset_belief: 0.11642984 bset_uncertain: 0.06656659 bset_opinion: 0.13324285
+run time =  27.1080031395
+belief: 0.1164 uncertain: 0.1164 opinion: 0.13324285
+206.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 8.115169491525425 beta_0: 36.88483050847457
+best epoch: 250 bset_belief: 0.122974634 bset_uncertain: 0.054249402 bset_opinion: 0.13517405
+run time =  26.3521199226
+belief: 0.123 uncertain: 0.123 opinion: 0.13517405
+207.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 8.115169491525425 beta_0: 36.88483050847457
+best epoch: 250 bset_belief: 0.13610056 bset_uncertain: 0.077627376 bset_opinion: 0.15685399
+run time =  26.3307781219
+belief: 0.1361 uncertain: 0.1361 opinion: 0.15685399
+208.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 8.115169491525425 beta_0: 36.88483050847457
+best epoch: 250 bset_belief: 0.12127288 bset_uncertain: 0.06543507 bset_opinion: 0.13613123
+run time =  25.1513700485
+belief: 0.1213 uncertain: 0.1213 opinion: 0.13613123
+209.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 5.252824858757062 beta_0: 39.74717514124294
+best epoch: 250 bset_belief: 0.11504857 bset_uncertain: 0.050910547 bset_opinion: 0.12205732
+run time =  25.3811159134
+belief: 0.115 uncertain: 0.115 opinion: 0.12205732
+210.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 5.252824858757062 beta_0: 39.74717514124294
+best epoch: 250 bset_belief: 0.101555906 bset_uncertain: 0.030198349 bset_opinion: 0.10502672
+run time =  26.2959280014
+belief: 0.1016 uncertain: 0.1016 opinion: 0.10502672
+211.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 5.528531073446327 beta_0: 39.471468926553676
+best epoch: 250 bset_belief: 0.12849657 bset_uncertain: 0.06412766 bset_opinion: 0.14689763
+run time =  26.5624420643
+belief: 0.1285 uncertain: 0.1285 opinion: 0.14689763
+212.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 6.060338983050848 beta_0: 38.93966101694916
+best epoch: 250 bset_belief: 0.10513474 bset_uncertain: 0.05357482 bset_opinion: 0.11814833
+run time =  27.2663629055
+belief: 0.1051 uncertain: 0.1051 opinion: 0.11814833
+213.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 6.572542372881356 beta_0: 38.42745762711864
+best epoch: 250 bset_belief: 0.12489049 bset_uncertain: 0.07719874 bset_opinion: 0.1491186
+run time =  26.7745370865
+belief: 0.1249 uncertain: 0.1249 opinion: 0.1491186
+214.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 7.084745762711864 beta_0: 37.91525423728813
+best epoch: 250 bset_belief: 0.111791424 bset_uncertain: 0.03611871 bset_opinion: 0.1197533
+run time =  25.7931239605
+belief: 0.1118 uncertain: 0.1118 opinion: 0.1197533
+215.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 7.513361581920902 beta_0: 37.48663841807909
+best epoch: 250 bset_belief: 0.12848544 bset_uncertain: 0.047715236 bset_opinion: 0.14094861
+run time =  27.3704459667
+belief: 0.1285 uncertain: 0.1285 opinion: 0.14094861
+216.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 8.636271186440677 beta_0: 36.36372881355932
+best epoch: 250 bset_belief: 0.13737315 bset_uncertain: 0.06287387 bset_opinion: 0.15766703
+run time =  27.8656508923
+belief: 0.1374 uncertain: 0.1374 opinion: 0.15766703
+217.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 8.636271186440677 beta_0: 36.36372881355932
+best epoch: 250 bset_belief: 0.135689 bset_uncertain: 0.053303394 bset_opinion: 0.15083969
+run time =  27.1365690231
+belief: 0.1357 uncertain: 0.1357 opinion: 0.15083969
+218.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 8.636271186440677 beta_0: 36.36372881355932
+best epoch: 250 bset_belief: 0.13494116 bset_uncertain: 0.05086732 bset_opinion: 0.1508184
+run time =  28.2631251812
+belief: 0.1349 uncertain: 0.1349 opinion: 0.1508184
+219.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 5.252824858757062 beta_0: 39.74717514124294
+best epoch: 250 bset_belief: 0.109233975 bset_uncertain: 0.03542164 bset_opinion: 0.11662661
+run time =  27.9293529987
+belief: 0.1092 uncertain: 0.1092 opinion: 0.11662661
+220.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 5.252824858757062 beta_0: 39.74717514124294
+best epoch: 250 bset_belief: 0.108528435 bset_uncertain: 0.03976262 bset_opinion: 0.116990626
+run time =  28.0314619541
+belief: 0.1085 uncertain: 0.1085 opinion: 0.116990626
+221.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 5.492598870056497 beta_0: 39.5074011299435
+best epoch: 250 bset_belief: 0.09647978 bset_uncertain: 0.028428191 bset_opinion: 0.10143004
+run time =  28.2282910347
+belief: 0.0965 uncertain: 0.0965 opinion: 0.10143004
+222.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 5.966468926553671 beta_0: 39.033531073446326
+best epoch: 250 bset_belief: 0.103711665 bset_uncertain: 0.045180917 bset_opinion: 0.11461868
+run time =  28.3112649918
+belief: 0.1037 uncertain: 0.1037 opinion: 0.11461868
+223.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 6.4346610169491525 beta_0: 38.56533898305084
+best epoch: 250 bset_belief: 0.11419374 bset_uncertain: 0.047714546 bset_opinion: 0.12683967
+run time =  27.6906909943
+belief: 0.1142 uncertain: 0.1142 opinion: 0.12683967
+224.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 6.902853107344632 beta_0: 38.097146892655374
+best epoch: 250 bset_belief: 0.10435261 bset_uncertain: 0.043203063 bset_opinion: 0.11508168
+run time =  28.469078064
+belief: 0.1044 uncertain: 0.1044 opinion: 0.11508168
+225.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 7.353545197740112 beta_0: 37.64645480225989
+best epoch: 250 bset_belief: 0.111273214 bset_uncertain: 0.0524395 bset_opinion: 0.1265109
+run time =  29.2482149601
+belief: 0.1113 uncertain: 0.1113 opinion: 0.1265109
+226.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 8.492090395480224 beta_0: 36.507909604519774
+best epoch: 250 bset_belief: 0.13294907 bset_uncertain: 0.07225992 bset_opinion: 0.15631379
+run time =  29.194314003
+belief: 0.1329 uncertain: 0.1329 opinion: 0.15631379
+227.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 8.604435028248588 beta_0: 36.39556497175141
+best epoch: 250 bset_belief: 0.1342371 bset_uncertain: 0.060145628 bset_opinion: 0.1564896
+run time =  30.2915179729
+belief: 0.1342 uncertain: 0.1342 opinion: 0.1564896
+228.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 8.662627118644068 beta_0: 36.33737288135593
+best epoch: 250 bset_belief: 0.14594753 bset_uncertain: 0.094631776 bset_opinion: 0.18082325
+run time =  29.4461941719
+belief: 0.1459 uncertain: 0.1459 opinion: 0.18082325
+229.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 5.252824858757062 beta_0: 39.74717514124294
+best epoch: 250 bset_belief: 0.09924047 bset_uncertain: 0.04392822 bset_opinion: 0.10948007
+run time =  28.3862299919
+belief: 0.0992 uncertain: 0.0992 opinion: 0.10948007
+230.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 5.252824858757062 beta_0: 39.74717514124294
+best epoch: 250 bset_belief: 0.10365459 bset_uncertain: 0.055791598 bset_opinion: 0.11836148
+run time =  29.6323411465
+belief: 0.1037 uncertain: 0.1037 opinion: 0.11836148
+231.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 5.455324858757062 beta_0: 39.544675141242934
+best epoch: 250 bset_belief: 0.11955983 bset_uncertain: 0.07906944 bset_opinion: 0.14492533
+run time =  29.1103868484
+belief: 0.1196 uncertain: 0.1196 opinion: 0.14492533
+232.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 5.860324858757061 beta_0: 39.13967514124294
+best epoch: 250 bset_belief: 0.10441265 bset_uncertain: 0.05314287 bset_opinion: 0.118683726
+run time =  30.1448378563
+belief: 0.1044 uncertain: 0.1044 opinion: 0.118683726
+233.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 6.2653248587570625 beta_0: 38.73467514124294
+best epoch: 250 bset_belief: 0.10971461 bset_uncertain: 0.053657178 bset_opinion: 0.12435517
+run time =  30.7141780853
+belief: 0.1097 uncertain: 0.1097 opinion: 0.12435517
+234.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 6.670324858757063 beta_0: 38.32967514124294
+best epoch: 250 bset_belief: 0.11848665 bset_uncertain: 0.06462523 bset_opinion: 0.1390153
+run time =  30.1869871616
+belief: 0.1185 uncertain: 0.1185 opinion: 0.1390153
+235.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 7.075324858757062 beta_0: 37.924675141242936
+best epoch: 250 bset_belief: 0.11990436 bset_uncertain: 0.08051883 bset_opinion: 0.14668201
+run time =  29.3408920765
+belief: 0.1199 uncertain: 0.1199 opinion: 0.14668201
+236.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 9.072203389830507 beta_0: 35.9277966101695
+best epoch: 250 bset_belief: 0.17246741 bset_uncertain: 0.089260615 bset_opinion: 0.20607501
+run time =  29.085132122
+belief: 0.1725 uncertain: 0.1725 opinion: 0.20607501
+237.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 9.366920903954801 beta_0: 35.63307909604519
+best epoch: 250 bset_belief: 0.18323806 bset_uncertain: 0.09349715 bset_opinion: 0.21753432
+run time =  29.4415459633
+belief: 0.1832 uncertain: 0.1832 opinion: 0.21753432
+238.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 9.515875706214688 beta_0: 35.484124293785314
+best epoch: 250 bset_belief: 0.19316961 bset_uncertain: 0.056917984 bset_opinion: 0.21408449
+run time =  30.5062777996
+belief: 0.1932 uncertain: 0.1932 opinion: 0.21408449
+239.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 5.252824858757062 beta_0: 39.74717514124294
+best epoch: 250 bset_belief: 0.105565734 bset_uncertain: 0.07061468 bset_opinion: 0.12538593
+run time =  30.8275430202
+belief: 0.1056 uncertain: 0.1056 opinion: 0.12538593
+240.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 5.252824858757062 beta_0: 39.74717514124294
+best epoch: 250 bset_belief: 0.105719484 bset_uncertain: 0.075775295 bset_opinion: 0.12370962
+run time =  30.4577431679
+belief: 0.1057 uncertain: 0.1057 opinion: 0.12370962
+241.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 5.426525423728814 beta_0: 39.57347457627119
+best epoch: 250 bset_belief: 0.10587132 bset_uncertain: 0.05259926 bset_opinion: 0.11746467
+run time =  30.964056015
+belief: 0.1059 uncertain: 0.1059 opinion: 0.11746467
+242.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 5.773926553672316 beta_0: 39.22607344632768
+best epoch: 250 bset_belief: 0.11907886 bset_uncertain: 0.055531308 bset_opinion: 0.13406146
+run time =  31.3999631405
+belief: 0.1191 uncertain: 0.1191 opinion: 0.13406146
+243.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 6.12132768361582 beta_0: 38.87867231638418
+best epoch: 250 bset_belief: 0.12829031 bset_uncertain: 0.05291998 bset_opinion: 0.14380626
+run time =  29.8057479858
+belief: 0.1283 uncertain: 0.1283 opinion: 0.14380626
+244.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 6.464661016949152 beta_0: 38.53533898305085
+best epoch: 250 bset_belief: 0.12801406 bset_uncertain: 0.051832125 bset_opinion: 0.14347807
+run time =  29.7462131977
+belief: 0.128 uncertain: 0.128 opinion: 0.14347807
+245.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 6.8 beta_0: 38.2
+best epoch: 250 bset_belief: 0.1161163 bset_uncertain: 0.06861743 bset_opinion: 0.13658847
+run time =  30.0559279919
+belief: 0.1161 uncertain: 0.1161 opinion: 0.13658847
+246.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 8.569943502824858 beta_0: 36.430056497175144
+best epoch: 250 bset_belief: 0.1802105 bset_uncertain: 0.071865715 bset_opinion: 0.20698823
+run time =  30.6780500412
+belief: 0.1802 uncertain: 0.1802 opinion: 0.20698823
+247.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 9.546525423728813 beta_0: 35.453474576271184
+best epoch: 250 bset_belief: 0.22014928 bset_uncertain: 0.109003216 bset_opinion: 0.26302457
+run time =  28.1137430668
+belief: 0.2201 uncertain: 0.2201 opinion: 0.26302457
+248.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 10.206129943502825 beta_0: 34.79387005649717
+best epoch: 250 bset_belief: 0.24555115 bset_uncertain: 0.09501747 bset_opinion: 0.28445774
+run time =  30.7725758553
+belief: 0.2456 uncertain: 0.2456 opinion: 0.28445774
+249.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 5.252824858757062 beta_0: 39.74717514124294
+best epoch: 250 bset_belief: 0.110416114 bset_uncertain: 0.06306644 bset_opinion: 0.12708424
+run time =  30.4807329178
+belief: 0.1104 uncertain: 0.1104 opinion: 0.12708424
+250.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 3.5889243876464323 beta_0: 41.41107561235357
+best epoch: 250 bset_belief: 0.117579415 bset_uncertain: 0.0642423 bset_opinion: 0.14370182
+run time =  31.2247068882
+belief: 0.1176 uncertain: 0.1176 opinion: 0.14370182
+251.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 3.9273269435569755 beta_0: 41.07267305644303
+best epoch: 250 bset_belief: 0.08675176 bset_uncertain: 0.05116393 bset_opinion: 0.105746284
+run time =  29.1608030796
+belief: 0.0868 uncertain: 0.0868 opinion: 0.105746284
+252.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 4.579941427050053 beta_0: 40.42005857294994
+best epoch: 250 bset_belief: 0.095285945 bset_uncertain: 0.038403213 bset_opinion: 0.10940582
+run time =  29.6658711433
+belief: 0.0953 uncertain: 0.0953 opinion: 0.10940582
+253.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 5.208365282215122 beta_0: 39.79163471778488
+best epoch: 250 bset_belief: 0.09191174 bset_uncertain: 0.052443687 bset_opinion: 0.11222964
+run time =  29.5614612103
+belief: 0.0919 uncertain: 0.0919 opinion: 0.11222964
+254.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 5.836789137380191 beta_0: 39.16321086261981
+best epoch: 250 bset_belief: 0.092233874 bset_uncertain: 0.049022328 bset_opinion: 0.11045795
+run time =  29.6372959614
+belief: 0.0922 uncertain: 0.0922 opinion: 0.11045795
+255.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 6.425724174653887 beta_0: 38.574275825346106
+best epoch: 250 bset_belief: 0.08727738 bset_uncertain: 0.05012471 bset_opinion: 0.10557655
+run time =  32.8012959957
+belief: 0.0873 uncertain: 0.0873 opinion: 0.10557655
+256.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 7.165654952076678 beta_0: 37.83434504792333
+best epoch: 250 bset_belief: 0.103957534 bset_uncertain: 0.03201019 bset_opinion: 0.11518757
+run time =  33.5222609043
+belief: 0.104 uncertain: 0.104 opinion: 0.11518757
+257.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 7.165654952076678 beta_0: 37.83434504792333
+best epoch: 250 bset_belief: 0.11571019 bset_uncertain: 0.06902314 bset_opinion: 0.1444016
+run time =  34.8807621002
+belief: 0.1157 uncertain: 0.1157 opinion: 0.1444016
+258.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 7.165654952076678 beta_0: 37.83434504792333
+best epoch: 250 bset_belief: 0.10180032 bset_uncertain: 0.060430184 bset_opinion: 0.12669021
+run time =  33.4311330318
+belief: 0.1018 uncertain: 0.1018 opinion: 0.12669021
+259.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 3.5889243876464323 beta_0: 41.41107561235357
+best epoch: 250 bset_belief: 0.10904568 bset_uncertain: 0.054629937 bset_opinion: 0.1306264
+run time =  32.2503938675
+belief: 0.109 uncertain: 0.109 opinion: 0.1306264
+260.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 3.5889243876464323 beta_0: 41.41107561235357
+best epoch: 250 bset_belief: 0.08777913 bset_uncertain: 0.05055019 bset_opinion: 0.10483196
+run time =  31.8785910606
+belief: 0.0878 uncertain: 0.0878 opinion: 0.10483196
+261.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 3.8901703940362085 beta_0: 41.109829605963796
+best epoch: 250 bset_belief: 0.09005833 bset_uncertain: 0.03307268 bset_opinion: 0.100144304
+run time =  33.6346969604
+belief: 0.0901 uncertain: 0.0901 opinion: 0.100144304
+262.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 4.492662406815762 beta_0: 40.50733759318424
+best epoch: 250 bset_belief: 0.09808871 bset_uncertain: 0.061439194 bset_opinion: 0.12098448
+run time =  33.7666199207
+belief: 0.0981 uncertain: 0.0981 opinion: 0.12098448
+263.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 5.095154419595314 beta_0: 39.90484558040469
+best epoch: 250 bset_belief: 0.10866107 bset_uncertain: 0.040214065 bset_opinion: 0.12331649
+run time =  33.2896699905
+belief: 0.1087 uncertain: 0.1087 opinion: 0.12331649
+264.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 5.697646432374867 beta_0: 39.30235356762514
+best epoch: 250 bset_belief: 0.119251646 bset_uncertain: 0.058458265 bset_opinion: 0.14160377
+run time =  34.0255739689
+belief: 0.1193 uncertain: 0.1193 opinion: 0.14160377
+265.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 6.285942492012779 beta_0: 38.71405750798722
+best epoch: 250 bset_belief: 0.16212459 bset_uncertain: 0.07531632 bset_opinion: 0.1934273
+run time =  33.7757599354
+belief: 0.1621 uncertain: 0.1621 opinion: 0.1934273
+266.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 8.535484558040467 beta_0: 36.464515441959534
+best epoch: 250 bset_belief: 0.15978494 bset_uncertain: 0.06402689 bset_opinion: 0.18645655
+run time =  36.4364719391
+belief: 0.1598 uncertain: 0.1598 opinion: 0.18645655
+267.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 8.992555910543132 beta_0: 36.00744408945687
+best epoch: 250 bset_belief: 0.17056866 bset_uncertain: 0.061835237 bset_opinion: 0.19655651
+run time =  34.2914040089
+belief: 0.1706 uncertain: 0.1706 opinion: 0.19655651
+268.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 8.992555910543132 beta_0: 36.00744408945687
+best epoch: 250 bset_belief: 0.17226806 bset_uncertain: 0.049625892 bset_opinion: 0.19228926
+run time =  34.4083640575
+belief: 0.1723 uncertain: 0.1723 opinion: 0.19228926
+269.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 3.5889243876464323 beta_0: 41.41107561235357
+best epoch: 250 bset_belief: 0.11111222 bset_uncertain: 0.04648078 bset_opinion: 0.12895288
+run time =  35.0437221527
+belief: 0.1111 uncertain: 0.1111 opinion: 0.12895288
+270.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 3.5889243876464323 beta_0: 41.41107561235357
+best epoch: 250 bset_belief: 0.09838072 bset_uncertain: 0.046142492 bset_opinion: 0.114657566
+run time =  34.7409908772
+belief: 0.0984 uncertain: 0.0984 opinion: 0.114657566
+271.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 3.851485623003195 beta_0: 41.14851437699681
+best epoch: 250 bset_belief: 0.11844967 bset_uncertain: 0.0621144 bset_opinion: 0.14357932
+run time =  35.4586908817
+belief: 0.1184 uncertain: 0.1184 opinion: 0.14357932
+272.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 4.37660809371672 beta_0: 40.62339190628328
+best epoch: 250 bset_belief: 0.09679451 bset_uncertain: 0.060740214 bset_opinion: 0.119482055
+run time =  34.5762269497
+belief: 0.0968 uncertain: 0.0968 opinion: 0.119482055
+273.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 4.901730564430245 beta_0: 40.098269435569755
+best epoch: 250 bset_belief: 0.088790014 bset_uncertain: 0.03266607 bset_opinion: 0.09907668
+run time =  35.1465489864
+belief: 0.0888 uncertain: 0.0888 opinion: 0.09907668
+274.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 5.426853035143771 beta_0: 39.57314696485623
+best epoch: 250 bset_belief: 0.111992806 bset_uncertain: 0.07421248 bset_opinion: 0.14224565
+run time =  35.8337600231
+belief: 0.112 uncertain: 0.112 opinion: 0.14224565
+275.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 5.951975505857295 beta_0: 39.04802449414271
+best epoch: 250 bset_belief: 0.10056702 bset_uncertain: 0.047021136 bset_opinion: 0.11803946
+run time =  39.0059480667
+belief: 0.1006 uncertain: 0.1006 opinion: 0.11803946
+276.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 8.164611288604899 beta_0: 36.83538871139509
+best epoch: 250 bset_belief: 0.16334961 bset_uncertain: 0.073202275 bset_opinion: 0.19383417
+run time =  35.3513429165
+belief: 0.1633 uncertain: 0.1633 opinion: 0.19383417
+277.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 9.25569755058573 beta_0: 35.74430244941426
+best epoch: 250 bset_belief: 0.19736254 bset_uncertain: 0.07474195 bset_opinion: 0.228923
+run time =  35.3511149883
+belief: 0.1974 uncertain: 0.1974 opinion: 0.228923
+278.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 9.471799787007456 beta_0: 35.52820021299255
+best epoch: 250 bset_belief: 0.20519307 bset_uncertain: 0.046945155 bset_opinion: 0.22485615
+run time =  34.4727361202
+belief: 0.2052 uncertain: 0.2052 opinion: 0.22485615
+279.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 3.5889243876464323 beta_0: 41.41107561235357
+best epoch: 250 bset_belief: 0.10687644 bset_uncertain: 0.03676373 bset_opinion: 0.1202261
+run time =  35.8930368423
+belief: 0.1069 uncertain: 0.1069 opinion: 0.1202261
+280.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 3.5889243876464323 beta_0: 41.41107561235357
+best epoch: 250 bset_belief: 0.09857881 bset_uncertain: 0.03268347 bset_opinion: 0.10922818
+run time =  36.6324980259
+belief: 0.0986 uncertain: 0.0986 opinion: 0.10922818
+281.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 3.8143929712460065 beta_0: 41.185607028754
+best epoch: 250 bset_belief: 0.12750007 bset_uncertain: 0.05648002 bset_opinion: 0.1489393
+run time =  35.2485530376
+belief: 0.1275 uncertain: 0.1275 opinion: 0.1489393
+282.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 4.2653301384451545 beta_0: 40.73466986155484
+best epoch: 250 bset_belief: 0.103233255 bset_uncertain: 0.058884636 bset_opinion: 0.12349054
+run time =  37.3994219303
+belief: 0.1032 uncertain: 0.1032 opinion: 0.12349054
+283.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 4.716267305644301 beta_0: 40.2837326943557
+best epoch: 250 bset_belief: 0.1226585 bset_uncertain: 0.06003305 bset_opinion: 0.14512542
+run time =  38.3879849911
+belief: 0.1227 uncertain: 0.1227 opinion: 0.14512542
+284.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 5.1672044728434505 beta_0: 39.832795527156556
+best epoch: 250 bset_belief: 0.11956855 bset_uncertain: 0.06387374 bset_opinion: 0.1433621
+run time =  38.3643698692
+belief: 0.1196 uncertain: 0.1196 opinion: 0.1433621
+285.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 5.618141640042598 beta_0: 39.3818583599574
+best epoch: 250 bset_belief: 0.1267253 bset_uncertain: 0.07818098 bset_opinion: 0.15736517
+run time =  38.4413759708
+belief: 0.1267 uncertain: 0.1267 opinion: 0.15736517
+286.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 7.84133120340788 beta_0: 37.15866879659212
+best epoch: 250 bset_belief: 0.17518154 bset_uncertain: 0.054737635 bset_opinion: 0.19685866
+run time =  36.11835289
+belief: 0.1752 uncertain: 0.1752 opinion: 0.19685866
+287.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 8.643386581469649 beta_0: 36.35661341853035
+best epoch: 250 bset_belief: 0.20512229 bset_uncertain: 0.07278849 bset_opinion: 0.23555247
+run time =  36.5427868366
+belief: 0.2051 uncertain: 0.2051 opinion: 0.23555247
+288.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 8.883003194888177 beta_0: 36.11699680511183
+best epoch: 250 bset_belief: 0.21692145 bset_uncertain: 0.07379817 bset_opinion: 0.24896832
+run time =  37.1376438141
+belief: 0.2169 uncertain: 0.2169 opinion: 0.24896832
+289.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 3.5889243876464323 beta_0: 41.41107561235357
+best epoch: 250 bset_belief: 0.0918512 bset_uncertain: 0.044245698 bset_opinion: 0.106804244
+run time =  38.0245130062
+belief: 0.0919 uncertain: 0.0919 opinion: 0.106804244
+290.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 3.5889243876464323 beta_0: 41.41107561235357
+best epoch: 250 bset_belief: 0.10792005 bset_uncertain: 0.05973986 bset_opinion: 0.12877621
+run time =  37.2087359428
+belief: 0.1079 uncertain: 0.1079 opinion: 0.12877621
+291.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 3.779387646432375 beta_0: 41.220612353567624
+best epoch: 250 bset_belief: 0.10591616 bset_uncertain: 0.032629177 bset_opinion: 0.11527363
+run time =  38.278635025
+belief: 0.1059 uncertain: 0.1059 opinion: 0.11527363
+292.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 4.16031416400426 beta_0: 40.83968583599574
+best epoch: 250 bset_belief: 0.117119014 bset_uncertain: 0.05411974 bset_opinion: 0.13679129
+run time =  39.3243279457
+belief: 0.1171 uncertain: 0.1171 opinion: 0.13679129
+293.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 4.541240681576145 beta_0: 40.458759318423866
+best epoch: 250 bset_belief: 0.13195255 bset_uncertain: 0.074289225 bset_opinion: 0.15946111
+run time =  38.6760308743
+belief: 0.132 uncertain: 0.132 opinion: 0.15946111
+294.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 4.922167199148029 beta_0: 40.07783280085198
+best epoch: 250 bset_belief: 0.11543728 bset_uncertain: 0.05838237 bset_opinion: 0.13648611
+run time =  37.5602788925
+belief: 0.1154 uncertain: 0.1154 opinion: 0.13648611
+295.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 5.303093716719914 beta_0: 39.69690628328008
+best epoch: 250 bset_belief: 0.110171966 bset_uncertain: 0.036354646 bset_opinion: 0.12207485
+run time =  39.0898401737
+belief: 0.1102 uncertain: 0.1102 opinion: 0.12207485
+296.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 7.308178913738018 beta_0: 37.691821086261974
+best epoch: 250 bset_belief: 0.18435557 bset_uncertain: 0.074168876 bset_opinion: 0.21384583
+run time =  37.8387420177
+belief: 0.1844 uncertain: 0.1844 opinion: 0.21384583
+297.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 8.906570820021301 beta_0: 36.093429179978706
+best epoch: 250 bset_belief: 0.24994215 bset_uncertain: 0.09031868 bset_opinion: 0.28792176
+run time =  37.0765051842
+belief: 0.2499 uncertain: 0.2499 opinion: 0.28792176
+298.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 10.406730564430244 beta_0: 34.59326943556976
+best epoch: 250 bset_belief: 0.31355542 bset_uncertain: 0.10408699 bset_opinion: 0.35954764
+run time =  40.4827702045
+belief: 0.3136 uncertain: 0.3136 opinion: 0.35954764
+299.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 3.5889243876464323 beta_0: 41.41107561235357
+best epoch: 250 bset_belief: 0.0962472 bset_uncertain: 0.047978237 bset_opinion: 0.111267425
+run time =  37.5032060146
+belief: 0.0962 uncertain: 0.0962 opinion: 0.111267425
+300.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 5.252824858757062 beta_0: 39.74717514124294
+best epoch: 250 bset_belief: 0.1097261 bset_uncertain: 0.04740306 bset_opinion: 0.120573044
+run time =  36.666561842
+belief: 0.1097 uncertain: 0.1097 opinion: 0.120573044
+301.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 5.563940677966102 beta_0: 39.436059322033906
+best epoch: 250 bset_belief: 0.10823149 bset_uncertain: 0.03554397 bset_opinion: 0.11441695
+run time =  37.0839078426
+belief: 0.1082 uncertain: 0.1082 opinion: 0.11441695
+302.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 6.171737288135594 beta_0: 38.828262711864404
+best epoch: 250 bset_belief: 0.10914784 bset_uncertain: 0.057194326 bset_opinion: 0.12029023
+run time =  36.7795689106
+belief: 0.1091 uncertain: 0.1091 opinion: 0.12029023
+303.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 6.765098870056498 beta_0: 38.23490112994351
+best epoch: 250 bset_belief: 0.10793701 bset_uncertain: 0.040911287 bset_opinion: 0.11520461
+run time =  37.431812048
+belief: 0.1079 uncertain: 0.1079 opinion: 0.11520461
+304.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 7.3584604519773995 beta_0: 37.6415395480226
+best epoch: 250 bset_belief: 0.109013915 bset_uncertain: 0.042346623 bset_opinion: 0.11838406
+run time =  36.2844650745
+belief: 0.109 uncertain: 0.109 opinion: 0.11838406
+305.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 7.8451836158192085 beta_0: 37.1548163841808
+best epoch: 250 bset_belief: 0.11819624 bset_uncertain: 0.060655843 bset_opinion: 0.13322061
+run time =  38.2208390236
+belief: 0.1182 uncertain: 0.1182 opinion: 0.13322061
+306.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 8.309378531073447 beta_0: 36.69062146892655
+best epoch: 250 bset_belief: 0.12047113 bset_uncertain: 0.0350302 bset_opinion: 0.1251911
+run time =  36.288820982
+belief: 0.1205 uncertain: 0.1205 opinion: 0.1251911
+307.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 8.309378531073447 beta_0: 36.69062146892655
+best epoch: 250 bset_belief: 0.11848402 bset_uncertain: 0.049225606 bset_opinion: 0.12741359
+run time =  36.903428793
+belief: 0.1185 uncertain: 0.1185 opinion: 0.12741359
+308.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 8.309378531073447 beta_0: 36.69062146892655
+best epoch: 250 bset_belief: 0.113251634 bset_uncertain: 0.061292548 bset_opinion: 0.12643191
+run time =  39.0897989273
+belief: 0.1133 uncertain: 0.1133 opinion: 0.12643191
+309.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 5.252824858757062 beta_0: 39.74717514124294
+best epoch: 250 bset_belief: 0.10021135 bset_uncertain: 0.041404046 bset_opinion: 0.10552365
+run time =  36.5573391914
+belief: 0.1002 uncertain: 0.1002 opinion: 0.10552365
+310.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 5.252824858757062 beta_0: 39.74717514124294
+best epoch: 250 bset_belief: 0.09864896 bset_uncertain: 0.04780192 bset_opinion: 0.105089694
+run time =  36.3078660965
+belief: 0.0986 uncertain: 0.0986 opinion: 0.105089694
+311.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 5.528983050847458 beta_0: 39.47101694915255
+best epoch: 250 bset_belief: 0.093063906 bset_uncertain: 0.030889463 bset_opinion: 0.09380927
+run time =  36.3930699825
+belief: 0.0931 uncertain: 0.0931 opinion: 0.09380927
+312.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 6.068516949152541 beta_0: 38.931483050847454
+best epoch: 250 bset_belief: 0.1001488 bset_uncertain: 0.060670648 bset_opinion: 0.10719446
+run time =  37.0071179867
+belief: 0.1001 uncertain: 0.1001 opinion: 0.10719446
+313.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 6.595268361581922 beta_0: 38.404731638418085
+best epoch: 250 bset_belief: 0.10956281 bset_uncertain: 0.081211045 bset_opinion: 0.13030866
+run time =  39.2646830082
+belief: 0.1096 uncertain: 0.1096 opinion: 0.13030866
+314.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 7.1220197740112985 beta_0: 37.877980225988715
+best epoch: 250 bset_belief: 0.1090035 bset_uncertain: 0.049571566 bset_opinion: 0.11784669
+run time =  39.344974041
+belief: 0.109 uncertain: 0.109 opinion: 0.11784669
+315.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 7.6415960451977405 beta_0: 37.358403954802256
+best epoch: 250 bset_belief: 0.11056717 bset_uncertain: 0.06951137 bset_opinion: 0.12581944
+run time =  38.7927320004
+belief: 0.1106 uncertain: 0.1106 opinion: 0.12581944
+316.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 9.583644067796612 beta_0: 35.416355932203395
+best epoch: 250 bset_belief: 0.13923143 bset_uncertain: 0.09079848 bset_opinion: 0.16597863
+run time =  37.5425190926
+belief: 0.1392 uncertain: 0.1392 opinion: 0.16597863
+317.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 9.801271186440676 beta_0: 35.19872881355932
+best epoch: 250 bset_belief: 0.14490871 bset_uncertain: 0.089592904 bset_opinion: 0.17099765
+run time =  38.5995488167
+belief: 0.1449 uncertain: 0.1449 opinion: 0.17099765
+318.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 9.801271186440676 beta_0: 35.19872881355932
+best epoch: 250 bset_belief: 0.14822797 bset_uncertain: 0.059724376 bset_opinion: 0.16434953
+run time =  37.0324640274
+belief: 0.1482 uncertain: 0.1482 opinion: 0.16434953
+319.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 5.252824858757062 beta_0: 39.74717514124294
+best epoch: 250 bset_belief: 0.09444126 bset_uncertain: 0.03478456 bset_opinion: 0.09799233
+run time =  39.3408939838
+belief: 0.0944 uncertain: 0.0944 opinion: 0.09799233
+320.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 5.252824858757062 beta_0: 39.74717514124294
+best epoch: 250 bset_belief: 0.12394738 bset_uncertain: 0.095121376 bset_opinion: 0.15090862
+run time =  40.8336019516
+belief: 0.1239 uncertain: 0.1239 opinion: 0.15090862
+321.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 5.496553672316384 beta_0: 39.50344632768361
+best epoch: 250 bset_belief: 0.09555694 bset_uncertain: 0.06540148 bset_opinion: 0.10796725
+run time =  37.3848199844
+belief: 0.0956 uncertain: 0.0956 opinion: 0.10796725
+322.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 5.9782627118644065 beta_0: 39.02173728813559
+best epoch: 250 bset_belief: 0.10516217 bset_uncertain: 0.05146913 bset_opinion: 0.11408676
+run time =  39.8135130405
+belief: 0.1052 uncertain: 0.1052 opinion: 0.11408676
+323.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 6.454223163841808 beta_0: 38.54577683615819
+best epoch: 250 bset_belief: 0.12138768 bset_uncertain: 0.053198732 bset_opinion: 0.13349408
+run time =  38.1625099182
+belief: 0.1214 uncertain: 0.1214 opinion: 0.13349408
+324.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 6.9301836158192085 beta_0: 38.0698163841808
+best epoch: 250 bset_belief: 0.11915011 bset_uncertain: 0.07358218 bset_opinion: 0.13745722
+run time =  37.5764579773
+belief: 0.1192 uncertain: 0.1192 opinion: 0.13745722
+325.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 7.4061440677966095 beta_0: 37.59385593220338
+best epoch: 250 bset_belief: 0.11954498 bset_uncertain: 0.06362521 bset_opinion: 0.13624723
+run time =  38.8939659595
+belief: 0.1195 uncertain: 0.1195 opinion: 0.13624723
+326.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 8.850112994350281 beta_0: 36.14988700564972
+best epoch: 250 bset_belief: 0.14744227 bset_uncertain: 0.08086026 bset_opinion: 0.16889274
+run time =  38.0613801479
+belief: 0.1474 uncertain: 0.1474 opinion: 0.16889274
+327.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 9.038644067796609 beta_0: 35.96135593220339
+best epoch: 250 bset_belief: 0.15588622 bset_uncertain: 0.05342014 bset_opinion: 0.16957654
+run time =  40.3727991581
+belief: 0.1559 uncertain: 0.1559 opinion: 0.16957654
+328.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 9.038644067796609 beta_0: 35.96135593220339
+best epoch: 250 bset_belief: 0.15191446 bset_uncertain: 0.06569529 bset_opinion: 0.17046364
+run time =  37.9563009739
+belief: 0.1519 uncertain: 0.1519 opinion: 0.17046364
+329.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 5.252824858757062 beta_0: 39.74717514124294
+best epoch: 250 bset_belief: 0.122398205 bset_uncertain: 0.07113383 bset_opinion: 0.13903013
+run time =  39.6954638958
+belief: 0.1224 uncertain: 0.1224 opinion: 0.13903013
+330.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 5.252824858757062 beta_0: 39.74717514124294
+best epoch: 250 bset_belief: 0.1216004 bset_uncertain: 0.06686981 bset_opinion: 0.14222959
+run time =  38.2698440552
+belief: 0.1216 uncertain: 0.1216 opinion: 0.14222959
+331.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 5.4602401129943505 beta_0: 39.53975988700565
+best epoch: 250 bset_belief: 0.10152927 bset_uncertain: 0.055880897 bset_opinion: 0.11571184
+run time =  40.3214659691
+belief: 0.1015 uncertain: 0.1015 opinion: 0.11571184
+332.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 5.87026836158192 beta_0: 39.12973163841808
+best epoch: 250 bset_belief: 0.109598696 bset_uncertain: 0.08304954 bset_opinion: 0.13121964
+run time =  38.3668198586
+belief: 0.1096 uncertain: 0.1096 opinion: 0.13121964
+333.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 6.275494350282485 beta_0: 38.724505649717514
+best epoch: 250 bset_belief: 0.12339723 bset_uncertain: 0.07499505 bset_opinion: 0.14770715
+run time =  40.6081018448
+belief: 0.1234 uncertain: 0.1234 opinion: 0.14770715
+334.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 6.6807203389830505 beta_0: 38.31927966101696
+best epoch: 250 bset_belief: 0.12909487 bset_uncertain: 0.09039491 bset_opinion: 0.15801999
+run time =  40.433521986
+belief: 0.1291 uncertain: 0.1291 opinion: 0.15801999
+335.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 7.075748587570621 beta_0: 37.92425141242938
+best epoch: 250 bset_belief: 0.11639119 bset_uncertain: 0.09019661 bset_opinion: 0.14543383
+run time =  40.5323960781
+belief: 0.1164 uncertain: 0.1164 opinion: 0.14543383
+336.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 8.915056497175142 beta_0: 36.084943502824856
+best epoch: 250 bset_belief: 0.17355959 bset_uncertain: 0.06689898 bset_opinion: 0.19925737
+run time =  38.9663569927
+belief: 0.1736 uncertain: 0.1736 opinion: 0.19925737
+337.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 9.202542372881355 beta_0: 35.797457627118646
+best epoch: 250 bset_belief: 0.18176843 bset_uncertain: 0.06620426 bset_opinion: 0.20589128
+run time =  39.0208289623
+belief: 0.1818 uncertain: 0.1818 opinion: 0.20589128
+338.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 9.202542372881355 beta_0: 35.797457627118646
+best epoch: 250 bset_belief: 0.18084726 bset_uncertain: 0.05447587 bset_opinion: 0.20052148
+run time =  39.0662219524
+belief: 0.1808 uncertain: 0.1808 opinion: 0.20052148
+339.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 5.252824858757062 beta_0: 39.74717514124294
+best epoch: 250 bset_belief: 0.10931226 bset_uncertain: 0.08078452 bset_opinion: 0.13247079
+run time =  41.6018400192
+belief: 0.1093 uncertain: 0.1093 opinion: 0.13247079
+340.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 5.252824858757062 beta_0: 39.74717514124294
+best epoch: 250 bset_belief: 0.11414175 bset_uncertain: 0.07041553 bset_opinion: 0.13747326
+run time =  41.6090629101
+belief: 0.1141 uncertain: 0.1141 opinion: 0.13747326
+341.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 5.421412429378531 beta_0: 39.578587570621465
+best epoch: 250 bset_belief: 0.11725756 bset_uncertain: 0.06690032 bset_opinion: 0.13843344
+run time =  41.4034669399
+belief: 0.1173 uncertain: 0.1173 opinion: 0.13843344
+342.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 5.758587570621469 beta_0: 39.24141242937853
+best epoch: 250 bset_belief: 0.1182058 bset_uncertain: 0.050157484 bset_opinion: 0.13260517
+run time =  41.2400920391
+belief: 0.1182 uncertain: 0.1182 opinion: 0.13260517
+343.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 6.095762711864405 beta_0: 38.9042372881356
+best epoch: 250 bset_belief: 0.10914391 bset_uncertain: 0.063005075 bset_opinion: 0.12745127
+run time =  41.6567440033
+belief: 0.1091 uncertain: 0.1091 opinion: 0.12745127
+344.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 6.432937853107346 beta_0: 38.56706214689265
+best epoch: 250 bset_belief: 0.13594556 bset_uncertain: 0.090275206 bset_opinion: 0.16810952
+run time =  41.8549318314
+belief: 0.1359 uncertain: 0.1359 opinion: 0.16810952
+345.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 6.770112994350282 beta_0: 38.22988700564972
+best epoch: 250 bset_belief: 0.122857176 bset_uncertain: 0.06629702 bset_opinion: 0.14551505
+run time =  42.1221048832
+belief: 0.1229 uncertain: 0.1229 opinion: 0.14551505
+346.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 8.31313559322034 beta_0: 36.68686440677966
+best epoch: 250 bset_belief: 0.18388179 bset_uncertain: 0.070362054 bset_opinion: 0.21076126
+run time =  41.9610700607
+belief: 0.1839 uncertain: 0.1839 opinion: 0.21076126
+347.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 9.188870056497176 beta_0: 35.81112994350282
+best epoch: 250 bset_belief: 0.22264443 bset_uncertain: 0.09766535 bset_opinion: 0.26178807
+run time =  40.1601819992
+belief: 0.2226 uncertain: 0.2226 opinion: 0.26178807
+348.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 9.734774011299434 beta_0: 35.265225988700564
+best epoch: 250 bset_belief: 0.24612619 bset_uncertain: 0.053222507 bset_opinion: 0.26819852
+run time =  40.583799839
+belief: 0.2461 uncertain: 0.2461 opinion: 0.26819852
+349.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 5.252824858757062 beta_0: 39.74717514124294
+best epoch: 250 bset_belief: 0.11946871 bset_uncertain: 0.053408656 bset_opinion: 0.13629395
+run time =  41.8941099644
+belief: 0.1195 uncertain: 0.1195 opinion: 0.13629395
+350.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 3.5889243876464323 beta_0: 41.41107561235357
+best epoch: 250 bset_belief: 0.098618075 bset_uncertain: 0.03502991 bset_opinion: 0.10949528
+run time =  42.1627659798
+belief: 0.0986 uncertain: 0.0986 opinion: 0.10949528
+351.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 3.927976570820021 beta_0: 41.07202342917998
+best epoch: 250 bset_belief: 0.08917777 bset_uncertain: 0.050155055 bset_opinion: 0.10594625
+run time =  41.9898221493
+belief: 0.0892 uncertain: 0.0892 opinion: 0.10594625
+352.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 4.589984025559106 beta_0: 40.4100159744409
+best epoch: 250 bset_belief: 0.09335811 bset_uncertain: 0.05312205 bset_opinion: 0.11109431
+run time =  43.4512739182
+belief: 0.0934 uncertain: 0.0934 opinion: 0.11109431
+353.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 5.235894568690096 beta_0: 39.764105431309915
+best epoch: 250 bset_belief: 0.101295985 bset_uncertain: 0.0511297 bset_opinion: 0.118967995
+run time =  44.038599968
+belief: 0.1013 uncertain: 0.1013 opinion: 0.118967995
+354.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 5.881805111821085 beta_0: 39.11819488817892
+best epoch: 250 bset_belief: 0.14592713 bset_uncertain: 0.06860367 bset_opinion: 0.1738278
+run time =  42.857929945
+belief: 0.1459 uncertain: 0.1459 opinion: 0.1738278
+355.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 6.495005324813631 beta_0: 38.504994675186374
+best epoch: 250 bset_belief: 0.100227214 bset_uncertain: 0.031744912 bset_opinion: 0.109593056
+run time =  41.7034049034
+belief: 0.1002 uncertain: 0.1002 opinion: 0.109593056
+356.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 7.488402555910541 beta_0: 37.51159744408945
+best epoch: 250 bset_belief: 0.11527271 bset_uncertain: 0.044297826 bset_opinion: 0.13176146
+run time =  44.5675389767
+belief: 0.1153 uncertain: 0.1153 opinion: 0.13176146
+357.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 7.488402555910541 beta_0: 37.51159744408945
+best epoch: 250 bset_belief: 0.11333868 bset_uncertain: 0.045023765 bset_opinion: 0.12996294
+run time =  42.6484720707
+belief: 0.1133 uncertain: 0.1133 opinion: 0.12996294
+358.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 7.488402555910541 beta_0: 37.51159744408945
+best epoch: 250 bset_belief: 0.13565649 bset_uncertain: 0.045279548 bset_opinion: 0.15258016
+run time =  42.8795700073
+belief: 0.1357 uncertain: 0.1357 opinion: 0.15258016
+359.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 3.5889243876464323 beta_0: 41.41107561235357
+best epoch: 250 bset_belief: 0.10168747 bset_uncertain: 0.06879312 bset_opinion: 0.1266216
+run time =  44.8940989971
+belief: 0.1017 uncertain: 0.1017 opinion: 0.1266216
+360.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 3.5889243876464323 beta_0: 41.41107561235357
+best epoch: 250 bset_belief: 0.09990503 bset_uncertain: 0.052477445 bset_opinion: 0.11868544
+run time =  42.1269140244
+belief: 0.0999 uncertain: 0.0999 opinion: 0.11868544
+361.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 3.8900532481363155 beta_0: 41.10994675186369
+best epoch: 250 bset_belief: 0.09340433 bset_uncertain: 0.03224194 bset_opinion: 0.10366982
+run time =  42.9803831577
+belief: 0.0934 uncertain: 0.0934 opinion: 0.10366982
+362.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 4.492310969116081 beta_0: 40.50768903088392
+best epoch: 250 bset_belief: 0.09704202 bset_uncertain: 0.07091176 bset_opinion: 0.121923186
+run time =  45.0984990597
+belief: 0.097 uncertain: 0.097 opinion: 0.121923186
+363.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 5.094568690095846 beta_0: 39.90543130990416
+best epoch: 250 bset_belief: 0.10560169 bset_uncertain: 0.076261096 bset_opinion: 0.13470861
+run time =  43.4490959644
+belief: 0.1056 uncertain: 0.1056 opinion: 0.13470861
+364.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 5.696826411075612 beta_0: 39.303173588924395
+best epoch: 250 bset_belief: 0.097569816 bset_uncertain: 0.06589508 bset_opinion: 0.12177507
+run time =  42.7409238815
+belief: 0.0976 uncertain: 0.0976 opinion: 0.12177507
+365.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 6.284749733759319 beta_0: 38.71525026624067
+best epoch: 250 bset_belief: 0.09593041 bset_uncertain: 0.028629338 bset_opinion: 0.104324445
+run time =  43.2336230278
+belief: 0.0959 uncertain: 0.0959 opinion: 0.104324445
+366.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 8.684217252396166 beta_0: 36.31578274760383
+best epoch: 250 bset_belief: 0.15816645 bset_uncertain: 0.04466438 bset_opinion: 0.17566925
+run time =  43.6157879829
+belief: 0.1582 uncertain: 0.1582 opinion: 0.17566925
+367.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 9.220468583599574 beta_0: 35.77953141640044
+best epoch: 250 bset_belief: 0.17462315 bset_uncertain: 0.05054815 bset_opinion: 0.19514322
+run time =  45.4497539997
+belief: 0.1746 uncertain: 0.1746 opinion: 0.19514322
+368.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 9.233333333333333 beta_0: 35.76666666666666
+best epoch: 250 bset_belief: 0.16986962 bset_uncertain: 0.07949943 bset_opinion: 0.20259206
+run time =  43.5447571278
+belief: 0.1699 uncertain: 0.1699 opinion: 0.20259206
+369.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 3.5889243876464323 beta_0: 41.41107561235357
+best epoch: 250 bset_belief: 0.1031221 bset_uncertain: 0.07438116 bset_opinion: 0.1300692
+run time =  45.5781240463
+belief: 0.1031 uncertain: 0.1031 opinion: 0.1300692
+370.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 3.5889243876464323 beta_0: 41.41107561235357
+best epoch: 250 bset_belief: 0.11545264 bset_uncertain: 0.07119436 bset_opinion: 0.14141813
+run time =  44.7710399628
+belief: 0.1155 uncertain: 0.1155 opinion: 0.14141813
+371.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 3.8525825346112885 beta_0: 41.14741746538871
+best epoch: 250 bset_belief: 0.103554025 bset_uncertain: 0.07369807 bset_opinion: 0.12955
+run time =  44.4310979843
+belief: 0.1036 uncertain: 0.1036 opinion: 0.12955
+372.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 4.379898828541002 beta_0: 40.62010117145899
+best epoch: 250 bset_belief: 0.106280625 bset_uncertain: 0.07810484 bset_opinion: 0.13484208
+run time =  44.6709690094
+belief: 0.1063 uncertain: 0.1063 opinion: 0.13484208
+373.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 4.9072151224707135 beta_0: 40.09278487752928
+best epoch: 250 bset_belief: 0.11723378 bset_uncertain: 0.049637344 bset_opinion: 0.13478547
+run time =  44.8005969524
+belief: 0.1172 uncertain: 0.1172 opinion: 0.13478547
+374.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 5.434531416400426 beta_0: 39.56546858359958
+best epoch: 250 bset_belief: 0.11026513 bset_uncertain: 0.0482481 bset_opinion: 0.12728487
+run time =  44.5263438225
+belief: 0.1103 uncertain: 0.1103 opinion: 0.12728487
+375.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 5.9618477103301375 beta_0: 39.03815228966987
+best epoch: 250 bset_belief: 0.11446175 bset_uncertain: 0.054329168 bset_opinion: 0.13450886
+run time =  46.7804470062
+belief: 0.1145 uncertain: 0.1145 opinion: 0.13450886
+376.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 8.438626198083067 beta_0: 36.56137380191693
+best epoch: 250 bset_belief: 0.17095317 bset_uncertain: 0.055906195 bset_opinion: 0.19297658
+run time =  46.4649779797
+belief: 0.171 uncertain: 0.171 opinion: 0.19297658
+377.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 9.299797657082003 beta_0: 35.70020234291799
+best epoch: 250 bset_belief: 0.19619696 bset_uncertain: 0.08932532 bset_opinion: 0.23364137
+run time =  46.7790100574
+belief: 0.1962 uncertain: 0.1962 opinion: 0.23364137
+378.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 9.758604898828539 beta_0: 35.241395101171456
+best epoch: 250 bset_belief: 0.21298042 bset_uncertain: 0.062269617 bset_opinion: 0.23870239
+run time =  45.9065961838
+belief: 0.213 uncertain: 0.213 opinion: 0.23870239
+379.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 3.5889243876464323 beta_0: 41.41107561235357
+best epoch: 250 bset_belief: 0.13013712 bset_uncertain: 0.0927613 bset_opinion: 0.16711003
+run time =  45.965143919
+belief: 0.1301 uncertain: 0.1301 opinion: 0.16711003
+380.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 3.5889243876464323 beta_0: 41.41107561235357
+best epoch: 250 bset_belief: 0.102656126 bset_uncertain: 0.087543815 bset_opinion: 0.13549641
+run time =  46.1136322021
+belief: 0.1027 uncertain: 0.1027 opinion: 0.13549641
+381.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 3.813807241746539 beta_0: 41.18619275825346
+best epoch: 250 bset_belief: 0.09114978 bset_uncertain: 0.04950247 bset_opinion: 0.10845598
+run time =  47.079857111
+belief: 0.0911 uncertain: 0.0911 opinion: 0.10845598
+382.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 4.263572949946751 beta_0: 40.73642705005325
+best epoch: 250 bset_belief: 0.09299327 bset_uncertain: 0.047819167 bset_opinion: 0.10912019
+run time =  47.1668639183
+belief: 0.093 uncertain: 0.093 opinion: 0.10912019
+383.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 4.713338658146965 beta_0: 40.28666134185304
+best epoch: 250 bset_belief: 0.12042253 bset_uncertain: 0.0852089 bset_opinion: 0.15426567
+run time =  50.491050005
+belief: 0.1204 uncertain: 0.1204 opinion: 0.15426567
+384.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 5.163104366347177 beta_0: 39.83689563365282
+best epoch: 250 bset_belief: 0.1271485 bset_uncertain: 0.08828692 bset_opinion: 0.16278566
+run time =  52.9478709698
+belief: 0.1271 uncertain: 0.1271 opinion: 0.16278566
+385.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 5.61287007454739 beta_0: 39.387129925452605
+best epoch: 250 bset_belief: 0.12713292 bset_uncertain: 0.096747495 bset_opinion: 0.16625011
+run time =  50.9904780388
+belief: 0.1271 uncertain: 0.1271 opinion: 0.16625011
+386.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 7.925335463258785 beta_0: 37.07466453674122
+best epoch: 250 bset_belief: 0.1818011 bset_uncertain: 0.06972413 bset_opinion: 0.21077289
+run time =  51.3786821365
+belief: 0.1818 uncertain: 0.1818 opinion: 0.21077289
+387.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 9.617401490947818 beta_0: 35.38259850905218
+best epoch: 250 bset_belief: 0.24561797 bset_uncertain: 0.059875537 bset_opinion: 0.27120137
+run time =  51.5401060581
+belief: 0.2456 uncertain: 0.2456 opinion: 0.27120137
+388.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 10.99387646432375 beta_0: 34.006123535676245
+best epoch: 250 bset_belief: 0.29592645 bset_uncertain: 0.08978523 bset_opinion: 0.33649343
+run time =  51.7134640217
+belief: 0.2959 uncertain: 0.2959 opinion: 0.33649343
+389.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 3.5889243876464323 beta_0: 41.41107561235357
+best epoch: 250 bset_belief: 0.120733425 bset_uncertain: 0.07764528 bset_opinion: 0.15003277
+run time =  50.9738001823
+belief: 0.1207 uncertain: 0.1207 opinion: 0.15003277
+390.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 3.5889243876464323 beta_0: 41.41107561235357
+best epoch: 250 bset_belief: 0.15090835 bset_uncertain: 0.1359935 bset_opinion: 0.20603971
+run time =  53.7578339577
+belief: 0.1509 uncertain: 0.1509 opinion: 0.20603971
+391.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 3.7792917997870075 beta_0: 41.22070820021299
+best epoch: 250 bset_belief: 0.10605837 bset_uncertain: 0.040327962 bset_opinion: 0.118944004
+run time =  52.9216320515
+belief: 0.1061 uncertain: 0.1061 opinion: 0.118944004
+392.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 4.160026624068157 beta_0: 40.83997337593184
+best epoch: 250 bset_belief: 0.10777097 bset_uncertain: 0.07389321 bset_opinion: 0.13369076
+run time =  51.8231549263
+belief: 0.1078 uncertain: 0.1078 opinion: 0.13369076
+393.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 4.540761448349308 beta_0: 40.4592385516507
+best epoch: 250 bset_belief: 0.10716736 bset_uncertain: 0.053845637 bset_opinion: 0.12497522
+run time =  54.5925841331
+belief: 0.1072 uncertain: 0.1072 opinion: 0.12497522
+394.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 4.921496272630458 beta_0: 40.07850372736954
+best epoch: 250 bset_belief: 0.1099353 bset_uncertain: 0.050326135 bset_opinion: 0.12755483
+run time =  53.9151771069
+belief: 0.1099 uncertain: 0.1099 opinion: 0.12755483
+395.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 5.302231096911608 beta_0: 39.697768903088395
+best epoch: 250 bset_belief: 0.11804937 bset_uncertain: 0.07095285 bset_opinion: 0.1441765
+run time =  50.7376160622
+belief: 0.118 uncertain: 0.118 opinion: 0.1441765
+396.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 7.234504792332268 beta_0: 37.76549520766773
+best epoch: 250 bset_belief: 0.18211153 bset_uncertain: 0.051953323 bset_opinion: 0.20274635
+run time =  53.7228000164
+belief: 0.1821 uncertain: 0.1821 opinion: 0.20274635
+397.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 8.115133120340788 beta_0: 36.884866879659214
+best epoch: 250 bset_belief: 0.2182142 bset_uncertain: 0.07153996 bset_opinion: 0.24774866
+run time =  54.77800107
+belief: 0.2182 uncertain: 0.2182 opinion: 0.24774866
+398.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 8.717476038338658 beta_0: 36.28252396166134
+best epoch: 250 bset_belief: 0.244525 bset_uncertain: 0.059180588 bset_opinion: 0.26914534
+run time =  54.234762907
+belief: 0.2445 uncertain: 0.2445 opinion: 0.26914534
+399.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 3.5889243876464323 beta_0: 41.41107561235357
+best epoch: 250 bset_belief: 0.105393596 bset_uncertain: 0.06719044 bset_opinion: 0.12981112
+run time =  55.5192468166
+belief: 0.1054 uncertain: 0.1054 opinion: 0.12981112
+400.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 5.252824858757062 beta_0: 39.74717514124294
+best epoch: 250 bset_belief: 0.14303096 bset_uncertain: 0.08097403 bset_opinion: 0.1652392
+run time =  53.6074528694
+belief: 0.143 uncertain: 0.143 opinion: 0.1652392
+401.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 5.564929378531073 beta_0: 39.435070621468924
+best epoch: 250 bset_belief: 0.11619582 bset_uncertain: 0.049120057 bset_opinion: 0.12143867
+run time =  53.9126739502
+belief: 0.1162 uncertain: 0.1162 opinion: 0.12143867
+402.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 6.1817937853107345 beta_0: 38.81820621468927
+best epoch: 250 bset_belief: 0.122271 bset_uncertain: 0.027581174 bset_opinion: 0.12625875
+run time =  54.7079939842
+belief: 0.1223 uncertain: 0.1223 opinion: 0.12625875
+403.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 6.791313559322034 beta_0: 38.208686440677965
+best epoch: 250 bset_belief: 0.13234325 bset_uncertain: 0.08675726 bset_opinion: 0.15563099
+run time =  53.2698309422
+belief: 0.1323 uncertain: 0.1323 opinion: 0.15563099
+404.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 7.400833333333333 beta_0: 37.59916666666667
+best epoch: 250 bset_belief: 0.11665187 bset_uncertain: 0.056938194 bset_opinion: 0.12637067
+run time =  55.2181952
+belief: 0.1167 uncertain: 0.1167 opinion: 0.12637067
+405.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 7.932796610169492 beta_0: 37.06720338983051
+best epoch: 250 bset_belief: 0.12699446 bset_uncertain: 0.04329684 bset_opinion: 0.1357582
+run time =  54.7939889431
+belief: 0.127 uncertain: 0.127 opinion: 0.1357582
+406.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 8.631723163841809 beta_0: 36.368276836158195
+best epoch: 250 bset_belief: 0.12411485 bset_uncertain: 0.04905538 bset_opinion: 0.13616015
+run time =  57.1073489189
+belief: 0.1241 uncertain: 0.1241 opinion: 0.13616015
+407.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 8.631723163841809 beta_0: 36.368276836158195
+best epoch: 250 bset_belief: 0.12603638 bset_uncertain: 0.055744786 bset_opinion: 0.13800372
+run time =  57.4352889061
+belief: 0.126 uncertain: 0.126 opinion: 0.13800372
+408.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 8.631723163841809 beta_0: 36.368276836158195
+best epoch: 250 bset_belief: 0.1276656 bset_uncertain: 0.04971813 bset_opinion: 0.13892931
+run time =  53.4076600075
+belief: 0.1277 uncertain: 0.1277 opinion: 0.13892931
+409.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 5.252824858757062 beta_0: 39.74717514124294
+best epoch: 250 bset_belief: 0.121090785 bset_uncertain: 0.03278966 bset_opinion: 0.12631236
+run time =  53.1169941425
+belief: 0.1211 uncertain: 0.1211 opinion: 0.12631236
+410.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 5.252824858757062 beta_0: 39.74717514124294
+best epoch: 250 bset_belief: 0.12096429 bset_uncertain: 0.06713713 bset_opinion: 0.14071622
+run time =  55.1842401028
+belief: 0.121 uncertain: 0.121 opinion: 0.14071622
+411.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+vae_epoch: 1000 test ratio: 0.6 ref_speed: 0.6
+([], [], [])
+Optimization Finished!
+alpha_0: 5.524887005649718 beta_0: 39.47511299435028
+best epoch: 250 bset_belief: 0.09207477 bset_uncertain: 0.03907353 bset_opinion: 0.09870616
+run time =  5

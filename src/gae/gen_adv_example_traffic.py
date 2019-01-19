@@ -234,8 +234,7 @@ for adv_type in ["random_flip","random_noise","random_pgd","random_pgd_gcn_vae"]
                             print(len(sign_grad))
 
 
-                            for gamma in [0.0, 0.01, 0.03, 0.05, 0.07, 0.09, 0.11, 0.13, 0.15, 0.20, 0.25][:]:  # 8
-
+                            for gamma in [0.0, 0.01, 0.03, 0.05, 0.07, 0.09, 0.2, 0.3, 0.4, 0.5][:]:  # 8
                                 fout = out_folder + '/network_{}_weekday_{}_hour_{}_refspeed_{}-testratio-{}-gamma-{}-realization-{}.pkl'.format(
                                 dataset, weekday, hour, ref_per, test_ratio, gamma, real_i)
                                 print(fout)
@@ -244,10 +243,9 @@ for adv_type in ["random_flip","random_noise","random_pgd","random_pgd_gcn_vae"]
                                     for e in sign_grad.keys():
                                         for t in range(0, T):
                                             for i in range(len(sign_grad[e])):
-                                                Obs_g[e][t] = clip01(Obs_g[e][t] + 0.01 * sign_grad[e][i])  # clip between [0,1]
+                                                Obs_g[e][t] = clip01(Obs_g[e][t] + 0.02 * sign_grad[e][i])  # clip between [0,1]
                                             if np.abs(Obs_g[e][t] - Obs[e][t]) > gamma:
                                                 Obs_g[e][t] = clip01(Obs[e][t] + np.sign(Obs_g[e][t] - Obs[e][t]) * gamma)  # clip |py_adv-py_orig|<gamma
-
                                     pkl_file = open(fout, 'wb')
                                     pickle.dump([V,E, Obs_g, E_X, X_b], pkl_file)
                                     pkl_file.close()

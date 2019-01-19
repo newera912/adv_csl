@@ -64,18 +64,18 @@ def generate_data(Obs, E, E_X, gamma):
             # nonconj_targets.write(str(source)+'_'+str(target)+'\n')
 
             conj = current_Obs[e][0]
-            if conj == 1:
+            if conj >= 0.5:
                 conj_truth.write(str(source) + '_' + str(target) + '\t' + '1' + '\n')
                 # nonconj_truth.write(str(source)+'_'+str(target)+'\t'+'0'+'\n')
-            elif conj == 0:
+            elif conj <= 0.5:
                 conj_truth.write(str(source) + '_' + str(target) + '\t' + '0' + '\n')
                 # nonconj_truth.write(str(source)+'_'+str(target)+'\t'+'1'+'\n')
         else:
             conj = current_Obs[e][0]
             source, target = e
-            if conj >= 1 - gamma:
+            if conj >= 0.5:
                 conj_obs.write(str(source) + '_' + str(target) + '\n')
-            elif conj <= gamma:
+            elif conj <= 0.5:
                 nonconj_obs.write(str(source) + '_' + str(target) + '\n')
                 ## shall we need to consider the ground rule of nonconjested
             else:
@@ -179,8 +179,8 @@ def pipeline():
     ref_pers = [0.6, 0.7, 0.8]
     datasets = ['philly', 'dc']
     count = 0
-    for adv_type in ["random_flip", "random_noise", "random_pgd", "random_pgd_csl", "random_pgd_gcn_vae"][4:]:
-        for dataset in datasets[:]:
+    for adv_type in ["random_noise", "random_pgd", "random_pgd_csl", "random_pgd_gcn_vae"][:]:
+        for dataset in datasets[1:]:
             resultFolder = result_folder + adv_type + "/"
             if not os.path.exists(resultFolder):
                 os.makedirs(resultFolder)
@@ -191,7 +191,7 @@ def pipeline():
                 for weekday in range(5)[:1]:
                     for hour in range(8, 22)[:1]:
                         for test_ratio in [0.1, 0.2, 0.3, 0.4, 0.5][:]:
-                            for gamma in [0.0, 0.01, 0.03, 0.05, 0.07, 0.09, 0.11, 0.13, 0.15, 0.20, 0.25][:]:  # 11
+                            for gamma in [0.0, 0.01, 0.03, 0.05, 0.07, 0.09, 0.2, 0.3, 0.4, 0.5][:]:   # 11
                                 for real_i in range(realizations)[:1]:
                                     f = dataroot + '/network_{}_weekday_{}_hour_{}_refspeed_{}-testratio-{}-gamma-{}-realization-{}.pkl'.format(
                                         dataset, weekday, hour, ref_ratio, test_ratio, gamma, real_i)
