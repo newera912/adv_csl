@@ -349,7 +349,7 @@ def estimate_omega_x(ps, X):
     strategy = 1  # 1: means we consider p values as binary observations and use them to estimate alpha and beta.
     if strategy == 1:
         for e in X:
-            data = [prob_2_binary2(p_t[e]) for p_t in ps]
+            data = [prob_2_binary(p_t[e]) for p_t in ps]
             # data = [(p_t[e]) for p_t in ps]
             alpha1 = np.sum(data) + 1.0
             beta1 = len(data) - np.sum(data)  + 1.0

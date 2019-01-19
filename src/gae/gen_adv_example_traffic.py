@@ -72,7 +72,7 @@ T=43
 for adv_type in ["random_flip","random_noise","random_pgd","random_pgd_gcn_vae"][3:]:
     for real_i in range(realizations)[:]:
         for ref_per in ref_pers[:1]:
-            for dataset in datasets[1:]:
+            for dataset in datasets[:]:
                 out_folder = data_root + dataset + "/"
                 if not os.path.exists(out_folder):
                     os.makedirs(out_folder)
@@ -258,5 +258,5 @@ for adv_type in ["random_flip","random_noise","random_pgd","random_pgd_gcn_vae"]
 
 
                             # print("belief:", np.mean(b_mse), "uncertain:", np.mean(u_mse), "time window = ", FLAGS.T, "test_rio = ", FLAGS.test_rat)
-                            # sess.close()
+                            sess.close()
 

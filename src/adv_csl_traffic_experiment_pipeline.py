@@ -717,7 +717,7 @@ def real_traffic_data_testcase():
     T = 43
 
 
-    methods = ["SL","CSL","Adv-CSL"][1:2]
+    methods = ["SL","CSL","Adv-CSL"][:1]
     for real_i in range(realizations)[:]:
         for adv_type in ["random_noise", "random_pgd","random_pgd_csl","random_pgd_gcn_vae"][3:]:
             for ref_ratio in ref_ratios[:1]:  ##########################

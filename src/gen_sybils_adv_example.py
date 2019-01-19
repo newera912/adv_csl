@@ -933,11 +933,11 @@ def calc_initial_node_p2(y_t, node_nns, X, Y, cnt_V, p0, b_init):
 
         obs = [y_t[v_n] for v_n in node_nns[v] if Y.has_key(v_n)]
         for val in obs:
-            if val > 0:
+            if val > 0.5:
                 n_pos += 1.0
             else:
                 n_neg += 1.0
-        if (n_pos - n_neg > 0 and p[v] == 0) or (n_pos - n_neg < 0 and p[v] > 0):
+        if (n_pos - n_neg > 0 and p[v] <= 0.5) or (n_pos - n_neg < 0 and p[v] >= 0.5):
             b_init[v] = 1.0
         else:
             b_init[v] = 0.0
@@ -954,11 +954,11 @@ def calc_initial_node_p2(y_t, node_nns, X, Y, cnt_V, p0, b_init):
                 n_pos+=val
                 if b_init[v_o]==1:
                     val=1.0-val
-                if val > 0:
+                if val > 0.5:
                     conf += 1.0
                 else:
                     conf -= 1.0
-            if conf > 0:
+            if conf > 0.5:
                 p[v] = 1.0
             else:
                 p[v] = 0.0

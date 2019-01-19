@@ -64,7 +64,7 @@ for adv_type in ["random_flip", "random_noise", "random_pgd"][1:2]:
                         for real_i in range(realizations)[:1]:
                             fileName = dataroot + adv_type + "/slashdot/slashdot-attackedges-{}-T-{}-testratio-{}-swap_ratio-{}-gamma-{}-realization-{}-data-X.pkl".format(
                                 attack_edge, T, test_ratio, swap_ratio, gamma, real_i)
-                            outf = '../../output/sybils/{}_results-server-Jan7-{}.json'.format("GCN-VAE", adv_type)
+                            outf = '../../output/sybils/{}_results-server-Jan17-{}.json'.format("GCN-VAE", adv_type)
                             print(fileName)
                             # adj, features = load_data_epinion(fileName)
                             adj,y_train_belief, y_test_belief, y_train_un, y_test_un, train_mask, test_mask, omega_test, alpha_0, beta_0 = mask_test_node_sybils(fileName,T)
@@ -183,10 +183,6 @@ for adv_type in ["random_flip", "random_noise", "random_pgd"][1:2]:
                                                          opt.cost_decode_sparse], feed_dict=feed_dict)
                                     # Compute average loss
                                     avg_cost = outs[1]
-
-
-                                    # print("Epoch:", '%04d' % (epoch + 1), "train_loss=", "{:.5f}".format(avg_cost), "time=",
-                                    #       "{:.5f}".format(time.time() - t))
                                     if np.mod(epoch + 1, 10) == 0:
                                         feed_dict = construct_feed_dict(adj_norm, adj_label, features, placeholders, y_test_belief, y_test_un,
                                                                         test_mask, omega_test, alpha_0, beta_0)
