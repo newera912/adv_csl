@@ -14833,3 +14833,38 @@ It is running now
 [INFO] Final Memory: 23M/1495M
 [INFO] ------------------------------------------------------------------------
 Classpath found cached, skipping classpath build.
+0    [main] INFO  org.linqs.psl.config.ConfigManager  - Configuration file loaded: file:/network/rit/home/aa465948/git/adv_csl/psl/psl-sybils1/easy/groovy/target/classes/psl.properties
+135  [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option Sybils1.experiment.name. Returning default of default.
+150  [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option Sybils1.experiment.dbpath. Returning default of /tmp.
+150  [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option Sybils1.experiment.data.path. Returning default of ../data.
+189  [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option Sybils1.experiment.output.outputdir. Returning default of output/default.
+208  [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option Sybils1.model.weights.adjacent. Returning default of 1.
+210  [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option Sybils1.model.weights.benign. Returning default of 1.
+210  [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option Sybils1.model.weights.sybils. Returning default of 1.
+1419 [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option Sybils1.rdbmsdatastore.valuecolumn. Returning default of truth.
+1420 [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option Sybils1.rdbmsdatastore.confidencecolumn. Returning default of confidence.
+1420 [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option Sybils1.rdbmsdatastore.partitioncolumn. Returning default of partition.
+1494 [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option Sybils1.rdbmsdatastore.usestringids. Returning default of true.
+1503 [main] DEBUG org.linqs.psl.database.rdbms.RDBMSDataStore  - Registered 0 pre-existing predicates from RDBMS.
+1812 [main] INFO  org.linqs.psl.example.sybils1.Sybils1  - Running experiment default
+1847 [main] WARN  org.linqs.psl.database.rdbms.RDBMSDataStoreMetadata  - Determining max partition, no partitions found null
+1986 [main] INFO  org.linqs.psl.example.sybils1.Sybils1  - Defining model rules
+2171 [main] DEBUG org.linqs.psl.example.sybils1.Sybils1  - model: Model:
+1.0: ( ADJACENT(E1, E2) & BENIGN(E1) ) >> BENIGN(E2) ^2
+1.0: ( ADJACENT(E1, E2) & ~( BENIGN(E1) ) ) >> ~( BENIGN(E2) ) ^2
+1.0: ( ADJACENT(E1, E2) & SYBILS(E1) ) >> SYBILS(E2) ^2
+1.0: ( ADJACENT(E1, E2) & ~( SYBILS(E1) ) ) >> ~( SYBILS(E2) ) ^2
+1.0: BENIGN(E1) >> ~( SYBILS(E1) ) ^2
+2171 [main] INFO  org.linqs.psl.example.sybils1.Sybils1  - Loading data into database
+73472 [main] INFO  org.linqs.psl.example.sybils1.Sybils1  - Starting inference
+73556 [main] INFO  org.linqs.psl.config.ConfigManager  - Found value 50 for option Sybils1.lazympeinference.maxrounds.
+73558 [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option Sybils1.lazympeinference.reasoner. Returning default of org.linqs.psl.reasoner.admm.ADMMReasonerFactory@52e7a6b2.
+73571 [main] INFO  org.linqs.psl.config.ConfigManager  - Found value 100 for option Sybils1.admmreasoner.maxiterations.
+73572 [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option Sybils1.admmreasoner.stepsize. Returning default of 1.0.
+73572 [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option Sybils1.admmreasoner.epsilonabs. Returning default of 1.0E-5.
+73572 [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option Sybils1.admmreasoner.epsilonrel. Returning default of 0.001.
+73572 [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option Sybils1.admmreasoner.stopcheck. Returning default of 1.
+73577 [main] INFO  org.linqs.psl.config.ConfigManager  - Found value 25 for option Sybils1.admmreasoner.numthreads.
+73579 [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option Sybils1.atomeventframework.activation. Returning default of 0.01.
+461085 [main] DEBUG org.linqs.psl.model.rule.logical.AbstractLogicalRule  - Grounded 27550 instances of rule 1.0: ( ADJACENT(E1, E2) & BENIGN(E1) ) >> BENIGN(E2) ^2
+539919 [main] DEBUG org.linqs.psl.model.rule.logical.AbstractLogicalRule  - Grounded 19127 instances of rule 1.0: ( ADJACENT(E1, E2) & ~( BENIGN(E1) ) ) >> ~( BENIGN(E2) ) ^2
