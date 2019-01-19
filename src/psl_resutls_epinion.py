@@ -189,7 +189,7 @@ class Task_inference2(object):
                    'alpha_mse': (alpha_mse, alpha_mse), 'beta_mse': (beta_mse, beta_mse),
                    'u_mse': (u_mse, u_mse), 'b_mse': (b_mse, b_mse), 'd_mse': (d_mse, d_mse),
                    'prob_mse': (prob_mse, prob_mse), 'runtime': (running_time, std_running_time)}
-        output_file = open('../output/epinions/PSL_results-server-'+str(self.graph_size)+'-Jan5-'+self.adv_type+'.json', 'a')
+        output_file = open('../output/epinions/PSL_results-server-'+str(self.graph_size)+'-Jan17-'+self.adv_type+'.json', 'a')
         output_file.write(json.dumps(result_) + '\n')
         output_file.close()
         return
@@ -610,7 +610,7 @@ def sliding_window_extract(Obs, start_t, window_size = 1):
 def epinion_resutls():
     data_root = "/network/rit/lab/ceashpc/adil/"
     count=0
-    for adv_type in ["random_flip", "random_noise", "random_pgd","random_pgd_csl","random_pgd_gcn_vae"][4:]:
+    for adv_type in ["random_noise", "random_pgd","random_pgd_csl","random_pgd_gcn_vae"][:]:
         for graph_size in [5000,1000,10000,47676][:1]:
             result_folder = data_root + "/result_adv_csl/" + str(graph_size) + "/" + adv_type + "/"
             running_time_dict = read_running_time(result_folder+'running_time.json')
@@ -628,7 +628,7 @@ def epinion_resutls():
                 for ratio in [0.2][:1]:
                     for swap_ratio in [0.0]:
                         for percent in [0.1,0.2,0.3,0.4,0.5][:]:
-                            for gamma in [0.0, 0.01, 0.03, 0.05, 0.07, 0.09, 0.11, 0.13, 0.15, 0.20, 0.25][:]:  # 11
+                            for gamma in [0.0, 0.01, 0.03, 0.05, 0.07,0.09,0.2,0.3,0.4,0.5][:]:  # 11
                                 for real_i in range(1):
                                     tasks.put(Task_inference2(graph_size, T, ratio, percent, swap_ratio, gamma, real_i,running_time_dict,result_folder,adv_type))
                                     num_job+=1.0

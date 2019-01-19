@@ -223,7 +223,7 @@ class Task_inference2(object):
                                                'sample_size': 1, 'T': T, 'gamma': self.gamma,
                                                'test_ratio': self.test_ratio, 'acc': (accuracy, accuracy),
                                                'prob_mse': (prob_mse, prob_mse),'alpha_mse': (alpha_mse, alpha_mse), 'beta_mse': (beta_mse, beta_mse), 'u_mse': (u_mse, u_mse), 'b_mse': (b_mse, b_mse), 'd_mse': (d_mse, d_mse),'realization':self.real_i, 'runtime': running_time}
-        output_file = open('../output/traffic/PSL_results-server-traffic-Jan6-{}.json'.format(self.adv_type), 'a')
+        output_file = open('../output/traffic/PSL_results-server-traffic-Jan17-{}.json'.format(self.adv_type), 'a')
         output_file.write(json.dumps(result_) + '\n')
         output_file.close()
         return
@@ -613,7 +613,7 @@ def traffic_resutls():
     num_job=0.0
 
 
-    for adv_type in ["random_flip", "random_noise", "random_pgd","random_pgd_csl","random_pgd_gcn_vae"][3:]:
+    for adv_type in ["random_noise", "random_pgd","random_pgd_csl","random_pgd_gcn_vae"][:]:
         running_time_dict = read_running_time(result_folder + adv_type + '/running_time.json')
         print(len(running_time_dict))
         for dataset in datasets[:]:
@@ -621,7 +621,7 @@ def traffic_resutls():
                 for weekday in range(5)[:1]:
                     for hour in range(8, 22)[:1]:
                         for test_ratio in [0.1, 0.2, 0.3, 0.4, 0.5][:]:
-                            for gamma in [0.0, 0.01, 0.03, 0.05, 0.07, 0.09, 0.11, 0.13, 0.15, 0.20, 0.25][:]:  # 11
+                            for gamma in [0.0, 0.01, 0.03, 0.05, 0.07,0.09,0.2,0.3,0.4,0.5][:]:  # 11
                                 for real_i in range(realizations)[:1]:
                                     tasks.put(Task_inference2(dataset, weekday, hour, ref_ratio, test_ratio, gamma, real_i,running_time_dict,result_folder,adv_type))
                                     num_job+=1.0
