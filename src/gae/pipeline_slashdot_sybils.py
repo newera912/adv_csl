@@ -167,10 +167,6 @@ for adv_type in ["random_noise", "random_pgd","random_pgd_csl","random_pgd_gcn_v
                                                          opt.cost_decode_sparse], feed_dict=feed_dict)
                                     # Compute average loss
                                     avg_cost = outs[1]
-
-
-                                    # print("Epoch:", '%04d' % (epoch + 1), "train_loss=", "{:.5f}".format(avg_cost), "time=",
-                                    #       "{:.5f}".format(time.time() - t))
                                     if np.mod(epoch + 1, 10) == 0:
                                         feed_dict = construct_feed_dict(adj_norm, adj_label, features, placeholders, y_test_belief, y_test_un,
                                                                         test_mask, omega_test, alpha_0, beta_0)
