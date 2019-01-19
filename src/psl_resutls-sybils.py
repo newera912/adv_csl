@@ -756,14 +756,14 @@ def Sybils_resutls():
 
     realizations = 1
     num_job=0.0
-    for dataset in ["facebook","enron","slashdot"][:1]:
+    for dataset in ["facebook","enron","slashdot"][1:2]:
         for adv_type in ["random_noise", "random_pgd","random_pgd_csl","random_pgd_gcn_vae"][:]:
             result_folder = data_root + "/result_adv_csl/"+dataset+"/" + adv_type + "/"
             running_time_dict = read_running_time(result_folder + 'running_time.json')
             for attack_edge in [1000, 5000, 10000, 15000, 20000][2:3]:
                 for T in [10][:]:
                     for swap_ratio in [0.00, 0.01,0.02, 0.05][1:2]:
-                        for test_ratio in [0.1, 0.2, 0.3, 0.4, 0.5][:]:
+                        for test_ratio in [0.1, 0.2, 0.3, 0.4, 0.5][2:3]:
                             for gamma in [0.0, 0.01, 0.03, 0.05, 0.07,0.09,0.2,0.3,0.4,0.5][:]:  # 11
                                 for real_i in range(realizations)[:1]:
                                     tasks.put(Task_inference5(attack_edge, test_ratio,T,swap_ratio, gamma, real_i,running_time_dict,result_folder,adv_type,dataset))
