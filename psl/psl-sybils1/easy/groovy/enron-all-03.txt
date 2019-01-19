@@ -14382,3 +14382,454 @@ Classpath found cached, skipping classpath build.
 71369 [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option Sybils1.atomeventframework.activation. Returning default of 0.01.
 412936 [main] DEBUG org.linqs.psl.model.rule.logical.AbstractLogicalRule  - Grounded 29348 instances of rule 1.0: ( ADJACENT(E1, E2) & BENIGN(E1) ) >> BENIGN(E2) ^2
 501296 [main] DEBUG org.linqs.psl.model.rule.logical.AbstractLogicalRule  - Grounded 22657 instances of rule 1.0: ( ADJACENT(E1, E2) & ~( BENIGN(E1) ) ) >> ~( BENIGN(E2) ) ^2
+934392 [main] DEBUG org.linqs.psl.model.rule.logical.AbstractLogicalRule  - Grounded 42537 instances of rule 1.0: ( ADJACENT(E1, E2) & SYBILS(E1) ) >> SYBILS(E2) ^2
+944407 [main] DEBUG org.linqs.psl.model.rule.logical.AbstractLogicalRule  - Grounded 48360 instances of rule 1.0: ( ADJACENT(E1, E2) & ~( SYBILS(E1) ) ) >> ~( SYBILS(E2) ) ^2
+944693 [main] DEBUG org.linqs.psl.model.rule.logical.AbstractLogicalRule  - Grounded 0 instances of rule 1.0: BENIGN(E1) >> ~( SYBILS(E1) ) ^2
+952100 [main] DEBUG org.linqs.psl.application.inference.LazyMPEInference  - Starting round 1 of inference.
+952101 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - (Re)building reasoner data structures
+952105 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - Initializing objective terms for 142902 ground kernels
+953096 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - Performing optimization with 38828 variables and 142902 terms.
+961226 [main] INFO  org.linqs.psl.reasoner.admm.ADMMReasoner  - Optimization completed in  100 iterations. Primal res.: 0.03503841692152299, Dual res.: 0.12637932085536546
+988789 [main] DEBUG org.linqs.psl.application.inference.LazyMPEInference  - Completed round 1 and activated 32088 atoms.
+988790 [main] DEBUG org.linqs.psl.application.inference.LazyMPEInference  - Starting round 2 of inference.
+988790 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - (Re)building reasoner data structures
+988799 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - Initializing objective terms for 680225 ground kernels
+992263 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - Performing optimization with 72192 variables and 680225 terms.
+1011165 [main] INFO  org.linqs.psl.reasoner.admm.ADMMReasoner  - Optimization completed in  56 iterations. Primal res.: 0.15007129181243573, Dual res.: 0.2540440654638532
+1028555 [main] DEBUG org.linqs.psl.application.inference.LazyMPEInference  - Completed round 2 and activated 33364 atoms.
+1028555 [main] DEBUG org.linqs.psl.application.inference.LazyMPEInference  - Starting round 3 of inference.
+1028555 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - (Re)building reasoner data structures
+1028564 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - Initializing objective terms for 875525 ground kernels
+1033621 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - Performing optimization with 74027 variables and 875525 terms.
+1047514 [main] INFO  org.linqs.psl.reasoner.admm.ADMMReasoner  - Optimization completed in  48 iterations. Primal res.: 0.1988515656570774, Dual res.: 0.3003485029720141
+1048348 [main] DEBUG org.linqs.psl.application.inference.LazyMPEInference  - Completed round 3 and activated 1835 atoms.
+1048348 [main] DEBUG org.linqs.psl.application.inference.LazyMPEInference  - Starting round 4 of inference.
+1048348 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - (Re)building reasoner data structures
+1048358 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - Initializing objective terms for 881835 ground kernels
+1052731 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - Performing optimization with 74132 variables and 881835 terms.
+1059757 [main] INFO  org.linqs.psl.reasoner.admm.ADMMReasoner  - Optimization completed in  21 iterations. Primal res.: 0.25367217328286407, Dual res.: 0.2914045251876268
+1059992 [main] DEBUG org.linqs.psl.application.inference.LazyMPEInference  - Completed round 4 and activated 105 atoms.
+1059992 [main] DEBUG org.linqs.psl.application.inference.LazyMPEInference  - Starting round 5 of inference.
+1059992 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - (Re)building reasoner data structures
+1060007 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - Initializing objective terms for 882196 ground kernels
+1065358 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - Performing optimization with 74132 variables and 882196 terms.
+1070888 [main] INFO  org.linqs.psl.reasoner.admm.ADMMReasoner  - Optimization completed in  18 iterations. Primal res.: 0.3999671676095983, Dual res.: 0.27623996666454953
+1071081 [main] DEBUG org.linqs.psl.application.inference.LazyMPEInference  - Completed round 5 and activated 0 atoms.
+1081635 [main] INFO  org.linqs.psl.example.sybils1.Sybils1  - Finished inference in 16 minutes, 50.330 seconds
+Output Generated.
+1084556 [main] INFO  org.linqs.psl.example.sybils1.Sybils1  - MSE: 0.10327721074153
+1084567 [main] INFO  org.linqs.psl.example.sybils1.Sybils1  - Accuracy 0.9438147668393783, Error 2082.0
+1084575 [main] INFO  org.linqs.psl.example.sybils1.Sybils1  - Positive Class: precision 0.6223062381852552, recall 0.9751184834123223
+1084576 [main] INFO  org.linqs.psl.example.sybils1.Sybils1  - Negative Class Stats: precision 0.997355663287792, recall 0.9406769596199525
+It is running now
+[INFO] Scanning for projects...
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building easylp 1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ easylp ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 2 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ easylp ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Using Groovy-Eclipse compiler to compile both Java and Groovy files
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 4.427 s
+[INFO] Finished at: 2019-01-19T11:01:24-05:00
+[INFO] Final Memory: 27M/1565M
+[INFO] ------------------------------------------------------------------------
+Classpath found cached, skipping classpath build.
+0    [main] INFO  org.linqs.psl.config.ConfigManager  - Configuration file loaded: file:/network/rit/home/aa465948/git/adv_csl/psl/psl-sybils1/easy/groovy/target/classes/psl.properties
+123  [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option Sybils1.experiment.name. Returning default of default.
+137  [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option Sybils1.experiment.dbpath. Returning default of /tmp.
+137  [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option Sybils1.experiment.data.path. Returning default of ../data.
+164  [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option Sybils1.experiment.output.outputdir. Returning default of output/default.
+185  [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option Sybils1.model.weights.adjacent. Returning default of 1.
+187  [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option Sybils1.model.weights.benign. Returning default of 1.
+187  [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option Sybils1.model.weights.sybils. Returning default of 1.
+1255 [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option Sybils1.rdbmsdatastore.valuecolumn. Returning default of truth.
+1255 [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option Sybils1.rdbmsdatastore.confidencecolumn. Returning default of confidence.
+1255 [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option Sybils1.rdbmsdatastore.partitioncolumn. Returning default of partition.
+1310 [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option Sybils1.rdbmsdatastore.usestringids. Returning default of true.
+1326 [main] DEBUG org.linqs.psl.database.rdbms.RDBMSDataStore  - Registered 0 pre-existing predicates from RDBMS.
+1555 [main] INFO  org.linqs.psl.example.sybils1.Sybils1  - Running experiment default
+1566 [main] WARN  org.linqs.psl.database.rdbms.RDBMSDataStoreMetadata  - Determining max partition, no partitions found null
+1682 [main] INFO  org.linqs.psl.example.sybils1.Sybils1  - Defining model rules
+1845 [main] DEBUG org.linqs.psl.example.sybils1.Sybils1  - model: Model:
+1.0: ( ADJACENT(E1, E2) & BENIGN(E1) ) >> BENIGN(E2) ^2
+1.0: ( ADJACENT(E1, E2) & ~( BENIGN(E1) ) ) >> ~( BENIGN(E2) ) ^2
+1.0: ( ADJACENT(E1, E2) & SYBILS(E1) ) >> SYBILS(E2) ^2
+1.0: ( ADJACENT(E1, E2) & ~( SYBILS(E1) ) ) >> ~( SYBILS(E2) ) ^2
+1.0: BENIGN(E1) >> ~( SYBILS(E1) ) ^2
+1845 [main] INFO  org.linqs.psl.example.sybils1.Sybils1  - Loading data into database
+72454 [main] INFO  org.linqs.psl.example.sybils1.Sybils1  - Starting inference
+72522 [main] INFO  org.linqs.psl.config.ConfigManager  - Found value 50 for option Sybils1.lazympeinference.maxrounds.
+72524 [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option Sybils1.lazympeinference.reasoner. Returning default of org.linqs.psl.reasoner.admm.ADMMReasonerFactory@52e7a6b2.
+72548 [main] INFO  org.linqs.psl.config.ConfigManager  - Found value 100 for option Sybils1.admmreasoner.maxiterations.
+72550 [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option Sybils1.admmreasoner.stepsize. Returning default of 1.0.
+72551 [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option Sybils1.admmreasoner.epsilonabs. Returning default of 1.0E-5.
+72552 [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option Sybils1.admmreasoner.epsilonrel. Returning default of 0.001.
+72552 [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option Sybils1.admmreasoner.stopcheck. Returning default of 1.
+72561 [main] INFO  org.linqs.psl.config.ConfigManager  - Found value 25 for option Sybils1.admmreasoner.numthreads.
+72562 [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option Sybils1.atomeventframework.activation. Returning default of 0.01.
+433583 [main] DEBUG org.linqs.psl.model.rule.logical.AbstractLogicalRule  - Grounded 32605 instances of rule 1.0: ( ADJACENT(E1, E2) & BENIGN(E1) ) >> BENIGN(E2) ^2
+516279 [main] DEBUG org.linqs.psl.model.rule.logical.AbstractLogicalRule  - Grounded 25172 instances of rule 1.0: ( ADJACENT(E1, E2) & ~( BENIGN(E1) ) ) >> ~( BENIGN(E2) ) ^2
+907106 [main] DEBUG org.linqs.psl.model.rule.logical.AbstractLogicalRule  - Grounded 44941 instances of rule 1.0: ( ADJACENT(E1, E2) & SYBILS(E1) ) >> SYBILS(E2) ^2
+915746 [main] DEBUG org.linqs.psl.model.rule.logical.AbstractLogicalRule  - Grounded 51632 instances of rule 1.0: ( ADJACENT(E1, E2) & ~( SYBILS(E1) ) ) >> ~( SYBILS(E2) ) ^2
+915944 [main] DEBUG org.linqs.psl.model.rule.logical.AbstractLogicalRule  - Grounded 0 instances of rule 1.0: BENIGN(E1) >> ~( SYBILS(E1) ) ^2
+923068 [main] DEBUG org.linqs.psl.application.inference.LazyMPEInference  - Starting round 1 of inference.
+923068 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - (Re)building reasoner data structures
+923072 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - Initializing objective terms for 154350 ground kernels
+924105 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - Performing optimization with 40766 variables and 154350 terms.
+935914 [main] INFO  org.linqs.psl.reasoner.admm.ADMMReasoner  - Optimization completed in  100 iterations. Primal res.: 0.021446233248439202, Dual res.: 0.07307287577446937
+968041 [main] DEBUG org.linqs.psl.application.inference.LazyMPEInference  - Completed round 1 and activated 34026 atoms.
+968042 [main] DEBUG org.linqs.psl.application.inference.LazyMPEInference  - Starting round 2 of inference.
+968042 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - (Re)building reasoner data structures
+968049 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - Initializing objective terms for 706151 ground kernels
+972486 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - Performing optimization with 72607 variables and 706151 terms.
+989075 [main] INFO  org.linqs.psl.reasoner.admm.ADMMReasoner  - Optimization completed in  49 iterations. Primal res.: 0.1807638483303007, Dual res.: 0.2748918970321319
+1008485 [main] DEBUG org.linqs.psl.application.inference.LazyMPEInference  - Completed round 2 and activated 31841 atoms.
+1008487 [main] DEBUG org.linqs.psl.application.inference.LazyMPEInference  - Starting round 3 of inference.
+1008487 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - (Re)building reasoner data structures
+1008504 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - Initializing objective terms for 876939 ground kernels
+1013699 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - Performing optimization with 74058 variables and 876939 terms.
+1026691 [main] INFO  org.linqs.psl.reasoner.admm.ADMMReasoner  - Optimization completed in  43 iterations. Primal res.: 0.2244847642798384, Dual res.: 0.30546720104222586
+1027715 [main] DEBUG org.linqs.psl.application.inference.LazyMPEInference  - Completed round 3 and activated 1451 atoms.
+1027715 [main] DEBUG org.linqs.psl.application.inference.LazyMPEInference  - Starting round 4 of inference.
+1027715 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - (Re)building reasoner data structures
+1027721 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - Initializing objective terms for 881957 ground kernels
+1033600 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - Performing optimization with 74132 variables and 881957 terms.
+1040282 [main] INFO  org.linqs.psl.reasoner.admm.ADMMReasoner  - Optimization completed in  21 iterations. Primal res.: 0.25717197476259396, Dual res.: 0.3056027997860937
+1040533 [main] DEBUG org.linqs.psl.application.inference.LazyMPEInference  - Completed round 4 and activated 74 atoms.
+1040533 [main] DEBUG org.linqs.psl.application.inference.LazyMPEInference  - Starting round 5 of inference.
+1040533 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - (Re)building reasoner data structures
+1040544 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - Initializing objective terms for 882196 ground kernels
+1045920 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - Performing optimization with 74132 variables and 882196 terms.
+1051967 [main] INFO  org.linqs.psl.reasoner.admm.ADMMReasoner  - Optimization completed in  19 iterations. Primal res.: 0.3341939385014409, Dual res.: 0.2960784341226807
+1052155 [main] DEBUG org.linqs.psl.application.inference.LazyMPEInference  - Completed round 5 and activated 0 atoms.
+1061884 [main] INFO  org.linqs.psl.example.sybils1.Sybils1  - Finished inference in 16 minutes, 29.410 seconds
+Output Generated.
+1064483 [main] INFO  org.linqs.psl.example.sybils1.Sybils1  - MSE: 0.12703637305628224
+1064493 [main] INFO  org.linqs.psl.example.sybils1.Sybils1  - Accuracy 0.9186627420269504, Error 3012.0
+1064502 [main] INFO  org.linqs.psl.example.sybils1.Sybils1  - Positive Class: precision 0.5293451899757478, recall 0.9700740740740741
+1064502 [main] INFO  org.linqs.psl.example.sybils1.Sybils1  - Negative Class Stats: precision 0.9967256694547105, recall 0.9135072498217257
+It is running now
+[INFO] Scanning for projects...
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building easylp 1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ easylp ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 2 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ easylp ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Using Groovy-Eclipse compiler to compile both Java and Groovy files
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 4.981 s
+[INFO] Finished at: 2019-01-19T11:19:35-05:00
+[INFO] Final Memory: 26M/1565M
+[INFO] ------------------------------------------------------------------------
+Classpath found cached, skipping classpath build.
+0    [main] INFO  org.linqs.psl.config.ConfigManager  - Configuration file loaded: file:/network/rit/home/aa465948/git/adv_csl/psl/psl-sybils1/easy/groovy/target/classes/psl.properties
+127  [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option Sybils1.experiment.name. Returning default of default.
+144  [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option Sybils1.experiment.dbpath. Returning default of /tmp.
+144  [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option Sybils1.experiment.data.path. Returning default of ../data.
+173  [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option Sybils1.experiment.output.outputdir. Returning default of output/default.
+196  [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option Sybils1.model.weights.adjacent. Returning default of 1.
+199  [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option Sybils1.model.weights.benign. Returning default of 1.
+199  [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option Sybils1.model.weights.sybils. Returning default of 1.
+1253 [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option Sybils1.rdbmsdatastore.valuecolumn. Returning default of truth.
+1254 [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option Sybils1.rdbmsdatastore.confidencecolumn. Returning default of confidence.
+1254 [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option Sybils1.rdbmsdatastore.partitioncolumn. Returning default of partition.
+1349 [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option Sybils1.rdbmsdatastore.usestringids. Returning default of true.
+1360 [main] DEBUG org.linqs.psl.database.rdbms.RDBMSDataStore  - Registered 0 pre-existing predicates from RDBMS.
+1653 [main] INFO  org.linqs.psl.example.sybils1.Sybils1  - Running experiment default
+1663 [main] WARN  org.linqs.psl.database.rdbms.RDBMSDataStoreMetadata  - Determining max partition, no partitions found null
+1795 [main] INFO  org.linqs.psl.example.sybils1.Sybils1  - Defining model rules
+1925 [main] DEBUG org.linqs.psl.example.sybils1.Sybils1  - model: Model:
+1.0: ( ADJACENT(E1, E2) & BENIGN(E1) ) >> BENIGN(E2) ^2
+1.0: ( ADJACENT(E1, E2) & ~( BENIGN(E1) ) ) >> ~( BENIGN(E2) ) ^2
+1.0: ( ADJACENT(E1, E2) & SYBILS(E1) ) >> SYBILS(E2) ^2
+1.0: ( ADJACENT(E1, E2) & ~( SYBILS(E1) ) ) >> ~( SYBILS(E2) ) ^2
+1.0: BENIGN(E1) >> ~( SYBILS(E1) ) ^2
+1925 [main] INFO  org.linqs.psl.example.sybils1.Sybils1  - Loading data into database
+71221 [main] INFO  org.linqs.psl.example.sybils1.Sybils1  - Starting inference
+71316 [main] INFO  org.linqs.psl.config.ConfigManager  - Found value 50 for option Sybils1.lazympeinference.maxrounds.
+71318 [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option Sybils1.lazympeinference.reasoner. Returning default of org.linqs.psl.reasoner.admm.ADMMReasonerFactory@52e7a6b2.
+71330 [main] INFO  org.linqs.psl.config.ConfigManager  - Found value 100 for option Sybils1.admmreasoner.maxiterations.
+71330 [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option Sybils1.admmreasoner.stepsize. Returning default of 1.0.
+71331 [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option Sybils1.admmreasoner.epsilonabs. Returning default of 1.0E-5.
+71331 [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option Sybils1.admmreasoner.epsilonrel. Returning default of 0.001.
+71331 [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option Sybils1.admmreasoner.stopcheck. Returning default of 1.
+71335 [main] INFO  org.linqs.psl.config.ConfigManager  - Found value 25 for option Sybils1.admmreasoner.numthreads.
+71336 [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option Sybils1.atomeventframework.activation. Returning default of 0.01.
+411431 [main] DEBUG org.linqs.psl.model.rule.logical.AbstractLogicalRule  - Grounded 27550 instances of rule 1.0: ( ADJACENT(E1, E2) & BENIGN(E1) ) >> BENIGN(E2) ^2
+491763 [main] DEBUG org.linqs.psl.model.rule.logical.AbstractLogicalRule  - Grounded 19127 instances of rule 1.0: ( ADJACENT(E1, E2) & ~( BENIGN(E1) ) ) >> ~( BENIGN(E2) ) ^2
+892489 [main] DEBUG org.linqs.psl.model.rule.logical.AbstractLogicalRule  - Grounded 38814 instances of rule 1.0: ( ADJACENT(E1, E2) & SYBILS(E1) ) >> SYBILS(E2) ^2
+901899 [main] DEBUG org.linqs.psl.model.rule.logical.AbstractLogicalRule  - Grounded 46564 instances of rule 1.0: ( ADJACENT(E1, E2) & ~( SYBILS(E1) ) ) >> ~( SYBILS(E2) ) ^2
+902098 [main] DEBUG org.linqs.psl.model.rule.logical.AbstractLogicalRule  - Grounded 0 instances of rule 1.0: BENIGN(E1) >> ~( SYBILS(E1) ) ^2
+908429 [main] DEBUG org.linqs.psl.application.inference.LazyMPEInference  - Starting round 1 of inference.
+908429 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - (Re)building reasoner data structures
+908433 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - Initializing objective terms for 132055 ground kernels
+909206 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - Performing optimization with 37447 variables and 132055 terms.
+916726 [main] INFO  org.linqs.psl.reasoner.admm.ADMMReasoner  - Optimization completed in  100 iterations. Primal res.: 0.05671827173606053, Dual res.: 0.27769760202611854
+944831 [main] DEBUG org.linqs.psl.application.inference.LazyMPEInference  - Completed round 1 and activated 30707 atoms.
+944832 [main] DEBUG org.linqs.psl.application.inference.LazyMPEInference  - Starting round 2 of inference.
+944832 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - (Re)building reasoner data structures
+944841 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - Initializing objective terms for 657059 ground kernels
+948140 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - Performing optimization with 71491 variables and 657059 terms.
+968674 [main] INFO  org.linqs.psl.reasoner.admm.ADMMReasoner  - Optimization completed in  69 iterations. Primal res.: 0.121854148565058, Dual res.: 0.23952178368230187
+985630 [main] DEBUG org.linqs.psl.application.inference.LazyMPEInference  - Completed round 2 and activated 34044 atoms.
+985630 [main] DEBUG org.linqs.psl.application.inference.LazyMPEInference  - Starting round 3 of inference.
+985630 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - (Re)building reasoner data structures
+985649 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - Initializing objective terms for 873508 ground kernels
+990617 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - Performing optimization with 74010 variables and 873508 terms.
+1007944 [main] INFO  org.linqs.psl.reasoner.admm.ADMMReasoner  - Optimization completed in  53 iterations. Primal res.: 0.16303553747585653, Dual res.: 0.2639721886619692
+1009332 [main] DEBUG org.linqs.psl.application.inference.LazyMPEInference  - Completed round 3 and activated 2519 atoms.
+1009332 [main] DEBUG org.linqs.psl.application.inference.LazyMPEInference  - Starting round 4 of inference.
+1009332 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - (Re)building reasoner data structures
+1009342 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - Initializing objective terms for 881786 ground kernels
+1015016 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - Performing optimization with 74130 variables and 881786 terms.
+1021203 [main] INFO  org.linqs.psl.reasoner.admm.ADMMReasoner  - Optimization completed in  22 iterations. Primal res.: 0.21210440943846953, Dual res.: 0.2504685450169784
+1021489 [main] DEBUG org.linqs.psl.application.inference.LazyMPEInference  - Completed round 4 and activated 120 atoms.
+1021489 [main] DEBUG org.linqs.psl.application.inference.LazyMPEInference  - Starting round 5 of inference.
+1021489 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - (Re)building reasoner data structures
+1021498 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - Initializing objective terms for 882192 ground kernels
+1027107 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - Performing optimization with 74132 variables and 882192 terms.
+1033040 [main] INFO  org.linqs.psl.reasoner.admm.ADMMReasoner  - Optimization completed in  18 iterations. Primal res.: 0.3736576630747595, Dual res.: 0.194900942095186
+1033216 [main] DEBUG org.linqs.psl.application.inference.LazyMPEInference  - Completed round 5 and activated 2 atoms.
+1033216 [main] DEBUG org.linqs.psl.application.inference.LazyMPEInference  - Starting round 6 of inference.
+1033216 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - (Re)building reasoner data structures
+1033223 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - Initializing objective terms for 882196 ground kernels
+1037709 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - Performing optimization with 74132 variables and 882196 terms.
+1043677 [main] INFO  org.linqs.psl.reasoner.admm.ADMMReasoner  - Optimization completed in  18 iterations. Primal res.: 0.3705502033422007, Dual res.: 0.17856442445481674
+1043816 [main] DEBUG org.linqs.psl.application.inference.LazyMPEInference  - Completed round 6 and activated 0 atoms.
+1052803 [main] INFO  org.linqs.psl.example.sybils1.Sybils1  - Finished inference in 16 minutes, 21.538 seconds
+Output Generated.
+1055720 [main] INFO  org.linqs.psl.example.sybils1.Sybils1  - MSE: 0.0688381550110104
+1055730 [main] INFO  org.linqs.psl.example.sybils1.Sybils1  - Accuracy 0.967469587030993, Error 1206.0
+1055736 [main] INFO  org.linqs.psl.example.sybils1.Sybils1  - Positive Class: precision 0.7440971441421182, recall 0.979863784424045
+1055736 [main] INFO  org.linqs.psl.example.sybils1.Sybils1  - Negative Class Stats: precision 0.9979157726966223, recall 0.9662274453941121
+It is running now
+[INFO] Scanning for projects...
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building easylp 1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ easylp ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 2 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ easylp ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Using Groovy-Eclipse compiler to compile both Java and Groovy files
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 5.069 s
+[INFO] Finished at: 2019-01-19T11:37:25-05:00
+[INFO] Final Memory: 26M/1565M
+[INFO] ------------------------------------------------------------------------
+Classpath found cached, skipping classpath build.
+0    [main] INFO  org.linqs.psl.config.ConfigManager  - Configuration file loaded: file:/network/rit/home/aa465948/git/adv_csl/psl/psl-sybils1/easy/groovy/target/classes/psl.properties
+106  [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option Sybils1.experiment.name. Returning default of default.
+121  [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option Sybils1.experiment.dbpath. Returning default of /tmp.
+122  [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option Sybils1.experiment.data.path. Returning default of ../data.
+154  [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option Sybils1.experiment.output.outputdir. Returning default of output/default.
+181  [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option Sybils1.model.weights.adjacent. Returning default of 1.
+184  [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option Sybils1.model.weights.benign. Returning default of 1.
+185  [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option Sybils1.model.weights.sybils. Returning default of 1.
+1403 [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option Sybils1.rdbmsdatastore.valuecolumn. Returning default of truth.
+1403 [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option Sybils1.rdbmsdatastore.confidencecolumn. Returning default of confidence.
+1403 [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option Sybils1.rdbmsdatastore.partitioncolumn. Returning default of partition.
+1483 [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option Sybils1.rdbmsdatastore.usestringids. Returning default of true.
+1498 [main] DEBUG org.linqs.psl.database.rdbms.RDBMSDataStore  - Registered 0 pre-existing predicates from RDBMS.
+1826 [main] INFO  org.linqs.psl.example.sybils1.Sybils1  - Running experiment default
+1840 [main] WARN  org.linqs.psl.database.rdbms.RDBMSDataStoreMetadata  - Determining max partition, no partitions found null
+1978 [main] INFO  org.linqs.psl.example.sybils1.Sybils1  - Defining model rules
+2136 [main] DEBUG org.linqs.psl.example.sybils1.Sybils1  - model: Model:
+1.0: ( ADJACENT(E1, E2) & BENIGN(E1) ) >> BENIGN(E2) ^2
+1.0: ( ADJACENT(E1, E2) & ~( BENIGN(E1) ) ) >> ~( BENIGN(E2) ) ^2
+1.0: ( ADJACENT(E1, E2) & SYBILS(E1) ) >> SYBILS(E2) ^2
+1.0: ( ADJACENT(E1, E2) & ~( SYBILS(E1) ) ) >> ~( SYBILS(E2) ) ^2
+1.0: BENIGN(E1) >> ~( SYBILS(E1) ) ^2
+2136 [main] INFO  org.linqs.psl.example.sybils1.Sybils1  - Loading data into database
+75093 [main] INFO  org.linqs.psl.example.sybils1.Sybils1  - Starting inference
+75156 [main] INFO  org.linqs.psl.config.ConfigManager  - Found value 50 for option Sybils1.lazympeinference.maxrounds.
+75157 [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option Sybils1.lazympeinference.reasoner. Returning default of org.linqs.psl.reasoner.admm.ADMMReasonerFactory@52e7a6b2.
+75168 [main] INFO  org.linqs.psl.config.ConfigManager  - Found value 100 for option Sybils1.admmreasoner.maxiterations.
+75168 [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option Sybils1.admmreasoner.stepsize. Returning default of 1.0.
+75169 [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option Sybils1.admmreasoner.epsilonabs. Returning default of 1.0E-5.
+75169 [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option Sybils1.admmreasoner.epsilonrel. Returning default of 0.001.
+75169 [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option Sybils1.admmreasoner.stopcheck. Returning default of 1.
+75172 [main] INFO  org.linqs.psl.config.ConfigManager  - Found value 25 for option Sybils1.admmreasoner.numthreads.
+75173 [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option Sybils1.atomeventframework.activation. Returning default of 0.01.
+428407 [main] DEBUG org.linqs.psl.model.rule.logical.AbstractLogicalRule  - Grounded 29348 instances of rule 1.0: ( ADJACENT(E1, E2) & BENIGN(E1) ) >> BENIGN(E2) ^2
+511022 [main] DEBUG org.linqs.psl.model.rule.logical.AbstractLogicalRule  - Grounded 22657 instances of rule 1.0: ( ADJACENT(E1, E2) & ~( BENIGN(E1) ) ) >> ~( BENIGN(E2) ) ^2
+956341 [main] DEBUG org.linqs.psl.model.rule.logical.AbstractLogicalRule  - Grounded 42537 instances of rule 1.0: ( ADJACENT(E1, E2) & SYBILS(E1) ) >> SYBILS(E2) ^2
+964822 [main] DEBUG org.linqs.psl.model.rule.logical.AbstractLogicalRule  - Grounded 48360 instances of rule 1.0: ( ADJACENT(E1, E2) & ~( SYBILS(E1) ) ) >> ~( SYBILS(E2) ) ^2
+965002 [main] DEBUG org.linqs.psl.model.rule.logical.AbstractLogicalRule  - Grounded 0 instances of rule 1.0: BENIGN(E1) >> ~( SYBILS(E1) ) ^2
+972356 [main] DEBUG org.linqs.psl.application.inference.LazyMPEInference  - Starting round 1 of inference.
+972356 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - (Re)building reasoner data structures
+972362 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - Initializing objective terms for 142902 ground kernels
+973308 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - Performing optimization with 38828 variables and 142902 terms.
+980993 [main] INFO  org.linqs.psl.reasoner.admm.ADMMReasoner  - Optimization completed in  100 iterations. Primal res.: 0.03503841692152299, Dual res.: 0.12637932085536546
+1013967 [main] DEBUG org.linqs.psl.application.inference.LazyMPEInference  - Completed round 1 and activated 32088 atoms.
+1013968 [main] DEBUG org.linqs.psl.application.inference.LazyMPEInference  - Starting round 2 of inference.
+1013968 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - (Re)building reasoner data structures
+1013978 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - Initializing objective terms for 680225 ground kernels
+1017743 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - Performing optimization with 72192 variables and 680225 terms.
+1035953 [main] INFO  org.linqs.psl.reasoner.admm.ADMMReasoner  - Optimization completed in  56 iterations. Primal res.: 0.15007129181243573, Dual res.: 0.2540440654638532
+1051830 [main] DEBUG org.linqs.psl.application.inference.LazyMPEInference  - Completed round 2 and activated 33364 atoms.
+1051830 [main] DEBUG org.linqs.psl.application.inference.LazyMPEInference  - Starting round 3 of inference.
+1051831 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - (Re)building reasoner data structures
+1051843 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - Initializing objective terms for 875525 ground kernels
+1057219 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - Performing optimization with 74027 variables and 875525 terms.
+1070914 [main] INFO  org.linqs.psl.reasoner.admm.ADMMReasoner  - Optimization completed in  48 iterations. Primal res.: 0.1988515656570774, Dual res.: 0.3003485029720141
+1072121 [main] DEBUG org.linqs.psl.application.inference.LazyMPEInference  - Completed round 3 and activated 1835 atoms.
+1072121 [main] DEBUG org.linqs.psl.application.inference.LazyMPEInference  - Starting round 4 of inference.
+1072122 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - (Re)building reasoner data structures
+1072135 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - Initializing objective terms for 881835 ground kernels
+1078028 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - Performing optimization with 74132 variables and 881835 terms.
+1084038 [main] INFO  org.linqs.psl.reasoner.admm.ADMMReasoner  - Optimization completed in  21 iterations. Primal res.: 0.25367217328286407, Dual res.: 0.2914045251876268
+1084264 [main] DEBUG org.linqs.psl.application.inference.LazyMPEInference  - Completed round 4 and activated 105 atoms.
+1084265 [main] DEBUG org.linqs.psl.application.inference.LazyMPEInference  - Starting round 5 of inference.
+1084265 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - (Re)building reasoner data structures
+1084273 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - Initializing objective terms for 882196 ground kernels
+1089221 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - Performing optimization with 74132 variables and 882196 terms.
+1095098 [main] INFO  org.linqs.psl.reasoner.admm.ADMMReasoner  - Optimization completed in  18 iterations. Primal res.: 0.3999671676095983, Dual res.: 0.27623996666454953
+1095271 [main] DEBUG org.linqs.psl.application.inference.LazyMPEInference  - Completed round 5 and activated 0 atoms.
+1105081 [main] INFO  org.linqs.psl.example.sybils1.Sybils1  - Finished inference in 17 minutes, 9.957 seconds
+Output Generated.
+1107902 [main] INFO  org.linqs.psl.example.sybils1.Sybils1  - MSE: 0.10327721074153
+1107909 [main] INFO  org.linqs.psl.example.sybils1.Sybils1  - Accuracy 0.9438147668393783, Error 2082.0
+1107913 [main] INFO  org.linqs.psl.example.sybils1.Sybils1  - Positive Class: precision 0.6223062381852552, recall 0.9751184834123223
+1107914 [main] INFO  org.linqs.psl.example.sybils1.Sybils1  - Negative Class Stats: precision 0.997355663287792, recall 0.9406769596199525
+It is running now
+[INFO] Scanning for projects...
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building easylp 1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ easylp ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 2 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ easylp ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Using Groovy-Eclipse compiler to compile both Java and Groovy files
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 4.620 s
+[INFO] Finished at: 2019-01-19T11:56:05-05:00
+[INFO] Final Memory: 27M/1565M
+[INFO] ------------------------------------------------------------------------
+Classpath found cached, skipping classpath build.
+0    [main] INFO  org.linqs.psl.config.ConfigManager  - Configuration file loaded: file:/network/rit/home/aa465948/git/adv_csl/psl/psl-sybils1/easy/groovy/target/classes/psl.properties
+98   [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option Sybils1.experiment.name. Returning default of default.
+110  [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option Sybils1.experiment.dbpath. Returning default of /tmp.
+110  [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option Sybils1.experiment.data.path. Returning default of ../data.
+133  [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option Sybils1.experiment.output.outputdir. Returning default of output/default.
+150  [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option Sybils1.model.weights.adjacent. Returning default of 1.
+152  [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option Sybils1.model.weights.benign. Returning default of 1.
+152  [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option Sybils1.model.weights.sybils. Returning default of 1.
+1239 [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option Sybils1.rdbmsdatastore.valuecolumn. Returning default of truth.
+1239 [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option Sybils1.rdbmsdatastore.confidencecolumn. Returning default of confidence.
+1240 [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option Sybils1.rdbmsdatastore.partitioncolumn. Returning default of partition.
+1315 [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option Sybils1.rdbmsdatastore.usestringids. Returning default of true.
+1328 [main] DEBUG org.linqs.psl.database.rdbms.RDBMSDataStore  - Registered 0 pre-existing predicates from RDBMS.
+1607 [main] INFO  org.linqs.psl.example.sybils1.Sybils1  - Running experiment default
+1618 [main] WARN  org.linqs.psl.database.rdbms.RDBMSDataStoreMetadata  - Determining max partition, no partitions found null
+1753 [main] INFO  org.linqs.psl.example.sybils1.Sybils1  - Defining model rules
+1932 [main] DEBUG org.linqs.psl.example.sybils1.Sybils1  - model: Model:
+1.0: ( ADJACENT(E1, E2) & BENIGN(E1) ) >> BENIGN(E2) ^2
+1.0: ( ADJACENT(E1, E2) & ~( BENIGN(E1) ) ) >> ~( BENIGN(E2) ) ^2
+1.0: ( ADJACENT(E1, E2) & SYBILS(E1) ) >> SYBILS(E2) ^2
+1.0: ( ADJACENT(E1, E2) & ~( SYBILS(E1) ) ) >> ~( SYBILS(E2) ) ^2
+1.0: BENIGN(E1) >> ~( SYBILS(E1) ) ^2
+1933 [main] INFO  org.linqs.psl.example.sybils1.Sybils1  - Loading data into database
+68504 [main] INFO  org.linqs.psl.example.sybils1.Sybils1  - Starting inference
+68579 [main] INFO  org.linqs.psl.config.ConfigManager  - Found value 50 for option Sybils1.lazympeinference.maxrounds.
+68581 [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option Sybils1.lazympeinference.reasoner. Returning default of org.linqs.psl.reasoner.admm.ADMMReasonerFactory@52e7a6b2.
+68591 [main] INFO  org.linqs.psl.config.ConfigManager  - Found value 100 for option Sybils1.admmreasoner.maxiterations.
+68592 [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option Sybils1.admmreasoner.stepsize. Returning default of 1.0.
+68592 [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option Sybils1.admmreasoner.epsilonabs. Returning default of 1.0E-5.
+68592 [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option Sybils1.admmreasoner.epsilonrel. Returning default of 0.001.
+68592 [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option Sybils1.admmreasoner.stopcheck. Returning default of 1.
+68596 [main] INFO  org.linqs.psl.config.ConfigManager  - Found value 25 for option Sybils1.admmreasoner.numthreads.
+68597 [main] INFO  org.linqs.psl.config.ConfigManager  - No value found for option Sybils1.atomeventframework.activation. Returning default of 0.01.
+448933 [main] DEBUG org.linqs.psl.model.rule.logical.AbstractLogicalRule  - Grounded 32605 instances of rule 1.0: ( ADJACENT(E1, E2) & BENIGN(E1) ) >> BENIGN(E2) ^2
+542097 [main] DEBUG org.linqs.psl.model.rule.logical.AbstractLogicalRule  - Grounded 25172 instances of rule 1.0: ( ADJACENT(E1, E2) & ~( BENIGN(E1) ) ) >> ~( BENIGN(E2) ) ^2
+959360 [main] DEBUG org.linqs.psl.model.rule.logical.AbstractLogicalRule  - Grounded 44941 instances of rule 1.0: ( ADJACENT(E1, E2) & SYBILS(E1) ) >> SYBILS(E2) ^2
+968229 [main] DEBUG org.linqs.psl.model.rule.logical.AbstractLogicalRule  - Grounded 51632 instances of rule 1.0: ( ADJACENT(E1, E2) & ~( SYBILS(E1) ) ) >> ~( SYBILS(E2) ) ^2
+968426 [main] DEBUG org.linqs.psl.model.rule.logical.AbstractLogicalRule  - Grounded 0 instances of rule 1.0: BENIGN(E1) >> ~( SYBILS(E1) ) ^2
+975838 [main] DEBUG org.linqs.psl.application.inference.LazyMPEInference  - Starting round 1 of inference.
+975838 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - (Re)building reasoner data structures
+975842 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - Initializing objective terms for 154350 ground kernels
+976712 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - Performing optimization with 40766 variables and 154350 terms.
+984770 [main] INFO  org.linqs.psl.reasoner.admm.ADMMReasoner  - Optimization completed in  100 iterations. Primal res.: 0.021446233248439202, Dual res.: 0.07307287577446937
+1021524 [main] DEBUG org.linqs.psl.application.inference.LazyMPEInference  - Completed round 1 and activated 34026 atoms.
+1021525 [main] DEBUG org.linqs.psl.application.inference.LazyMPEInference  - Starting round 2 of inference.
+1021525 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - (Re)building reasoner data structures
+1021533 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - Initializing objective terms for 706151 ground kernels
+1026095 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - Performing optimization with 72607 variables and 706151 terms.
+1040539 [main] INFO  org.linqs.psl.reasoner.admm.ADMMReasoner  - Optimization completed in  49 iterations. Primal res.: 0.1807638483303007, Dual res.: 0.2748918970321319
+1059475 [main] DEBUG org.linqs.psl.application.inference.LazyMPEInference  - Completed round 2 and activated 31841 atoms.
+1059475 [main] DEBUG org.linqs.psl.application.inference.LazyMPEInference  - Starting round 3 of inference.
+1059475 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - (Re)building reasoner data structures
+1059485 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - Initializing objective terms for 876939 ground kernels
+1064292 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - Performing optimization with 74058 variables and 876939 terms.
+1076426 [main] INFO  org.linqs.psl.reasoner.admm.ADMMReasoner  - Optimization completed in  43 iterations. Primal res.: 0.2244847642798384, Dual res.: 0.30546720104222586
+1077298 [main] DEBUG org.linqs.psl.application.inference.LazyMPEInference  - Completed round 3 and activated 1451 atoms.
+1077298 [main] DEBUG org.linqs.psl.application.inference.LazyMPEInference  - Starting round 4 of inference.
+1077298 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - (Re)building reasoner data structures
+1077309 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - Initializing objective terms for 881957 ground kernels
+1082974 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - Performing optimization with 74132 variables and 881957 terms.
+1089034 [main] INFO  org.linqs.psl.reasoner.admm.ADMMReasoner  - Optimization completed in  21 iterations. Primal res.: 0.25717197476259396, Dual res.: 0.3056027997860937
+1089268 [main] DEBUG org.linqs.psl.application.inference.LazyMPEInference  - Completed round 4 and activated 74 atoms.
+1089268 [main] DEBUG org.linqs.psl.application.inference.LazyMPEInference  - Starting round 5 of inference.
+1089268 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - (Re)building reasoner data structures
+1089276 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - Initializing objective terms for 882196 ground kernels
+1094082 [main] DEBUG org.linqs.psl.reasoner.admm.ADMMReasoner  - Performing optimization with 74132 variables and 882196 terms.
+1100178 [main] INFO  org.linqs.psl.reasoner.admm.ADMMReasoner  - Optimization completed in  19 iterations. Primal res.: 0.3341939385014409, Dual res.: 0.2960784341226807
+1100363 [main] DEBUG org.linqs.psl.application.inference.LazyMPEInference  - Completed round 5 and activated 0 atoms.
+1111232 [main] INFO  org.linqs.psl.example.sybils1.Sybils1  - Finished inference in 17 minutes, 22.706 seconds
+Output Generated.
+1114490 [main] INFO  org.linqs.psl.example.sybils1.Sybils1  - MSE: 0.12703637305628224
+1114512 [main] INFO  org.linqs.psl.example.sybils1.Sybils1  - Accuracy 0.9186627420269504, Error 3012.0
+1114518 [main] INFO  org.linqs.psl.example.sybils1.Sybils1  - Positive Class: precision 0.5293451899757478, recall 0.9700740740740741
+1114519 [main] INFO  org.linqs.psl.example.sybils1.Sybils1  - Negative Class Stats: precision 0.9967256694547105, recall 0.9135072498217257
+It is running now
+[INFO] Scanning for projects...
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building easylp 1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ easylp ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 2 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ easylp ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Using Groovy-Eclipse compiler to compile both Java and Groovy files
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 5.084 s
+[INFO] Finished at: 2019-01-19T12:15:08-05:00
+[INFO] Final Memory: 23M/1495M
+[INFO] ------------------------------------------------------------------------
+Classpath found cached, skipping classpath build.
