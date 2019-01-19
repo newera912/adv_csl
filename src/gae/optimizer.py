@@ -43,8 +43,8 @@ class OptimizerVAE(object):
         # self.cost -= self.kl
         self.cost = self.cost_belief + self.cost_uncertain
         print(self.cost_belief.get_shape().as_list(), self.cost_uncertain.get_shape().as_list(),self.cost_decode_sparse.get_shape().as_list())
-        self.cost1 = self.cost_belief + self.cost_uncertain + self.cost_decode_sparse * FLAGS.p_encode + self.cost_kl * FLAGS.p_kl
-        # self.cost1 = self.cost_belief + self.cost_uncertain  + self.cost_kl * FLAGS.p_kl
+        # self.cost1 = self.cost_belief + self.cost_uncertain + self.cost_decode_sparse * FLAGS.p_encode + self.cost_kl * FLAGS.p_kl
+        self.cost1 = self.cost_belief + self.cost_uncertain  + self.cost_kl * FLAGS.p_kl
 
         self.opt_op = self.optimizer.minimize(self.cost)
         self.opt_op1 = self.optimizer.minimize(self.cost1)

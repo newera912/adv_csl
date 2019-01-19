@@ -14,7 +14,7 @@ from random import shuffle
 # from DataWrapper import *
 from random import randint
 import multiprocessing
-threshold0=5
+threshold0=2
 # # global paths
 # paths = []
 # # global path
@@ -260,8 +260,6 @@ def update_nns(graph_nns,nns,V_checked, v):
                 nns[v_nns].append(v)
             else:
                 nns[v_nns] = [v]
-
-
     return nns
 
 
@@ -271,8 +269,8 @@ def SL_prediction_multiCore_node(V, E, Obs, Omega, E_X):
     T=len(Obs.values()[0])
     Threshold=3
     #when alpha=3.0, beta=3.0, then the u=1/3,d=1/3,u=1/3
-    alpha0=1.0
-    beta0=1.0
+    alpha0=3.0
+    beta0=3.0
     # E_X1 = copy.deepcopy(E_X)
     E_X1 = {v:1 for v in E_X}
     V_op = {}

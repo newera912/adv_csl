@@ -37,7 +37,7 @@ def generate_data(Obs, E, E_X, gamma):
             continue
         for v1, v2 in edges:
             if source == v2:
-                adj_obs.write(str(v1) + '_' + str(v2) + '\t' + str(source) + '_' + str(target) + '\n')
+                adj_obs.write(str(v1) + '_' + str(v2) + '\t' + str(source) + '_' + str(target) +'\n')
             elif target == v1:
                 adj_obs.write(str(source) + '_' + str(target) + '\t' + str(v1) + '_' + str(v2) + '\n')
         # for v1,v2 in edges:
@@ -64,19 +64,19 @@ def generate_data(Obs, E, E_X, gamma):
             # nonconj_targets.write(str(source)+'_'+str(target)+'\n')
 
             conj = current_Obs[e][0]
-            if conj == 1:
+            if conj >= 0.5:
                 conj_truth.write(str(source) + '_' + str(target) + '\t' + '1' + '\n')
                 # nonconj_truth.write(str(source)+'_'+str(target)+'\t'+'0'+'\n')
-            elif conj == 0:
+            elif conj <=0.5:
                 conj_truth.write(str(source) + '_' + str(target) + '\t' + '0' + '\n')
                 # nonconj_truth.write(str(source)+'_'+str(target)+'\t'+'1'+'\n')
         else:
             conj = current_Obs[e][0]
             source, target = e
-            if conj >= 1 - gamma:
-                conj_obs.write(str(source) + '_' + str(target) + '\n')
-            elif conj <= gamma:
-                nonconj_obs.write(str(source) + '_' + str(target) + '\n')
+            if conj >= 0.5:
+                conj_obs.write(str(source) + '_' + str(target) +  '\n')
+            elif conj <= 0.5:
+                nonconj_obs.write(str(source) + '_' + str(target) +  '\n')
                 ## shall we need to consider the ground rule of nonconjested
             else:
                 print conj
@@ -179,8 +179,8 @@ def pipeline():
     ref_pers = [0.6, 0.7, 0.8]
     datasets = ['philly', 'dc']
     count = 0
-    for adv_type in ["random_flip", "random_noise", "random_pgd", "random_pgd_csl", "random_pgd_gcn_vae"][3:4]:
-        for dataset in datasets[:]:
+    for adv_type in ["random_noise", "random_pgd", "random_pgd_csl", "random_pgd_gcn_vae"][:]:
+        for dataset in datasets[:1]:
             resultFolder = result_folder + adv_type + "/"
             if not os.path.exists(resultFolder):
                 os.makedirs(resultFolder)
@@ -191,7 +191,7 @@ def pipeline():
                 for weekday in range(5)[:1]:
                     for hour in range(8, 22)[:1]:
                         for test_ratio in [0.1, 0.2, 0.3, 0.4, 0.5][:]:
-                            for gamma in [0.0, 0.01, 0.03, 0.05, 0.07, 0.09, 0.11, 0.13, 0.15, 0.20, 0.25][:]:  # 11
+                            for gamma in [0.0, 0.01, 0.03, 0.05, 0.07, 0.09, 0.2, 0.3, 0.4, 0.5][:]:  # 11
                                 for real_i in range(realizations)[:1]:
                                     f = dataroot + '/network_{}_weekday_{}_hour_{}_refspeed_{}-testratio-{}-gamma-{}-realization-{}.pkl'.format(
                                         dataset, weekday, hour, ref_ratio, test_ratio, gamma, real_i)
@@ -202,7 +202,7 @@ def pipeline():
                                     T = len(Obs[E[0]])
                                     m_idx = int(round(T / 2.0))
                                     # for window in range(m_idx - 5,m_idx + 7):
-                                    for window in range(T):
+                                    for window in range(T)[:]:
                                         running_start_time = time.time()
                                         t_Obs = {e: e_Obs[window:window + 1] for e, e_Obs in Obs.items()}
                                         result_file = str(dataset) + '_' + str(weekday) + '_' + str(hour) + '_' + str(

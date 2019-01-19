@@ -1,0 +1,114 @@
+WARNING:tensorflow:From /network/rit/home/aa465948/venv/lib/python2.7/site-packages/tensorflow/python/ops/sparse_ops.py:1165: sparse_to_dense (from tensorflow.python.ops.sparse_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Create a `tf.sparse.SparseTensor` and use `tf.sparse.to_dense` instead.
+2019-01-17 13:48:03.518857: I tensorflow/core/platform/cpu_feature_guard.cc:141] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
+Org>>> /network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_pgd//facebook/facebook-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-gamma-0.0-realization-0-data-X.pkl
+|V|:8078 Adj:8078 
+|b|:8078 |u|:8078 |test_index|:2424 
+([], [], [])
+|V|:8078 Adj:8078 
+|b|:8078 |u|:8078 |test_index|:2424 
+mse_belief= 0.39728 mse_uncertain== 0.33003 bf-mse_opinion== 0.40171
+mse_belief= 0.39623 mse_uncertain== 0.32573 bf-mse_opinion== 0.40073
+mse_belief= 0.39491 mse_uncertain== 0.32048 bf-mse_opinion== 0.39944
+Optimization Finished!
+run time =  15.8019139767
+2
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_pgd_gcn_vae/facebook//facebook-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-gamma-0.0-realization-0-data-X.pkl <<<<<<<<<<<<<Done
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_pgd_gcn_vae/facebook//facebook-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-gamma-0.01-realization-0-data-X.pkl <<<<<<<<<<<<<Done
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_pgd_gcn_vae/facebook//facebook-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-gamma-0.03-realization-0-data-X.pkl <<<<<<<<<<<<<Done
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_pgd_gcn_vae/facebook//facebook-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-gamma-0.05-realization-0-data-X.pkl <<<<<<<<<<<<<Done
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_pgd_gcn_vae/facebook//facebook-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-gamma-0.07-realization-0-data-X.pkl <<<<<<<<<<<<<Done
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_pgd_gcn_vae/facebook//facebook-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-gamma-0.09-realization-0-data-X.pkl <<<<<<<<<<<<<Done
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_pgd_gcn_vae/facebook//facebook-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-gamma-0.2-realization-0-data-X.pkl <<<<<<<<<<<<<Done
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_pgd_gcn_vae/facebook//facebook-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-gamma-0.3-realization-0-data-X.pkl <<<<<<<<<<<<<Done
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_pgd_gcn_vae/facebook//facebook-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-gamma-0.4-realization-0-data-X.pkl <<<<<<<<<<<<<Done
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_pgd_gcn_vae/facebook//facebook-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-gamma-0.5-realization-0-data-X.pkl <<<<<<<<<<<<<Done
+Org>>> /network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_pgd//facebook/facebook-attackedges-10000-T-10-testratio-0.1-swap_ratio-0.01-gamma-0.0-realization-0-data-X.pkl
+|V|:8078 Adj:8078 
+|b|:8078 |u|:8078 |test_index|:808 
+([], [], [])
+|V|:8078 Adj:8078 
+|b|:8078 |u|:8078 |test_index|:808 
+mse_belief= 0.39640 mse_uncertain== 0.33156 bf-mse_opinion== 0.40534
+mse_belief= 0.39442 mse_uncertain== 0.32884 bf-mse_opinion== 0.40357
+mse_belief= 0.39197 mse_uncertain== 0.32505 bf-mse_opinion== 0.40124
+Optimization Finished!
+run time =  15.7592539787
+2
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_pgd_gcn_vae/facebook//facebook-attackedges-10000-T-10-testratio-0.1-swap_ratio-0.01-gamma-0.0-realization-0-data-X.pkl <<<<<<<<<<<<<Done
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_pgd_gcn_vae/facebook//facebook-attackedges-10000-T-10-testratio-0.1-swap_ratio-0.01-gamma-0.01-realization-0-data-X.pkl <<<<<<<<<<<<<Done
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_pgd_gcn_vae/facebook//facebook-attackedges-10000-T-10-testratio-0.1-swap_ratio-0.01-gamma-0.03-realization-0-data-X.pkl <<<<<<<<<<<<<Done
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_pgd_gcn_vae/facebook//facebook-attackedges-10000-T-10-testratio-0.1-swap_ratio-0.01-gamma-0.05-realization-0-data-X.pkl <<<<<<<<<<<<<Done
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_pgd_gcn_vae/facebook//facebook-attackedges-10000-T-10-testratio-0.1-swap_ratio-0.01-gamma-0.07-realization-0-data-X.pkl <<<<<<<<<<<<<Done
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_pgd_gcn_vae/facebook//facebook-attackedges-10000-T-10-testratio-0.1-swap_ratio-0.01-gamma-0.09-realization-0-data-X.pkl <<<<<<<<<<<<<Done
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_pgd_gcn_vae/facebook//facebook-attackedges-10000-T-10-testratio-0.1-swap_ratio-0.01-gamma-0.2-realization-0-data-X.pkl <<<<<<<<<<<<<Done
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_pgd_gcn_vae/facebook//facebook-attackedges-10000-T-10-testratio-0.1-swap_ratio-0.01-gamma-0.3-realization-0-data-X.pkl <<<<<<<<<<<<<Done
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_pgd_gcn_vae/facebook//facebook-attackedges-10000-T-10-testratio-0.1-swap_ratio-0.01-gamma-0.4-realization-0-data-X.pkl <<<<<<<<<<<<<Done
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_pgd_gcn_vae/facebook//facebook-attackedges-10000-T-10-testratio-0.1-swap_ratio-0.01-gamma-0.5-realization-0-data-X.pkl <<<<<<<<<<<<<Done
+Org>>> /network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_pgd//facebook/facebook-attackedges-10000-T-10-testratio-0.2-swap_ratio-0.01-gamma-0.0-realization-0-data-X.pkl
+|V|:8078 Adj:8078 
+|b|:8078 |u|:8078 |test_index|:1616 
+([], [], [])
+|V|:8078 Adj:8078 
+|b|:8078 |u|:8078 |test_index|:1616 
+mse_belief= 0.39709 mse_uncertain== 0.33171 bf-mse_opinion== 0.40320
+mse_belief= 0.39596 mse_uncertain== 0.32938 bf-mse_opinion== 0.40204
+mse_belief= 0.39454 mse_uncertain== 0.32627 bf-mse_opinion== 0.40056
+Optimization Finished!
+run time =  16.1203780174
+2
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_pgd_gcn_vae/facebook//facebook-attackedges-10000-T-10-testratio-0.2-swap_ratio-0.01-gamma-0.0-realization-0-data-X.pkl <<<<<<<<<<<<<Done
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_pgd_gcn_vae/facebook//facebook-attackedges-10000-T-10-testratio-0.2-swap_ratio-0.01-gamma-0.01-realization-0-data-X.pkl <<<<<<<<<<<<<Done
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_pgd_gcn_vae/facebook//facebook-attackedges-10000-T-10-testratio-0.2-swap_ratio-0.01-gamma-0.03-realization-0-data-X.pkl <<<<<<<<<<<<<Done
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_pgd_gcn_vae/facebook//facebook-attackedges-10000-T-10-testratio-0.2-swap_ratio-0.01-gamma-0.05-realization-0-data-X.pkl <<<<<<<<<<<<<Done
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_pgd_gcn_vae/facebook//facebook-attackedges-10000-T-10-testratio-0.2-swap_ratio-0.01-gamma-0.07-realization-0-data-X.pkl <<<<<<<<<<<<<Done
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_pgd_gcn_vae/facebook//facebook-attackedges-10000-T-10-testratio-0.2-swap_ratio-0.01-gamma-0.09-realization-0-data-X.pkl <<<<<<<<<<<<<Done
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_pgd_gcn_vae/facebook//facebook-attackedges-10000-T-10-testratio-0.2-swap_ratio-0.01-gamma-0.2-realization-0-data-X.pkl <<<<<<<<<<<<<Done
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_pgd_gcn_vae/facebook//facebook-attackedges-10000-T-10-testratio-0.2-swap_ratio-0.01-gamma-0.3-realization-0-data-X.pkl <<<<<<<<<<<<<Done
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_pgd_gcn_vae/facebook//facebook-attackedges-10000-T-10-testratio-0.2-swap_ratio-0.01-gamma-0.4-realization-0-data-X.pkl <<<<<<<<<<<<<Done
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_pgd_gcn_vae/facebook//facebook-attackedges-10000-T-10-testratio-0.2-swap_ratio-0.01-gamma-0.5-realization-0-data-X.pkl <<<<<<<<<<<<<Done
+Org>>> /network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_pgd//facebook/facebook-attackedges-10000-T-10-testratio-0.4-swap_ratio-0.01-gamma-0.0-realization-0-data-X.pkl
+|V|:8078 Adj:8078 
+|b|:8078 |u|:8078 |test_index|:3232 
+([], [], [])
+|V|:8078 Adj:8078 
+|b|:8078 |u|:8078 |test_index|:3232 
+mse_belief= 0.39560 mse_uncertain== 0.33101 bf-mse_opinion== 0.40496
+mse_belief= 0.39418 mse_uncertain== 0.32772 bf-mse_opinion== 0.40370
+mse_belief= 0.39241 mse_uncertain== 0.32348 bf-mse_opinion== 0.40199
+Optimization Finished!
+run time =  15.9520270824
+2
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_pgd_gcn_vae/facebook//facebook-attackedges-10000-T-10-testratio-0.4-swap_ratio-0.01-gamma-0.0-realization-0-data-X.pkl <<<<<<<<<<<<<Done
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_pgd_gcn_vae/facebook//facebook-attackedges-10000-T-10-testratio-0.4-swap_ratio-0.01-gamma-0.01-realization-0-data-X.pkl <<<<<<<<<<<<<Done
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_pgd_gcn_vae/facebook//facebook-attackedges-10000-T-10-testratio-0.4-swap_ratio-0.01-gamma-0.03-realization-0-data-X.pkl <<<<<<<<<<<<<Done
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_pgd_gcn_vae/facebook//facebook-attackedges-10000-T-10-testratio-0.4-swap_ratio-0.01-gamma-0.05-realization-0-data-X.pkl <<<<<<<<<<<<<Done
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_pgd_gcn_vae/facebook//facebook-attackedges-10000-T-10-testratio-0.4-swap_ratio-0.01-gamma-0.07-realization-0-data-X.pkl <<<<<<<<<<<<<Done
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_pgd_gcn_vae/facebook//facebook-attackedges-10000-T-10-testratio-0.4-swap_ratio-0.01-gamma-0.09-realization-0-data-X.pkl <<<<<<<<<<<<<Done
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_pgd_gcn_vae/facebook//facebook-attackedges-10000-T-10-testratio-0.4-swap_ratio-0.01-gamma-0.2-realization-0-data-X.pkl <<<<<<<<<<<<<Done
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_pgd_gcn_vae/facebook//facebook-attackedges-10000-T-10-testratio-0.4-swap_ratio-0.01-gamma-0.3-realization-0-data-X.pkl <<<<<<<<<<<<<Done
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_pgd_gcn_vae/facebook//facebook-attackedges-10000-T-10-testratio-0.4-swap_ratio-0.01-gamma-0.4-realization-0-data-X.pkl <<<<<<<<<<<<<Done
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_pgd_gcn_vae/facebook//facebook-attackedges-10000-T-10-testratio-0.4-swap_ratio-0.01-gamma-0.5-realization-0-data-X.pkl <<<<<<<<<<<<<Done
+Org>>> /network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_pgd//facebook/facebook-attackedges-10000-T-10-testratio-0.5-swap_ratio-0.01-gamma-0.0-realization-0-data-X.pkl
+|V|:8078 Adj:8078 
+|b|:8078 |u|:8078 |test_index|:4040 
+([], [], [])
+|V|:8078 Adj:8078 
+|b|:8078 |u|:8078 |test_index|:4040 
+mse_belief= 0.39544 mse_uncertain== 0.32972 bf-mse_opinion== 0.40194
+mse_belief= 0.39481 mse_uncertain== 0.32478 bf-mse_opinion== 0.40124
+mse_belief= 0.39399 mse_uncertain== 0.31844 bf-mse_opinion== 0.40016
+Optimization Finished!
+run time =  16.2567980289
+2
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_pgd_gcn_vae/facebook//facebook-attackedges-10000-T-10-testratio-0.5-swap_ratio-0.01-gamma-0.0-realization-0-data-X.pkl <<<<<<<<<<<<<Done
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_pgd_gcn_vae/facebook//facebook-attackedges-10000-T-10-testratio-0.5-swap_ratio-0.01-gamma-0.01-realization-0-data-X.pkl <<<<<<<<<<<<<Done
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_pgd_gcn_vae/facebook//facebook-attackedges-10000-T-10-testratio-0.5-swap_ratio-0.01-gamma-0.03-realization-0-data-X.pkl <<<<<<<<<<<<<Done
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_pgd_gcn_vae/facebook//facebook-attackedges-10000-T-10-testratio-0.5-swap_ratio-0.01-gamma-0.05-realization-0-data-X.pkl <<<<<<<<<<<<<Done
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_pgd_gcn_vae/facebook//facebook-attackedges-10000-T-10-testratio-0.5-swap_ratio-0.01-gamma-0.07-realization-0-data-X.pkl <<<<<<<<<<<<<Done
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_pgd_gcn_vae/facebook//facebook-attackedges-10000-T-10-testratio-0.5-swap_ratio-0.01-gamma-0.09-realization-0-data-X.pkl <<<<<<<<<<<<<Done
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_pgd_gcn_vae/facebook//facebook-attackedges-10000-T-10-testratio-0.5-swap_ratio-0.01-gamma-0.2-realization-0-data-X.pkl <<<<<<<<<<<<<Done
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_pgd_gcn_vae/facebook//facebook-attackedges-10000-T-10-testratio-0.5-swap_ratio-0.01-gamma-0.3-realization-0-data-X.pkl <<<<<<<<<<<<<Done
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_pgd_gcn_vae/facebook//facebook-attackedges-10000-T-10-testratio-0.5-swap_ratio-0.01-gamma-0.4-realization-0-data-X.pkl <<<<<<<<<<<<<Done
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_pgd_gcn_vae/facebook//facebook-attackedges-10000-T-10-testratio-0.5-swap_ratio-0.01-gamma-0.5-realization-0-data-X.pkl <<<<<<<<<<<<<Done

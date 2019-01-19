@@ -72,6 +72,34 @@ class Task_inference(object):
     def __str__(self):
         return '%s' % (self.p0)
 
+
+def calc_initial_p1_nodes0(y_t, node_nns, X, Y, cnt_V, p0):
+    p = [0 for i in range(cnt_V)]
+    for v, v_nns in node_nns.items():
+        if X.has_key(v):
+            obs = {v_n:y_t[v_n] for v_n in v_nns if Y.has_key(v_n)}
+            # if len(obs) == 0: obs = {p0}
+            conf = 0
+            n_pos=0.0
+            for v_o,val in obs.items():
+                n_pos+=val
+                if val >0.0:
+                    conf += 1.0
+                else:
+                    conf -= 1.0
+            if conf > 1.0:
+                p[v] = 1.0
+            # else:
+            #     if n_pos<=1.0:
+            #         p[e] = 0.0
+            #     else:
+            #         p[e] = 1.0
+            # p[e] = np.median(obs)
+        else:
+            p[v] = y_t[v]
+    return p
+
+
 """
 INPUT
 V = [0, 1, ...] is a list of vertex ids
@@ -191,7 +219,7 @@ def admm(omega, y_t, Y, X, node_nns, p0, R, psl = False, approx = False, report_
     cnt_X = len(X)
     cnt_V = cnt_X + cnt_Y
     K = len(R)
-    p = calc_initial_p1_nodes(y_t, node_nns, X, Y, cnt_V, p0)
+    p = calc_initial_p1_nodes0(y_t, node_nns, X, Y, cnt_V, p0)
     R_p = []
     R_z = [] # R_z is a vector of copied variables in R_p. R_z[e] is a copied variable of R_p[e]
     R_lambda_ = []
@@ -416,18 +444,19 @@ def facebook_sybils_dataset_test():
     count=0
     realizations=1
     methods = ["SL","CSL", "Adv-CSL"][2:]
-    for adv_type in ["random_noise", "random_pgd"][:]:
-        for attack_edge in [1000,5000,10000,15000,20000][2:3]:
-            for T in [10][:]:
-                for swap_ratio in [0.00, 0.01, 0.02, 0.05][1:2]:
-                    for test_ratio in [0.1, 0.2,0.3,0.4, 0.5][2:3]:
-                        for gamma in [0.0, 0.01, 0.03, 0.05, 0.07, 0.09][:]:  # 11
+
+    for test_ratio in [0.3,0.1, 0.2, 0.4, 0.5][2:]:
+        for adv_type in ["random_noise","random_pgd","random_pgd_csl","random_pgd_gcn_vae"][3:]:
+            for attack_edge in [1000,5000,10000,15000,20000][2:3]:
+                for T in [10][:]:
+                    for swap_ratio in [0.00, 0.01, 0.02, 0.05][1:2]:
+                        for gamma in [0.0, 0.01, 0.03, 0.05, 0.07,0.09,0.2,0.3,0.4,0.5][:]:  # 11
                             for real_i in range(realizations)[:1]:
                                 logging.write(str(count)+" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`")
                                 count+=1.0
                                 for method in methods[:]:
                                     f=dataroot +adv_type+ "/facebook/facebook-attackedges-{}-T-{}-testratio-{}-swap_ratio-{}-gamma-{}-realization-{}-data-X.pkl".format(attack_edge, T, test_ratio,swap_ratio, gamma, real_i)
-                                    outf = '../output/sybils/{}_results-server-Jan15-{}.json'.format(method,adv_type)
+                                    outf = '../output/sybils/{}_results-server-Jan17-{}.json'.format(method,adv_type)
                                     logging.write("dataset: {} method: {}, #attack_edge:{},T:{},test_ratio: {},gamma:{}".format("facebook",method,attack_edge,T,test_ratio,gamma))
                                     logging.write(f)
                                     pkl_file = open(f, 'rb')
@@ -495,19 +524,20 @@ def enron_sybils_dataset_test():
     report_stat = False
     count=0
     realizations=1
-    methods = ["SL","CSL", "Adv-CSL"][2:]
-    for adv_type in ["random_noise", "random_pgd"][:1]:
-        for attack_edge in [1000,5000,10000,15000,20000][2:3]:
-            for T in [10][:]:
-                for swap_ratio in [0.00, 0.01, 0.02, 0.05][1:2]:
-                    for test_ratio in [0.1, 0.2,0.3,0.4, 0.5][2:3]:
-                        for gamma in [0.0, 0.01, 0.03, 0.05, 0.07, 0.09][:]:  # 11
+
+    for test_ratio in [0.3,0.1, 0.2, 0.4, 0.5][:1]:
+        methods = ["SL","CSL", "Adv-CSL"][1:2]
+        for adv_type in ["random_noise","random_pgd","random_pgd_csl","random_pgd_gcn_vae"][:1]:
+            for attack_edge in [1000,5000,10000,15000,20000][2:3]:
+                for T in [10][:]:
+                    for swap_ratio in [0.00, 0.01, 0.02, 0.05][1:2]:
+                        for gamma in [0.0, 0.01, 0.03, 0.05, 0.07,0.09,0.2,0.3,0.4,0.5][:]:  # 11
                             for real_i in range(realizations)[:1]:
                                 logging.write(str(count)+" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`")
                                 count+=1.0
                                 for method in methods[:]:
                                     f=dataroot +adv_type+ "/enron/enron-attackedges-{}-T-{}-testratio-{}-swap_ratio-{}-gamma-{}-realization-{}-data-X.pkl".format(attack_edge, T, test_ratio,swap_ratio, gamma, real_i)
-                                    outf = '../output/sybils/{}_results-server-Jan15-{}.json'.format(method,adv_type)
+                                    outf = '../output/sybils/{}_results-server-Jan17-{}.json'.format(method,adv_type)
                                     logging.write("dataset: {} method: {}, #attack_edge:{},T:{},test_ratio: {},gamma:{}".format("enron",method,attack_edge,T,test_ratio,gamma))
                                     logging.write(f)
                                     pkl_file = open(f, 'rb')
@@ -576,19 +606,19 @@ def slashdot_sybils_dataset_test():
     report_stat = False
     count=0
     realizations=10
-    methods = ["SL","CSL", "Adv-CSL"][2:]
-    for adv_type in ["random_noise", "random_pgd"][1:]:
+    methods = ["SL","CSL", "Adv-CSL"][:1]
+    for adv_type in ["random_noise","random_pgd","random_pgd_csl","random_pgd_gcn_vae"][3:]:
         for attack_edge in [1000,5000,10000,15000,20000][2:3]:
             for T in [10][:]:
                 for swap_ratio in [0.00, 0.01, 0.02, 0.05][1:2]:
                     for test_ratio in [0.1, 0.2,0.3,0.4, 0.5][2:3]:
-                        for gamma in [0.0, 0.01, 0.03, 0.05, 0.07, 0.09][3:]:  # 11
+                        for gamma in [0.0, 0.01, 0.03, 0.05, 0.07,0.09,0.2,0.3,0.4,0.5][:]:  # 11
                             for real_i in range(realizations)[:1]:
                                 logging.write(str(count)+" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`")
                                 count+=1.0
                                 for method in methods[:]:
                                     f=dataroot +adv_type+ "/slashdot/slashdot-attackedges-{}-T-{}-testratio-{}-swap_ratio-{}-gamma-{}-realization-{}-data-X.pkl".format(attack_edge, T, test_ratio,swap_ratio, gamma, real_i)
-                                    outf = '../output/sybils/{}_results-server-Jan14-{}.json'.format(method,adv_type)
+                                    outf = '../output/sybils/{}_results-server-Jan17-{}.json'.format(method,adv_type)
                                     logging.write("dataset: {} method: {}, #attack_edge:{},T:{},test_ratio: {},gamma:{}".format("slashdot",method,attack_edge,T,test_ratio,gamma))
                                     logging.write(f)
                                     pkl_file = open(f, 'rb')
@@ -649,12 +679,11 @@ def slashdot_sybils_dataset_test():
                                     outfp.write(json.dumps(result_) + '\n')
                                     outfp.close()
 
+
 def main():
     # facebook_sybils_dataset_test()
     # enron_sybils_dataset_test()
     slashdot_sybils_dataset_test()
-
-
 
 
 if __name__=='__main__':

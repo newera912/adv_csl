@@ -265,59 +265,6 @@ def inference_apdm_format(V, E, Obs, Omega, E_X, logging, psl = False, approx = 
 
 
 
-def inference_apdm_format_sliding_window(V, E, Obs, Omega, E_X, begin_time, end_time, window_size, logging, psl = False, approx = True, init_alpha_beta = (1, 1), report_stat = False):
-    if report_stat: print "start reformat"
-    V, edge_up_nns, edge_down_nns, id_2_edge, edge_2_id, omega, feat = reformat(V, E, Obs, Omega)
-    omega_y = {}
-    p0 = 0.5
-    y = {}
-    X = {edge_2_id[e]: 1 for e in E_X}
-    Y = {e: 1 for e in id_2_edge.keys() if e not in X}
-    for e in Y.keys():
-        omega_y[e] = omega[e]
-        y[e] = feat[e]
-    # print "number of time stamps: {}".format(T)
-    # if report_stat: print "number of time stamps: {}".format(T)
-    x = {}
-    for e in X.keys():
-        x[e] = feat[e]
-    if report_stat: print "start generate_PSL_rules_from_edge_cnns"
-    R = generate_PSL_rules_from_edge_cnns(edge_up_nns)
-    if report_stat: print "start inference"
-    W = 1.0
-    sw_measures = []
-    for ws_start in range(begin_time, end_time+1):
-        print "sliding window: {0} to {1}".format(ws_start, ws_start + window_size)
-        sw_omega_x, sw_omega_y, sw_x, sw_y = sliding_window_extract(x, y, ws_start, window_size)
-        pred_omega_x = inference(sw_omega_y, sw_y, Y, X, window_size, edge_up_nns, edge_down_nns, p0, R, sw_x, logging, psl, approx, init_alpha_beta, report_stat)
-        # pred_omega_x = {id_2_edge[e]: alpha_beta for e, alpha_beta in pred_omega_x.items()}
-        prob_mse, u_mse, prob_relative_mse, u_relative_mse, accuracy, recall_congested, recall_uncongested = calculate_measures(sw_omega_x, W, pred_omega_x, X, logging)
-        sw_measures.append([prob_mse, u_mse, prob_relative_mse, u_relative_mse, accuracy, recall_congested, recall_uncongested])
-    avg_measures = [0, 0, 0, 0, 0, 0, 0]
-    for measures in sw_measures:
-        avg_measures = list_sum(avg_measures, measures)
-    avg_measures = list_dot_scalar(avg_measures, 1.0 / len(sw_measures))
-    logging.write("prob_mse: {0}, u_mse: {1}, prob_relative_mse: {2}, u_relative_mse: {3}".format(prob_mse, u_mse, prob_relative_mse, u_relative_mse))
-    logging.write("accuracy: {0}, recall_congested: {1}, recall_uncongested: {2}".format(accuracy, recall_congested, recall_uncongested))
-    return sw_measures, avg_measures
-
-
-# def evaluation():
-#     sw_measures = []
-#     for ws_start in range(begin_time, end_time+1):
-#         print "sliding window: {0} to {1}".format(ws_start, ws_start + window_size)
-#         sw_omega_x, sw_omega_y, sw_x, sw_y = sliding_window_extract(x, y, ws_start, window_size)
-#         pred_omega_x = inference(sw_omega_y, sw_y, Y, X, window_size, edge_up_nns, edge_down_nns, p0, R, sw_x, logging, psl, approx, init_alpha_beta, report_stat)
-#         # pred_omega_x = {id_2_edge[e]: alpha_beta for e, alpha_beta in pred_omega_x.items()}
-#         prob_mse, u_mse, prob_relative_mse, u_relative_mse, accuracy, recall_congested, recall_uncongested = calculate_measures(sw_omega_x, W, pred_omega_x, X, logging)
-#         sw_measures.append([prob_mse, u_mse, prob_relative_mse, u_relative_mse, accuracy, recall_congested, recall_uncongested])
-#     avg_measures = [0, 0, 0, 0, 0, 0, 0]
-#     for measures in sw_measures:
-#         avg_measures = list_sum(avg_measures, measures)
-#     avg_measures = list_dot_scalar(avg_measures, 1.0 / len(sw_measures))
-#     logging.write("prob_mse: {0}, u_mse: {1}, prob_relative_mse: {2}, u_relative_mse: {3}".format(prob_mse, u_mse, prob_relative_mse, u_relative_mse))
-#     logging.write("accuracy: {0}, recall_congested: {1}, recall_uncongested: {2}".format(accuracy, recall_congested, recall_uncongested))
-
 
 """
 INPUT
@@ -809,7 +756,7 @@ def calc_initial_p2_2(dict_paths, y_t, edge_down_nns, X, Y, cnt_E, p0):
                 for (e1, e2) in dict_paths[e]:
                     conf += p[e1] * p[e2]
                     n_post += p[e1] + p[e2]
-                if conf > 0:
+                if conf > 0.5:
                     p[e] = 1
             else:
                 p[e] = 0
@@ -821,7 +768,7 @@ def calc_initial_p2_2(dict_paths, y_t, edge_down_nns, X, Y, cnt_E, p0):
             for (e1, e2) in dict_paths[e]:
                 conf += p[e1] * p[e2]
                 n_post += p[e1] + p[e2]
-            if conf > 0:
+            if conf > 0.5:
                 p[e] = 1
             else:
                 if n_post >0.0:

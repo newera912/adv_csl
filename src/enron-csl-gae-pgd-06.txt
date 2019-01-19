@@ -1,0 +1,68 @@
+
+
+--------------------------------------------------
+--------------------------------------------------
+
+-------------------Thu, 17 Jan 2019 11:49:45 PM EST---------------------
+
+0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+dataset: enron method: CSL, #attack_edge:10000,T:10,test_ratio: 0.3,gamma:0.0
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_pgd_gcn_vae/enron/enron-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-gamma-0.0-realization-0-data-X.pkl
+#Rule: 743244
+prob_mse: 0.179554174648, running time: 611.611525059
+1.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+dataset: enron method: CSL, #attack_edge:10000,T:10,test_ratio: 0.3,gamma:0.01
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_pgd_gcn_vae/enron/enron-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-gamma-0.01-realization-0-data-X.pkl
+#Rule: 743244
+prob_mse: 0.179554174648, running time: 534.514542103
+2.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+dataset: enron method: CSL, #attack_edge:10000,T:10,test_ratio: 0.3,gamma:0.03
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_pgd_gcn_vae/enron/enron-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-gamma-0.03-realization-0-data-X.pkl
+#Rule: 743244
+prob_mse: 0.179554174648, running time: 598.570657969
+3.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+dataset: enron method: CSL, #attack_edge:10000,T:10,test_ratio: 0.3,gamma:0.05
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_pgd_gcn_vae/enron/enron-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-gamma-0.05-realization-0-data-X.pkl
+#Rule: 743244
+prob_mse: 0.179554174648, running time: 647.340750933
+4.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+dataset: enron method: CSL, #attack_edge:10000,T:10,test_ratio: 0.3,gamma:0.07
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_pgd_gcn_vae/enron/enron-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-gamma-0.07-realization-0-data-X.pkl
+#Rule: 743244
+prob_mse: 0.179554174648, running time: 579.312546968
+5.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+dataset: enron method: CSL, #attack_edge:10000,T:10,test_ratio: 0.3,gamma:0.09
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_pgd_gcn_vae/enron/enron-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-gamma-0.09-realization-0-data-X.pkl
+#Rule: 743244
+prob_mse: 0.179554174648, running time: 645.995724916
+6.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+dataset: enron method: CSL, #attack_edge:10000,T:10,test_ratio: 0.3,gamma:0.2
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_pgd_gcn_vae/enron/enron-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-gamma-0.2-realization-0-data-X.pkl
+#Rule: 743244
+prob_mse: 0.179554174648, running time: 601.435178995
+7.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+dataset: enron method: CSL, #attack_edge:10000,T:10,test_ratio: 0.3,gamma:0.3
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_pgd_gcn_vae/enron/enron-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-gamma-0.3-realization-0-data-X.pkl
+#Rule: 743244
+prob_mse: 0.179554174648, running time: 620.105303049
+8.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+dataset: enron method: CSL, #attack_edge:10000,T:10,test_ratio: 0.3,gamma:0.4
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_pgd_gcn_vae/enron/enron-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-gamma-0.4-realization-0-data-X.pkl
+#Rule: 743244
+prob_mse: 0.179554174648, running time: 653.153194904
+9.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+dataset: enron method: CSL, #attack_edge:10000,T:10,test_ratio: 0.3,gamma:0.5
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_pgd_gcn_vae/enron/enron-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-gamma-0.5-realization-0-data-X.pkl
+#Rule: 743244
+prob_mse: 0.179554174648, running time: 577.162048817
+10.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+dataset: enron method: CSL, #attack_edge:10000,T:10,test_ratio: 0.1,gamma:0.0
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_pgd_gcn_vae/enron/enron-attackedges-10000-T-10-testratio-0.1-swap_ratio-0.01-gamma-0.0-realization-0-data-X.pkl
+Traceback (most recent call last):
+  File "adv_csl_sybils_experiment_pipeline.py", line 691, in <module>
+    main()
+  File "adv_csl_sybils_experiment_pipeline.py", line 684, in main
+    enron_sybils_dataset_test()
+  File "adv_csl_sybils_experiment_pipeline.py", line 543, in enron_sybils_dataset_test
+    pkl_file = open(f, 'rb')
+IOError: [Errno 2] No such file or directory: '/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_pgd_gcn_vae/enron/enron-attackedges-10000-T-10-testratio-0.1-swap_ratio-0.01-gamma-0.0-realization-0-data-X.pkl'

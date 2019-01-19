@@ -202,40 +202,9 @@ for adv_type in ["random_flip","random_noise","random_pgd","random_pgd_gcn_vae"]
                                         uncertain_one.append(outs[5])
 
                                 print("Optimization Finished!")
-                                # best_epoch = np.argmin(bf_mse_one)
-                                # bf_mse.append(np.min(bf_mse_one))
-                                # b_mse.append(np.min(b_mse_one))
-                                # u_mse.append(np.min(u_mse_one))
-                                # print("alpha_0:", alpha_0, "beta_0:", beta_0)
-                                # print("best epoch:", (best_epoch + 1) * 10, "bset_belief:", b_mse_one[best_epoch], "bset_uncertain:",
-                                #       u_mse_one[best_epoch], "bset_opinion:", bf_mse_one[best_epoch])
+
                                 print("run time = ", time.time()-t1)
-                                # u_mse=round(float(b_mse_one[best_epoch]),4)
-                                # b_mse = round(float(b_mse_one[best_epoch]), 4)
-                                # d_mse = round(float(1.0 - u_mse - b_mse),4)
-                                # prob_mse=round(float(bf_mse_one[best_epoch]),4)
-                                # result_ = {'network_size': graph_size, 'adv_type': adv_type,
-                                #            'positive_ratio': ratio, "realization": real_i,
-                                #            'sample_size': 1, 'T': T, 'gamma': gamma,
-                                #            'test_ratio': test_ratio, 'acc': (0.0,0.0),
-                                #            'alpha_mse': (0.0, 0.0),
-                                #            'beta_mse': (0.0, 0.0),
-                                #            'd_mse': (d_mse,d_mse), 'b_mse': (b_mse, b_mse),
-                                #            'u_mse': (u_mse, u_mse),
-                                #            'prob_mse': (prob_mse,prob_mse), 'runtime': time.time()-t1}
-                                # print(len(gradients),"\n",len(gradients[0]),len(gradients[0][0]),len(gradients[0][0][0]))
-                                #
-                                # for i in range(30):
-                                #     count=0
-                                #     for j,terms in enumerate(gradients[i][0][0]):
-                                #         if terms[0]<0 and test_mask[j]==False:
-                                #             count+=1
-                                #             # print(i,count,terms[0])
-                                #     print(i,count)
-                                # print(gradients[0][0][0])
-                                # for k,t in enumerate(test_mask):
-                                #     if t==True:
-                                #         print(k,t)
+
                             with open(fileName,'rb') as pkl_file:
                                 [V, E, Obs, E_X, X_b] = pickle.load(pkl_file)
                             sign_grad={}
@@ -260,8 +229,7 @@ for adv_type in ["random_flip","random_noise","random_pgd","random_pgd_gcn_vae"]
                             if not os.path.exists(out_folder):
                                 os.makedirs(out_folder)
 
-                            for gamma in [0.0, 0.01, 0.03, 0.05, 0.07, 0.09, 0.11, 0.13, 0.15, 0.20, 0.25][:]:  # 8
-
+                            for gamma in [0.0, 0.01, 0.03, 0.05, 0.07, 0.09, 0.2,0.3,0.4,0.5][:]:  # 8
                                 fout = out_folder + "nodes-{}-T-{}-rate-{}-testratio-{}-swaprate-{}-gamma-{}-realization-{}-data-X.pkl".format(
                                     graph_size, T, ratio, test_ratio, swap_ratio, gamma, real_i)
                                 print(fout)
@@ -270,7 +238,7 @@ for adv_type in ["random_flip","random_noise","random_pgd","random_pgd_gcn_vae"]
                                     for e in sign_grad.keys():
                                         for t in range(0, T):
                                             for i in range(len(sign_grad[e])):
-                                                Obs_g[e][t] = clip01(Obs_g[e][t] + 0.01 * sign_grad[e][i])  # clip between [0,1]
+                                                Obs_g[e][t] = clip01(Obs_g[e][t] + 0.02* sign_grad[e][i])  # clip between [0,1]
                                             if np.abs(Obs_g[e][t] - Obs[e][t]) > gamma:
                                                 Obs_g[e][t] = clip01(Obs[e][t] + np.sign(Obs_g[e][t] - Obs[e][t]) * gamma)  # clip |py_adv-py_orig|<gamma
 
@@ -284,5 +252,5 @@ for adv_type in ["random_flip","random_noise","random_pgd","random_pgd_gcn_vae"]
 
 
                             # print("belief:", np.mean(b_mse), "uncertain:", np.mean(u_mse), "time window = ", FLAGS.T, "test_rio = ", FLAGS.test_rat)
-                            # sess.close()
+                            sess.close()
 

@@ -58,6 +58,32 @@ def get_sign_grad_py(sign_grad_py_t,p_t,y_t,Y, R_p_hat, R_lambda_, copies, kappa
                 sign_grad_py_t[v] = [-1.0]
     return sign_grad_py_t
 
+def calc_initial_p1_nodes0(y_t, node_nns, X, Y, cnt_V, p0):
+    p = [0 for i in range(cnt_V)]
+    for v, v_nns in node_nns.items():
+        if X.has_key(v):
+            obs = {v_n:y_t[v_n] for v_n in v_nns if Y.has_key(v_n)}
+            # if len(obs) == 0: obs = {p0}
+            conf = 0
+            n_pos=0.0
+            for v_o,val in obs.items():
+                n_pos+=val
+                if val > 0.5:
+                    conf += 1.0
+                else:
+                    conf -= 1.0
+            if conf >1.0:
+                p[v] = 1.0
+            # else:
+            #     if n_pos==0:
+            #         p[e] = 0.0
+            #     else:
+            #         p[e] = 1.0
+            # p[e] = np.median(obs)
+        else:
+            p[v] = y_t[v]
+    return p
+
 class Consumer(multiprocessing.Process):
     def __init__(self, task_queue, result_queue):
         multiprocessing.Process.__init__(self)
@@ -227,7 +253,7 @@ def admm(omega, y_t, Y, X, node_nns, p0, R, psl = False, approx = False, report_
     cnt_X = len(X)
     cnt_V = cnt_X + cnt_Y
     K = len(R)
-    p = calc_initial_p1_nodes(y_t, node_nns, X, Y, cnt_V, p0)
+    p = calc_initial_p1_nodes0(y_t, node_nns, X, Y, cnt_V, p0)
     sign_grad_py_t = {}
 
     R_p = []

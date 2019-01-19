@@ -207,6 +207,25 @@ def inference_apdm_format(V, E, Obs, Omega, E_X, logging, psl = False, approx = 
     return sign_grad_py
 
 
+def calc_initial_p(y_t, edge_down_nns, X, Y, cnt_E, p0):
+    p = [0 for i in range(cnt_E)]
+    for e, e_nns in edge_down_nns.items():
+        if X.has_key(e):
+            obs = {e_n:y_t[e_n] for e_n in e_nns.keys() if Y.has_key(e_n)}
+            conf = 0
+            n_pos=0.0
+            for e_o,val in obs.items():
+                n_pos+=val
+                if val > 0.5:
+                    conf += 1.0
+                else:
+                    conf -= 1.0
+            if conf > 0:
+                p[e] = 1.0
+
+        else:
+            p[e] = y_t[e]
+    return p
 
 """
 INPUT
@@ -231,7 +250,7 @@ def admm(omega, y_t, Y, X, edge_up_nns, edge_down_nns, p0, R, psl = False, appro
     cnt_X = len(X)
     cnt_E = cnt_X + cnt_Y
     K = len(R)
-    p = calc_initial_p1(y_t, edge_down_nns, X, Y, cnt_E, p0)
+    p = calc_initial_p(y_t, edge_down_nns, X, Y, cnt_E, p0)
     sign_grad_py_t = {}
 
     R_p = []
