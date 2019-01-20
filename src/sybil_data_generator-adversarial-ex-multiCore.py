@@ -16,7 +16,7 @@ def analyze_data_facebook():
         #8078,88234 4039
         #723244 67392 33696
         #2016920 164336 82168
-        TT=88234
+        TT=4039
         with open("../data/facebook/graph.txt") as op:
             for line in op.readlines():
                 e=map(int,line.strip().split())
@@ -231,6 +231,15 @@ def sample_X(test_ratio, V):
     print test_ratio, len(E_X), len(V), 1.0*len(E_X) / len(V)
     return E_X
 
+def sample_X2(test_ratio, V):
+    rand_seq_V = copy.deepcopy(V.keys())
+    shuffle(rand_seq_V)
+    cnt = int(np.round(len(V) * test_ratio))
+    X = rand_seq_V[:cnt]
+    E_X = {i:V[i] for i in X}
+    print test_ratio, len(E_X), len(V), 1.0*len(E_X) / len(V)
+    return E_X
+
 class Consumer(multiprocessing.Process):
     def __init__(self, task_queue, result_queue):
         multiprocessing.Process.__init__(self)
@@ -323,7 +332,7 @@ class Task_generate_rn(object):
         """Step1: Sampling X edges with test ratio """""
         # nns, id_2_node, node_2_id, _, _ = reformat(self.V, self.E, Obs)
         # nns=gen_nns(self.V,self.E)
-        E_X = sample_X(self.test_ratio, self.V)  #test nodes
+        E_X = sample_X2(self.test_ratio, self.V)  #test nodes
 
         """Step 2: Add noise to observations on the edges """
         E_Y = [v for v in self.V.keys() if not E_X.has_key(v)]
@@ -526,14 +535,13 @@ def random_flip_sybils_data_generator():
 def random_noise_sybils_data_generator():
     data_root = "/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_noise/"
     # data_root = "./"
-    realizations = 1
-    attack_edges = [1000,2000,3000,4000,5000]
-    network_files = {"facebook": "../data/Undirected_Facebook/facebook_sybils_attackedge",
+    realizations = 10
+    network_files = {"facebook": "../data/facebook/facebook_sybils_attackedge",
                      "enron": "../data/enron/enron_attackedge",
                      "slashdot": "../data/slashdot/slashdot_sybils_attackedge"}
     tasks = multiprocessing.Queue()
     results = multiprocessing.Queue()
-    num_consumers = 10  # We only use 5 cores.
+    num_consumers = 30  # We only use 5 cores.
     # print 'Creating %d consumers' % num_consumers
     consumers = [Consumer(tasks, results)
                  for i in range(num_consumers)]
@@ -541,26 +549,27 @@ def random_noise_sybils_data_generator():
         w.start()
     num_jobs=0
     for i,dataset in enumerate(["facebook","enron","slashdot"][:1]):
-        for attack_edge in [1000, 5000,10000,15000,20000][2:3]:
+        for attack_edge in [1000, 5000,10000,15000,20000,35000][5:]:
             filename = network_files[dataset] + "_{}.pkl".format(attack_edge)
-            print "--------- reading {}".format(filename)
+
             pkl_file = open(filename, 'rb')
             [V, E] = pickle.load(pkl_file)
+            print "--------- reading {} V:{} E:{}".format(filename,len(V),len(E))
             pkl_file.close()
             out_folder = data_root+dataset+"/"
             if not os.path.exists(out_folder):
                 os.makedirs(out_folder)
             for T in [10][:]:
                 for swap_ratio in [0.00, 0.01,0.02, 0.05][1:2]:
-                    for test_ratio in [0.3,0.1, 0.2, 0.4,0.5][:2]:
+                    for test_ratio in [0.3,0.1, 0.2, 0.4,0.5][:]:
                         Obs = graph_process(V, E, T, swap_ratio)
                         for gamma in [0.0, 0.01, 0.03, 0.05, 0.07,0.09,0.2,0.3,0.4,0.5][:]:  # 11
-                            for real_i in range(realizations)[:]:
+                            for real_i in range(realizations)[:1]:
                                 fout = out_folder + "{}-attackedges-{}-T-{}-testratio-{}-swap_ratio-{}-gamma-{}-realization-{}-data-X.pkl".format(
                                     dataset, attack_edge, T, test_ratio, swap_ratio, gamma, real_i)
                                 tasks.put(Task_generate_rn(V, E, Obs, T, test_ratio, swap_ratio, gamma, fout))
                                 num_jobs += 1
-                    print "\n\nTttack_edge size {} Done.....................\n\n".format(attack_edge)
+                    print "\n\nAttack_edge size {} Done.....................\n\n".format(attack_edge)
 
         for i in range(num_consumers):
             tasks.put(None)
@@ -671,9 +680,9 @@ def pgd_csl_sybils_data_generator():
 
 if __name__=='__main__':
     # analyze_data_FB()
-    analyze_data_facebook()
+    # analyze_data_facebook()
 
     # random_flip_sybils_data_generator()
-    # random_noise_sybils_data_generator()
+    random_noise_sybils_data_generator()
     # pgd_sybils_data_generator()
     # pgd_csl_sybils_data_generator()
