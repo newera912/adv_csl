@@ -680,9 +680,9 @@ def pgd_csl_sybils_data_generator():
 
 if __name__=='__main__':
     # analyze_data_FB()
-    # analyze_data_facebook()
+    analyze_data_facebook()
 
     # random_flip_sybils_data_generator()
-    random_noise_sybils_data_generator()
+    # random_noise_sybils_data_generator()
     # pgd_sybils_data_generator()
     # pgd_csl_sybils_data_generator()
