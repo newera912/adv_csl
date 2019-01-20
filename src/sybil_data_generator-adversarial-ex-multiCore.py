@@ -9,7 +9,52 @@ from network_funs import *
 from gen_sybils_adv_example import inference_apdm_format as inference_apdm_format_conflict_evidence
 from gen_sybils_adv_example_csl import inference_apdm_format as inference_apdm_format_csl
 
-def analyze_data_FB():
+def analyze_data_facebook():
+    for attack_ratio in [0.1][:]:
+        nodes={}
+        edges={}
+        #8078,88234 4039
+        #723244 67392 33696
+        #2016920 164336 82168
+        TT=88234
+        with open("../data/facebook/graph.txt") as op:
+            for line in op.readlines():
+                e=map(int,line.strip().split())
+                nodes[e[0]] = 0 if e[0] < TT else 1
+                nodes[e[1]] = 0 if e[1] < TT else 1
+                if (e[0]<TT and e[1]<TT): edges[(e[0],e[1])]=0
+                elif (e[0] >= TT and e[1] >= TT): edges[(e[0], e[1])] = 1
+                # else: edges[(e[0], e[1])] = -1
+        print "without attack edges:",len(edges)
+        total_edge=len(edges)
+        attack_edge=int(attack_ratio*total_edge)
+        for i in range(attack_edge):
+            e_0=random.choice(range(0,TT))
+            e_1=random.choice(range(TT,2*TT))
+            while True:
+                if not edges.has_key((e_0,e_1)) or  not edges.has_key((e_1,e_0)):
+                    break
+                e_0 = random.choice(range(0, TT))
+                e_1 = random.choice(range(TT, 2*TT))
+                attack_edge+=1
+                # continue
+            edges[(e_0,e_1)]=-1
+            edges[(e_1, e_0)] = -1
+        # print attack_edge,len(nodes),min(nodes.keys()),max(nodes.keys()),2*4039
+        edge_type={}
+        for edge in edges.values():
+            if edge_type.has_key(edge):
+                edge_type[edge]+=1
+            else:
+                edge_type[edge] = 1
+        print edge_type
+        print attack_edge,len(edges.keys()),2*TT+2*1000*(attack_edge/1000),2*sum(edges.values())
+        attack_edge=1000 * (attack_edge / 1000)
+        outfp = open("../data/facebook/facebook_sybils_attackedge_{}.pkl".format(attack_edge), 'w')
+        pickle.dump([nodes,edges], outfp)
+        outfp.close()
+
+def analyze_data_slashdot():
     for attack_edge in [1000,5000,10000,15000,20000][:]:
         nodes={}
         edges={}
@@ -495,7 +540,7 @@ def random_noise_sybils_data_generator():
     for w in consumers:
         w.start()
     num_jobs=0
-    for i,dataset in enumerate(["facebook","enron","slashdot"][1:2]):
+    for i,dataset in enumerate(["facebook","enron","slashdot"][:1]):
         for attack_edge in [1000, 5000,10000,15000,20000][2:3]:
             filename = network_files[dataset] + "_{}.pkl".format(attack_edge)
             print "--------- reading {}".format(filename)
@@ -626,9 +671,9 @@ def pgd_csl_sybils_data_generator():
 
 if __name__=='__main__':
     # analyze_data_FB()
-    # analyze_data()
+    analyze_data_facebook()
 
     # random_flip_sybils_data_generator()
     # random_noise_sybils_data_generator()
     # pgd_sybils_data_generator()
-    pgd_csl_sybils_data_generator()
+    # pgd_csl_sybils_data_generator()

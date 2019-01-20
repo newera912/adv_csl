@@ -207,6 +207,6 @@ def analysisData2():
     print len(V),len(E)
 # analysisData()
 # gen_OBS0()
-# enron_analysisData()
-slashdot_analysisData()
+enron_analysisData()
+# slashdot_analysisData()
 # analysisData2()
