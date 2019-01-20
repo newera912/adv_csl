@@ -16,7 +16,7 @@ def analyze_data_facebook():
         #8078,88234 4039
         #723244 67392 33696
         #2016920 164336 82168
-        TT=88234
+        TT=4039
         with open("../data/facebook/graph.txt") as op:
             for line in op.readlines():
                 e=map(int,line.strip().split())
