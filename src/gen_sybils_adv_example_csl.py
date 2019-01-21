@@ -30,7 +30,7 @@ from multi_core_csl_inference_adversarial_sybils import inference_apdm_format as
 
 
 
-def get_sign_grad_py(sign_grad_py_t,p_t,y_t,Y, R_p, R_p_hat, R_lambda_, copies, kappa):
+def get_sign_grad_py(sign_grad_py_t,p_t,y_t,Y, R_p, R_p_hat, R_lambda_, copies, kappa,omega):
     grads = {}
     for v in Y.keys():
         if not copies.has_key(v):
@@ -42,14 +42,14 @@ def get_sign_grad_py(sign_grad_py_t,p_t,y_t,Y, R_p, R_p_hat, R_lambda_, copies, 
 
         if p_t[v]==0.0:
             term1=0.0
+            term2 = (omega[v][1] - 1)
         else:
-            term1=-1.0
+            term1=-(omega[v][0]-1)
+            term2 = 0.0
 
-        if p_t[v]==1.0:
-            term2=0.0
-        else:
-            term2=1.0
-            # grad=z_lambda_sum
+
+
+        # grad=z_lambda_sum
 
         # C1 = y_t[v]
         # C2 = 1 - y_t[v]
@@ -59,7 +59,7 @@ def get_sign_grad_py(sign_grad_py_t,p_t,y_t,Y, R_p, R_p_hat, R_lambda_, copies, 
         #     print ">>>>>>>>",p_t[e],z_lambda_sum
 
         grad = np.sign(term1+term2 + (1 / kappa) * z_lambda_sum)
-        if z_lambda_sum==0 :grad=0
+        if z_lambda_sum==0 :grad=0.0
         # grad=z_lambda_sum
         if grads.has_key(grad):
             grads[grad] += 1
@@ -82,7 +82,7 @@ def get_sign_grad_py(sign_grad_py_t,p_t,y_t,Y, R_p, R_p_hat, R_lambda_, copies, 
                 sign_grad_py_t[v].append(-1.0)
             else:
                 sign_grad_py_t[v] = [-1.0]
-    print(grads)
+    # print(grads)
     return sign_grad_py_t
 
 def calc_initial_p1_nodes0(y_t, node_nns, X, Y, cnt_V, p0):
@@ -337,7 +337,7 @@ def admm(omega, y_t, Y, X, node_nns, p0, R, psl = False, approx = False, report_
         # rho = min(maxRho, rho * 1.1)
         p = R_p_2_p(R_p, copies, cnt_V)
                                           #sign_grad_py_t,p_t,y_t,Y, R_p_hat, R_lambda_, copies, kappa
-        sign_grad_py_t = get_sign_grad_py(sign_grad_py_t, p, y_t, Y,R_p, R_z, R_lambda_, copies, 1 / rho)
+        sign_grad_py_t = get_sign_grad_py(sign_grad_py_t, p, y_t, Y,R_p, R_z, R_lambda_, copies, 1 / rho,omega)
         error = sqrt(np.sum([pow(p_old[v] - p[v], 2) for v in range(cnt_V)]))
         # print ">>>>>>>>>>>> admm iteration.{0}: {1}".format(iter, error)
         if error < epsilon:
@@ -354,7 +354,7 @@ def R_p_2_p(R_p, copies, cnt_E):
         p_v = []
         for k, j in v_copies:  # k_th rule, j_th item
             p_v.append(R_p[k][j])
-        p[v] = np.round(np.mean(p_v), 2)
+        p[v] = np.round(np.mean(p_v), 1)
     return p
 
 """

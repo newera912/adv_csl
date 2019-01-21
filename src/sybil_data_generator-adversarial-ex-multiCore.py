@@ -453,7 +453,7 @@ class Task_generate_pgd_csl(object): #dataset,attack_edge,V, E, Obs, T, test_rat
         X_b = []
         sign_grad_py = gen_adv_exmaple_csl(self.V, self.E, self.ObsO, X_b, E_X)
         """ |p_y+alpha*sign(nabla_py L)| <= gamma"""
-        for gamma in [0.0, 0.01, 0.03, 0.05, 0.07,0.09,0.2,0.3,0.4,0.5][:]:  # 11
+        for gamma in [0.0, 0.01, 0.03, 0.05, 0.07,0.09,0.2,0.3,0.4,0.5][1:2]:  # 11
             fout = self.out_folder + "{}-attackedges-{}-T-{}-testratio-{}-swap_ratio-{}-gamma-{}-realization-{}-data-X.pkl".format(
                 self.dataset, self.attack_edge, self.T, self.test_ratio, self.swap_ratio, gamma, self.real_i)
             Obs = copy.deepcopy(self.ObsO)
@@ -464,18 +464,27 @@ class Task_generate_pgd_csl(object): #dataset,attack_edge,V, E, Obs, T, test_rat
                     # print type(sign_grad_py[0])
                     if e not in sign_grad_py[0].keys(): print "Eroorrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr!"
                     for t in range(0, self.T):
+                        delta = {}
                         for i in range(len(sign_grad_py[t][e])):
+                            tupl=(self.ObsO[e][t],Counter(sign_grad_py[t][e]).most_common(1)[0][0])
+                            if delta.has_key(tupl):
+                                delta[tupl]+=1
+                            else:
+                                delta[tupl]=1
+                            # print self.ObsO[e][t],Counter(sign_grad_py[t][e]).most_common(1)[0][0]
                             Obs[e][t] = clip01(Obs[e][t]+self.alpha*sign_grad_py[t][e][i])   #clip between [0,1]
                         if np.abs(Obs[e][t]-self.ObsO[e][t]) >gamma:
                             Obs[e][t]=clip01(self.ObsO[e][t]+np.sign(Obs[e][t]-self.ObsO[e][t])*gamma)  #clip |py_adv-py_orig|<gamma
+                        print delta
                 print "Iteration Number",[len(sign_grad_py[i][sign_grad_py[i].keys()[0]]) for i in range(len(sign_grad_py)) ]
-                pkl_file = open(fout, 'wb')
-                pickle.dump([self.V, self.E, Obs, E_X, X_b], pkl_file)
-                pkl_file.close()
+                # pkl_file = open(fout, 'wb')
+                # pickle.dump([self.V, self.E, Obs, E_X, X_b], pkl_file)
+                # pkl_file.close()
             else:
-                pkl_file = open(fout, 'wb')
-                pickle.dump([self.V, self.E, self.ObsO, E_X, X_b], pkl_file)
-                pkl_file.close()
+                # pkl_file = open(fout, 'wb')
+                # pickle.dump([self.V, self.E, self.ObsO, E_X, X_b], pkl_file)
+                # pkl_file.close()
+                print
 
 
         """   V, E, Obs, Omega, b, X_b, E_X, logging, psl   """
@@ -638,7 +647,7 @@ def pgd_csl_sybils_data_generator():
     data_root = "/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_pgd_csl/"
     org_data_root = "/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_pgd_csl/"
     # data_root = "./"
-    realizations = 10
+    realizations = 1
     network_files = {"facebook": "../data/facebook/facebook_sybils_attackedge",
                      "enron": "../data/enron/enron_attackedge",
                      "slashdot": "../data/slashdot/slashdot_sybils_attackedge"}
@@ -666,7 +675,7 @@ def pgd_csl_sybils_data_generator():
             for T in [10][:]:
                 for swap_ratio in [0.00, 0.01, 0.02, 0.05][1:2]:
                     for test_ratio in [0.3,0.1, 0.2,  0.4, 0.5][:1]:
-                        for real_i in range(realizations)[5:]:
+                        for real_i in range(realizations)[:1]:
                             Obs = graph_process(V, E, T, swap_ratio)
                             tasks.put(
                                 Task_generate_pgd_csl(dataset, attack_edge, V, E, Obs, T, test_ratio, swap_ratio, real_i,

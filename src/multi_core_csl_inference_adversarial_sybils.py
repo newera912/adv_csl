@@ -2,9 +2,11 @@ __author__ = 'Feng Chen'
 from math import *
 import numpy as np
 from scipy.stats import gamma
+
 # import cvxpy as cvx
 # from cvxpy import *
 # import cvxopt
+
 import copy
 import random, math
 
@@ -113,9 +115,10 @@ class Consumer(multiprocessing.Process):
 
 class Task_inference(object):
     #                  omega, b, y_t, Y, X, node_nns, omega_0, R, psl, approx, report_stat
-    def __init__(self, omega, b, y_t, Y, X, node_nns, omega_0, R, psl, approx, report_stat):
+    def __init__(self, omega, b, x_t, y_t, Y, X, node_nns, omega_0, R, psl, approx, report_stat):
         self.omega = omega
         self.b = b
+        self.x_t = x_t
         self.y_t = y_t
         self.Y = Y
         self.X = X
@@ -130,7 +133,7 @@ class Task_inference(object):
         # this is the place to do your work
         # time.sleep(0.1) # pretend to take some time to do our work
         #                omega, b, y_t, Y, X, edge_up_nns,edge_down_nns, omega_0, R, psl, approx, report_stat
-        p_t, b_t = admm(self.omega, self.b, self.y_t, self.Y, self.X, self.node_nns,
+        p_t, b_t = admm(self.omega, self.b,self.x_t, self.y_t, self.Y, self.X, self.node_nns,
                         self.omega_0, self.R, self.psl, self.approx, self.report_stat)
         return p_t, b_t
 
@@ -157,13 +160,13 @@ omegax: a dictionary with key edge id and value a pair of alpha and beta values
 """
 
 
-def inference(omega_y, omega_0, y, X, Y, T, node_nns, R, logging, psl=False, approx=False,
+def inference(omega_y, omega_0, x,y, X, Y, T, node_nns, R, logging, psl=False, approx=False,
               init_alpha_beta=(1, 1), report_stat=False):
     omega = copy.deepcopy(omega_y)
     for v in X.keys(): omega[
         v] = init_alpha_beta  # Beta pdf can be visualized via http://eurekastatistics.com/beta-distribution-pdf-grapher/
     error = -1
-    for iter in range(5):
+    for iter in range(2):
         ps = []
         bs = []
 
@@ -183,8 +186,9 @@ def inference(omega_y, omega_0, y, X, Y, T, node_nns, R, logging, psl=False, app
         b = {v: 0 for v in X.keys() + Y.keys()}
         for t in range(T):
             y_t = {v: v_y[t] for v, v_y in y.items()}
+            x_t = {v: v_y[t] for v, v_y in x.items()}
             tasks.put(
-                Task_inference(omega, b, y_t, Y, X, node_nns, omega_0, R, psl, approx, report_stat))
+                Task_inference(omega, b, x_t,y_t, Y, X, node_nns, omega_0, R, psl, approx, report_stat))
             # print "b_t", b_t
 
         # Add a poison pill for each consumer
@@ -250,13 +254,14 @@ def inference_apdm_format(V, E, Obs, Omega, b, X, logging, psl=False, approx=Tru
     # b = {edge_2_id[e]: val for e, val in b.items()}
     omega_y = {v: omega[v] for v in Y}
     y = {v: feat[v] for v in Y}
+    x = {v :feat[v] for v in X}
     # omega_0 = [2, 15]
     omega_0 = [2, 8]
     # omega_0 = [15, 2]
     T = len(feat[0])
     R = generate_PSL_rules_from_edge_cnns_nodes(node_nns)
     print "#Rule:{} Nodes:{} Edges:{}".format(len(R), len(V), len(E))
-    pred_omega_x, pred_b_y = inference(omega_y, omega_0, y, X, Y, T, node_nns, R, logging, psl,
+    pred_omega_x, pred_b_y = inference(omega_y, omega_0, x,y, X, Y, T, node_nns, R, logging, psl,
                                        approx, init_alpha_beta, report_stat)
     pred_omega_x = {id_2_node[v]: alpha_beta for v, alpha_beta in pred_omega_x.items()}
     pred_b_y = {id_2_node[v]: val for v, val in pred_b_y.items()}
@@ -349,8 +354,9 @@ def estimate_omega_x(ps, X):
     strategy = 1  # 1: means we consider p values as binary observations and use them to estimate alpha and beta.
     if strategy == 1:
         for e in X:
-            data = [prob_2_binary(p_t[e]) for p_t in ps]
+            data = [prob_2_binary2(p_t[e]) for p_t in ps]
             # data = [(p_t[e]) for p_t in ps]
+            #mapping blief probality to beta dist
             alpha1 = np.sum(data) + 1.0
             beta1 = len(data) - np.sum(data)  + 1.0
             omega_x[e] = (alpha1, beta1)
@@ -367,14 +373,14 @@ def estimate_b(bs):
 
 def prob_2_binary(val):
     return val
-    # if val > 0.2:
+    # if val > 0.3:
     #     return 1
     # else:
     #     return 0
 
 def prob_2_binary2(val):
     # return val
-    if val >= 0.45:
+    if val >= 0.5:
         return 1
     else:
         return 0
@@ -878,8 +884,8 @@ def calc_initial_node_p1(y_t, node_nns, X, Y, cnt_V, p0, b_init):
 
     return p, b_init
 
-#facebook, enron
-def calc_initial_node_p2(y_t, node_nns, X, Y, cnt_V, p0, b_init):
+#facebook better jan21
+def calc_initial_node_p2(x_t,y_t, node_nns, X, Y, cnt_V, p0, b_init):
     p = [1e-6 for i in range(cnt_V)]
     # print "Y:{} X:{} node_nns:{}".format(len(Y),len(X),len(node_nns))
     threshold=0.5
@@ -900,11 +906,12 @@ def calc_initial_node_p2(y_t, node_nns, X, Y, cnt_V, p0, b_init):
             b_init[v] = 1.0
         else:
             b_init[v] = 0.0
-
+    x_init={}
     for v, v_nns in node_nns.items():
         if X.has_key(v):
             obs = {v_n:y_t[v_n] for v_n in v_nns if Y.has_key(v_n)}
             # if len(obs) == 0: obs = {p0}
+            # if len(obs)==0: print v
             conf = 0
             n_pos=0.0
             for v_o,val in obs.items():
@@ -925,9 +932,73 @@ def calc_initial_node_p2(y_t, node_nns, X, Y, cnt_V, p0, b_init):
                 #     p[v] = 1.0
                 # else:
                 #     p[v] = 0.0
+            diff=x_t[v]-p[v]
+            if x_init.has_key(diff):
+                x_init[diff]+=1
+            else:
+                x_init[diff] = 1
         else:
             p[v] = y_t[v]
+    print x_init
+    return p, b_init
 
+#facebook better Jan21 0.19
+def calc_initial_node_p2_2(x_t,y_t, node_nns, X, Y, cnt_V, p0, b_init):
+    p = [1e-6 for i in range(cnt_V)]
+    # print "Y:{} X:{} node_nns:{}".format(len(Y),len(X),len(node_nns))
+    threshold=0.5
+    for v in Y:
+        p[v] = np.round(y_t[v],4)  # observation indicates probability
+        """ dict_paths[e] includes the rule bodies that indicates e """
+        # if dict_paths.has_key(e) and X_b.has_key(e):
+        n_pos = 0
+        n_neg = 0
+
+        obs = [y_t[v_n] for v_n in node_nns[v] if Y.has_key(v_n)]
+        for val in obs:
+            if val >= threshold:
+                n_pos += 1.0
+            else:
+                n_neg += 1.0
+        if (n_pos - n_neg > 0 and p[v] <threshold) or (n_pos - n_neg < 0 and p[v] >=threshold):
+            b_init[v] = 1.0
+        else:
+            b_init[v] = 0.0
+    x_init={}
+    for v, v_nns in node_nns.items():
+        if X.has_key(v):
+            obs = {v_n:y_t[v_n] for v_n in v_nns if Y.has_key(v_n)}
+            # if len(obs) == 0: obs = {p0}
+            # if len(obs)==0: print v
+            conf = 0
+            n_pos=0.0
+            for v_o,val in obs.items():
+                if Y.has_key(v_o) and b_init[v_o]==1.0:
+                    val=np.abs(1.0-val)
+                n_pos+=val
+                # if b_init[v_o]==1:
+                #     val=1.0-val
+                if val >=threshold:
+                    conf += 1.0
+                else:
+                    conf -= 1.0
+            if conf >=0.0:
+                p[v] = 1.0
+            else:
+                p[v] = 0.0
+
+                # if n_pos>0.0: #new debug
+                #     p[v] = 1.0
+                # else:
+                #     p[v] = 0.0
+            diff=x_t[v]-p[v]
+            if x_init.has_key(diff):
+                x_init[diff]+=1
+            else:
+                x_init[diff] = 1
+        else:
+            p[v] = y_t[v]
+    print x_init
     return p, b_init
 
 def calc_initial_node_p2_mean(y_t, node_nns, X, Y, cnt_V, p0, b_init):
@@ -1121,14 +1192,14 @@ p_t: a list of probability values of the cnt_Y + cnt_X edges. p[i] refers to the
 b_t:
 """
 
-def admm(omega, b, y_t, Y, X, node_nns, omega_0, R, psl=False, approx=False, report_stat=False):
+def admm(omega, b, x_t,y_t, Y, X, node_nns, omega_0, R, psl=False, approx=False, report_stat=False):
     # print "b_init", b_init
     weight = 1.0
     epsilon = 0.01
     cnt_V = len(X) + len(Y)
     K = len(R)
     t0 = time.time()
-    p_init, b_init = calc_initial_node_p2(y_t, node_nns, X, Y, cnt_V, 0.5, b)
+    p_init, b_init = calc_initial_node_p2_2(x_t,y_t, node_nns, X, Y, cnt_V, 0.5, b)
     t1 = time.time()
     # print "cal int time",t1-t0
     # print "R", R
@@ -1409,10 +1480,13 @@ def R_p_2_p(R_p, copies, cnt_V):
         p_v = []
         b_v = []
         for k, j in v_copies:  # k_th rule, j_th item
-            p_v.append(R_p[k][j])
-            b_v.append(R_p[k][j+1])
+            p_v.append(round(R_p[k][j]))
+            b_v.append(round(R_p[k][j+1]))
         p[v] = round(np.round(np.mean(p_v),2))
         b[v] = round(np.round(np.mean(b_v),2))
+        # p[v] = np.round(np.mean(p_v), 2)
+        # b[v] = np.round(np.mean(b_v), 2)
+
 
     return p, b
 
