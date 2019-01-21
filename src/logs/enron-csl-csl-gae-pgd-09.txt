@@ -1,0 +1,18 @@
+
+
+--------------------------------------------------
+--------------------------------------------------
+
+-------------------Thu, 17 Jan 2019 11:39:22 PM EST---------------------
+
+0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+dataset: enron method: CSL, #attack_edge:10000,T:10,test_ratio: 0.3,gamma:0.0
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_pgd_csl/enron/enron-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-gamma-0.0-realization-0-data-X.pkl
+Traceback (most recent call last):
+  File "adv_csl_sybils_experiment_pipeline.py", line 691, in <module>
+    main()
+  File "adv_csl_sybils_experiment_pipeline.py", line 684, in main
+    enron_sybils_dataset_test()
+  File "adv_csl_sybils_experiment_pipeline.py", line 543, in enron_sybils_dataset_test
+    pkl_file = open(f, 'rb')
+IOError: [Errno 2] No such file or directory: '/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_pgd_csl/enron/enron-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-gamma-0.0-realization-0-data-X.pkl'
