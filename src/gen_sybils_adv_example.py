@@ -549,41 +549,72 @@ def update_px(X, R_p, R_p_hat, R_lambda_, copies, omega, cnt_V, kappa, approx):
         for k, j in copies[e]:
             R_p[k][j] = min_prob
     return R_p
-
+    #                sign_grad_py_t,p_t,b_t,y_t,Y, R_p, R_p_hat, R_lambda, copies, omega,kappa, appro
 def get_sign_grad_py(sign_grad_py_t,p_t,b_t,y_t,Y, R_p, R_p_hat, R_lambda_, copies, omega, kappa, approx):
     # py_grad_sign={}
-    for e in Y.keys():
+    grads={}
+    for v in Y.keys():
         grad=0
         """
         grad_i= - y_t[e]/p_y[e] +(1-y_t[e])/(1-p_y[e]) + rho*\sum_{copies p[e]}(p_t[e]-\hat p[e] -\lambda[e]*1/rho )
         """
-        if not copies.has_key(e):
-            if sign_grad_py_t.has_key(e):
-                sign_grad_py_t[e].append(0.0)  #the edges  are not involved any rules
+        if not copies.has_key(v):
+            if sign_grad_py_t.has_key(v):
+                sign_grad_py_t[v].append(0.0)  #the edges  are not involved any rules
             else:
-                sign_grad_py_t[e]=[0.0]
+                sign_grad_py_t[v]=[0.0]
             continue
 
-        nc = len(copies[e])
+        nc = len(copies[v])
         #\alpha_0==\alpha_e
-        C1= y_t[e]
-        C2= 1-y_t[e]
-        z_lambda_sum = np.sum([p_t[e]-R_p_hat[k][j] - kappa * R_lambda_[k][j] for k, j in copies[e]])
+        # C1= omega[v][0] - 1 + y_t[v]
+        # C2= omega[v][1] - y_t[v]
+
+        # C1 = (1-b_t[v])*(omega[v][0] - 1) + y_t[v]
+        # C2 =(1-b_t[v])*(omega[v][1] - 1) +1 - y_t[v]
+        if p_t[v]==0.0:
+            term1=0.0
+        else:
+            term1=-1.0
+
+        if p_t[v]==1.0:
+            term2=0.0
+        else:
+            term2=1.0
+        # C1= y_t[v]
+        # C2 = 1 - y_t[v]
+        z_lambda_sum = np.sum([R_p[v]-R_p_hat[k][j] - kappa * R_lambda_[k][j] for k, j in copies[v]])
+        # print v,[(p_t[v],R_p_hat[k][j],R_lambda_[k][j],p_t[v]-R_p_hat[k][j] - kappa * R_lambda_[k][j]) for k, j in copies[v]]
         # if z_lambda_sum!=0:
         #     print ">>>>>>>>",p_t[e],z_lambda_sum
+        #    -C1 / (p_t[v] + 0.000001) + C2 / (1 - p_t[v]
 
-        grad=-C1/(p_t[e]+0.000001)+C2/(1-p_t[e]+0.000001) +(1/kappa)* z_lambda_sum
-        if grad>=0:
-            if sign_grad_py_t.has_key(e):
-                sign_grad_py_t[e].append(1.0)
-            else:
-                sign_grad_py_t[e]=[1.0]
+        grad=np.sign(term1 +term2  +(1/kappa)* z_lambda_sum)
+        if b_t[v]==1.0 : grad=0.0
+        # grad=z_lambda_sum
+        if grads.has_key(grad):
+            grads[grad]+=1
         else:
-            if sign_grad_py_t.has_key(e):
-                sign_grad_py_t[e].append(-1.0)
+            grads[grad] = 1
+        # print grad
+        if grad == 0:
+            if sign_grad_py_t.has_key(v):
+                sign_grad_py_t[v].append(0.0)
             else:
-                sign_grad_py_t[e]=[-1.0]
+                sign_grad_py_t[v] = [0.0]
+
+        elif grad > 0:
+            if sign_grad_py_t.has_key(v):
+                sign_grad_py_t[v].append(1.0)
+            else:
+                sign_grad_py_t[v] = [1.0]
+        else:
+            if sign_grad_py_t.has_key(v):
+                sign_grad_py_t[v].append(-1.0)
+            else:
+                sign_grad_py_t[v] = [-1.0]
         # time.sleep(100)
+    print(grads)
     return sign_grad_py_t
 
 """
@@ -936,7 +967,7 @@ def calc_initial_node_p2(y_t, node_nns, X, Y, cnt_V, p0, b_init):
                 n_pos += 1.0
             else:
                 n_neg += 1.0
-        if (n_pos - n_neg > 0 and p[v] <= 0.5) or (n_pos - n_neg < 0 and p[v] >= 0.5):
+        if (n_pos - n_neg > 0 and p[v] < 0.5) or (n_pos - n_neg < 0 and p[v] >= 0.5):
             b_init[v] = 1.0
         else:
             b_init[v] = 0.0
@@ -951,13 +982,13 @@ def calc_initial_node_p2(y_t, node_nns, X, Y, cnt_V, p0, b_init):
                 # if Y.has_key(e_o) and b_init[e_o]==1.0:
                 #     val=np.abs(1.0-val)
                 n_pos+=val
-                if b_init[v_o]==1:
-                    val=1.0-val
+                # if b_init[v_o]==1:
+                #     val=1.0-val
                 if val > 0.5:
                     conf += 1.0
                 else:
                     conf -= 1.0
-            if conf > 0.5:
+            if conf > 0:
                 p[v] = 1.0
             else:
                 p[v] = 0.0
@@ -1080,6 +1111,7 @@ def generate_local_variables(p_init, b_init, X, R):
                 copies[v].append([k, idx * 2])
             else:
                 copies[v] = [[k, idx * 2]]
+        # print R_p_hat[k]
 
 
     return R_p, R_p_hat, R_lambda, y_edge, copies
@@ -1106,7 +1138,7 @@ b_t:
 def admm(omega, b, y_t, Y, X, node_nns, omega_0, R, psl=False, approx=False, report_stat=False):
     # print "b_init", b_init
     weight = 1.0
-    epsilon = 0.01
+    epsilon = 0.001
     cnt_V = len(X) + len(Y)
     K = len(R)
     t0 = time.time()
@@ -1174,15 +1206,17 @@ def admm(omega, b, y_t, Y, X, node_nns, omega_0, R, psl=False, approx=False, rep
 
         sign_grad_py_t = get_sign_grad_py(sign_grad_py_t, p_t, b_t, y_t, Y, R_p, R_p_hat, R_lambda, copies, omega,
                                           kappa, approx)
-
+        # print "p_t",sum(p_t)
         # print "R_p_hat", R_p_hat
         # print "R_lambda:", R_lambda
         error = np.sqrt(np.sum([np.power(p_t_old[v] - p_t[v], 2) for v in range(cnt_V)]))
         if error < epsilon:
+            # print(error,len(Y),cnt_V)
             break
         sys.stdout.write("Iter-" + str(iter) + ": " + str(round(time.time() - t3, 2))+"/"+str( round(t_2 - t_1,2)) + " | ")
     sys.stdout.write("\n")
     if len(sign_grad_py_t) == 0:
+        print("grad==0.............................................................")
         sign_grad_py_t = get_sign_grad_py(sign_grad_py_t, p_t, b_t, y_t, Y, R_p, R_p_hat,
                                                                    R_lambda, copies, omega, cnt_E, kappa, approx)
 
@@ -1403,8 +1437,11 @@ def R_p_2_p(R_p, copies, cnt_V):
         for k, j in v_copies:  # k_th rule, j_th item
             p_v.append(R_p[k][j])
             b_v.append(R_p[k][j+1])
-        p[v] = round(np.round(np.mean(p_v),2))
-        b[v] = round(np.round(np.mean(b_v),2))
+        # p[v] = round(np.round(np.mean(p_v),2))
+        # b[v] = round(np.round(np.mean(b_v),2))
+        if p[v]>1.0 or b[v]>1.0 : print("?????????????????????????????????????????????????")
+        p[v] = np.round(np.mean(p_v), 2)
+        b[v] = np.round(np.mean(b_v), 2)
 
     return p, b
 

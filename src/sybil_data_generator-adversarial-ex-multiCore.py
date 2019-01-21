@@ -9,6 +9,8 @@ from network_funs import *
 from gen_sybils_adv_example import inference_apdm_format as inference_apdm_format_conflict_evidence
 from gen_sybils_adv_example_csl import inference_apdm_format as inference_apdm_format_csl
 
+from collections import Counter
+
 def analyze_data_facebook():
     for attack_ratio in [0.1][:]:
         nodes={}
@@ -332,7 +334,7 @@ class Task_generate_rn(object):
         """Step1: Sampling X edges with test ratio """""
         # nns, id_2_node, node_2_id, _, _ = reformat(self.V, self.E, Obs)
         # nns=gen_nns(self.V,self.E)
-        E_X = sample_X2(self.test_ratio, self.V)  #test nodes
+        E_X = sample_X(self.test_ratio, self.V)  #test nodes
 
         """Step 2: Add noise to observations on the edges """
         E_Y = [v for v in self.V.keys() if not E_X.has_key(v)]
@@ -400,6 +402,11 @@ class Task_generate_pgd(object): #dataset,attack_edge,V, E, Obs, T, test_ratio, 
                         if np.abs(Obs[e][t]-self.ObsO[e][t]) >gamma:
                             Obs[e][t]=clip01(self.ObsO[e][t]+np.sign(Obs[e][t]-self.ObsO[e][t])*gamma)  #clip |py_adv-py_orig|<gamma
                 print "Iteration Number",[len(sign_grad_py[i][sign_grad_py[i].keys()[0]]) for i in range(len(sign_grad_py)) ]
+
+                # for i in range(10):
+                #     for v in sign_grad_py[i].keys():
+                #         # print(sign_grad_py[i][v])
+                #         if sign_grad_py[i][v][0]==0.0: print v,sign_grad_py[i][v]
                 pkl_file = open(fout, 'wb')
                 pickle.dump([self.V, self.E, Obs, E_X, X_b], pkl_file)
                 pkl_file.close()
@@ -549,7 +556,7 @@ def random_noise_sybils_data_generator():
         w.start()
     num_jobs=0
     for i,dataset in enumerate(["facebook","enron","slashdot"][:1]):
-        for attack_edge in [1000, 5000,10000,15000,20000,35000][5:]:
+        for attack_edge in [1000, 5000,10000,15000,20000,35000][2:3]:
             filename = network_files[dataset] + "_{}.pkl".format(attack_edge)
 
             pkl_file = open(filename, 'rb')
@@ -561,10 +568,10 @@ def random_noise_sybils_data_generator():
                 os.makedirs(out_folder)
             for T in [10][:]:
                 for swap_ratio in [0.00, 0.01,0.02, 0.05][1:2]:
-                    for test_ratio in [0.3,0.1, 0.2, 0.4,0.5][:]:
+                    for test_ratio in [0.3,0.1, 0.2, 0.4,0.5][:1]:
                         Obs = graph_process(V, E, T, swap_ratio)
                         for gamma in [0.0, 0.01, 0.03, 0.05, 0.07,0.09,0.2,0.3,0.4,0.5][:]:  # 11
-                            for real_i in range(realizations)[:1]:
+                            for real_i in range(realizations)[1:]:
                                 fout = out_folder + "{}-attackedges-{}-T-{}-testratio-{}-swap_ratio-{}-gamma-{}-realization-{}-data-X.pkl".format(
                                     dataset, attack_edge, T, test_ratio, swap_ratio, gamma, real_i)
                                 tasks.put(Task_generate_rn(V, E, Obs, T, test_ratio, swap_ratio, gamma, fout))
@@ -584,16 +591,16 @@ def pgd_sybils_data_generator():
     data_root = "/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_pgd/"
     org_data_root="/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_pgd_csl/"
     # data_root = "./"
-    realizations = 1
+    realizations = 10
     attack_edges = [1000,2000,3000,4000,5000]
-    network_files={"facebook":"../data/Undirected_Facebook/facebook_sybils_attackedge",
+    network_files={"facebook":"../data/facebook/facebook_sybils_attackedge",
                    "enron":"../data/enron/enron_attackedge",
                    "slashdot":"../data/slashdot/slashdot_sybils_attackedge"}
 
     alpha=0.02
     tasks = multiprocessing.Queue()
     results = multiprocessing.Queue()
-    num_consumers = 1  # We only use 5 cores.
+    num_consumers = 10  # We only use 5 cores.
     # print 'Creating %d consumers' % num_consumers
     consumers = [Consumer(tasks, results)
                  for i in range(num_consumers)]
@@ -612,9 +619,9 @@ def pgd_sybils_data_generator():
                 os.makedirs(out_folder)
             for T in [10][:]:
                 for swap_ratio in [0.00, 0.01,0.02, 0.05][1:2]:
-                    for test_ratio in [0.3,0.1, 0.2, 0.4,0.5][:]:
-                        Obs = graph_process(V, E, T, swap_ratio)
+                    for test_ratio in [0.3,0.1, 0.2, 0.4,0.5][:1]:
                         for real_i in range(realizations)[:]:
+                            Obs = graph_process(V, E, T, swap_ratio)
                             tasks.put(Task_generate_pgd(dataset,attack_edge,V, E, Obs, T, test_ratio, swap_ratio,real_i,alpha,out_folder))
                             num_jobs += 1
                     print "\n\nTttack_edge size {} Done.....................\n\n".format(attack_edge)
@@ -631,23 +638,22 @@ def pgd_csl_sybils_data_generator():
     data_root = "/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_pgd_csl/"
     org_data_root = "/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_pgd_csl/"
     # data_root = "./"
-    realizations = 1
-    attack_edges = [1000, 2000, 3000, 4000, 5000]
-    network_files = {"facebook": "../data/Undirected_Facebook/facebook_sybils_attackedge",
+    realizations = 10
+    network_files = {"facebook": "../data/facebook/facebook_sybils_attackedge",
                      "enron": "../data/enron/enron_attackedge",
                      "slashdot": "../data/slashdot/slashdot_sybils_attackedge"}
 
     alpha = 0.02
     tasks = multiprocessing.Queue()
     results = multiprocessing.Queue()
-    num_consumers = 1  # We only use 5 cores.
+    num_consumers = 10  # We only use 5 cores.
     # print 'Creating %d consumers' % num_consumers
     consumers = [Consumer(tasks, results)
                  for i in range(num_consumers)]
     for w in consumers:
         w.start()
     num_jobs = 0
-    for i, dataset in enumerate(["facebook", "enron", "slashdot"][2:]):
+    for i, dataset in enumerate(["facebook", "enron", "slashdot"][:1]):
         for attack_edge in [1000, 5000, 10000, 15000, 20000][2:3]:
             filename = network_files[dataset] + "_{}.pkl".format(attack_edge)
             print "--------- reading {}".format(filename)
@@ -660,8 +666,8 @@ def pgd_csl_sybils_data_generator():
             for T in [10][:]:
                 for swap_ratio in [0.00, 0.01, 0.02, 0.05][1:2]:
                     for test_ratio in [0.3,0.1, 0.2,  0.4, 0.5][:1]:
-                        Obs = graph_process(V, E, T, swap_ratio)
-                        for real_i in range(realizations)[:]:
+                        for real_i in range(realizations)[5:]:
+                            Obs = graph_process(V, E, T, swap_ratio)
                             tasks.put(
                                 Task_generate_pgd_csl(dataset, attack_edge, V, E, Obs, T, test_ratio, swap_ratio, real_i,
                                                   alpha, out_folder))
@@ -680,9 +686,9 @@ def pgd_csl_sybils_data_generator():
 
 if __name__=='__main__':
     # analyze_data_FB()
-    analyze_data_facebook()
+    # analyze_data_facebook()
 
     # random_flip_sybils_data_generator()
     # random_noise_sybils_data_generator()
     # pgd_sybils_data_generator()
-    # pgd_csl_sybils_data_generator()
+    pgd_csl_sybils_data_generator()

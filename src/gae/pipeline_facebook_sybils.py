@@ -22,7 +22,7 @@ from preprocessing import preprocess_graph, construct_feed_dict, sparse_to_tuple
 # Settings
 flags = tf.app.flags
 FLAGS = flags.FLAGS
-flags.DEFINE_float('learning_rate', 0.001, 'Initial learning rate.')
+flags.DEFINE_float('learning_rate', 0.01, 'Initial learning rate.')
 flags.DEFINE_integer('epochs', 200, 'Number of epochs to train.')
 flags.DEFINE_integer('hidden1', 32, 'Number of units in hidden layer 1.')
 flags.DEFINE_integer('hidden2', 4, 'Number of units in hidden layer 2, P in our paper.')
@@ -54,18 +54,18 @@ tf.set_random_seed(seed)
 dataroot = "/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/"
 report_stat = False
 count=0
-realizations=1
+realizations=10
 
-for test_ratio in [0.3,0.1, 0.2, 0.4, 0.5][:]:
-    for adv_type in ["random_noise","random_pgd","random_pgd_csl","random_pgd_gcn_vae"][2:]:
-        for attack_edge in [1000,5000,10000,15000,20000][2:3]:
-            for T in [10][:]:
-                for swap_ratio in [0.00, 0.01, 0.02, 0.05][1:2]:
-                    for gamma in [0.0, 0.01, 0.03, 0.05, 0.07,0.09,0.2,0.3,0.4,0.5][:]:  # 11
-                        for real_i in range(realizations)[:1]:
+for real_i in range(realizations)[:]:
+    for test_ratio in [0.3,0.1, 0.2, 0.4, 0.5][:1]:
+        for adv_type in ["random_noise","random_pgd","random_pgd_csl","random_pgd_gcn_vae"][3:]:
+            for attack_edge in [10000,35000][:1]:
+                for T in [10][:]:
+                    for swap_ratio in [0.00, 0.01, 0.02, 0.05][1:2]:
+                        for gamma in [0.0, 0.01, 0.03, 0.05, 0.07,0.09,0.2,0.3,0.4,0.5][:]:  # 11
                             fileName = dataroot + adv_type + "/facebook/facebook-attackedges-{}-T-{}-testratio-{}-swap_ratio-{}-gamma-{}-realization-{}-data-X.pkl".format(
                                 attack_edge, T, test_ratio, swap_ratio, gamma, real_i)
-                            outf = '../../output/sybils/{}_results-server-Jan17-{}.json'.format("GCN-VAE", adv_type)
+                            outf = '../../output/sybils/{}_results-server-Jan20-{}.json'.format("GCN-VAE", adv_type)
                             print(fileName)
                             # adj, features = load_data_epinion(fileName)
                             adj,y_train_belief, y_test_belief, y_train_un, y_test_un, train_mask, test_mask, omega_test, alpha_0, beta_0 = mask_test_node_sybils(fileName,T)
@@ -190,20 +190,21 @@ for test_ratio in [0.3,0.1, 0.2, 0.4, 0.5][:]:
                                 print("Optimization Finished!")
                                 best_epoch = np.argmin(bf_mse_one)
                                 bf_mse.append(np.min(bf_mse_one))
+                                # bf_mse.append(bf_mse_one[:-1])
                                 b_mse.append(np.min(b_mse_one))
                                 u_mse.append(np.min(u_mse_one))
                                 print("alpha_0:", alpha_0, "beta_0:", beta_0)
                                 print("best epoch:", (best_epoch + 1) * 10, "bset_belief:", b_mse_one[best_epoch], "bset_uncertain:",
-                                      u_mse_one[best_epoch], "bset_opinion:", bf_mse_one[best_epoch])
+                                      u_mse_one[best_epoch], "bset_opinion:", bf_mse_one[best_epoch],bf_mse_one[-1])
                                 print("run time = ", time.time()-t1)
 
-                                u_mse = round(float(b_mse_one[best_epoch]), 4)
+                                u_mse = round(float(u_mse_one[best_epoch]), 4)
                                 b_mse = round(float(b_mse_one[best_epoch]), 4)
                                 d_mse = round(float(1.0 - u_mse - b_mse), 4)
                                 prob_mse = round(float(bf_mse_one[best_epoch]), 4)
                                 result_ = {'dataset':"facebook",'attack_edge':attack_edge,'adv_type':adv_type,
                                             'network_size': num_nodes, "realization": real_i,
-                                           'sample_size': 1, 'T': T, 'gamma': gamma,
+                                           'sample_size': 1, 'T': T, 'gamma': gamma,'swap_ratio':swap_ratio,
                                            'test_ratio': test_ratio, 'acc': (0.0, 0.0),
                                            'alpha_mse': (0.0, 0.0),
                                            'beta_mse': (0.0, 0.0),

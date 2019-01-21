@@ -361,20 +361,20 @@ def estimate_b(bs):
     cnt_Y = len(bs[0])
     b_new = {}
     for i in range(cnt_Y):
-        b_new[i] = prob_2_binary(np.mean([b_t[i] for b_t in bs]))
+        b_new[i] = prob_2_binary2(np.mean([b_t[i] for b_t in bs]))
     return b_new
 
 
 def prob_2_binary(val):
-    # return val
-    if val > 0.45:
-        return 1
-    else:
-        return 0
+    return val
+    # if val > 0.2:
+    #     return 1
+    # else:
+    #     return 0
 
 def prob_2_binary2(val):
     # return val
-    if val >= 0.2:
+    if val >= 0.45:
         return 1
     else:
         return 0
@@ -884,7 +884,7 @@ def calc_initial_node_p2(y_t, node_nns, X, Y, cnt_V, p0, b_init):
     # print "Y:{} X:{} node_nns:{}".format(len(Y),len(X),len(node_nns))
     threshold=0.5
     for v in Y:
-        p[v] = y_t[v]  # observation indicates probability
+        p[v] = np.round(y_t[v],4)  # observation indicates probability
         """ dict_paths[e] includes the rule bodies that indicates e """
         # if dict_paths.has_key(e) and X_b.has_key(e):
         n_pos = 0
@@ -896,7 +896,7 @@ def calc_initial_node_p2(y_t, node_nns, X, Y, cnt_V, p0, b_init):
                 n_pos += 1.0
             else:
                 n_neg += 1.0
-        if (n_pos - n_neg > 0 and p[v] <=threshold) or (n_pos - n_neg < 0 and p[v] >=threshold):
+        if (n_pos - n_neg > 0 and p[v] <threshold) or (n_pos - n_neg < 0 and p[v] >=threshold):
             b_init[v] = 1.0
         else:
             b_init[v] = 0.0
@@ -921,7 +921,65 @@ def calc_initial_node_p2(y_t, node_nns, X, Y, cnt_V, p0, b_init):
                 p[v] = 1.0
             else:
                 p[v] = 0.0
-                # if n_pos>0.0:
+                # if n_pos>0.0: #new debug
+                #     p[v] = 1.0
+                # else:
+                #     p[v] = 0.0
+        else:
+            p[v] = y_t[v]
+
+    return p, b_init
+
+def calc_initial_node_p2_mean(y_t, node_nns, X, Y, cnt_V, p0, b_init):
+    p = [1e-6 for i in range(cnt_V)]
+    # print "Y:{} X:{} node_nns:{}".format(len(Y),len(X),len(node_nns))
+    threshold=0.5
+    perb_count=0.0
+    for v in Y:
+        p[v] = np.round(y_t[v],4)  # observation indicates probability
+        if y_t[v]!=1.0 and y_t[v]!=0.0 :perb_count+=1 #print v,y_t[v]
+        """ dict_paths[e] includes the rule bodies that indicates e """
+        # if dict_paths.has_key(e) and X_b.has_key(e):
+        n_pos = 0
+        n_neg = 0
+
+        obs = [y_t[v_n] for v_n in node_nns[v] if Y.has_key(v_n)]
+        for val in obs:
+            if val >= threshold:
+                n_pos += 1.0
+            else:
+                n_neg += 1.0
+        if (n_pos - n_neg > 0 and p[v] <=threshold) or (n_pos - n_neg < 0 and p[v] >=threshold):
+            b_init[v] = 1.0
+        else:
+            b_init[v] = 0.0
+    print ">>",perb_count
+    for v, v_nns in node_nns.items():
+        if X.has_key(v):
+            obs = {v_n:y_t[v_n] for v_n in v_nns if Y.has_key(v_n)}
+            # if len(obs) == 0: print v,node_nns[v]
+            if len(obs)==0 or np.median(obs.values())<=0.5 :
+                p[v]=0.0
+            else:
+                p[v] =1.0
+            # if len(obs) == 0: obs = {p0}
+            # conf = 0
+            # n_pos=0.0
+            # for v_o,val in obs.items():
+            #     # if Y.has_key(e_o) and b_init[e_o]==1.0:
+            #     #     val=np.abs(1.0-val)
+            #     n_pos+=val
+            #     # if b_init[v_o]==1:
+            #     #     val=1.0-val
+            #     if val >=threshold:
+            #         conf += 1.0
+            #     else:
+            #         conf -= 1.0
+            # if conf > 0:
+            #     p[v] = 1.0
+            # else:
+            #     p[v] = 0.0
+                # if n_pos>0.0: #new debug
                 #     p[v] = 1.0
                 # else:
                 #     p[v] = 0.0

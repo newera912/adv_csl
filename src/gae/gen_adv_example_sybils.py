@@ -21,7 +21,7 @@ from model import GCNModelAE, GCNModelVAE
 from preprocessing import preprocess_graph, construct_feed_dict,sparse_to_tuple, mask_test_node_sybils
 
 import pickle,copy
-
+from collections import Counter
 
 def clip01(x):
     if x<0.0: return 0.0
@@ -65,12 +65,12 @@ org_data_root="/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_pgd/"
 #real data
 case_count=0
 for adv_type in ["random_pgd_gcn_vae"][:]:
-    for i, dataset in enumerate(["facebook", "enron", "slashdot"][2:]):
+    for i, dataset in enumerate(["facebook", "enron", "slashdot"][:1]):
         for attack_edge in [1000,5000,10000,15000,20000][2:3]:
             for T in [10][:]:
                 for swap_ratio in [0.00, 0.01, 0.02, 0.05][1:2]:
                     for test_ratio in [0.3,0.1, 0.2,0.4, 0.5][:1]:
-                        for real_i in range(1)[:1]:
+                        for real_i in range(10)[:]:
                             fileName = org_data_root + "/{}/{}-attackedges-{}-T-{}-testratio-{}-swap_ratio-{}-gamma-{}-realization-{}-data-X.pkl".format(
                                 dataset,dataset, attack_edge, T, test_ratio, swap_ratio,0.0, real_i)
 
@@ -216,24 +216,35 @@ for adv_type in ["random_pgd_gcn_vae"][:]:
                             with open(fileName,'rb') as pkl_file:
                                 [V, E, Obs, E_X, X_b] = pickle.load(pkl_file)
                             print("V:{} E:{}",len(V),len(E))
+                            tot={0:0.0,1:0.0,-1:0.0}
                             sign_grad={}
                             for i in range(FLAGS.epochs):
                                 for v_id,grads in enumerate(gradients[i][0][0]):
                                     node_id=V[v_id]
                                     if test_mask[v_id]==False:
-                                        if np.sum(np.sign(grads))>=0.0:
+                                        if np.sum(np.sign(grads))==0.0:
+                                            tot[0]+=1
+                                            # print(">=0",grads)
+                                            if sign_grad.has_key(node_id):
+                                                sign_grad[node_id].append(0.0)
+                                            else:
+                                                sign_grad[node_id]=[0.0]
+                                        elif np.sum(np.sign(grads))>0.0:
+                                            tot[1]+= 1
                                             # print(">=0",grads)
                                             if sign_grad.has_key(node_id):
                                                 sign_grad[node_id].append(1.0)
                                             else:
                                                 sign_grad[node_id]=[1.0]
                                         else:
+                                            tot[-1]+= 1
                                             # print("<0--------------------------",grads)
                                             if sign_grad.has_key(node_id):
                                                 sign_grad[node_id].append(-1.0)
                                             else:
                                                 sign_grad[node_id]=[-1.0]
                             print(len(sign_grad))
+                            print(tot)
                             out_folder=data_root+ adv_type+"/"+dataset + "/"
                             if not os.path.exists(out_folder):
                                 os.makedirs(out_folder)
@@ -255,6 +266,7 @@ for adv_type in ["random_pgd_gcn_vae"][:]:
                                     pickle.dump([V,E, Obs_g, E_X, X_b], pkl_file)
                                     pkl_file.close()
                                 else:
+                                    # print
                                     pkl_file = open(fout, 'wb')
                                     pickle.dump([V, E, Obs, E_X, X_b], pkl_file)
                                     pkl_file.close()

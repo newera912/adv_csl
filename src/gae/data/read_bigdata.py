@@ -111,8 +111,8 @@ def get_alphabeta(ome, W=2.0, a=0.5):
 def get_omega_obs(obs):
     W = 2.0
     T=len(obs)
-    r = np.sum(obs)  #problem
-    s = T-r  #problem
+    r = Counter(obs)[1]
+    s = Counter(obs)[0]
     u = W / (W + r + s)
     b = r / (W + r + s)
     d = s / (W + r + s)
@@ -251,6 +251,7 @@ def get_epinion_data_sybils(fileName,T=10):
     opinion = {}
     for v in V.keys():
         omega_rs[v] = get_omega_obs(t_Obs[v])
+        # if E_X.has_key(v): print omega_rs[v]
         opinion[v] = get_alphabeta(omega_rs[v])
     belief = np.zeros(len(V))
     uncertain = np.zeros(len(V))
@@ -258,7 +259,7 @@ def get_epinion_data_sybils(fileName,T=10):
     for v in V.keys():
         belief[v] = omega_rs[v][0]
         uncertain[v] = omega_rs[v][2]
-        if v in E_X:
+        if E_X.has_key(v):
             test_index.append(v)
     return belief, uncertain, test_index
 
