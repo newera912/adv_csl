@@ -48,7 +48,6 @@ def get_sign_grad_py(sign_grad_py_t,p_t,y_t,Y, R_p, R_p_hat, R_lambda_, copies, 
             term2 = 0.0
 
 
-
         # grad=z_lambda_sum
 
         # C1 = y_t[v]
@@ -60,7 +59,7 @@ def get_sign_grad_py(sign_grad_py_t,p_t,y_t,Y, R_p, R_p_hat, R_lambda_, copies, 
 
         grad = np.sign(term1+term2 + (1 / kappa) * z_lambda_sum)
         if z_lambda_sum==0 :grad=0.0
-        # grad=z_lambda_sum
+        grad=z_lambda_sum
         if grads.has_key(grad):
             grads[grad] += 1
         else:
@@ -82,7 +81,7 @@ def get_sign_grad_py(sign_grad_py_t,p_t,y_t,Y, R_p, R_p_hat, R_lambda_, copies, 
                 sign_grad_py_t[v].append(-1.0)
             else:
                 sign_grad_py_t[v] = [-1.0]
-    # print(grads)
+    print(grads)
     return sign_grad_py_t
 
 def calc_initial_p1_nodes0(y_t, node_nns, X, Y, cnt_V, p0):

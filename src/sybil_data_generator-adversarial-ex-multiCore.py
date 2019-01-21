@@ -453,20 +453,20 @@ class Task_generate_pgd_csl(object): #dataset,attack_edge,V, E, Obs, T, test_rat
         X_b = []
         sign_grad_py = gen_adv_exmaple_csl(self.V, self.E, self.ObsO, X_b, E_X)
         """ |p_y+alpha*sign(nabla_py L)| <= gamma"""
-        for gamma in [0.0, 0.01, 0.03, 0.05, 0.07,0.09,0.2,0.3,0.4,0.5][1:2]:  # 11
+        for gamma in [0.0, 0.01, 0.03, 0.05, 0.07,0.09,0.2,0.3,0.4,0.5][:]:  # 11
             fout = self.out_folder + "{}-attackedges-{}-T-{}-testratio-{}-swap_ratio-{}-gamma-{}-realization-{}-data-X.pkl".format(
                 self.dataset, self.attack_edge, self.T, self.test_ratio, self.swap_ratio, gamma, self.real_i)
             Obs = copy.deepcopy(self.ObsO)
             if gamma>0.0:
-
+                dir_len = int(round(gamma / self.alpha))
                 # T = len(self.Obs[self.E.keys()[0]])
                 for e in E_Y:
                     # print type(sign_grad_py[0])
                     if e not in sign_grad_py[0].keys(): print "Eroorrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr!"
                     for t in range(0, self.T):
                         delta = {}
-                        for i in range(len(sign_grad_py[t][e])):
-                            tupl=(self.ObsO[e][t],Counter(sign_grad_py[t][e]).most_common(1)[0][0])
+                        for i in range(len(sign_grad_py[t][e]))[:dir_len]:
+                            tupl=(self.ObsO[e][t],Counter(sign_grad_py[t][e][:dir_len]).most_common(1)[0][0])
                             if delta.has_key(tupl):
                                 delta[tupl]+=1
                             else:
@@ -475,7 +475,7 @@ class Task_generate_pgd_csl(object): #dataset,attack_edge,V, E, Obs, T, test_rat
                             Obs[e][t] = clip01(Obs[e][t]+self.alpha*sign_grad_py[t][e][i])   #clip between [0,1]
                         if np.abs(Obs[e][t]-self.ObsO[e][t]) >gamma:
                             Obs[e][t]=clip01(self.ObsO[e][t]+np.sign(Obs[e][t]-self.ObsO[e][t])*gamma)  #clip |py_adv-py_orig|<gamma
-                        print delta
+                        print delta,sign_grad_py[t][e][:dir_len]
                 print "Iteration Number",[len(sign_grad_py[i][sign_grad_py[i].keys()[0]]) for i in range(len(sign_grad_py)) ]
                 # pkl_file = open(fout, 'wb')
                 # pickle.dump([self.V, self.E, Obs, E_X, X_b], pkl_file)

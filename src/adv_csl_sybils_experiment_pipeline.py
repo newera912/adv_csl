@@ -444,7 +444,7 @@ def facebook_sybils_dataset_test():
     count=0
     realizations=10
     methods = ["SL","CSL", "Adv-CSL"][2:]
-    for real_i in range(realizations)[:5]:
+    for real_i in range(realizations)[8:]:
         for test_ratio in [0.3,0.1, 0.2, 0.4, 0.5][:1]:
             for adv_type in ["random_noise","random_pgd","random_pgd_csl","random_pgd_gcn_vae"][1:2]:
                 for attack_edge in [10000,35000][:1]:
