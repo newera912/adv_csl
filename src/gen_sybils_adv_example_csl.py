@@ -59,7 +59,7 @@ def get_sign_grad_py(sign_grad_py_t,p_t,y_t,Y, R_p, R_p_hat, R_lambda_, copies, 
 
         grad = np.sign(term1+term2 + (1 / kappa) * z_lambda_sum)
         if z_lambda_sum==0 :grad=0.0
-        grad=z_lambda_sum
+        # grad=z_lambda_sum
         if grads.has_key(grad):
             grads[grad] += 1
         else:
@@ -303,7 +303,7 @@ def admm(omega, y_t, Y, X, node_nns, p0, R, psl = False, approx = False, report_
         R_lambda_.append(rule_lambda_)
     # rho = 0.0001 # Set rho to be quite low to start with
     rho = 1.0
-    maxiter = 30
+    maxiter = 1
     # maxRho = 5
     for iter in range(maxiter):
         for k in range(K):
