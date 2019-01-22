@@ -56,7 +56,7 @@ report_stat = False
 count=0
 realizations=10
 
-for real_i in range(realizations)[:]:
+for real_i in range(realizations)[:5]:
     for test_ratio in [0.3,0.1, 0.2, 0.4, 0.5][:1]:
         for adv_type in ["random_noise","random_pgd","random_pgd_csl","random_pgd_gcn_vae"][3:]:
             for attack_edge in [10000,35000][:1]:
@@ -65,7 +65,7 @@ for real_i in range(realizations)[:]:
                         for gamma in [0.0, 0.01, 0.03, 0.05, 0.07,0.09,0.2,0.3,0.4,0.5][:]:  # 11
                             fileName = dataroot + adv_type + "/facebook/facebook-attackedges-{}-T-{}-testratio-{}-swap_ratio-{}-gamma-{}-realization-{}-data-X.pkl".format(
                                 attack_edge, T, test_ratio, swap_ratio, gamma, real_i)
-                            outf = '../../output/sybils/{}_results-server-Jan20-{}.json'.format("GCN-VAE", adv_type)
+                            outf = '../../output/sybils/{}_results-server-Jan21-{}.json'.format("GCN-VAE", adv_type)
                             print(fileName)
                             # adj, features = load_data_epinion(fileName)
                             adj,y_train_belief, y_test_belief, y_train_un, y_test_un, train_mask, test_mask, omega_test, alpha_0, beta_0 = mask_test_node_sybils(fileName,T)

@@ -472,18 +472,18 @@ class Task_generate_pgd_csl(object): #dataset,attack_edge,V, E, Obs, T, test_rat
                             else:
                                 delta[tupl]=1
                             # print self.ObsO[e][t],Counter(sign_grad_py[t][e]).most_common(1)[0][0]
-                            Obs[e][t] = clip01(Obs[e][t]+self.alpha*sign_grad_py[t][e][i])   #clip between [0,1]
+                            Obs[e][t] = clip01(Obs[e][t]+gamma*sign_grad_py[t][e][i])   #clip between [0,1]
                         if np.abs(Obs[e][t]-self.ObsO[e][t]) >gamma:
                             Obs[e][t]=clip01(self.ObsO[e][t]+np.sign(Obs[e][t]-self.ObsO[e][t])*gamma)  #clip |py_adv-py_orig|<gamma
                         print delta,sign_grad_py[t][e][:dir_len]
                 print "Iteration Number",[len(sign_grad_py[i][sign_grad_py[i].keys()[0]]) for i in range(len(sign_grad_py)) ]
-                # pkl_file = open(fout, 'wb')
-                # pickle.dump([self.V, self.E, Obs, E_X, X_b], pkl_file)
-                # pkl_file.close()
+                pkl_file = open(fout, 'wb')
+                pickle.dump([self.V, self.E, Obs, E_X, X_b], pkl_file)
+                pkl_file.close()
             else:
-                # pkl_file = open(fout, 'wb')
-                # pickle.dump([self.V, self.E, self.ObsO, E_X, X_b], pkl_file)
-                # pkl_file.close()
+                pkl_file = open(fout, 'wb')
+                pickle.dump([self.V, self.E, self.ObsO, E_X, X_b], pkl_file)
+                pkl_file.close()
                 print
 
 
@@ -564,7 +564,7 @@ def random_noise_sybils_data_generator():
     for w in consumers:
         w.start()
     num_jobs=0
-    for i,dataset in enumerate(["facebook","enron","slashdot"][:1]):
+    for i,dataset in enumerate(["facebook","enron","slashdot"][1:2]):
         for attack_edge in [1000, 5000,10000,15000,20000,35000][2:3]:
             filename = network_files[dataset] + "_{}.pkl".format(attack_edge)
 
@@ -580,7 +580,7 @@ def random_noise_sybils_data_generator():
                     for test_ratio in [0.3,0.1, 0.2, 0.4,0.5][:1]:
                         Obs = graph_process(V, E, T, swap_ratio)
                         for gamma in [0.0, 0.01, 0.03, 0.05, 0.07,0.09,0.2,0.3,0.4,0.5][:]:  # 11
-                            for real_i in range(realizations)[1:]:
+                            for real_i in range(realizations)[:]:
                                 fout = out_folder + "{}-attackedges-{}-T-{}-testratio-{}-swap_ratio-{}-gamma-{}-realization-{}-data-X.pkl".format(
                                     dataset, attack_edge, T, test_ratio, swap_ratio, gamma, real_i)
                                 tasks.put(Task_generate_rn(V, E, Obs, T, test_ratio, swap_ratio, gamma, fout))
@@ -647,7 +647,7 @@ def pgd_csl_sybils_data_generator():
     data_root = "/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_pgd_csl/"
     org_data_root = "/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_pgd_csl/"
     # data_root = "./"
-    realizations = 1
+    realizations = 10
     network_files = {"facebook": "../data/facebook/facebook_sybils_attackedge",
                      "enron": "../data/enron/enron_attackedge",
                      "slashdot": "../data/slashdot/slashdot_sybils_attackedge"}
@@ -675,7 +675,7 @@ def pgd_csl_sybils_data_generator():
             for T in [10][:]:
                 for swap_ratio in [0.00, 0.01, 0.02, 0.05][1:2]:
                     for test_ratio in [0.3,0.1, 0.2,  0.4, 0.5][:1]:
-                        for real_i in range(realizations)[:1]:
+                        for real_i in range(realizations)[:]:
                             Obs = graph_process(V, E, T, swap_ratio)
                             tasks.put(
                                 Task_generate_pgd_csl(dataset, attack_edge, V, E, Obs, T, test_ratio, swap_ratio, real_i,
@@ -698,6 +698,6 @@ if __name__=='__main__':
     # analyze_data_facebook()
 
     # random_flip_sybils_data_generator()
-    # random_noise_sybils_data_generator()
+    random_noise_sybils_data_generator()
     # pgd_sybils_data_generator()
-    pgd_csl_sybils_data_generator()
+    # pgd_csl_sybils_data_generator()

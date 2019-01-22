@@ -31,8 +31,8 @@ def clip01(x):
 # Settings
 flags = tf.app.flags
 FLAGS = flags.FLAGS
-flags.DEFINE_float('learning_rate', 0.001, 'Initial learning rate.')
-flags.DEFINE_integer('epochs', 30, 'Number of epochs to train.')
+flags.DEFINE_float('learning_rate', 0.01, 'Initial learning rate.')
+flags.DEFINE_integer('epochs', 1, 'Number of epochs to train.')
 flags.DEFINE_integer('hidden1', 32, 'Number of units in hidden layer 1.')
 flags.DEFINE_integer('hidden2', 4, 'Number of units in hidden layer 2, P in our paper.')
 flags.DEFINE_float('weight_decay', 0., 'Weight for L2 loss on embedding matrix.')
@@ -61,7 +61,7 @@ tf.set_random_seed(seed)
 # Load data
 # adj, features = load_data(dataset_str)
 data_root = "/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/"   #May23-3
-org_data_root="/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_pgd/"
+org_data_root="/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_pgd_csl/"
 #real data
 case_count=0
 for adv_type in ["random_pgd_gcn_vae"][:]:
@@ -216,11 +216,13 @@ for adv_type in ["random_pgd_gcn_vae"][:]:
                             with open(fileName,'rb') as pkl_file:
                                 [V, E, Obs, E_X, X_b] = pickle.load(pkl_file)
                             print("V:{} E:{}",len(V),len(E))
+                            # print(V.keys())
                             tot={0:0.0,1:0.0,-1:0.0}
                             sign_grad={}
+                            # print(gradients[i][0][0])
                             for i in range(FLAGS.epochs):
                                 for v_id,grads in enumerate(gradients[i][0][0]):
-                                    node_id=V[v_id]
+                                    node_id=v_id
                                     if test_mask[v_id]==False:
                                         if np.sum(np.sign(grads))==0.0:
                                             tot[0]+=1
@@ -253,20 +255,27 @@ for adv_type in ["random_pgd_gcn_vae"][:]:
                                 fout = out_folder + "/{}-attackedges-{}-T-{}-testratio-{}-swap_ratio-{}-gamma-{}-realization-{}-data-X.pkl".format(
                                 dataset, attack_edge, T, test_ratio, swap_ratio,gamma, real_i)
                                 print(fout,"<<<<<<<<<<<<<Done")
+                                tot={}
                                 if gamma>0.0:
                                     Obs_g=copy.deepcopy(Obs)
                                     for v in sign_grad.keys():
+                                        # print(v)
                                         for t in range(0, T):
                                             for i in range(len(sign_grad[v])):
-                                                Obs_g[v][t] = clip01(Obs_g[v][t] + 0.02* sign_grad[v][i])  # clip between [0,1]
+                                                Obs_g[v][t] = clip01(Obs_g[v][t] + gamma* sign_grad[v][i])  # clip between [0,1]
                                             if np.abs(Obs_g[v][t] - Obs[v][t]) > gamma:
                                                 Obs_g[v][t] = clip01(Obs[v][t] + np.sign(Obs_g[v][t] - Obs[v][t]) * gamma)  # clip |py_adv-py_orig|<gamma
-
+                                            diff=Obs_g[v][t] - Obs[v][t]
+                                            if tot.has_key(diff):
+                                                tot[diff]+=1
+                                            else:
+                                                tot[diff]=1
+                                    # print(tot)
                                     pkl_file = open(fout, 'wb')
                                     pickle.dump([V,E, Obs_g, E_X, X_b], pkl_file)
                                     pkl_file.close()
                                 else:
-                                    # print
+                                    print
                                     pkl_file = open(fout, 'wb')
                                     pickle.dump([V, E, Obs, E_X, X_b], pkl_file)
                                     pkl_file.close()

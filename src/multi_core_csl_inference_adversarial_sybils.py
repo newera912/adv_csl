@@ -1032,8 +1032,8 @@ def calc_initial_node_p2_3(x_t,y_t, node_nns, X, Y, cnt_V, p0, b_init):
             conf = 0
             n_pos=0.0
             for v_o,val in obs.items():
-                # if Y.has_key(v_o) and b_init[v_o]==1.0:
-                #     val=np.abs(1.0-val)
+                if Y.has_key(v_o) and b_init[v_o]==1.0:
+                    val=np.abs(1.0-val)
                 n_pos+=val
                 # if b_init[v_o]==1:
                 #     val=1.0-val
@@ -1041,7 +1041,7 @@ def calc_initial_node_p2_3(x_t,y_t, node_nns, X, Y, cnt_V, p0, b_init):
                     conf += 1.0
                 else:
                     conf -= 1.0
-            if conf >1.0: #>=0.0
+            if conf >0.0: #>=0.0
                 p[v] = 1.0
             else:
                 p[v] = 0.0
@@ -1201,7 +1201,7 @@ def admm(omega, b, x_t,y_t, Y, X, node_nns, omega_0, R, psl=False, approx=False,
     cnt_V = len(X) + len(Y)
     K = len(R)
     t0 = time.time()
-    p_init, b_init = calc_initial_node_p2_3(x_t,y_t, node_nns, X, Y, cnt_V, 0.5, b)
+    p_init, b_init = calc_initial_node_p2_2(x_t,y_t, node_nns, X, Y, cnt_V, 0.5, b)
     t1 = time.time()
     # print "cal int time",t1-t0
     # print "R", R
@@ -1266,7 +1266,7 @@ def admm(omega, b, x_t,y_t, Y, X, node_nns, omega_0, R, psl=False, approx=False,
         if error < epsilon:
             break
         sys.stdout.write("Iter-" + str(iter) + ": " + str(round(time.time() - t3, 2))+"/"+str( round(t_2 - t_1,2)) + " | ")
-    sys.stdout.write("\n")
+    if iter!=0: sys.stdout.write("\n")
     # sys.exit()
     return p_t, b_t
 
