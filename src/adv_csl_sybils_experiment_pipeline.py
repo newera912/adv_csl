@@ -443,19 +443,21 @@ def facebook_sybils_dataset_test():
     report_stat = False
     count=0
     realizations=10
+    gammas=[0.0, 0.01, 0.03, 0.05, 0.07,0.09,0.2,0.3,0.4,0.5]
+    gammas=[0.0, 0.01, 0.03,0.2,0.3,0.4]
     methods = ["SL","CSL", "Adv-CSL"][2:]
-    for real_i in range(realizations)[8:]:
+    for real_i in range(realizations)[:3]:
         for test_ratio in [0.3,0.1, 0.2, 0.4, 0.5][:1]:
             for adv_type in ["random_noise","random_pgd","random_pgd_csl","random_pgd_gcn_vae"][1:2]:
                 for attack_edge in [10000,35000][:1]:
                     for T in [10][:]:
                         for swap_ratio in [0.00, 0.01, 0.02, 0.05][1:2]:
-                            for gamma in [0.0, 0.01, 0.03, 0.05, 0.07,0.09,0.2,0.3,0.4,0.5][:]:  # 11
+                            for gamma in gammas:  # 11
                                 logging.write(str(count)+" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`")
                                 count+=1.0
                                 for method in methods[:]:
                                     f=dataroot +adv_type+ "/facebook/facebook-attackedges-{}-T-{}-testratio-{}-swap_ratio-{}-gamma-{}-realization-{}-data-X.pkl".format(attack_edge, T, test_ratio,swap_ratio, gamma, real_i)
-                                    outf = '../output/sybils/{}_results-server-Jan21-{}.json'.format(method,adv_type)
+                                    outf = '../output/sybils/{}_results-server-Jan21-debug-{}.json'.format(method,adv_type)
                                     logging.write("dataset: {} method: {}, #attack_edge:{},T:{},test_ratio: {},gamma:{}".format("facebook",method,attack_edge,T,test_ratio,gamma))
                                     logging.write(f)
                                     pkl_file = open(f, 'rb')
