@@ -942,7 +942,7 @@ def calc_initial_node_p2(x_t,y_t, node_nns, X, Y, cnt_V, p0, b_init):
     print x_init
     return p, b_init
 
-#facebook better Jan21 RN steady
+#facebook better Jan21 RN steady,enron sd
 def calc_initial_node_p2_2(x_t,y_t, node_nns, X, Y, cnt_V, p0, b_init):
     p = [1e-6 for i in range(cnt_V)]
     # print "Y:{} X:{} node_nns:{}".format(len(Y),len(X),len(node_nns))
@@ -1032,8 +1032,8 @@ def calc_initial_node_p2_3(x_t,y_t, node_nns, X, Y, cnt_V, p0, b_init):
             conf = 0
             n_pos=0.0
             for v_o,val in obs.items():
-                if Y.has_key(v_o) and b_init[v_o]==1.0:
-                    val=np.abs(1.0-val)
+                # if Y.has_key(v_o) and b_init[v_o]==1.0:
+                #     val=np.abs(1.0-val)
                 n_pos+=val
                 # if b_init[v_o]==1:
                 #     val=1.0-val
@@ -1201,7 +1201,7 @@ def admm(omega, b, x_t,y_t, Y, X, node_nns, omega_0, R, psl=False, approx=False,
     cnt_V = len(X) + len(Y)
     K = len(R)
     t0 = time.time()
-    p_init, b_init = calc_initial_node_p2_2(x_t,y_t, node_nns, X, Y, cnt_V, 0.5, b)
+    p_init, b_init = calc_initial_node_p2(x_t,y_t, node_nns, X, Y, cnt_V, 0.5, b)
     t1 = time.time()
     # print "cal int time",t1-t0
     # print "R", R

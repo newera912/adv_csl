@@ -74,7 +74,7 @@ public class Sybils1 {
 			this.cb = cb;
 
 			this.experimentName = cb.getString('experiment.name', 'default');
-			this.dbPath = cb.getString('experiment.dbpath', '/tmp');
+			this.dbPath = cb.getString('experiment.dbpath', '/network/rit/lab/ceashpc/adil/tmp/sybil1/');
 			this.dataPath = cb.getString('experiment.data.path', '../data');
 			this.outputPath = cb.getString('experiment.output.outputdir', Paths.get('output', this.experimentName).toString());
             

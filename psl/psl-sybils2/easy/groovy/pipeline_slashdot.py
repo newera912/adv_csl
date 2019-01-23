@@ -175,7 +175,7 @@ def pipeline():
     count = 0
     realizations = 1
     # methods = ["sl", "csl", "csl-conflict-1", "csl-conflict-2", "base1", "base2", "base3"][:1]
-    for adv_type in ["random_noise","random_pgd","random_pgd_csl","random_pgd_gcn_vae"][2:]:
+    for adv_type in ["random_noise","random_pgd","random_pgd_csl","random_pgd_gcn_vae"][3:]:
         for attack_edge in [1000, 5000, 10000, 15000, 20000][2:3]:
             result_folder = data_root + "/result_adv_csl/slashdot/" + adv_type + "/"
             if not os.path.exists(result_folder):
@@ -203,9 +203,9 @@ def pipeline():
                                     result_file = str(attack_edge) + '_' + str(
                                         test_ratio) + '_' + str(
                                         swap_ratio) + '_' + str(gamma) + '_' + str(window) + '_' + str(real_i) + '.txt'
-                                    if exfiles.has_key(result_file):
-                                        print "exists", result_file
-                                        continue
+                                    # if exfiles.has_key(result_file):
+                                    #     print "exists", result_file
+                                    #     continue
                                     print ">>>>", count, "-th ", attack_edge, real_i, T, window, test_ratio, gamma
 
                                     generate_data(t_Obs, E, E_X,gamma)
