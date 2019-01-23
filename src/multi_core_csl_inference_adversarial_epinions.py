@@ -166,7 +166,7 @@ def inference(omega_y, omega_0, y, X_b, X, Y, T, edge_up_nns, edge_down_nns, R, 
         e] = init_alpha_beta  # Beta pdf can be visualized via http://eurekastatistics.com/beta-distribution-pdf-grapher/
     error = -1
 
-    for iter in range(5):
+    for iter in range(2):
         ps = []
         bs = []
         tasks = multiprocessing.Queue()
@@ -1013,14 +1013,14 @@ def calc_initial_p4(dict_paths,x_on_body, y_t, edge_down_nns, X_b, X, Y, cnt_E, 
     p = [0.0 for i in range(cnt_E)]
     threshold=0.5
     for e in Y:
-        p[e] = y_t[e]  # observation indicates probability
+        p[e] = np.round(y_t[e],4)  # observation indicates probability
         """ dict_paths[e] includes the rule bodies that indicates e """
         if dict_paths.has_key(e) and X_b.has_key(e):
             n_pos = 0
             n_neg = 0
             for (e1, e2) in dict_paths[e]:
                 if X.has_key(e1) or X.has_key(e2): continue  # check unknown edges
-                if p[e1] * p[e2] >= threshold:  # check (1,1) edges
+                if p[e1] * p[e2] > threshold:  # check (1,1) edges
                     n_pos += 1
                 else:
                     n_neg += 1
@@ -1039,13 +1039,13 @@ def calc_initial_p4(dict_paths,x_on_body, y_t, edge_down_nns, X_b, X, Y, cnt_E, 
         """ dict_paths includes the rule bodies that indicates e """
         if dict_paths.has_key(e):
             for (e1, e2) in dict_paths[e]:
-                if p[e1] * p[e2] > threshold:
+                if p[e1] * p[e2] >threshold:
                     conf += 1.0
                 else:
                     conf -= 1.0
             # if x_on_body.has_key(e):
             #     for (e1,e2) in x_on_body[e]:
-            #         if p[e1] * p[e2] > 0:
+            #         if p[e1] * p[e2] > threshold:
             #             conf += p[e1] * p[e2]
             #         else:
             #             conf -= 1
@@ -1054,36 +1054,36 @@ def calc_initial_p4(dict_paths,x_on_body, y_t, edge_down_nns, X_b, X, Y, cnt_E, 
                 p[e] = 1.0
             else:
                 p[e] = 0.0
-        else:
-            if x_on_body.has_key(e):
-                conf = 0.0
-                for (e1, e2) in x_on_body[e]:
-                    # if e1 in Y and b_init[e1] == 1:
-                    #     p1 = 1 - p[e1]
-                    # else:
-                    #     p1 = p[e1]
-                    # if e2 in Y and b_init[e2] == 1:
-                    #     p2 = 1 - p[e2]
-                    # else:
-                    #     p2 = p[e2]
-                    p1=p[e1]
-                    p2=p[e2]
-                    # if p[e1] * p[e2] > 0:
-                    if p1 * p2 >= threshold:
-                        conf += p1 * p2
-                    else:
-                        conf -= 1
-                if conf > 0:  # if (1,1) count is greater than (_,1),(1,_),(_,0) and (0,_) counts than set to 1
-                    """p[e] = 1.0"""
-                    p[e] = 1.0
-                else:
-                    p[e] = 0.0
-            else:
-                p[e] = 0.0
-                # if random.random()>0.5:
-                #     p[e] = 0.0
-                # else:
-                #     p[e] = 1.0
+        # else:
+        #     if x_on_body.has_key(e):
+        #         conf = 0.0
+        #         for (e1, e2) in x_on_body[e]:
+        #             # if e1 in Y and b_init[e1] == 1:
+        #             #     p1 = 1 - p[e1]
+        #             # else:
+        #             #     p1 = p[e1]
+        #             # if e2 in Y and b_init[e2] == 1:
+        #             #     p2 = 1 - p[e2]
+        #             # else:
+        #             #     p2 = p[e2]
+        #             p1=p[e1]
+        #             p2=p[e2]
+        #             # if p[e1] * p[e2] > 0:
+        #             if p1 * p2 >= threshold:
+        #                 conf += p1 * p2
+        #             else:
+        #                 conf -= 1
+        #         if conf > 0.0:  # if (1,1) count is greater than (_,1),(1,_),(_,0) and (0,_) counts than set to 1
+        #             """p[e] = 1.0"""
+        #             p[e] = 1.0
+        #         else:
+        #             p[e] = 0.0
+        #     else:
+        #         p[e] = 0.0
+        #         # if random.random()>0.5:
+        #         #     p[e] = 0.0
+        #         # else:
+        #         #     p[e] = 1.0
 
     return p, b_init
 

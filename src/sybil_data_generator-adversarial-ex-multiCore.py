@@ -475,7 +475,7 @@ class Task_generate_pgd_csl(object): #dataset,attack_edge,V, E, Obs, T, test_rat
                             Obs[e][t] = clip01(Obs[e][t]+gamma*sign_grad_py[t][e][i])   #clip between [0,1]
                         if np.abs(Obs[e][t]-self.ObsO[e][t]) >gamma:
                             Obs[e][t]=clip01(self.ObsO[e][t]+np.sign(Obs[e][t]-self.ObsO[e][t])*gamma)  #clip |py_adv-py_orig|<gamma
-                        print delta,sign_grad_py[t][e][:dir_len]
+                        # print delta,sign_grad_py[t][e][:dir_len]
                 print "Iteration Number",[len(sign_grad_py[i][sign_grad_py[i].keys()[0]]) for i in range(len(sign_grad_py)) ]
                 pkl_file = open(fout, 'wb')
                 pickle.dump([self.V, self.E, Obs, E_X, X_b], pkl_file)
@@ -564,7 +564,7 @@ def random_noise_sybils_data_generator():
     for w in consumers:
         w.start()
     num_jobs=0
-    for i,dataset in enumerate(["facebook","enron","slashdot"][1:2]):
+    for i,dataset in enumerate(["facebook","enron","slashdot"][2:]):
         for attack_edge in [1000, 5000,10000,15000,20000,35000][2:3]:
             filename = network_files[dataset] + "_{}.pkl".format(attack_edge)
 
@@ -616,7 +616,7 @@ def pgd_sybils_data_generator():
     for w in consumers:
         w.start()
     num_jobs=0
-    for i,dataset in enumerate(["facebook","enron","slashdot"][:1]):
+    for i,dataset in enumerate(["facebook","enron","slashdot"][2:]):
         for attack_edge in [1000, 5000,10000,15000,20000][2:3]:
             filename = network_files[dataset]+"_{}.pkl".format(attack_edge)
             print "--------- reading {}".format(filename)
@@ -662,7 +662,7 @@ def pgd_csl_sybils_data_generator():
     for w in consumers:
         w.start()
     num_jobs = 0
-    for i, dataset in enumerate(["facebook", "enron", "slashdot"][:1]):
+    for i, dataset in enumerate(["facebook", "enron", "slashdot"][2:]):
         for attack_edge in [1000, 5000, 10000, 15000, 20000][2:3]:
             filename = network_files[dataset] + "_{}.pkl".format(attack_edge)
             print "--------- reading {}".format(filename)
@@ -675,7 +675,7 @@ def pgd_csl_sybils_data_generator():
             for T in [10][:]:
                 for swap_ratio in [0.00, 0.01, 0.02, 0.05][1:2]:
                     for test_ratio in [0.3,0.1, 0.2,  0.4, 0.5][:1]:
-                        for real_i in range(realizations)[:]:
+                        for real_i in range(realizations)[:1]:
                             Obs = graph_process(V, E, T, swap_ratio)
                             tasks.put(
                                 Task_generate_pgd_csl(dataset, attack_edge, V, E, Obs, T, test_ratio, swap_ratio, real_i,
@@ -698,6 +698,6 @@ if __name__=='__main__':
     # analyze_data_facebook()
 
     # random_flip_sybils_data_generator()
-    random_noise_sybils_data_generator()
+    # random_noise_sybils_data_generator()
     # pgd_sybils_data_generator()
-    # pgd_csl_sybils_data_generator()
+    pgd_csl_sybils_data_generator()

@@ -65,14 +65,14 @@ def generate_data(Obs, E, E_X,gamma):
             if benign >=0.5:
                 sybils_truth.write(str(v) + '\t' + '1' + '\n')
                 # nonconj_truth.write(str(source)+'_'+str(target)+'\t'+'0'+'\n')
-            elif benign <= 0.5:
+            elif benign < 0.5:
                 sybils_truth.write(str(v) + '\t' + '0' + '\n')
                 # nonconj_truth.write(str(source)+'_'+str(target)+'\t'+'1'+'\n')
         else:
             benign = current_Obs[v]
             if benign >= 0.5:
                 sybils_obs.write(str(v) + '\n')
-            elif benign <=0.5:
+            elif benign <0.5:
                 benign_obs.write(str(v) + '\n')
             else:
                 print benign
@@ -176,8 +176,8 @@ def pipeline():
     realizations = 1
     # methods = ["sl", "csl", "csl-conflict-1", "csl-conflict-2", "base1", "base2", "base3"][:1]
 
-    for test_ratio in [0.3,0.1, 0.2, 0.4, 0.5][:3]:
-        for adv_type in ["random_noise","random_pgd","random_pgd_csl","random_pgd_gcn_vae"][:]:
+    for test_ratio in [0.3,0.1, 0.2, 0.4, 0.5][:1]:
+        for adv_type in ["random_noise","random_pgd","random_pgd_csl","random_pgd_gcn_vae"][:2]:
             for attack_edge in [1000, 5000, 10000, 15000, 20000][2:3]:
                 result_folder = data_root + "/result_adv_csl/enron/" + adv_type + "/"
                 if not os.path.exists(result_folder):
@@ -185,7 +185,7 @@ def pipeline():
                 exfiles = {file: 1 for file in os.listdir(result_folder) if file.endswith(".txt")}
                 for T in [10][:]:
                     for swap_ratio in [0.00, 0.01, 0.02, 0.05][1:2]:
-                        for gamma in [0.0, 0.01, 0.03, 0.05, 0.07, 0.09, 0.11, 0.13, 0.15, 0.20, 0.25][:]:  # 11
+                        for gamma in [0.0, 0.01, 0.03, 0.05, 0.07,0.09,0.2,0.3,0.4,0.5][:]:  # 11
                             for real_i in range(realizations)[:1]:
                                 count += 1.0
                                 f = data_root + "data/adv_csl/Jan2/" + adv_type + "/enron/enron-attackedges-{}-T-{}-testratio-{}-swap_ratio-{}-gamma-{}-realization-{}-data-X.pkl".format(

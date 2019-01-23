@@ -412,7 +412,7 @@ class Task_inference5(object):
         probs = {v: [] for v in E_X}
 
         running_times = []
-        Omega = calc_Omega_from_Obs2(Obs, V)
+
         # True_Opinions = calc_Omega_from_Obs3(Obs, E_X)
         T = len(Obs.values()[0])
         # m_idx = int(round(T / 2.0))
@@ -435,6 +435,7 @@ class Task_inference5(object):
                 running_times.append(0.0)
         if len(running_times)==0:
             return
+        Omega = calc_Omega_from_Obs22(Obs, V,len(probs[probs.keys()[0]]))
         pred_Omega=estimate_omega_x2(probs, E_X)
         # pred_opinions = Omega_2_opinion(pred_Omega, E_X)
         alpha_mse, beta_mse, prob_mse, u_mse, b_mse, d_mse, prob_relative_mse, u_relative_mse, accuracy, recall_congested, recall_uncongested = calculate_measures(Omega, pred_Omega, E_X)
@@ -448,13 +449,30 @@ class Task_inference5(object):
                                                'prob_mse': (prob_mse, prob_mse),'alpha_mse': (alpha_mse, alpha_mse), 'beta_mse': (beta_mse, beta_mse), 'u_mse': (u_mse, u_mse), 'b_mse': (b_mse, b_mse), 'd_mse': (d_mse, d_mse),'realization':self.real_i, 'runtime': running_time}
 
 
-        output_file = open('../output/sybils/PSL_results-server-Jan17-{}.json'.format(self.adv_type), 'a')
+        output_file = open('../output/sybils/PSL_results-server-Jan22-{}.json'.format(self.adv_type), 'a')
         output_file.write(json.dumps(result_) + '\n')
         output_file.close()
         # return self.test_ratio, self.gamma
 
     def __str__(self):
         return '%s' % (self.p0)
+
+def calc_Omega_from_Obs22(Obs, E,T):
+    W=2.0
+    a=0.5
+    T = T
+    Omega = {}
+    for e in E:
+        pos_evidence=np.sum(Obs[e][:T])* 1.0
+        neg_evidence=T - pos_evidence
+        b = pos_evidence/(pos_evidence+neg_evidence+W)
+        d = neg_evidence / (pos_evidence + neg_evidence + W)
+        u = W/(pos_evidence + neg_evidence + W)
+        alpha=W*b/u + W*a
+        beta= W*d/u + W*(1-a)
+        Omega[e] = (alpha,beta)
+    return Omega
+
 
 def read_raw_data(weekday, hour, refspeed):
     f = open('raw_data/raw_network_philly_weekday_' + str(weekday) + '_hour_' + str(hour) + '_refspeed_' + str(

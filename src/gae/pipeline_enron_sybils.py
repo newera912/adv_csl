@@ -57,12 +57,12 @@ count=0
 realizations=10
 
 for test_ratio in [0.3,0.1, 0.2,  0.4, 0.5][:1]:
-    for adv_type in ["random_noise", "random_pgd","random_pgd_csl","random_pgd_gcn_vae"][:1]:
+    for adv_type in ["random_noise", "random_pgd","random_pgd_csl","random_pgd_gcn_vae"][3:]:
         for attack_edge in [1000,5000,10000,15000,20000][2:3]:
             for T in [10][:]:
                 for swap_ratio in [0.00, 0.01, 0.02, 0.05][1:2]:
                     for gamma in [0.0, 0.01, 0.03, 0.05, 0.07,0.09,0.2,0.3,0.4,0.5][:]:  # 11
-                        for real_i in range(realizations)[1:2]:
+                        for real_i in range(realizations)[:1]:
                             fileName = dataroot + adv_type + "/enron/enron-attackedges-{}-T-{}-testratio-{}-swap_ratio-{}-gamma-{}-realization-{}-data-X.pkl".format(
                                 attack_edge, T, test_ratio, swap_ratio, gamma, real_i)
                             outf = '../../output/sybils/{}_results-server-Jan22-{}.json'.format("GCN-VAE", adv_type)

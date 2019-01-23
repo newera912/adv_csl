@@ -61,16 +61,16 @@ tf.set_random_seed(seed)
 # Load data
 # adj, features = load_data(dataset_str)
 data_root = "/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/"   #May23-3
-org_data_root="/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_pgd_csl/"
+org_data_root="/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_pgd/"
 #real data
 case_count=0
 for adv_type in ["random_pgd_gcn_vae"][:]:
-    for i, dataset in enumerate(["facebook", "enron", "slashdot"][:1]):
+    for i, dataset in enumerate(["facebook", "enron", "slashdot"][2:]):
         for attack_edge in [1000,5000,10000,15000,20000][2:3]:
             for T in [10][:]:
                 for swap_ratio in [0.00, 0.01, 0.02, 0.05][1:2]:
                     for test_ratio in [0.3,0.1, 0.2,0.4, 0.5][:1]:
-                        for real_i in range(10)[:]:
+                        for real_i in range(10)[:1]:
                             fileName = org_data_root + "/{}/{}-attackedges-{}-T-{}-testratio-{}-swap_ratio-{}-gamma-{}-realization-{}-data-X.pkl".format(
                                 dataset,dataset, attack_edge, T, test_ratio, swap_ratio,0.0, real_i)
 
