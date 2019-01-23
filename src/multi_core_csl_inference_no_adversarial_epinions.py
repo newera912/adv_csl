@@ -166,7 +166,7 @@ def inference(omega_y, omega_0, y, X_b, X, Y, T, edge_up_nns, edge_down_nns, R, 
         e] = init_alpha_beta  # Beta pdf can be visualized via http://eurekastatistics.com/beta-distribution-pdf-grapher/
     error = -1
 
-    for iter in range(5):
+    for iter in range(2):
         ps = []
         bs = []
         tasks = multiprocessing.Queue()

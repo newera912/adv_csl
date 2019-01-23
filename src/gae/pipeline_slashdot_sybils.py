@@ -55,12 +55,12 @@ dataroot = "/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/"
 report_stat = False
 count=0
 realizations=1
-for adv_type in ["random_noise", "random_pgd","random_pgd_csl","random_pgd_gcn_vae"][2:3]:
+for adv_type in ["random_noise", "random_pgd","random_pgd_csl","random_pgd_gcn_vae"][:1]:
     for attack_edge in [1000,5000,10000,15000,20000][2:3]:
         for T in [10][:]:
             for swap_ratio in [0.00, 0.01, 0.02, 0.05][1:2]:
                 for test_ratio in [0.1, 0.2,0.3,0.4, 0.5][2:3]:
-                    for gamma in [0.0, 0.01, 0.03, 0.05, 0.07,0.09,0.2,0.3,0.4,0.5][:]:  # 11
+                    for gamma in [0.0, 0.01, 0.03, 0.05, 0.07,0.09,0.2,0.3,0.4,0.5][5:]:  # 11
                         for real_i in range(realizations)[:1]:
                             fileName = dataroot + adv_type + "/slashdot/slashdot-attackedges-{}-T-{}-testratio-{}-swap_ratio-{}-gamma-{}-realization-{}-data-X.pkl".format(
                                 attack_edge, T, test_ratio, swap_ratio, gamma, real_i)
@@ -197,7 +197,7 @@ for adv_type in ["random_noise", "random_pgd","random_pgd_csl","random_pgd_gcn_v
                                 prob_mse = round(float(bf_mse_one[best_epoch]), 4)
                                 result_ = {'dataset':"slashdot",'attack_edge':attack_edge,'adv_type':adv_type,
                                             'network_size': num_nodes, "realization": real_i,
-                                           'sample_size': 1, 'T': T, 'gamma': gamma,
+                                           'sample_size': 1, 'T': T, 'gamma': gamma,'swap_ratio':swap_ratio,
                                            'test_ratio': test_ratio, 'acc': (0.0, 0.0),
                                            'alpha_mse': (0.0, 0.0),
                                            'beta_mse': (0.0, 0.0),
