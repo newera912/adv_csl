@@ -414,10 +414,10 @@ class Task_inference5(object):
         running_times = []
 
         # True_Opinions = calc_Omega_from_Obs3(Obs, E_X)
-        T = len(Obs.values()[0])
+        # T = len(Obs.values()[0])
         # m_idx = int(round(T / 2.0))
         # for window in range(m_idx - 5, m_idx + 7):
-        for window in range(T):
+        for window in range(self.T):
             result_file = str(self.attack_edge) + '_' + str(self.test_ratio)+ '_' + str(self.swap_ratio) + '_' + str(self.gamma) + '_'+ str(window) + '_' + str(self.real_i) + '.txt'
             key = str(self.attack_edge) + '_' + str(self.test_ratio)+ '_' + str(self.swap_ratio) + '_' + str(self.gamma) + '_'+ str(window) + '_' + str(self.real_i)
             t_Obs = {e: e_Obs[window:window+1] for e, e_Obs in Obs.items()}
@@ -429,13 +429,22 @@ class Task_inference5(object):
             for e,prob in probs_t.items():
                 if probs.has_key(e):
                     probs[e].append(prob)
+
             if self.running_time_dict.has_key(key):
                 running_times.append(self.running_time_dict[key])
             else:
                 running_times.append(0.0)
+        for v, probl in probs.items():
+            if len(probl)<self.T:
+                last_prob=probl[-1]
+                for i in range(self.T-len(probl)):
+                    probs[v].append(last_prob)
+
+        # print(len(probs[v]))
+
         if len(running_times)==0:
             return
-        Omega = calc_Omega_from_Obs22(Obs, V,len(probs[probs.keys()[0]]))
+        Omega = calc_Omega_from_Obs2(Obs, V)
         pred_Omega=estimate_omega_x2(probs, E_X)
         # pred_opinions = Omega_2_opinion(pred_Omega, E_X)
         alpha_mse, beta_mse, prob_mse, u_mse, b_mse, d_mse, prob_relative_mse, u_relative_mse, accuracy, recall_congested, recall_uncongested = calculate_measures(Omega, pred_Omega, E_X)
@@ -444,7 +453,7 @@ class Task_inference5(object):
         # save_results(dataset,weekday,hour,refspeed,window,percent,alpha_mse,beta_mse,prob_mse,u_mse,b_mse,d_mse,prob_relative_mse,u_relative_mse,accuracy,recall_congested,recall_uncongested,running_time)
 
         result_ = {'dataset': self.dataset, 'attack_edge': self.attack_edge, 'network_size': len(V),'adv_type':self.adv_type,
-                                               'sample_size': 1, 'T': T, 'gamma': self.gamma,
+                                               'sample_size': 1, 'T': self.T, 'gamma': self.gamma,
                                                'test_ratio': self.test_ratio,'swap_ratio': self.swap_ratio, 'acc': (accuracy, accuracy),
                                                'prob_mse': (prob_mse, prob_mse),'alpha_mse': (alpha_mse, alpha_mse), 'beta_mse': (beta_mse, beta_mse), 'u_mse': (u_mse, u_mse), 'b_mse': (b_mse, b_mse), 'd_mse': (d_mse, d_mse),'realization':self.real_i, 'runtime': running_time}
 
@@ -543,8 +552,8 @@ def estimate_omega_x2(ps, X):
         for e in X:
             data = [round(p_t) for p_t in ps[e]]
             # data = [(p_t[e]) for p_t in ps]
-            alpha1 = np.sum(data) + 0.5
-            beta1 = len(data) - np.sum(data) + 0.5
+            alpha1 = np.sum(data)
+            beta1 = len(data) - np.sum(data)
             omega_x[e] = (alpha1, beta1)
     return omega_x
 

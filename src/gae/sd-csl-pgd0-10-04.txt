@@ -1,0 +1,9 @@
+WARNING:tensorflow:From /network/rit/home/aa465948/venv/lib/python2.7/site-packages/tensorflow/python/ops/sparse_ops.py:1165: sparse_to_dense (from tensorflow.python.ops.sparse_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Create a `tf.sparse.SparseTensor` and use `tf.sparse.to_dense` instead.
+2019-01-23 12:54:02.540490: I tensorflow/core/platform/cpu_feature_guard.cc:141] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
+2019-01-23 13:01:27.827874: W tensorflow/core/framework/allocator.cc:122] Allocation of 108025283584 exceeds 10% of system memory.
+2019-01-23 13:01:28.158053: W tensorflow/core/framework/allocator.cc:122] Allocation of 108025283584 exceeds 10% of system memory.
+2019-01-23 13:03:02.372307: W tensorflow/core/framework/allocator.cc:122] Allocation of 108025283584 exceeds 10% of system memory.
+2019-01-23 13:03:02.687383: W tensorflow/core/framework/allocator.cc:122] Allocation of 108025283584 exceeds 10% of system memory.
+2019-01-23 13:04:35.385797: W tensorflow/core/framework/allocator.cc:122] Allocation of 108025283584 exceeds 10% of system memory.

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 readonly CLASSPATH_FILE='classpath.out'
-readonly TARGET_CLASS='org.linqs.psl.example.sybils0.Sybils0'
+readonly TARGET_CLASS='org.linqs.psl.example.sybils0.Sybils3'
 
 FETCH_COMMAND=''
 

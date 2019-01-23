@@ -14379,3 +14379,188 @@ prob_mse: 0.127533356683, running time: 8659.13853693
 4.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
 dataset: slashdot method: SL, #attack_edge:10000,T:10,test_ratio: 0.3,gamma:0.07
 /network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_pgd_gcn_vae/slashdot/slashdot-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-gamma-0.07-realization-0-data-X.pkl
+prob_mse: 0.12651181535, running time: 10405.7511079
+4.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+dataset: slashdot method: SL, #attack_edge:10000,T:10,test_ratio: 0.3,gamma:0.07
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_pgd_csl/slashdot/slashdot-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-gamma-0.07-realization-0-data-X.pkl
+prob_mse: 0.13182374816, running time: 10839.0257812
+4.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+dataset: slashdot method: SL, #attack_edge:10000,T:10,test_ratio: 0.3,gamma:0.07
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_pgd/slashdot/slashdot-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-gamma-0.07-realization-0-data-X.pkl
+
+
+--------------------------------------------------
+--------------------------------------------------
+
+-------------------Wed, 23 Jan 2019 12:41:20 PM EST---------------------
+
+0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+dataset: enron method: Adv-CSL, #attack_edge:10000,T:10,test_ratio: 0.3,gamma:0.0
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_noise/enron/enron-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-gamma-0.0-realization-0-data-X.pkl
+prob_mse: 0.211064984997, running time: 248.91870594
+1.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+dataset: enron method: Adv-CSL, #attack_edge:10000,T:10,test_ratio: 0.3,gamma:0.01
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_noise/enron/enron-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-gamma-0.01-realization-0-data-X.pkl
+prob_mse: 0.23460883701, running time: 263.300210953
+2.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+dataset: enron method: Adv-CSL, #attack_edge:10000,T:10,test_ratio: 0.3,gamma:0.03
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_noise/enron/enron-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-gamma-0.03-realization-0-data-X.pkl
+prob_mse: 0.234410983612, running time: 265.640664101
+3.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+dataset: enron method: Adv-CSL, #attack_edge:10000,T:10,test_ratio: 0.3,gamma:0.05
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_noise/enron/enron-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-gamma-0.05-realization-0-data-X.pkl
+prob_mse: 0.23620388103, running time: 264.324203014
+4.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+dataset: enron method: Adv-CSL, #attack_edge:10000,T:10,test_ratio: 0.3,gamma:0.07
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_noise/enron/enron-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-gamma-0.07-realization-0-data-X.pkl
+prob_mse: 0.235828802717, running time: 269.64023304
+
+
+--------------------------------------------------
+--------------------------------------------------
+
+-------------------Wed, 23 Jan 2019 01:10:28 PM EST---------------------
+
+0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+dataset: enron method: Adv-CSL, #attack_edge:10000,T:10,test_ratio: 0.3,gamma:0.09
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_noise/enron/enron-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-gamma-0.09-realization-0-data-X.pkl
+prob_mse: 0.235445480925, running time: 267.618201971
+1.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+dataset: enron method: Adv-CSL, #attack_edge:10000,T:10,test_ratio: 0.3,gamma:0.2
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_noise/enron/enron-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-gamma-0.2-realization-0-data-X.pkl
+prob_mse: 0.134684643486, running time: 11086.3151801
+5.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+dataset: slashdot method: SL, #attack_edge:10000,T:10,test_ratio: 0.3,gamma:0.09
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_pgd_gcn_vae/slashdot/slashdot-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-gamma-0.09-realization-0-data-X.pkl
+prob_mse: 0.229304177795, running time: 264.779332161
+2.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+dataset: enron method: Adv-CSL, #attack_edge:10000,T:10,test_ratio: 0.3,gamma:0.3
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_noise/enron/enron-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-gamma-0.3-realization-0-data-X.pkl
+prob_mse: 0.228731246084, running time: 268.16564703
+3.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+dataset: enron method: Adv-CSL, #attack_edge:10000,T:10,test_ratio: 0.3,gamma:0.4
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_noise/enron/enron-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-gamma-0.4-realization-0-data-X.pkl
+
+
+--------------------------------------------------
+--------------------------------------------------
+
+-------------------Wed, 23 Jan 2019 01:33:50 PM EST---------------------
+
+0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+dataset: enron method: Adv-CSL, #attack_edge:10000,T:10,test_ratio: 0.3,gamma:0.09
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_noise/enron/enron-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-gamma-0.09-realization-0-data-X.pkl
+
+
+--------------------------------------------------
+--------------------------------------------------
+
+-------------------Wed, 23 Jan 2019 01:35:16 PM EST---------------------
+
+0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+dataset: enron method: Adv-CSL, #attack_edge:10000,T:10,test_ratio: 0.3,gamma:0.0
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_noise/enron/enron-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-gamma-0.0-realization-0-data-X.pkl
+prob_mse: 0.150621297853, running time: 258.064334869
+1.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+dataset: enron method: Adv-CSL, #attack_edge:10000,T:10,test_ratio: 0.3,gamma:0.2
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_noise/enron/enron-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-gamma-0.2-realization-0-data-X.pkl
+prob_mse: 0.142126026313, running time: 238.063203096
+1.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+dataset: enron method: Adv-CSL, #attack_edge:10000,T:10,test_ratio: 0.3,gamma:0.01
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_noise/enron/enron-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-gamma-0.01-realization-0-data-X.pkl
+prob_mse: 0.139220991196, running time: 272.344349146
+2.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+dataset: enron method: Adv-CSL, #attack_edge:10000,T:10,test_ratio: 0.3,gamma:0.3
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_noise/enron/enron-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-gamma-0.3-realization-0-data-X.pkl
+prob_mse: 0.165529739176, running time: 273.458993912
+2.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+dataset: enron method: Adv-CSL, #attack_edge:10000,T:10,test_ratio: 0.3,gamma:0.03
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_noise/enron/enron-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-gamma-0.03-realization-0-data-X.pkl
+prob_mse: 0.138297721502, running time: 274.154098988
+3.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+dataset: enron method: Adv-CSL, #attack_edge:10000,T:10,test_ratio: 0.3,gamma:0.4
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_noise/enron/enron-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-gamma-0.4-realization-0-data-X.pkl
+prob_mse: 0.16531127708, running time: 276.103870153
+3.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+dataset: enron method: Adv-CSL, #attack_edge:10000,T:10,test_ratio: 0.3,gamma:0.05
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_noise/enron/enron-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-gamma-0.05-realization-0-data-X.pkl
+prob_mse: 0.137456866818, running time: 283.23206687
+4.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+dataset: enron method: Adv-CSL, #attack_edge:10000,T:10,test_ratio: 0.3,gamma:0.5
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_noise/enron/enron-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-gamma-0.5-realization-0-data-X.pkl
+prob_mse: 0.15121895011, running time: 269.264364004
+4.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+dataset: enron method: Adv-CSL, #attack_edge:10000,T:10,test_ratio: 0.3,gamma:0.07
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_noise/enron/enron-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-gamma-0.07-realization-0-data-X.pkl
+prob_mse: 0.150494839582, running time: 269.023185015
+prob_mse: 0.151004619646, running time: 274.730630159
+
+
+--------------------------------------------------
+--------------------------------------------------
+
+-------------------Wed, 23 Jan 2019 02:06:56 PM EST---------------------
+
+0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+dataset: enron method: Adv-CSL, #attack_edge:10000,T:10,test_ratio: 0.3,gamma:0.0
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_noise/enron/enron-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-gamma-0.0-realization-0-data-X.pkl
+prob_mse: 0.142126026313, running time: 247.031455994
+1.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+dataset: enron method: Adv-CSL, #attack_edge:10000,T:10,test_ratio: 0.3,gamma:0.0
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_noise/enron/enron-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-gamma-0.0-realization-1-data-X.pkl
+prob_mse: 0.142126026313, running time: 241.906592846
+2.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+dataset: enron method: Adv-CSL, #attack_edge:10000,T:10,test_ratio: 0.3,gamma:0.0
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_noise/enron/enron-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-gamma-0.0-realization-2-data-X.pkl
+prob_mse: 0.142126026313, running time: 235.280658007
+3.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+dataset: enron method: Adv-CSL, #attack_edge:10000,T:10,test_ratio: 0.3,gamma:0.0
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_noise/enron/enron-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-gamma-0.0-realization-3-data-X.pkl
+prob_mse: 0.142126026313, running time: 245.682060003
+4.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+dataset: enron method: Adv-CSL, #attack_edge:10000,T:10,test_ratio: 0.3,gamma:0.0
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_noise/enron/enron-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-gamma-0.0-realization-4-data-X.pkl
+prob_mse: 0.142126026313, running time: 239.546388865
+5.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+dataset: enron method: Adv-CSL, #attack_edge:10000,T:10,test_ratio: 0.3,gamma:0.01
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_noise/enron/enron-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-gamma-0.01-realization-0-data-X.pkl
+prob_mse: 0.165529739176, running time: 264.086410999
+6.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+dataset: enron method: Adv-CSL, #attack_edge:10000,T:10,test_ratio: 0.3,gamma:0.01
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_noise/enron/enron-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-gamma-0.01-realization-1-data-X.pkl
+prob_mse: 0.165529739176, running time: 263.612841845
+7.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+dataset: enron method: Adv-CSL, #attack_edge:10000,T:10,test_ratio: 0.3,gamma:0.01
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_noise/enron/enron-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-gamma-0.01-realization-2-data-X.pkl
+prob_mse: 0.165529739176, running time: 269.796206951
+8.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+dataset: enron method: Adv-CSL, #attack_edge:10000,T:10,test_ratio: 0.3,gamma:0.01
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_noise/enron/enron-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-gamma-0.01-realization-3-data-X.pkl
+prob_mse: 0.165529739176, running time: 274.980679989
+9.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+dataset: enron method: Adv-CSL, #attack_edge:10000,T:10,test_ratio: 0.3,gamma:0.01
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_noise/enron/enron-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-gamma-0.01-realization-4-data-X.pkl
+prob_mse: 0.165529739176, running time: 266.229063034
+10.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+dataset: enron method: Adv-CSL, #attack_edge:10000,T:10,test_ratio: 0.3,gamma:0.03
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_noise/enron/enron-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-gamma-0.03-realization-0-data-X.pkl
+prob_mse: 0.16531127708, running time: 274.374382973
+11.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+dataset: enron method: Adv-CSL, #attack_edge:10000,T:10,test_ratio: 0.3,gamma:0.03
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_noise/enron/enron-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-gamma-0.03-realization-1-data-X.pkl
+prob_mse: 0.16531127708, running time: 275.378657103
+12.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+dataset: enron method: Adv-CSL, #attack_edge:10000,T:10,test_ratio: 0.3,gamma:0.03
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_noise/enron/enron-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-gamma-0.03-realization-2-data-X.pkl
+prob_mse: 0.16531127708, running time: 271.749799013
+13.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+dataset: enron method: Adv-CSL, #attack_edge:10000,T:10,test_ratio: 0.3,gamma:0.03
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_noise/enron/enron-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-gamma-0.03-realization-3-data-X.pkl
+prob_mse: 0.16531127708, running time: 272.411208153
+14.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+dataset: enron method: Adv-CSL, #attack_edge:10000,T:10,test_ratio: 0.3,gamma:0.03
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_noise/enron/enron-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-gamma-0.03-realization-4-data-X.pkl
+prob_mse: 0.16531127708, running time: 263.21475482
+15.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+dataset: enron method: Adv-CSL, #attack_edge:10000,T:10,test_ratio: 0.3,gamma:0.05
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_noise/enron/enron-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-gamma-0.05-realization-0-data-X.pkl

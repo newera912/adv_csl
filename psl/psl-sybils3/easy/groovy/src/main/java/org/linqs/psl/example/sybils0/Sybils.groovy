@@ -40,7 +40,7 @@ import java.nio.file.Paths;
  *
  * @author Jay Pujara <jay@cs.umd.edu>
  */
-public class Sybils0 {
+public class Sybils3 {
 	private static final String PARTITION_OBSERVATIONS = "observations";
 	private static final String PARTITION_TARGETS = "targets";
 	private static final String PARTITION_TRUTH = "truth";
@@ -74,7 +74,7 @@ public class Sybils0 {
 			this.cb = cb;
 
 			this.experimentName = cb.getString('experiment.name', 'default');
-			this.dbPath = cb.getString('experiment.dbpath', '/tmp');
+			this.dbPath = cb.getString('experiment.dbpath', '/network/rit/lab/ceashpc/adil/tmp/sybil3');
 			this.dataPath = cb.getString('experiment.data.path', '../data');
 			this.outputPath = cb.getString('experiment.output.outputdir', Paths.get('output', this.experimentName).toString());
             
@@ -85,10 +85,10 @@ public class Sybils0 {
 		}
 	}
 
-	public Sybils0(ConfigBundle cb) {
+	public Sybils3(ConfigBundle cb) {
 		log = LoggerFactory.getLogger(this.class);
 		config = new PSLConfig(cb);
-		ds = new RDBMSDataStore(new H2DatabaseDriver(Type.Disk, Paths.get(config.dbPath, 'Sybils0').toString(), true), cb);
+		ds = new RDBMSDataStore(new H2DatabaseDriver(Type.Disk, Paths.get(config.dbPath, 'Sybils3').toString(), true), cb);
 		model = new PSLModel(this, ds);
 	}
 
@@ -251,7 +251,7 @@ public class Sybils0 {
 	 * @return - a ConfigBundle populated with options from the command line options
 	 */
 	public static ConfigBundle populateConfigBundle(String[] args) {
-		ConfigBundle cb = ConfigManager.getManager().getBundle("Sybils0");
+		ConfigBundle cb = ConfigManager.getManager().getBundle("Sybils3");
 		if (args.length > 0) {
 			cb.setProperty('experiment.data.path', args[0]);
 		}
@@ -264,7 +264,7 @@ public class Sybils0 {
 	 */
 	public static void main(String[] args) {
 		ConfigBundle configBundle = populateConfigBundle(args);
-        Sybils0 lp = new Sybils0(configBundle);
+        Sybils3 lp = new Sybils3(configBundle);
 		lp.run();
         println "It is running now"
 	}
