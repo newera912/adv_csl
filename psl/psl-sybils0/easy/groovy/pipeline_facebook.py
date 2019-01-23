@@ -177,7 +177,7 @@ def pipeline():
     # methods = ["sl", "csl", "csl-conflict-1", "csl-conflict-2", "base1", "base2", "base3"][:1]
 
     for test_ratio in [0.3,0.1, 0.2, 0.4, 0.5][:1]:
-        for adv_type in ["random_noise","random_pgd","random_pgd_csl","random_pgd_gcn_vae"][:2]:
+        for adv_type in ["random_noise","random_pgd","random_pgd_csl","random_pgd_gcn_vae"][:]:
             for attack_edge in [1000, 5000, 10000, 15000, 20000][2:3]:
                 result_folder = data_root + "/result_adv_csl/facebook/" + adv_type + "/"
                 if not os.path.exists(result_folder):
