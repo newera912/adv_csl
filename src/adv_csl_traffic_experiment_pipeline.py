@@ -28,6 +28,14 @@ from multi_core_csl_inference_adversarial_traffic import inference_apdm_format a
 # import networkx as nx
 # import matplotlib.pyplot as plt
 
+def baseline(V, E, Obs, Omega, E_X):
+    np.random.seed(123)
+    op={0:(1,1),1:(1,11),2:(11,1)}
+    Omega_X = {}
+    for e in E_X:
+        Omega_X[e] = op[np.random.choice([0,1,2])]
+    return Omega_X
+
 class Consumer(multiprocessing.Process):
     def __init__(self, task_queue, result_queue):
         multiprocessing.Process.__init__(self)
@@ -670,12 +678,9 @@ def  evaluate(V, E, Obs, Omega, E_X, logging, method = 'sl', psl = False, approx
         psl = False
         pred_omega_x, _ = inference_apdm_format_conflict_evidence(V, E, Obs, Omega, b, E_X, logging, psl)
 
-    elif method == 'base1':
-        pred_omega_x = baseline.base1(V, E, Obs, Omega, E_X)
-    elif method == 'base2':
-        pred_omega_x = baseline.base2(V, E, Obs, Omega, E_X)
-    elif method == 'base3':
-        pred_omega_x = baseline.base3(V, E, Obs, Omega, E_X)
+
+    elif method == 'Baseline':
+        pred_omega_x = baseline(V, E, Obs, Omega, E_X)
     else:
         raise Exception("Method Error")
     alpha_mse, beta_mse, prob_mse, u_mse, b_mse, d_mse, prob_relative_mse, u_relative_mse, accuracy, recall_congested, recall_uncongested = calculate_measures(Omega, pred_omega_x, E_X, logging)
@@ -717,7 +722,7 @@ def real_traffic_data_testcase():
     T = 43
 
 
-    methods = ["SL","CSL","Adv-CSL"][:1]
+    methods = ["SL","CSL","Adv-CSL","Baseline"][3:]
     for real_i in range(realizations)[:]:
         for adv_type in ["random_noise", "random_pgd","random_pgd_csl","random_pgd_gcn_vae"][:]:
             for ref_ratio in ref_ratios[:1]:  ##########################

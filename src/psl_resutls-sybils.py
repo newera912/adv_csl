@@ -783,8 +783,8 @@ def Sybils_resutls():
 
     realizations = 1
     num_job=0.0
-    for dataset in ["facebook","enron","slashdot"][1:2]:
-        for adv_type in ["random_noise", "random_pgd","random_pgd_csl","random_pgd_gcn_vae"][:]:
+    for dataset in ["facebook","enron","slashdot"][2:]:
+        for adv_type in ["random_noise", "random_pgd","random_pgd_csl","random_pgd_gcn_vae"][:2]:
             result_folder = data_root + "/result_adv_csl/"+dataset+"/" + adv_type + "/"
             running_time_dict = read_running_time(result_folder + 'running_time.json')
             for attack_edge in [1000, 5000, 10000, 15000, 20000][2:3]:
