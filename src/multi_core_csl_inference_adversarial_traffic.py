@@ -2,9 +2,9 @@ __author__ = 'Feng Chen'
 from math import *
 import numpy as np
 # from scipy.stats import gamma
-import cvxpy as cvx
-from cvxpy import *
-import cvxopt
+# import cvxpy as cvx
+# from cvxpy import *
+# import cvxopt
 import copy
 import random, math
 
@@ -998,8 +998,7 @@ def admm(omega, b, y_t, Y, X, edge_up_nns, edge_down_nns, omega_0, R, psl=False,
                         R_p_hat[k][i * 2] = k_p_hat[i * 2]
                 if lk(R_p_hat[k], y_edge[k]) < 0:
                     # print "projection: ", lk(R_p_hat[k],y_edge[k]), R_p_hat[k]
-                    R_p_hat[k] = normalize(
-                        Proj_lk(list_minus(R_p[k], list_dot_scalar(R_lambda[k], kappa)), R_p_hat[k], y_edge[k]))
+                    R_p_hat[k] = normalize(Proj_lk2(list_minus(R_p[k], list_dot_scalar(R_lambda[k], kappa)), R_p_hat[k], y_edge[k]))
                 # print "R_p_hat[k] updated: ", R_p_hat[k]
         # update probability variables
         p_t_old, b_t_old = R_p_2_p(R_p, copies, cnt_E)

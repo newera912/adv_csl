@@ -28,7 +28,13 @@ from multi_core_csl_inference_adversarial_sybils import inference_apdm_format as
 # import networkx as nx
 # import matplotlib.pyplot as plt
 
-
+def baseline(V, E, Obs, Omega, E_X):
+    np.random.seed(123)
+    op={0:(1,1),1:(1,11),2:(11,1)}
+    Omega_X = {}
+    for e in E_X:
+        Omega_X[e] = op[np.random.choice([0,1,2])]
+    return Omega_X
 
 class Consumer(multiprocessing.Process):
     def __init__(self, task_queue, result_queue):
@@ -401,12 +407,8 @@ def  evaluate(V, E, Obs, Omega, E_X, logging, method = 'sl', psl = False, approx
         psl = False
         pred_omega_x, _ = inference_apdm_format_conflict_evidence(V, E, Obs, Omega, b, E_X, logging, psl)
 
-    elif method == 'base1':
-        pred_omega_x = baseline.base1(V, E, Obs, Omega, E_X)
-    elif method == 'base2':
-        pred_omega_x = baseline.base2(V, E, Obs, Omega, E_X)
-    elif method == 'base3':
-        pred_omega_x = baseline.base3(V, E, Obs, Omega, E_X)
+    elif method == 'Baseline':
+        pred_omega_x = baseline(V, E, Obs, Omega, E_X)
     else:
         raise Exception("Method Error")
     alpha_mse, beta_mse, prob_mse, u_mse, b_mse, d_mse, prob_relative_mse, u_relative_mse, accuracy, recall_congested, recall_uncongested = calculate_measures(Omega, pred_omega_x, E_X, logging)
@@ -445,10 +447,10 @@ def facebook_sybils_dataset_test():
     realizations=10
     gammas=[0.0, 0.01, 0.03, 0.05, 0.07,0.09,0.2,0.3,0.4,0.5]
     # gammas=[0.0, 0.01,0.3,0.4]
-    methods = ["SL","CSL", "Adv-CSL"][2:]
-    for real_i in range(realizations)[7:]:
+    methods = ["SL","CSL", "Adv-CSL","Baseline"][3:]
+    for real_i in range(realizations)[:]:
         for test_ratio in [0.3,0.1, 0.2, 0.4, 0.5][:1]:
-            for adv_type in ["random_noise","random_pgd","random_pgd_csl","random_pgd_gcn_vae"][2:3]:
+            for adv_type in ["random_noise","random_pgd","random_pgd_csl","random_pgd_gcn_vae"][:]:
                 for attack_edge in [10000,35000][:1]:
                     for T in [10][:]:
                         for swap_ratio in [0.00, 0.01, 0.02, 0.05][1:2]:
@@ -527,18 +529,18 @@ def enron_sybils_dataset_test():
     realizations=10
 
     for test_ratio in [0.3,0.1, 0.2, 0.4, 0.5][:1]:
-        methods = ["SL","CSL", "Adv-CSL"][2:]
-        for adv_type in ["random_noise","random_pgd","random_pgd_csl","random_pgd_gcn_vae"][:1]:
+        methods = ["SL","CSL", "Adv-CSL","Baseline"][3:]
+        for adv_type in ["random_noise","random_pgd","random_pgd_csl","random_pgd_gcn_vae"][:]:
             for attack_edge in [1000,5000,10000,15000,20000][2:3]:
                 for T in [10][:]:
                     for swap_ratio in [0.00, 0.01, 0.02, 0.05][1:2]:
                         for gamma in [0.0, 0.01, 0.03, 0.05, 0.07,0.09,0.2,0.3,0.4,0.5][:]:  # 11
-                            for real_i in range(realizations)[:5]:
+                            for real_i in range(realizations)[:1]:
                                 logging.write(str(count)+" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`")
                                 count+=1.0
                                 for method in methods[:]:
                                     f=dataroot +adv_type+ "/enron/enron-attackedges-{}-T-{}-testratio-{}-swap_ratio-{}-gamma-{}-realization-{}-data-X.pkl".format(attack_edge, T, test_ratio,swap_ratio, gamma, real_i)
-                                    outf = '../output/sybils/{}_results-server-Jan23-5-{}.json'.format(method,adv_type)
+                                    outf = '../output/sybils/{}_results-server-Jan22-{}.json'.format(method,adv_type)
                                     logging.write("dataset: {} method: {}, #attack_edge:{},T:{},test_ratio: {},gamma:{}".format("enron",method,attack_edge,T,test_ratio,gamma))
                                     logging.write(f)
                                     pkl_file = open(f, 'rb')
@@ -607,8 +609,8 @@ def slashdot_sybils_dataset_test():
     report_stat = False
     count=0
     realizations=10
-    methods = ["SL","CSL", "Adv-CSL"][:1]
-    for adv_type in ["random_noise","random_pgd","random_pgd_csl","random_pgd_gcn_vae"][3:]:
+    methods = ["SL","CSL", "Adv-CSL","Baseline"][3:]
+    for adv_type in ["random_noise","random_pgd","random_pgd_csl","random_pgd_gcn_vae"][:]:
         for attack_edge in [1000,5000,10000,15000,20000][2:3]:
             for T in [10][:]:
                 for swap_ratio in [0.00, 0.01, 0.02, 0.05][1:2]:
@@ -682,9 +684,9 @@ def slashdot_sybils_dataset_test():
 
 
 def main():
-    # facebook_sybils_dataset_test()
+    facebook_sybils_dataset_test()
     enron_sybils_dataset_test()
-    # slashdot_sybils_dataset_test()
+    slashdot_sybils_dataset_test()
 
 
 if __name__=='__main__':
