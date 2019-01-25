@@ -65,14 +65,14 @@ def generate_data(Obs, E, E_X,gamma):
             if benign >= 0.5:
                 sybils_truth.write(str(v) + '\t' + '1' + '\n')
                 # nonconj_truth.write(str(source)+'_'+str(target)+'\t'+'0'+'\n')
-            elif benign <= 0.5:
+            elif benign < 0.5:
                 sybils_truth.write(str(v) + '\t' + '0' + '\n')
                 # nonconj_truth.write(str(source)+'_'+str(target)+'\t'+'1'+'\n')
         else:
             benign = current_Obs[v]
             if benign >= 0.5:
                 sybils_obs.write(str(v) + '\n')
-            elif benign <= 0.5:
+            elif benign < 0.5:
                 benign_obs.write(str(v) + '\n')
             else:
                 print benign
@@ -175,7 +175,7 @@ def pipeline():
     count = 0
     realizations = 1
     # methods = ["sl", "csl", "csl-conflict-1", "csl-conflict-2", "base1", "base2", "base3"][:1]
-    for adv_type in ["random_noise","random_pgd","random_pgd_csl","random_pgd_gcn_vae"][:2]:
+    for adv_type in ["random_noise","random_pgd","random_pgd_csl","random_pgd_gcn_vae"][:1]:
         for attack_edge in [1000, 5000, 10000, 15000, 20000][2:3]:
             result_folder = data_root + "/result_adv_csl/slashdot/" + adv_type + "/"
             if not os.path.exists(result_folder):
@@ -197,7 +197,7 @@ def pipeline():
                                 T = len(Obs.values()[0])
                                 m_idx = int(round(T / 2.0))
                                 # for window in range(m_idx - 5,m_idx + 7):
-                                for window in range(T)[:3]:
+                                for window in range(T)[3:]:
                                     running_start_time = time.time()
                                     t_Obs = {v: v_Obs[window] for v, v_Obs in Obs.items()}
                                     result_file = str(attack_edge) + '_' + str(

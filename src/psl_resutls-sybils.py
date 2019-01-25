@@ -399,8 +399,6 @@ class Task_inference5(object):
         #     self.T) + '_' + str(self.percent) + '_' + str(self.ratio_conflict) + '_' + str(
         #     self.real_i) + '.txt'
 
-        # if result_file not in exfiles:
-        #     continue
 
         data_root = "/network/rit/lab/ceashpc/adil/"#June25/'
         f = data_root + "data/adv_csl/Jan2/{}/{}/{}-attackedges-{}-T-{}-testratio-{}-swap_ratio-{}-gamma-{}-realization-{}-data-X.pkl".format(
@@ -434,13 +432,13 @@ class Task_inference5(object):
                 running_times.append(self.running_time_dict[key])
             else:
                 running_times.append(0.0)
-        for v, probl in probs.items():
-            if len(probl)<self.T:
-                last_prob=probl[-1]
-                for i in range(self.T-len(probl)):
-                    probs[v].append(last_prob)
+        # for v, probl in probs.items():
+        #     if len(probl)<self.T:
+        #         last_prob=probl[-1]
+        #         for i in range(self.T-len(probl)):
+        #             probs[v].append(last_prob)
 
-        # print(len(probs[v]))
+        print(len(probs[e]))
 
         if len(running_times)==0:
             return
@@ -784,7 +782,7 @@ def Sybils_resutls():
     realizations = 1
     num_job=0.0
     for dataset in ["facebook","enron","slashdot"][2:]:
-        for adv_type in ["random_noise", "random_pgd","random_pgd_csl","random_pgd_gcn_vae"][:2]:
+        for adv_type in ["random_noise", "random_pgd","random_pgd_csl","random_pgd_gcn_vae"][:]:
             result_folder = data_root + "/result_adv_csl/"+dataset+"/" + adv_type + "/"
             running_time_dict = read_running_time(result_folder + 'running_time.json')
             for attack_edge in [1000, 5000, 10000, 15000, 20000][2:3]:

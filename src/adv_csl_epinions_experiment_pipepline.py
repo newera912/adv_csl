@@ -62,7 +62,7 @@ def baseline(V, E, Obs, Omega, E_X):
     op={0:(1,1),1:(1,11),2:(11,1)}
     Omega_X = {}
     for e in E_X:
-        Omega_X[e] = op[np.random.choice([0,1,2])]
+        Omega_X[e] = op[np.random.choice([0])]
     return Omega_X
 
 def main():
@@ -83,13 +83,13 @@ def experiment_proc_server():
     ratios = [0.1, 0.2, 0.3,0.4,0.5,0.6,0.7,0.8]
     realizations = 10
     case_count=0
-    for real_i in range(realizations)[:]:
+    for real_i in range(realizations)[:1]:
         for adv_type in ["random_noise","random_pgd","random_pgd_csl","random_pgd_gcn_vae"][:]:
             for graph_size in graph_sizes[1:2]:
                 for T in [8, 9, 10, 11][2:3]:    #5,6,10,20,11,21,15
                     for ratio in [0.2][:]:#0.0,0.1,0.2,0.3,the percentage of edges set the observations to 1
                         for swap_ratio in [0.00, 0.01, 0.05][:1]:
-                            for test_ratio in [0.3,0.1, 0.2, 0.4, 0.5][:]:                #percentage of edges to test (|E_x|/|E|)
+                            for test_ratio in [0.3,0.1, 0.2, 0.4, 0.5][:1]:                #percentage of edges to test (|E_x|/|E|)
                                 for gamma in [0.0, 0.01, 0.03, 0.05, 0.07,0.09,0.2,0.3,0.4,0.5][:]:  # 8
                                     out_folder = data_root +"/"+adv_type +"/"+ str(graph_size) + "/"
                                     logging.write(str(case_count)+" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
@@ -97,7 +97,7 @@ def experiment_proc_server():
                                     for method in methods[:]:
                                         f = out_folder + "nodes-{}-T-{}-rate-{}-testratio-{}-swaprate-{}-gamma-{}-realization-{}-data-X.pkl".format(
                                             graph_size, T, ratio, test_ratio, swap_ratio, gamma, real_i)
-                                        outf = '../output/epinions/{}_results-server-{}-Jan17-debug-{}.json'.format(method,graph_size,adv_type)
+                                        outf = '../output/epinions/{}_results-server-{}-Jan17-1-{}.json'.format(method,graph_size,adv_type)
 
                                         logging.write("method: {}, T, {}, real_i: {}, ratio: {}, test_ratio: {}, swaprate: {},gamma:{}, graph_size: {}".format(method, T, real_i, ratio, test_ratio, swap_ratio,gamma, graph_size))
                                         logging.write(f)

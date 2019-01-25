@@ -175,7 +175,7 @@ def pipeline():
     count = 0
     realizations = 1
     # methods = ["sl", "csl", "csl-conflict-1", "csl-conflict-2", "base1", "base2", "base3"][:1]
-    for adv_type in ["random_noise","random_pgd","random_pgd_csl","random_pgd_gcn_vae"][1:3]:
+    for adv_type in ["random_noise","random_pgd","random_pgd_csl","random_pgd_gcn_vae"][1:2]:
         for attack_edge in [1000, 5000, 10000, 15000, 20000][2:3]:
             result_folder = data_root + "/result_adv_csl/slashdot/" + adv_type + "/"
             if not os.path.exists(result_folder):
@@ -197,7 +197,7 @@ def pipeline():
                                 T = len(Obs.values()[0])
                                 m_idx = int(round(T / 2.0))
                                 # for window in range(m_idx - 5,m_idx + 7):
-                                for window in range(T)[:3]:
+                                for window in range(T)[3:]:
                                     running_start_time = time.time()
                                     t_Obs = {v: v_Obs[window] for v, v_Obs in Obs.items()}
                                     result_file = str(attack_edge) + '_' + str(
