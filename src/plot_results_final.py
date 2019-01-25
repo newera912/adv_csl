@@ -846,8 +846,8 @@ if __name__=='__main__':
 
     # plot_runtime_epinions()
 
-    timeslot_plot()
-    # TestRatio_plot()
+    # timeslot_plot()
+    TestRatio_plot()
     # ConflictRatio_plot()
 
     # VaryGraphSize_plot()
