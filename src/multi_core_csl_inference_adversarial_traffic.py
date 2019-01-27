@@ -2,9 +2,9 @@ __author__ = 'Feng Chen'
 from math import *
 import numpy as np
 # from scipy.stats import gamma
-# import cvxpy as cvx
-# from cvxpy import *
-# import cvxopt
+import cvxpy as cvx
+from cvxpy import *
+import cvxopt
 import copy
 import random, math
 

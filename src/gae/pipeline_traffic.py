@@ -57,21 +57,21 @@ realizations=10
 count=0
 T=43
 data_root = "/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/traffic/"  #Sep18
-for adv_type in ["random_noise", "random_pgd","random_pgd_csl","random_pgd_gcn_vae"][3:]:
-    for real_i in range(realizations)[:]:
+for adv_type in ["random_noise", "random_pgd","random_pgd_csl","random_pgd_gcn_vae"][1:2]:
+    for real_i in range(realizations)[:2]:
         for dataset in datasets[:]:
             dataroot = data_root + adv_type + "/" + dataset + "/"
             for weekday in range(5)[:1]:
                 for hour in range(8, 22)[:1]:  # old(7, 22)[1:2]
                     for ref_ratio in ref_ratios[:1]:  ##########################
-                        for test_ratio in [0.1, 0.2, 0.3, 0.4, 0.5][:]:
-                            for gamma in [0.0, 0.01, 0.03, 0.05, 0.07, 0.09, 0.2, 0.3, 0.4, 0.5][:]:  # 11
+                        for test_ratio in [0.1, 0.2, 0.3, 0.4, 0.5][2:3]:
+                            for gamma in [0.0, 0.01, 0.03, 0.05, 0.07, 0.09, 0.2, 0.3, 0.4, 0.5][:9]:  # 11
                                 # logging.write(
                                 print(str(count) + " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`")
                                 count += 1.0
                                 fileName = dataroot + '/network_{}_weekday_{}_hour_{}_refspeed_{}-testratio-{}-gamma-{}-realization-{}.pkl'.format(
                                     dataset, weekday, hour, ref_ratio, test_ratio, gamma, real_i)
-                                outf = '../../output/traffic/{}_results-server-traffic-Jan17-{}.json'.format("GCN-VAE",adv_type)
+                                outf = '../../output/traffic/{}_results-server-traffic-Jan26-{}.json'.format("GCN-VAE",adv_type)
                                 adj,y_train_belief, y_test_belief, y_train_un, y_test_un, train_mask, test_mask, omega_test, alpha_0, beta_0 = mask_test_edge_opinion(fileName, T=43)
                                 # Store original adjacency matrix (without diagonal entries) for later
                                 adj_orig = adj

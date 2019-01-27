@@ -66,15 +66,15 @@ for real_i in range(10)[:]:
             for T in [8, 9, 10, 11][2:3]:    #5,6,10,20,11,21,15
                 for ratio in [0.2][:]:#0.0,0.1,0.2,0.3,the percentage of edges set the observations to 1
                     for swap_ratio in [0.00, 0.01, 0.05][:1]:
-                        for test_ratio in [0.1, 0.2,0.3, 0.4, 0.5][:]:                #percentage of edges to test (|E_x|/|E|)
-                            for gamma in [0.0, 0.01, 0.03, 0.05, 0.07, 0.09, 0.2, 0.3, 0.4, 0.5][:]:  # 8
+                        for test_ratio in [0.3,0.1, 0.2, 0.4, 0.5][:1]:                #percentage of edges to test (|E_x|/|E|)
+                            for gamma in [0.0, 0.01, 0.03, 0.05, 0.07, 0.09, 0.2, 0.3, 0.4, 0.5][:9]:  # 8
                                 out_folder = data_root +"/"+adv_type +"/"+ str(graph_size) + "/"
                                 print(str(case_count)+" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
                                 case_count += 1.0
                                 fileName=out_folder + "nodes-{}-T-{}-rate-{}-testratio-{}-swaprate-{}-gamma-{}-realization-{}-data-X.pkl".format(
                                             graph_size, T, ratio, test_ratio, swap_ratio, gamma, real_i)
                                 print(fileName)
-                                outf = '../../output/epinions/{}_results-server-{}-Jan5-{}.json'.format("GCN-VAE", graph_size,adv_type)
+                                outf = '../../output/epinions/{}_results-server-{}-Jan26-{}.json'.format("GCN-VAE", graph_size,adv_type)
                                 adj,y_train_belief, y_test_belief, y_train_un, y_test_un, train_mask, test_mask, omega_test, alpha_0, beta_0 = mask_test_edge_epinion(fileName,T)
                                 # Store original adjacency matrix (without diagonal entries) for later
                                 adj_orig = adj

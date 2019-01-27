@@ -1,0 +1,867 @@
+WARNING:tensorflow:From /network/rit/home/aa465948/venv/lib/python2.7/site-packages/tensorflow/python/ops/sparse_ops.py:1165: sparse_to_dense (from tensorflow.python.ops.sparse_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Create a `tf.sparse.SparseTensor` and use `tf.sparse.to_dense` instead.
+2019-01-26 21:14:04.889805: I tensorflow/core/platform/cpu_feature_guard.cc:141] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
+0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd_gcn_vae/5000/nodes-5000-T-10-rate-0.2-testratio-0.3-swaprate-0.0-gamma-0.0-realization-0-data-X.pkl
+([], [], [])
+mse_belief= 0.44951 mse_uncertain== 0.33016 bf-mse_opinion== 0.53596
+mse_belief= 0.44889 mse_uncertain== 0.32589 bf-mse_opinion== 0.53421
+mse_belief= 0.44778 mse_uncertain== 0.32029 bf-mse_opinion== 0.53159
+mse_belief= 0.44601 mse_uncertain== 0.31323 bf-mse_opinion== 0.52788
+mse_belief= 0.44338 mse_uncertain== 0.30450 bf-mse_opinion== 0.52282
+mse_belief= 0.43969 mse_uncertain== 0.29384 bf-mse_opinion== 0.51613
+mse_belief= 0.43476 mse_uncertain== 0.28096 bf-mse_opinion== 0.50754
+mse_belief= 0.42852 mse_uncertain== 0.26569 bf-mse_opinion== 0.49697
+mse_belief= 0.42099 mse_uncertain== 0.24806 bf-mse_opinion== 0.48455
+mse_belief= 0.41232 mse_uncertain== 0.22828 bf-mse_opinion== 0.47048
+mse_belief= 0.40271 mse_uncertain== 0.20665 bf-mse_opinion== 0.45497
+mse_belief= 0.39225 mse_uncertain== 0.18354 bf-mse_opinion== 0.43832
+mse_belief= 0.38107 mse_uncertain== 0.15940 bf-mse_opinion== 0.42079
+mse_belief= 0.36940 mse_uncertain== 0.13469 bf-mse_opinion== 0.40279
+mse_belief= 0.35743 mse_uncertain== 0.10992 bf-mse_opinion== 0.38466
+mse_belief= 0.34541 mse_uncertain== 0.08566 bf-mse_opinion== 0.36659
+mse_belief= 0.33356 mse_uncertain== 0.06323 bf-mse_opinion== 0.34899
+mse_belief= 0.32219 mse_uncertain== 0.04544 bf-mse_opinion== 0.33238
+mse_belief= 0.31172 mse_uncertain== 0.03462 bf-mse_opinion== 0.31745
+mse_belief= 0.30241 mse_uncertain== 0.02937 bf-mse_opinion== 0.30474
+mse_belief= 0.29435 mse_uncertain== 0.02688 bf-mse_opinion== 0.29433
+mse_belief= 0.28737 mse_uncertain== 0.02565 bf-mse_opinion== 0.28589
+mse_belief= 0.28130 mse_uncertain== 0.02498 bf-mse_opinion== 0.27900
+mse_belief= 0.27593 mse_uncertain== 0.02458 bf-mse_opinion== 0.27325
+mse_belief= 0.27111 mse_uncertain== 0.02431 bf-mse_opinion== 0.26831
+Optimization Finished!
+alpha_0: 3.1114341085271318 beta_0: 8.888565891472869
+best epoch: 250 bset_belief: 0.27111477 bset_uncertain: 0.024308609 bset_opinion: 0.26831138
+run time =  115.991100073
+belief: 0.2711 uncertain: 0.2711 time window =  10 test_rio =  0.2
+1.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd_gcn_vae/5000/nodes-5000-T-10-rate-0.2-testratio-0.3-swaprate-0.0-gamma-0.01-realization-0-data-X.pkl
+([], [], [])
+mse_belief= 0.44850 mse_uncertain== 0.33587 bf-mse_opinion== 0.53593
+mse_belief= 0.44673 mse_uncertain== 0.33939 bf-mse_opinion== 0.53452
+mse_belief= 0.44433 mse_uncertain== 0.34418 bf-mse_opinion== 0.53268
+mse_belief= 0.44122 mse_uncertain== 0.35036 bf-mse_opinion== 0.53041
+mse_belief= 0.43732 mse_uncertain== 0.35811 bf-mse_opinion== 0.52771
+mse_belief= 0.43257 mse_uncertain== 0.36764 bf-mse_opinion== 0.52454
+mse_belief= 0.42689 mse_uncertain== 0.37911 bf-mse_opinion== 0.52086
+mse_belief= 0.42026 mse_uncertain== 0.39252 bf-mse_opinion== 0.51668
+mse_belief= 0.41269 mse_uncertain== 0.40780 bf-mse_opinion== 0.51203
+mse_belief= 0.40431 mse_uncertain== 0.42482 bf-mse_opinion== 0.50694
+mse_belief= 0.39518 mse_uncertain== 0.44341 bf-mse_opinion== 0.50147
+mse_belief= 0.38532 mse_uncertain== 0.46335 bf-mse_opinion== 0.49571
+mse_belief= 0.37490 mse_uncertain== 0.48435 bf-mse_opinion== 0.48973
+mse_belief= 0.36407 mse_uncertain== 0.50609 bf-mse_opinion== 0.48365
+mse_belief= 0.35301 mse_uncertain== 0.52825 bf-mse_opinion== 0.47758
+mse_belief= 0.34191 mse_uncertain== 0.55048 bf-mse_opinion== 0.47159
+mse_belief= 0.33090 mse_uncertain== 0.57244 bf-mse_opinion== 0.46577
+mse_belief= 0.32019 mse_uncertain== 0.59380 bf-mse_opinion== 0.46019
+mse_belief= 0.30994 mse_uncertain== 0.61428 bf-mse_opinion== 0.45494
+mse_belief= 0.30027 mse_uncertain== 0.63366 bf-mse_opinion== 0.45009
+mse_belief= 0.29125 mse_uncertain== 0.65178 bf-mse_opinion== 0.44566
+mse_belief= 0.28293 mse_uncertain== 0.66856 bf-mse_opinion== 0.44167
+mse_belief= 0.27533 mse_uncertain== 0.68396 bf-mse_opinion== 0.43808
+mse_belief= 0.26845 mse_uncertain== 0.69798 bf-mse_opinion== 0.43489
+mse_belief= 0.26226 mse_uncertain== 0.71068 bf-mse_opinion== 0.43207
+Optimization Finished!
+alpha_0: 1.1806632213608959 beta_0: 1.554263565891473
+best epoch: 250 bset_belief: 0.2622626 bset_uncertain: 0.71067595 bset_opinion: 0.4320718
+run time =  114.933363199
+belief: 0.2623 uncertain: 0.2623 time window =  10 test_rio =  0.2
+2.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd_gcn_vae/5000/nodes-5000-T-10-rate-0.2-testratio-0.3-swaprate-0.0-gamma-0.03-realization-0-data-X.pkl
+([], [], [])
+mse_belief= 0.44866 mse_uncertain== 0.33755 bf-mse_opinion== 0.53592
+mse_belief= 0.44696 mse_uncertain== 0.34318 bf-mse_opinion== 0.53442
+mse_belief= 0.44451 mse_uncertain== 0.35068 bf-mse_opinion== 0.53246
+mse_belief= 0.44119 mse_uncertain== 0.36027 bf-mse_opinion== 0.52999
+mse_belief= 0.43685 mse_uncertain== 0.37216 bf-mse_opinion== 0.52697
+mse_belief= 0.43135 mse_uncertain== 0.38649 bf-mse_opinion== 0.52337
+mse_belief= 0.42461 mse_uncertain== 0.40332 bf-mse_opinion== 0.51918
+mse_belief= 0.41654 mse_uncertain== 0.42267 bf-mse_opinion== 0.51441
+mse_belief= 0.40725 mse_uncertain== 0.44436 bf-mse_opinion== 0.50907
+mse_belief= 0.39694 mse_uncertain== 0.46805 bf-mse_opinion== 0.50322
+mse_belief= 0.38562 mse_uncertain== 0.49330 bf-mse_opinion== 0.49695
+mse_belief= 0.37350 mse_uncertain== 0.51958 bf-mse_opinion== 0.49042
+mse_belief= 0.36087 mse_uncertain== 0.54635 bf-mse_opinion== 0.48380
+mse_belief= 0.34800 mse_uncertain== 0.57300 bf-mse_opinion== 0.47717
+mse_belief= 0.33517 mse_uncertain== 0.59899 bf-mse_opinion== 0.47065
+mse_belief= 0.32264 mse_uncertain== 0.62389 bf-mse_opinion== 0.46438
+mse_belief= 0.31067 mse_uncertain== 0.64740 bf-mse_opinion== 0.45849
+mse_belief= 0.29943 mse_uncertain== 0.66930 bf-mse_opinion== 0.45305
+mse_belief= 0.28901 mse_uncertain== 0.68934 bf-mse_opinion== 0.44809
+mse_belief= 0.27950 mse_uncertain== 0.70721 bf-mse_opinion== 0.44361
+mse_belief= 0.27096 mse_uncertain== 0.72288 bf-mse_opinion== 0.43959
+mse_belief= 0.26339 mse_uncertain== 0.73646 bf-mse_opinion== 0.43602
+mse_belief= 0.25673 mse_uncertain== 0.74816 bf-mse_opinion== 0.43288
+mse_belief= 0.25093 mse_uncertain== 0.75820 bf-mse_opinion== 0.43013
+mse_belief= 0.24588 mse_uncertain== 0.76680 bf-mse_opinion== 0.42774
+Optimization Finished!
+alpha_0: 1.1806632213608959 beta_0: 1.554263565891473
+best epoch: 250 bset_belief: 0.24587813 bset_uncertain: 0.7667992 bset_opinion: 0.42773584
+run time =  114.597522974
+belief: 0.2459 uncertain: 0.2459 time window =  10 test_rio =  0.2
+3.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd_gcn_vae/5000/nodes-5000-T-10-rate-0.2-testratio-0.3-swaprate-0.0-gamma-0.05-realization-0-data-X.pkl
+([], [], [])
+mse_belief= 0.44905 mse_uncertain== 0.33568 bf-mse_opinion== 0.53618
+mse_belief= 0.44791 mse_uncertain== 0.33910 bf-mse_opinion== 0.53497
+mse_belief= 0.44617 mse_uncertain== 0.34387 bf-mse_opinion== 0.53329
+mse_belief= 0.44368 mse_uncertain== 0.35017 bf-mse_opinion== 0.53110
+mse_belief= 0.44033 mse_uncertain== 0.35817 bf-mse_opinion== 0.52837
+mse_belief= 0.43606 mse_uncertain== 0.36802 bf-mse_opinion== 0.52512
+mse_belief= 0.43081 mse_uncertain== 0.37977 bf-mse_opinion== 0.52135
+mse_belief= 0.42458 mse_uncertain== 0.39346 bf-mse_opinion== 0.51709
+mse_belief= 0.41739 mse_uncertain== 0.40902 bf-mse_opinion== 0.51237
+mse_belief= 0.40935 mse_uncertain== 0.42636 bf-mse_opinion== 0.50723
+mse_belief= 0.40049 mse_uncertain== 0.44531 bf-mse_opinion== 0.50176
+mse_belief= 0.39086 mse_uncertain== 0.46568 bf-mse_opinion== 0.49599
+mse_belief= 0.38064 mse_uncertain== 0.48729 bf-mse_opinion== 0.49003
+mse_belief= 0.36989 mse_uncertain== 0.51002 bf-mse_opinion== 0.48397
+mse_belief= 0.35872 mse_uncertain== 0.53352 bf-mse_opinion== 0.47793
+mse_belief= 0.34732 mse_uncertain== 0.55722 bf-mse_opinion== 0.47195
+mse_belief= 0.33589 mse_uncertain== 0.58064 bf-mse_opinion== 0.46613
+mse_belief= 0.32469 mse_uncertain== 0.60336 bf-mse_opinion== 0.46054
+mse_belief= 0.31390 mse_uncertain== 0.62497 bf-mse_opinion== 0.45527
+mse_belief= 0.30366 mse_uncertain== 0.64524 bf-mse_opinion== 0.45039
+mse_belief= 0.29410 mse_uncertain== 0.66399 bf-mse_opinion== 0.44595
+mse_belief= 0.28528 mse_uncertain== 0.68114 bf-mse_opinion== 0.44193
+mse_belief= 0.27723 mse_uncertain== 0.69666 bf-mse_opinion== 0.43834
+mse_belief= 0.26996 mse_uncertain== 0.71061 bf-mse_opinion== 0.43515
+mse_belief= 0.26344 mse_uncertain== 0.72307 bf-mse_opinion== 0.43232
+Optimization Finished!
+alpha_0: 1.1806632213608959 beta_0: 1.554263565891473
+best epoch: 250 bset_belief: 0.26343647 bset_uncertain: 0.72306615 bset_opinion: 0.43232185
+run time =  114.320073128
+belief: 0.2634 uncertain: 0.2634 time window =  10 test_rio =  0.2
+4.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd_gcn_vae/5000/nodes-5000-T-10-rate-0.2-testratio-0.3-swaprate-0.0-gamma-0.07-realization-0-data-X.pkl
+([], [], [])
+mse_belief= 0.44908 mse_uncertain== 0.33528 bf-mse_opinion== 0.53643
+mse_belief= 0.44803 mse_uncertain== 0.33804 bf-mse_opinion== 0.53559
+mse_belief= 0.44648 mse_uncertain== 0.34194 bf-mse_opinion== 0.53443
+mse_belief= 0.44435 mse_uncertain== 0.34717 bf-mse_opinion== 0.53287
+mse_belief= 0.44156 mse_uncertain== 0.35398 bf-mse_opinion== 0.53091
+mse_belief= 0.43801 mse_uncertain== 0.36257 bf-mse_opinion== 0.52855
+mse_belief= 0.43361 mse_uncertain== 0.37307 bf-mse_opinion== 0.52574
+mse_belief= 0.42827 mse_uncertain== 0.38556 bf-mse_opinion== 0.52246
+mse_belief= 0.42188 mse_uncertain== 0.40009 bf-mse_opinion== 0.51867
+mse_belief= 0.41438 mse_uncertain== 0.41668 bf-mse_opinion== 0.51437
+mse_belief= 0.40581 mse_uncertain== 0.43529 bf-mse_opinion== 0.50960
+mse_belief= 0.39633 mse_uncertain== 0.45569 bf-mse_opinion== 0.50441
+mse_belief= 0.38609 mse_uncertain== 0.47759 bf-mse_opinion== 0.49886
+mse_belief= 0.37522 mse_uncertain== 0.50056 bf-mse_opinion== 0.49302
+mse_belief= 0.36393 mse_uncertain== 0.52421 bf-mse_opinion== 0.48704
+mse_belief= 0.35244 mse_uncertain== 0.54808 bf-mse_opinion== 0.48101
+mse_belief= 0.34093 mse_uncertain== 0.57176 bf-mse_opinion== 0.47507
+mse_belief= 0.32962 mse_uncertain== 0.59484 bf-mse_opinion== 0.46928
+mse_belief= 0.31866 mse_uncertain== 0.61695 bf-mse_opinion== 0.46372
+mse_belief= 0.30820 mse_uncertain== 0.63782 bf-mse_opinion== 0.45845
+mse_belief= 0.29835 mse_uncertain== 0.65723 bf-mse_opinion== 0.45351
+mse_belief= 0.28908 mse_uncertain== 0.67514 bf-mse_opinion== 0.44890
+mse_belief= 0.28043 mse_uncertain== 0.69155 bf-mse_opinion== 0.44463
+mse_belief= 0.27245 mse_uncertain== 0.70647 bf-mse_opinion== 0.44071
+mse_belief= 0.26523 mse_uncertain== 0.71990 bf-mse_opinion== 0.43717
+Optimization Finished!
+alpha_0: 1.1806632213608959 beta_0: 1.554263565891473
+best epoch: 250 bset_belief: 0.26523238 bset_uncertain: 0.7198964 bset_opinion: 0.43717188
+run time =  114.727866888
+belief: 0.2652 uncertain: 0.2652 time window =  10 test_rio =  0.2
+5.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd_gcn_vae/5000/nodes-5000-T-10-rate-0.2-testratio-0.3-swaprate-0.0-gamma-0.09-realization-0-data-X.pkl
+([], [], [])
+mse_belief= 0.44852 mse_uncertain== 0.33417 bf-mse_opinion== 0.53594
+mse_belief= 0.44670 mse_uncertain== 0.33568 bf-mse_opinion== 0.53444
+mse_belief= 0.44427 mse_uncertain== 0.33829 bf-mse_opinion== 0.53259
+mse_belief= 0.44120 mse_uncertain== 0.34234 bf-mse_opinion== 0.53045
+mse_belief= 0.43744 mse_uncertain== 0.34814 bf-mse_opinion== 0.52803
+mse_belief= 0.43290 mse_uncertain== 0.35580 bf-mse_opinion== 0.52523
+mse_belief= 0.42749 mse_uncertain== 0.36541 bf-mse_opinion== 0.52202
+mse_belief= 0.42121 mse_uncertain== 0.37699 bf-mse_opinion== 0.51836
+mse_belief= 0.41402 mse_uncertain== 0.39063 bf-mse_opinion== 0.51426
+mse_belief= 0.40590 mse_uncertain== 0.40651 bf-mse_opinion== 0.50973
+mse_belief= 0.39681 mse_uncertain== 0.42465 bf-mse_opinion== 0.50473
+mse_belief= 0.38687 mse_uncertain== 0.44489 bf-mse_opinion== 0.49925
+mse_belief= 0.37616 mse_uncertain== 0.46691 bf-mse_opinion== 0.49336
+mse_belief= 0.36486 mse_uncertain== 0.49027 bf-mse_opinion== 0.48722
+mse_belief= 0.35323 mse_uncertain== 0.51447 bf-mse_opinion== 0.48097
+mse_belief= 0.34148 mse_uncertain== 0.53902 bf-mse_opinion== 0.47476
+mse_belief= 0.32987 mse_uncertain== 0.56344 bf-mse_opinion== 0.46869
+mse_belief= 0.31858 mse_uncertain== 0.58729 bf-mse_opinion== 0.46284
+mse_belief= 0.30779 mse_uncertain== 0.61019 bf-mse_opinion== 0.45730
+mse_belief= 0.29767 mse_uncertain== 0.63180 bf-mse_opinion== 0.45216
+mse_belief= 0.28830 mse_uncertain== 0.65189 bf-mse_opinion== 0.44745
+mse_belief= 0.27973 mse_uncertain== 0.67031 bf-mse_opinion== 0.44322
+mse_belief= 0.27197 mse_uncertain== 0.68702 bf-mse_opinion== 0.43943
+mse_belief= 0.26502 mse_uncertain== 0.70204 bf-mse_opinion== 0.43607
+mse_belief= 0.25883 mse_uncertain== 0.71544 bf-mse_opinion== 0.43310
+Optimization Finished!
+alpha_0: 1.1806632213608959 beta_0: 1.554263565891473
+best epoch: 250 bset_belief: 0.2588297 bset_uncertain: 0.71544003 bset_opinion: 0.4330988
+run time =  113.698721886
+belief: 0.2588 uncertain: 0.2588 time window =  10 test_rio =  0.2
+6.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd_gcn_vae/5000/nodes-5000-T-10-rate-0.2-testratio-0.3-swaprate-0.0-gamma-0.2-realization-0-data-X.pkl
+([], [], [])
+mse_belief= 0.44899 mse_uncertain== 0.33535 bf-mse_opinion== 0.53623
+mse_belief= 0.44779 mse_uncertain== 0.33849 bf-mse_opinion== 0.53515
+mse_belief= 0.44605 mse_uncertain== 0.34303 bf-mse_opinion== 0.53376
+mse_belief= 0.44367 mse_uncertain== 0.34910 bf-mse_opinion== 0.53201
+mse_belief= 0.44055 mse_uncertain== 0.35683 bf-mse_opinion== 0.52986
+mse_belief= 0.43660 mse_uncertain== 0.36638 bf-mse_opinion== 0.52728
+mse_belief= 0.43176 mse_uncertain== 0.37791 bf-mse_opinion== 0.52423
+mse_belief= 0.42591 mse_uncertain== 0.39159 bf-mse_opinion== 0.52067
+mse_belief= 0.41900 mse_uncertain== 0.40746 bf-mse_opinion== 0.51654
+mse_belief= 0.41098 mse_uncertain== 0.42546 bf-mse_opinion== 0.51181
+mse_belief= 0.40192 mse_uncertain== 0.44541 bf-mse_opinion== 0.50652
+mse_belief= 0.39182 mse_uncertain== 0.46710 bf-mse_opinion== 0.50077
+mse_belief= 0.38064 mse_uncertain== 0.49026 bf-mse_opinion== 0.49464
+mse_belief= 0.36857 mse_uncertain== 0.51459 bf-mse_opinion== 0.48824
+mse_belief= 0.35579 mse_uncertain== 0.53967 bf-mse_opinion== 0.48168
+mse_belief= 0.34273 mse_uncertain== 0.56501 bf-mse_opinion== 0.47505
+mse_belief= 0.32975 mse_uncertain== 0.59002 bf-mse_opinion== 0.46851
+mse_belief= 0.31722 mse_uncertain== 0.61415 bf-mse_opinion== 0.46222
+mse_belief= 0.30542 mse_uncertain== 0.63695 bf-mse_opinion== 0.45630
+mse_belief= 0.29447 mse_uncertain== 0.65808 bf-mse_opinion== 0.45087
+mse_belief= 0.28449 mse_uncertain== 0.67734 bf-mse_opinion== 0.44597
+mse_belief= 0.27553 mse_uncertain== 0.69467 bf-mse_opinion== 0.44161
+mse_belief= 0.26756 mse_uncertain== 0.71008 bf-mse_opinion== 0.43775
+mse_belief= 0.26054 mse_uncertain== 0.72368 bf-mse_opinion== 0.43436
+mse_belief= 0.25440 mse_uncertain== 0.73560 bf-mse_opinion== 0.43141
+Optimization Finished!
+alpha_0: 1.1806632213608959 beta_0: 1.554263565891473
+best epoch: 250 bset_belief: 0.25440004 bset_uncertain: 0.73559576 bset_opinion: 0.431406
+run time =  113.822008133
+belief: 0.2544 uncertain: 0.2544 time window =  10 test_rio =  0.2
+7.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd_gcn_vae/5000/nodes-5000-T-10-rate-0.2-testratio-0.3-swaprate-0.0-gamma-0.3-realization-0-data-X.pkl
+([], [], [])
+mse_belief= 0.44881 mse_uncertain== 0.33558 bf-mse_opinion== 0.53614
+mse_belief= 0.44733 mse_uncertain== 0.33878 bf-mse_opinion== 0.53487
+mse_belief= 0.44520 mse_uncertain== 0.34315 bf-mse_opinion== 0.53319
+mse_belief= 0.44233 mse_uncertain== 0.34890 bf-mse_opinion== 0.53108
+mse_belief= 0.43864 mse_uncertain== 0.35620 bf-mse_opinion== 0.52853
+mse_belief= 0.43411 mse_uncertain== 0.36518 bf-mse_opinion== 0.52551
+mse_belief= 0.42869 mse_uncertain== 0.37591 bf-mse_opinion== 0.52203
+mse_belief= 0.42237 mse_uncertain== 0.38844 bf-mse_opinion== 0.51809
+mse_belief= 0.41522 mse_uncertain== 0.40276 bf-mse_opinion== 0.51371
+mse_belief= 0.40726 mse_uncertain== 0.41879 bf-mse_opinion== 0.50891
+mse_belief= 0.39855 mse_uncertain== 0.43644 bf-mse_opinion== 0.50378
+mse_belief= 0.38916 mse_uncertain== 0.45554 bf-mse_opinion== 0.49835
+mse_belief= 0.37925 mse_uncertain== 0.47586 bf-mse_opinion== 0.49271
+mse_belief= 0.36889 mse_uncertain== 0.49712 bf-mse_opinion== 0.48694
+mse_belief= 0.35828 mse_uncertain== 0.51899 bf-mse_opinion== 0.48112
+mse_belief= 0.34753 mse_uncertain== 0.54112 bf-mse_opinion== 0.47539
+mse_belief= 0.33683 mse_uncertain== 0.56320 bf-mse_opinion== 0.46980
+mse_belief= 0.32633 mse_uncertain== 0.58489 bf-mse_opinion== 0.46441
+mse_belief= 0.31617 mse_uncertain== 0.60587 bf-mse_opinion== 0.45928
+mse_belief= 0.30644 mse_uncertain== 0.62590 bf-mse_opinion== 0.45445
+mse_belief= 0.29719 mse_uncertain== 0.64482 bf-mse_opinion== 0.44991
+mse_belief= 0.28843 mse_uncertain== 0.66256 bf-mse_opinion== 0.44566
+mse_belief= 0.28021 mse_uncertain== 0.67909 bf-mse_opinion== 0.44173
+mse_belief= 0.27262 mse_uncertain== 0.69431 bf-mse_opinion== 0.43815
+mse_belief= 0.26572 mse_uncertain== 0.70815 bf-mse_opinion== 0.43493
+Optimization Finished!
+alpha_0: 1.1806632213608959 beta_0: 1.554263565891473
+best epoch: 250 bset_belief: 0.26571688 bset_uncertain: 0.70814615 bset_opinion: 0.43493432
+run time =  113.718350887
+belief: 0.2657 uncertain: 0.2657 time window =  10 test_rio =  0.2
+8.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd_gcn_vae/5000/nodes-5000-T-10-rate-0.2-testratio-0.3-swaprate-0.0-gamma-0.4-realization-0-data-X.pkl
+([], [], [])
+mse_belief= 0.44844 mse_uncertain== 0.33582 bf-mse_opinion== 0.53583
+mse_belief= 0.44662 mse_uncertain== 0.33927 bf-mse_opinion== 0.53428
+mse_belief= 0.44423 mse_uncertain== 0.34379 bf-mse_opinion== 0.53239
+mse_belief= 0.44122 mse_uncertain== 0.34949 bf-mse_opinion== 0.53013
+mse_belief= 0.43754 mse_uncertain== 0.35648 bf-mse_opinion== 0.52749
+mse_belief= 0.43316 mse_uncertain== 0.36485 bf-mse_opinion== 0.52446
+mse_belief= 0.42804 mse_uncertain== 0.37466 bf-mse_opinion== 0.52103
+mse_belief= 0.42219 mse_uncertain== 0.38595 bf-mse_opinion== 0.51721
+mse_belief= 0.41565 mse_uncertain== 0.39872 bf-mse_opinion== 0.51301
+mse_belief= 0.40845 mse_uncertain== 0.41293 bf-mse_opinion== 0.50846
+mse_belief= 0.40060 mse_uncertain== 0.42852 bf-mse_opinion== 0.50362
+mse_belief= 0.39214 mse_uncertain== 0.44540 bf-mse_opinion== 0.49849
+mse_belief= 0.38315 mse_uncertain== 0.46341 bf-mse_opinion== 0.49318
+mse_belief= 0.37371 mse_uncertain== 0.48236 bf-mse_opinion== 0.48770
+mse_belief= 0.36396 mse_uncertain== 0.50204 bf-mse_opinion== 0.48214
+mse_belief= 0.35385 mse_uncertain== 0.52221 bf-mse_opinion== 0.47651
+mse_belief= 0.34344 mse_uncertain== 0.54272 bf-mse_opinion== 0.47078
+mse_belief= 0.33296 mse_uncertain== 0.56335 bf-mse_opinion== 0.46510
+mse_belief= 0.32268 mse_uncertain== 0.58379 bf-mse_opinion== 0.45965
+mse_belief= 0.31278 mse_uncertain== 0.60372 bf-mse_opinion== 0.45453
+mse_belief= 0.30340 mse_uncertain== 0.62286 bf-mse_opinion== 0.44981
+mse_belief= 0.29459 mse_uncertain== 0.64099 bf-mse_opinion== 0.44553
+mse_belief= 0.28643 mse_uncertain== 0.65795 bf-mse_opinion== 0.44166
+mse_belief= 0.27892 mse_uncertain== 0.67367 bf-mse_opinion== 0.43819
+mse_belief= 0.27207 mse_uncertain== 0.68810 bf-mse_opinion== 0.43510
+Optimization Finished!
+alpha_0: 1.1806632213608959 beta_0: 1.554263565891473
+best epoch: 250 bset_belief: 0.27207458 bset_uncertain: 0.68809897 bset_opinion: 0.43510196
+run time =  113.193826199
+belief: 0.2721 uncertain: 0.2721 time window =  10 test_rio =  0.2
+9.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd_gcn_vae/5000/nodes-5000-T-10-rate-0.2-testratio-0.3-swaprate-0.0-gamma-0.0-realization-1-data-X.pkl
+([], [], [])
+mse_belief= 0.45168 mse_uncertain== 0.32927 bf-mse_opinion== 0.53737
+mse_belief= 0.44933 mse_uncertain== 0.32387 bf-mse_opinion== 0.53354
+mse_belief= 0.44620 mse_uncertain== 0.31694 bf-mse_opinion== 0.52849
+mse_belief= 0.44221 mse_uncertain== 0.30835 bf-mse_opinion== 0.52212
+mse_belief= 0.43731 mse_uncertain== 0.29792 bf-mse_opinion== 0.51432
+mse_belief= 0.43143 mse_uncertain== 0.28549 bf-mse_opinion== 0.50505
+mse_belief= 0.42456 mse_uncertain== 0.27099 bf-mse_opinion== 0.49433
+mse_belief= 0.41667 mse_uncertain== 0.25443 bf-mse_opinion== 0.48213
+mse_belief= 0.40785 mse_uncertain== 0.23596 bf-mse_opinion== 0.46853
+mse_belief= 0.39818 mse_uncertain== 0.21578 bf-mse_opinion== 0.45362
+mse_belief= 0.38774 mse_uncertain== 0.19413 bf-mse_opinion== 0.43758
+mse_belief= 0.37667 mse_uncertain== 0.17133 bf-mse_opinion== 0.42067
+mse_belief= 0.36513 mse_uncertain== 0.14767 bf-mse_opinion== 0.40312
+mse_belief= 0.35327 mse_uncertain== 0.12345 bf-mse_opinion== 0.38516
+mse_belief= 0.34129 mse_uncertain== 0.09907 bf-mse_opinion== 0.36704
+mse_belief= 0.32940 mse_uncertain== 0.07568 bf-mse_opinion== 0.34904
+mse_belief= 0.31792 mse_uncertain== 0.05623 bf-mse_opinion== 0.33176
+mse_belief= 0.30722 mse_uncertain== 0.04358 bf-mse_opinion== 0.31595
+mse_belief= 0.29765 mse_uncertain== 0.03638 bf-mse_opinion== 0.30229
+mse_belief= 0.28929 mse_uncertain== 0.03212 bf-mse_opinion== 0.29092
+mse_belief= 0.28205 mse_uncertain== 0.02951 bf-mse_opinion== 0.28157
+mse_belief= 0.27578 mse_uncertain== 0.02793 bf-mse_opinion== 0.27396
+mse_belief= 0.27030 mse_uncertain== 0.02695 bf-mse_opinion== 0.26772
+mse_belief= 0.26550 mse_uncertain== 0.02630 bf-mse_opinion== 0.26254
+mse_belief= 0.26122 mse_uncertain== 0.02587 bf-mse_opinion== 0.25813
+Optimization Finished!
+alpha_0: 3.099590869939707 beta_0: 8.900409130060293
+best epoch: 250 bset_belief: 0.26121953 bset_uncertain: 0.025874564 bset_opinion: 0.25812697
+run time =  114.671917915
+belief: 0.2612 uncertain: 0.2612 time window =  10 test_rio =  0.2
+10.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd_gcn_vae/5000/nodes-5000-T-10-rate-0.2-testratio-0.3-swaprate-0.0-gamma-0.01-realization-1-data-X.pkl
+([], [], [])
+mse_belief= 0.45179 mse_uncertain== 0.33475 bf-mse_opinion== 0.53887
+mse_belief= 0.44963 mse_uncertain== 0.33703 bf-mse_opinion== 0.53722
+mse_belief= 0.44673 mse_uncertain== 0.34036 bf-mse_opinion== 0.53509
+mse_belief= 0.44303 mse_uncertain== 0.34494 bf-mse_opinion== 0.53247
+mse_belief= 0.43842 mse_uncertain== 0.35091 bf-mse_opinion== 0.52928
+mse_belief= 0.43277 mse_uncertain== 0.35838 bf-mse_opinion== 0.52541
+mse_belief= 0.42603 mse_uncertain== 0.36751 bf-mse_opinion== 0.52084
+mse_belief= 0.41828 mse_uncertain== 0.37849 bf-mse_opinion== 0.51568
+mse_belief= 0.40960 mse_uncertain== 0.39138 bf-mse_opinion== 0.51004
+mse_belief= 0.40003 mse_uncertain== 0.40618 bf-mse_opinion== 0.50397
+mse_belief= 0.38962 mse_uncertain== 0.42284 bf-mse_opinion== 0.49751
+mse_belief= 0.37834 mse_uncertain== 0.44129 bf-mse_opinion== 0.49067
+mse_belief= 0.36627 mse_uncertain== 0.46150 bf-mse_opinion== 0.48350
+mse_belief= 0.35355 mse_uncertain== 0.48332 bf-mse_opinion== 0.47611
+mse_belief= 0.34057 mse_uncertain== 0.50642 bf-mse_opinion== 0.46878
+mse_belief= 0.32770 mse_uncertain== 0.53026 bf-mse_opinion== 0.46177
+mse_belief= 0.31526 mse_uncertain== 0.55431 bf-mse_opinion== 0.45521
+mse_belief= 0.30347 mse_uncertain== 0.57806 bf-mse_opinion== 0.44925
+mse_belief= 0.29251 mse_uncertain== 0.60105 bf-mse_opinion== 0.44393
+mse_belief= 0.28249 mse_uncertain== 0.62290 bf-mse_opinion== 0.43927
+mse_belief= 0.27345 mse_uncertain== 0.64333 bf-mse_opinion== 0.43525
+mse_belief= 0.26539 mse_uncertain== 0.66216 bf-mse_opinion== 0.43183
+mse_belief= 0.25826 mse_uncertain== 0.67932 bf-mse_opinion== 0.42893
+mse_belief= 0.25200 mse_uncertain== 0.69480 bf-mse_opinion== 0.42650
+mse_belief= 0.24652 mse_uncertain== 0.70865 bf-mse_opinion== 0.42446
+Optimization Finished!
+alpha_0: 1.178294573643411 beta_0: 1.555232558139535
+best epoch: 250 bset_belief: 0.2465245 bset_uncertain: 0.7086513 bset_opinion: 0.42446375
+run time =  114.198302984
+belief: 0.2465 uncertain: 0.2465 time window =  10 test_rio =  0.2
+11.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd_gcn_vae/5000/nodes-5000-T-10-rate-0.2-testratio-0.3-swaprate-0.0-gamma-0.03-realization-1-data-X.pkl
+([], [], [])
+mse_belief= 0.45214 mse_uncertain== 0.33561 bf-mse_opinion== 0.53909
+mse_belief= 0.45041 mse_uncertain== 0.33878 bf-mse_opinion== 0.53780
+mse_belief= 0.44812 mse_uncertain== 0.34317 bf-mse_opinion== 0.53618
+mse_belief= 0.44520 mse_uncertain== 0.34891 bf-mse_opinion== 0.53419
+mse_belief= 0.44154 mse_uncertain== 0.35617 bf-mse_opinion== 0.53175
+mse_belief= 0.43708 mse_uncertain== 0.36514 bf-mse_opinion== 0.52881
+mse_belief= 0.43173 mse_uncertain== 0.37596 bf-mse_opinion== 0.52534
+mse_belief= 0.42545 mse_uncertain== 0.38886 bf-mse_opinion== 0.52135
+mse_belief= 0.41822 mse_uncertain== 0.40403 bf-mse_opinion== 0.51686
+mse_belief= 0.41006 mse_uncertain== 0.42155 bf-mse_opinion== 0.51194
+mse_belief= 0.40099 mse_uncertain== 0.44134 bf-mse_opinion== 0.50661
+mse_belief= 0.39102 mse_uncertain== 0.46299 bf-mse_opinion== 0.50092
+mse_belief= 0.38018 mse_uncertain== 0.48605 bf-mse_opinion== 0.49495
+mse_belief= 0.36853 mse_uncertain== 0.51013 bf-mse_opinion== 0.48871
+mse_belief= 0.35633 mse_uncertain== 0.53478 bf-mse_opinion== 0.48234
+mse_belief= 0.34393 mse_uncertain== 0.55957 bf-mse_opinion== 0.47602
+mse_belief= 0.33166 mse_uncertain== 0.58407 bf-mse_opinion== 0.46990
+mse_belief= 0.31977 mse_uncertain== 0.60784 bf-mse_opinion== 0.46410
+mse_belief= 0.30847 mse_uncertain== 0.63062 bf-mse_opinion== 0.45871
+mse_belief= 0.29792 mse_uncertain== 0.65226 bf-mse_opinion== 0.45382
+mse_belief= 0.28815 mse_uncertain== 0.67244 bf-mse_opinion== 0.44937
+mse_belief= 0.27919 mse_uncertain== 0.69092 bf-mse_opinion== 0.44535
+mse_belief= 0.27104 mse_uncertain== 0.70744 bf-mse_opinion== 0.44172
+mse_belief= 0.26372 mse_uncertain== 0.72200 bf-mse_opinion== 0.43847
+mse_belief= 0.25721 mse_uncertain== 0.73473 bf-mse_opinion== 0.43560
+Optimization Finished!
+alpha_0: 1.178294573643411 beta_0: 1.555232558139535
+best epoch: 250 bset_belief: 0.25720635 bset_uncertain: 0.73472893 bset_opinion: 0.43559712
+run time =  113.626338959
+belief: 0.2572 uncertain: 0.2572 time window =  10 test_rio =  0.2
+12.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd_gcn_vae/5000/nodes-5000-T-10-rate-0.2-testratio-0.3-swaprate-0.0-gamma-0.05-realization-1-data-X.pkl
+([], [], [])
+mse_belief= 0.45215 mse_uncertain== 0.33474 bf-mse_opinion== 0.53880
+mse_belief= 0.45036 mse_uncertain== 0.33722 bf-mse_opinion== 0.53705
+mse_belief= 0.44788 mse_uncertain== 0.34115 bf-mse_opinion== 0.53485
+mse_belief= 0.44461 mse_uncertain== 0.34674 bf-mse_opinion== 0.53217
+mse_belief= 0.44045 mse_uncertain== 0.35420 bf-mse_opinion== 0.52896
+mse_belief= 0.43530 mse_uncertain== 0.36373 bf-mse_opinion== 0.52520
+mse_belief= 0.42911 mse_uncertain== 0.37545 bf-mse_opinion== 0.52091
+mse_belief= 0.42184 mse_uncertain== 0.38939 bf-mse_opinion== 0.51610
+mse_belief= 0.41350 mse_uncertain== 0.40552 bf-mse_opinion== 0.51081
+mse_belief= 0.40417 mse_uncertain== 0.42370 bf-mse_opinion== 0.50508
+mse_belief= 0.39395 mse_uncertain== 0.44378 bf-mse_opinion== 0.49900
+mse_belief= 0.38294 mse_uncertain== 0.46553 bf-mse_opinion== 0.49266
+mse_belief= 0.37123 mse_uncertain== 0.48872 bf-mse_opinion== 0.48613
+mse_belief= 0.35901 mse_uncertain== 0.51304 bf-mse_opinion== 0.47954
+mse_belief= 0.34652 mse_uncertain== 0.53800 bf-mse_opinion== 0.47305
+mse_belief= 0.33404 mse_uncertain== 0.56308 bf-mse_opinion== 0.46678
+mse_belief= 0.32185 mse_uncertain== 0.58775 bf-mse_opinion== 0.46088
+mse_belief= 0.31016 mse_uncertain== 0.61163 bf-mse_opinion== 0.45540
+mse_belief= 0.29911 mse_uncertain== 0.63447 bf-mse_opinion== 0.45040
+mse_belief= 0.28878 mse_uncertain== 0.65600 bf-mse_opinion== 0.44588
+mse_belief= 0.27919 mse_uncertain== 0.67596 bf-mse_opinion== 0.44181
+mse_belief= 0.27036 mse_uncertain== 0.69418 bf-mse_opinion== 0.43814
+mse_belief= 0.26235 mse_uncertain== 0.71058 bf-mse_opinion== 0.43486
+mse_belief= 0.25522 mse_uncertain== 0.72511 bf-mse_opinion== 0.43198
+mse_belief= 0.24896 mse_uncertain== 0.73782 bf-mse_opinion== 0.42948
+Optimization Finished!
+alpha_0: 1.178294573643411 beta_0: 1.555232558139535
+best epoch: 250 bset_belief: 0.24895945 bset_uncertain: 0.73781633 bset_opinion: 0.429484
+run time =  113.048044205
+belief: 0.249 uncertain: 0.249 time window =  10 test_rio =  0.2
+13.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd_gcn_vae/5000/nodes-5000-T-10-rate-0.2-testratio-0.3-swaprate-0.0-gamma-0.07-realization-1-data-X.pkl
+([], [], [])
+mse_belief= 0.45241 mse_uncertain== 0.33609 bf-mse_opinion== 0.53941
+mse_belief= 0.45103 mse_uncertain== 0.34013 bf-mse_opinion== 0.53848
+mse_belief= 0.44916 mse_uncertain== 0.34585 bf-mse_opinion== 0.53728
+mse_belief= 0.44667 mse_uncertain== 0.35341 bf-mse_opinion== 0.53572
+mse_belief= 0.44342 mse_uncertain== 0.36296 bf-mse_opinion== 0.53371
+mse_belief= 0.43927 mse_uncertain== 0.37462 bf-mse_opinion== 0.53119
+mse_belief= 0.43415 mse_uncertain== 0.38841 bf-mse_opinion== 0.52815
+mse_belief= 0.42801 mse_uncertain== 0.40429 bf-mse_opinion== 0.52459
+mse_belief= 0.42086 mse_uncertain== 0.42215 bf-mse_opinion== 0.52055
+mse_belief= 0.41275 mse_uncertain== 0.44185 bf-mse_opinion== 0.51605
+mse_belief= 0.40373 mse_uncertain== 0.46315 bf-mse_opinion== 0.51113
+mse_belief= 0.39389 mse_uncertain== 0.48576 bf-mse_opinion== 0.50587
+mse_belief= 0.38335 mse_uncertain== 0.50931 bf-mse_opinion== 0.50037
+mse_belief= 0.37227 mse_uncertain== 0.53336 bf-mse_opinion== 0.49472
+mse_belief= 0.36083 mse_uncertain== 0.55748 bf-mse_opinion== 0.48898
+mse_belief= 0.34922 mse_uncertain== 0.58127 bf-mse_opinion== 0.48323
+mse_belief= 0.33767 mse_uncertain== 0.60433 bf-mse_opinion== 0.47755
+mse_belief= 0.32637 mse_uncertain== 0.62631 bf-mse_opinion== 0.47203
+mse_belief= 0.31549 mse_uncertain== 0.64693 bf-mse_opinion== 0.46675
+mse_belief= 0.30518 mse_uncertain== 0.66598 bf-mse_opinion== 0.46177
+mse_belief= 0.29555 mse_uncertain== 0.68338 bf-mse_opinion== 0.45711
+mse_belief= 0.28666 mse_uncertain== 0.69908 bf-mse_opinion== 0.45281
+mse_belief= 0.27853 mse_uncertain== 0.71313 bf-mse_opinion== 0.44888
+mse_belief= 0.27116 mse_uncertain== 0.72562 bf-mse_opinion== 0.44530
+mse_belief= 0.26452 mse_uncertain== 0.73666 bf-mse_opinion== 0.44208
+Optimization Finished!
+alpha_0: 1.178294573643411 beta_0: 1.555232558139535
+best epoch: 250 bset_belief: 0.26451606 bset_uncertain: 0.7366629 bset_opinion: 0.44207716
+run time =  112.380935907
+belief: 0.2645 uncertain: 0.2645 time window =  10 test_rio =  0.2
+14.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd_gcn_vae/5000/nodes-5000-T-10-rate-0.2-testratio-0.3-swaprate-0.0-gamma-0.09-realization-1-data-X.pkl
+([], [], [])
+mse_belief= 0.45212 mse_uncertain== 0.33482 bf-mse_opinion== 0.53909
+mse_belief= 0.45038 mse_uncertain== 0.33718 bf-mse_opinion== 0.53775
+mse_belief= 0.44803 mse_uncertain== 0.34069 bf-mse_opinion== 0.53607
+mse_belief= 0.44500 mse_uncertain== 0.34550 bf-mse_opinion== 0.53403
+mse_belief= 0.44122 mse_uncertain== 0.35177 bf-mse_opinion== 0.53160
+mse_belief= 0.43660 mse_uncertain== 0.35972 bf-mse_opinion== 0.52877
+mse_belief= 0.43107 mse_uncertain== 0.36952 bf-mse_opinion== 0.52552
+mse_belief= 0.42455 mse_uncertain== 0.38132 bf-mse_opinion== 0.52178
+mse_belief= 0.41693 mse_uncertain== 0.39519 bf-mse_opinion== 0.51750
+mse_belief= 0.40809 mse_uncertain== 0.41129 bf-mse_opinion== 0.51258
+mse_belief= 0.39797 mse_uncertain== 0.42971 bf-mse_opinion== 0.50701
+mse_belief= 0.38675 mse_uncertain== 0.45037 bf-mse_opinion== 0.50090
+mse_belief= 0.37468 mse_uncertain== 0.47299 bf-mse_opinion== 0.49449
+mse_belief= 0.36204 mse_uncertain== 0.49705 bf-mse_opinion== 0.48787
+mse_belief= 0.34913 mse_uncertain== 0.52203 bf-mse_opinion== 0.48121
+mse_belief= 0.33624 mse_uncertain== 0.54753 bf-mse_opinion== 0.47468
+mse_belief= 0.32362 mse_uncertain== 0.57320 bf-mse_opinion== 0.46843
+mse_belief= 0.31147 mse_uncertain== 0.59854 bf-mse_opinion== 0.46254
+mse_belief= 0.29999 mse_uncertain== 0.62280 bf-mse_opinion== 0.45704
+mse_belief= 0.28934 mse_uncertain== 0.64546 bf-mse_opinion== 0.45197
+mse_belief= 0.27963 mse_uncertain== 0.66622 bf-mse_opinion== 0.44737
+mse_belief= 0.27091 mse_uncertain== 0.68492 bf-mse_opinion== 0.44325
+mse_belief= 0.26316 mse_uncertain== 0.70157 bf-mse_opinion== 0.43961
+mse_belief= 0.25633 mse_uncertain== 0.71625 bf-mse_opinion== 0.43640
+mse_belief= 0.25036 mse_uncertain== 0.72912 bf-mse_opinion== 0.43360
+Optimization Finished!
+alpha_0: 1.178294573643411 beta_0: 1.555232558139535
+best epoch: 250 bset_belief: 0.25035608 bset_uncertain: 0.7291176 bset_opinion: 0.43360376
+run time =  112.387989044
+belief: 0.2504 uncertain: 0.2504 time window =  10 test_rio =  0.2
+15.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd_gcn_vae/5000/nodes-5000-T-10-rate-0.2-testratio-0.3-swaprate-0.0-gamma-0.2-realization-1-data-X.pkl
+([], [], [])
+mse_belief= 0.45222 mse_uncertain== 0.33701 bf-mse_opinion== 0.53930
+mse_belief= 0.45065 mse_uncertain== 0.34184 bf-mse_opinion== 0.53826
+mse_belief= 0.44851 mse_uncertain== 0.34823 bf-mse_opinion== 0.53687
+mse_belief= 0.44564 mse_uncertain== 0.35628 bf-mse_opinion== 0.53499
+mse_belief= 0.44189 mse_uncertain== 0.36613 bf-mse_opinion== 0.53256
+mse_belief= 0.43719 mse_uncertain== 0.37791 bf-mse_opinion== 0.52956
+mse_belief= 0.43148 mse_uncertain== 0.39170 bf-mse_opinion== 0.52604
+mse_belief= 0.42477 mse_uncertain== 0.40749 bf-mse_opinion== 0.52201
+mse_belief= 0.41707 mse_uncertain== 0.42520 bf-mse_opinion== 0.51752
+mse_belief= 0.40846 mse_uncertain== 0.44467 bf-mse_opinion== 0.51259
+mse_belief= 0.39900 mse_uncertain== 0.46570 bf-mse_opinion== 0.50729
+mse_belief= 0.38878 mse_uncertain== 0.48797 bf-mse_opinion== 0.50173
+mse_belief= 0.37792 mse_uncertain== 0.51110 bf-mse_opinion== 0.49599
+mse_belief= 0.36659 mse_uncertain== 0.53470 bf-mse_opinion== 0.49015
+mse_belief= 0.35498 mse_uncertain== 0.55837 bf-mse_opinion== 0.48428
+mse_belief= 0.34330 mse_uncertain== 0.58171 bf-mse_opinion== 0.47846
+mse_belief= 0.33178 mse_uncertain== 0.60432 bf-mse_opinion== 0.47278
+mse_belief= 0.32060 mse_uncertain== 0.62587 bf-mse_opinion== 0.46733
+mse_belief= 0.30991 mse_uncertain== 0.64611 bf-mse_opinion== 0.46217
+mse_belief= 0.29986 mse_uncertain== 0.66485 bf-mse_opinion== 0.45736
+mse_belief= 0.29052 mse_uncertain== 0.68199 bf-mse_opinion== 0.45291
+mse_belief= 0.28195 mse_uncertain== 0.69751 bf-mse_opinion== 0.44884
+mse_belief= 0.27413 mse_uncertain== 0.71145 bf-mse_opinion== 0.44514
+mse_belief= 0.26702 mse_uncertain== 0.72388 bf-mse_opinion== 0.44177
+mse_belief= 0.26049 mse_uncertain== 0.73496 bf-mse_opinion== 0.43868
+Optimization Finished!
+alpha_0: 1.178294573643411 beta_0: 1.555232558139535
+best epoch: 250 bset_belief: 0.26048616 bset_uncertain: 0.7349613 bset_opinion: 0.43867594
+run time =  111.910578012
+belief: 0.2605 uncertain: 0.2605 time window =  10 test_rio =  0.2
+16.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd_gcn_vae/5000/nodes-5000-T-10-rate-0.2-testratio-0.3-swaprate-0.0-gamma-0.3-realization-1-data-X.pkl
+([], [], [])
+mse_belief= 0.45251 mse_uncertain== 0.33473 bf-mse_opinion== 0.53926
+mse_belief= 0.45107 mse_uncertain== 0.33714 bf-mse_opinion== 0.53803
+mse_belief= 0.44887 mse_uncertain== 0.34081 bf-mse_opinion== 0.53634
+mse_belief= 0.44581 mse_uncertain== 0.34604 bf-mse_opinion== 0.53417
+mse_belief= 0.44177 mse_uncertain== 0.35313 bf-mse_opinion== 0.53150
+mse_belief= 0.43667 mse_uncertain== 0.36230 bf-mse_opinion== 0.52828
+mse_belief= 0.43044 mse_uncertain== 0.37366 bf-mse_opinion== 0.52446
+mse_belief= 0.42311 mse_uncertain== 0.38727 bf-mse_opinion== 0.52003
+mse_belief= 0.41469 mse_uncertain== 0.40310 bf-mse_opinion== 0.51507
+mse_belief= 0.40525 mse_uncertain== 0.42105 bf-mse_opinion== 0.50961
+mse_belief= 0.39492 mse_uncertain== 0.44096 bf-mse_opinion== 0.50374
+mse_belief= 0.38380 mse_uncertain== 0.46259 bf-mse_opinion== 0.49755
+mse_belief= 0.37206 mse_uncertain== 0.48559 bf-mse_opinion== 0.49118
+mse_belief= 0.35990 mse_uncertain== 0.50956 bf-mse_opinion== 0.48475
+mse_belief= 0.34757 mse_uncertain== 0.53404 bf-mse_opinion== 0.47837
+mse_belief= 0.33527 mse_uncertain== 0.55857 bf-mse_opinion== 0.47213
+mse_belief= 0.32321 mse_uncertain== 0.58277 bf-mse_opinion== 0.46612
+mse_belief= 0.31155 mse_uncertain== 0.60630 bf-mse_opinion== 0.46041
+mse_belief= 0.30043 mse_uncertain== 0.62887 bf-mse_opinion== 0.45504
+mse_belief= 0.29003 mse_uncertain== 0.65011 bf-mse_opinion== 0.45011
+mse_belief= 0.28049 mse_uncertain== 0.66969 bf-mse_opinion== 0.44565
+mse_belief= 0.27188 mse_uncertain== 0.68745 bf-mse_opinion== 0.44167
+mse_belief= 0.26418 mse_uncertain== 0.70337 bf-mse_opinion== 0.43816
+mse_belief= 0.25736 mse_uncertain== 0.71749 bf-mse_opinion== 0.43508
+mse_belief= 0.25134 mse_uncertain== 0.72993 bf-mse_opinion== 0.43239
+Optimization Finished!
+alpha_0: 1.178294573643411 beta_0: 1.555232558139535
+best epoch: 250 bset_belief: 0.25134388 bset_uncertain: 0.729933 bset_opinion: 0.43238676
+run time =  110.094130993
+belief: 0.2513 uncertain: 0.2513 time window =  10 test_rio =  0.2
+17.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd_gcn_vae/5000/nodes-5000-T-10-rate-0.2-testratio-0.3-swaprate-0.0-gamma-0.4-realization-1-data-X.pkl
+([], [], [])
+mse_belief= 0.45198 mse_uncertain== 0.33644 bf-mse_opinion== 0.53904
+mse_belief= 0.45003 mse_uncertain== 0.34073 bf-mse_opinion== 0.53764
+mse_belief= 0.44731 mse_uncertain== 0.34632 bf-mse_opinion== 0.53577
+mse_belief= 0.44370 mse_uncertain== 0.35336 bf-mse_opinion== 0.53337
+mse_belief= 0.43909 mse_uncertain== 0.36210 bf-mse_opinion== 0.53035
+mse_belief= 0.43337 mse_uncertain== 0.37286 bf-mse_opinion== 0.52663
+mse_belief= 0.42649 mse_uncertain== 0.38584 bf-mse_opinion== 0.52225
+mse_belief= 0.41849 mse_uncertain== 0.40108 bf-mse_opinion== 0.51727
+mse_belief= 0.40945 mse_uncertain== 0.41854 bf-mse_opinion== 0.51178
+mse_belief= 0.39940 mse_uncertain== 0.43806 bf-mse_opinion== 0.50584
+mse_belief= 0.38849 mse_uncertain== 0.45936 bf-mse_opinion== 0.49956
+mse_belief= 0.37687 mse_uncertain== 0.48213 bf-mse_opinion== 0.49305
+mse_belief= 0.36473 mse_uncertain== 0.50593 bf-mse_opinion== 0.48645
+mse_belief= 0.35232 mse_uncertain== 0.53031 bf-mse_opinion== 0.47987
+mse_belief= 0.33990 mse_uncertain== 0.55481 bf-mse_opinion== 0.47344
+mse_belief= 0.32767 mse_uncertain== 0.57898 bf-mse_opinion== 0.46725
+mse_belief= 0.31582 mse_uncertain== 0.60236 bf-mse_opinion== 0.46138
+mse_belief= 0.30450 mse_uncertain== 0.62464 bf-mse_opinion== 0.45589
+mse_belief= 0.29376 mse_uncertain== 0.64559 bf-mse_opinion== 0.45079
+mse_belief= 0.28372 mse_uncertain== 0.66509 bf-mse_opinion== 0.44611
+mse_belief= 0.27451 mse_uncertain== 0.68301 bf-mse_opinion== 0.44189
+mse_belief= 0.26625 mse_uncertain== 0.69923 bf-mse_opinion== 0.43816
+mse_belief= 0.25894 mse_uncertain== 0.71374 bf-mse_opinion== 0.43491
+mse_belief= 0.25252 mse_uncertain== 0.72660 bf-mse_opinion== 0.43209
+mse_belief= 0.24693 mse_uncertain== 0.73792 bf-mse_opinion== 0.42967
+Optimization Finished!
+alpha_0: 1.178294573643411 beta_0: 1.555232558139535
+best epoch: 250 bset_belief: 0.24693441 bset_uncertain: 0.7379241 bset_opinion: 0.42966726
+run time =  109.978204966
+belief: 0.2469 uncertain: 0.2469 time window =  10 test_rio =  0.2
+18.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd_gcn_vae/5000/nodes-5000-T-10-rate-0.2-testratio-0.3-swaprate-0.0-gamma-0.0-realization-2-data-X.pkl
+([], [], [])
+mse_belief= 0.44849 mse_uncertain== 0.33017 bf-mse_opinion== 0.52586
+mse_belief= 0.44709 mse_uncertain== 0.32582 bf-mse_opinion== 0.52346
+mse_belief= 0.44505 mse_uncertain== 0.31999 bf-mse_opinion== 0.52006
+mse_belief= 0.44229 mse_uncertain== 0.31253 bf-mse_opinion== 0.51553
+mse_belief= 0.43875 mse_uncertain== 0.30319 bf-mse_opinion== 0.50977
+mse_belief= 0.43436 mse_uncertain== 0.29179 bf-mse_opinion== 0.50267
+mse_belief= 0.42909 mse_uncertain== 0.27818 bf-mse_opinion== 0.49418
+mse_belief= 0.42293 mse_uncertain== 0.26227 bf-mse_opinion== 0.48431
+mse_belief= 0.41589 mse_uncertain== 0.24396 bf-mse_opinion== 0.47308
+mse_belief= 0.40797 mse_uncertain== 0.22314 bf-mse_opinion== 0.46038
+mse_belief= 0.39921 mse_uncertain== 0.19971 bf-mse_opinion== 0.44610
+mse_belief= 0.38954 mse_uncertain== 0.17374 bf-mse_opinion== 0.43028
+mse_belief= 0.37901 mse_uncertain== 0.14590 bf-mse_opinion== 0.41321
+mse_belief= 0.36782 mse_uncertain== 0.11696 bf-mse_opinion== 0.39536
+mse_belief= 0.35625 mse_uncertain== 0.08788 bf-mse_opinion== 0.37722
+mse_belief= 0.34456 mse_uncertain== 0.05987 bf-mse_opinion== 0.35917
+mse_belief= 0.33308 mse_uncertain== 0.03690 bf-mse_opinion== 0.34175
+mse_belief= 0.32228 mse_uncertain== 0.02491 bf-mse_opinion== 0.32591
+mse_belief= 0.31276 mse_uncertain== 0.02334 bf-mse_opinion== 0.31282
+mse_belief= 0.30472 mse_uncertain== 0.02494 bf-mse_opinion== 0.30281
+mse_belief= 0.29800 mse_uncertain== 0.02572 bf-mse_opinion== 0.29533
+mse_belief= 0.29227 mse_uncertain== 0.02559 bf-mse_opinion== 0.28950
+mse_belief= 0.28720 mse_uncertain== 0.02514 bf-mse_opinion== 0.28454
+mse_belief= 0.28258 mse_uncertain== 0.02485 bf-mse_opinion== 0.28000
+mse_belief= 0.27830 mse_uncertain== 0.02475 bf-mse_opinion== 0.27572
+Optimization Finished!
+alpha_0: 3.095499569336779 beta_0: 8.904500430663221
+best epoch: 250 bset_belief: 0.27829903 bset_uncertain: 0.024753634 bset_opinion: 0.2757189
+run time =  110.970876932
+belief: 0.2783 uncertain: 0.2783 time window =  10 test_rio =  0.2
+19.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd_gcn_vae/5000/nodes-5000-T-10-rate-0.2-testratio-0.3-swaprate-0.0-gamma-0.01-realization-2-data-X.pkl
+([], [], [])
+mse_belief= 0.44884 mse_uncertain== 0.33415 bf-mse_opinion== 0.52683
+mse_belief= 0.44798 mse_uncertain== 0.33566 bf-mse_opinion== 0.52590
+mse_belief= 0.44676 mse_uncertain== 0.33801 bf-mse_opinion== 0.52470
+mse_belief= 0.44512 mse_uncertain== 0.34132 bf-mse_opinion== 0.52324
+mse_belief= 0.44299 mse_uncertain== 0.34570 bf-mse_opinion== 0.52148
+mse_belief= 0.44033 mse_uncertain== 0.35124 bf-mse_opinion== 0.51944
+mse_belief= 0.43712 mse_uncertain== 0.35801 bf-mse_opinion== 0.51709
+mse_belief= 0.43334 mse_uncertain== 0.36603 bf-mse_opinion== 0.51445
+mse_belief= 0.42897 mse_uncertain== 0.37531 bf-mse_opinion== 0.51151
+mse_belief= 0.42400 mse_uncertain== 0.38587 bf-mse_opinion== 0.50829
+mse_belief= 0.41846 mse_uncertain== 0.39770 bf-mse_opinion== 0.50481
+mse_belief= 0.41238 mse_uncertain== 0.41082 bf-mse_opinion== 0.50109
+mse_belief= 0.40568 mse_uncertain== 0.42524 bf-mse_opinion== 0.49714
+mse_belief= 0.39834 mse_uncertain== 0.44096 bf-mse_opinion== 0.49295
+mse_belief= 0.39043 mse_uncertain== 0.45790 bf-mse_opinion== 0.48856
+mse_belief= 0.38214 mse_uncertain== 0.47583 bf-mse_opinion== 0.48405
+mse_belief= 0.37357 mse_uncertain== 0.49453 bf-mse_opinion== 0.47945
+mse_belief= 0.36481 mse_uncertain== 0.51373 bf-mse_opinion== 0.47483
+mse_belief= 0.35597 mse_uncertain== 0.53319 bf-mse_opinion== 0.47025
+mse_belief= 0.34717 mse_uncertain== 0.55265 bf-mse_opinion== 0.46578
+mse_belief= 0.33852 mse_uncertain== 0.57187 bf-mse_opinion== 0.46146
+mse_belief= 0.33010 mse_uncertain== 0.59065 bf-mse_opinion== 0.45732
+mse_belief= 0.32195 mse_uncertain== 0.60883 bf-mse_opinion== 0.45335
+mse_belief= 0.31406 mse_uncertain== 0.62632 bf-mse_opinion== 0.44953
+mse_belief= 0.30644 mse_uncertain== 0.64314 bf-mse_opinion== 0.44586
+Optimization Finished!
+alpha_0: 1.1958440999138673 beta_0: 1.5400516795865633
+best epoch: 250 bset_belief: 0.30644143 bset_uncertain: 0.64313686 bset_opinion: 0.44586483
+run time =  110.522408009
+belief: 0.3064 uncertain: 0.3064 time window =  10 test_rio =  0.2
+20.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd_gcn_vae/5000/nodes-5000-T-10-rate-0.2-testratio-0.3-swaprate-0.0-gamma-0.03-realization-2-data-X.pkl
+([], [], [])
+mse_belief= 0.44808 mse_uncertain== 0.33711 bf-mse_opinion== 0.52642
+mse_belief= 0.44638 mse_uncertain== 0.34194 bf-mse_opinion== 0.52515
+mse_belief= 0.44419 mse_uncertain== 0.34815 bf-mse_opinion== 0.52361
+mse_belief= 0.44145 mse_uncertain== 0.35578 bf-mse_opinion== 0.52179
+mse_belief= 0.43811 mse_uncertain== 0.36495 bf-mse_opinion== 0.51965
+mse_belief= 0.43410 mse_uncertain== 0.37571 bf-mse_opinion== 0.51717
+mse_belief= 0.42939 mse_uncertain== 0.38813 bf-mse_opinion== 0.51435
+mse_belief= 0.42394 mse_uncertain== 0.40229 bf-mse_opinion== 0.51118
+mse_belief= 0.41773 mse_uncertain== 0.41828 bf-mse_opinion== 0.50764
+mse_belief= 0.41077 mse_uncertain== 0.43603 bf-mse_opinion== 0.50375
+mse_belief= 0.40313 mse_uncertain== 0.45533 bf-mse_opinion== 0.49954
+mse_belief= 0.39488 mse_uncertain== 0.47590 bf-mse_opinion== 0.49506
+mse_belief= 0.38606 mse_uncertain== 0.49744 bf-mse_opinion== 0.49035
+mse_belief= 0.37681 mse_uncertain== 0.51960 bf-mse_opinion== 0.48551
+mse_belief= 0.36726 mse_uncertain== 0.54203 bf-mse_opinion== 0.48061
+mse_belief= 0.35758 mse_uncertain== 0.56438 bf-mse_opinion== 0.47570
+mse_belief= 0.34789 mse_uncertain== 0.58632 bf-mse_opinion== 0.47084
+mse_belief= 0.33833 mse_uncertain== 0.60753 bf-mse_opinion== 0.46611
+mse_belief= 0.32905 mse_uncertain== 0.62775 bf-mse_opinion== 0.46155
+mse_belief= 0.32016 mse_uncertain== 0.64676 bf-mse_opinion== 0.45721
+mse_belief= 0.31175 mse_uncertain== 0.66443 bf-mse_opinion== 0.45314
+mse_belief= 0.30390 mse_uncertain== 0.68068 bf-mse_opinion== 0.44936
+mse_belief= 0.29664 mse_uncertain== 0.69548 bf-mse_opinion== 0.44587
+mse_belief= 0.28998 mse_uncertain== 0.70886 bf-mse_opinion== 0.44268
+mse_belief= 0.28392 mse_uncertain== 0.72088 bf-mse_opinion== 0.43979
+Optimization Finished!
+alpha_0: 1.1958440999138673 beta_0: 1.5400516795865633
+best epoch: 250 bset_belief: 0.2839158 bset_uncertain: 0.7208814 bset_opinion: 0.4397885
+run time =  109.231604099
+belief: 0.2839 uncertain: 0.2839 time window =  10 test_rio =  0.2
+21.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd_gcn_vae/5000/nodes-5000-T-10-rate-0.2-testratio-0.3-swaprate-0.0-gamma-0.05-realization-2-data-X.pkl
+([], [], [])
+mse_belief= 0.44828 mse_uncertain== 0.33483 bf-mse_opinion== 0.52625
+mse_belief= 0.44666 mse_uncertain== 0.33697 bf-mse_opinion== 0.52457
+mse_belief= 0.44444 mse_uncertain== 0.33997 bf-mse_opinion== 0.52242
+mse_belief= 0.44159 mse_uncertain== 0.34404 bf-mse_opinion== 0.51985
+mse_belief= 0.43807 mse_uncertain== 0.34937 bf-mse_opinion== 0.51687
+mse_belief= 0.43382 mse_uncertain== 0.35609 bf-mse_opinion== 0.51349
+mse_belief= 0.42881 mse_uncertain== 0.36430 bf-mse_opinion== 0.50972
+mse_belief= 0.42298 mse_uncertain== 0.37413 bf-mse_opinion== 0.50555
+mse_belief= 0.41638 mse_uncertain== 0.38571 bf-mse_opinion== 0.50103
+mse_belief= 0.40901 mse_uncertain== 0.39919 bf-mse_opinion== 0.49617
+mse_belief= 0.40089 mse_uncertain== 0.41460 bf-mse_opinion== 0.49102
+mse_belief= 0.39212 mse_uncertain== 0.43188 bf-mse_opinion== 0.48563
+mse_belief= 0.38279 mse_uncertain== 0.45085 bf-mse_opinion== 0.48008
+mse_belief= 0.37302 mse_uncertain== 0.47113 bf-mse_opinion== 0.47443
+mse_belief= 0.36297 mse_uncertain== 0.49237 bf-mse_opinion== 0.46881
+mse_belief= 0.35281 mse_uncertain== 0.51424 bf-mse_opinion== 0.46332
+mse_belief= 0.34271 mse_uncertain== 0.53636 bf-mse_opinion== 0.45805
+mse_belief= 0.33283 mse_uncertain== 0.55839 bf-mse_opinion== 0.45306
+mse_belief= 0.32331 mse_uncertain== 0.57999 bf-mse_opinion== 0.44843
+mse_belief= 0.31426 mse_uncertain== 0.60087 bf-mse_opinion== 0.44419
+mse_belief= 0.30578 mse_uncertain== 0.62077 bf-mse_opinion== 0.44035
+mse_belief= 0.29793 mse_uncertain== 0.63952 bf-mse_opinion== 0.43694
+mse_belief= 0.29072 mse_uncertain== 0.65698 bf-mse_opinion== 0.43392
+mse_belief= 0.28418 mse_uncertain== 0.67309 bf-mse_opinion== 0.43127
+mse_belief= 0.27827 mse_uncertain== 0.68784 bf-mse_opinion== 0.42896
+Optimization Finished!
+alpha_0: 1.1958440999138673 beta_0: 1.5400516795865633
+best epoch: 250 bset_belief: 0.27827457 bset_uncertain: 0.6878371 bset_opinion: 0.42896354
+run time =  112.781010866
+belief: 0.2783 uncertain: 0.2783 time window =  10 test_rio =  0.2
+22.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd_gcn_vae/5000/nodes-5000-T-10-rate-0.2-testratio-0.3-swaprate-0.0-gamma-0.07-realization-2-data-X.pkl
+([], [], [])
+mse_belief= 0.44807 mse_uncertain== 0.33499 bf-mse_opinion== 0.52624
+mse_belief= 0.44618 mse_uncertain== 0.33756 bf-mse_opinion== 0.52460
+mse_belief= 0.44365 mse_uncertain== 0.34128 bf-mse_opinion== 0.52258
+mse_belief= 0.44042 mse_uncertain== 0.34632 bf-mse_opinion== 0.52019
+mse_belief= 0.43646 mse_uncertain== 0.35285 bf-mse_opinion== 0.51740
+mse_belief= 0.43172 mse_uncertain== 0.36100 bf-mse_opinion== 0.51420
+mse_belief= 0.42618 mse_uncertain== 0.37085 bf-mse_opinion== 0.51060
+mse_belief= 0.41985 mse_uncertain== 0.38245 bf-mse_opinion== 0.50658
+mse_belief= 0.41283 mse_uncertain== 0.39581 bf-mse_opinion== 0.50220
+mse_belief= 0.40507 mse_uncertain== 0.41089 bf-mse_opinion== 0.49750
+mse_belief= 0.39667 mse_uncertain== 0.42760 bf-mse_opinion== 0.49253
+mse_belief= 0.38775 mse_uncertain== 0.44580 bf-mse_opinion== 0.48735
+mse_belief= 0.37841 mse_uncertain== 0.46531 bf-mse_opinion== 0.48201
+mse_belief= 0.36872 mse_uncertain== 0.48586 bf-mse_opinion== 0.47662
+mse_belief= 0.35885 mse_uncertain== 0.50716 bf-mse_opinion== 0.47127
+mse_belief= 0.34896 mse_uncertain== 0.52890 bf-mse_opinion== 0.46604
+mse_belief= 0.33919 mse_uncertain== 0.55072 bf-mse_opinion== 0.46101
+mse_belief= 0.32967 mse_uncertain== 0.57230 bf-mse_opinion== 0.45623
+mse_belief= 0.32052 mse_uncertain== 0.59336 bf-mse_opinion== 0.45176
+mse_belief= 0.31185 mse_uncertain== 0.61368 bf-mse_opinion== 0.44762
+mse_belief= 0.30370 mse_uncertain== 0.63319 bf-mse_opinion== 0.44385
+mse_belief= 0.29610 mse_uncertain== 0.65186 bf-mse_opinion== 0.44044
+mse_belief= 0.28906 mse_uncertain== 0.66942 bf-mse_opinion== 0.43735
+mse_belief= 0.28260 mse_uncertain== 0.68565 bf-mse_opinion== 0.43459
+mse_belief= 0.27674 mse_uncertain== 0.70042 bf-mse_opinion== 0.43212
+Optimization Finished!
+alpha_0: 1.1958440999138673 beta_0: 1.5400516795865633
+best epoch: 250 bset_belief: 0.2767409 bset_uncertain: 0.700421 bset_opinion: 0.43211865
+run time =  108.787189007
+belief: 0.2767 uncertain: 0.2767 time window =  10 test_rio =  0.2
+23.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd_gcn_vae/5000/nodes-5000-T-10-rate-0.2-testratio-0.3-swaprate-0.0-gamma-0.09-realization-2-data-X.pkl
+([], [], [])
+mse_belief= 0.44861 mse_uncertain== 0.33817 bf-mse_opinion== 0.52668
+mse_belief= 0.44733 mse_uncertain== 0.34446 bf-mse_opinion== 0.52556
+mse_belief= 0.44540 mse_uncertain== 0.35253 bf-mse_opinion== 0.52411
+mse_belief= 0.44271 mse_uncertain== 0.36251 bf-mse_opinion== 0.52227
+mse_belief= 0.43916 mse_uncertain== 0.37453 bf-mse_opinion== 0.52001
+mse_belief= 0.43467 mse_uncertain== 0.38870 bf-mse_opinion== 0.51729
+mse_belief= 0.42919 mse_uncertain== 0.40504 bf-mse_opinion== 0.51412
+mse_belief= 0.42272 mse_uncertain== 0.42349 bf-mse_opinion== 0.51048
+mse_belief= 0.41530 mse_uncertain== 0.44392 bf-mse_opinion== 0.50639
+mse_belief= 0.40706 mse_uncertain== 0.46611 bf-mse_opinion== 0.50191
+mse_belief= 0.39801 mse_uncertain== 0.48972 bf-mse_opinion== 0.49708
+mse_belief= 0.38828 mse_uncertain== 0.51433 bf-mse_opinion== 0.49198
+mse_belief= 0.37801 mse_uncertain== 0.53947 bf-mse_opinion== 0.48672
+mse_belief= 0.36738 mse_uncertain== 0.56466 bf-mse_opinion== 0.48137
+mse_belief= 0.35657 mse_uncertain== 0.58942 bf-mse_opinion== 0.47601
+mse_belief= 0.34580 mse_uncertain== 0.61330 bf-mse_opinion== 0.47072
+mse_belief= 0.33524 mse_uncertain== 0.63590 bf-mse_opinion== 0.46557
+mse_belief= 0.32507 mse_uncertain== 0.65694 bf-mse_opinion== 0.46064
+mse_belief= 0.31546 mse_uncertain== 0.67622 bf-mse_opinion== 0.45600
+mse_belief= 0.30649 mse_uncertain== 0.69364 bf-mse_opinion== 0.45168
+mse_belief= 0.29825 mse_uncertain== 0.70922 bf-mse_opinion== 0.44771
+mse_belief= 0.29075 mse_uncertain== 0.72301 bf-mse_opinion== 0.44409
+mse_belief= 0.28399 mse_uncertain== 0.73515 bf-mse_opinion== 0.44082
+mse_belief= 0.27793 mse_uncertain== 0.74577 bf-mse_opinion== 0.43789
+mse_belief= 0.27255 mse_uncertain== 0.75505 bf-mse_opinion== 0.43527
+Optimization Finished!
+alpha_0: 1.1958440999138673 beta_0: 1.5400516795865633
+best epoch: 250 bset_belief: 0.27254868 bset_uncertain: 0.7550528 bset_opinion: 0.4352672
+run time =  111.824784994
+belief: 0.2725 uncertain: 0.2725 time window =  10 test_rio =  0.2
+24.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd_gcn_vae/5000/nodes-5000-T-10-rate-0.2-testratio-0.3-swaprate-0.0-gamma-0.2-realization-2-data-X.pkl
+([], [], [])
+mse_belief= 0.44771 mse_uncertain== 0.33587 bf-mse_opinion== 0.52624
+mse_belief= 0.44539 mse_uncertain== 0.33977 bf-mse_opinion== 0.52472
+mse_belief= 0.44235 mse_uncertain== 0.34553 bf-mse_opinion== 0.52288
+mse_belief= 0.43850 mse_uncertain== 0.35337 bf-mse_opinion== 0.52068
+mse_belief= 0.43374 mse_uncertain== 0.36358 bf-mse_opinion== 0.51806
+mse_belief= 0.42796 mse_uncertain== 0.37639 bf-mse_opinion== 0.51493
+mse_belief= 0.42110 mse_uncertain== 0.39198 bf-mse_opinion== 0.51123
+mse_belief= 0.41313 mse_uncertain== 0.41030 bf-mse_opinion== 0.50692
+mse_belief= 0.40418 mse_uncertain== 0.43112 bf-mse_opinion== 0.50204
+mse_belief= 0.39429 mse_uncertain== 0.45412 bf-mse_opinion== 0.49666
+mse_belief= 0.38354 mse_uncertain== 0.47894 bf-mse_opinion== 0.49090
+mse_belief= 0.37215 mse_uncertain== 0.50509 bf-mse_opinion== 0.48490
+mse_belief= 0.36039 mse_uncertain== 0.53194 bf-mse_opinion== 0.47876
+mse_belief= 0.34848 mse_uncertain== 0.55892 bf-mse_opinion== 0.47261
+mse_belief= 0.33668 mse_uncertain== 0.58543 bf-mse_opinion== 0.46656
+mse_belief= 0.32523 mse_uncertain== 0.61092 bf-mse_opinion== 0.46073
+mse_belief= 0.31432 mse_uncertain== 0.63498 bf-mse_opinion== 0.45522
+mse_belief= 0.30410 mse_uncertain== 0.65732 bf-mse_opinion== 0.45008
+mse_belief= 0.29467 mse_uncertain== 0.67773 bf-mse_opinion== 0.44537
+mse_belief= 0.28615 mse_uncertain== 0.69611 bf-mse_opinion== 0.44113
+mse_belief= 0.27859 mse_uncertain== 0.71242 bf-mse_opinion== 0.43739
+mse_belief= 0.27198 mse_uncertain== 0.72672 bf-mse_opinion== 0.43415
+mse_belief= 0.26626 mse_uncertain== 0.73915 bf-mse_opinion== 0.43135
+mse_belief= 0.26133 mse_uncertain== 0.74991 bf-mse_opinion== 0.42895
+mse_belief= 0.25708 mse_uncertain== 0.75919 bf-mse_opinion== 0.42689
+Optimization Finished!
+alpha_0: 1.1958440999138673 beta_0: 1.5400516795865633
+best epoch: 250 bset_belief: 0.25708255 bset_uncertain: 0.75919265 bset_opinion: 0.42688936
+run time =  108.928495884
+belief: 0.2571 uncertain: 0.2571 time window =  10 test_rio =  0.2
+25.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd_gcn_vae/5000/nodes-5000-T-10-rate-0.2-testratio-0.3-swaprate-0.0-gamma-0.3-realization-2-data-X.pkl
+([], [], [])
+mse_belief= 0.44837 mse_uncertain== 0.33619 bf-mse_opinion== 0.52661
+mse_belief= 0.44685 mse_uncertain== 0.34026 bf-mse_opinion== 0.52539
+mse_belief= 0.44467 mse_uncertain== 0.34597 bf-mse_opinion== 0.52376
+mse_belief= 0.44167 mse_uncertain== 0.35350 bf-mse_opinion== 0.52165
+mse_belief= 0.43778 mse_uncertain== 0.36306 bf-mse_opinion== 0.51905
+mse_belief= 0.43293 mse_uncertain== 0.37480 bf-mse_opinion== 0.51595
+mse_belief= 0.42710 mse_uncertain== 0.38879 bf-mse_opinion== 0.51236
+mse_belief= 0.42031 mse_uncertain== 0.40503 bf-mse_opinion== 0.50829
+mse_belief= 0.41256 mse_uncertain== 0.42348 bf-mse_opinion== 0.50377
+mse_belief= 0.40394 mse_uncertain== 0.44396 bf-mse_opinion== 0.49890
+mse_belief= 0.39452 mse_uncertain== 0.46629 bf-mse_opinion== 0.49373
+mse_belief= 0.38440 mse_uncertain== 0.49022 bf-mse_opinion== 0.48835
+mse_belief= 0.37367 mse_uncertain== 0.51540 bf-mse_opinion== 0.48282
+mse_belief= 0.36253 mse_uncertain== 0.54124 bf-mse_opinion== 0.47722
+mse_belief= 0.35123 mse_uncertain== 0.56715 bf-mse_opinion== 0.47164
+mse_belief= 0.34003 mse_uncertain== 0.59253 bf-mse_opinion== 0.46617
+mse_belief= 0.32913 mse_uncertain== 0.61688 bf-mse_opinion== 0.46091
+mse_belief= 0.31875 mse_uncertain== 0.63978 bf-mse_opinion== 0.45594
+mse_belief= 0.30901 mse_uncertain== 0.66095 bf-mse_opinion== 0.45131
+mse_belief= 0.30003 mse_uncertain== 0.68021 bf-mse_opinion== 0.44706
+mse_belief= 0.29184 mse_uncertain== 0.69753 bf-mse_opinion== 0.44320
+mse_belief= 0.28444 mse_uncertain== 0.71297 bf-mse_opinion== 0.43972
+mse_belief= 0.27777 mse_uncertain== 0.72666 bf-mse_opinion== 0.43659
+mse_belief= 0.27178 mse_uncertain== 0.73879 bf-mse_opinion== 0.43378
+mse_belief= 0.26645 mse_uncertain== 0.74947 bf-mse_opinion== 0.43127
+Optimization Finished!
+alpha_0: 1.1958440999138673 beta_0: 1.5400516795865633
+best epoch: 250 bset_belief: 0.26645055 bset_uncertain: 0.7494678 bset_opinion: 0.4312749
+run time =  106.293071985
+belief: 0.2665 uncertain: 0.2665 time window =  10 test_rio =  0.2
+26.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2//random_pgd_gcn_vae/5000/nodes-5000-T-10-rate-0.2-testratio-0.3-swaprate-0.0-gamma-0.4-realization-2-data-X.pkl
+([], [], [])
+mse_belief= 0.44887 mse_uncertain== 0.33480 bf-mse_opinion== 0.52698
+mse_belief= 0.44796 mse_uncertain== 0.33716 bf-mse_op

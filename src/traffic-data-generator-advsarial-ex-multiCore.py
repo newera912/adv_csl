@@ -586,8 +586,8 @@ def main():
 
     # traffic_data_generator_rf()
     # traffic_data_generator_rn()
-    # traffic_data_generator_PGD()
-    traffic_data_generator_PGD_csl()
+    traffic_data_generator_PGD()
+    # traffic_data_generator_PGD_csl()
 if __name__=='__main__':
     main()
 

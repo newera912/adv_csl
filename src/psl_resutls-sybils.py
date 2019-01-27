@@ -415,7 +415,7 @@ class Task_inference5(object):
         # T = len(Obs.values()[0])
         # m_idx = int(round(T / 2.0))
         # for window in range(m_idx - 5, m_idx + 7):
-        for window in range(self.T):
+        for window in range(self.T)[:]:
             result_file = str(self.attack_edge) + '_' + str(self.test_ratio)+ '_' + str(self.swap_ratio) + '_' + str(self.gamma) + '_'+ str(window) + '_' + str(self.real_i) + '.txt'
             key = str(self.attack_edge) + '_' + str(self.test_ratio)+ '_' + str(self.swap_ratio) + '_' + str(self.gamma) + '_'+ str(window) + '_' + str(self.real_i)
             t_Obs = {e: e_Obs[window:window+1] for e, e_Obs in Obs.items()}
@@ -456,7 +456,7 @@ class Task_inference5(object):
                                                'prob_mse': (prob_mse, prob_mse),'alpha_mse': (alpha_mse, alpha_mse), 'beta_mse': (beta_mse, beta_mse), 'u_mse': (u_mse, u_mse), 'b_mse': (b_mse, b_mse), 'd_mse': (d_mse, d_mse),'realization':self.real_i, 'runtime': running_time}
 
 
-        output_file = open('../output/sybils/PSL_results-server-Jan22-{}.json'.format(self.adv_type), 'a')
+        output_file = open('../output/sybils/PSL_results-server-Jan25-{}.json'.format(self.adv_type), 'a')
         output_file.write(json.dumps(result_) + '\n')
         output_file.close()
         # return self.test_ratio, self.gamma
@@ -536,7 +536,7 @@ def estimate_omega_x(ps, X):
     strategy = 1 # 1: means we consider p values as binary observations and use them to estimate alpha and beta.
     if strategy == 1:
         for e in X:
-            data = [round(p_t) for p_t in [ps[e]]]
+            data = [round(p_t) for p_t in ps[e]]
             # data = [(p_t[e]) for p_t in ps]
             alpha1 = np.sum(data) + 0.5
             beta1 = len(data) - np.sum(data) + 0.5
@@ -548,7 +548,8 @@ def estimate_omega_x2(ps, X):
     strategy = 1 # 1: means we consider p values as binary observations and use them to estimate alpha and beta.
     if strategy == 1:
         for e in X:
-            data = [round(p_t) for p_t in ps[e]]
+            # data = [round(p_t) for p_t in ps[e]]
+            data = [p_t for p_t in ps[e]]
             # data = [(p_t[e]) for p_t in ps]
             alpha1 = np.sum(data)
             beta1 = len(data) - np.sum(data)
@@ -556,7 +557,6 @@ def estimate_omega_x2(ps, X):
     return omega_x
 
 def result_analysis(E_X, result_folder,result_file, sw_Omega ):
-
 
     f = open(result_folder+result_file, 'r')
 
@@ -607,7 +607,6 @@ def result_analysis(E_X, result_folder,result_file, sw_Omega ):
 
 def result_analysis2(E_X, result_folder,result_file):
 
-
     f = open(result_folder+result_file, 'r')
 
     lines = f.readlines()
@@ -639,13 +638,14 @@ def result_analysis2(E_X, result_folder,result_file):
             '''
             if not pred_belief.has_key(v):
                 pred_belief[v] = alpha
-
+    # print len(pred_belief),"----",len(E_X)
     count = 0.0
     for v in E_X:
         if not pred_belief.has_key(v):
             count += 1
             # Omega_X[tuple(e)] = (1.0,1.0)
             pred_belief[v] = 0.5
+            # print("....................................")
     # pred_belief=estimate_omega_x(pred_belief,E_X)
     # alpha_mse, beta_mse, prob_mse, u_mse, b_mse, d_mse, prob_relative_mse, u_relative_mse, accuracy, recall_congested, recall_uncongested = calculate_measures(sw_Omega,Omega_X,E_X)
     # return alpha_mse, beta_mse, prob_mse, u_mse, b_mse, d_mse, prob_relative_mse, u_relative_mse, accuracy, recall_congested, recall_uncongested
@@ -781,7 +781,7 @@ def Sybils_resutls():
 
     realizations = 1
     num_job=0.0
-    for dataset in ["facebook","enron","slashdot"][2:]:
+    for dataset in ["facebook","enron","slashdot"][1:2]:
         for adv_type in ["random_noise", "random_pgd","random_pgd_csl","random_pgd_gcn_vae"][:]:
             result_folder = data_root + "/result_adv_csl/"+dataset+"/" + adv_type + "/"
             running_time_dict = read_running_time(result_folder + 'running_time.json')
