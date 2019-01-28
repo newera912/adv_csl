@@ -66,7 +66,7 @@ for real_i in range(10)[:]:
             for T in [8, 9, 10, 11][2:3]:    #5,6,10,20,11,21,15
                 for ratio in [0.2][:]:#0.0,0.1,0.2,0.3,the percentage of edges set the observations to 1
                     for swap_ratio in [0.00, 0.01, 0.05][:1]:
-                        for test_ratio in [0.3,0.1, 0.2, 0.4, 0.5][:1]:                #percentage of edges to test (|E_x|/|E|)
+                        for test_ratio in [0.3,0.1, 0.2, 0.4, 0.5][1:]:                #percentage of edges to test (|E_x|/|E|)
                             for gamma in [0.0, 0.01, 0.03, 0.05, 0.07, 0.09, 0.2, 0.3, 0.4, 0.5][:9]:  # 8
                                 out_folder = data_root +"/"+adv_type +"/"+ str(graph_size) + "/"
                                 print(str(case_count)+" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
