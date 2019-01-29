@@ -39,7 +39,7 @@ def trans_corr(trans_mat):
             print i, j, trans_mat[i][j],corr_mat[i][j]
     return corr_mat
 
-def corr_heat_table_epinion():
+def corr_heat_table_epinion_old():
     import numpy as np
     import matplotlib
     import matplotlib.pyplot as plt
@@ -121,10 +121,17 @@ def corr_heat_table_epinion():
     #([B],[B|B],[B|A])    
     #rho_A->B = Mae[B|A] -Mae[B] / Mae[B|B]-Mae[B]
     """
-    results={"Baseline_Baseline":[0.409, 0.409],"Baseline_CSL":[0.23, 0.289],"Baseline_GCN-VAE":[0.272, 0.271],"Baseline_Adv-CSL":[0.204, 0.206],\
-            "CSL_Baseline":[0.407, 0.407],"CSL_CSL":[0.232, 0.352],"CSL_GCN-VAE":[0.267, 0.276],"CSL_Adv-CSL":[0.207, 0.207],\
-            "GCN-VAE_Baseline":[0.407, 0.407],"GCN-VAE_CSL":[0.232, 0.293],"GCN-VAE_GCN-VAE":[0.267, 0.287],"GCN-VAE_Adv-CSL":[0.206, 0.206],\
-            "Adv-CSL_Baseline":[0.407, 0.407],"Adv-CSL_CSL":[0.232, 0.293],"Adv-CSL_GCN-VAE":[0.267, 0.276],"Adv-CSL_Adv-CSL":[0.206, 0.207]}
+
+    results = {"Baseline_Baseline": [0.409, 0.409], "Baseline_CSL": [0.23, 0.289], "Baseline_GCN-VAE": [0.272, 0.271], "Baseline_Adv-CSL": [0.204, 0.206], \
+               "CSL_Baseline": [0.407, 0.407], "CSL_CSL": [0.232, 0.352], "CSL_GCN-VAE": [0.267, 0.276], "CSL_Adv-CSL": [0.207, 0.207], \
+               "GCN-VAE_Baseline": [0.407, 0.407], "GCN-VAE_CSL": [0.232, 0.293], "GCN-VAE_GCN-VAE": [0.267, 0.287], "GCN-VAE_Adv-CSL": [0.206, 0.206], \
+               "Adv-CSL_Baseline": [0.407, 0.407], "Adv-CSL_CSL": [0.232, 0.293], "Adv-CSL_GCN-VAE": [0.267, 0.276], "Adv-CSL_Adv-CSL": [0.206, 0.207]}
+
+    """new jan27 GCN-VAE update"""
+    results={"Baseline_Baseline":[0.409, 0.409],"Baseline_CSL":[0.23, 0.289],"Baseline_GCN-VAE":[0.26, 0.29],"Baseline_Adv-CSL":[0.204, 0.206],\
+            "CSL_Baseline":[0.407, 0.407],"CSL_CSL":[0.232, 0.352],"CSL_GCN-VAE":[0.262, 0.279],"CSL_Adv-CSL":[0.207, 0.207],\
+            "GCN-VAE_Baseline":[0.407, 0.407],"GCN-VAE_CSL":[0.232, 0.293],"GCN-VAE_GCN-VAE":[0.262, 0.429],"GCN-VAE_Adv-CSL":[0.206, 0.206],\
+            "Adv-CSL_Baseline":[0.407, 0.407],"Adv-CSL_CSL":[0.232, 0.293],"Adv-CSL_GCN-VAE":[0.262, 0.305],"Adv-CSL_Adv-CSL":[0.206, 0.207]}
     #epinions
     maes=[[[] for j in range(len(target))] for i in range(len(source)) ]
     for A in range(len(source)):
@@ -174,7 +181,7 @@ def corr_heat_table_epinion():
     #         text = ax.text(j, i, data_matrix[i, j],
     #                        ha="center", va="center", color="k")
 
-    ax.set_title(dataset+" Correlation Between Models")
+    # ax.set_title(dataset+" Correlation Between Models")
     fig.tight_layout()
     plt.show()
     fig.savefig("../output/plots/"+dataset+"_transfer_correlation-Jan24.png", dpi=360)
@@ -258,7 +265,7 @@ def corr_heat_table_traffic_pa():
     #         text = ax.text(j, i, data_matrix[i, j],
     #                        ha="center", va="center", color="k")
 
-    ax.set_title(dataset+" Correlation Between Models")
+    # ax.set_title(dataset+" Correlation Between Models")
     fig.tight_layout()
     plt.show()
     fig.savefig("../output/plots/PA_transfer_correlation-Jan24.png", dpi=360)
@@ -343,7 +350,7 @@ def corr_heat_table_traffic_dc():
     #         text = ax.text(j, i, data_matrix[i, j],
     #                        ha="center", va="center", color="k")
 
-    ax.set_title(dataset+" Correlation Between Models")
+    # ax.set_title(dataset+" Correlation Between Models")
     fig.tight_layout()
     plt.show()
     fig.savefig("../output/plots/DC_transfer_correlation-Jan24.png", dpi=360)
@@ -444,7 +451,7 @@ def corr_heat_table_traffic_FB():
     #         text = ax.text(j, i, data_matrix[i, j],
     #                        ha="center", va="center", color="k")
 
-    ax.set_title(dataset+" Correlation Between Models")
+    # ax.set_title(dataset+" Correlation Between Models")
     fig.tight_layout()
     plt.show()
     fig.savefig("../output/plots/FB_transfer_correlation-Jan24.png", dpi=360)
@@ -528,7 +535,7 @@ def corr_heat_table_traffic_Enron():
     #         text = ax.text(j, i, data_matrix[i, j],
     #                        ha="center", va="center", color="k")
 
-    ax.set_title(dataset+" Correlation Between Models")
+    # ax.set_title(dataset+" Correlation Between Models")
     fig.tight_layout()
     plt.show()
     fig.savefig("../output/plots/Enron_transfer_correlation-Jan24.png", dpi=360)
@@ -612,7 +619,7 @@ def corr_heat_table_traffic_Slashdot():
     #         text = ax.text(j, i, data_matrix[i, j],
     #                        ha="center", va="center", color="k")
 
-    ax.set_title(dataset+" Correlation Between Models")
+    # ax.set_title(dataset+" Correlation Between Models")
     fig.tight_layout()
     plt.show()
     fig.savefig("../output/plots/Slashdot_transfer_correlation-Jan24.png", dpi=360)
