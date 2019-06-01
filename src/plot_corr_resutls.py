@@ -45,8 +45,8 @@ def corr_heat_table_epinion_old():
     import matplotlib.pyplot as plt
     # sphinx_gallery_thumbnail_number = 2
 
-    source = ["None","Adv-CSL", "CSL", "GCN-VAE"]
-    target = ["None","Adv-CSL", "CSL", "GCN-VAE"]
+    source = ["None","Adv-COI", "CSL", "GCN-VAE"]
+    target = ["None","Adv-COI", "CSL", "GCN-VAE"]
     dataset = "Epinions"
     dataset = "PA"
     dataset = "DC"
@@ -113,8 +113,8 @@ def corr_heat_table_epinion():
     import matplotlib.pyplot as plt
     # sphinx_gallery_thumbnail_number = 2
 
-    source = ["Baseline","Adv-CSL", "CSL", "GCN-VAE"]
-    target = ["Baseline","Adv-CSL", "CSL", "GCN-VAE"]
+    source = ["Baseline","Adv-COI", "CSL", "GCN-VAE"]
+    target = ["Baseline","Adv-COI", "CSL", "GCN-VAE"]
     dataset = ["Epinions","PA","DC"][0]
     """
     Source  Model: A    Target Model: B
@@ -122,16 +122,16 @@ def corr_heat_table_epinion():
     #rho_A->B = Mae[B|A] -Mae[B] / Mae[B|B]-Mae[B]
     """
 
-    results = {"Baseline_Baseline": [0.409, 0.409], "Baseline_CSL": [0.23, 0.289], "Baseline_GCN-VAE": [0.272, 0.271], "Baseline_Adv-CSL": [0.204, 0.206], \
-               "CSL_Baseline": [0.407, 0.407], "CSL_CSL": [0.232, 0.352], "CSL_GCN-VAE": [0.267, 0.276], "CSL_Adv-CSL": [0.207, 0.207], \
-               "GCN-VAE_Baseline": [0.407, 0.407], "GCN-VAE_CSL": [0.232, 0.293], "GCN-VAE_GCN-VAE": [0.267, 0.287], "GCN-VAE_Adv-CSL": [0.206, 0.206], \
-               "Adv-CSL_Baseline": [0.407, 0.407], "Adv-CSL_CSL": [0.232, 0.293], "Adv-CSL_GCN-VAE": [0.267, 0.276], "Adv-CSL_Adv-CSL": [0.206, 0.207]}
+    results = {"Baseline_Baseline": [0.409, 0.409], "Baseline_CSL": [0.23, 0.289], "Baseline_GCN-VAE": [0.272, 0.271], "Baseline_Adv-COI": [0.204, 0.206], \
+               "CSL_Baseline": [0.407, 0.407], "CSL_CSL": [0.232, 0.352], "CSL_GCN-VAE": [0.267, 0.276], "CSL_Adv-COI": [0.207, 0.207], \
+               "GCN-VAE_Baseline": [0.407, 0.407], "GCN-VAE_CSL": [0.232, 0.293], "GCN-VAE_GCN-VAE": [0.267, 0.287], "GCN-VAE_Adv-COI": [0.206, 0.206], \
+               "Adv-COI_Baseline": [0.407, 0.407], "Adv-COI_CSL": [0.232, 0.293], "Adv-COI_GCN-VAE": [0.267, 0.276], "Adv-COI_Adv-COI": [0.206, 0.207]}
 
     """new jan27 GCN-VAE update"""
-    results={"Baseline_Baseline":[0.409, 0.409],"Baseline_CSL":[0.23, 0.289],"Baseline_GCN-VAE":[0.26, 0.29],"Baseline_Adv-CSL":[0.204, 0.212],\
-            "CSL_Baseline":[0.407, 0.407],"CSL_CSL":[0.232, 0.352],"CSL_GCN-VAE":[0.262, 0.279],"CSL_Adv-CSL":[0.207, 0.229],\
-            "GCN-VAE_Baseline":[0.407, 0.407],"GCN-VAE_CSL":[0.232, 0.293],"GCN-VAE_GCN-VAE":[0.262, 0.429],"GCN-VAE_Adv-CSL":[0.206, 0.229],\
-            "Adv-CSL_Baseline":[0.407, 0.407],"Adv-CSL_CSL":[0.232, 0.293],"Adv-CSL_GCN-VAE":[0.262, 0.305],"Adv-CSL_Adv-CSL":[0.206, 0.228]}
+    results={"Baseline_Baseline":[0.409, 0.409],"Baseline_CSL":[0.23, 0.289],"Baseline_GCN-VAE":[0.26, 0.29],"Baseline_Adv-COI":[0.204, 0.212],\
+            "CSL_Baseline":[0.407, 0.407],"CSL_CSL":[0.232, 0.352],"CSL_GCN-VAE":[0.262, 0.279],"CSL_Adv-COI":[0.207, 0.229],\
+            "GCN-VAE_Baseline":[0.407, 0.407],"GCN-VAE_CSL":[0.232, 0.293],"GCN-VAE_GCN-VAE":[0.262, 0.429],"GCN-VAE_Adv-COI":[0.206, 0.229],\
+            "Adv-COI_Baseline":[0.407, 0.407],"Adv-COI_CSL":[0.232, 0.293],"Adv-COI_GCN-VAE":[0.262, 0.305],"Adv-COI_Adv-COI":[0.206, 0.228]}
     #epinions
     maes=[[[] for j in range(len(target))] for i in range(len(source)) ]
     for A in range(len(source)):
@@ -156,10 +156,12 @@ def corr_heat_table_epinion():
     cbar.ax.set_ylabel(cbarlabel, rotation=-90, va="bottom")
     # cbar.solids.set_edgecolor("RdBu_r")
     # We want to show all ticks...
+    ax.xaxis.set_tick_params(labelsize=12)
+    ax.yaxis.set_tick_params(labelsize=12)
     ax.set_xticks(np.arange(len(source)))
     ax.set_yticks(np.arange(len(target)))
-    ax.set_ylabel("Source Model")
-    ax.set_xlabel("Target Model")
+    ax.set_ylabel("Source Model", fontsize=12)
+    ax.set_xlabel("Target Model", fontsize=12)
     # ... and label them with the respective list entries
     ax.set_xticklabels(target)
     ax.set_yticklabels(source,rotation=45)
@@ -192,8 +194,8 @@ def corr_heat_table_traffic_pa():
     import matplotlib.pyplot as plt
     # sphinx_gallery_thumbnail_number = 2
 
-    source = ["Baseline","Adv-CSL", "CSL", "GCN-VAE"]
-    target = ["Baseline","Adv-CSL", "CSL", "GCN-VAE"]
+    source = ["Baseline","Adv-COI", "CSL", "GCN-VAE"]
+    target = ["Baseline","Adv-COI", "CSL", "GCN-VAE"]
     dataset = ["Epinions","PA","DC"][1]
     """
     Source  Model: A    Target Model: B
@@ -203,19 +205,19 @@ def corr_heat_table_traffic_pa():
     results={"Baseline_Baseline":[0.404, 0.404],\
         "Baseline_CSL":[0.075, 0.102],\
         "Baseline_GCN-VAE":[0.14, 0.139],\
-        "Baseline_Adv-CSL":[0.074, 0.085],\
+        "Baseline_Adv-COI":[0.074, 0.085],\
         "CSL_Baseline":[0.400, 0.400],\
         "CSL_CSL":[0.083, 0.179],\
         "CSL_GCN-VAE":[0.131, 0.256],\
-        "CSL_Adv-CSL":[0.079, 0.134],\
+        "CSL_Adv-COI":[0.079, 0.134],\
         "GCN-VAE_Baseline":[0.400, 0.400],\
         "GCN-VAE_CSL":[0.083, 0.215],\
         "GCN-VAE_GCN-VAE":[0.131, 0.292],\
-        "GCN-VAE_Adv-CSL":[0.079, 0.143],\
-        "Adv-CSL_Baseline":[0.400, 0.400],\
-        "Adv-CSL_CSL":[0.083, 0.123],\
-        "Adv-CSL_GCN-VAE":[0.135, 0.167],\
-        "Adv-CSL_Adv-CSL":[0.079, 0.1]}
+        "GCN-VAE_Adv-COI":[0.079, 0.143],\
+        "Adv-COI_Baseline":[0.400, 0.400],\
+        "Adv-COI_CSL":[0.083, 0.123],\
+        "Adv-COI_GCN-VAE":[0.135, 0.167],\
+        "Adv-COI_Adv-COI":[0.079, 0.1]}
         #epinions
     maes=[[[] for j in range(len(target))] for i in range(len(source)) ]
     for A in range(len(source)):
@@ -240,10 +242,12 @@ def corr_heat_table_traffic_pa():
     cbar.ax.set_ylabel(cbarlabel, rotation=-90, va="bottom")
     # cbar.solids.set_edgecolor("RdBu_r")
     # We want to show all ticks...
+    ax.xaxis.set_tick_params(labelsize=12)
+    ax.yaxis.set_tick_params(labelsize=12)
     ax.set_xticks(np.arange(len(source)))
     ax.set_yticks(np.arange(len(target)))
-    ax.set_ylabel("Source Model")
-    ax.set_xlabel("Target Model")
+    ax.set_ylabel("Source Model", fontsize=12)
+    ax.set_xlabel("Target Model", fontsize=12)
     # ... and label them with the respective list entries
     ax.set_xticklabels(target)
     ax.set_yticklabels(source, rotation=45)
@@ -277,8 +281,8 @@ def corr_heat_table_traffic_dc():
     import matplotlib.pyplot as plt
     # sphinx_gallery_thumbnail_number = 2
 
-    source = ["Baseline","Adv-CSL", "CSL", "GCN-VAE"]
-    target = ["Baseline","Adv-CSL", "CSL", "GCN-VAE"]
+    source = ["Baseline","Adv-COI", "CSL", "GCN-VAE"]
+    target = ["Baseline","Adv-COI", "CSL", "GCN-VAE"]
     dataset = ["Epinions","PA","DC","Facebook","Enron","Slashdot"][2]
     """
     Source  Model: A    Target Model: B
@@ -288,19 +292,19 @@ def corr_heat_table_traffic_dc():
     results={"Baseline_Baseline":[0.431, 0.431],\
             "Baseline_CSL":[0.056, 0.074],\
             "Baseline_GCN-VAE":[0.122, 0.136],\
-            "Baseline_Adv-CSL":[0.055, 0.058],\
+            "Baseline_Adv-COI":[0.055, 0.058],\
             "CSL_Baseline":[0.433, 0.433],\
             "CSL_CSL":[0.054, 0.146],\
             "CSL_GCN-VAE":[0.124, 0.209],\
-            "CSL_Adv-CSL":[0.052, 0.097],\
+            "CSL_Adv-COI":[0.052, 0.097],\
             "GCN-VAE_Baseline":[0.433, 0.433],\
             "GCN-VAE_CSL":[0.054, 0.152],\
             "GCN-VAE_GCN-VAE":[0.124, 0.219],\
-            "GCN-VAE_Adv-CSL":[0.052, 0.099],\
-            "Adv-CSL_Baseline":[0.433, 0.433],\
-            "Adv-CSL_CSL":[0.054, 0.13],\
-            "Adv-CSL_GCN-VAE":[0.124, 0.197],\
-            "Adv-CSL_Adv-CSL":[0.052, 0.096]}
+            "GCN-VAE_Adv-COI":[0.052, 0.099],\
+            "Adv-COI_Baseline":[0.433, 0.433],\
+            "Adv-COI_CSL":[0.054, 0.13],\
+            "Adv-COI_GCN-VAE":[0.124, 0.197],\
+            "Adv-COI_Adv-COI":[0.052, 0.096]}
     #epinions
     maes=[[[] for j in range(len(target))] for i in range(len(source)) ]
     for A in range(len(source)):
@@ -325,10 +329,12 @@ def corr_heat_table_traffic_dc():
     cbar.ax.set_ylabel(cbarlabel, rotation=-90, va="bottom")
     # cbar.solids.set_edgecolor("RdBu_r")
     # We want to show all ticks...
+    ax.xaxis.set_tick_params(labelsize=12)
+    ax.yaxis.set_tick_params(labelsize=12)
     ax.set_xticks(np.arange(len(source)))
     ax.set_yticks(np.arange(len(target)))
-    ax.set_ylabel("Source Model")
-    ax.set_xlabel("Target Model")
+    ax.set_ylabel("Source Model", fontsize=12)
+    ax.set_xlabel("Target Model", fontsize=12)
     # ... and label them with the respective list entries
     ax.set_xticklabels(target)
     ax.set_yticklabels(source, rotation=45)
@@ -361,8 +367,8 @@ def corr_heat_table_traffic_FB():
     import matplotlib.pyplot as plt
     # sphinx_gallery_thumbnail_number = 2
 
-    source = ["Baseline","Adv-CSL", "CSL", "GCN-VAE"]
-    target = ["Baseline","Adv-CSL", "CSL", "GCN-VAE"]
+    source = ["Baseline","Adv-COI", "CSL", "GCN-VAE"]
+    target = ["Baseline","Adv-COI", "CSL", "GCN-VAE"]
     dataset = ["Epinions", "PA", "DC", "Facebook", "Enron", "Slashdot"][3]
     """
     Source  Model: A    Target Model: B
@@ -372,36 +378,36 @@ def corr_heat_table_traffic_FB():
     # results={"Baseline_Baseline":[0.401, 0.403],\
     #         "Baseline_CSL":[0.118, 0.248],\
     #         "Baseline_GCN-VAE":[0.115, 0.259],\
-    #         "Baseline_Adv-CSL":[0.09, 0.192],\
+    #         "Baseline_Adv-COI":[0.09, 0.192],\
     #         "CSL_Baseline":[0.402, 0.402],\
     #         "CSL_CSL":[0.117, 0.351],\
     #         "CSL_GCN-VAE":[0.111, 0.396],\
-    #         "CSL_Adv-CSL":[0.09, 0.253],\
+    #         "CSL_Adv-COI":[0.09, 0.253],\
     #         "GCN-VAE_Baseline":[0.402, 0.402],\
     #         "GCN-VAE_CSL":[0.117, 0.352],\
     #         "GCN-VAE_GCN-VAE":[0.111, 0.397],\
-    #         "GCN-VAE_Adv-CSL":[0.092, 0.26],\
-    #         "Adv-CSL_Baseline":[0.401, 0.401],\
-    #         "Adv-CSL_CSL":[0.116, 0.349],\
-    #         "Adv-CSL_GCN-VAE":[0.111, 0.38],\
-    #         "Adv-CSL_Adv-CSL":[0.093, 0.243]}
+    #         "GCN-VAE_Adv-COI":[0.092, 0.26],\
+    #         "Adv-COI_Baseline":[0.401, 0.401],\
+    #         "Adv-COI_CSL":[0.116, 0.349],\
+    #         "Adv-COI_GCN-VAE":[0.111, 0.38],\
+    #         "Adv-COI_Adv-COI":[0.093, 0.243]}
 
     results={"Baseline_Baseline":[0.394, 0.394],\
             "Baseline_CSL":[0.118, 0.248],\
             "Baseline_GCN-VAE":[0.115, 0.259],\
-            "Baseline_Adv-CSL":[0.09, 0.192],\
+            "Baseline_Adv-COI":[0.09, 0.192],\
             "CSL_Baseline":[0.396, 0.396],\
             "CSL_CSL":[0.117, 0.351],\
             "CSL_GCN-VAE":[0.111, 0.396],\
-            "CSL_Adv-CSL":[0.09, 0.253],\
+            "CSL_Adv-COI":[0.09, 0.253],\
             "GCN-VAE_Baseline":[0.396, 0.396],\
             "GCN-VAE_CSL":[0.117, 0.352],\
             "GCN-VAE_GCN-VAE":[0.111, 0.397],\
-            "GCN-VAE_Adv-CSL":[0.092, 0.26],\
-            "Adv-CSL_Baseline":[0.397, 0.397],\
-            "Adv-CSL_CSL":[0.116, 0.349],\
-            "Adv-CSL_GCN-VAE":[0.111, 0.38],\
-            "Adv-CSL_Adv-CSL":[0.093, 0.243]}
+            "GCN-VAE_Adv-COI":[0.092, 0.26],\
+            "Adv-COI_Baseline":[0.397, 0.397],\
+            "Adv-COI_CSL":[0.116, 0.349],\
+            "Adv-COI_GCN-VAE":[0.111, 0.38],\
+            "Adv-COI_Adv-COI":[0.093, 0.243]}
     #epinions
     maes=[[[] for j in range(len(target))] for i in range(len(source)) ]
     for A in range(len(source)):
@@ -426,10 +432,12 @@ def corr_heat_table_traffic_FB():
     cbar.ax.set_ylabel(cbarlabel, rotation=-90, va="bottom")
     # cbar.solids.set_edgecolor("RdBu_r")
     # We want to show all ticks...
+    ax.xaxis.set_tick_params(labelsize=12)
+    ax.yaxis.set_tick_params(labelsize=12)
     ax.set_xticks(np.arange(len(source)))
     ax.set_yticks(np.arange(len(target)))
-    ax.set_ylabel("Source Model")
-    ax.set_xlabel("Target Model")
+    ax.set_ylabel("Source Model", fontsize=12)
+    ax.set_xlabel("Target Model", fontsize=12)
     # ... and label them with the respective list entries
     ax.set_xticklabels(target)
     ax.set_yticklabels(source, rotation=45)
@@ -462,8 +470,8 @@ def corr_heat_table_traffic_Enron():
     import matplotlib.pyplot as plt
     # sphinx_gallery_thumbnail_number = 2
 
-    source = ["Baseline","Adv-CSL", "CSL", "GCN-VAE"]
-    target = ["Baseline","Adv-CSL", "CSL", "GCN-VAE"]
+    source = ["Baseline","Adv-COI", "CSL", "GCN-VAE"]
+    target = ["Baseline","Adv-COI", "CSL", "GCN-VAE"]
     dataset = ["Epinions", "PA", "DC", "Facebook", "Enron", "Slashdot"][4]
     """
     Source  Model: A    Target Model: B
@@ -473,19 +481,19 @@ def corr_heat_table_traffic_Enron():
     results={"Baseline_Baseline":[0.397, 0.397],\
     "Baseline_CSL":[0.186, 0.231],\
     "Baseline_GCN-VAE":[0.131, 0.274],\
-    "Baseline_Adv-CSL":[0.12, 0.122],\
+    "Baseline_Adv-COI":[0.12, 0.122],\
     "CSL_Baseline":[0.396, 0.396],\
     "CSL_CSL":[0.189, 0.277],\
     "CSL_GCN-VAE":[0.132, 0.217],\
-    "CSL_Adv-CSL":[0.119, 0.145],\
+    "CSL_Adv-COI":[0.119, 0.145],\
     "GCN-VAE_Baseline":[0.396, 0.396],\
     "GCN-VAE_CSL":[0.189, 0.352],\
     "GCN-VAE_GCN-VAE":[0.132, 0.396],\
-    "GCN-VAE_Adv-CSL":[0.119, 0.152],\
-    "Adv-CSL_Baseline":[0.396, 0.396],\
-    "Adv-CSL_CSL":[0.181, 0.352],\
-    "Adv-CSL_GCN-VAE":[0.129, 0.395],\
-    "Adv-CSL_Adv-CSL":[0.111, 0.145]}
+    "GCN-VAE_Adv-COI":[0.119, 0.152],\
+    "Adv-COI_Baseline":[0.396, 0.396],\
+    "Adv-COI_CSL":[0.181, 0.352],\
+    "Adv-COI_GCN-VAE":[0.129, 0.395],\
+    "Adv-COI_Adv-COI":[0.111, 0.145]}
     #epinions
     maes=[[[] for j in range(len(target))] for i in range(len(source)) ]
     for A in range(len(source)):
@@ -510,10 +518,12 @@ def corr_heat_table_traffic_Enron():
     cbar.ax.set_ylabel(cbarlabel, rotation=-90, va="bottom")
     # cbar.solids.set_edgecolor("RdBu_r")
     # We want to show all ticks...
+    ax.xaxis.set_tick_params(labelsize=12)
+    ax.yaxis.set_tick_params(labelsize=12)
     ax.set_xticks(np.arange(len(source)))
     ax.set_yticks(np.arange(len(target)))
-    ax.set_ylabel("Source Model")
-    ax.set_xlabel("Target Model")
+    ax.set_ylabel("Source Model", fontsize=12)
+    ax.set_xlabel("Target Model", fontsize=12)
     # ... and label them with the respective list entries
     ax.set_xticklabels(target)
     ax.set_yticklabels(source, rotation=45)
@@ -546,8 +556,8 @@ def corr_heat_table_traffic_Slashdot():
     import matplotlib.pyplot as plt
     # sphinx_gallery_thumbnail_number = 2
 
-    source = ["Baseline","Adv-CSL", "CSL", "GCN-VAE"]
-    target = ["Baseline","Adv-CSL", "CSL", "GCN-VAE"]
+    source = ["Baseline","Adv-COI", "CSL", "GCN-VAE"]
+    target = ["Baseline","Adv-COI", "CSL", "GCN-VAE"]
     dataset = ["Epinions", "PA", "DC", "Facebook", "Enron", "Slashdot"][5]
     """
     Source  Model: A    Target Model: B
@@ -557,19 +567,19 @@ def corr_heat_table_traffic_Slashdot():
     results={"Baseline_Baseline":[0.409, 0.413],\
             "Baseline_CSL":[0.188, 0.245],\
             "Baseline_GCN-VAE":[0.146, 0.268],\
-            "Baseline_Adv-CSL":[0.109, 0.139],\
+            "Baseline_Adv-COI":[0.109, 0.139],\
             "CSL_Baseline":[0.411, 0.411],\
             "CSL_CSL":[0.186, 0.297],\
             "CSL_GCN-VAE":[0.145, 0.234],\
-            "CSL_Adv-CSL":[0.106, 0.14],\
+            "CSL_Adv-COI":[0.106, 0.14],\
             "GCN-VAE_Baseline":[0.412, 0.412],\
             "GCN-VAE_CSL":[0.186, 0.345],\
             "GCN-VAE_GCN-VAE":[0.145, 0.397],\
-            "GCN-VAE_Adv-CSL":[0.107, 0.15],\
-            "Adv-CSL_Baseline":[0.412, 0.412],\
-            "Adv-CSL_CSL":[0.185, 0.349],\
-            "Adv-CSL_GCN-VAE":[0.147, 0.395],\
-            "Adv-CSL_Adv-CSL":[0.107, 0.149]}
+            "GCN-VAE_Adv-COI":[0.107, 0.15],\
+            "Adv-COI_Baseline":[0.412, 0.412],\
+            "Adv-COI_CSL":[0.185, 0.349],\
+            "Adv-COI_GCN-VAE":[0.147, 0.395],\
+            "Adv-COI_Adv-COI":[0.107, 0.149]}
     #epinions
     maes=[[[] for j in range(len(target))] for i in range(len(source)) ]
     for A in range(len(source)):
@@ -594,10 +604,12 @@ def corr_heat_table_traffic_Slashdot():
     cbar.ax.set_ylabel(cbarlabel, rotation=-90, va="bottom")
     # cbar.solids.set_edgecolor("RdBu_r")
     # We want to show all ticks...
+    ax.xaxis.set_tick_params(labelsize=12)
+    ax.yaxis.set_tick_params(labelsize=12)
     ax.set_xticks(np.arange(len(source)))
     ax.set_yticks(np.arange(len(target)))
-    ax.set_ylabel("Source Model")
-    ax.set_xlabel("Target Model")
+    ax.set_ylabel("Source Model", fontsize=12)
+    ax.set_xlabel("Target Model", fontsize=12)
     # ... and label them with the respective list entries
     ax.set_xticklabels(target)
     ax.set_yticklabels(source, rotation=45)
