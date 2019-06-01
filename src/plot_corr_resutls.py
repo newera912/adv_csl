@@ -128,10 +128,10 @@ def corr_heat_table_epinion():
                "Adv-CSL_Baseline": [0.407, 0.407], "Adv-CSL_CSL": [0.232, 0.293], "Adv-CSL_GCN-VAE": [0.267, 0.276], "Adv-CSL_Adv-CSL": [0.206, 0.207]}
 
     """new jan27 GCN-VAE update"""
-    results={"Baseline_Baseline":[0.409, 0.409],"Baseline_CSL":[0.23, 0.289],"Baseline_GCN-VAE":[0.26, 0.29],"Baseline_Adv-CSL":[0.204, 0.206],\
-            "CSL_Baseline":[0.407, 0.407],"CSL_CSL":[0.232, 0.352],"CSL_GCN-VAE":[0.262, 0.279],"CSL_Adv-CSL":[0.207, 0.207],\
-            "GCN-VAE_Baseline":[0.407, 0.407],"GCN-VAE_CSL":[0.232, 0.293],"GCN-VAE_GCN-VAE":[0.262, 0.429],"GCN-VAE_Adv-CSL":[0.206, 0.206],\
-            "Adv-CSL_Baseline":[0.407, 0.407],"Adv-CSL_CSL":[0.232, 0.293],"Adv-CSL_GCN-VAE":[0.262, 0.305],"Adv-CSL_Adv-CSL":[0.206, 0.207]}
+    results={"Baseline_Baseline":[0.409, 0.409],"Baseline_CSL":[0.23, 0.289],"Baseline_GCN-VAE":[0.26, 0.29],"Baseline_Adv-CSL":[0.204, 0.212],\
+            "CSL_Baseline":[0.407, 0.407],"CSL_CSL":[0.232, 0.352],"CSL_GCN-VAE":[0.262, 0.279],"CSL_Adv-CSL":[0.207, 0.229],\
+            "GCN-VAE_Baseline":[0.407, 0.407],"GCN-VAE_CSL":[0.232, 0.293],"GCN-VAE_GCN-VAE":[0.262, 0.429],"GCN-VAE_Adv-CSL":[0.206, 0.229],\
+            "Adv-CSL_Baseline":[0.407, 0.407],"Adv-CSL_CSL":[0.232, 0.293],"Adv-CSL_GCN-VAE":[0.262, 0.305],"Adv-CSL_Adv-CSL":[0.206, 0.228]}
     #epinions
     maes=[[[] for j in range(len(target))] for i in range(len(source)) ]
     for A in range(len(source)):
@@ -184,7 +184,7 @@ def corr_heat_table_epinion():
     # ax.set_title(dataset+" Correlation Between Models")
     fig.tight_layout()
     plt.show()
-    fig.savefig("../output/plots/"+dataset+"_transfer_correlation-Jan24.png", dpi=360)
+    fig.savefig("../output/plots/"+dataset+"_transfer_correlation-Jan27.png", dpi=360)
 
 def corr_heat_table_traffic_pa():
     import numpy as np
@@ -626,8 +626,8 @@ def corr_heat_table_traffic_Slashdot():
 
 if __name__=='__main__':
     corr_heat_table_epinion()
-    corr_heat_table_traffic_pa()
-    corr_heat_table_traffic_dc()
-    corr_heat_table_traffic_FB()
-    corr_heat_table_traffic_Enron()
-    corr_heat_table_traffic_Slashdot()
+    # corr_heat_table_traffic_pa()
+    # corr_heat_table_traffic_dc()
+    # corr_heat_table_traffic_FB()
+    # corr_heat_table_traffic_Enron()
+    # corr_heat_table_traffic_Slashdot()
