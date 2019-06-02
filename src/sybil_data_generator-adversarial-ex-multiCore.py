@@ -6,6 +6,7 @@ from random import shuffle
 import numpy as np
 from log import Log
 from network_funs import *
+from gen_sybils_adv_example_structure import inference_apdm_format as inference_structure
 from gen_sybils_adv_example import inference_apdm_format as inference_apdm_format_conflict_evidence
 from gen_sybils_adv_example_csl import inference_apdm_format as inference_apdm_format_csl
 
@@ -307,6 +308,15 @@ def gen_adv_exmaple(V, E, Obs, X_b,E_X):
 
     return sign_grad_py
 
+def gen_adv_exmaple_structure(V, E, Obs, X_b,E_X,v0):
+    logging = Log()
+    b={}
+    Omega = calc_Omega_from_Obs2(Obs, V)                #V, E, Obs, Omega, b, X_b, E_X, logging, psl=False, approx=True, init_alpha_beta=(1, 1),report_stat=False
+    sign_grad_py=inference_structure(V, E, Obs, Omega, b, E_X,v0, logging, psl=False)
+
+
+    return sign_grad_py
+
 def gen_adv_exmaple_csl(V, E, Obs, X_b,E_X):
     logging = Log()
     b={}
@@ -385,7 +395,7 @@ class Task_generate_pgd(object): #dataset,attack_edge,V, E, Obs, T, test_ratio, 
         sign_grad_py = gen_adv_exmaple(self.V, self.E, self.ObsO, X_b, E_X)
         print("Get Grad-Sign: finihsed...........")
         """ |p_y+alpha*sign(nabla_py L)| <= gamma"""
-        for gamma in [0.0, 0.01, 0.03, 0.05, 0.07,0.09,0.2,0.3,0.4,0.5][:]:  # 11
+        for gamma in [0.0, 0.01, 0.03, 0.05, 0.07,0.09,0.2,0.3,0.4][:]:  # 11
             fout = self.out_folder + "{}-attackedges-{}-T-{}-testratio-{}-swap_ratio-{}-gamma-{}-realization-{}-data-X.pkl".format(
                 self.dataset, self.attack_edge, self.T, self.test_ratio, self.swap_ratio, gamma, self.real_i)
             print(fout)
@@ -423,6 +433,90 @@ class Task_generate_pgd(object): #dataset,attack_edge,V, E, Obs, T, test_ratio, 
 
     def __str__(self):
         return '%s' % (self.p0)
+
+def generate_structure(dataset,attack_edge,V, E,Obs, T,test_ratio,swap_ratio,real_i,alpha,out_folder,node_degree,adj_list):
+
+    """Step1: Sampling X edges with test ratio """""
+    # nns, id_2_node, node_2_id, _, _ = reformat(V, E, Obs)
+    # nns=gen_nns(V,E)
+    """ Step1: Sampling X edges with test ratio """
+    E_X = sample_X(test_ratio, V)  #test nodes
+    X_keys=list(E_X.keys())
+    random.shuffle(X_keys)
+    target_nodes={}
+    for k in X_keys:
+        if len(target_nodes)>=100: break
+        if node_degree[k]/2.0>22.5 and node_degree[k]/2.0<=100:
+            target_nodes[k]=E_X[k]
+            # print k,node_degree[k]/2.0
+
+    print(len(target_nodes))
+    """Step 2: Add noise to observations on the edges """
+    E_Y = [v for v in V.keys() if not E_X.has_key(v)]
+    X_b = []
+
+    print("Get Grad-Sign: finihsed...........")
+    """ |p_y+alpha*sign(nabla_py L)| <= gamma"""
+    for perturbation in [0.0, 10, 20,30,40, 50][:]:  # 11
+        fout = out_folder + "{}-attackedges-{}-T-{}-testratio-{}-swap_ratio-{}-perturbation-{}-realization-{}-data-X.pkl".format(
+            dataset, attack_edge, T, test_ratio, swap_ratio, perturbation, real_i)
+        print(fout)
+        L_curr_value=-float("inf")
+        if perturbation>0.0:
+            E0 = copy.deepcopy(E)
+
+            remove_candidate_edges=[]
+            for v0 in target_nodes:
+                num_perturbtion = 0
+                if len(adj_list[v0])<perturbation:
+                    for u in adj_list[v0][:]:
+                        E0.pop((v0,u),None)
+                        E0.pop((u,v0),None)
+                    print("[adj<perturbation] |E|:{}, |E0|:{}".format(len(E),len(E0)))
+                    # pkl_file = open(fout, 'wb')
+                    # pickle.dump([V, E0, Obs, E_X, X_b], pkl_file)
+                    # pkl_file.close()
+                    continue
+                else:
+                    for u in adj_list[v0]:
+                        remove_candidate_edges.extend([(v0,u),(u,v0)])
+                    temp_removed_edges=[]
+                    for e in remove_candidate_edges:
+                        E0.pop(e, None)
+                        E0.pop((e[1],e[0]))
+                        p_adv = gen_adv_exmaple_structure(V, E0, Obs, X_b, E_X,v0)
+                        if p_adv == Obs[v0][0]: #no changes
+                            E[e]=1
+                            E[(e[1], e[0])]=1
+                        else:
+                            temp_removed_edges.append(e)
+                            temp_removed_edges.append((e[1],e[0]))
+                            num_perturbtion+=1
+                    if num_perturbtion<perturbation:
+                        for e in remove_candidate_edges:
+                            if num_perturbtion>=perturbation:
+                                continue
+                            if e not in temp_removed_edges:
+                                E0.pop(e, None)
+                                E0.pop((e[1], e[0]))
+                                num_perturbtion+=1
+
+            print("[ourput] |E|:{}, |E0|:{}".format(len(E), len(E0)))
+            pkl_file = open(fout, 'wb')
+            pickle.dump([V, E0, Obs, E_X, X_b], pkl_file)
+            pkl_file.close()
+        else:
+            L_curr_value = gen_adv_exmaple_structure(V, E, Obs, X_b, E_X)
+            pkl_file = open(fout, 'wb')
+            pickle.dump([V, E, Obs, E_X, X_b], pkl_file)
+            pkl_file.close()
+
+
+    """   V, E, Obs, Omega, b, X_b, E_X, logging, psl   """
+
+
+    return
+
 
 class Task_generate_pgd_csl(object): #dataset,attack_edge,V, E, Obs, T, test_ratio, swap_ratio,alpha
     def __init__(self, dataset,attack_edge,V, E,Obs, T,test_ratio,swap_ratio,real_i,alpha,out_folder):
@@ -692,6 +786,68 @@ def pgd_csl_sybils_data_generator():
             print ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> remain: ", num_jobs
 
 
+def structure_sybils_data_generator():
+    data_root =    "/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_pgd/"
+    org_data_root="/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_pgd_csl/"
+    # data_root = "./"
+    realizations = 1
+    network_files={"facebook":"../data/facebook/facebook_sybils_attackedge",
+                   "enron":"../data/enron/enron_attackedge",
+                   "slashdot":"../data/slashdot/slashdot_sybils_attackedge"}
+
+    alpha=0.02
+
+    num_jobs=0
+    node_degree={}
+    adj_list={}
+    for i,dataset in enumerate(["facebook","enron","slashdot"][:1]):
+        for attack_edge in [1000, 5000,10000,15000,20000][2:3]:
+            filename = network_files[dataset]+"_{}.pkl".format(attack_edge)
+            print "--------- reading {}".format(filename)
+            pkl_file = open(filename, 'rb')
+            [V, E] = pickle.load(pkl_file)
+            pkl_file.close()
+            for e in E:
+                if node_degree.has_key(e[0]):
+                    node_degree[e[0]]+=1
+                else:
+                    node_degree[e[0]] = 1
+                if node_degree.has_key(e[1]):
+                    node_degree[e[1]]+=1
+                else:
+                    node_degree[e[1]] = 1
+
+                if adj_list.has_key(e[0]):
+                    adj_list[e[0]].append(e[1])
+                else:
+                    adj_list[e[0]] = [e[1]]
+            # print len(node_degree)
+            # print len(adj_list),adj_list.values()[:1]
+            import collections
+            # deg=node_degree.values()
+            # deg_dict={}
+            # for v in deg:
+            #     if deg_dict.has_key(v):
+            #         deg_dict[v]+=1
+            #     else:
+            #         deg_dict[v] = 1
+            #
+            # for i in sorted(deg_dict):
+            #     print ((i/2, deg_dict[i]))
+            out_folder = data_root+dataset+"/"
+            if not os.path.exists(out_folder):
+                os.makedirs(out_folder)
+            for T in [10][:]:
+                for swap_ratio in [0.00, 0.01,0.02, 0.05][1:2]:
+                    for test_ratio in [0.3,0.1, 0.2, 0.4,0.5][:1]:
+                        for real_i in range(realizations)[:]:
+                            Obs = graph_process(V, E, T, swap_ratio)
+                            generate_structure(dataset,attack_edge,V, E, Obs, T, test_ratio, swap_ratio,real_i,alpha,out_folder,node_degree,adj_list)
+                            num_jobs += 1
+                    print "\n\nTttack_edge size {} Done.....................\n\n".format(attack_edge)
+
+
+
 
 if __name__=='__main__':
     # analyze_data_FB()
@@ -700,4 +856,5 @@ if __name__=='__main__':
     # random_flip_sybils_data_generator()
     # random_noise_sybils_data_generator()
     # pgd_sybils_data_generator()
-    pgd_csl_sybils_data_generator()
+    # pgd_csl_sybils_data_generator()
+    structure_sybils_data_generator()
