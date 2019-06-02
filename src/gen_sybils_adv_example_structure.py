@@ -111,7 +111,7 @@ class Consumer(multiprocessing.Process):
         return
 
 
-def inference(omega, b, y_t, Y, X, node_nns, omega_0, R,v0, psl, approx, report_stat):
+def inference_admm(omega, b, y_t, Y, X, node_nns, omega_0, R,v0, psl, approx, report_stat):
 
     p_adv= admm(omega, b, y_t, Y, X, node_nns,
                     omega_0, R,v0, psl, approx, report_stat)
@@ -139,7 +139,7 @@ omegax: a dictionary with key edge id and value a pair of alpha and beta values
 """
 
 
-def inference(omega_y, omega_0, y, X, Y, T, node_nns, R, logging, psl=False, approx=False,
+def inference(omega_y, omega_0, y, X, Y, T, node_nns, R,v0, logging, psl=False, approx=False,
               init_alpha_beta=(1, 1), report_stat=False):
     omega = copy.deepcopy(omega_y)
     for v in X.keys(): omega[
@@ -148,54 +148,14 @@ def inference(omega_y, omega_0, y, X, Y, T, node_nns, R, logging, psl=False, app
     for iter in range(1):
         ps = []
         bs = []
-        sign_grad_py=[]
 
-        # Establish communication queues
-        tasks = multiprocessing.Queue()
-        results = multiprocessing.Queue()
-
-        # Start consumers
-        num_consumers = T
-        print iter, 'Creating %d consumers' % num_consumers
-        consumers = [Consumer(tasks, results)
-                     for i in xrange(num_consumers)]
-        for w in consumers:
-            w.start()
-
-        num_jobs = 1
         b = {v: 0 for v in X.keys() + Y.keys()}
-        for t in range(T):
-            y_t = {v: v_y[t] for v, v_y in y.items()}
-            tasks.put(
-                Task_inference(omega, b, y_t, Y, X, node_nns, omega_0, R, psl, approx, report_stat))
+        y_t = {v: v_y[0] for v, v_y in y.items()}
+        p_adv=inference_admm(omega, b, y_t, Y, X, node_nns, omega_0, R, psl, approx, report_stat)
             # print "b_t", b_t
 
-        # Add a poison pill for each consumer
-        for i in range(num_consumers):
-            tasks.put(None)
 
-        while num_jobs:
-            p_t, b_t,sign_grad_py_t = results.get()
-            ps.append(p_t)
-            bs.append(b_t)
-            sign_grad_py.append(sign_grad_py_t)
-            num_jobs -= 1
-
-        error = 0.0
-        omega_prev = copy.deepcopy(omega)
-        omega_x = estimate_omega_x(ps, X)
-        b = estimate_b(bs)
-        b_y = {e: val for e, val in b.items() if e in Y}
-        for e in X:
-            omega[e] = omega_x[e]
-            alpha_prev, beta_prev = omega_prev[e]
-            alpha1, beta1 = omega_x[e]
-            error += np.power(alpha_prev - alpha1, 2) + np.power(beta_prev - beta1, 2)
-        error = np.sqrt(error)
-        if error < 0.01:
-            break
-        # print omega
-    return omega, b_y,sign_grad_py
+    return p_adv
 
 
 """
@@ -243,14 +203,14 @@ def inference_apdm_format(V, E, Obs, Omega, b, X,v0, logging, psl=False, approx=
     print "#Rule:{} Nodes:{} Edges:{}".format(len(R), len(V), len(E))
     p_adv= inference(omega_y, omega_0, y, X, Y, T, node_nns, R,v0, logging, psl,
                                        approx, init_alpha_beta, report_stat)
-    sign_grad_py = []
-    for sign_grad_py_t in sign_grad_py_ids:
-        temp_dic = {}
-        for id, sign in sign_grad_py_t.items():
-            temp_dic[id_2_node[id]] = sign
-        sign_grad_py.append(temp_dic)
+    # sign_grad_py = []
+    # for sign_grad_py_t in sign_grad_py_ids:
+    #     temp_dic = {}
+    #     for id, sign in sign_grad_py_t.items():
+    #         temp_dic[id_2_node[id]] = sign
+    #     sign_grad_py.append(temp_dic)
 
-    return sign_grad_py
+    return p_adv
 
 
 
