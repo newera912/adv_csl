@@ -151,7 +151,7 @@ def inference(omega_y, omega_0, y, X, Y, T, node_nns, R,v0, logging, psl=False, 
 
         b = {v: 0 for v in X.keys() + Y.keys()}
         y_t = {v: v_y[0] for v, v_y in y.items()}
-        p_adv=inference_admm(omega, b, y_t, Y, X, node_nns, omega_0, R, psl, approx, report_stat)
+        p_adv=inference_admm(omega, b, y_t, Y, X, node_nns, omega_0, R,v0, psl, approx, report_stat)
             # print "b_t", b_t
 
 
@@ -1080,7 +1080,7 @@ b_t:
 
 def admm(omega, b, y_t, Y, X, node_nns, omega_0, R,v0, psl=False, approx=False, report_stat=False):
     # print "b_init", b_init
-    print(v0)
+    print("v0",v0)
     weight = 1.0
     epsilon = 0.001
     cnt_V = len(X) + len(Y)
