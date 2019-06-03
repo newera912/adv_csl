@@ -309,10 +309,10 @@ def gen_adv_exmaple(V, E, Obs, X_b,E_X):
     return sign_grad_py
 
 def gen_adv_exmaple_structure(V, E, Obs,E_X,v0):
-    logging = Log()
+    # logging = Log()
     b={}
     Omega = calc_Omega_from_Obs2(Obs, V)                #V, E, Obs, Omega, b, X_b, E_X, logging, psl=False, approx=True, init_alpha_beta=(1, 1),report_stat=False
-    sign_grad_py=inference_structure(V, E, Obs, Omega, b, E_X,v0, logging, psl=False)
+    sign_grad_py=inference_structure(V, E, Obs, Omega, b, E_X,v0, None, psl=False)
 
 
     return sign_grad_py
@@ -452,6 +452,7 @@ class Task_generate_strusture(object): #dataset,attack_edge,V, E, Obs, T, test_r
         for i, v0 in enumerate(self.target_nodes):
             print(">>>>>>>>>>>>>>>>>>>",self.perturbation,i,v0,"<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<")
             num_perturbtion = 0
+            candidate_edges = []
             if len(self.adj_list[v0]) < self.perturbation:
                 for u in self.adj_list[v0][:-1]:
                     E0.pop((v0, u), None)
@@ -504,8 +505,8 @@ class Task_generate_strusture(object): #dataset,attack_edge,V, E, Obs, T, test_r
                             E0.pop((ee[1], ee[0]),None)
                             num_perturbtion += 1
             sys.stdout.flush()
-        print(self.perturbation,"[Final ourput] |E|:{}, |E0|:{} *********************************".format(len(self.E), len(E0)))
-        print(self.perturbation,self.perturbation,add_remove)
+        print(self.perturbation,"[Final output] |E|:{}, |E0|:{} *********************************".format(len(self.E), len(E0)))
+        print(self.perturbation,num_perturbtion,add_remove)
         pkl_file = open(self.fout, 'wb')
         pickle.dump([self.V, E0, self.Obs, self.E_X, self.target_nodes], pkl_file)
         pkl_file.close()
@@ -525,7 +526,7 @@ def generate_structure(dataset,attack_edge,V, E,Obs, T,test_ratio,swap_ratio,rea
     random.shuffle(X_keys)
     target_nodes={}
     for k in X_keys:
-        if len(target_nodes)>=100: break
+        if len(target_nodes)>=20: break
         if node_degree[k]/2.0>22.5 and node_degree[k]/2.0<=100:
             target_nodes[k]=E_X[k]
             # print k,node_degree[k]/2.0
@@ -536,7 +537,8 @@ def generate_structure(dataset,attack_edge,V, E,Obs, T,test_ratio,swap_ratio,rea
 
     tasks = multiprocessing.Queue()
     results = multiprocessing.Queue()
-    num_consumers = 3 # We only use 5 cores.
+    num_consumers = 6  # We only use 5 cores.
+
     print 'Creating %d consumers' % num_consumers
     consumers = [Consumer(tasks, results)
                  for i in range(num_consumers)]
@@ -544,8 +546,8 @@ def generate_structure(dataset,attack_edge,V, E,Obs, T,test_ratio,swap_ratio,rea
         w.start()
 
     num_jobs=0
-    for perturbation in [0.0,5, 10, 20,30,40, 50][:]:  # 11
-        fout = out_folder + "{}-attackedges-{}-T-{}-testratio-{}-swap_ratio-{}-perturbation-{}-realization-{}-data-X3.pkl".format(
+    for perturbation in [0.0,5, 10, 20,30,40, 50,60,70,80,90,100][7:]:  # 11
+        fout = out_folder + "{}-attackedges-{}-T-{}-testratio-{}-swap_ratio-{}-perturbation-{}-realization-{}-data-X20.pkl".format(
             dataset, attack_edge, T, test_ratio, swap_ratio, perturbation, real_i)
         print(perturbation,fout)
         # L_curr_value=-float("inf")
