@@ -448,11 +448,7 @@ class Task_generate_strusture(object): #dataset,attack_edge,V, E, Obs, T, test_r
     def __call__(self):
         E0 = copy.deepcopy(self.E)
         add_remove=[]
-<<<<<<< HEAD
-
-=======
         candidate_edges = []
->>>>>>> 4ac364ccacf36b787b9dd28f2af966ba51dcac5b
         for i, v0 in enumerate(self.target_nodes):
             print(">>>>>>>>>>>>>>>>>>>",self.perturbation,i,v0,"<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<")
             num_perturbtion = 0
@@ -509,12 +505,8 @@ class Task_generate_strusture(object): #dataset,attack_edge,V, E, Obs, T, test_r
                             E0.pop((ee[1], ee[0]),None)
                             num_perturbtion += 1
             sys.stdout.flush()
-        print(self.perturbation,"[Final ourput] |E|:{}, |E0|:{} *********************************".format(len(self.E), len(E0)))
-<<<<<<< HEAD
+        print(self.perturbation,"[Final output] |E|:{}, |E0|:{} *********************************".format(len(self.E), len(E0)))
         print(self.perturbation,num_perturbtion,add_remove)
-=======
-        print(self.perturbation,self.perturbation,add_remove)
->>>>>>> 4ac364ccacf36b787b9dd28f2af966ba51dcac5b
         pkl_file = open(self.fout, 'wb')
         pickle.dump([self.V, E0, self.Obs, self.E_X, self.target_nodes], pkl_file)
         pkl_file.close()
@@ -534,7 +526,7 @@ def generate_structure(dataset,attack_edge,V, E,Obs, T,test_ratio,swap_ratio,rea
     random.shuffle(X_keys)
     target_nodes={}
     for k in X_keys:
-        if len(target_nodes)>=100: break
+        if len(target_nodes)>=20: break
         if node_degree[k]/2.0>22.5 and node_degree[k]/2.0<=100:
             target_nodes[k]=E_X[k]
             # print k,node_degree[k]/2.0
@@ -545,11 +537,8 @@ def generate_structure(dataset,attack_edge,V, E,Obs, T,test_ratio,swap_ratio,rea
 
     tasks = multiprocessing.Queue()
     results = multiprocessing.Queue()
-<<<<<<< HEAD
     num_consumers = 6  # We only use 5 cores.
-=======
-    num_consumers = 3 # We only use 5 cores.
->>>>>>> 4ac364ccacf36b787b9dd28f2af966ba51dcac5b
+
     print 'Creating %d consumers' % num_consumers
     consumers = [Consumer(tasks, results)
                  for i in range(num_consumers)]
@@ -557,12 +546,8 @@ def generate_structure(dataset,attack_edge,V, E,Obs, T,test_ratio,swap_ratio,rea
         w.start()
 
     num_jobs=0
-    for perturbation in [0.0,5, 10, 20,30,40, 50][:]:  # 11
-<<<<<<< HEAD
-        fout = out_folder + "{}-attackedges-{}-T-{}-testratio-{}-swap_ratio-{}-perturbation-{}-realization-{}-data-X0.pkl".format(
-=======
-        fout = out_folder + "{}-attackedges-{}-T-{}-testratio-{}-swap_ratio-{}-perturbation-{}-realization-{}-data-X3.pkl".format(
->>>>>>> 4ac364ccacf36b787b9dd28f2af966ba51dcac5b
+    for perturbation in [0.0,5, 10, 20,30,40, 50,60,70,80,90,100][7:]:  # 11
+        fout = out_folder + "{}-attackedges-{}-T-{}-testratio-{}-swap_ratio-{}-perturbation-{}-realization-{}-data-X20.pkl".format(
             dataset, attack_edge, T, test_ratio, swap_ratio, perturbation, real_i)
         print(perturbation,fout)
         # L_curr_value=-float("inf")

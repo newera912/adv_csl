@@ -1,0 +1,63 @@
+
+
+--------------------------------------------------
+--------------------------------------------------
+
+-------------------Mon, 03 Jun 2019 04:36:04 PM EDT---------------------
+
+0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+dataset: facebook method: SL, #attack_edge:10000,T:10,test_ratio: 0.3,perturbation:0.0
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/structure/facebook/facebook-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-perturbation-0.0-realization-0-data-X20.pkl
+Creating 30 consumers
+(2424, 20)
+('All:', 0.3336750936436198, 0.14554698439679936, 0.38800177575848915, 0.3318419745248031, 0.5977673451539178)
+prob_mse: 0.277182968988, running time: 838.427967072
+dataset: facebook method: CSL, #attack_edge:10000,T:10,test_ratio: 0.3,perturbation:0.0
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/structure/facebook/facebook-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-perturbation-0.0-realization-0-data-X20.pkl
+#Rule: 372936
+(2424, 20)
+('All:', 0.1122665491549155, 0.010989010989011005, 0.102998299829983, 0.10293491849184919, 0.898094900207094)
+prob_mse: 0.0233690909091, running time: 144.493777037
+1.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+dataset: facebook method: SL, #attack_edge:10000,T:10,test_ratio: 0.3,perturbation:5
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/structure/facebook/facebook-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-perturbation-5-realization-0-data-X20.pkl
+Creating 30 consumers
+(2424, 20)
+('All:', 0.3336465717069304, 0.14554628351384488, 0.3879713600282164, 0.33180910614027853, 0.5977673451539178)
+prob_mse: 0.272772688114, running time: 685.536024094
+dataset: facebook method: CSL, #attack_edge:10000,T:10,test_ratio: 0.3,perturbation:5
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/structure/facebook/facebook-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-perturbation-5-realization-0-data-X20.pkl
+#Rule: 372888
+(2424, 20)
+('All:', 0.11230680318031803, 0.010989010989011005, 0.10305205520552056, 0.10297479747974798, 0.898094900207094)
+prob_mse: 0.0282478787879, running time: 144.859315872
+2.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+dataset: facebook method: SL, #attack_edge:10000,T:10,test_ratio: 0.3,perturbation:10
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/structure/facebook/facebook-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-perturbation-10-realization-0-data-X20.pkl
+Creating 30 consumers
+(2424, 20)
+('All:', 0.3336346275651693, 0.145546312040112, 0.38796097260717294, 0.33180184551921815, 0.5977673451539178)
+prob_mse: 0.27227848028, running time: 685.421601057
+dataset: facebook method: CSL, #attack_edge:10000,T:10,test_ratio: 0.3,perturbation:10
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/structure/facebook/facebook-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-perturbation-10-realization-0-data-X20.pkl
+#Rule: 372916
+(2424, 20)
+('All:', 0.1122665491549155, 0.010989010989011005, 0.102998299829983, 0.1029349184918492, 0.898094900207094)
+prob_mse: 0.0233690909091, running time: 142.299319983
+3.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+dataset: facebook method: SL, #attack_edge:10000,T:10,test_ratio: 0.3,perturbation:20
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/structure/facebook/facebook-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-perturbation-20-realization-0-data-X20.pkl
+Creating 30 consumers
+(2424, 20)
+('All:', 0.33363591929912123, 0.14554631167641613, 0.38796226415921536, 0.3318031374350797, 0.5977673451539178)
+prob_mse: 0.272435038435, running time: 673.587604046
+dataset: facebook method: CSL, #attack_edge:10000,T:10,test_ratio: 0.3,perturbation:20
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/structure/facebook/facebook-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-perturbation-20-realization-0-data-X20.pkl
+#Rule: 372896
+(2424, 20)
+('All:', 0.11227013201320131, 0.010989010989011005, 0.102998299829983, 0.1029321682168217, 0.898094900207094)
+prob_mse: 0.0238033333333, running time: 152.414904833
+4.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+dataset: facebook method: SL, #attack_edge:10000,T:10,test_ratio: 0.3,perturbation:30
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/structure/facebook/facebook-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-perturbation-30-realization-0-data-X20.pkl
+Creating 30 consumers
