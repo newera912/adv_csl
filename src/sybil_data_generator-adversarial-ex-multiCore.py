@@ -1,6 +1,6 @@
 import random
 import pickle
-import os,copy,time
+import os,copy,time,sys
 import multiprocessing
 from random import shuffle
 import numpy as np
@@ -300,7 +300,7 @@ class Task_generate_rf(object):
         return '%s' % (self.p0)
 
 def gen_adv_exmaple(V, E, Obs, X_b,E_X):
-    logging = Log()
+
     b={}
     Omega = calc_Omega_from_Obs2(Obs, V)                #V, E, Obs, Omega, b, X_b, E_X, logging, psl=False, approx=True, init_alpha_beta=(1, 1),report_stat=False
     sign_grad_py=inference_apdm_format_conflict_evidence(V, E, Obs, Omega, b, E_X, logging, psl=False)
@@ -449,22 +449,22 @@ class Task_generate_strusture(object): #dataset,attack_edge,V, E, Obs, T, test_r
         E0 = copy.deepcopy(self.E)
         add_remove=[]
         candidate_edges = []
-        for v0 in self.target_nodes:
+        for i, v0 in enumerate(self.target_nodes):
+            print(">>>>>>>>>>>>>>>>>>>",self.perturbation,i,v0,"<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<")
             num_perturbtion = 0
             if len(self.adj_list[v0]) < self.perturbation:
-                for u in self.adj_list[v0][:]:
+                for u in self.adj_list[v0][:-1]:
                     E0.pop((v0, u), None)
                     E0.pop((u, v0), None)
                     add_remove.append(-1)
-                print("[adj<perturbation] |E|:{}, |E0|:{}".format(len(self.E), len(E0)))
+                print(self.perturbation,"[adj<perturbation] |E|:{}, |E0|:{}".format(len(self.E), len(E0)))
                 # pkl_file = open(fout, 'wb')
                 # pickle.dump([V, E0, Obs, E_X, X_b], pkl_file)
                 # pkl_file.close()
                 continue
             else:
                 for u in self.adj_list[v0]:
-                    if self.E_X.has_key((v0, u)): continue
-                    if self.E_X.has_key((u, v0)): continue
+                    if self.E_X.has_key(u): continue
                     candidate_edges.extend([(v0, u), (u, v0)])
                 print("candidate edges:", len(candidate_edges))
                 temp_removed_edges = []
@@ -473,10 +473,10 @@ class Task_generate_strusture(object): #dataset,attack_edge,V, E, Obs, T, test_r
                     if not E0.has_key(e): print(e, "e not exists")
                     if not E0.has_key((e[1], e[0])): print((e[1], e[0]), "e' not exists")
                     if not E0.has_key(e) and not E0.has_key((e[1], e[0])):
-                        E0[e] = self.E[e]
-                        E0[(e[1], e[0])] = self.E[(e[1], e[0])]
+                        E0[e] = 1.0
+                        E0[(e[1], e[0])] = 1.0
                         add_remove.append(1)
-                        print("[inner ourput>>> ADD ] |E|:{}, |E0|:{}".format(len(self.E), len(E0)))
+                        print(self.perturbation,num_perturbtion,"[ADD] |E|:{}, |E0|:{}".format(len(self.E), len(E0)))
                         num_perturbtion += 1
                         continue
 
@@ -485,31 +485,35 @@ class Task_generate_strusture(object): #dataset,attack_edge,V, E, Obs, T, test_r
                     p_adv = gen_adv_exmaple_structure(self.V, E0, self.Obs, self.E_X, v0)
 
                     if p_adv == self.Obs[v0][0]:  # no changes
-                        print(p_adv, self.Obs[v0][0], "not changed...")
-                        E0[e] = self.E[e]
-                        E0[(e[1], e[0])] = self.E[(e[1], e[0])]
+                        print(self.perturbation,num_perturbtion,p_adv, self.Obs[v0][0], "not changed...")
+                        E0[e] = 1.0
+                        E0[(e[1], e[0])] = 1.0
                     else:
-                        print(p_adv, self.Obs[v0][0], "changed...")
+                        print(self.perturbation,num_perturbtion,p_adv, self.Obs[v0][0], "changed...")
                         add_remove.append(1)
                         temp_removed_edges.append(e)
                         temp_removed_edges.append((e[1], e[0]))
                         num_perturbtion += 1
-                    print("[inner ourput remove>>>DEL ] |E|:{}, |E0|:{}".format(len(E), len(E0)))
+                    print(self.perturbation,num_perturbtion,"[DEL ] |E|:{}, |E0|:{}".format(len(self.E), len(E0)))
                 if num_perturbtion < self.perturbation:
-                    for e in candidate_edges:
+                    for ee in candidate_edges:
                         if num_perturbtion >= self.perturbation:
                             break
-                        if e not in temp_removed_edges:
-                            E0.pop(e, None)
-                            E0.pop((e[1], e[0]))
+                        if ee not in temp_removed_edges:
+                            E0.pop(ee, None)
+                            E0.pop((ee[1], ee[0]),None)
                             num_perturbtion += 1
-
-        print("[ourput] |E|:{}, |E0|:{}".format(len(self.E), len(E0)))
-        print(self.perturbation,add_remove)
+            sys.stdout.flush()
+        print(self.perturbation,"[Final ourput] |E|:{}, |E0|:{} *********************************".format(len(self.E), len(E0)))
+        print(self.perturbation,self.perturbation,add_remove)
         pkl_file = open(self.fout, 'wb')
         pickle.dump([self.V, E0, self.Obs, self.E_X, self.target_nodes], pkl_file)
         pkl_file.close()
         return
+
+    def __str__(self):
+        return '%s' % (self.p0)
+
 def generate_structure(dataset,attack_edge,V, E,Obs, T,test_ratio,swap_ratio,real_i,out_folder,node_degree,adj_list):
 
     """Step1: Sampling X edges with test ratio """""
@@ -532,8 +536,8 @@ def generate_structure(dataset,attack_edge,V, E,Obs, T,test_ratio,swap_ratio,rea
 
     tasks = multiprocessing.Queue()
     results = multiprocessing.Queue()
-    num_consumers = 6  # We only use 5 cores.
-    # print 'Creating %d consumers' % num_consumers
+    num_consumers = 3 # We only use 5 cores.
+    print 'Creating %d consumers' % num_consumers
     consumers = [Consumer(tasks, results)
                  for i in range(num_consumers)]
     for w in consumers:
@@ -541,7 +545,7 @@ def generate_structure(dataset,attack_edge,V, E,Obs, T,test_ratio,swap_ratio,rea
 
     num_jobs=0
     for perturbation in [0.0,5, 10, 20,30,40, 50][:]:  # 11
-        fout = out_folder + "{}-attackedges-{}-T-{}-testratio-{}-swap_ratio-{}-perturbation-{}-realization-{}-data-X.pkl".format(
+        fout = out_folder + "{}-attackedges-{}-T-{}-testratio-{}-swap_ratio-{}-perturbation-{}-realization-{}-data-X3.pkl".format(
             dataset, attack_edge, T, test_ratio, swap_ratio, perturbation, real_i)
         print(perturbation,fout)
         # L_curr_value=-float("inf")
@@ -552,8 +556,8 @@ def generate_structure(dataset,attack_edge,V, E,Obs, T,test_ratio,swap_ratio,rea
         else:
             tasks.put(Task_generate_strusture(V, E,Obs,E_X,T,fout,target_nodes,perturbation,adj_list))
             num_jobs += 1
-            for i in range(num_consumers):
-                tasks.put(None)
+    for i in range(num_consumers):
+        tasks.put(None)
 
     while num_jobs:
         results.get()
@@ -902,7 +906,7 @@ def structure_sybils_data_generator():
     data_root =    "/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/structure/"
     org_data_root="/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_pgd_csl/"
     # data_root="./"
-    # data_root = "./"
+    data_root = "./"
     realizations = 1
     network_files={"facebook":"../data/facebook/facebook_sybils_attackedge",
                    "enron":"../data/enron/enron_attackedge",
@@ -919,6 +923,8 @@ def structure_sybils_data_generator():
             print "--------- reading {}".format(filename)
             pkl_file = open(filename, 'rb')
             [V, E] = pickle.load(pkl_file)
+            # logging = Log()
+            from log import Log
             pkl_file.close()
             for e in E:
                 if node_degree.has_key(e[0]):
