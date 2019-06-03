@@ -684,10 +684,9 @@ def slashdot_sybils_dataset_test():
 
 
 def main():
-    # facebook_sybils_dataset_test()
+    facebook_sybils_dataset_test()
     # enron_sybils_dataset_test()
-    slashdot_sybils_dataset_test()
-
+    # slashdot_sybils_dataset_test()
 
 if __name__=='__main__':
     main()
