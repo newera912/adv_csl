@@ -448,7 +448,11 @@ class Task_generate_strusture(object): #dataset,attack_edge,V, E, Obs, T, test_r
     def __call__(self):
         E0 = copy.deepcopy(self.E)
         add_remove=[]
+<<<<<<< HEAD
 
+=======
+        candidate_edges = []
+>>>>>>> 4ac364ccacf36b787b9dd28f2af966ba51dcac5b
         for i, v0 in enumerate(self.target_nodes):
             print(">>>>>>>>>>>>>>>>>>>",self.perturbation,i,v0,"<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<")
             num_perturbtion = 0
@@ -506,7 +510,11 @@ class Task_generate_strusture(object): #dataset,attack_edge,V, E, Obs, T, test_r
                             num_perturbtion += 1
             sys.stdout.flush()
         print(self.perturbation,"[Final ourput] |E|:{}, |E0|:{} *********************************".format(len(self.E), len(E0)))
+<<<<<<< HEAD
         print(self.perturbation,num_perturbtion,add_remove)
+=======
+        print(self.perturbation,self.perturbation,add_remove)
+>>>>>>> 4ac364ccacf36b787b9dd28f2af966ba51dcac5b
         pkl_file = open(self.fout, 'wb')
         pickle.dump([self.V, E0, self.Obs, self.E_X, self.target_nodes], pkl_file)
         pkl_file.close()
@@ -537,7 +545,11 @@ def generate_structure(dataset,attack_edge,V, E,Obs, T,test_ratio,swap_ratio,rea
 
     tasks = multiprocessing.Queue()
     results = multiprocessing.Queue()
+<<<<<<< HEAD
     num_consumers = 6  # We only use 5 cores.
+=======
+    num_consumers = 3 # We only use 5 cores.
+>>>>>>> 4ac364ccacf36b787b9dd28f2af966ba51dcac5b
     print 'Creating %d consumers' % num_consumers
     consumers = [Consumer(tasks, results)
                  for i in range(num_consumers)]
@@ -546,7 +558,11 @@ def generate_structure(dataset,attack_edge,V, E,Obs, T,test_ratio,swap_ratio,rea
 
     num_jobs=0
     for perturbation in [0.0,5, 10, 20,30,40, 50][:]:  # 11
+<<<<<<< HEAD
         fout = out_folder + "{}-attackedges-{}-T-{}-testratio-{}-swap_ratio-{}-perturbation-{}-realization-{}-data-X0.pkl".format(
+=======
+        fout = out_folder + "{}-attackedges-{}-T-{}-testratio-{}-swap_ratio-{}-perturbation-{}-realization-{}-data-X3.pkl".format(
+>>>>>>> 4ac364ccacf36b787b9dd28f2af966ba51dcac5b
             dataset, attack_edge, T, test_ratio, swap_ratio, perturbation, real_i)
         print(perturbation,fout)
         # L_curr_value=-float("inf")
@@ -907,7 +923,7 @@ def structure_sybils_data_generator():
     data_root =    "/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/structure/"
     org_data_root="/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_pgd_csl/"
     # data_root="./"
-    # data_root = "./"
+    data_root = "./"
     realizations = 1
     network_files={"facebook":"../data/facebook/facebook_sybils_attackedge",
                    "enron":"../data/enron/enron_attackedge",
