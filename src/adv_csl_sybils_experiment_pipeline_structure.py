@@ -456,14 +456,14 @@ def facebook_sybils_dataset_test_structure():
     count=0
     realizations=1
 
-    methods = ["SL","CSL", "Adv-CSL","Baseline"][:2]
+    methods = ["SL","CSL", "Adv-CSL","Baseline"][:3]
     for real_i in range(realizations)[:1]:
         for test_ratio in [0.3,0.1, 0.2, 0.4, 0.5][:1]:
             for adv_type in ["structure"][:]:
                 for attack_edge in [10000][:1]:
                     for T in [10][:]:
                         for swap_ratio in [0.00, 0.01, 0.02, 0.05][1:2]:
-                            for perturbation in [0.0, 5, 10, 20, 30, 40, 50][:]:  # 11
+                            for perturbation in [0.0, 5, 10, 20, 30, 40, 50,60,70,80,90,100][7:8]:  # 11
 
                                 logging.write(str(count)+" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`")
                                 count+=1.0

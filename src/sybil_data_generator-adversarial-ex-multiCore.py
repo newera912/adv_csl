@@ -448,7 +448,7 @@ class Task_generate_strusture(object): #dataset,attack_edge,V, E, Obs, T, test_r
     def __call__(self):
         E0 = copy.deepcopy(self.E)
         add_remove=[]
-        candidate_edges = []
+
         for i, v0 in enumerate(self.target_nodes):
             print(">>>>>>>>>>>>>>>>>>>",self.perturbation,i,v0,"<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<")
             num_perturbtion = 0
@@ -505,22 +505,10 @@ class Task_generate_strusture(object): #dataset,attack_edge,V, E, Obs, T, test_r
                             E0.pop((ee[1], ee[0]),None)
                             num_perturbtion += 1
             sys.stdout.flush()
-<<<<<<< HEAD
+
         print(self.perturbation,"[Final output] |E|:{}, |E0|:{} *********************************".format(len(self.E), len(E0)))
         print(self.perturbation,num_perturbtion,add_remove)
-=======
-<<<<<<< HEAD
-        print(self.perturbation,"[Final output] |E|:{}, |E0|:{} *********************************".format(len(self.E), len(E0)))
-        print(self.perturbation,num_perturbtion,add_remove)
-=======
-        print(self.perturbation,"[Final ourput] |E|:{}, |E0|:{} *********************************".format(len(self.E), len(E0)))
-<<<<<<< HEAD
-        print(self.perturbation,num_perturbtion,add_remove)
-=======
-        print(self.perturbation,self.perturbation,add_remove)
->>>>>>> 4ac364ccacf36b787b9dd28f2af966ba51dcac5b
->>>>>>> e760b4f678c9947219e4f12a6e14a7d137e97a39
->>>>>>> 97995ac66412d784cef1d6a4360421323f579b8a
+
         pkl_file = open(self.fout, 'wb')
         pickle.dump([self.V, E0, self.Obs, self.E_X, self.target_nodes], pkl_file)
         pkl_file.close()
@@ -535,34 +523,24 @@ def generate_structure(dataset,attack_edge,V, E,Obs, T,test_ratio,swap_ratio,rea
     # nns, id_2_node, node_2_id, _, _ = reformat(V, E, Obs)
     # nns=gen_nns(V,E)
     """ Step1: Sampling X edges with test ratio """
-    E_X = sample_X(test_ratio, V)  #test nodes
-    X_keys=list(E_X.keys())
-    random.shuffle(X_keys)
-    target_nodes={}
-    for k in X_keys:
-        if len(target_nodes)>=20: break
-        if node_degree[k]/2.0>22.5 and node_degree[k]/2.0<=100:
-            target_nodes[k]=E_X[k]
-            # print k,node_degree[k]/2.0
-
-    print("number of target nodes:",len(target_nodes))
-    """Step 2: Add noise to observations on the edges """
-    E_Y = [v for v in V.keys() if not E_X.has_key(v)]
+    # E_X = sample_X(test_ratio, V)  #test nodes
+    # X_keys=list(E_X.keys())
+    # random.shuffle(X_keys)
+    # target_nodes={}
+    # for k in X_keys:
+    #     if len(target_nodes)>=20: break
+    #     if node_degree[k]/2.0>22.5 and node_degree[k]/2.0<=100:
+    #         target_nodes[k]=E_X[k]
+    #         # print k,node_degree[k]/2.0
+    #
+    # print("number of target nodes:",len(target_nodes))
+    # """Step 2: Add noise to observations on the edges """
+    # E_Y = [v for v in V.keys() if not E_X.has_key(v)]
 
     tasks = multiprocessing.Queue()
     results = multiprocessing.Queue()
-    num_consumers = 6  # We only use 5 cores.
+    num_consumers = 5  # We only use 5 cores.
 
-<<<<<<< HEAD
-=======
-=======
-<<<<<<< HEAD
-    num_consumers = 6  # We only use 5 cores.
-=======
-    num_consumers = 3 # We only use 5 cores.
->>>>>>> 4ac364ccacf36b787b9dd28f2af966ba51dcac5b
->>>>>>> e760b4f678c9947219e4f12a6e14a7d137e97a39
->>>>>>> 97995ac66412d784cef1d6a4360421323f579b8a
     print 'Creating %d consumers' % num_consumers
     consumers = [Consumer(tasks, results)
                  for i in range(num_consumers)]
@@ -570,22 +548,11 @@ def generate_structure(dataset,attack_edge,V, E,Obs, T,test_ratio,swap_ratio,rea
         w.start()
 
     num_jobs=0
-<<<<<<< HEAD
-    for perturbation in [0.0,5, 10, 20,30,40, 50,60,70,80,90,100][7:]:  # 11
+    pkl_file = open(out_folder + "facebook-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-perturbation-0.0-realization-0-data-X20.pkl", 'rb')
+    [V0, E0, Obs0, E_X0, target_nodes0] = pickle.load(pkl_file)
+    # pickle.close()
+    for perturbation in [0.0,5, 10, 20,30,40, 50,60,70,80,90,100][8:]:  # 11
         fout = out_folder + "{}-attackedges-{}-T-{}-testratio-{}-swap_ratio-{}-perturbation-{}-realization-{}-data-X20.pkl".format(
-=======
-<<<<<<< HEAD
-    for perturbation in [0.0,5, 10, 20,30,40, 50,60,70,80,90,100][7:]:  # 11
-        fout = out_folder + "{}-attackedges-{}-T-{}-testratio-{}-swap_ratio-{}-perturbation-{}-realization-{}-data-X20.pkl".format(
-=======
-    for perturbation in [0.0,5, 10, 20,30,40, 50][:]:  # 11
-<<<<<<< HEAD
-        fout = out_folder + "{}-attackedges-{}-T-{}-testratio-{}-swap_ratio-{}-perturbation-{}-realization-{}-data-X0.pkl".format(
-=======
-        fout = out_folder + "{}-attackedges-{}-T-{}-testratio-{}-swap_ratio-{}-perturbation-{}-realization-{}-data-X3.pkl".format(
->>>>>>> 4ac364ccacf36b787b9dd28f2af966ba51dcac5b
->>>>>>> e760b4f678c9947219e4f12a6e14a7d137e97a39
->>>>>>> 97995ac66412d784cef1d6a4360421323f579b8a
             dataset, attack_edge, T, test_ratio, swap_ratio, perturbation, real_i)
         print(perturbation,fout)
         # L_curr_value=-float("inf")
@@ -594,7 +561,7 @@ def generate_structure(dataset,attack_edge,V, E,Obs, T,test_ratio,swap_ratio,rea
             pickle.dump([V, E, Obs, E_X, target_nodes], pkl_file)
             pkl_file.close()
         else:
-            tasks.put(Task_generate_strusture(V, E,Obs,E_X,T,fout,target_nodes,perturbation,adj_list))
+            tasks.put(Task_generate_strusture(V0, E0,Obs0,E_X0,T,fout,target_nodes0,perturbation,adj_list))
             num_jobs += 1
     for i in range(num_consumers):
         tasks.put(None)
@@ -946,7 +913,6 @@ def structure_sybils_data_generator():
     data_root =    "/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/structure/"
     org_data_root="/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_pgd_csl/"
     # data_root="./"
-    data_root = "./"
     realizations = 1
     network_files={"facebook":"../data/facebook/facebook_sybils_attackedge",
                    "enron":"../data/enron/enron_attackedge",

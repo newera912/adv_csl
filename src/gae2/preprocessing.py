@@ -35,7 +35,7 @@ def preprocess_graph(adj):
     return sparse_to_tuple(adj_normalized)
 
 
-def construct_feed_dict(adj_normalized, adj, features, placeholders, labels_b, label_un, labels_mask, omega, alpha_0, beta_0):
+def construct_feed_dict(adj_normalized, adj, features, placeholders, labels_b, label_un, labels_mask,target_mask, omega, alpha_0, beta_0):
     # construct feed dictionary
     feed_dict = dict()
     feed_dict.update({placeholders['features']: features})
@@ -44,6 +44,7 @@ def construct_feed_dict(adj_normalized, adj, features, placeholders, labels_b, l
     feed_dict.update({placeholders['labels_b']: labels_b})
     feed_dict.update({placeholders['labels_un']: label_un})
     feed_dict.update({placeholders['labels_mask']: labels_mask})
+    feed_dict.update({placeholders['target_mask']: target_mask})
     feed_dict.update({placeholders['alpha_0']: alpha_0})
     feed_dict.update({placeholders['beta_0']: beta_0})
     feed_dict.update({placeholders['omega_t']: omega})
