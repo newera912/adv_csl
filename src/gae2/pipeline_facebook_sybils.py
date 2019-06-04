@@ -2,7 +2,7 @@ from __future__ import division
 from __future__ import print_function
 
 import time
-import os,json
+import os,json,sys
 
 # Train on CPU (hide GPU) due to memory constraints
 os.environ['CUDA_VISIBLE_DEVICES'] = ""
@@ -56,16 +56,16 @@ report_stat = False
 count=0
 realizations=10
 
-for real_i in range(realizations)[:5]:
+for real_i in range(realizations)[:1]:
     for test_ratio in [0.3,0.1, 0.2, 0.4, 0.5][:1]:
         for adv_type in ["structure"][:1]:
             for attack_edge in [10000][:1]:
                 for T in [10][:]:
                     for swap_ratio in [0.00, 0.01, 0.02, 0.05][1:2]:
-                        for perturbation in [0.0, 5, 10, 20, 30, 40, 50,,60,70,80,90,100][8:]:  # 11
+                        for perturbation in [0.0, 5, 10, 20, 30, 40, 50,60,70,80,90,100][8:]:  # 11
                             fileName = dataroot +adv_type+ "/{}/{}-attackedges-{}-T-{}-testratio-{}-swap_ratio-{}-perturbation-{}-realization-{}-data-X20.pkl".format(
                                     "facebook","facebook", attack_edge, T, test_ratio, swap_ratio, perturbation, real_i)
-                            outf = '../../output/sybils/{}_results-server-Jan21-{}.json'.format("GCN-VAE", adv_type)
+                            outf = '../../output/sybils/{}_results-server-June3-{}.json'.format("GCN-VAE", adv_type)
                             print(fileName)
                             # adj, features = load_data_epinion(fileName)
                             adj,y_train_belief, y_test_belief, y_train_un, y_test_un, train_mask, test_mask,target_mask, omega_test, alpha_0, beta_0 = mask_test_node_sybils(fileName,T)

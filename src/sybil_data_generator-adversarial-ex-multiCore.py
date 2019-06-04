@@ -507,7 +507,7 @@ class Task_generate_strusture(object): #dataset,attack_edge,V, E, Obs, T, test_r
             sys.stdout.flush()
 
         print(self.perturbation,"[Final output] |E|:{}, |E0|:{} *********************************".format(len(self.E), len(E0)))
-        print(self.perturbation,self.perturbation,add_remove)
+        print(self.perturbation,num_perturbtion,add_remove)
         pkl_file = open(self.fout, 'wb')
         pickle.dump([self.V, E0, self.Obs, self.E_X, self.target_nodes], pkl_file)
         pkl_file.close()
@@ -538,9 +538,7 @@ def generate_structure(dataset,attack_edge,V, E,Obs, T,test_ratio,swap_ratio,rea
 
     tasks = multiprocessing.Queue()
     results = multiprocessing.Queue()
-
-    num_consumers = 6  # We only use 5 cores.
-
+    num_consumers = 5  # We only use 5 cores.
     print 'Creating %d consumers' % num_consumers
     consumers = [Consumer(tasks, results)
                  for i in range(num_consumers)]
@@ -549,7 +547,10 @@ def generate_structure(dataset,attack_edge,V, E,Obs, T,test_ratio,swap_ratio,rea
 
     num_jobs=0
 
-    for perturbation in [0.0,5, 10, 20,30,40, 50,60,70,80,90,100][7:]:  # 11
+    # pkl_file = open(out_folder + "facebook-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-perturbation-0.0-realization-0-data-X20.pkl", 'rb')
+    # [V0, E0, Obs0, E_X0, target_nodes0] = pickle.load(pkl_file)
+    # pickle.close()
+    for perturbation in [0.0,5, 10, 20,30,40, 50,60,70,80,90,100][8:]:  # 11
         fout = out_folder + "{}-attackedges-{}-T-{}-testratio-{}-swap_ratio-{}-perturbation-{}-realization-{}-data-X20.pkl".format(
             dataset, attack_edge, T, test_ratio, swap_ratio, perturbation, real_i)
         print(perturbation,fout)
@@ -911,7 +912,6 @@ def structure_sybils_data_generator():
     data_root =    "/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/structure/"
     org_data_root="/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_pgd_csl/"
     # data_root="./"
-    data_root = "./"
     realizations = 1
     network_files={"facebook":"../data/facebook/facebook_sybils_attackedge",
                    "enron":"../data/enron/enron_attackedge",

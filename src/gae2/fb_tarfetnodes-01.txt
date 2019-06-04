@@ -1,0 +1,7 @@
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/structure/facebook/facebook-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-perturbation-70-realization-0-data-X20.pkl
+Traceback (most recent call last):
+  File "pipeline_facebook_sybils.py", line 71, in <module>
+    adj,y_train_belief, y_test_belief, y_train_un, y_test_un, train_mask, test_mask,target_mask, omega_test, alpha_0, beta_0 = mask_test_node_sybils(fileName,T)
+  File "/network/rit/home/aa465948/git/adv_csl/src/gae2/preprocessing.py", line 172, in mask_test_node_sybils
+    pkl_file = open(fileName, 'rb')
+IOError: [Errno 2] No such file or directory: '/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/structure/facebook/facebook-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-perturbation-70-realization-0-data-X20.pkl'

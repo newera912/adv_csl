@@ -413,6 +413,12 @@ def  evaluate(V, E, Obs, Omega, E_X,target_nodes, logging, method = 'sl', psl = 
         raise Exception("Method Error")
     print(len(E_X),len(target_nodes))
     alpha_mse, beta_mse, prob_mse, u_mse, b_mse, d_mse, prob_relative_mse, u_relative_mse, accuracy, recall_congested, recall_uncongested = calculate_measures(Omega, pred_omega_x, target_nodes, logging)
+    # with open("../output/sybils/facebook_op.txt","a+") as of:
+    #     for v in target_nodes:
+    #         b1, d1, u1, a1 = beta_to_opinion2(Omega[v][0], Omega[v][1])
+    #         b2, d2, u2, a2 = beta_to_opinion2(pred_omega_x[v][0], pred_omega_x[v][1])
+    #         of.write("{} {} {} {} {} {}\n".format(b1, d1, u1,b2, d2, u2))
+    #     of.write("\n")
 
     alpha_mse_all, beta_mse_all, prob_mse_all, u_mse_all, b_mse_all, d_mse_all, prob_relative_mse_all, u_relative_mse_all, accuracy_all, recall_congested_all, recall_uncongested_all = calculate_measures(Omega, pred_omega_x, E_X, logging)
     print("All:",prob_mse_all,u_mse_all, b_mse_all, d_mse_all,accuracy_all)
@@ -449,16 +455,15 @@ def facebook_sybils_dataset_test_structure():
     report_stat = False
     count=0
     realizations=1
-    gammas=[0.0, 0.01, 0.03, 0.05, 0.07,0.09,0.2,0.3,0.4,0.5]
-    # gammas=[0.0, 0.01,0.3,0.4]
-    methods = ["SL","CSL", "Adv-CSL","Baseline"][2:3]
+
+    methods = ["SL","CSL", "Adv-CSL","Baseline"][:3]
     for real_i in range(realizations)[:1]:
         for test_ratio in [0.3,0.1, 0.2, 0.4, 0.5][:1]:
             for adv_type in ["structure"][:]:
                 for attack_edge in [10000][:1]:
                     for T in [10][:]:
                         for swap_ratio in [0.00, 0.01, 0.02, 0.05][1:2]:
-                            for perturbation in [0.0, 5, 10, 20, 30, 40, 50][:]:  # 11
+                            for perturbation in [0.0, 5, 10, 20, 30, 40, 50,60,70,80,90,100][7:8]:  # 11
 
                                 logging.write(str(count)+" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`")
                                 count+=1.0
@@ -466,7 +471,7 @@ def facebook_sybils_dataset_test_structure():
                                     f=dataroot +adv_type+ "/{}/{}-attackedges-{}-T-{}-testratio-{}-swap_ratio-{}-perturbation-{}-realization-{}-data-X20.pkl".format(
                                     "facebook","facebook", attack_edge, T, test_ratio, swap_ratio, perturbation, real_i)
                                     outf = '../output/sybils/{}_results-server-June3-TN20-{}.json'.format(method,adv_type)
-                                    logging.write("dataset: {} method: {}, #attack_edge:{},T:{},test_ratio: {},gamma:{}".format("facebook",method,attack_edge,T,test_ratio,gamma))
+                                    logging.write("dataset: {} method: {}, #attack_edge:{},T:{},test_ratio: {},perturbation:{}".format("facebook",method,attack_edge,T,test_ratio,perturbation))
                                     logging.write(f)
                                     pkl_file = open(f, 'rb')
                                     [V, E, Obs, E_X, target_nodes] = pickle.load(pkl_file)
@@ -519,7 +524,7 @@ def facebook_sybils_dataset_test_structure():
                                     running_time = np.mean(running_times)
                                     logging.write("prob_mse: {}, running time: {}".format(mu_prob_mse, running_time))
                                     result_ = {'dataset':"facebook",'attack_edge':attack_edge,'network_size': n,'adv_type':adv_type,
-                                               'sample_size': ndays - T + 1, 'T': T, 'gamma': gamma,
+                                               'sample_size': ndays - T + 1, 'T': T, 'perturbation': perturbation,
                                                'test_ratio': test_ratio,'swap_ratio':swap_ratio, 'acc': (mu_accuracy, sigma_accuracy),
                                                'prob_mse': (mu_prob_mse, sigma_prob_mse),'alpha_mse': (mu_alpha_mse, sigma_alpha_mse), 'beta_mse': (mu_beta_mse, sigma_beta_mse), 'u_mse': (mu_u_mse, sigma_u_mse), 'b_mse': (mu_b_mse, sigma_b_mse), 'd_mse': (mu_d_mse, sigma_d_mse),'realization':real_i, 'runtime': running_time}
                                     outfp = open(outf, 'a')
