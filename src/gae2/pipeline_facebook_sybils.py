@@ -62,7 +62,7 @@ for real_i in range(realizations)[:1]:
             for attack_edge in [10000][:1]:
                 for T in [10][:]:
                     for swap_ratio in [0.00, 0.01, 0.02, 0.05][1:2]:
-                        for perturbation in [0.0, 5, 10, 20, 30, 40, 50,60,70,80,90,100][7:8]:  # 11
+                        for perturbation in [0.0, 5, 10, 20, 30, 40, 50,60,70,80,90,100][8:]:  # 11
                             fileName = dataroot +adv_type+ "/{}/{}-attackedges-{}-T-{}-testratio-{}-swap_ratio-{}-perturbation-{}-realization-{}-data-X20.pkl".format(
                                     "facebook","facebook", attack_edge, T, test_ratio, swap_ratio, perturbation, real_i)
                             outf = '../../output/sybils/{}_results-server-June3-{}.json'.format("GCN-VAE", adv_type)
