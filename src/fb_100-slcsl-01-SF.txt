@@ -1,0 +1,163 @@
+
+
+--------------------------------------------------
+--------------------------------------------------
+
+-------------------Tue, 04 Jun 2019 07:57:45 AM EDT---------------------
+
+0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+dataset: facebook method: SL, #attack_edge:10000,T:10,test_ratio: 0.3,perturbation:0.0
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/structure/facebook/facebook-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-perturbation-0.0-realization-0-data-X20-SF.pkl
+Creating 30 consumers
+(2424, 20)
+('All:', 0.3336750936436201, 0.14554698439679936, 0.3880017757584894, 0.3318419745248034, 0.5977673451539178)
+prob_mse: 0.277182968988, running time: 647.939527988
+dataset: facebook method: CSL, #attack_edge:10000,T:10,test_ratio: 0.3,perturbation:0.0
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/structure/facebook/facebook-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-perturbation-0.0-realization-0-data-X20-SF.pkl
+#Rule: 372936
+(2424, 20)
+('All:', 0.1122665491549155, 0.010989010989011005, 0.102998299829983, 0.10293491849184919, 0.898094900207094)
+prob_mse: 0.0233690909091, running time: 154.083306789
+1.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+dataset: facebook method: SL, #attack_edge:10000,T:10,test_ratio: 0.3,perturbation:5
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/structure/facebook/facebook-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-perturbation-5-realization-0-data-X20-SF.pkl
+Creating 30 consumers
+(2424, 20)
+('All:', 0.333813808123725, 0.1455465098535353, 0.3881161984113201, 0.3319737998917333, 0.5973548073035702)
+prob_mse: 0.2775646389, running time: 684.438188076
+dataset: facebook method: CSL, #attack_edge:10000,T:10,test_ratio: 0.3,perturbation:5
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/structure/facebook/facebook-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-perturbation-5-realization-0-data-X20-SF.pkl
+#Rule: 372900
+(2424, 20)
+('All:', 0.11233405590559055, 0.010989010989011005, 0.10303367836783679, 0.10299442444244425, 0.898094900207094)
+prob_mse: 0.0270457575758, running time: 148.62273407
+2.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+dataset: facebook method: SL, #attack_edge:10000,T:10,test_ratio: 0.3,perturbation:10
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/structure/facebook/facebook-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-perturbation-10-realization-0-data-X20-SF.pkl
+Creating 30 consumers
+(2424, 20)
+('All:', 0.3337752242025234, 0.14554680530691594, 0.38807923043850395, 0.3319400304452405, 0.5973548073035702)
+prob_mse: 0.276966237095, running time: 665.352766037
+dataset: facebook method: CSL, #attack_edge:10000,T:10,test_ratio: 0.3,perturbation:10
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/structure/facebook/facebook-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-perturbation-10-realization-0-data-X20-SF.pkl
+#Rule: 372936
+(2424, 20)
+('All:', 0.11262833533353336, 0.010989010989011005, 0.10333508350835084, 0.1032945794579458, 0.8976823623567463)
+prob_mse: 0.0237781818182, running time: 143.806191206
+3.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+dataset: facebook method: SL, #attack_edge:10000,T:10,test_ratio: 0.3,perturbation:20
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/structure/facebook/facebook-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-perturbation-20-realization-0-data-X20-SF.pkl
+Creating 30 consumers
+(2424, 20)
+('All:', 0.33193469016924726, 0.1447612607439561, 0.3876271256600852, 0.32858320115389006, 0.6014801858070478)
+prob_mse: 0.275525940047, running time: 665.934851885
+dataset: facebook method: CSL, #attack_edge:10000,T:10,test_ratio: 0.3,perturbation:20
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/structure/facebook/facebook-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-perturbation-20-realization-0-data-X20-SF.pkl
+#Rule: 372936
+(2424, 20)
+('All:', 0.11596509400940093, 0.010989010989011005, 0.10674242424242425, 0.10665866586658666, 0.8914942946015297)
+prob_mse: 0.0674803030303, running time: 146.093953848
+4.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+dataset: facebook method: SL, #attack_edge:10000,T:10,test_ratio: 0.3,perturbation:30
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/structure/facebook/facebook-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-perturbation-30-realization-0-data-X20-SF.pkl
+Creating 30 consumers
+(2424, 20)
+('All:', 0.3333343345912396, 0.1455089886750445, 0.38756057827765417, 0.3315761577784504, 0.5981798830042656)
+prob_mse: 0.240599948009, running time: 701.341570139
+dataset: facebook method: CSL, #attack_edge:10000,T:10,test_ratio: 0.3,perturbation:30
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/structure/facebook/facebook-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-perturbation-30-realization-0-data-X20-SF.pkl
+#Rule: 372750
+(2424, 20)
+('All:', 0.11309746474647463, 0.010989010989011005, 0.10379900490049006, 0.10373899889989001, 0.8972698245063985)
+prob_mse: 0.0982021212121, running time: 144.587183952
+5.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+dataset: facebook method: SL, #attack_edge:10000,T:10,test_ratio: 0.3,perturbation:40
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/structure/facebook/facebook-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-perturbation-40-realization-0-data-X20-SF.pkl
+Creating 30 consumers
+(2424, 20)
+('All:', 0.33357652282106925, 0.1456649379801957, 0.38739513865643443, 0.3321327742529083, 0.5977673451539178)
+prob_mse: 0.251193609566, running time: 668.281795025
+dataset: facebook method: CSL, #attack_edge:10000,T:10,test_ratio: 0.3,perturbation:40
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/structure/facebook/facebook-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-perturbation-40-realization-0-data-X20-SF.pkl
+#Rule: 372370
+(2424, 20)
+('All:', 0.11363976147614763, 0.010989010989011005, 0.10434443444344436, 0.10432468246824683, 0.8956196731050073)
+prob_mse: 0.186888484848, running time: 149.081495047
+6.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+dataset: facebook method: SL, #attack_edge:10000,T:10,test_ratio: 0.3,perturbation:50
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/structure/facebook/facebook-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-perturbation-50-realization-0-data-X20-SF.pkl
+Creating 30 consumers
+(2424, 20)
+('All:', 0.33338524196366237, 0.14564985066676134, 0.3871465828686399, 0.3320099761362673, 0.5977673451539178)
+prob_mse: 0.228507352794, running time: 671.495347023
+dataset: facebook method: CSL, #attack_edge:10000,T:10,test_ratio: 0.3,perturbation:50
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/structure/facebook/facebook-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-perturbation-50-realization-0-data-X20-SF.pkl
+#Rule: 372104
+(2424, 20)
+('All:', 0.11397412741274127, 0.010989010989011005, 0.10468834383438345, 0.10464321432143216, 0.8947945974043119)
+prob_mse: 0.234792424242, running time: 145.619040012
+7.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+dataset: facebook method: SL, #attack_edge:10000,T:10,test_ratio: 0.3,perturbation:60
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/structure/facebook/facebook-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-perturbation-60-realization-0-data-X20-SF.pkl
+Creating 30 consumers
+(2424, 20)
+('All:', 0.3334241613543817, 0.14573804890823858, 0.3869684919000667, 0.332249962642896, 0.5977673451539178)
+prob_mse: 0.2261182689, running time: 707.760628939
+dataset: facebook method: CSL, #attack_edge:10000,T:10,test_ratio: 0.3,perturbation:60
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/structure/facebook/facebook-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-perturbation-60-realization-0-data-X20-SF.pkl
+#Rule: 371680
+(2424, 20)
+('All:', 0.11455326532653264, 0.010989010989011005, 0.1052820282028203, 0.10522452245224524, 0.8935569838532685)
+prob_mse: 0.308276969697, running time: 161.668767929
+8.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+dataset: facebook method: SL, #attack_edge:10000,T:10,test_ratio: 0.3,perturbation:70
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/structure/facebook/facebook-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-perturbation-70-realization-0-data-X20-SF.pkl
+Creating 30 consumers
+(2424, 20)
+('All:', 0.3335026916793126, 0.14582654209493445, 0.3868407964709199, 0.3325347187219047, 0.5973548073035702)
+prob_mse: 0.221795562466, running time: 665.350836992
+dataset: facebook method: CSL, #attack_edge:10000,T:10,test_ratio: 0.3,perturbation:70
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/structure/facebook/facebook-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-perturbation-70-realization-0-data-X20-SF.pkl
+#Rule: 371560
+(2424, 20)
+('All:', 0.11455664066406641, 0.010989010989011005, 0.10528540354035405, 0.10522452245224524, 0.8935569838532685)
+prob_mse: 0.308276969697, running time: 145.574600935
+9.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+dataset: facebook method: SL, #attack_edge:10000,T:10,test_ratio: 0.3,perturbation:80
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/structure/facebook/facebook-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-perturbation-80-realization-0-data-X20-SF.pkl
+Creating 30 consumers
+(2424, 20)
+('All:', 0.333496131685535, 0.14581186456724535, 0.3867655076485256, 0.3325968875567437, 0.5973548073035702)
+prob_mse: 0.218898163418, running time: 663.624629021
+dataset: facebook method: CSL, #attack_edge:10000,T:10,test_ratio: 0.3,perturbation:80
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/structure/facebook/facebook-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-perturbation-80-realization-0-data-X20-SF.pkl
+#Rule: 371412
+(2424, 20)
+('All:', 0.11459026902690267, 0.010989010989011005, 0.1053010301030103, 0.10524589958995902, 0.8935569838532685)
+prob_mse: 0.309529393939, running time: 144.449170113
+10.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+dataset: facebook method: SL, #attack_edge:10000,T:10,test_ratio: 0.3,perturbation:90
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/structure/facebook/facebook-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-perturbation-90-realization-0-data-X20-SF.pkl
+Creating 30 consumers
+(2424, 20)
+('All:', 0.333496131685535, 0.14581186456724535, 0.3867655076485256, 0.3325968875567437, 0.5973548073035702)
+prob_mse: 0.218898163418, running time: 676.274095058
+dataset: facebook method: CSL, #attack_edge:10000,T:10,test_ratio: 0.3,perturbation:90
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/structure/facebook/facebook-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-perturbation-90-realization-0-data-X20-SF.pkl
+#Rule: 371412
+(2424, 20)
+('All:', 0.11459026902690267, 0.010989010989011005, 0.1053010301030103, 0.10524589958995902, 0.8935569838532685)
+prob_mse: 0.309529393939, running time: 142.265457153
+11.0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+dataset: facebook method: SL, #attack_edge:10000,T:10,test_ratio: 0.3,perturbation:100
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/structure/facebook/facebook-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-perturbation-100-realization-0-data-X20-SF.pkl
+Creating 30 consumers
+(2424, 20)
+('All:', 0.33349577159254873, 0.14581182296206444, 0.38676512675080854, 0.3325972078732003, 0.5973548073035702)
+prob_mse: 0.218859978869, running time: 660.260014057
+dataset: facebook method: CSL, #attack_edge:10000,T:10,test_ratio: 0.3,perturbation:100
+/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/structure/facebook/facebook-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-perturbation-100-realization-0-data-X20-SF.pkl
+#Rule: 371218
+(2424, 20)
+('All:', 0.1147946219621962, 0.010989010989011005, 0.10550880088008802, 0.10545217021702172, 0.8931444460029208)
+prob_mse: 0.333887878788, running time: 147.171033859

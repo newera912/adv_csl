@@ -456,7 +456,7 @@ def facebook_sybils_dataset_test_structure():
     count=0
     realizations=1
 
-    methods = ["SL","CSL", "Adv-CSL","Baseline0"][3:]
+    methods = ["SL","CSL", "Adv-CSL","Baseline0"][2:]
     for real_i in range(realizations)[:1]:
         for test_ratio in [0.3,0.1, 0.2, 0.4, 0.5][:1]:
             for adv_type in ["structure"][:]:
@@ -468,9 +468,9 @@ def facebook_sybils_dataset_test_structure():
                                 logging.write(str(count)+" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`")
                                 count+=1.0
                                 for method in methods[:]:
-                                    f=dataroot +adv_type+ "/{}/{}-attackedges-{}-T-{}-testratio-{}-swap_ratio-{}-perturbation-{}-realization-{}-data-X20.pkl".format(
+                                    f=dataroot +adv_type+ "/{}/{}-attackedges-{}-T-{}-testratio-{}-swap_ratio-{}-perturbation-{}-realization-{}-data-X20-SF2.pkl".format(
                                     "facebook","facebook", attack_edge, T, test_ratio, swap_ratio, perturbation, real_i)
-                                    outf = '../output/sybils/{}_results-server-June3-TN20-{}.json'.format(method,adv_type)
+                                    outf = '../output/sybils/{}_results-server-June4-TN20-SF2-{}.json'.format(method,adv_type)
                                     logging.write("dataset: {} method: {}, #attack_edge:{},T:{},test_ratio: {},perturbation:{}".format("facebook",method,attack_edge,T,test_ratio,perturbation))
                                     logging.write(f)
                                     pkl_file = open(f, 'rb')
