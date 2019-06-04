@@ -448,7 +448,11 @@ class Task_generate_strusture(object): #dataset,attack_edge,V, E, Obs, T, test_r
     def __call__(self):
         E0 = copy.deepcopy(self.E)
         add_remove=[]
+<<<<<<< HEAD
         Obs = copy.deepcopy(self.Obs0)
+=======
+        Obs = copy.deepcopy(self.ObsO)
+>>>>>>> 58829a7d39378f4b7dfe53cb4fc8d64f19c8f321
         for i, v0 in enumerate(self.target_nodes):
             print(">>>>>>>>>>>>>>>>>>>",self.perturbation,i,v0,"<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<")
             num_perturbtion = 0
@@ -517,12 +521,20 @@ class Task_generate_strusture(object): #dataset,attack_edge,V, E, Obs, T, test_r
                             v=ee[0] if ee[0]!=v0 else ee[1]
                             for t in range(0, self.T):
                                 if random.random()<0.5:
+<<<<<<< HEAD
                                     Obs[v][t] =self.Obs0[v][t] - 0.2 if self.Obs0[v][t] - 0.2>0 else self.Obs0[v][t] + 0.2  # clip between [0,1]
                                 else:
                                     Obs[v][t] =self.Obs0[v][t] + 0.2 if self.Obs0[v][t] + 0.2<1.0 else self.Obs0[v][t] - 0.2
                                 # if Obs[e][t]<0 - self.ObsO[e][t]) > gamma:
                                 #     Obs[e][t] = clip01(self.ObsO[e][t] + np.sign(Obs[e][t] - self.ObsO[e][t]) * gamma)  # clip |py_adv-py_orig|<gamma
                             add_remove.append(0)
+=======
+                                    Obs[v][t] =self.Obs0[v][t] - 0.05 if self.Obs0[v][t] - 0.05>0 else self.Obs0[v][t] + 0.05  # clip between [0,1]
+                                else:
+                                    Obs[v][t] =self.Obs0[v][t] + 0.05 if self.Obs0[v][t] + 0.05<1.0 else self.Obs0[v][t] - 0.05
+                                # if Obs[e][t]<0 - self.ObsO[e][t]) > gamma:
+                                #     Obs[e][t] = clip01(self.ObsO[e][t] + np.sign(Obs[e][t] - self.ObsO[e][t]) * gamma)  # clip |py_adv-py_orig|<gamma
+>>>>>>> 58829a7d39378f4b7dfe53cb4fc8d64f19c8f321
                             num_perturbtion += 1
             sys.stdout.flush()
 
@@ -569,9 +581,15 @@ def generate_structure(dataset,attack_edge,V, E,Obs, T,test_ratio,swap_ratio,rea
 
     pkl_file = open(out_folder + "facebook-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-perturbation-0.0-realization-0-data-X20.pkl", 'rb')
     [V0, E0, Obs0, E_X0, target_nodes0] = pickle.load(pkl_file)
+<<<<<<< HEAD
     # pickle.close()
     for perturbation in [0.0,5, 10, 20,30,40, 50,60,70,80,90,100][:]:  # 11
         fout = out_folder + "{}-attackedges-{}-T-{}-testratio-{}-swap_ratio-{}-perturbation-{}-realization-{}-data-X20-SF2.pkl".format(
+=======
+    pickle.close()
+    for perturbation in [0.0,5, 10, 20,30,40, 50,60,70,80,90,100][:]:  # 11
+        fout = out_folder + "{}-attackedges-{}-T-{}-testratio-{}-swap_ratio-{}-perturbation-{}-realization-{}-data-X20-SF.pkl".format(
+>>>>>>> 58829a7d39378f4b7dfe53cb4fc8d64f19c8f321
             dataset, attack_edge, T, test_ratio, swap_ratio, perturbation, real_i)
         print(perturbation,fout)
         # L_curr_value=-float("inf")
