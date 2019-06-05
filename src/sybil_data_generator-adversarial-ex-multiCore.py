@@ -448,33 +448,31 @@ class Task_generate_strusture(object): #dataset,attack_edge,V, E, Obs, T, test_r
     def __call__(self):
         E0 = copy.deepcopy(self.E)
         add_remove=[]
-<<<<<<< HEAD
         Obs = copy.deepcopy(self.Obs0)
-=======
-        Obs = copy.deepcopy(self.ObsO)
->>>>>>> 58829a7d39378f4b7dfe53cb4fc8d64f19c8f321
         for i, v0 in enumerate(self.target_nodes):
             print(">>>>>>>>>>>>>>>>>>>",self.perturbation,i,v0,"<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<")
             num_perturbtion = 0
             candidate_edges = []
             if len(self.adj_list[v0]) < self.perturbation:
                 for u in self.adj_list[v0][:-1]:
-                    if random.random() < 0.5:
-                        for t in range(0, self.T):
-                            if random.random() < 0.5:
-                                Obs[u][t] = self.Obs0[u][t] - 0.2 if self.Obs0[u][t] - 0.2 > 0 else self.Obs0[u][t] + 0.2  # clip between [0,1]
-                            else:
-                                Obs[u][t] = self.Obs0[u][t] + 0.2 if self.Obs0[u][t] + 0.2 < 1.0 else self.Obs0[u][t] - 0.2
-                        add_remove.append(0)
+
+                    if not E0.has_key((v0, u)) and not E0.has_key(((u, v0))):
+                        E0[(v0, u)] = 1.0
+                        E0[(u, v0)] = 1.0
+                        add_remove.append(1)
                     else:
-                        if not E0.has_key((v0, u)) and not E0.has_key(((u, v0))):
-                            E0[(v0, u)] = 1.0
-                            E0[(u, v0)] = 1.0
-                            add_remove.append(1)
+                        E0.pop((v0, u), None)
+                        E0.pop((u, v0), None)
+                        add_remove.append(-1)
+
+                    for t in range(0, self.T):
+                        if random.random() < 0.5:
+                            Obs[u][t] = self.Obs0[u][t] - 0.2 if self.Obs0[u][t] - 0.2 > 0 else self.Obs0[u][t] + 0.2  # clip between [0,1]
                         else:
-                            E0.pop((v0, u), None)
-                            E0.pop((u, v0), None)
-                            add_remove.append(-1)
+                            Obs[u][t] = self.Obs0[u][t] + 0.2 if self.Obs0[u][t] + 0.2 < 1.0 else self.Obs0[u][t] - 0.2
+                    add_remove.append(0)
+
+
                 print(self.perturbation,"[adj<perturbation] |E|:{}, |E0|:{}".format(len(self.E), len(E0)))
 
                 continue
@@ -484,16 +482,25 @@ class Task_generate_strusture(object): #dataset,attack_edge,V, E, Obs, T, test_r
                     candidate_edges.extend([(v0, u), (u, v0)])
                 print("candidate edges:", len(candidate_edges))
                 temp_removed_edges = []
+
+                #iterate candidate edges
                 for e in candidate_edges:
                     if num_perturbtion >= self.perturbation: break
                     if not E0.has_key(e): print(e, "e not exists")
                     if not E0.has_key((e[1], e[0])): print((e[1], e[0]), "e' not exists")
+
                     if not E0.has_key(e) and not E0.has_key((e[1], e[0])):
                         E0[e] = 1.0
                         E0[(e[1], e[0])] = 1.0
                         add_remove.append(1)
                         print(self.perturbation,num_perturbtion,"[ADD] |E|:{}, |E0|:{}".format(len(self.E), len(E0)))
                         num_perturbtion += 1
+                        u = e[0] if e[0] != v0 else e[1]
+                        for t in range(0, self.T):
+                            if random.random() < 0.5:
+                                Obs[u][t] = self.Obs0[u][t] - 0.2 if self.Obs0[u][t] - 0.2 > 0 else self.Obs0[u][t] + 0.2  # clip between [0,1]
+                            else:
+                                Obs[u][t] = self.Obs0[u][t] + 0.2 if self.Obs0[u][t] + 0.2 < 1.0 else self.Obs0[u][t] - 0.2
                         continue
 
                     E0.pop(e, None)
@@ -506,36 +513,36 @@ class Task_generate_strusture(object): #dataset,attack_edge,V, E, Obs, T, test_r
                         E0[(e[1], e[0])] = 1.0
                     else:
                         print(self.perturbation,num_perturbtion,p_adv, self.Obs0[v0][0], "changed...")
+                        u = e[0] if e[0] != v0 else e[1]
+                        for t in range(0, self.T):
+                            if random.random() < 0.5:
+                                Obs[u][t] = self.Obs0[u][t] - 0.2 if self.Obs0[u][t] - 0.2 > 0 else self.Obs0[u][t] + 0.2  # clip between [0,1]
+                            else:
+                                Obs[u][t] = self.Obs0[u][t] + 0.2 if self.Obs0[u][t] + 0.2 < 1.0 else self.Obs0[u][t] - 0.2
                         add_remove.append(1)
                         temp_removed_edges.append(e)
                         temp_removed_edges.append((e[1], e[0]))
                         num_perturbtion += 1
                     print(self.perturbation,num_perturbtion,"[DEL ] |E|:{}, |E0|:{}".format(len(self.E), len(E0)))
+
                 if num_perturbtion < self.perturbation:
                     for ee in candidate_edges:
                         if num_perturbtion >= self.perturbation:
                             break
-                        if ee not in temp_removed_edges:
-                            # E0.pop(ee, None)
-                            # E0.pop((ee[1], ee[0]),None)
-                            v=ee[0] if ee[0]!=v0 else ee[1]
-                            for t in range(0, self.T):
-                                if random.random()<0.5:
-<<<<<<< HEAD
-                                    Obs[v][t] =self.Obs0[v][t] - 0.2 if self.Obs0[v][t] - 0.2>0 else self.Obs0[v][t] + 0.2  # clip between [0,1]
-                                else:
-                                    Obs[v][t] =self.Obs0[v][t] + 0.2 if self.Obs0[v][t] + 0.2<1.0 else self.Obs0[v][t] - 0.2
-                                # if Obs[e][t]<0 - self.ObsO[e][t]) > gamma:
-                                #     Obs[e][t] = clip01(self.ObsO[e][t] + np.sign(Obs[e][t] - self.ObsO[e][t]) * gamma)  # clip |py_adv-py_orig|<gamma
-                            add_remove.append(0)
-=======
-                                    Obs[v][t] =self.Obs0[v][t] - 0.05 if self.Obs0[v][t] - 0.05>0 else self.Obs0[v][t] + 0.05  # clip between [0,1]
-                                else:
-                                    Obs[v][t] =self.Obs0[v][t] + 0.05 if self.Obs0[v][t] + 0.05<1.0 else self.Obs0[v][t] - 0.05
-                                # if Obs[e][t]<0 - self.ObsO[e][t]) > gamma:
-                                #     Obs[e][t] = clip01(self.ObsO[e][t] + np.sign(Obs[e][t] - self.ObsO[e][t]) * gamma)  # clip |py_adv-py_orig|<gamma
->>>>>>> 58829a7d39378f4b7dfe53cb4fc8d64f19c8f321
-                            num_perturbtion += 1
+                        if not E0.has_key(ee) and not E0.has_key((ee[1], ee[0])):
+                            E0[ee] = 1.0
+                            E0[(ee[1], ee[0])] = 1.0
+                        else:
+                            E0.pop(ee, None)
+                            E0.pop((ee[1], ee[0]),None)
+                        u = ee[0] if ee[0] != v0 else ee[1]
+                        for t in range(0, self.T):
+                            if random.random() < 0.5:
+                                Obs[u][t] = self.Obs0[u][t] - 0.2 if self.Obs0[u][t] - 0.2 > 0 else self.Obs0[u][t] + 0.2  # clip between [0,1]
+                            else:
+                                Obs[u][t] = self.Obs0[u][t] + 0.2 if self.Obs0[u][t] + 0.2 < 1.0 else self.Obs0[u][t] - 0.2
+                        num_perturbtion += 1
+
             sys.stdout.flush()
 
         print(self.perturbation,"[Final output] |E|:{}, |E0|:{} *********************************".format(len(self.E), len(E0)))
@@ -554,19 +561,19 @@ def generate_structure(dataset,attack_edge,V, E,Obs, T,test_ratio,swap_ratio,rea
     # nns, id_2_node, node_2_id, _, _ = reformat(V, E, Obs)
     # nns=gen_nns(V,E)
     """ Step1: Sampling X edges with test ratio """
-    # E_X = sample_X(test_ratio, V)  #test nodes
-    # X_keys=list(E_X.keys())
-    # random.shuffle(X_keys)
-    # target_nodes={}
-    # for k in X_keys:
-    #     if len(target_nodes)>=20: break
-    #     if node_degree[k]/2.0>22.5 and node_degree[k]/2.0<=100:
-    #         target_nodes[k]=E_X[k]
-    #         # print k,node_degree[k]/2.0
+    E_X = sample_X(test_ratio, V)  #test nodes
+    X_keys=list(E_X.keys())
+    random.shuffle(X_keys)
+    target_nodes={}
+    for k in X_keys:
+        if len(target_nodes)>=20: break
+        if node_degree[k]/2.0>22.5 and node_degree[k]/2.0<=100:
+            target_nodes[k]=E_X[k]
+            # print k,node_degree[k]/2.0
 
-    # print("number of target nodes:",len(target_nodes))
+    print("number of target nodes:",len(target_nodes))
     """Step 2: Add noise to observations on the edges """
-    # E_Y = [v for v in V.keys() if not E_X.has_key(v)]
+    E_Y = [v for v in V.keys() if not E_X.has_key(v)]
 
     tasks = multiprocessing.Queue()
     results = multiprocessing.Queue()
@@ -578,27 +585,21 @@ def generate_structure(dataset,attack_edge,V, E,Obs, T,test_ratio,swap_ratio,rea
         w.start()
 
     num_jobs=0
+    #
+    # pkl_file = open(out_folder + "facebook-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-perturbation-0.0-realization-0-data-X20.pkl", 'rb')
+    # [V0, E0, Obs0, E_X0, target_nodes0] = pickle.load(pkl_file)
 
-    pkl_file = open(out_folder + "facebook-attackedges-10000-T-10-testratio-0.3-swap_ratio-0.01-perturbation-0.0-realization-0-data-X20.pkl", 'rb')
-    [V0, E0, Obs0, E_X0, target_nodes0] = pickle.load(pkl_file)
-<<<<<<< HEAD
-    # pickle.close()
     for perturbation in [0.0,5, 10, 20,30,40, 50,60,70,80,90,100][:]:  # 11
-        fout = out_folder + "{}-attackedges-{}-T-{}-testratio-{}-swap_ratio-{}-perturbation-{}-realization-{}-data-X20-SF2.pkl".format(
-=======
-    pickle.close()
-    for perturbation in [0.0,5, 10, 20,30,40, 50,60,70,80,90,100][:]:  # 11
-        fout = out_folder + "{}-attackedges-{}-T-{}-testratio-{}-swap_ratio-{}-perturbation-{}-realization-{}-data-X20-SF.pkl".format(
->>>>>>> 58829a7d39378f4b7dfe53cb4fc8d64f19c8f321
+        fout = out_folder + "{}-attackedges-{}-T-{}-testratio-{}-swap_ratio-{}-perturbation-{}-realization-{}-data-X20-SF3.pkl".format(
             dataset, attack_edge, T, test_ratio, swap_ratio, perturbation, real_i)
         print(perturbation,fout)
         # L_curr_value=-float("inf")
         if perturbation==0.0:
             pkl_file = open(fout, 'wb')
-            pickle.dump([V0, E0, Obs0, E_X0, target_nodes0], pkl_file)
+            pickle.dump([V, E, Obs, E_X, target_nodes], pkl_file)
             pkl_file.close()
         else:
-            tasks.put(Task_generate_strusture(V0, E0,Obs0,E_X0,T,fout,target_nodes0,perturbation,adj_list))
+            tasks.put(Task_generate_strusture(V, E,Obs,E_X,T,fout,target_nodes,perturbation,adj_list))
             num_jobs += 1
     for i in range(num_consumers):
         tasks.put(None)
