@@ -590,7 +590,7 @@ def generate_structure(dataset,attack_edge,V, E,Obs, T,test_ratio,swap_ratio,rea
     # [V0, E0, Obs0, E_X0, target_nodes0] = pickle.load(pkl_file)
 
     for perturbation in [0.0,5, 10, 20,30,40, 50,60,70,80,90,100][:]:  # 11
-        fout = out_folder + "{}-attackedges-{}-T-{}-testratio-{}-swap_ratio-{}-perturbation-{}-realization-{}-data-X20-SF3.pkl".format(
+        fout = out_folder + "{}-attackedges-{}-T-{}-testratio-{}-swap_ratio-{}-perturbation-{}-realization-{}-data-X20-SF4.pkl".format(
             dataset, attack_edge, T, test_ratio, swap_ratio, perturbation, real_i)
         print(perturbation,fout)
         # L_curr_value=-float("inf")

@@ -64,9 +64,9 @@ for real_i in range(realizations)[:1]:
                     for swap_ratio in [0.00, 0.01, 0.02, 0.05][1:2]:
                         for perturbation in [0.0, 5, 10, 20, 30, 40, 50,60,70,80,90,100][:]:  # 11
 
-                            fileName = dataroot +adv_type+ "/{}/{}-attackedges-{}-T-{}-testratio-{}-swap_ratio-{}-perturbation-{}-realization-{}-data-X20-SF3.pkl".format(
+                            fileName = dataroot +adv_type+ "/{}/{}-attackedges-{}-T-{}-testratio-{}-swap_ratio-{}-perturbation-{}-realization-{}-data-X20-SF4.pkl".format(
                                     "facebook","facebook", attack_edge, T, test_ratio, swap_ratio, perturbation, real_i)
-                            outf = '../../output/sybils/{}_results-server-June4-TN20-SF3-{}.json'.format("GCN-VAE", adv_type)
+                            outf = '../../output/sybils/{}_results-server-June5-TN20-SF4-{}.json'.format("GCN-VAE", adv_type)
                             print(fileName)
                             # adj, features = load_data_epinion(fileName)
                             adj,y_train_belief, y_test_belief, y_train_un, y_test_un, train_mask, test_mask,target_mask, omega_test, alpha_0, beta_0 = mask_test_node_sybils(fileName,T)

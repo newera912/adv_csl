@@ -468,9 +468,9 @@ def facebook_sybils_dataset_test_structure():
                                 logging.write(str(count)+" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`")
                                 count+=1.0
                                 for method in methods[:]:
-                                    f=dataroot +adv_type+ "/{}/{}-attackedges-{}-T-{}-testratio-{}-swap_ratio-{}-perturbation-{}-realization-{}-data-X20-SF3.pkl".format(
+                                    f=dataroot +adv_type+ "/{}/{}-attackedges-{}-T-{}-testratio-{}-swap_ratio-{}-perturbation-{}-realization-{}-data-X20-SF4.pkl".format(
                                     "facebook","facebook", attack_edge, T, test_ratio, swap_ratio, perturbation, real_i)
-                                    outf = '../output/sybils/{}_results-server-June4-TN20-SF3-{}.json'.format(method,adv_type)
+                                    outf = '../output/sybils/{}_results-server-June5-TN20-SF4-{}.json'.format(method,adv_type)
                                     logging.write("dataset: {} method: {}, #attack_edge:{},T:{},test_ratio: {},perturbation:{}".format("facebook",method,attack_edge,T,test_ratio,perturbation))
                                     logging.write(f)
                                     pkl_file = open(f, 'rb')
