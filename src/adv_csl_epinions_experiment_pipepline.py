@@ -15,6 +15,7 @@ from SL_inference_multiCore import *
 
 from multi_core_csl_inference_adversarial_epinions import inference_apdm_format as inference_apdm_format_conflict_evidence
 from multi_core_csl_inference_no_adversarial_epinions import inference_apdm_format as inference_NoAdvTraining
+from multi_core_csl_plus_epinions_inference import inference_apdm_format as csl_plus_inference
 
 #from SL_inference import *
 from random import shuffle
@@ -77,7 +78,7 @@ def experiment_proc_server():
     logging = Log()
     data_root = "/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/"  #May23 May23-3
 
-    methods = ["SL","CSL", "Adv-CSL","Baseline"][2:3]
+    methods = ["SL","CSL", "Adv-CSL","Baseline","CSL-Plus"][4:]
     # graph_sizes = [500, 1000, 5000, 10000, 47676]
     graph_sizes = [1000, 5000,10000,47676]
     ratios = [0.1, 0.2, 0.3,0.4,0.5,0.6,0.7,0.8]
@@ -203,6 +204,13 @@ def evaluate(V, E, Obs, Omega, E_X, X_b, logging, method = 'csl', psl = False, a
         X_b = {e: 0 for e in E if not E_X.has_key(e)}
         psl = False
         pred_omega_x, _ = inference_apdm_format_conflict_evidence(V, E, Obs, Omega, b, X_b, E_X, logging, psl)
+    elif method == 'CSL-Plus':
+        # b = {e: 0 for e in E}
+        b = {}
+        # X_b = {e: 0 for e in E if e not in E_X}
+        X_b = {e: 0 for e in E if not E_X.has_key(e)}
+        psl = False
+        pred_omega_x, _ = csl_plus_inference(V, E, Obs, Omega, b, X_b, E_X, logging, psl)
     elif method=='Baseline':
         pred_omega_x = baseline(V, E, Obs, Omega, E_X)
     else:

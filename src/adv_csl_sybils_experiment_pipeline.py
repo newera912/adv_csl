@@ -1,4 +1,4 @@
-__author__ = 'Feng Chen'
+__author__ = ''
 from math import *
 import numpy as np
 import copy
@@ -25,8 +25,9 @@ from feng_SL_inference_multiCore_node2 import *
 import json
 #from feng_SL_inference import *
 from multi_core_csl_inference_adversarial_sybils import inference_apdm_format as inference_apdm_format_conflict_evidence
-# import networkx as nx
-# import matplotlib.pyplot as plt
+from multi_core_csl_plus_sybils_inference import inference_apdm_format as csl_plus_inference
+
+
 
 def baseline(V, E, Obs, Omega, E_X):
     # np.random.seed(123)
@@ -406,6 +407,11 @@ def  evaluate(V, E, Obs, Omega, E_X, logging, method = 'sl', psl = False, approx
         b = {}
         psl = False
         pred_omega_x, _ = inference_apdm_format_conflict_evidence(V, E, Obs, Omega, b, E_X, logging, psl)
+    elif method == 'CSL-Plus':
+        # b = {e: 0 for e in E}
+        b = {}
+        psl = False
+        pred_omega_x, _ = csl_plus_inference(V, E, Obs, Omega, b, E_X, logging, psl)
 
     elif method == 'Baseline':
         pred_omega_x = baseline(V, E, Obs, Omega, E_X)
@@ -447,7 +453,7 @@ def facebook_sybils_dataset_test():
     realizations=1
     gammas=[0.0, 0.01, 0.03, 0.05, 0.07,0.09,0.2,0.3,0.4,0.5]
     # gammas=[0.0, 0.01,0.3,0.4]
-    methods = ["SL","CSL", "Adv-CSL","Baseline"][3:]
+    methods = ["SL","CSL", "Adv-CSL","Baseline","CSL-Plus"][4:]
     for real_i in range(realizations)[:1]:
         for test_ratio in [0.3,0.1, 0.2, 0.4, 0.5][:1]:
             for adv_type in ["random_noise","random_pgd","random_pgd_csl","random_pgd_gcn_vae"][:]:
@@ -529,7 +535,7 @@ def enron_sybils_dataset_test():
     realizations=10
 
     for test_ratio in [0.3,0.1, 0.2, 0.4, 0.5][:1]:
-        methods = ["SL","CSL", "Adv-CSL","Baseline"][3:]
+        methods = ["SL","CSL", "Adv-CSL","Baseline","CSL-Plus"][4:]
         for adv_type in ["random_noise","random_pgd","random_pgd_csl","random_pgd_gcn_vae"][:]:
             for attack_edge in [1000,5000,10000,15000,20000][2:3]:
                 for T in [10][:]:
@@ -609,7 +615,7 @@ def slashdot_sybils_dataset_test():
     report_stat = False
     count=0
     realizations=10
-    methods = ["SL","CSL", "Adv-CSL","Baseline"][:1]
+    methods = ["SL","CSL", "Adv-CSL","Baseline","CSL-Plus"][4:]
     for adv_type in ["random_noise","random_pgd","random_pgd_csl","random_pgd_gcn_vae"][2:3]:
         for attack_edge in [1000,5000,10000,15000,20000][2:3]:
             for T in [10][:]:

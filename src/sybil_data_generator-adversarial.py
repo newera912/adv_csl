@@ -609,66 +609,7 @@ def generate_structure(dataset,attack_edge,V, E,Obs, T,test_ratio,swap_ratio,rea
         num_jobs -= 1
         print ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> remain: ", num_jobs
 
-            # E0 = copy.deepcopy(E)
-            #
-            # candidate_edges=[]
-            # for v0 in target_nodes:
-            #     num_perturbtion = 0
-            #     if len(adj_list[v0])<perturbation:
-            #         for u in adj_list[v0][:]:
-            #             E0.pop((v0,u),None)
-            #             E0.pop((u,v0),None)
-            #         print("[adj<perturbation] |E|:{}, |E0|:{}".format(len(E),len(E0)))
-            #         # pkl_file = open(fout, 'wb')
-            #         # pickle.dump([V, E0, Obs, E_X, X_b], pkl_file)
-            #         # pkl_file.close()
-            #         continue
-            #     else:
-            #         for u in adj_list[v0]:
-            #             if E_X.has_key((v0,u)): continue
-            #             if E_X.has_key((u,v0)): continue
-            #             candidate_edges.extend([(v0,u),(u,v0)])
-            #         print("candidate edges:",len(candidate_edges))
-            #         temp_removed_edges=[]
-            #         for e in candidate_edges:
-            #             if num_perturbtion>=perturbation: break
-            #             if not E0.has_key(e): print(e,"e not exists")
-            #             if not E0.has_key((e[1],e[0])): print((e[1],e[0]), "e' not exists")
-            #             if not E0.has_key(e) and not E0.has_key((e[1],e[0])):
-            #                 E0[e] = E[e]
-            #                 E0[(e[1], e[0])] = E[(e[1], e[0])]
-            #                 print("[inner ourput>>>] |E|:{}, |E0|:{}".format(len(E), len(E0)))
-            #                 num_perturbtion += 1
-            #                 continue
-            #
-            #
-            #             E0.pop(e, None)
-            #             E0.pop((e[1],e[0]),None)
-            #             p_adv = gen_adv_exmaple_structure(V, E0, Obs, E_X,v0)
-            #
-            #             if p_adv == Obs[v0][0]: #no changes
-            #                 print(p_adv,Obs[v0][0],"not changed...")
-            #                 E0[e]=E[e]
-            #                 E0[(e[1], e[0])]=E[(e[1], e[0])]
-            #             else:
-            #                 print(p_adv,Obs[v0][0],"changed...")
-            #                 temp_removed_edges.append(e)
-            #                 temp_removed_edges.append((e[1],e[0]))
-            #                 num_perturbtion+=1
-            #             print("[inner ourput remove>>>] |E|:{}, |E0|:{}".format(len(E), len(E0)))
-            #         if num_perturbtion<perturbation:
-            #             for e in candidate_edges:
-            #                 if num_perturbtion>=perturbation:
-            #                     break
-            #                 if e not in temp_removed_edges:
-            #                     E0.pop(e, None)
-            #                     E0.pop((e[1], e[0]))
-            #                     num_perturbtion+=1
-            #
-            # print("[ourput] |E|:{}, |E0|:{}".format(len(E), len(E0)))
-            # pkl_file = open(fout, 'wb')
-            # pickle.dump([V, E0, Obs, E_X,target_nodes], pkl_file)
-            # pkl_file.close()
+           
 
 
 
@@ -754,7 +695,7 @@ class Task_generate_pgd_csl(object): #dataset,attack_edge,V, E, Obs, T, test_rat
 
 
 def random_flip_sybils_data_generator():
-    data_root = "/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_flip/"
+    data_root = "./data/adv_csl/random_flip/"
     # data_root = "./"
     realizations = 1
     attack_edges = [1000,2000,3000,4000,5000]
@@ -804,7 +745,7 @@ def random_flip_sybils_data_generator():
 
 
 def random_noise_sybils_data_generator():
-    data_root = "/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_noise/"
+    data_root = "./data/adv_csl/random_noise/"
     # data_root = "./"
     realizations = 10
     network_files = {"facebook": "../data/facebook/facebook_sybils_attackedge",
@@ -852,8 +793,8 @@ def random_noise_sybils_data_generator():
 
 
 def pgd_sybils_data_generator():
-    data_root = "/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_pgd/"
-    org_data_root="/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_pgd_csl/"
+    data_root = "./data/adv_csl/random_pgd/"
+    org_data_root="./data/adv_csl/random_pgd_csl/"
     # data_root = "./"
     realizations = 10
     attack_edges = [1000,2000,3000,4000,5000]
@@ -899,8 +840,8 @@ def pgd_sybils_data_generator():
             print ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> remain: ",num_jobs
 
 def pgd_csl_sybils_data_generator():
-    data_root = "/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_pgd_csl/"
-    org_data_root = "/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_pgd_csl/"
+    data_root = "./data/adv_csl/random_pgd_csl/"
+    org_data_root = "./data/adv_csl/random_pgd_csl/"
     # data_root = "./"
     realizations = 10
     network_files = {"facebook": "../data/facebook/facebook_sybils_attackedge",
@@ -948,8 +889,8 @@ def pgd_csl_sybils_data_generator():
 
 
 def structure_sybils_data_generator():
-    data_root =    "/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/structure/"
-    org_data_root="/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/random_pgd_csl/"
+    data_root =    "./data/adv_csl/structure/"
+    org_data_root="./data/adv_csl/random_pgd_csl/"
     # data_root="./"
     realizations = 1
     network_files={"facebook":"../data/facebook/facebook_sybils_attackedge",

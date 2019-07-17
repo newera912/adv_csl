@@ -1,10 +1,10 @@
-__author__ = ''
+__author__ = 'Feng Chen'
 from math import *
 import numpy as np
 # from scipy.stats import gamma
-#from scipy.stats import gamma
 import cvxpy as cvx
-# import cvxopt
+from cvxpy import *
+import cvxopt
 import copy
 import random, math
 
@@ -14,17 +14,17 @@ import sys
 import time
 # from readAPDM import readAPDM
 import scipy
-# from cvxpy import *
 # scipy.stats.
 # import scipy.stats
 from scipy.stats import beta
 from cubic import cubic
 from log import Log
 import time
+
+time.time()
 import re
 import warnings
-import inspect
-import multiprocessing
+import multiprocessing,inspect
 
 
 class color:
@@ -112,11 +112,10 @@ class Consumer(multiprocessing.Process):
 
 
 class Task_inference(object):
-    def __init__(self, omega, b, X_b, y_t, Y, X, edge_up_nns, edge_down_nns, omega_0, R, dict_paths, x_on_body, psl,
-                 approx, report_stat):
+    # omega, b, y_t, Y, X, edge_up_nns,edge_down_nns, omega_0, R, psl, approx, report_stat
+    def __init__(self, omega, b, y_t, Y, X, edge_up_nns, edge_down_nns, omega_0, R, psl, approx, report_stat):
         self.omega = omega
         self.b = b
-        self.X_b = X_b
         self.y_t = y_t
         self.Y = Y
         self.X = X
@@ -124,8 +123,6 @@ class Task_inference(object):
         self.edge_down_nns = edge_down_nns
         self.omega_0 = omega_0
         self.R = R
-        self.dict_paths = dict_paths
-        self.x_on_body = x_on_body  # for test
         self.psl = psl
         self.approx = approx
         self.report_stat = report_stat
@@ -133,10 +130,10 @@ class Task_inference(object):
     def __call__(self):
         # this is the place to do your work
         # time.sleep(0.1) # pretend to take some time to do our work
-        # admm(omega, b, X_b, y_t, Y, X, edge_up_nns,edge_down_nns, omega_0, R, dict_paths, psl, approx, report_stat)
-        p_t, b_t,sign_grad_py_t = admm(self.omega, self.b, self.X_b, self.y_t, self.Y, self.X, self.edge_up_nns, self.edge_down_nns,
-                        self.omega_0, self.R, self.dict_paths, self.x_on_body, self.psl, self.approx, self.report_stat)
-        return p_t, b_t,sign_grad_py_t
+        #                omega, b, y_t, Y, X, edge_up_nns,edge_down_nns, omega_0, R, psl, approx, report_stat
+        p_t, b_t = admm(self.omega, self.b, self.y_t, self.Y, self.X, self.edge_up_nns, self.edge_down_nns,
+                        self.omega_0, self.R, self.psl, self.approx, self.report_stat)
+        return p_t, b_t
 
     def __str__(self):
         return '%s' % (self.p0)
@@ -160,62 +157,62 @@ OUTPUT
 omegax: a dictionary with key edge id and value a pair of alpha and beta values
 """
 
-def inference(omega_y, omega_0, y, X_b, X, Y, T, edge_up_nns, edge_down_nns, R, dict_paths,x_on_body, logging, psl = False, approx = False, init_alpha_beta = (1, 1), report_stat = False):
+
+def inference(omega_y, omega_0, y, X, Y, T, edge_up_nns, edge_down_nns, R, logging, psl=False, approx=False,
+              init_alpha_beta=(1, 1), report_stat=False):
     omega = copy.deepcopy(omega_y)
     for e in X.keys(): omega[
         e] = init_alpha_beta  # Beta pdf can be visualized via http://eurekastatistics.com/beta-distribution-pdf-grapher/
     error = -1
-
-    for iter in range(1):
+    for iter in range(5):
         ps = []
         bs = []
-        sign_grad_py=[]
+
+        # Establish communication queues
         tasks = multiprocessing.Queue()
         results = multiprocessing.Queue()
+
         # Start consumers
-        num_consumers = T # We only use 5 cores.
-        print iter,'Creating %d consumers' % num_consumers
-        consumers = [ Consumer(tasks, results) for i in range(num_consumers) ]
+        num_consumers = T
+        # print iter, 'Creating %d consumers' % num_consumers
+        consumers = [Consumer(tasks, results)
+                     for i in xrange(num_consumers)]
         for w in consumers:
             w.start()
+
+        num_jobs = T
         b = {e: 0 for e in X.keys() + Y.keys()}
-        num_jobs = 0
-        # print "ok.....for"
         for t in range(T):
-            # print "start time: {}".format(t)
             y_t = {e: e_y[t] for e, e_y in y.items()}
-            tasks.put(Task_inference(omega, b, X_b, y_t, Y, X, edge_up_nns,edge_down_nns, omega_0, R, dict_paths,x_on_body, psl, approx, report_stat))
-            num_jobs+=1.0
+            tasks.put(
+                Task_inference(omega, b, y_t, Y, X, edge_up_nns, edge_down_nns, omega_0, R, psl, approx, report_stat))
+            # print "b_t", b_t
+
         # Add a poison pill for each consumer
         for i in range(num_consumers):
             tasks.put(None)
 
         while num_jobs:
-            p_t, b_t ,sign_grad_py_t = results.get()
+            p_t, b_t = results.get()
             ps.append(p_t)
             bs.append(b_t)
-            sign_grad_py.append(sign_grad_py_t)
             num_jobs -= 1
+
         error = 0.0
         omega_prev = copy.deepcopy(omega)
-        # print ps
         omega_x = estimate_omega_x(ps, X)
-        # for e in X: omega[e] = omega_x[e]         this moved to "for e in X" loop
         b = estimate_b(bs)
-        b_y = {e: val for e, val in b.items() if Y.has_key(e)}
+        b_y = {e: val for e, val in b.items() if e in Y}
         for e in X:
             omega[e] = omega_x[e]
             alpha_prev, beta_prev = omega_prev[e]
             alpha1, beta1 = omega_x[e]
             error += np.power(alpha_prev - alpha1, 2) + np.power(beta_prev - beta1, 2)
         error = np.sqrt(error)
-        # print iter,error
-        # for e in X:
-        #     if omega_prev[e][0] != omega_x[e][0] or omega_prev[e][0] != omega_x[e][0]:
-        #         print e, omega_prev[e],omega_x[e]
         if error < 0.01:
             break
-    return omega, b_y,sign_grad_py
+        # print omega
+    return omega, b_y
 
 
 """
@@ -227,29 +224,6 @@ OUTPUT
 b_new: a single dictionary (b) that is estimated based on bs.
 """
 
-
-def estimate_b(bs):
-    cnt_Y = len(bs[0])
-    b_new = {}
-    for i in range(cnt_Y):
-        b_new[i] = prob_2_binary(np.mean([b_t[i] for b_t in bs]))
-    return b_new
-
-
-def prob_2_binary(val):
-    # return val
-    if val > 0.45:
-        return 1
-    else:
-        return 0
-
-
-def prob_2_binary2(val):
-    return val
-    # if val >= 0.2:
-    #     return 1
-    # else:
-    #     return 0
 
 
 """
@@ -268,91 +242,72 @@ omega_x: a dictionary with key edge pair and value a pair of alpha and beta valu
 """
 
 
-def inference_apdm_format(V, E, Obs, Omega, b, X_b, E_X, logging, psl=False, approx=True, init_alpha_beta=(1, 1),
+def inference_apdm_format(V, E, Obs, Omega, b, X, logging, psl=False, approx=True, init_alpha_beta=(1, 1),
                           report_stat=False):
-    # t0=time.time()
-    # print "reformating...."
-    V, _, edge_down_nns, id_2_edge, edge_2_id, omega, feat = reformat(V, E, Obs, Omega)
-    # print edge_2_id
-    # print "edge_up:{0}, edge_down:{1}, id_2_edge:{2}".format(len(edge_up_nns),len(edge_down_nns),len(id_2_edge))
-    # t1=time.time()
-    # print "reformat time:{}".format(t1-t0)
-    X = {edge_2_id[e]: 1 for e in E_X}
+    V, edge_up_nns, edge_down_nns, id_2_edge, edge_2_id, omega, feat = reformat(V, E, Obs, Omega)
+    test_list = []
+    X = {edge_2_id[e]: 1 for e in X}
     Y = {e: 1 for e in id_2_edge.keys() if not X.has_key(e)}
     # b = {edge_2_id[e]: val for e, val in b.items()}
-    X_b = {edge_2_id[e]: 1 for e in X_b}  # X_b==Y
     omega_y = {e: omega[e] for e in Y}
     y = {e: feat[e] for e in Y}
-    t2 = time.time()
-    # print "var process time: {}".format(t2-t1)
     # omega_0 = [2, 15]
     omega_0 = [2, 8]
     # omega_0 = [15, 2]
     T = len(feat[0])
-    # T = 3
-    # print "id_2_edge", id_2_edge
-    # R = generate_PSL_rules_from_edge_cnns(edge_up_nns, edge_down_nns)
-    R, dict_paths,x_on_body = generate_eopinion_PSL_rules_from_edge_cnns(edge_down_nns, id_2_edge, edge_2_id,Y)
-    t3=time.time()
-    print "#Rules:",len(R),"Gen rule time:{}".format(t3-t2)
-    # time.sleep(1000)
-    # print [(id_2_edge[a], id_2_edge[b], id_2_edge[c]) for (a,b,c) in R]
-    # print "dict_paths", dict_paths
-    _, _ ,sign_grad_py_ids= inference(omega_y, omega_0, y, X_b, X, Y, T, {}, edge_down_nns, R, dict_paths,x_on_body, logging, psl, approx, init_alpha_beta, report_stat)
-    sign_grad_py=[]
-    for sign_grad_py_t in sign_grad_py_ids:
-        temp_dic={}
-        for id,sign in sign_grad_py_t.items():
-            temp_dic[id_2_edge[id]]=sign
-        sign_grad_py.append(temp_dic)
+    R = generate_PSL_rules_from_edge_cnns(edge_up_nns, edge_down_nns)
+    print "#Rule:{} Nodes:{} Edges:{}".format(len(R), len(V), len(E))
+    pred_omega_x, pred_b_y = inference(omega_y, omega_0, y, X, Y, T, edge_up_nns, edge_down_nns, R, logging, psl,
+                                       approx, init_alpha_beta, report_stat)
+    pred_omega_x = {id_2_edge[e]: alpha_beta for e, alpha_beta in pred_omega_x.items()}
+    pred_b_y = {id_2_edge[e]: val for e, val in pred_b_y.items()}
+    return pred_omega_x, pred_b_y
 
 
-    return sign_grad_py
+def inference_apdm_format_sliding_window(V, E, Obs, Omega, E_X, begin_time, end_time, window_size, logging, psl=False,
+                                         approx=True, init_alpha_beta=(1, 1), report_stat=False):
+    if report_stat: print "start reformat"
+    V, edge_up_nns, edge_down_nns, id_2_edge, edge_2_id, omega, feat = reformat(V, E, Obs, Omega)
+    omega_y = {}
+    p0 = 0.5
+    y = {}
+    X = {edge_2_id[e]: 1 for e in E_X}
+    Y = {e: 1 for e in id_2_edge.keys() if e not in X}
+    for e in Y.keys():
+        omega_y[e] = omega[e]
+        y[e] = feat[e]
+    # print "number of time stamps: {}".format(T)
+    # if report_stat: print "number of time stamps: {}".format(T)
+    x = {}
+    for e in X.keys():
+        x[e] = feat[e]
+    if report_stat: print "start generate_PSL_rules_from_edge_cnns"
+    R = generate_PSL_rules_from_edge_cnns(edge_up_nns, edge_down_nns)
 
+    if report_stat: print "start inference"
+    W = 1.0
+    sw_measures = []
+    for ws_start in range(begin_time, end_time + 1):
+        print "sliding window: {0} to {1}".format(ws_start, ws_start + window_size)
+        sw_omega_x, sw_omega_y, sw_x, sw_y = sliding_window_extract(x, y, ws_start, window_size)
+        pred_omega_x = inference(sw_omega_y, sw_y, Y, X, window_size, edge_up_nns, edge_down_nns, p0, R, sw_x, logging,
+                                 psl, approx, init_alpha_beta, report_stat)
+        # pred_omega_x = {id_2_edge[e]: alpha_beta for e, alpha_beta in pred_omega_x.items()}
+        prob_mse, u_mse, prob_relative_mse, u_relative_mse, accuracy, recall_congested, recall_uncongested = calculate_measures(
+            sw_omega_x, W, pred_omega_x, X, logging)
+        sw_measures.append(
+            [prob_mse, u_mse, prob_relative_mse, u_relative_mse, accuracy, recall_congested, recall_uncongested])
+    avg_measures = [0, 0, 0, 0, 0, 0, 0]
+    for measures in sw_measures:
+        avg_measures = list_sum(avg_measures, measures)
+    avg_measures = list_dot_scalar(avg_measures, 1.0 / len(sw_measures))
+    logging.write("prob_mse: {0}, u_mse: {1}, prob_relative_mse: {2}, u_relative_mse: {3}".format(prob_mse, u_mse,
+                                                                                                  prob_relative_mse,
+                                                                                                  u_relative_mse))
+    logging.write("accuracy: {0}, recall_congested: {1}, recall_uncongested: {2}".format(accuracy, recall_congested,
+                                                                                         recall_uncongested))
+    return sw_measures, avg_measures
 
-"""
-INPUT
-edge_nns: key is an edge id, and its value is a list of its neighbor edge ids.
-id_2_edge:
-edge_2_id:
-
-OUTPUT
-R: a list of pairs of neighboring edge ids.
-"""
-
-
-def generate_eopinion_PSL_rules_from_edge_cnns(edge_down_nns, id_2_edge, edge_2_id, Y):
-    R_dic = {}
-    R = []
-    x_on_body = {}
-    dict_paths = {}
-    for a_b, down_nns in edge_down_nns.items():
-        for b_c in down_nns.keys():
-            if edge_2_id.has_key((id_2_edge[a_b][0], id_2_edge[b_c][1])):
-                a_c = edge_2_id[(id_2_edge[a_b][0], id_2_edge[b_c][1])]
-                # if Y.has_key(a_b) and Y.has_key(b_c) and Y.has_key(a_c): continue
-                if not R_dic.has_key((a_b, b_c, a_c)):
-                    R_dic[(a_b, b_c, a_c)] = 1
-                    R.append((a_b, b_c, a_c))
-                    R.append((a_b, b_c, a_c))
-                    R.append((a_b, b_c, a_c))
-                    # dic_R[(a_b, b_c, a_c)] = 1  # debug. Will dic_R.items() always be fixed, if it is not updated?
-                    if dict_paths.has_key((a_c)):
-                        dict_paths[a_c].append((a_b, b_c))
-                    else:
-                        dict_paths[a_c] = [(a_b, b_c)]
-
-                    if x_on_body.has_key(a_b):
-                        x_on_body[a_b].append((b_c, a_c))
-                    else:
-                        x_on_body[a_b] = [(b_c, a_c)]
-
-                    if x_on_body.has_key(b_c):
-                        x_on_body[b_c].append((a_b, a_c))
-                    else:
-                        x_on_body[b_c] = [(a_b, a_c)]
-
-    return R, dict_paths, x_on_body
 
 """
 INPUT
@@ -410,10 +365,6 @@ omega_x: A dictionary of opinions (tuples of alpha and beta values): [edge1 id: 
 
 
 def estimate_omega_x(p, omega, X):
-    # for e in X:
-    # data = [p_t[e] for p_t in p]
-    # alpha = sum(data)
-    # beta = len(data) -
     for e in X:
         data = [p_t[e] for p_t in p]
         if np.std(data) < 0.01:
@@ -444,12 +395,34 @@ def estimate_omega_x(ps, X):
     if strategy == 1:
         for e in X:
             data = [prob_2_binary2(p_t[e]) for p_t in ps]
-            # print e,data
             # data = [(p_t[e]) for p_t in ps]
             alpha1 = np.sum(data) + 1.0
-            beta1 = len(data) - np.sum(data) + 1.0
+            beta1 = len(data) - np.sum(data)  + 1.0
             omega_x[e] = (alpha1, beta1)
     return omega_x
+
+
+def estimate_b(bs):
+    cnt_Y = len(bs[0])
+    b_new = {}
+    for i in range(cnt_Y):
+        b_new[i] = prob_2_binary(np.mean([b_t[i] for b_t in bs]))
+    return b_new
+
+
+def prob_2_binary(val):
+    return val
+    # if val > 0.2:
+    #     return 1
+    # else:
+    #     return 0
+
+def prob_2_binary2(val):
+    return val
+    # if val >= 0.2:
+    #     return 1
+    # else:
+    #     return 0
 
 
 def list_dot_scalar(l, c):
@@ -462,13 +435,11 @@ def list_sum(l1, l2):
         l.append(v1 + v2)
     return l
 
-
 def list_inn(l1, l2):
     l = 0.0
     for v1, v2 in zip(l1, l2):
         l += v1 * v2
     return l
-
 
 def list_minus(l1, l2):
     # print "l1, l2", l1, l2
@@ -536,11 +507,12 @@ def generate_PSL_rules_from_edge_cnns(edge_up_nns, edge_down_nns):
             if not dic_R.has_key((e,
                                   up_e)):  # The direction should be from e_prev to e. The traffic at e will impact the traffic of its up adjacent edges
                 dic_R[(e, up_e)] = 1
-                e_checked[e] = 1
-                e_checked[up_e] = 1
+                # e_checked[e] = 1
+                # e_checked[up_e] = 1
     # for e, neighbors in edge_down_nns.items():
-    #     if not e_checked.has_key(e):
-    #         dict_R[(e, neighbors[0])]
+    #     if not e_checked.has_key(e) and len(neighbors.keys())>0:
+    #         print "...................."
+    #         dic_R[(e, neighbors.keys()[0])]=1
     return dic_R.keys()
 
 
@@ -600,49 +572,16 @@ def update_px(X, R_p, R_p_hat, R_lambda_, copies, omega, cnt_E, kappa, approx):
         bb = (1 / kappa) * (nc + z_lambda_sum)
         cc = omega[e][0] + omega[e][1] - 2 - (1 / kappa) * z_lambda_sum
         dd = 1 - omega[e][0]
+
         if approx:
             min_prob = sol_min_p_approx(e, omega, R_p_hat, R_lambda_, kappa, copies, aa, bb, cc, dd)
         else:
             min_prob = sol_min_p(e, omega, R_p_hat, R_lambda_, kappa, copies, aa, bb, cc, dd)
+
         for k, j in copies[e]:
             R_p[k][j] = min_prob
     return R_p
 
-def get_sign_grad_py(sign_grad_py_t,p_t,b_t,y_t,Y, R_p, R_p_hat, R_lambda_, copies, omega, cnt_E, kappa, approx):
-    # py_grad_sign={}
-    for e in Y.keys():
-        grad=0
-        """
-        grad_i= - y_t[e]/p_y[e] +(1-y_t[e])/(1-p_y[e]) + rho*\sum_{copies p[e]}(p_t[e]-\hat p[e] -\lambda[e]*1/rho )
-        """
-        if not copies.has_key(e):
-            if sign_grad_py_t.has_key(e):
-                sign_grad_py_t[e].append(0.0)  #the edges  are not involved any rules
-            else:
-                sign_grad_py_t[e]=[0.0]
-            continue
-
-        nc = len(copies[e])
-        #\alpha_0==\alpha_e
-        C1= y_t[e]
-        C2= 1-y_t[e]
-        z_lambda_sum = np.sum([p_t[e]-R_p_hat[k][j] - kappa * R_lambda_[k][j] for k, j in copies[e]])
-        # if z_lambda_sum!=0:
-        #     print ">>>>>>>>",p_t[e],z_lambda_sum
-
-        grad=-C1/(p_t[e]+0.000001)+C2/(1-p_t[e]+0.000001) +(1/kappa)* z_lambda_sum
-        if grad>=0:
-            if sign_grad_py_t.has_key(e):
-                sign_grad_py_t[e].append(1.0)
-            else:
-                sign_grad_py_t[e]=[1.0]
-        else:
-            if sign_grad_py_t.has_key(e):
-                sign_grad_py_t[e].append(-1.0)
-            else:
-                sign_grad_py_t[e]=[-1.0]
-        # time.sleep(100)
-    return sign_grad_py_t
 
 """
 INPUT
@@ -660,6 +599,9 @@ rho: step size. rho=kappa
 OUTPUT
 R_p: The probability values in R_p are updated based on R_z and R_lambda_.
 
+            prob = normalize_prob(b_y_lambda_sum / nc)
+            for k, j in copies[e]:
+                R_p[k][j+1] = prob
 """
 
 
@@ -676,28 +618,19 @@ def update_by(p, y_t, Y, R_p, R_p_hat, R_lambda_, copies, omega, omega_0, cnt_E,
         # omega[e] = [2, 10]
         # omega_0 = [2, 10]
         # print "omega[e]: omega_0, p[e]", omega[e], omega_0, p[e]
-
-        """ original code
-        omega[e]=(max(0.0001,omega[e][0]),max(0.0001,omega[e][0]))
         omega_0 = omega[e]
-
         p0 = 0.5
-
-        C_3 = np.log(max(0.0001, gamma(omega[e][0]+omega[e][1]))) - np.log(max(0.0001, gamma(omega[e][0]))) - np.log(max(0.0001, gamma(omega[e][1]))) + \
-              (omega[e][0]-1) * np.log(max(0.0001, p[e])) + (omega[e][1]-1) * np.log(max(0.0001, 1 - p[e]))
-
-        C_4 = np.log(max(0.0001, gamma(omega_0[0]+omega_0[1])))   - np.log(max(0.0001, gamma(omega_0[0])))  - np.log(max(0.0001, gamma(omega_0[1]))) + \
-              (omega_0[0]-1)  * np.log(max(0.0001, p[e])) + (omega_0[1]-1) * np.log(max(0.0001, 1 - p[e]))
-        term2 = np.log(max(p0, 0.0001)) - np.log(max(1 - p0, 0.0001))
-        """
-
+        # C_3 = np.log(max(0.0001, gamma(omega[e][0]+omega[e][1]))) - np.log(max(0.0001, gamma(omega[e][0]))) - np.log(max(0.0001, gamma(omega[e][1]))) + \
+        #       (omega[e][0]-1) * np.log(max(0.0001, p[e])) + (omega[e][1]-1) * np.log(max(0.0001, 1 - p[e]))
+        # # print "1", np.log(np.power(p[e],omega_0[0]-1)) - np.log(max(0.0001, np.power(1-p[e],omega_0[1]-1))))
+        # C_4 = np.log(max(0.0001, gamma(omega_0[0]+omega_0[1])))   - np.log(max(0.0001, gamma(omega_0[0])))  - np.log(max(0.0001, gamma(omega_0[1]))) + \
+        #       (omega_0[0]-1)  * np.log(max(0.0001, p[e])) + (omega_0[1]-1) * np.log(max(0.0001, 1 - p[e]))
+        # # print C_3, C_4
+        # term2 = np.log(max(p0, 0.0001)) - np.log(max(1 - p0, 0.0001))
         C_3 = 0.0
         C_4 = 0.0
         term2 = 0.0
-        # if C_3!=C_4:
-        #     print C_3, C_4,term2
-
-        prob = term1 * (- C_3 + C_4 + term2 + (1.0 / kappa) * by_lambda_sum)
+        prob = normalize_prob(term1 * (- C_3 + C_4 + term2 + (1.0 / kappa) * by_lambda_sum))
         # print "prob, C_3, C_4", prob, C_3, C_4, C_4 - C_3, term2, (1.0/kappa)*by_lambda_sum
         # prob = term1*( (1.0/kappa)*by_lambda_sum )
         # if b_y > 1: b_y = 1
@@ -770,13 +703,13 @@ def sol_min_p_approx1(e, omega_e, dict_R_z, dict_R_lambda_, rho, copies_e, aa, b
 def sol_min_p_approx(e, omega, R_z, R_lambda_, rho, copies, aa, bb, cc, dd):
     min_prob = -1
     min_score = float('inf')
-    # for prob in np.arange(0.01, 1, 0.01):   #original code
+    # for prob in np.arange(0.01, 1, 0.01):
     probs = list(np.arange(0.1, 1, 0.1))
     probs.extend([0.001, 0.01, 0.99, 0.999])
     for prob in probs:
         score = -1 * (omega[e][0] - 1) * np.log(prob) - (omega[e][1] - 1) * np.log(1 - prob) + rho * 0.5 * sum(
             [pow(prob - R_z[k][j] - R_lambda_[k][j] / rho, 2) for k, j in copies[e]])
-        # print score , min_score
+
         if score < min_score:
             min_prob = prob
             min_score = score
@@ -786,8 +719,8 @@ def sol_min_p_approx(e, omega, R_z, R_lambda_, rho, copies, aa, bb, cc, dd):
 
 
 def normalize_prob(prob):
-    if prob < 0.0: prob = 0.0
-    if prob >= 1.0: prob = 1.0
+    if prob < 0: prob = 0
+    if prob > 1: prob = 1
     return prob
 
 
@@ -798,10 +731,9 @@ It will only update p_x and b_y, but not p_y
 
 def psl_update_px_by(Y, R_p, R_p_hat, R_lambda_, copies, omega, cnt_E, kappa):
     for e in range(cnt_E):
-        if not Y.has_key(e):  # update p_x
+        if e not in Y:  # update p_x
             if not copies.has_key(e): continue
             nc = len(copies[e]) * 1.0
-            # if e==0: print "PSL",[R_p_hat[k][j] + R_lambda_[k][j] * kappa for k, j in copies[e]]
             p_x_lambda_sum = sum([R_p_hat[k][j] + R_lambda_[k][j] * kappa for k, j in copies[e]])
             prob = normalize_prob(p_x_lambda_sum / nc)
             for k, j in copies[e]:
@@ -814,40 +746,6 @@ def psl_update_px_by(Y, R_p, R_p_hat, R_lambda_, copies, omega, cnt_E, kappa):
             for k, j in copies[e]:
                 R_p[k][j + 1] = prob
     return R_p
-
-
-# """
-# INPUT
-# y_t: A dictionary of lists of observations at time t with key an edge id and value its observation at time t.
-# Y: The subset of edge ids that have known opinions
-# edge_nns: key is an edge id, and its value is a list of its neighbor edge ids.
-# cnt_E: The total number of edges
-# cnt_X: the number of edges whose opinions will be predicted (size of X).
-# p0: The prior probability that an edge is congested. It is calculated the ratio of total number of congested links indexed by link id and time over the total number of links.
-# OUTPUT
-# p: a list of probability initial values of the cnt_Y + cnt_X edges. p[i] refers to the initial probability value of edge id=i
-# """
-# def calc_initial_p(y_t, edge_down_nns, X, Y, cnt_E, p0):
-#     p = [1e-6 for i in range(cnt_E)]
-#     for e, e_nns in edge_down_nns.items():
-#         if X.has_key(e):
-#             obs = [y_t[e_n] for e_n in e_nns.keys() if Y.has_key(e_n)]
-#             if len(obs) == 0: obs = [p0]
-#             # print "obs:", e, obs
-#             p[e] = np.median(obs)
-#         else:
-#             p[e] = y_t[e]
-#     for i in Y:
-#         p[i] = y_t[i]
-#     return p
-#
-# def calc_initial_p1(y_t, edge_nns, Y, cnt_E, p0):
-#     p = [0 for i in range(cnt_E)]
-#     for e, e_nns in edge_nns.items():
-#         obs = [y_t[e_n] for e_n in e_nns if e_n in Y]
-#         if len(obs) == 0: obs = [p0]
-#         p[e] = np.mean(obs)
-#     return p
 
 
 """
@@ -863,273 +761,123 @@ p: a list of probability initial values of the cnt_Y + cnt_X edges. p[i] refers 
 """
 
 
-def calc_initial_p(dict_paths,x_on_body, y_t, edge_down_nns, X_b, X, Y, cnt_E, p0, b_init):
-    p = [0.0 for i in range(cnt_E)]
+# def calc_initial_p(y_t, edge_down_nns, X, Y, cnt_E, p0):
+#     p = [1e-6 for i in range(cnt_E)]
+#     for e, e_nns in edge_down_nns.items():
+#         if X.has_key(e):
+#             obs = [y_t[e_n] for e_n in e_nns.keys() if Y.has_key(e_n)]
+#             if len(obs) == 0: obs = [p0]
+#             p[e] = np.median(obs)
+#         else:
+#             p[e] = y_t[e]
+#     for i in Y:
+#         p[i] = y_t[i]
+#     return p
+
+def calc_initial_p(y_t, edge_down_nns, X, Y, cnt_E, p0, b_init):
+    p = [1e-6 for i in range(cnt_E)]
+
     for e in Y:
         p[e] = y_t[e]  # observation indicates probability
         """ dict_paths[e] includes the rule bodies that indicates e """
-        if dict_paths.has_key(e) and X_b.has_key(e):
-            n_pos = 0
-            n_neg = 0
-            for (e1, e2) in dict_paths[e]:
-                if X.has_key(e1) or X.has_key(e2): continue  # check unknown edges
-                if p[e1] * p[e2] > 0:  # check (1,1) edges
-                    n_pos += 1
+        # if dict_paths.has_key(e) and X_b.has_key(e):
+        n_pos = 0
+        n_neg = 0
+        for e, e_nns in edge_down_nns.items():
+            obs = [y_t[e_n] for e_n in e_nns.keys() if Y.has_key(e_n)]
+            for val in obs:
+                if val > 0:
+                    n_pos += 1.0
                 else:
-                    n_neg += 1
-            if n_pos + n_neg == 1: continue  # filter out the edges only have at most have one 1&1 or ?&0/1 or 1/0& body in the rules?
-            # 1. (1,1) count is greater than (_,1),(1,_),(_,0) and (0,_) counts and p[e]==0   non indicates conflict
-            # or 2. (1,1) count is less than (_,1),(1,_),(_,0) and (0,_) counts and p[e]>0   indicates conflict
+                    n_neg += 1.0
             if (n_pos - n_neg > 0 and p[e] == 0) or (n_pos - n_neg < 0 and p[e] > 0):
-                """b_init[e] = 1.0"""
                 b_init[e] = 1.0
             else:
                 b_init[e] = 0.0
 
-    for e in X:
-        conf = 0
-        """ dict_paths includes the rule bodies that indicates e """
-        if dict_paths.has_key(e):
-            for (e1, e2) in dict_paths[e]:
-                if p[e1] * p[e2] > 0:
-                    conf += p[e1] * p[e2]
+    for e, e_nns in edge_down_nns.items():
+        if X.has_key(e):
+            obs = [y_t[e_n] for e_n in e_nns.keys() if Y.has_key(e_n)]
+            if len(obs) == 0: obs = [p0]
+            n_pos = 0
+            n_neg = 0
+            for val in obs:
+                if val > 0:
+                    n_pos += 1.0
                 else:
-                    conf -= 1
-            if conf > 0:  # if (1,1) count is greater than (_,1),(1,_),(_,0) and (0,_) counts than set to 1
+                    n_neg += 1.0
+            if n_pos > n_neg:
                 p[e] = 1.0
             else:
                 p[e] = 0.0
+            # p[e] = np.median(obs)
         else:
-            p[e] = 0.0
+            p[e] = y_t[e]
+    # for i in Y:
+    #     if b_init[i]==1.0:
+    #         p[i] = 1.0-y_t[i]
+    #     else:
+    #         p[i] = y_t[i]
+
     return p, b_init
 
-def calc_initial_p2(dict_paths,x_on_body, y_t, edge_down_nns, X_b, X, Y, cnt_E, p0, b_init):
-    p = [0.0 for i in range(cnt_E)]
+def calc_initial_p1(y_t, edge_down_nns, X, Y, cnt_E, p0, b_init):
+    p = [1e-6 for i in range(cnt_E)]
+
     for e in Y:
         p[e] = y_t[e]  # observation indicates probability
         """ dict_paths[e] includes the rule bodies that indicates e """
-        if dict_paths.has_key(e) and X_b.has_key(e):
-            n_pos = 0
-            n_neg = 0
-            for (e1, e2) in dict_paths[e]:
-                if X.has_key(e1) or X.has_key(e2): continue  # check unknown edges
-                if p[e1] * p[e2] > 0:  # check (1,1) edges
-                    n_pos += 1
+        # if dict_paths.has_key(e) and X_b.has_key(e):
+        n_pos = 0
+        n_neg = 0
+        for e, e_nns in edge_down_nns.items():
+            obs = [y_t[e_n] for e_n in e_nns.keys() if Y.has_key(e_n)]
+            for val in obs:
+                if val > 0:
+                    n_pos += 1.0
                 else:
-                    n_neg += 1
-            if n_pos + n_neg == 1: continue  # filter out the edges only have at most have one 1&1 or ?&0/1 or 1/0& body in the rules?
-            # 1. (1,1) count is greater than (_,1),(1,_),(_,0) and (0,_) counts and p[e]==0   non indicates conflict
-            # or 2. (1,1) count is less than (_,1),(1,_),(_,0) and (0,_) counts and p[e]>0   indicates conflict
+                    n_neg += 1.0
             if (n_pos - n_neg > 0 and p[e] == 0) or (n_pos - n_neg < 0 and p[e] > 0):
-                """b_init[e] = 1.0"""
-                b_init[e] = 1.0
-            else:
-                b_init[e] = 0.0
-        # if X_b.has_key(e):
-        #     b_init[e] = 1.0
-        # else:
-        #     b_init[e] = 0.0
-
-    for e in X:
-        conf = 0
-        """ dict_paths includes the rule bodies that indicates e """
-        if dict_paths.has_key(e):
-            for (e1, e2) in dict_paths[e]:
-                if p[e1] * p[e2] > 0:
-                    conf += p[e1] * p[e2]
-                else:
-                    conf -= 1
-            # if x_on_body.has_key(e):
-            #     for (e1,e2) in x_on_body[e]:
-            #         if p[e1] * p[e2] > 0:
-            #             conf += p[e1] * p[e2]
-            #         else:
-            #             conf -= 1
-            if conf > 0: #if (1,1) count is greater than (_,1),(1,_),(_,0) and (0,_) counts than set to 1
-                """p[e] = 1.0"""
-                p[e] = 1.0
-            else:
-                p[e] = 0.0
-        else:
-            if x_on_body.has_key(e):
-                conf = 0.0
-                for (e1, e2) in x_on_body[e]:
-                    if Y.has_key(e1) and b_init[e1] == 1:
-                        p1 = 1 - p[e1]
-                    else:
-                        p1 = p[e1]
-                    if Y.has_key(e2) and b_init[e2] == 1:
-                        p2 = 1 - p[e2]
-                    else:
-                        p2 = p[e2]
-                    # if p[e1] * p[e2] > 0:
-                    if p1 * p2 > 0:
-                        conf += p1 * p2
-                    else:
-                        conf -= 1
-                if conf > 0:  # if (1,1) count is greater than (_,1),(1,_),(_,0) and (0,_) counts than set to 1
-                    """p[e] = 1.0"""
-                    p[e] = 1.0
-                else:
-                    p[e] = 0.0
-            else:
-                p[e] = 0.0
-
-    return p, b_init
-
-#0.6, 0.7 ,0.8best one
-def calc_initial_p3(dict_paths,x_on_body, y_t, edge_down_nns, X_b, X, Y, cnt_E, p0, b_init):
-    p = [0.0 for i in range(cnt_E)]
-    for e in Y:
-        p[e] = y_t[e]  # observation indicates probability
-        """ dict_paths[e] includes the rule bodies that indicates e """
-        if dict_paths.has_key(e) and X_b.has_key(e):
-            n_pos = 0
-            n_neg = 0
-            for (e1, e2) in dict_paths[e]:
-                if X.has_key(e1) or X.has_key(e2): continue  # check unknown edges
-                if p[e1] * p[e2] > 0:  # check (1,1) edges
-                    n_pos += 1
-                else:
-                    n_neg += 1
-            if n_pos + n_neg == 1: continue  # filter out the edges only have at most have one 1&1 or ?&0/1 or 1/0& body in the rules?
-            # 1. (1,1) count is greater than (_,1),(1,_),(_,0) and (0,_) counts and p[e]==0   non indicates conflict
-            # or 2. (1,1) count is less than (_,1),(1,_),(_,0) and (0,_) counts and p[e]>0   indicates conflict
-            if (n_pos - n_neg > 0 and p[e] == 0) or (n_pos - n_neg < 0 and p[e] > 0):
-                """b_init[e] = 1.0"""
                 b_init[e] = 1.0
             else:
                 b_init[e] = 0.0
 
-
-    for e in X:
-        conf = 0
-        n_post = 0
-        """ dict_paths includes the rule bodies that indicates e """
-        if dict_paths.has_key(e):
-            for (e1, e2) in dict_paths[e]:
-                n_post += p[e1] + p[e2]
-                if p[e1] * p[e2] > 0:
-                    conf += p[e1] * p[e2]
-                else:
-                    conf -= 1
-            if conf > 0:  # if (1,1) count is greater than (_,1),(1,_),(_,0) and (0,_) counts than set to 1
-                """p[e] = 1.0"""
-                p[e] = 1.0
-            else:
-                if n_post == 0:
-                    p[e] = 0.0
-                else:
-                    p[e] = 1.0
-        else:
-
-            if x_on_body.has_key(e):
-                conf = 0.0
-                n_post = 0
-                for (e1, e2) in x_on_body[e]:
-                    n_post += p[e1] + p[e2]
-                    if Y.has_key(e1) and b_init[e1] == 1:
-                        p1 = 1 - p[e1]
-                    else:
-                        p1 = p[e1]
-                    if e2 in Y.has_key(e2) and b_init[e2] == 1:
-                        p2 = 1 - p[e2]
-                    else:
-                        p2 = p[e2]
-                    # if p[e1] * p[e2] > 0:
-                    if p1 * p2 > 0:
-                        conf += p1 * p2
-                    else:
-                        conf -= 1
-                if conf > 0:  # if (1,1) count is greater than (_,1),(1,_),(_,0) and (0,_) counts than set to 1
-                    """p[e] = 1.0"""
-                    p[e] = 1.0
-                else:
-                    p[e] = 0.0
-            else:
-                p[e] = 0.0
-
-    return p, b_init
-
-#0.2
-def calc_initial_p4(dict_paths,x_on_body, y_t, edge_down_nns, X_b, X, Y, cnt_E, p0, b_init):
-    p = [0.0 for i in range(cnt_E)]
-    threshold = 0.5
-    for e in Y:
-        p[e] = y_t[e]  # observation indicates probability
-        """ dict_paths[e] includes the rule bodies that indicates e """
-        if dict_paths.has_key(e) and X_b.has_key(e):
-            n_pos = 0
-            n_neg = 0
-            for (e1, e2) in dict_paths[e]:
-                if X.has_key(e1) or X.has_key(e2): continue  # check unknown edges
-                if p[e1] * p[e2] >= threshold:  # check (1,1) edges
-                    n_pos += 1
-                else:
-                    n_neg += 1
-            if n_pos + n_neg == 1: continue  # filter out the edges only have at most have one 1&1 or ?&0/1 or 1/0& body in the rules?
-            # 1. (1,1) count is greater than (_,1),(1,_),(_,0) and (0,_) counts and p[e]==0   non indicates conflict
-            # or 2. (1,1) count is less than (_,1),(1,_),(_,0) and (0,_) counts and p[e]>0   indicates conflict
-            if (n_pos - n_neg > 0 and p[e] <= threshold) or (n_pos - n_neg < 0 and p[e] >= threshold):
-                """b_init[e] = 1.0"""
-                b_init[e] = 1.0
-            else:
-                b_init[e] = 0.0
-
-    for e in X:
-        conf = 0
-        """ dict_paths includes the rule bodies that indicates e """
-        if dict_paths.has_key(e):
-            for (e1, e2) in dict_paths[e]:
-                if p[e1] * p[e2] > threshold:
+    for e, e_nns in edge_down_nns.items():
+        if X.has_key(e):
+            obs = {e_n:y_t[e_n] for e_n in e_nns.keys() if Y.has_key(e_n)}
+            # if len(obs) == 0: obs = {p0}
+            conf = 0
+            n_pos=0.0
+            for e_o,val in obs.items():
+                # if Y.has_key(e_o) and b_init[e_o]==1.0:
+                #     val=np.abs(1.0-val)
+                n_pos+=val
+                if val > 0:
                     conf += 1.0
                 else:
                     conf -= 1.0
-            # if x_on_body.has_key(e):
-            #     for (e1,e2) in x_on_body[e]:
-            #         if p[e1] * p[e2] > 0:
-            #             conf += p[e1] * p[e2]
-            #         else:
-            #             conf -= 1
-            if conf > 0.0:  # if (1,1) count is greater than (_,1),(1,_),(_,0) and (0,_) counts than set to 1
-                """p[e] = 1.0"""
+            if conf > 0:
                 p[e] = 1.0
             else:
-                p[e] = 0.0
-        else:
-            if x_on_body.has_key(e):
-                conf = 0.0
-                for (e1, e2) in x_on_body[e]:
-                    # if e1 in Y and b_init[e1] == 1:
-                    #     p1 = 1 - p[e1]
-                    # else:
-                    #     p1 = p[e1]
-                    # if e2 in Y and b_init[e2] == 1:
-                    #     p2 = 1 - p[e2]
-                    # else:
-                    #     p2 = p[e2]
-                    p1 = p[e1]
-                    p2 = p[e2]
-                    # if p[e1] * p[e2] > 0:
-                    if p1 * p2 >= threshold:
-                        conf += p1 * p2
-                    else:
-                        conf -= 1
-                if conf > 0:  # if (1,1) count is greater than (_,1),(1,_),(_,0) and (0,_) counts than set to 1
-                    """p[e] = 1.0"""
+                # p[e] = 0.0
+                if n_pos>1:
                     p[e] = 1.0
                 else:
                     p[e] = 0.0
-            else:
-                p[e] = 0.0
-                # if random.random()>0.5:
-                #     p[e] = 0.0
-                # else:
-                #     p[e] = 1.0
+        else:
+            p[e] = y_t[e]
 
     return p, b_init
 
-    return p, b_init
+def calc_initial_p2(y_t, edge_nns, Y, cnt_E, p0):
+    p = [0 for i in range(cnt_E)]
+    for e, e_nns in edge_nns.items():
+        obs = [y_t[e_n] for e_n in e_nns if e_n in Y]
+        if len(obs) == 0: obs = [p0]
+        p[e] = np.mean(obs)
+    return p
+
+
 """
 INPUT
 v: a vector of numbers that may be outside the range [0, 1]
@@ -1142,7 +890,7 @@ v: truncated vector of numbers in the range [0, 1]
 def normalize(v):
     for i in range(len(v)):
         if v[i] < 0.0: v[i] = 0.0
-        if v[i] >= 1.0: v[i] = 1.0
+        if v[i] > 1.0: v[i] = 1.0
     return v
 
 
@@ -1153,31 +901,41 @@ OUTPUT
 """
 
 
-def generate_local_variables(p_init, b_init, X_b, y_t, edge_down_nns, X, Y, cnt_E, R):
+def generate_local_variables(p_init, b_init, y_t, edge_down_nns, X, Y, cnt_E, R):
     K = len(R)
-    R_p = np.zeros((K, 6))
-    R_p_hat = np.zeros((K,
-                        6))  # R_z is a vector of lists of copied variables in R_p and each of the list relates to a specific rule.  R_z[i][e] is a copied variable of R_p[i][e]
-    R_lambda = np.zeros((K, 6))
-    y_edge = np.zeros((K, 3))
+    R_p = []
+    R_p_hat = []  # R_z is a vector of lists of copied variables in R_p and each of the list relates to a specific rule.  R_z[i][e] is a copied variable of R_p[i][e]
+    R_lambda = []
+    y_edge = []
     copies = {}
-    for k in xrange(K):
-        for idx, e in enumerate(R[k]):  # R=[..,(e1,e2, e3),...]   e1 AND e2 => e3
-            if X.has_key(e):
-                R_p_hat[k][2 * idx] = p_init[e]  # copy p_x entry
-                # copy b_y entry
-                R_p[k][2 * idx] = p_init[e]  # p_x entry
+    for k in range(K):
+        rule_p = []
+        rule_p_hat = []
+        rule_lambda = []
+        y_indct = []
+        for idx, e in enumerate(R[k]):  # R=[..,(e,e_up)_k,...]   e_up => e
+            if e in X:
+                rule_p_hat.append(p_init[e])  # copy p_x entry
+                rule_p_hat.append(0.0)  # copy b_y entry
+                rule_p.append(p_init[e])  # p_x entry
+                rule_p.append(0.0)  # b_y entry
+                y_indct.append(0)  # indicates the edge in E_X
             else:
-                R_p_hat[k][2 * idx] = p_init[e]
-                R_p_hat[k][2 * idx + 1] = b_init[e]
-                R_p[k][2 * idx] = p_init[e]
-                R_p[k][2 * idx + 1] = b_init[e]
-                y_edge[k][idx] = 1.0  # indicates the edge in E_Y
-
+                rule_p_hat.append(p_init[e])
+                rule_p_hat.append(b_init[e])
+                rule_p.append(p_init[e])
+                rule_p.append(b_init[e])
+                y_indct.append(1)  # indicates the edge in E_Y
+            rule_lambda.append(0.0)  # p_xi or p_yi
+            rule_lambda.append(0.0)  # b_xi or b_yi
             if copies.has_key(e):
                 copies[e].append([k, idx * 2])
             else:
                 copies[e] = [[k, idx * 2]]
+        R_p.append(rule_p)
+        R_p_hat.append(rule_p)
+        R_lambda.append(rule_lambda)
+        y_edge.append(y_indct)
 
     return R_p, R_p_hat, R_lambda, y_edge, copies
 
@@ -1199,112 +957,73 @@ OUTPUT
 p_t: a list of probability values of the cnt_Y + cnt_X edges. p[i] refers to the probability value of edge id=i
 b_t:
 """
-def admm(omega, b_init, X_b, y_t, Y, X, edge_up_nns, edge_down_nns, omega_0, R, dict_paths, x_on_body, psl = False, approx = False, report_stat = True):
-    # report_stat = True
+
+
+def admm(omega, b, y_t, Y, X, edge_up_nns, edge_down_nns, omega_0, R, psl=False, approx=False, report_stat=False):
+    # print "b_init", b_init
     weight = 1.0
     epsilon = 0.01
     cnt_E = len(X) + len(Y)
     K = len(R)
-    t0=time.time()
-    sign_grad_py_t={}
+    p_init, b_init = calc_initial_p1(y_t, edge_down_nns, X, Y, cnt_E, 0.5, b)
 
-
-    p_init, b_init = calc_initial_p4(dict_paths,x_on_body, y_t, edge_down_nns, X_b, X, Y, cnt_E, 0.5, b_init)
-    if report_stat: print p_init
-    if report_stat: print b_init
-    t1=time.time()
-    # print "cal int time",t1-t0
-    """
-        R_p,R_p_hat,R_lambda \in R^(Kx6) 
-        y_edge \in R^(Kx3)
-        copies \in R^(|E|xMax_len(|copies_i|))
-    """
-    R_p, R_p_hat, R_lambda, y_edge, copies = generate_local_variables(p_init, b_init, X_b, y_t, edge_down_nns, X, Y,
-                                                                      cnt_E, R)
-    # t2=time.time()
-    # print "cal int time",t2-t1
-    # print R_p
-    p_time =0.0
-    p_num =0.0
+    # print "R", R
+    # print "y_t", y_t
+    # print "p_init", p_init
+    R_p, R_p_hat, R_lambda, y_edge, copies = generate_local_variables(p_init, b_init, y_t, edge_down_nns, X, Y, cnt_E,
+                                                                      R)
+    # print R_p, copies
     kappa = 1.0  # kappa = 1/rho
-    maxiter = 30
+    maxiter = 5
     for iter in range(maxiter):
-        t3 = time.time()
-        # print "admm iteration {}".format(iter)
-        t_1 = time.time()
-        # R_lambda=R_lambda + (1.0/kappa)*(R_p_hat-R_p)
-        # R_p_hat = R_p - kappa*R_lambda
-        # R_p_hat[R_p_hat<0.0]=0.0
-        # R_p_hat[R_p_hat > 1.0] = 1.0
-        for k in xrange(K):
-            # if report_stat: print k, R[k], "----------------------------------------------------------------------------"
+        for k in range(K):
             # update lambda variables
-            # R_lambda[k] = list_sum(R_lambda[k], list_dot_scalar(list_minus(R_p_hat[k], R_p[k]), 1/kappa))
-            R_lambda[k] = R_lambda[k] + (1.0 / kappa) * (R_p_hat[k] - R_p[k])
-            # if report_stat: print "R_Lambda[k]", k, R_lambda[k]
-            # update copy variables
-            # R_p_hat[k] = normalize(list_minus(R_p[k], list_dot_scalar(R_lambda[k], kappa)))
-            R_p_hat[k] = normalize(R_p[k] - kappa * R_lambda[k])
-            # if report_stat: print "R_p_hat", R_p_hat[k], R_p[k], R_lambda[k]
-            # if report_stat: print "lk", lk(k, X_b, R[k], R_p_hat[k], y_edge[k]), y_edge[k]
-            if lk(k, X_b, R[k], R_p_hat[k], y_edge[k]) > 0:
-                t11=time.time()
-                _, c = get_comp(k, X_b, R[k], R_p_hat[k], y_edge[k])
-                c = np.array(c)
-                # if report_stat: print "c:", c
-                k_p_hat = normalize(R_p[k] - (kappa * R_lambda[k] + weight * kappa * c))
-                """k_p_hat = normalize(list_minus(R_p[k], list_sum(list_dot_scalar(R_lambda[k], kappa), list_dot_scalar(c, weight*kappa))))"""
-                # if report_stat: print "k_p_hat", k_p_hat, k, R[k]
-                for i, edge_i_val in enumerate(y_edge[k]):
+            R_lambda[k] = list_sum(R_lambda[k], list_dot_scalar(list_minus(R_p_hat[k], R_p[k]), 1 / kappa))
+
+            # update copy variables, assume lk(R_p_hat[k])<0
+            R_p_hat[k] = normalize(list_minus(R_p[k], list_dot_scalar(R_lambda[k], kappa)))
+
+            if lk(R_p_hat[k], y_edge[k]) > 0:
+                c = delta_lk(R_p_hat[k], y_edge[k])
+                # print "R_p_hat[k] before: ", R_p_hat[k]
+                k_p_hat = normalize(list_minus(R_p[k], list_sum(list_dot_scalar(R_lambda[k], kappa),
+                                                                list_dot_scalar(c, weight * kappa))))
+                # print R_p_hat[k]
+                # print "k_p_hat", k_p_hat
+                for i in y_edge[k]:
                     if y_edge[k][i] == 1:  # update b_y
                         R_p_hat[k][i * 2 + 1] = k_p_hat[i * 2 + 1]
                     else:  # update p_x
                         R_p_hat[k][i * 2] = k_p_hat[i * 2]
-                # if report_stat: print ">>>", R_p_hat[k], y_edge[k], lk(k, X_b, R[k], R_p_hat[k], y_edge[k])
-                if lk(k, X_b, R[k], R_p_hat[k], y_edge[k]) < 0:
-                    # print "projection before: ", lk(k, R_p_hat[k],y_edge[k]), R_p_hat[k] #k, X_b, R_k, x, rule, y_edge
-                    R_p_hat[k] = normalize(Proj_lk2(k, X_b, R[k], R_p[k] - kappa * R_lambda[k], R_p_hat[k], y_edge[k]))
-                    # R_p_hat[k] =normalize(R_p_hat[k])
-                    # if report_stat: print "projection after: ", lk(k, X_b, R[k], R_p_hat[k], y_edge[k])
-                # if report_stat: print "R_p_hat[k] updated: ", R_p_hat[k]
-                # p_time+=time.time()-t11
-                # p_num+=1.0
-
-        t_2 = time.time()
-        # print "Rule process:",t_2-t_1
+                if lk(R_p_hat[k], y_edge[k]) < 0:
+                    # print "projection: ", lk(R_p_hat[k],y_edge[k]), R_p_hat[k]
+                    R_p_hat[k] = normalize(
+                        Proj_lk(list_minus(R_p[k], list_dot_scalar(R_lambda[k], kappa)), R_p_hat[k], y_edge[k]))
+                # print "R_p_hat[k] updated: ", R_p_hat[k]
         # update probability variables
         p_t_old, b_t_old = R_p_2_p(R_p, copies, cnt_E)
         # print "y_edge", y_edge
         # R_p_temp = psl_update_px_by(Y, R_p, R_p_hat, R_lambda, copies, omega, cnt_E, kappa)
-        # t_4 = time.time()
-        # print "Rule to P:",t_4-t_2
         if psl == True:
             R_p = psl_update_px_by(Y, R_p, R_p_hat, R_lambda, copies, omega, cnt_E, kappa)
         else:
             R_p = update_by(p_t_old, y_t, Y, R_p, R_p_hat, R_lambda, copies, omega, omega_0, cnt_E, kappa, approx)
-            # t_5=time.time()
-            # print "update b", t_5- t_4
-
             R_p = update_px(X, R_p, R_p_hat, R_lambda, copies, omega, cnt_E, kappa, approx)
-            # t_6 = time.time()
-            # print "update p", t_6 - t_5
             # for e in Y:
             #     for k, j in copies[e]:
             #         R_p[k][j+1] = R_p_temp[k][j+1]
 
         p_t, b_t = R_p_2_p(R_p, copies, cnt_E)
-
-        sign_grad_py_t = get_sign_grad_py(sign_grad_py_t, p_t, b_t, y_t, Y, R_p, R_p_hat, R_lambda, copies, omega,
-                                          cnt_E, kappa, approx)
+        # print "b_t", b_t
+        # print "p_t", p_t
+        # print "R_p", R_p
+        # print "R_p_hat", R_p_hat
+        # print "R_lambda:", R_lambda
         error = np.sqrt(np.sum([np.power(p_t_old[e] - p_t[e], 2) for e in range(cnt_E)]))
         if error < epsilon:
             break
-    #                                 p_t, b_t, y_t, Y, R_p, R_p_hat, R_lambda_, copies, omega, cnt_E, kappa, approx
-
-    if len(sign_grad_py_t)==0: sign_grad_py_t = get_sign_grad_py(sign_grad_py_t, p_t, b_t, y_t, Y, R_p, R_p_hat, R_lambda, copies, omega, cnt_E, kappa, approx)
-    #     sys.stdout.write("Iter-" + str(iter) + ": " + str(round(time.time() - t3, 2)) + "| ")
-    # sys.stdout.write("\n")
-    return p_t, b_t,sign_grad_py_t
+    # sys.exit()
+    return p_t, b_t
 
 
 """
@@ -1330,103 +1049,27 @@ distance from satisfaction of this rule
 """
 
 
-def lk(k, X_b, R_k, rule, y_edge):
-    const, c = get_comp(k, X_b, R_k, rule, y_edge)
-    dist = const + sum([a * b for a, b in zip(c, rule)])
-    return dist
-
-
-def get_comp(k, X_b, R_k, rule, y_edge):
-    # print "X_b, R_k", X_b, R_k
-    if k % 3 == 0:
-        # trust(A,B) AND trust(B,C) -> trust(A,C)
-        c = []
-        for i in range(2):
-            if y_edge[i] == 0:  # 0 means unobserved edge
-                c.extend([1, 0])
-            else:
-                c.extend([1, -1])
-        if y_edge[2] == 0:
-            c.extend([-1, 0])
-        else:
-            c.extend([-1, -1])
-        const = - 1
-    elif k % 3 == 1:
-        # not trust(A,B) AND trust(B,C) -> not trust(A,C)
-        c = []
-        if y_edge[0] == 0:  # 0 means unobserved edge
-            c.extend([-1, 0])
-        else:
-            c.extend([-1, -1])
-
-        if y_edge[1] == 0:  # 0 means unobserved edge
-            c.extend([1, 0])
-        else:
-            c.extend([1, -1])
-
-        if y_edge[2] == 0:
-            c.extend([1, 0])
-        else:
-            c.extend([1, -1])
-        const = -1
-    else:
-        # trust(A,B) AND not trust(B,C) -> not trust(A,C)
-        c = []
-
-        if y_edge[0] == 0:  # 0 means unobserved edge
-            c.extend([1, 0])
-        else:
-            c.extend([1, -1])
-
-        if y_edge[1] == 0:  # 0 means unobserved edge
-            c.extend([-1, 0])
-        else:
-            c.extend([-1, -1])
-
-        if y_edge[2] == 0:
-            c.extend([1, 0])
-        else:
-            c.extend([1, -1])
-        const = -1
-
-    for i in range(3):
-        if not X_b.has_key(R_k[i]):
-            c[i * 2 + 1] = 0
-
-    return const, c
-
-    # dist = 1 - rule[4] - (1 - rule[0]) - (1 - rule[2])
-    # if y_edge[0] == 0:
-    #     dist = dist - rule[1]
-    #
-    # if y_edge[1] == 0:
-    #     dist = dist - rule[3]
-    #
-    # if y_edge[2] == 0:
-    #     dist = dist - rule[5]
-    #
-    # return dist
-
-    # if y_edge[0]==1 and y_edge[1]==1: #both are y edges, y->y
-    #     # y -> y
-    #     # rule[0] and (1-rule[1]) and (1-rule[3]) -> rule[2]
-    #     # DFS: 1 - rule[2] - (1- rule[0]) - rule[1] - rule[3] = rule[0] - rule[1] - rule[2] - rule[3]
-    #     return rule[0]-rule[1]-rule[2]-rule[3]
-    # elif y_edge[0]==0 and y_edge[1]==1: #x->y
-    #     # x->y
-    #     # rule[0] and (1-rule[3]) -> rule[2]
-    #     # DFS: 1 - rule[2] - (1- rule[0]) - rule[3] = rule[0] - rule[2] - rule[3]
-    #     return rule[0]-rule[2]-rule[3]
-    # elif y_edge[0]==0 and y_edge[1]==0: #x->x
-    #     # x -> x
-    #     # rule[0] -> rule[2]
-    #     # DFS: 1 - rule[2] - (1 - rule[0]) = rule[0] - rule[2]
-    #     return rule[0]-rule[2]
-    # elif y_edge[0]==1 and y_edge[1]==0: #y->x
-    #     # y -> x
-    #     # rule[0] and (1 - rule[1]) -> rule[2]
-    #     # DFS: 1 - rule[2] - (1 - rule[0]) - rule[1] -> rule[0] - rule[1] - rule[2]
-    #     return  rule[0]-rule[1]-rule[2]
+def lk(rule, y_edge):
+    if y_edge[0] == 1 and y_edge[1] == 1:  # both are y edges, y->y
+        # y -> y
+        # rule[0] and (1-rule[1]) and (1-rule[3]) -> rule[2]
+        # DFS: 1 - rule[2] - (1- rule[0]) - rule[1] - rule[3] = rule[0] - rule[1] - rule[2] - rule[3]
+        return rule[0] - rule[1] - rule[2] - rule[3]
+    elif y_edge[0] == 0 and y_edge[1] == 1:  # x->y
+        # x->y
+        # rule[0] and (1-rule[3]) -> rule[2]
+        # DFS: 1 - rule[2] - (1- rule[0]) - rule[3] = rule[0] - rule[2] - rule[3]
+        return rule[0] - rule[2] - rule[3]
+    elif y_edge[0] == 0 and y_edge[1] == 0:  # x->x
+        # x -> x
+        # rule[0] -> rule[2]
+        # DFS: 1 - rule[2] - (1 - rule[0]) = rule[0] - rule[2]
+        return rule[0] - rule[2]
+    elif y_edge[0] == 1 and y_edge[1] == 0:  # y->x
+        # y -> x
+        # rule[0] and (1 - rule[1]) -> rule[2]
+        # DFS: 1 - rule[2] - (1 - rule[0]) - rule[1] -> rule[0] - rule[1] - rule[2]
+        return rule[0] - rule[1] - rule[2]
 
 
 """
@@ -1482,47 +1125,40 @@ project the solution to l_k(p,by)=0 hyperplane
 Proj_{l_k=0}(x):= argmin_y ||x-y||_2   s.t. l_k(y)=0
 """
 
-            #k, X_b, R[k], x, R_p_hat[k], y_edge[k])
-def Proj_lk(k, X_b, R_k, x, rule, y_edge):
-    const, c = get_comp(k, X_b, R_k, rule, y_edge)
+
+def Proj_lk(x, rule, y_edge):
+    const, c = getConstantVector(rule, y_edge)
     c_part = []
     x_part = []
     idx_list = []
-
-    cnt = 0
-    for i in range(3):
-        if X_b.has_key(R_k[i]):#if all edges are target edges
-            cnt += 1
-    # try:
-    if cnt == 0 and sum(y_edge) == 0:
-        # print "1----------------------->>return rule"
-        return rule
-
-    for i in range(3):
-        if y_edge[i] == 0:
-            idx_list.append(i * 2)
-            c_part.append(c[i * 2])
-            x_part.append(x[i * 2])
-        else:
-            if X_b.has_key(R_k[i]):
-                idx_list.append(i * 2 + 1)
-                c_part.append(c[i * 2 + 1])
-                x_part.append(x[i * 2 + 1])
-                const += c[i * 2] * rule[i * 2]
-            else:
-                const += c[i * 2] * rule[i * 2]
-
+    if y_edge[0] == 0:  # p_x
+        idx_list.append(0)
+        c_part.append(c[0])
+        x_part.append(x[0])
+    else:  # b_y
+        idx_list.append(1)
+        c_part.append(c[1])
+        x_part.append(x[1])
+        const += c[0] * rule[0]
+    if y_edge[1] == 0:  # -> p_x
+        idx_list.append(2)
+        c_part.append(c[2])
+        x_part.append(x[2])
+    else:  # ->b_y
+        idx_list.append(3)
+        c_part.append(c[3])
+        x_part.append(x[3])
+        const += c[2] * rule[2]
     c_part = np.array(c_part)
     x_part = np.array(x_part)
+
     y = cvx.Variable(len(c_part))
     objective = cvx.Minimize(cvx.sum_squares(x_part - y))
     constraints = [const + c_part.T * y == 0.0, y >= 0.0, y <= 1.0]
     # constraints = [const + c_part.T * y == 0.0]
     p = cvx.Problem(objective, constraints)
     p.solve()  # The optimal objective is returned by p.solve().
-    # except:
-    #     print "2-->return rule", c_part,x_part,rule,x
-    #     return rule
+    # print y.value.tolist()
     y_optimal = [i for i in y.value.tolist()]
     rule_optimal = copy.deepcopy(rule)
     for i, idx in enumerate(idx_list):
@@ -1530,34 +1166,31 @@ def Proj_lk(k, X_b, R_k, x, rule, y_edge):
     return rule_optimal
 
 
-def Proj_lk2(k, X_b, R_k, x, rule, y_edge):
-    const, c = get_comp(k, X_b, R_k, rule, y_edge)
+def Proj_lk2(x, rule, y_edge):
+    const, c = getConstantVector(rule, y_edge)
     c_part = []
     x_part = []
     idx_list = []
-
-    cnt = 0
-    for i in range(3):
-        if X_b.has_key(R_k[i]):
-            cnt += 1
-
-    if cnt == 0 and sum(y_edge) == 0:
-        # print "return>-----------"
-        return rule
-
-    for i in range(3):
-        if y_edge[i] == 0:
-            idx_list.append(i * 2)
-            c_part.append(c[i * 2])
-            x_part.append(x[i * 2])
-        else:
-            # if X_b.has_key(R_k[i]):
-            idx_list.append(i * 2 + 1)
-            c_part.append(c[i * 2 + 1])
-            x_part.append(x[i * 2 + 1])
-            const += c[i * 2] * rule[i * 2]
-            # else:
-            #     const += c[i * 2] * rule[i * 2]
+    if y_edge[0] == 0:  # p_x
+        idx_list.append(0)
+        c_part.append(c[0])
+        x_part.append(x[0])
+    else:  # b_y
+        idx_list.append(1)
+        c_part.append(c[1])
+        x_part.append(x[1])
+        const += c[0] * rule[0]
+    if y_edge[1] == 0:  # -> p_x
+        idx_list.append(2)
+        c_part.append(c[2])
+        x_part.append(x[2])
+    else:  # ->b_y
+        idx_list.append(3)
+        c_part.append(c[3])
+        x_part.append(x[3])
+        const += c[2] * rule[2]
+    c_part = np.array(c_part)
+    x_part = np.array(x_part)
 
     c_norm = sqrt(list_inn(c_part, c_part))
     c_x = list_inn(c_part, x_part)
@@ -1570,8 +1203,6 @@ def Proj_lk2(k, X_b, R_k, x, rule, y_edge):
     for i, idx in enumerate(idx_list):
         rule_optimal[idx] = y_optimal[i]
     return rule_optimal
-
-
 # for idx, type in enumerate(y_edge):
 #     if type == 0 and proj[idx * 2+1] is not 0:
 #         warnings.warn("b_xi = 0 in the function Proj_lk: {}".format(proj[idx * 2+1]))
@@ -1597,20 +1228,17 @@ def R_p_2_p(R_p, copies, cnt_E):
     b = [-1.0 for i in range(cnt_E)]
     p = [-1.0 for i in range(cnt_E)]
     for e, e_copies in copies.items():
-        # k, j = e_copies[0]  #k_th rule, j_th item
-        # p[e] = np.round(R_p[k][j] , 2)
-        # b[e] = np.round(R_p[k][j+1], 2)
+        # k, j = e_copies[0]  # k_th rule, j_th item
+        # p[e] = np.round(R_p[k][j], 2)
+        # b[e] = np.round(R_p[k][j + 1], 2)
         """p_x,p_y and b_y are mean of their local copies """
         p_e = []
         b_e = []
         for k, j in e_copies:  # k_th rule, j_th item
             p_e.append(R_p[k][j])
-            b_e.append(R_p[k][j + 1])
-        # if e==8: print "R2P",e,p_e,b_e
-        # p[e] = np.round(np.mean(p_e),2)
-        # b[e] = np.round(np.mean(b_e),2)
-        p[e] = prob_2_binary2(np.mean(p_e))
-        b[e] = prob_2_binary(np.mean(b_e))
+            b_e.append(R_p[k][j+1])
+        p[e] = prob_2_binary(np.round(np.mean(p_e),2))
+        b[e] = prob_2_binary(np.round(np.mean(b_e),2))
 
     return p, b
 
@@ -1691,7 +1319,6 @@ def reformat(V, E, Obs, Omega):
     return V, edge_up_nns, edge_down_nns, id_2_edge, edge_2_id, omega, feat
 
 
-
 """
 INPUT:
 true_omega_x: The true opinions of edges in X
@@ -1720,8 +1347,6 @@ def calculate_measures(true_omega_x, pred_omega_x, b, pred_b_y, X, logging):
     n_matches = 0.0
     n_positives = 0.0
     n_total = 0.0
-    # print "b", b
-    # print "pred_b_y", pred_b_y
     for e, val in pred_b_y.items():
         if b[e] == val and val == 1:
             n_matches += 1
@@ -1729,22 +1354,14 @@ def calculate_measures(true_omega_x, pred_omega_x, b, pred_b_y, X, logging):
             n_positives += 1
         if val == 1:
             n_total += 1
-    # if n_total == 0: n_total = 1
-    if n_positives == 0:
-        b_recall = 1.0
-    else:
-        b_recall = n_matches / n_positives
-    if n_total == 0:
-        b_prec = 1.0
-    else:
-        b_prec = n_matches / n_total
-    # print n_positives, b_prec, b_recall, n_total
+    if n_total == 0: n_total = 1
+    b_prec = n_matches / n_total
+    b_recall = n_matches / n_positives
     if (b_prec + b_recall) > 0:
         b_f_measure = 2 * (b_prec * b_recall) / (b_prec + b_recall)
     else:
         b_f_measure = 0
-    # print "true_omega_x", true_omega_x
-    # print "pred_omega_x", pred_omega_x
+
     """
     Calculate the quality measures of uncertainty prediction
     """
@@ -1759,7 +1376,7 @@ def calculate_measures(true_omega_x, pred_omega_x, b, pred_b_y, X, logging):
     EB-MSE= 1/N \sum |a_i/(a_i+b_i) - a*_i/(a*_i+b*_i)|
     """
     prob_true_X = {e: (true_omega_x[e][0] * 1.0) / (true_omega_x[e][0] + true_omega_x[e][1]) + 0.0001 for e in X}
-    prob_pred_X = {e: (pred_omega_x[e][0] * 1.0) / (pred_omega_x[e][0] + pred_omega_x[e][1]) + 0.0001 for e in X}
+    prob_pred_X = {e: (pred_omega_x[e][0] * 1.0) / (pred_omega_x[e][0] + pred_omega_x[e][1]) for e in X}
 
     prob_mse = np.mean([np.abs(prob_pred_X[e] - prob_true_X[e]) for e in X])
     prob_relative_mse = np.mean([np.abs(prob_pred_X[e] - prob_true_X[e]) / prob_true_X[e] for e in X])
@@ -1815,12 +1432,9 @@ It will print out the following information:
 """
 
 
-def evaluate(V, E, Obs, Omega, X, Y, X_b, b, logging, psl=False, approx=False, init_alpha_beta=(1, 1),
-             report_stat=False):
-    pred_omega_x, pred_b_y = inference_apdm_format(V, E, Obs, Omega, b, X_b, X, logging, psl, approx, init_alpha_beta,
+def evaluate(V, E, Obs, Omega, X, Y, b, logging, psl=False, approx=False, init_alpha_beta=(1, 1), report_stat=False):
+    pred_omega_x, pred_b_y = inference_apdm_format(V, E, Obs, Omega, b, X, logging, psl, approx, init_alpha_beta,
                                                    report_stat)
-    print Omega
-    print "pred_omega_x", {e: omega for e, omega in pred_omega_x.items() if e in X}
     prob_mse, u_mse, prob_relative_mse, u_relative_mse, accuracy, recall_congested, recall_uncongested, b_f_measure = calculate_measures(
         Omega, pred_omega_x, b, pred_b_y, X, logging)
     str = "(true bi, predicted bi): "
@@ -1890,12 +1504,532 @@ def generate_a_random_opinion(a=0.5, W=1):
     return (alpha, beta)
 
 
+"""
+INPUT
+V: a list of vertex ids
+E: a list of ordered pairs of vertex ids
+T: The number of observations. 100 by default.
+
+OUTPUT
+datasets: key is rate and the value is [[V, E, Omega, Obs, X], ...], where rate refers to the rate of edges that are randomly selected as target edges
+
+"""
+
+
+def simulation_data_generator(V, E, rates=[0.05, 0.1, 0.15, 0.25, 0.3, 0.4, 0.5], realizations=10, T=50):
+    datasets = {}
+    len_E = len(E)
+    Omega = {}
+    for e in E:
+        Omega[e] = generate_a_random_opinion()
+    for rate in rates:
+        rate_datasets = []
+        for real_i in range(realizations):
+            len_X = int(round(len_E * rate))
+            rate_X = [E[i] for i in np.random.permutation(len_X)[:len_X]]
+            rate_omega_X = SL_prediction(V, E, Omega, rate_X)
+            rate_omega = copy.deepcopy(Omega)
+            for e, alpha_beta in rate_omega_X.items():
+                Omega[e] = alpha_beta
+            rate_Obs = {}
+            for e in E:
+                e_alpha, e_beta = Omega[e]
+                rate_Obs[e] = beta.rvs(e_alpha, e_beta, 0, 1, T)
+            datasets[(rate, real_i)] = [V, E, rate_omega, rate_Obs, rate_X]
+    return datasets
+
+
+"""
+Generate simulation datasts with different graph sizes and rates
+"""
+
+
+def simulation_data_generator1():
+    graph_sizes = [500, 1000, 5000, 10000, 47676]
+    rates = [0.05, 0.1, 0.15, 0.25, 0.3, 0.4, 0.5]
+    T = 10
+    for graph_size in graph_sizes[4:5]:
+        filename = "data/trust-analysis/nodes-{0}.pkl".format(graph_size)
+        print "--------- reading {0}".format(filename)
+        pkl_file = open("data/trust-analysis/nodes-{0}.pkl".format(graph_size), 'rb')
+        [V, E] = pickle.load(pkl_file)
+        print len(V), len(E)
+        pkl_file.close()
+        print "--------- generating simulation data"
+        datasets = simulation_data_generator(V, E, rates[:1], T)
+        for (rate, real_i), dataset in datasets.items():
+            print "---------------------graph size: {0}, rate: {1}, realization: {2}".format(graph_size, rate, real_i)
+            pkl_file = open(
+                "data/trust-analysis/nodes-{0}-rate-{1}-realization-{2}-data.pkl".format(graph_size, rate, real_i),
+                'wb')
+            pickle.dump(dataset, pkl_file)
+            pkl_file.close()
+
+
+"""
+Using breadfirst search with the start vertex id 0, this function generates sampled networks of
+size 500, 1000, 5000, 10000, and 47676, where 47676 is the size of the largest connected component
+that includes vertex 0
+"""
+
+
+def sampple_epinion_network(sample_sizes=[500, 1000, 5000, 10000, 47676]):
+    filename = "data/trust-analysis/Epinions.txt"
+    # print open(filename).readlines()[:4]
+    dict_V = {}
+    E = []
+    for line in open(filename).readlines()[4:]:
+        (str_start_v, str_end_v) = line.split()
+        start_v = int(str_start_v)
+        end_v = int(str_end_v)
+        if not dict_V.has_key(start_v):
+            dict_V[start_v] = 1
+        if not dict_V.has_key(end_v):
+            dict_V[end_v] = 1
+        E.append((start_v, end_v))
+    V = dict_V.keys()
+    vertex_nns = {}
+    for v_start, v_end in E:
+        if vertex_nns.has_key(v_start):
+            if v_end not in vertex_nns[v_start]:
+                vertex_nns[v_start].append(v_end)
+        else:
+            vertex_nns[v_start] = [v_end]
+
+    sample_networks = []
+    for sample_size in sample_sizes:
+        sample_V, sample_E = breadth_first_search(vertex_nns, sample_size)
+        print "sample network: #nodes: {0}, #edges: {1}".format(len(sample_V), len(sample_E))
+        # print walk_V
+        # print walk_E
+        sample_networks.append([sample_V, sample_E])
+        pkl_file = open("data/trust-analysis/nodes-{0}.pkl".format(len(sample_V)), 'wb')
+        pickle.dump([sample_V, sample_E], pkl_file)
+        pkl_file.close()
+
+
+"""
+INPUT
+vertex_nns: key is vertex id, and the value is a list of neighboring vertex ids
+sample_size: the size of the sampled subgraph using breadth first search
+
+We need to re-label the vertex ids of the sampled subgraph such that the ids are continuous starting from 0.
+
+OUTPUT
+V: a list of vertex ids
+E: a list of pairs of vertex ids
+"""
+
+
+def breadth_first_search(vertex_nns, sample_size):
+    sample_V = {}
+    sample_E = []
+    start_v = 0
+    queue = [start_v]
+    n = 0
+    while len(queue) > 0:
+        v = queue.pop()
+        sample_V[v] = 1
+        n = n + 1
+        if vertex_nns.has_key(v):
+            for v_n in vertex_nns[v]:
+                if not sample_V.has_key(v_n) and v_n not in queue:
+                    queue.append(v_n)
+        if n >= sample_size:
+            break
+    for v, v_nns in vertex_nns.items():
+        for v_n in v_nns:
+            if sample_V.has_key(v) and sample_V.has_key(v_n):
+                sample_E.append((v, v_n))
+    old_id_2_new_id = {}
+    for new_id, v in enumerate(sample_V.keys()):
+        old_id_2_new_id[v] = new_id
+    sample_V = range(len(sample_V))
+    sample_E = [(old_id_2_new_id[v1], old_id_2_new_id[v2]) for (v1, v2) in sample_E]
+    return sample_V, sample_E
+
+"""
+0 -> 1
+1 -> 2
+1 -> 3
+
+The compromised edge: 1 -> 3
+"""
+def new_testcase_1():
+    logging = Log('new_testcase_1.txt')
+    print inspect.stack()[0][3]
+    V = [0,1,2,3]
+    E = [(0, 1), (1, 2), (1, 3)]
+    X = [(0, 1)]
+    Y = [e for e in E if e not in X]
+    T = 10
+    zeros = np.zeros(T)
+    ones = np.ones(T)
+    Obs = {e: zeros for e in E}
+    Obs[(1,2)] = ones
+    Obs[(0, 1)] = ones
+    true_conflict = [(1, 3)]
+    Omega = estimate_omega_x([{e: Obs[e][t] for e in Obs} for t in range(T)], E)
+    b = {e: 1 if e in true_conflict else 0 for e in E}
+    print b
+    prob_mse, u_mse, prob_relative_mse, u_relative_mse, accuracy, recall_congested, recall_uncongested, b_f_measure = \
+        evaluate(V, E, Obs, Omega, X, Y, b, logging, psl = False, approx = False, init_alpha_beta = (1, 1), report_stat =False)
+
+
+"""
+0 -> 1
+1 -> 2
+1 -> 3
+1 -> 4
+
+The compromised edge: 1 -> 3
+"""
+def new_testcase_2():
+    logging = Log('new_testcase_2.txt')
+    print inspect.stack()[0][3]
+    V = [0,1,2,3,4]
+    E = [(0, 1), (1, 2), (1, 3), (1, 4)]
+    X = [(0, 1)]
+    Y = [e for e in E if e not in X]
+    T = 10
+    zeros = np.zeros(T)
+    ones = np.ones(T)
+    Obs = {e: zeros for e in E}
+    Obs[(1,3)] = ones
+    true_conflict = [(1, 3)]
+    Omega = estimate_omega_x([{e: Obs[e][t] for e in Obs} for t in range(T)], E)
+    b = {e: 1 if e in true_conflict else 0 for e in E}
+    prob_mse, u_mse, prob_relative_mse, u_relative_mse, accuracy, recall_congested, recall_uncongested, b_f_measure = \
+        evaluate(V, E, Obs, Omega, X, Y, b, logging, psl = False, approx = False, init_alpha_beta = (1, 1), report_stat =False)
+
+
+
+
+
+"""
+0 -> 1
+1 -> 2
+1 -> 3
+1 -> 4
+1 -> 5
+
+The compromised edge: 1 -> 3
+"""
+def new_testcase_3():
+    logging = Log('new_testcase_3.txt')
+    print inspect.stack()[0][3]
+    V = [0,1,2,3,4,5]
+    E = [(0, 1), (1, 2), (1, 3), (1, 4), (1, 5)]
+    X = [(0, 1)]
+    Y = [e for e in E if e not in X]
+    T = 10
+    zeros = np.zeros(T)
+    ones = np.ones(T)
+    Obs = {e: zeros for e in E}
+    Obs[(1,3)] = ones
+    true_conflict = [(1, 3)]
+    Omega = estimate_omega_x([{e: Obs[e][t] for e in Obs} for t in range(T)], E)
+    b = {e: 1 if e in true_conflict else 0 for e in E}
+    prob_mse, u_mse, prob_relative_mse, u_relative_mse, accuracy, recall_congested, recall_uncongested, b_f_measure = \
+        evaluate(V, E, Obs, Omega, X, Y, b, logging, psl = False, approx = False, init_alpha_beta = (1, 1), report_stat =False)
+
+"""
+0 -> 1
+1 -> 2
+1 -> 3
+1 -> 4
+1 -> 5
+1 -> 6
+1 -> 7
+
+The compromised edge: 1 -> 3
+"""
+def new_testcase_35():
+    logging = Log('new_testcase_35.txt')
+    print inspect.stack()[0][3]
+    V = [0, 1, 2, 3, 4, 5, 6]
+    E = [(0, 1), (1, 2), (1, 3), (1, 4), (1, 5), (1, 6)]
+    X = [(0, 1)]
+    Y = [e for e in E if e not in X]
+    T = 10
+    zeros = np.zeros(T)
+    ones = np.ones(T)
+    Obs = {e: zeros for e in E}
+    Obs[(1,3)] = ones
+    Omega = {}
+    true_conflict = [(1, 3)]
+    Omega = estimate_omega_x([{e: Obs[e][t] for e in Obs} for t in range(T)], E)
+    b = {e: 1 if e in true_conflict else 0 for e in E}
+    prob_mse, u_mse, prob_relative_mse, u_relative_mse, accuracy, recall_congested, recall_uncongested, b_f_measure = \
+        evaluate(V, E, Obs, Omega, X, Y, b, logging, psl = False, approx = False, init_alpha_beta = (1, 1), report_stat =False)
+
+
+"""
+0 -> 1
+1 -> 2
+1 -> 3
+1 -> 4
+1 -> 5
+1 -> 6
+1 -> 7
+
+The compromised edge: 1 -> 3
+"""
+def new_testcase_4():
+    logging = Log('new_testcase_4.txt')
+    print inspect.stack()[0][3]
+    V = [0, 1, 2, 3, 4, 5, 6, 7]
+    E = [(0, 1), (1, 2), (1, 3), (1, 4), (1, 5), (1, 6), (1, 7)]
+    X = [(0, 1)]
+    Y = [e for e in E if e not in X]
+    T = 10
+    zeros = np.zeros(T)
+    ones = np.ones(T)
+    Obs = {e: zeros for e in E}
+    Obs[(1,3)] = ones
+    Omega = {}
+    true_conflict = [(1, 3)]
+    Omega = estimate_omega_x([{e: Obs[e][t] for e in Obs} for t in range(T)], E)
+    b = {e: 1 if e in true_conflict else 0 for e in E}
+    prob_mse, u_mse, prob_relative_mse, u_relative_mse, accuracy, recall_congested, recall_uncongested, b_f_measure = \
+        evaluate(V, E, Obs, Omega, X, Y, b, logging, psl = False, approx = False, init_alpha_beta = (1, 1), report_stat =False)
+
+
+"""
+0 -> 1
+1 -> 2
+2 -> 3
+3 -> 4
+
+The compromised edge: 1 -> 3
+"""
+def new_testcase_5():
+    logging = Log('new_testcase_5.txt')
+    print inspect.stack()[0][3]
+    V = [0, 1, 2, 3, 4, 5, 6, 7]
+    E = [(0, 1), (1, 2), (2, 3), (3, 4), (3,5)]
+    X = [(0, 1)]
+    Y = [e for e in E if e not in X]
+    T = 5
+    zeros = np.zeros(T)
+    ones = np.ones(T)
+    Obs = {e: ones for e in E}
+    Obs[(2,3)] = zeros
+    true_conflict = [(2,3)]
+    Omega = estimate_omega_x([{e: Obs[e][t] for e in Obs} for t in range(T)], E)
+    b = {e: 1 if e in true_conflict else 0 for e in E}
+    prob_mse, u_mse, prob_relative_mse, u_relative_mse, accuracy, recall_congested, recall_uncongested, b_f_measure = \
+        evaluate(V, E, Obs, Omega, X, Y, b, logging, psl = False, approx = False, init_alpha_beta = (1, 1), report_stat =False)
+
+
+"""
+0-> 1 -> 2
+^   ^^   ^
+3-?-> 4 => 5
+^   ^    ^?
+6-> 7 => 8
+
+The compromised edge: 1 -> 3
+"""
+def new_testcase_6():
+    logging = Log('new_testcase_6.txt')
+    print inspect.stack()[0][3]
+    V = [0,1,2,3,4,5,6,7,8]
+    E = [(0,1), (1,2), (3,4), (4,5), (6,7), (7,8), (3,0), (6,3), (4,1), (7,4), (5,2), (8,5)]
+    X = [(3, 4), (8,5)]
+    Y = [e for e in E if e not in X]
+    T = 10
+    zeros = np.zeros(T)
+    ones = np.ones(T)
+    Obs = {e: zeros for e in E}
+    Obs[(3,4)] = ones
+    Obs[(4,5)] = ones
+    Obs[(4,1)] = ones
+    Obs[(7,8)] = ones
+    true_conflict = [(7,4), (6, 7), (6, 3)]
+    Omega = estimate_omega_x([{e: Obs[e][t] for e in Obs} for t in range(T)], E)
+    print Omega
+    b = {e: 1 if e in true_conflict else 0 for e in E}
+    prob_mse, u_mse, prob_relative_mse, u_relative_mse, accuracy, recall_congested, recall_uncongested, b_f_measure = \
+        evaluate(V, E, Obs, Omega, X, Y, b, logging, psl = False, approx = False, init_alpha_beta = (1, 1), report_stat =False)
+
+
+"""
+0-> 1 -> 2
+^   ^^   ^
+3-?-> 4 => 5
+^^   ^    ^?
+6-> 7 => 8
+
+The compromised edge: 1 -> 3
+"""
+def new_testcase_7():
+    logging = Log('new_testcase_7.txt')
+    print inspect.stack()[0][3]
+    V = [0,1,2,3,4,5,6,7,8]
+    E = [(0,1), (1,2), (3,4), (4,5), (6,7), (7,8), (3,0), (6,3), (4,1), (7,4), (5,2), (8,5)]
+    X = [(3, 4), (8, 5)]
+    Y = [e for e in E if e not in X]
+    T = 10
+    zeros = np.zeros(T)
+    ones = np.ones(T)
+    Obs = {e: zeros for e in E}
+    Obs[(3,4)] = ones
+    Obs[(4,5)] = ones
+    Obs[(4,1)] = ones
+    Obs[(7,8)] = ones
+    Obs[(6,3)] = ones
+    true_conflict = [(7, 4), (6, 7)]
+    Omega = estimate_omega_x([{e: Obs[e][t] for e in Obs} for t in range(T)], E)
+    print Omega
+    b = {e: 1 if e in true_conflict else 0 for e in E}
+    prob_mse, u_mse, prob_relative_mse, u_relative_mse, accuracy, recall_congested, recall_uncongested, b_f_measure = \
+        evaluate(V, E, Obs, Omega, X, Y, b, logging, psl = False, approx = False, init_alpha_beta = (1, 1), report_stat =False)
+
+
+"""
+0-> 1 -> 2
+^   ^^   ^
+3-?-> 4 => 5
+^^   ^    ^?
+6=> 7 => 8
+
+The compromised edge: 1 -> 3
+"""
+def new_testcase_8():
+    logging = Log('new_testcase_7.txt')
+    print inspect.stack()[0][3]
+    V = [0,1,2,3,4,5,6,7,8]
+    E = [(0,1), (1,2), (3,4), (4,5), (6,7), (7,8), (3,0), (6,3), (4,1), (7,4), (5,2), (8,5)]
+    X = [(3, 4), (8, 5)]
+    Y = [e for e in E if e not in X]
+    T = 10
+    zeros = np.zeros(T)
+    ones = np.ones(T)
+    Obs = {e: zeros for e in E}
+    Obs[(3,4)] = ones
+    Obs[(4,5)] = ones
+    Obs[(4,1)] = ones
+    Obs[(7,8)] = ones
+    Obs[(6,3)] = ones
+    Obs[(6,7)] = ones
+    true_conflict = [(7, 4)]
+    Omega = estimate_omega_x([{e: Obs[e][t] for e in Obs} for t in range(T)], E)
+    print Omega
+    b = {e: 1 if e in true_conflict else 0 for e in E}
+    prob_mse, u_mse, prob_relative_mse, u_relative_mse, accuracy, recall_congested, recall_uncongested, b_f_measure = \
+        evaluate(V, E, Obs, Omega, X, Y, b, logging, psl = False, approx = False, init_alpha_beta = (1, 1), report_stat =False)
+
+"""
+0-> 1 -> 2
+^   ^^   ^
+3-?-> 4 => 5
+^^   ^    ^?
+6=> 7 => 8
+
+The compromised edge: 1 -> 3
+"""
+def new_testcase_9_0():
+    logging = Log('new_testcase_7.txt')
+    print inspect.stack()[0][3]
+    V = [0,1,2,3,4]
+    E = [(0,1), (1,2), (2,3), (3,4)]
+    X = [(1, 2)]
+    Y = [e for e in E if e not in X]
+    T = 10
+    zeros = np.zeros(T)
+    ones = np.ones(T)
+    Obs = {e: zeros for e in E}
+    Obs[(0,1)] = ones
+    Obs[(3,4)] = ones
+
+    true_conflict = [(2, 3)]
+    Omega = estimate_omega_x([{e: Obs[e][t] for e in Obs} for t in range(T)], E)
+    print Omega
+    b = {e: 1 if e in true_conflict else 0 for e in E}
+    prob_mse, u_mse, prob_relative_mse, u_relative_mse, accuracy, recall_congested, recall_uncongested, b_f_measure = \
+        evaluate(V, E, Obs, Omega, X, Y, b, logging, psl = False, approx = False, init_alpha_beta = (1, 1), report_stat =False)
+
+def new_testcase_9_1():
+    logging = Log('new_testcase_7.txt')
+    print inspect.stack()[0][3]
+    V = [0,1,2,3,4]
+    E = [(0,1), (1,2), (2,3), (3,4)]
+    X = [(1, 2)]
+    Y = [e for e in E if e not in X]
+    T = 10
+    zeros = np.zeros(T)
+    ones = np.ones(T)
+    Obs = {e: zeros for e in E}
+    Obs[(0,1)] = ones
+    Obs[(1,2)] = ones
+    Obs[(2,3)] = ones
+    Obs[(3,4)] = ones
+
+    true_conflict = [(0,1)]
+    Omega = estimate_omega_x([{e: Obs[e][t] for e in Obs} for t in range(T)], E)
+    print Omega
+    b = {e: 1 if e in true_conflict else 0 for e in E}
+    prob_mse, u_mse, prob_relative_mse, u_relative_mse, accuracy, recall_congested, recall_uncongested, b_f_measure = \
+        evaluate(V, E, Obs, Omega, X, Y, b, logging, psl = False, approx = False, init_alpha_beta = (1, 1), report_stat =False)
+
+
+def new_testcase_9_2():
+    logging = Log('new_testcase_7.txt')
+    print inspect.stack()[0][3]
+    V = [0,1,2,3,4]
+    E = [(0,1), (1,2), (2,3), (3,4)]
+    X = [(1, 2),(2, 3)]
+    Y = [e for e in E if e not in X]
+    T = 10
+    zeros = np.zeros(T)
+    ones = np.ones(T)
+    Obs = {e: zeros for e in E}
+    Obs[(0, 1)] = ones
+    Obs[(1, 2)] = ones
+    Obs[(2, 3)] = ones
+    Obs[(3, 4)] = ones
+
+    true_conflict = [(0,1)]
+    Omega = estimate_omega_x([{e: Obs[e][t] for e in Obs} for t in range(T)], E)
+    print Omega
+    b = {e: 1 if e in true_conflict else 0 for e in E}
+    prob_mse, u_mse, prob_relative_mse, u_relative_mse, accuracy, recall_congested, recall_uncongested, b_f_measure = \
+        evaluate(V, E, Obs, Omega, X, Y, b, logging, psl = False, approx = False, init_alpha_beta = (1, 1), report_stat =False)
+
 
 def main():
-
+    new_testcase_1()
+    new_testcase_2()
+    new_testcase_3()
+    new_testcase_35()
+    new_testcase_4()
+    new_testcase_5()
+    new_testcase_6()
+    new_testcase_7()
+    new_testcase_8()
+    new_testcase_9_0()
+    new_testcase_9_1()
+    new_testcase_9_2()
     return
-    # more_testcases()
+    # testcase0()
+    # testcase0()
+    # testcase1()
+    # simulation_data_generator1()
+    # sampple_epinion_network()
+
+    # print np.arange(0, 1, 0.01)
+    # testcase2()
+    # E_X = [(2, 7), (7, 12), (15, 16), (18, 19)]
+    # E_X = [(2, 7), (7, 12)]
+    # for i in range(1, 101):
+    #     filename = "APDM-GirdData-k{0}.txt".format(i)
+    #     print "-----------------------{0}".format(filename)
+    #     V, E, Obs, Omega = readAPDM(filename)
+    #     evaluate(V, E, Obs, Omega, E_X)
+    #     # break
 
 
 if __name__ == '__main__':
     main()
+

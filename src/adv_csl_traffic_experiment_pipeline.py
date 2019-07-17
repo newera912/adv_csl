@@ -25,6 +25,7 @@ from SL_inference_multiCore import *
 import json
 #from feng_SL_inference import *
 from multi_core_csl_inference_adversarial_traffic import inference_apdm_format as inference_apdm_format_conflict_evidence
+from multi_core_csl_plus_traffic_inference import inference_apdm_format as csl_plus_inference
 # import networkx as nx
 # import matplotlib.pyplot as plt
 
@@ -677,6 +678,11 @@ def  evaluate(V, E, Obs, Omega, E_X, logging, method = 'sl', psl = False, approx
         b = {}
         psl = False
         pred_omega_x, _ = inference_apdm_format_conflict_evidence(V, E, Obs, Omega, b, E_X, logging, psl)
+    elif method == 'CSL-Plus':
+        # b = {e: 0 for e in E}
+        b = {}
+        psl = False
+        pred_omega_x, _ = csl_plus_inference(V, E, Obs, Omega, b, E_X, logging, psl)
 
 
     elif method == 'Baseline':
@@ -722,7 +728,7 @@ def real_traffic_data_testcase():
     T = 43
 
 
-    methods = ["SL","CSL","Adv-CSL","Baseline"][3:]
+    methods = ["SL","CSL","Adv-CSL","Baseline","CSL-Plus"][4:]
     for real_i in range(realizations)[:1]:
         for adv_type in ["random_noise", "random_pgd","random_pgd_csl","random_pgd_gcn_vae"][:]:
             for ref_ratio in ref_ratios[:1]:  ##########################
