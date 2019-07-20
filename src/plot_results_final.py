@@ -509,14 +509,14 @@ def RealDataset_bar_plot():
     ax.set_ylabel('Probability MAE',fontsize=14)
     # ax.set_title('Real Dataset Comparison on Probability MAE')
     ax.set_xticks(idx + width / 2)
-    ax.set_xticklabels(datasets_label, rotation=45)
+    ax.set_xticklabels(datasets_label, rotation=45,fontsize=14)
     # ax.set_xlabel('Dataset')
     ax.set_yticks(np.arange(0, 0.60, 0.05))
     leg=ax.legend((rects), (methods_label),loc= 2)
     leg.get_frame().set_alpha(0.8)
     ax.grid(color='b', linestyle='-.', linewidth=0.05)
     plt.show()
-    fig.savefig("../output/plots/real_dataset-5methods-Dec18.png",dpi=360)
+    fig.savefig("../output/plots/real_dataset-5methods-May25.png",dpi=360)
     # plt.close()
 
 
@@ -847,9 +847,9 @@ if __name__=='__main__':
     # plot_runtime_epinions()
 
     # timeslot_plot()
-    TestRatio_plot()
+    # TestRatio_plot()
     # ConflictRatio_plot()
 
     # VaryGraphSize_plot()
     RealDataset_bar_plot()
-    plot_runtime_real_dataset()
+    # plot_runtime_real_dataset()
