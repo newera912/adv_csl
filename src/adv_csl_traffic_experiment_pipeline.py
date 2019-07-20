@@ -30,11 +30,11 @@ from multi_core_csl_plus_traffic_inference import inference_apdm_format as csl_p
 # import matplotlib.pyplot as plt
 
 def baseline(V, E, Obs, Omega, E_X):
-    np.random.seed(123)
-    op={0:(1,1),1:(1,11),2:(11,1)}
+    # np.random.seed(123)
+    op={0:(1,1),1:(0.001,11),2:(11,0.001)}
     Omega_X = {}
     for e in E_X:
-        Omega_X[e] = op[np.random.choice([0])]
+        Omega_X[e] = op[np.random.choice([1,2])]
     return Omega_X
 
 class Consumer(multiprocessing.Process):
@@ -727,15 +727,15 @@ def real_traffic_data_testcase():
     count=0
     T = 43
 
-    methods = ["SL","CSL","Adv-CSL","Baseline","CSL-Plus"][4:]
-    for real_i in range(realizations)[1:]:
+    methods = ["SL","CSL","Adv-CSL","Baseline","CSL-Plus"][3:4]
+    for real_i in range(realizations)[:]:
         for adv_type in ["random_noise", "random_pgd","random_pgd_csl","random_pgd_gcn_vae"][1:2]:
             for ref_ratio in ref_ratios[:1]:  ##########################
                 for dataset in datasets[:]:
                     dataroot = data_root  + adv_type + "/"+ dataset + "/"
                     for weekday in range(5)[:1]:
                         for hour in range(8, 22)[:1]: #old(7, 22)[1:2]
-                            for test_ratio in [0.3,0.1, 0.2,0.4, 0.5][:1]:
+                            for test_ratio in [0.3,0.1, 0.2,0.4, 0.5][:]:
                                 for gamma in [0.0, 0.01, 0.03, 0.05, 0.07, 0.09, 0.2, 0.3, 0.4][:]:  # 10
                                     logging.write(str(count)+" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`")
                                     count+=1.0

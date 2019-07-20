@@ -26,11 +26,11 @@ from multi_core_csl_plus_sybils_inference import inference_apdm_format as csl_pl
 
 
 def baseline(V, E, Obs, Omega, E_X):
-    # np.random.seed(123)
+    np.random.seed(123)
     op={0:(1,1),1:(1,11),2:(11,1)}
     Omega_X = {}
     for e in E_X:
-        Omega_X[e] = op[np.random.choice([0])]
+        Omega_X[e] = op[np.random.choice([1,2])]
     return Omega_X
 
 class Consumer(multiprocessing.Process):

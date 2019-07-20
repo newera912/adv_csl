@@ -16,5 +16,5 @@
 #SBATCH --mail-user=aalimu@albany.edu
 
 
-python adv_csl_epinions_experiment_pipeline.py
+python adv_csl_sybils_experiment_pipeline.py
        
