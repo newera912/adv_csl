@@ -728,10 +728,10 @@ def real_traffic_data_testcase():
     T = 43
 
     methods = ["SL","CSL","Adv-CSL","Baseline","CSL-Plus"][4:]
-    for real_i in range(realizations)[:]:
+    for real_i in range(realizations)[1:]:
         for adv_type in ["random_noise", "random_pgd","random_pgd_csl","random_pgd_gcn_vae"][1:2]:
             for ref_ratio in ref_ratios[:1]:  ##########################
-                for dataset in datasets[1:]:
+                for dataset in datasets[:]:
                     dataroot = data_root  + adv_type + "/"+ dataset + "/"
                     for weekday in range(5)[:1]:
                         for hour in range(8, 22)[:1]: #old(7, 22)[1:2]

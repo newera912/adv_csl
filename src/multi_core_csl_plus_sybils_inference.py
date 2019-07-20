@@ -1,4 +1,4 @@
-__author__ = 'Feng Chen'
+__author__ = ''
 from math import *
 import numpy as np
 from scipy.stats import gamma
@@ -366,11 +366,11 @@ def estimate_b(bs):
 
 
 def prob_2_binary(val):
-    return val
-    # if val > 0.45:
-    #     return 1
-    # else:
-    #     return 0
+    # return val   #july18
+    if val > 0.45:
+        return 1
+    else:
+        return 0
 
 def prob_2_binary2(val):
     # return val
@@ -1350,9 +1350,10 @@ def R_p_2_p(R_p, copies, cnt_V):
         for k, j in v_copies:  # k_th rule, j_th item
             p_v.append(R_p[k][j])
             b_v.append(R_p[k][j+1])
-        p[v] = round(np.round(np.mean(p_v),2))
-        b[v] = round(np.round(np.mean(b_v),2))
-
+        # p[v] = round(np.round(np.mean(p_v),2))
+        # b[v] = round(np.round(np.mean(b_v),2))
+        p[v] = prob_2_binary2(np.mean(p_v))
+        b[v] = prob_2_binary(np.mean(b_v))
     return p, b
 
 

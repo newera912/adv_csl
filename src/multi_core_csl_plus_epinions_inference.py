@@ -244,7 +244,7 @@ def prob_2_binary(val):
 
 def prob_2_binary2(val):
     # return val
-    if val >= 0.5:
+    if val >= 0.2:  #0.5 july18
         return 1
     else:
         return 0
