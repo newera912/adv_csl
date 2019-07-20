@@ -727,22 +727,21 @@ def real_traffic_data_testcase():
     count=0
     T = 43
 
-
     methods = ["SL","CSL","Adv-CSL","Baseline","CSL-Plus"][4:]
-    for real_i in range(realizations)[:1]:
-        for adv_type in ["random_noise", "random_pgd","random_pgd_csl","random_pgd_gcn_vae"][:]:
+    for real_i in range(realizations)[:]:
+        for adv_type in ["random_noise", "random_pgd","random_pgd_csl","random_pgd_gcn_vae"][1:2]:
             for ref_ratio in ref_ratios[:1]:  ##########################
-                for dataset in datasets[:]:
+                for dataset in datasets[1:]:
                     dataroot = data_root  + adv_type + "/"+ dataset + "/"
                     for weekday in range(5)[:1]:
                         for hour in range(8, 22)[:1]: #old(7, 22)[1:2]
                             for test_ratio in [0.3,0.1, 0.2,0.4, 0.5][:1]:
-                                for gamma in [0.0, 0.01, 0.03, 0.05, 0.07, 0.09, 0.2, 0.3, 0.4, 0.5][:]:  # 10
+                                for gamma in [0.0, 0.01, 0.03, 0.05, 0.07, 0.09, 0.2, 0.3, 0.4][:]:  # 10
                                     logging.write(str(count)+" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`")
                                     count+=1.0
                                     for method in methods[:]:
                                         f=dataroot + '/network_{}_weekday_{}_hour_{}_refspeed_{}-testratio-{}-gamma-{}-realization-{}.pkl'.format(dataset, weekday,hour, ref_ratio, test_ratio,gamma,real_i)
-                                        outf = '../output/traffic/{}_results-server-traffic-Jan17-1-{}.json'.format(method,adv_type)
+                                        outf = '../output/traffic/{}_results-server-traffic-July18-{}.json'.format(method,adv_type)
                                         logging.write("dataset: {} method: {}, weekday:{},hour:{},T, {},ref_ratio:{}, test_ratio: {},gamma:{}".format(
                                                 dataset,method,weekday,hour, T,ref_ratio, test_ratio,gamma))
                                         logging.write(f)
