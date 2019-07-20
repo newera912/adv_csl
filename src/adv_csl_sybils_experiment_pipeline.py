@@ -465,7 +465,7 @@ def facebook_sybils_dataset_test():
                                 count+=1.0
                                 for method in methods[:]:
                                     f=dataroot +adv_type+ "/facebook/facebook-attackedges-{}-T-{}-testratio-{}-swap_ratio-{}-gamma-{}-realization-{}-data-X.pkl".format(attack_edge, T, test_ratio,swap_ratio, gamma, real_i)
-                                    outf = '../output/sybils/{}_results-server-July18-{}.json'.format(method,adv_type)
+                                    outf = '../output/sybils/{}_results-server-July20-0.2-{}.json'.format(method,adv_type)
                                     logging.write("dataset: {} method: {}, #attack_edge:{},T:{},test_ratio: {},gamma:{}".format("facebook",method,attack_edge,T,test_ratio,gamma))
                                     logging.write(f)
                                     pkl_file = open(f, 'rb')
@@ -546,7 +546,7 @@ def enron_sybils_dataset_test():
                                 count+=1.0
                                 for method in methods[:]:
                                     f=dataroot +adv_type+ "/enron/enron-attackedges-{}-T-{}-testratio-{}-swap_ratio-{}-gamma-{}-realization-{}-data-X.pkl".format(attack_edge, T, test_ratio,swap_ratio, gamma, real_i)
-                                    outf = '../output/sybils/{}_results-server-July18-{}.json'.format(method,adv_type)
+                                    outf = '../output/sybils/{}_results-server-July20-0.2-{}.json'.format(method,adv_type)
                                     logging.write("dataset: {} method: {}, #attack_edge:{},T:{},test_ratio: {},gamma:{}".format("enron",method,attack_edge,T,test_ratio,gamma))
                                     logging.write(f)
                                     pkl_file = open(f, 'rb')
@@ -626,7 +626,7 @@ def slashdot_sybils_dataset_test():
                                 count+=1.0
                                 for method in methods[:]:
                                     f=dataroot +adv_type+ "/slashdot/slashdot-attackedges-{}-T-{}-testratio-{}-swap_ratio-{}-gamma-{}-realization-{}-data-X.pkl".format(attack_edge, T, test_ratio,swap_ratio, gamma, real_i)
-                                    outf = '../output/sybils/{}_results-server-July18-{}.json'.format(method,adv_type)
+                                    outf = '../output/sybils/{}_results-server-July20-0.2-{}.json'.format(method,adv_type)
                                     logging.write("dataset: {} method: {}, #attack_edge:{},T:{},test_ratio: {},gamma:{}".format("slashdot",method,attack_edge,T,test_ratio,gamma))
                                     logging.write(f)
                                     pkl_file = open(f, 'rb')
@@ -690,8 +690,8 @@ def slashdot_sybils_dataset_test():
 
 def main():
     # facebook_sybils_dataset_test()
-    # enron_sybils_dataset_test()
-    slashdot_sybils_dataset_test()
+    enron_sybils_dataset_test()
+    # slashdot_sybils_dataset_test()
 
 if __name__=='__main__':
     main()
