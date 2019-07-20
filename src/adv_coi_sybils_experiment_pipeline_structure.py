@@ -10,23 +10,19 @@ import multiprocessing
 import time
 from basic_funs import *
 from network_funs import *
-# from simulator import *
+
 from scipy.stats import beta
-# from writeAPDM import writeAPDM
-# from readAPDM import readAPDM
+
 import scipy
-# scipy.stats.
-# import scipy.stats
-from scipy.stats import beta
+
 from log import Log
 import time
 time.time()
-from feng_SL_inference_multiCore_node2 import *
+from SL_inference_multiCore_node import *
 import json
-#from feng_SL_inference import *
-from multi_core_csl_inference_adversarial_sybils import inference_apdm_format as inference_apdm_format_conflict_evidence
-from multi_core_csl_plus_sybils_inference import inference_apdm_format as csl_plus_inference
 
+from multi_core_csl_inference_adversarial_sybils import inference_apdm_format as inference_adv_coi
+from multi_core_csl_plus_sybils_inference import inference_apdm_format as csl_plus_inference
 
 
 def baseline(V, E, Obs, Omega, E_X):
@@ -383,41 +379,30 @@ It will print out the following information:
 2. The MSE on uncertainty mass
 4. The MSE on expected probability
 """
-def  evaluate(V, E, Obs, Omega, E_X, logging, method = 'sl', psl = False, approx = False, init_alpha_beta = (1, 1), report_stat = False):
+def  evaluate(V, E, Obs, Omega, E_X,target_nodes, logging, method = 'sl', psl = False, approx = False, init_alpha_beta = (1, 1), report_stat = False):
     running_starttime = time.time()
-    if method == 'SL':
-        pred_omega_x = SL_prediction_multiCore_node(V, E, Obs, Omega, copy.deepcopy(E_X))
-    elif method == 'CSL':
+    if method == 'CSL':
         pred_omega_x = inference_apdm_format(V, E, Obs, Omega, E_X, logging)
-    elif method == 'csl-conflict-1':
-        # obs_dict = {}
-        # for e, ob in Obs.items():
-        #     if obs_dict.has_key(sum(Obs[e])):
-        #         obs_dict[sum(Obs[e])] += 1
-        #     else:
-        #         obs_dict[sum(Obs[e])] = 1
-        # print(obs_dict)
-        # b = {e: 0 for e in E}
-        b = {}
-        psl = True
-        #V, E, Obs, Omega, b, X, logging, psl = False, approx = True, init_alpha_beta = (1, 1), report_stat = False
-        pred_omega_x, _ = inference_apdm_format_conflict_evidence(V, E, Obs, Omega, b, E_X, logging, psl)
-    elif method == 'Adv-CSL':
+    elif method == 'Adv-COI':
         # b = {e: 0 for e in E}
         b = {}
         psl = False
-        pred_omega_x, _ = inference_apdm_format_conflict_evidence(V, E, Obs, Omega, b, E_X, logging, psl)
+        pred_omega_x, _ = inference_adv_coi(V, E, Obs, Omega, b, E_X, logging, psl)
+    elif method == 'Baseline0':
+        pred_omega_x = baseline(V, E, Obs, Omega, E_X)
     elif method == 'CSL-Plus':
         # b = {e: 0 for e in E}
         b = {}
         psl = False
         pred_omega_x, _ = csl_plus_inference(V, E, Obs, Omega, b, E_X, logging, psl)
-
-    elif method == 'Baseline':
-        pred_omega_x = baseline(V, E, Obs, Omega, E_X)
     else:
         raise Exception("Method Error")
-    alpha_mse, beta_mse, prob_mse, u_mse, b_mse, d_mse, prob_relative_mse, u_relative_mse, accuracy, recall_congested, recall_uncongested = calculate_measures(Omega, pred_omega_x, E_X, logging)
+    print(len(E_X),len(target_nodes))
+    alpha_mse, beta_mse, prob_mse, u_mse, b_mse, d_mse, prob_relative_mse, u_relative_mse, accuracy, recall_congested, recall_uncongested = calculate_measures(Omega, pred_omega_x, target_nodes, logging)
+
+
+    alpha_mse_all, beta_mse_all, prob_mse_all, u_mse_all, b_mse_all, d_mse_all, prob_relative_mse_all, u_relative_mse_all, accuracy_all, recall_congested_all, recall_uncongested_all = calculate_measures(Omega, pred_omega_x, E_X, logging)
+    print("All:",prob_mse_all,u_mse_all, b_mse_all, d_mse_all,accuracy_all)
     running_endtime = time.time()
     running_time = running_endtime - running_starttime
     return alpha_mse, beta_mse, prob_mse, u_mse, b_mse, d_mse, prob_relative_mse, u_relative_mse, accuracy, recall_congested, recall_uncongested, running_time
@@ -445,31 +430,32 @@ def sample_X(test_ratio, V, E):
 """
 Evaluate the performances of the testing methods on real-world datasets.
 """
-def facebook_sybils_dataset_test():
+def facebook_sybils_dataset_test_structure():
     logging = Log()
     dataroot = "/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/"
     report_stat = False
     count=0
     realizations=1
-    gammas=[0.0, 0.01, 0.03, 0.05, 0.07,0.09,0.2,0.3,0.4]
-    # gammas=[0.0, 0.01,0.3,0.4]
-    methods = ["SL","CSL", "Adv-CSL","Baseline","CSL-Plus"][4:]
+
+    methods = ["CSL", "Adv-COI","Baseline0","CSL-Plus"][3:]
     for real_i in range(realizations)[:1]:
         for test_ratio in [0.3,0.1, 0.2, 0.4, 0.5][:1]:
-            for adv_type in ["random_pgd","random_noise","random_pgd_csl","random_pgd_gcn_vae"][:1]:
-                for attack_edge in [10000,35000][:1]:
+            for adv_type in ["structure"][:]:
+                for attack_edge in [10000][:1]:
                     for T in [10][:]:
-                        for swap_ratio in [0.00, 0.01, 0.02, 0.05][1:2]:
-                            for gamma in gammas:  # 11
+                        for swap_ratio in [0.01][:]:
+                            for perturbation in [0.0, 5, 10, 20, 30, 40, 50,60,70,80,90,100][:]:  # 11
+
                                 logging.write(str(count)+" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`")
                                 count+=1.0
-                                for method in methods[:]:
-                                    f=dataroot +adv_type+ "/facebook/facebook-attackedges-{}-T-{}-testratio-{}-swap_ratio-{}-gamma-{}-realization-{}-data-X.pkl".format(attack_edge, T, test_ratio,swap_ratio, gamma, real_i)
-                                    outf = '../output/sybils/{}_results-server-July18-{}.json'.format(method,adv_type)
-                                    logging.write("dataset: {} method: {}, #attack_edge:{},T:{},test_ratio: {},gamma:{}".format("facebook",method,attack_edge,T,test_ratio,gamma))
+                                for method in methods[:]:           ##-X20-SF4 :Structure+Feat  -X20-SF  :structure
+                                    f=dataroot +adv_type+ "/{}/{}-attackedges-{}-T-{}-testratio-{}-swap_ratio-{}-perturbation-{}-realization-{}-data-X20-SF4.pkl".format(
+                                    "facebook","facebook", attack_edge, T, test_ratio, swap_ratio, perturbation, real_i)
+                                    outf = '../output/sybils/{}_results-server-Structure-Feature-{}.json'.format(method,adv_type)
+                                    logging.write("dataset: {} method: {}, #attack_edge:{},T:{},test_ratio: {},perturbation:{}".format("facebook",method,attack_edge,T,test_ratio,perturbation))
                                     logging.write(f)
                                     pkl_file = open(f, 'rb')
-                                    [V, E, Obs, E_X, X_b] = pickle.load(pkl_file)
+                                    [V, E, Obs, E_X, target_nodes] = pickle.load(pkl_file)
                                     n = len(V)
                                     n_E = len(E)
                                     ndays = len(Obs.values()[0])
@@ -490,7 +476,7 @@ def facebook_sybils_dataset_test():
                                         # t_Obs = {e: e_Obs[m_idx-5:m_idx+6] for e, e_Obs in Obs.items()}
                                         t_Obs = {v: v_Obs[:] for v, v_Obs in Obs.items()}
                                         Omega = calc_Omega_from_Obs2(t_Obs, V)
-                                        alpha_mse, beta_mse, prob_mse, u_mse, b_mse, d_mse, prob_relative_mse, u_relative_mse, accuracy, recall_congested, recall_uncongested, running_time = evaluate(V, E, t_Obs, Omega, E_X, logging, method)
+                                        alpha_mse, beta_mse, prob_mse, u_mse, b_mse, d_mse, prob_relative_mse, u_relative_mse, accuracy, recall_congested, recall_uncongested, running_time = evaluate(V, E, t_Obs, Omega, E_X,target_nodes, logging, method)
                                         i_nposi, i_nnega = accuracy_2_posi_nega(accuracy)
                                         nposi += i_nposi
                                         nnega += i_nnega
@@ -519,179 +505,19 @@ def facebook_sybils_dataset_test():
                                     running_time = np.mean(running_times)
                                     logging.write("prob_mse: {}, running time: {}".format(mu_prob_mse, running_time))
                                     result_ = {'dataset':"facebook",'attack_edge':attack_edge,'network_size': n,'adv_type':adv_type,
-                                               'sample_size': ndays - T + 1, 'T': T, 'gamma': gamma,
+                                               'sample_size': ndays - T + 1, 'T': T, 'perturbation': perturbation,
                                                'test_ratio': test_ratio,'swap_ratio':swap_ratio, 'acc': (mu_accuracy, sigma_accuracy),
                                                'prob_mse': (mu_prob_mse, sigma_prob_mse),'alpha_mse': (mu_alpha_mse, sigma_alpha_mse), 'beta_mse': (mu_beta_mse, sigma_beta_mse), 'u_mse': (mu_u_mse, sigma_u_mse), 'b_mse': (mu_b_mse, sigma_b_mse), 'd_mse': (mu_d_mse, sigma_d_mse),'realization':real_i, 'runtime': running_time}
                                     outfp = open(outf, 'a')
                                     outfp.write(json.dumps(result_) + '\n')
                                     outfp.close()
 
-
-def enron_sybils_dataset_test():
-    logging = Log()
-    dataroot = "/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/"
-    report_stat = False
-    count=0
-    realizations=10
-
-    for test_ratio in [0.3,0.1, 0.2, 0.4, 0.5][:1]:
-        methods = ["SL","CSL", "Adv-CSL","Baseline","CSL-Plus"][4:]
-        for adv_type in ["random_noise","random_pgd_csl","random_pgd_gcn_vae","random_pgd"][3:]:
-            for attack_edge in [1000,5000,10000,15000,20000][2:3]:
-                for T in [10][:]:
-                    for swap_ratio in [0.00, 0.01, 0.02, 0.05][1:2]:
-                        for gamma in [0.0, 0.01, 0.03, 0.05, 0.07,0.09,0.2,0.3,0.4][:]:  # 11
-                            for real_i in range(realizations)[:1]:
-                                logging.write(str(count)+" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`")
-                                count+=1.0
-                                for method in methods[:]:
-                                    f=dataroot +adv_type+ "/enron/enron-attackedges-{}-T-{}-testratio-{}-swap_ratio-{}-gamma-{}-realization-{}-data-X.pkl".format(attack_edge, T, test_ratio,swap_ratio, gamma, real_i)
-                                    outf = '../output/sybils/{}_results-server-July18-{}.json'.format(method,adv_type)
-                                    logging.write("dataset: {} method: {}, #attack_edge:{},T:{},test_ratio: {},gamma:{}".format("enron",method,attack_edge,T,test_ratio,gamma))
-                                    logging.write(f)
-                                    pkl_file = open(f, 'rb')
-                                    [V, E, Obs, E_X, X_b] = pickle.load(pkl_file)
-                                    n = len(V)
-                                    n_E = len(E)
-                                    ndays = len(Obs.values()[0])
-                                    T=ndays
-                                    accuracys = []
-                                    prob_mses = []
-                                    u_mses = []
-                                    b_mses = []
-                                    d_mses = []
-                                    alpha_mses = []
-                                    beta_mses = []
-                                    running_times = []
-                                    nposi = 0
-                                    nnega = 0
-                                    # m_idx=int(round(T/2.0))
-                                    for start_t in range(ndays - T + 1)[:1]:
-                                        # print "start_t", start_t
-                                        # t_Obs = {e: e_Obs[m_idx-5:m_idx+6] for e, e_Obs in Obs.items()}
-                                        t_Obs = {v: v_Obs[:] for v, v_Obs in Obs.items()}
-                                        Omega = calc_Omega_from_Obs2(t_Obs, V)
-                                        alpha_mse, beta_mse, prob_mse, u_mse, b_mse, d_mse, prob_relative_mse, u_relative_mse, accuracy, recall_congested, recall_uncongested, running_time = evaluate(V, E, t_Obs, Omega, E_X, logging, method)
-                                        i_nposi, i_nnega = accuracy_2_posi_nega(accuracy)
-                                        nposi += i_nposi
-                                        nnega += i_nnega
-                                        b_mses.append(b_mse)
-                                        d_mses.append(d_mse)
-                                        alpha_mses.append(alpha_mse)
-                                        beta_mses.append(beta_mse)
-                                        accuracys.append(accuracy)
-                                        prob_mses.append(prob_mse)
-                                        u_mses.append(u_mse)
-                                        running_times.append(running_time)
-                                    mu_alpha_mse = np.mean(alpha_mses)
-                                    sigma_alpha_mse = np.std(alpha_mses)
-                                    mu_beta_mse = np.mean(beta_mses)
-                                    sigma_beta_mse = np.std(beta_mses)
-                                    mu_u_mse = np.mean(u_mses)
-                                    sigma_u_mse = np.std(u_mses)
-                                    mu_b_mse = np.mean(b_mses)
-                                    sigma_b_mse = np.mean(b_mses)
-                                    mu_d_mse = np.mean(d_mses)
-                                    sigma_d_mse = np.mean(d_mses)
-                                    mu_accuracy = np.mean(accuracys)
-                                    sigma_accuracy = np.std(accuracys)
-                                    mu_prob_mse = np.mean(prob_mses)
-                                    sigma_prob_mse = np.std(prob_mses)
-                                    running_time = np.mean(running_times)
-                                    logging.write("prob_mse: {}, running time: {}".format(mu_prob_mse, running_time))
-                                    result_ = {'dataset':"enron",'attack_edge':attack_edge,'network_size': n,'adv_type':adv_type,
-                                               'sample_size': ndays - T + 1, 'T': T, 'gamma': gamma,
-                                               'test_ratio': test_ratio,'swap_ratio':swap_ratio, 'acc': (mu_accuracy, sigma_accuracy),
-                                               'prob_mse': (mu_prob_mse, sigma_prob_mse),'alpha_mse': (mu_alpha_mse, sigma_alpha_mse), 'beta_mse': (mu_beta_mse, sigma_beta_mse), 'u_mse': (mu_u_mse, sigma_u_mse), 'b_mse': (mu_b_mse, sigma_b_mse), 'd_mse': (mu_d_mse, sigma_d_mse),'realization':real_i, 'runtime': running_time}
-                                    outfp = open(outf, 'a')
-                                    outfp.write(json.dumps(result_) + '\n')
-                                    outfp.close()
-
-
-def slashdot_sybils_dataset_test():
-    logging = Log()
-    dataroot = "/network/rit/lab/ceashpc/adil/data/adv_csl/Jan2/"
-    report_stat = False
-    count=0
-    realizations=10
-    methods = ["SL","CSL", "Adv-CSL","Baseline","CSL-Plus"][4:]
-    for adv_type in ["random_noise","random_pgd","random_pgd_csl","random_pgd_gcn_vae"][1:2]:
-        for attack_edge in [1000,5000,10000,15000,20000][2:3]:
-            for T in [10][:]:
-                for swap_ratio in [0.00, 0.01, 0.02, 0.05][1:2]:
-                    for test_ratio in [0.1, 0.2,0.3,0.4, 0.5][2:3]:
-                        for gamma in [0.0, 0.01, 0.03, 0.05, 0.07,0.09,0.2,0.3,0.4][5:]:  # 11
-                            for real_i in range(realizations)[:1]:
-                                logging.write(str(count)+" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`")
-                                count+=1.0
-                                for method in methods[:]:
-                                    f=dataroot +adv_type+ "/slashdot/slashdot-attackedges-{}-T-{}-testratio-{}-swap_ratio-{}-gamma-{}-realization-{}-data-X.pkl".format(attack_edge, T, test_ratio,swap_ratio, gamma, real_i)
-                                    outf = '../output/sybils/{}_results-server-July18-{}.json'.format(method,adv_type)
-                                    logging.write("dataset: {} method: {}, #attack_edge:{},T:{},test_ratio: {},gamma:{}".format("slashdot",method,attack_edge,T,test_ratio,gamma))
-                                    logging.write(f)
-                                    pkl_file = open(f, 'rb')
-                                    [V, E, Obs, E_X, X_b] = pickle.load(pkl_file)
-                                    n = len(V)
-                                    n_E = len(E)
-                                    ndays = len(Obs.values()[0])
-                                    T=ndays
-                                    accuracys = []
-                                    prob_mses = []
-                                    u_mses = []
-                                    b_mses = []
-                                    d_mses = []
-                                    alpha_mses = []
-                                    beta_mses = []
-                                    running_times = []
-                                    nposi = 0
-                                    nnega = 0
-                                    # m_idx=int(round(T/2.0))
-                                    for start_t in range(ndays - T + 1)[:1]:
-                                        # print "start_t", start_t
-                                        # t_Obs = {e: e_Obs[m_idx-5:m_idx+6] for e, e_Obs in Obs.items()}
-                                        t_Obs = {v: v_Obs[:] for v, v_Obs in Obs.items()}
-                                        Omega = calc_Omega_from_Obs2(t_Obs, V)
-                                        alpha_mse, beta_mse, prob_mse, u_mse, b_mse, d_mse, prob_relative_mse, u_relative_mse, accuracy, recall_congested, recall_uncongested, running_time = evaluate(V, E, t_Obs, Omega, E_X, logging, method)
-                                        i_nposi, i_nnega = accuracy_2_posi_nega(accuracy)
-                                        nposi += i_nposi
-                                        nnega += i_nnega
-                                        b_mses.append(b_mse)
-                                        d_mses.append(d_mse)
-                                        alpha_mses.append(alpha_mse)
-                                        beta_mses.append(beta_mse)
-                                        accuracys.append(accuracy)
-                                        prob_mses.append(prob_mse)
-                                        u_mses.append(u_mse)
-                                        running_times.append(running_time)
-                                    mu_alpha_mse = np.mean(alpha_mses)
-                                    sigma_alpha_mse = np.std(alpha_mses)
-                                    mu_beta_mse = np.mean(beta_mses)
-                                    sigma_beta_mse = np.std(beta_mses)
-                                    mu_u_mse = np.mean(u_mses)
-                                    sigma_u_mse = np.std(u_mses)
-                                    mu_b_mse = np.mean(b_mses)
-                                    sigma_b_mse = np.mean(b_mses)
-                                    mu_d_mse = np.mean(d_mses)
-                                    sigma_d_mse = np.mean(d_mses)
-                                    mu_accuracy = np.mean(accuracys)
-                                    sigma_accuracy = np.std(accuracys)
-                                    mu_prob_mse = np.mean(prob_mses)
-                                    sigma_prob_mse = np.std(prob_mses)
-                                    running_time = np.mean(running_times)
-                                    logging.write("prob_mse: {}, running time: {}".format(mu_prob_mse, running_time))
-                                    result_ = {'dataset':"slashdot",'attack_edge':attack_edge,'network_size': n,'adv_type':adv_type,
-                                               'sample_size': ndays - T + 1, 'T': T, 'gamma': gamma,
-                                               'test_ratio': test_ratio,'swap_ratio':swap_ratio, 'acc': (mu_accuracy, sigma_accuracy),
-                                               'prob_mse': (mu_prob_mse, sigma_prob_mse),'alpha_mse': (mu_alpha_mse, sigma_alpha_mse), 'beta_mse': (mu_beta_mse, sigma_beta_mse), 'u_mse': (mu_u_mse, sigma_u_mse), 'b_mse': (mu_b_mse, sigma_b_mse), 'd_mse': (mu_d_mse, sigma_d_mse),'realization':real_i, 'runtime': running_time}
-                                    outfp = open(outf, 'a')
-                                    outfp.write(json.dumps(result_) + '\n')
-                                    outfp.close()
 
 
 def main():
-    # facebook_sybils_dataset_test()
-    # enron_sybils_dataset_test()
-    slashdot_sybils_dataset_test()
+
+    facebook_sybils_dataset_test_structure()
+
 
 if __name__=='__main__':
     main()

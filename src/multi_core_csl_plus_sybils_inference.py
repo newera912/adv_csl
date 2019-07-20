@@ -910,9 +910,7 @@ def calc_initial_node_p2(y_t, node_nns, X, Y, cnt_V, p0, b_init):
                 # if Y.has_key(e_o) and b_init[e_o]==1.0:
                 #     val=np.abs(1.0-val)
                 n_pos+=val
-                if b_init[v_o]==1:
-                    val=1.0-val
-                if val > 0:
+                if val > 0.01:
                     conf += 1.0
                 else:
                     conf -= 1.0
