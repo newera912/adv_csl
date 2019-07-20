@@ -1012,7 +1012,7 @@ def calc_initial_p3(dict_paths,x_on_body, y_t, edge_down_nns, X_b, X, Y, cnt_E, 
 def calc_initial_p4(dict_paths,x_on_body, y_t, edge_down_nns, X_b, X, Y, cnt_E, p0, b_init):
     p = [0.0 for i in range(cnt_E)]
     for e in Y:
-        p[e] = y_t[e]  # observation indicates probability
+        p[e] = np.round(y_t[e],4)  # observation indicates probability
         """ dict_paths[e] includes the rule bodies that indicates e """
         if dict_paths.has_key(e) and X_b.has_key(e):
             n_pos = 0
@@ -1023,7 +1023,7 @@ def calc_initial_p4(dict_paths,x_on_body, y_t, edge_down_nns, X_b, X, Y, cnt_E, 
                     n_pos += 1
                 else:
                     n_neg += 1
-            if n_pos + n_neg == 1: continue  # filter out the edges only have at most have one 1&1 or ?&0/1 or 1/0& body in the rules?
+            # if n_pos + n_neg == 1: continue  # filter out the edges only have at most have one 1&1 or ?&0/1 or 1/0& body in the rules?
             # 1. (1,1) count is greater than (_,1),(1,_),(_,0) and (0,_) counts and p[e]==0   non indicates conflict
             # or 2. (1,1) count is less than (_,1),(1,_),(_,0) and (0,_) counts and p[e]>0   indicates conflict
             if (n_pos - n_neg > 0 and p[e] == 0) or (n_pos - n_neg < 0 and p[e] > 0):
@@ -1038,8 +1038,8 @@ def calc_initial_p4(dict_paths,x_on_body, y_t, edge_down_nns, X_b, X, Y, cnt_E, 
         """ dict_paths includes the rule bodies that indicates e """
         if dict_paths.has_key(e):
             for (e1, e2) in dict_paths[e]:
-                if p[e1] * p[e2] > 0:
-                    conf += p[e1] * p[e2]
+                if p[e1] * p[e2] > 0.05:
+                    conf += 1
                 else:
                     conf -= 1
             # if x_on_body.has_key(e):
@@ -1048,37 +1048,37 @@ def calc_initial_p4(dict_paths,x_on_body, y_t, edge_down_nns, X_b, X, Y, cnt_E, 
             #             conf += p[e1] * p[e2]
             #         else:
             #             conf -= 1
-            if conf > 0.0: #if (1,1) count is greater than (_,1),(1,_),(_,0) and (0,_) counts than set to 1
+            if conf > 2.0: #if (1,1) count is greater than (_,1),(1,_),(_,0) and (0,_) counts than set to 1
                 """p[e] = 1.0"""
                 p[e] = 1.0
             else:
                 p[e] = 0.0
-        else:
-            if x_on_body.has_key(e):
-                conf = 0.0
-                for (e1, e2) in x_on_body[e]:
-                    # if e1 in Y and b_init[e1] == 1:
-                    #     p1 = 1 - p[e1]
-                    # else:
-                    #     p1 = p[e1]
-                    # if e2 in Y and b_init[e2] == 1:
-                    #     p2 = 1 - p[e2]
-                    # else:
-                    #     p2 = p[e2]
-                    p1=p[e1]
-                    p2=p[e2]
-                    # if p[e1] * p[e2] > 0:
-                    if p1 * p2 > 0:
-                        conf += p1 * p2
-                    else:
-                        conf -= 1
-                if conf > 0:  # if (1,1) count is greater than (_,1),(1,_),(_,0) and (0,_) counts than set to 1
-                    """p[e] = 1.0"""
-                    p[e] = 1.0
-                else:
-                    p[e] = 0.0
-            else:
-                p[e] = 0.0
+        # else:
+        #     if x_on_body.has_key(e):
+        #         conf = 0.0
+        #         for (e1, e2) in x_on_body[e]:
+        #             # if e1 in Y and b_init[e1] == 1:
+        #             #     p1 = 1 - p[e1]
+        #             # else:
+        #             #     p1 = p[e1]
+        #             # if e2 in Y and b_init[e2] == 1:
+        #             #     p2 = 1 - p[e2]
+        #             # else:
+        #             #     p2 = p[e2]
+        #             p1=p[e1]
+        #             p2=p[e2]
+        #             # if p[e1] * p[e2] > 0:
+        #             if p1 * p2 > 0.05:
+        #                 conf += p1 * p2
+        #             else:
+        #                 conf -= 1
+        #         if conf > 0:  # if (1,1) count is greater than (_,1),(1,_),(_,0) and (0,_) counts than set to 1
+        #             """p[e] = 1.0"""
+        #             p[e] = 1.0
+        #         else:
+        #             p[e] = 0.0
+        #     else:
+        #         p[e] = 0.0
                 # if random.random()>0.5:
                 #     p[e] = 0.0
                 # else:

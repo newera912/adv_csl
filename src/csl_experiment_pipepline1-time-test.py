@@ -11,7 +11,7 @@ import json,itertools
 from basic_funs import *
 from network_funs import *
 import baseline
-from feng_SL_inference import *
+from SL_inference import *
 from multi_core_csl_inference_conflicting_evidence_new import inference_apdm_format as inference_apdm_format_conflict_evidence
 #from SL_inference import *
 from random import shuffle
