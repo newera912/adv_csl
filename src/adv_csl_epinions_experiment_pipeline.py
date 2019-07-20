@@ -59,8 +59,8 @@ def sample_X(test_ratio, V, E):
 
 
 def baseline(V, E, Obs, Omega, E_X):
-    np.random.seed(123)
-    op={0:(1,1),1:(1,11),2:(11,1)}
+    # np.random.seed(123)
+    op={0:(1,1),1:(0.001,11),2:(11,0.001)}
     Omega_X = {}
     for e in E_X:
         Omega_X[e] = op[np.random.choice([1,2])]
